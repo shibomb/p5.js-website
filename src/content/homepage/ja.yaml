@@ -1,0 +1,18 @@
+title: p5.js
+heroImageDesktop: ./images/hero.webp
+heroImageMobile: ./images/hero-cropped.webp
+heroText: >
+  p5.jsは、コーディングやアート制作を学ぶための親しみやすいツールです。p5.jsは、包括的で教育的なコミュニティによって作られた、無料でオープンソースのJavaScriptライブラリです。p5.jsは、アーティスト、デザイナー、初心者、教育者、そしてその他の人々を歓迎します！
+heroImageAltText: Lauren Lee McCarthy が Processing コミュニティカタログを読んでいます
+heroImageCaption: >
+  Lauren Lee McCarthy が Processing コミュニティカタログを読んでいます. 写真: Maximo Xtravaganza
+referenceHeaderText: p5.js ライブラリのリファレンスを探索
+examplesHeaderText: 実例で p5.js を学ぶ
+communityHeaderText: p5.js コミュニティの活動を見る
+sketchIds:
+  - 967807
+  - 2
+  - 3
+  - 5
+  - 8
+  - 11
