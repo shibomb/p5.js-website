@@ -1,7 +1,7 @@
 ---
 import { type CollectionEntry } from "astro:content";
 import Head from "@components/Head/index.astro";
-import { Image } from "astro:assets";
+import Image from "@components/Image/index.astro";
 import ContributeImage from "@content/ui/images/contribute.png";
 import BaseLayout from "./BaseLayout.astro";
 import { getCurrentLocale, getUiTranslator } from "@i18n/utils";
@@ -86,7 +86,7 @@ setJumpToState({
         donateSectionItems.map((it) => (
           <li>
             <a href={it.url}>
-              <div class="grid place-content-center mt-xs bg-bg-blue aspect-photo p-4 mb-2">
+              <div class="grid place-content-center mt-xs bg-accent-color text-accent-type-color aspect-photo p-4 mb-2">
                 <span class="text-lg text-center align-middle line-clamp-3 text-pretty">
                   {it.title}
                 </span>
