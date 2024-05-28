@@ -25,7 +25,8 @@ Sketches: スケッチ
 Libraries: ライブラリ
 Events: イベント
 People: 人々
-Contributors: 貢献者
+Contributors: コントリビューター
+Contributor Docs: コントリビューター ドキュメント
 Alumni: 卒業生
 View Alt Text: 代替テキストを表示
 Monochrome Mode: モノクロモード
@@ -40,6 +41,7 @@ Related Examples: 関連する実例
 Show Code: コードを表示
 Donate to p5.js: p5.js に寄付
 Download p5.js: p5.js ダウンロード
+No Results: No entries found for that search.
 briefPageDescriptions:
   Reference: p5.jsの各コードのわかりやすい解説を見つけてください。
   Examples: Explore the possibilities of p5.js with short examples.
@@ -59,9 +61,9 @@ contributePage:
   ImageCaption: >
     TEXT NEEDED HERE
   DonateDescription: >
-    TEXT NEEDED HERE
-  FaqDescription: >
-    TEXT NEEDED HERE
+    p5.js needs your support!
+  # FaqDescription: >
+  #   TEXT NEEDED HERE
 peoplePage:
   PageDescription: p5.js was created by Lauren Lee McCarthy in 2013 as a new interpretation of Processing for the context of the web. Since then we have allowed ourselves space to deviate and grow, while drawing inspiration from Processing and our shared community. p5.js is sustained by a community of contributors, with support from the Processing Foundation. p5.js follows a rotating leadership model started in 2020, and Qianqian Ye has been leading p5.js since 2021.
 peopleCategories:
@@ -177,3 +179,7 @@ referenceCategories:
     Table: Table
     Random: Random
     Touch: Touch
+calloutTitles:
+  "Try this!": "Try this!"
+  Tip: Tip
+  Note: Note
