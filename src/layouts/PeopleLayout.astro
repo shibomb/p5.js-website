@@ -6,6 +6,7 @@ import type { CollectionEntry } from "astro:content";
 import { setJumpToState } from "../globals/state";
 import { getCurrentLocale, getUiTranslator } from "../i18n/utils";
 import lodash from "lodash";
+import { removeLocaleAndExtension } from "../pages/_utils";
 
 interface Props {
   entries: CollectionEntry<"people">[];
@@ -63,10 +64,13 @@ setJumpToState(null);
   {
     featuredEntries.map((category, i) => (
       <section>
-        <h2 class="mb-lg">{category.label}</h2>
+        <h2>{category.label}</h2>
         <ul class="content-grid">
           {category.members.map((person) => (
-            <li class="col-span-6 md:col-span-9 lg:col-span-12 content-grid">
+            <li
+              id={removeLocaleAndExtension(person.id)}
+              class="col-span-6 md:col-span-9 lg:col-span-12 content-grid"
+            >
               <div class="col-span-4 md:col-span-9 lg:col-span-4">
                 <Image
                   src={person.data.image!}
@@ -96,19 +100,21 @@ setJumpToState(null);
     ))
   }
 
-  <h2 class="mb-lg">{contributorEntries.label}</h2>
-  <ul class="content-grid !gap-xs">
-    {
-      lodash.shuffle(contributorEntries.members).map((person) => (
-        <li class="col-span-3">
-          <a
-            href={person.data.url}
-            aria-label={`Link to ${person.data.name}'s personal website'`}
-          >
-            {person.data.name}
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+  <section>
+    <h2>{contributorEntries.label}</h2>
+    <ul class="content-grid-simple !gap-y-0">
+      {
+        lodash.shuffle(contributorEntries.members).map((person) => (
+          <li class="col-span-1" id={removeLocaleAndExtension(person.id)}>
+            <a
+              href={person.data.url}
+              aria-label={`Link to ${person.data.name}'s personal website'`}
+            >
+              {person.data.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
 </BaseLayout>

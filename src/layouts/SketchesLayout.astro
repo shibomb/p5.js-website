@@ -24,13 +24,15 @@ const { entries, totalNumSketches, currentPage } = Astro.props;
 <Head title="Sketches" locale={currentLocale} />
 
 <BaseLayout title="Sketches" variant="item" topic="community">
-  <ul class="grid grid-cols-2 gap-y-xl gap-x-[40px] lg:grid-cols-4">
-    {entries.map((entry) => <GridItemSketch item={entry} />)}
-  </ul>
-  <PaginationNav
-    maxNumItems={totalNumSketches}
-    itemsPerPage={sketchesPerPage}
-    sectionUrlPrefix="/sketches"
-    currentPage={currentPage}
-  />
+  <section>
+    <ul class="content-grid-simple">
+      {entries.map((entry) => <GridItemSketch item={entry} />)}
+    </ul>
+    <PaginationNav
+      maxNumItems={totalNumSketches}
+      itemsPerPage={sketchesPerPage}
+      sectionUrlPrefix="/sketches"
+      currentPage={currentPage}
+    />
+  </section>
 </BaseLayout>

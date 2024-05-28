@@ -217,7 +217,8 @@ const generateSearchIndex = async (
         description = data.description;
         break;
       case "contributor-docs":
-        title = file.split("/")[4].replace(".mdx", "");
+        relativeUrl = relativeUrl.replace(`/${contentType}`, "/contribute");
+        title = data.title;
         description = getKeywordsFromContent(content, locale);
         break;
       case "examples":
@@ -247,7 +248,12 @@ const generateSearchIndex = async (
         break;
       case "people":
         title = data.name;
-        relativeUrl = `/people/`;
+        relativeUrl = `/people/#${data.name
+          // copied from people build script
+          .toLowerCase()
+          .normalize("NFD")
+          .replaceAll(/[\u0300-\u036f]/g, "")
+          .replaceAll(/[ ._<>*%\\/]/g, "-")}`;
         break;
       case "events":
         title = data.title;

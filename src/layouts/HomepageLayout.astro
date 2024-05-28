@@ -5,7 +5,6 @@ import GridItemSketch from "@components/GridItem/Sketch.astro";
 import { getCurrentLocale, getUiTranslator } from "../i18n/utils";
 import { getCurationSketches } from "../api/OpenProcessing";
 import BaseLayout from "./BaseLayout.astro";
-import { Icon } from "../components/Icon";
 import { setJumpToState } from "../globals/state";
 import Head from "../components/Head/index.astro";
 
@@ -32,12 +31,12 @@ setJumpToState(null);
 
 <Head
   title={"p5.js"}
-  featuredImageSrc={data.heroImageMobile.src}
+  featuredImageSrc={data.heroImages[0].image.src}
   locale={currentLocale}
 />
 
 <BaseLayout title="" variant="homepage" homepageConfig={config}>
-  <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-lg gap-y-xl mb-xl">
+  <div class="content-grid-simple mb-xl">
     <div
       class="col-span-2 lg:col-span-3 order-1 grid grid-cols-subgrid content-start"
     >
@@ -62,7 +61,7 @@ setJumpToState(null);
     </div>
   </div>
 
-  <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-lg gap-y-xl mb-xl">
+  <div class="content-grid-simple mb-xl">
     <div class="col-span-2 lg:col-span-3 grid grid-cols-subgrid content-start">
       <h2 class="col-span-3">{data.communityHeaderText}</h2>
       <LinkButton class="col-span-1 w-full" variant="link" url="/community"
@@ -77,11 +76,11 @@ setJumpToState(null);
       <GridItemSketch item={sketches[4]} />
     </div>
     <div class="col-span-2 row-span-2">
-      <GridItemSketch item={sketches[5]} />
+      <GridItemSketch item={sketches[5]} scale={2} />
     </div>
   </div>
 
-  <div class="grid grid-cols-2 lg:grid-cols-4 gap-lg mb-xl">
+  <div class="content-grid-simple mb-xl">
     <div class="grid grid-cols-subgrid col-span-1 lg:col-span-2">
       <h2 class="col-span-2">{t("Donate to p5.js")}</h2>
       <div class="col-span-1">
