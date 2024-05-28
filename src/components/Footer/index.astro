@@ -1,17 +1,21 @@
 ---
+import { getEntry } from "astro:content";
 import { getCurrentLocale, getUiTranslator } from "@/src/i18n/utils";
 import { Icon } from "../Icon";
+import Banner from "@components/Banner/index.astro";
 
 const currentLocale = getCurrentLocale(Astro.url.pathname);
 const t = await getUiTranslator(currentLocale);
+
+const bannerEntry = await getEntry("banner", currentLocale);
 ---
 
 <footer
-  class="border-t border-black grid-cols-3 lg:grid-cols-4 grid gap-x-[40px] text-xl lg:text-xl pt-md pb-5 px-lg bg-accent-color text-accent-type-color content-start"
+  class="text-body border-t border-black grid-cols-3 lg:grid-cols-4 grid gap-x-gutter-sm md:gap-x-gutter-md pt-md pb-5 px-lg bg-accent-color text-accent-type-color content-start"
 >
   <div class="grid lg:row-span-2 grid-rows-subgrid">
     <div>
-      <div class="mb-md">p5.js</div>
+      <div class="mb-5">p5.js</div>
     </div>
     <div
       class="self-end w-28 max-w-full lg:w-32 text-accent-type-color lg:-top-2 relative"
@@ -20,7 +24,7 @@ const t = await getUiTranslator(currentLocale);
     </div>
   </div>
   <div>
-    <div class="mb-md" id="resources-footer-category">{t("Resources")}</div>
+    <div class="mb-5" id="resources-footer-category">{t("Resources")}</div>
     <ul aria-labelledby="resources-footer-category">
       <li><a href="/reference">{t("Reference")}</a></li>
       <li><a href="/tutorials">{t("Tutorials")}</a></li>
@@ -34,7 +38,7 @@ const t = await getUiTranslator(currentLocale);
   </div>
   <div class="lg:col-span-2 grid grid-cols-subgrid">
     <div>
-      <div class="mb-md" id="info-footer-category">{t("Information")}</div>
+      <div class="mb-5" id="info-footer-category">{t("Information")}</div>
       <ul aria-labelledby="info-footer-category">
         <li><a href="/download">{t("Download")}</a></li>
         <li><a href="/contact">{t("Contact")}</a></li>
@@ -44,11 +48,10 @@ const t = await getUiTranslator(currentLocale);
       </ul>
     </div>
     <div class="lg:col-start-2 mt-xl lg:mt-0">
-      <div class="mb-md" id="socials-footer-category">{t("Socials")}</div>
+      <div class="mb-5" id="socials-footer-category">{t("Socials")}</div>
       <ul aria-labelledby="socials-footer-category">
         <li><a href="https://github.com/processing/p5.js">GitHub</a></li>
         <li><a href="https://www.instagram.com/p5xjs/">Instagram</a></li>
-        <li><a href="https://www.facebook.com/groups/p5dotjs/">Facebook</a></li>
         <li><a href="https://www.youtube.com/@pjs-dz1rv">YouTube</a></li>
         <li><a href="https://twitter.com/p5xjs">X</a></li>
         <li><a href="https://discord.gg/SHQ8dH25r9">Discord</a></li>
@@ -59,5 +62,6 @@ const t = await getUiTranslator(currentLocale);
     </div>
   </div>
 </footer>
+{bannerEntry && !bannerEntry.data.hidden && (<Banner entry={bannerEntry} />)}
 
 <style></style>

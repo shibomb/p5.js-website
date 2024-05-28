@@ -3,16 +3,18 @@
 @import "variables.scss";
 
 .rendered-markdown {
-  & > *, & > astro-island > * {
+  & > *,
+  & > astro-island > * {
     @apply max-w-screen-md;
   }
-  margin-bottom: var(--spacing-xl);
 
-  & > .full-width, & > astro-island > .full-width {
+  & > .full-width,
+  & > astro-island > .full-width {
     max-width: 1280px;
   }
 
-  .full-width td, .full-width th {
+  .full-width td,
+  .full-width th {
     @apply max-w-screen-md;
   }
 
@@ -22,7 +24,11 @@
   }
 
   a.button-link {
-    @apply my-md min-w-[180px] md:min-w-[220px];
+    margin-top: var(--spacing-md);
+    min-width: 180px;
+    @media (min-width: $breakpoint-tablet) {
+      min-width: 220px;
+    }
     color: var(--sidebar-type-color);
     &:hover {
       color: var(--sidebar-bg-color);
@@ -87,5 +93,9 @@
   > iframe {
     margin-top: var(--spacing-md);
     width: 100%;
+  }
+
+  section.footnotes {
+    padding-bottom: 0;
   }
 }

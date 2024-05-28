@@ -59,13 +59,19 @@ html {
   /* Settings container */
   --settings-container-height-laptop: 40px;
   --settings-container-height-touch: 35px;
+
+  /** Common gutter widths */
+  --gutter-sm: 20px;
+  --gutter-md: 40px;
+  --gutter-lg: 80px;
 }
 
 .home {
   --accent-color: var(--bg-magenta-70);
 }
 
-.reference {
+.reference,
+.reference-item {
   --accent-color: var(--bg-yellow);
 }
 
