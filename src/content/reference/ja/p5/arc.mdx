@@ -38,6 +38,28 @@ description: >
   how many
 
   vertices are used to draw the arc in WebGL mode. The default value is 25.</p>
+
+  <div class="w-full mt-8 bg-gray-400 p-2">
+    <h6 class="text-white font-bold pb-2">WIP: こちらは旧バージョンの日本語リソースです</h6>
+    <pre class="w-full p-2 bg-white whitespace-break-spaces">
+    "arc": {
+      "description": [
+        "キャンバスに弧を描きます。弧は<code>x</code>、<code>y</code>、<code>w</code>、<code>h</code>パラメーターで定義された楕円（オーバル）の外側に沿って描かれます。<code>start</code>および<code>stop</code>パラメーターを使用して、弧を描く角度（ラジアン単位）を指定します。弧は常に<code>start</code>から<code>stop</code>まで時計回りに描かれます。弧の楕円の原点は、<a href=\"#/p5/ellipseMode\">ellipseMode()</a>関数で変更することができます。",
+        "オプションの<code>mode</code>パラメーターは、弧の塗りつぶしスタイルを決定します。塗りつぶしモードは半円（<code>OPEN</code>）、閉じた半円（<code>CHORD</code>）、または閉じたパイセグメント（<code>PIE</code>）です。"
+      ],
+      "params": {
+        "x": "Number: 円弧の楕円の x 座標",
+        "y": "Number: 円弧の楕円の y 座標",
+        "w": "Number: デフォルトでの円弧の楕円の幅",
+        "h": "Number: デフォルトでの円弧の楕円の高さ",
+        "start": "Number: 円弧を開始する角度（ラジアンで指定）",
+        "stop": "Number: 円弧を終了する角度（ラジアンで指定）",
+        "mode": "Constant: (オプション) 円弧の描画方法を決定するオプションパラメーター。CHORD、PIE、OPEN のいずれか。",
+        "detail": "Integer: (オプション) WebGL モード専用のオプションパラメーター。これは、円弧の周囲を構成する頂点の数を指定するためのものです。デフォルト値は25です。細かさが50を超える場合にはストロークを描画しません。"
+      }
+    },
+    </pre>
+  </div>
 line: 102
 isConstructor: false
 itemtype: method
