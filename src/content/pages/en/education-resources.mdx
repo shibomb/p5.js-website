@@ -7,7 +7,9 @@ import EducationResource from "@components/EducationResource/index.astro";
 
 <div class="rendered-markdown !max-w-screen-lg">
 
-Every teaching has its own unique goals, messages, conditions, and environments. By documenting and sharing p5 workshops, classes, and materials, we hope to better connect the p5.js learner and educator communities around the world.
+Every teaching experience has unique goals, messages, conditions, and environments. By documenting and sharing p5.js educational resources, such as workshops and classes, we aim to better connect the p5.js learner and educator communities worldwide. Add your educational resource [here](https://github.com/processing/p5.js-website/blob/main/src/content/pages/en/education-resources.mdx?plain=1)!
+
+Thank you to Tuan Huang, Yu Lee, and Janis Sepúlveda for initiating the education resource list during OSACC 2024, as well as to previous p5.js Teach page contributors Inhwa Yeom, Gracia Zhang, and Qianqian Ye. 
 
 </div>
 
@@ -17,8 +19,24 @@ Every teaching has its own unique goals, messages, conditions, and environments.
 
 <ul class="list-none content-grid pb-4xl mb-lg border-b border-sidebar-type-color last:border-0  mt-[var(--spacing-xl)]">
 
+ <EducationResource
+    name="Happycoding p5.js Tutorials"
+    featuredImage={await import("../images/education-resources/happy-coding.png")}
+    featuredImageAlt="A screenshot of the happy coding's homepage”"
+  >
+    <Fragment slot="author">
+       Kevin Workman
+    </Fragment>
+    <Fragment slot="description">
+      A series of p5.js tutorials with detailed steps
+    </Fragment>
+    <Fragment slot="materials">
+      [Website](https://happycoding.io/tutorials/p5js/)
+    </Fragment>
+  </EducationResource>
+
   <EducationResource
-    name="Xin Xin’s p5.js Tutorials"
+    name="p5.js Tutorials by Xin Xin"
     featuredImage={await import("../images/education-resources/xin-xin.jpg")}
     featuredImageAlt="Xin Xin’s tutorial cover titled “Experimental Typography textToPoints() Javascript splice()"
   >
@@ -32,6 +50,88 @@ Every teaching has its own unique goals, messages, conditions, and environments.
       [YouTube](https://www.youtube.com/@xinxin1011/videos)
     </Fragment>
   </EducationResource>
+
+  <EducationResource
+    name="p5.js Tutorials by Patt Vira"
+    featuredImage={await import("../images/education-resources/patt-vira.jpg")}
+    featuredImageAlt="Patt Vira’s youtube channel banner, showing “MAKE ART WITH CODE New video Monday, Wednesday, and Friday”"
+  >
+    <Fragment slot="author">
+       Patt Vira
+    </Fragment>
+    <Fragment slot="description">
+      Video tutorials teaching creative coding topics with p5.js
+    </Fragment>
+    <Fragment slot="materials">
+      [Website](https://www.pattvira.com/)
+      [YouTube](https://www.youtube.com/@pattvira/videos)
+    </Fragment>
+  </EducationResource>
+
+  <EducationResource
+    name="3-Min Creative Coding with p5.js"
+    featuredImage={await import("../images/education-resources/3cc-carriewang.jpeg")}
+    featuredImageAlt="A collage of about “3-Min Creative Coding with p5.js"
+  >
+    <Fragment slot="author">
+      Carrie Sijia Wang
+    </Fragment>
+    <Fragment slot="description">
+      Video tutorials about p5.js
+    </Fragment>
+    <Fragment slot="materials">
+      [Website](https://carriesijiawang.com/3cc/)
+    </Fragment>
+  </EducationResource>
+
+  <EducationResource
+    name="p5.js Tutorials by Computational Mama"
+    featuredImage={await import("../images/education-resources/ComputationalMama.png")}
+    featuredImageAlt="A screenshot of p5.js tutorial by Computational Mama"
+  >
+    <Fragment slot="author">
+      Computational Mama
+    </Fragment>
+    <Fragment slot="description">
+      Experiments with creative coding and live coding with p5js.
+    </Fragment>
+    <Fragment slot="materials">
+      [YouTube](https://www.youtube.com/@ComputationalMama)
+    </Fragment>
+  </EducationResource>
+
+  <EducationResource
+    name="Critical Code Cookbook"
+    featuredImage={await import("../images/education-resources/critical-code-cookbook.png")}
+    featuredImageAlt="A header image showing “Critical Coding Cookbook: Intersectional Feminist Approaches to Teaching and Learning"
+  >
+    <Fragment slot="author">
+      Critical Code Cookbook
+    </Fragment>
+    <Fragment slot="description">
+      Intersectional Feminist Approaches to Teaching and Learning Material.
+    </Fragment>
+    <Fragment slot="materials">
+      [Website](https://criticalcode.recipes/)
+    </Fragment>
+  </EducationResource>
+
+  <EducationResource
+    name="Chatbots for Art’s Sake with p5.js"
+    featuredImage={await import("../images/education-resources/chatbots-for-arts-sake_cover.jpeg")}
+    featuredImageAlt="Face of a chatbot"
+  >
+    <Fragment slot="author">
+      Carrie Sijia Wang
+    </Fragment>
+    <Fragment slot="description">
+      Repurposes existing chatbot technologies and uses them for the sake of art
+    </Fragment>
+    <Fragment slot="materials">
+      [Website](https://carriesijiawang.com/chatbots-syllabus/)
+    </Fragment>
+  </EducationResource>
+
   
   <EducationResource
     name="Fractal Implementations"
@@ -50,18 +150,18 @@ Every teaching has its own unique goals, messages, conditions, and environments.
   </EducationResource>
 
   <EducationResource
-    name="Critical Code Cookbook"
-    featuredImage={await import("../images/education-resources/critical-code-cookbook.png")}
-    featuredImageAlt="A header image showing “Critical Coding Cookbook: Intersectional Feminist Approaches to Teaching and Learning"
+    name="Creative Coding Class with p5.js"
+    featuredImage={await import("../images/education-resources/cc2021lowres.jpg")}
+    featuredImageAlt="Cover photo with text 'Creative Coding'"
   >
     <Fragment slot="author">
-      Critical Code Cookbook
+      Carrie Sijia Wang
     </Fragment>
     <Fragment slot="description">
-      Intersectional Feminist Approaches to Teaching and Learning Material.
+      Fundamental coding class using p5.js
     </Fragment>
     <Fragment slot="materials">
-      [Website](https://criticalcode.recipes/)
+      [GitHub](https://github.com/ellennickles/creative-coding-summer-21/blob/main/homework-carrie.md)
     </Fragment>
   </EducationResource>
 
@@ -83,7 +183,7 @@ Every teaching has its own unique goals, messages, conditions, and environments.
   
   <EducationResource
     name="Machine Learning for the Web"
-    featuredImage={await import("../images/education-resources/pix2pix-demo.jpg")}
+    featuredImage={await import("../images/education-resources/ml5js.png")}
     featuredImageAlt="pix2pix demo image with cat image generated from edges."
   >
     <Fragment slot="author">
@@ -218,41 +318,6 @@ Every teaching has its own unique goals, messages, conditions, and environments.
 
 
   <EducationResource
-    name="Patt Vira’s tutorials"
-    featuredImage={await import("../images/education-resources/patt-vira.jpg")}
-    featuredImageAlt="Patt Vira’s youtube channel banner, showing “MAKE ART WITH CODE New video Monday, Wednesday, and Friday”"
-  >
-    <Fragment slot="author">
-       Patt Vira
-    </Fragment>
-    <Fragment slot="description">
-      common creative coding topics tutorials taught with p5.js
-    </Fragment>
-    <Fragment slot="materials">
-      [Website](https://www.pattvira.com/)
-      [YouTube](https://www.youtube.com/@pattvira/videos)
-    </Fragment>
-  </EducationResource>
-
-
- <EducationResource
-    name="Happycoding p5.js Tutorials"
-    featuredImage={await import("../images/education-resources/happy-coding.png")}
-    featuredImageAlt="A screenshot of the happy coding's homepage”"
-  >
-    <Fragment slot="author">
-       Kevin Workman
-    </Fragment>
-    <Fragment slot="description">
-      A series of p5.js tutorials with detailed steps
-    </Fragment>
-    <Fragment slot="materials">
-      [Website](https://happycoding.io/tutorials/p5js/)
-    </Fragment>
-  </EducationResource>
-
-
-  <EducationResource
     name="Six Features of Programming Languages demonstrated in p5.js"
     featuredImage={await import("../images/education-resources/six-features-of-programming-language.png")}
     featuredImageAlt="A screenshot of the website with gray background and interactive sketches"
@@ -318,6 +383,22 @@ Every teaching has its own unique goals, messages, conditions, and environments.
     </Fragment>
     <Fragment slot="materials">
       [Medium](https://medium.com/processing-foundation/code-electronic-art-festival-2018-argentina-803d3ca8092c/)
+    </Fragment>
+  </EducationResource>
+
+  <EducationResource
+    name="p5.js Tutorial in Mandarin - QTV"
+    featuredImage={await import("../images/education-resources/calligraphy.jpg")}
+    featuredImageAlt="A tutorial screenshot about creating calligraphy using p5.js."
+  >
+    <Fragment slot="author">
+       Qianqian Ye
+    </Fragment>
+    <Fragment slot="description">
+      A series of p5.js video tutorials in Mandarin on Bilibili and TikTok
+    </Fragment>
+    <Fragment slot="materials">
+      [Bilibili](https://space.bilibili.com/442343394)
     </Fragment>
   </EducationResource>
 
@@ -458,6 +539,5 @@ Every teaching has its own unique goals, messages, conditions, and environments.
       [GitHub](https://github.com/karlosgliberal/ArteGenerativo?tab=readme-ov-file)
     </Fragment>
   </EducationResource>
-
 
 </ul>
