@@ -24,9 +24,9 @@ Forum: Forum
 Sketches: スケッチ
 Libraries: ライブラリ
 Events: イベント
-People: 人々
-Contributors: コントリビューター
-Contributor Docs: コントリビューター ドキュメント
+People: ピープル
+Contributors: 貢献者
+Contributor Docs: 貢献者ドキュメント
 Alumni: 卒業生
 View Alt Text: 代替テキストを表示
 Monochrome Mode: モノクロモード
@@ -42,6 +42,7 @@ Show Code: コードを表示
 Donate to p5.js: p5.js に寄付
 Download p5.js: p5.js ダウンロード
 No Results: No entries found for that search.
+No alt text: No alt text
 briefPageDescriptions:
   Reference: p5.jsの各コードのわかりやすい解説を見つけてください。
   Examples: Explore the possibilities of p5.js with short examples.
@@ -57,9 +58,9 @@ contributePage:
   Statement: >
     Our community values contributions of all forms and seeks to expand the meaning of the word contributor as far and wide as possible. It includes documentation, teaching, writing code, making art, writing, design, activism, organizing, curating, or anything else you might imagine.
   ImageAltText: >
-    A group of about 20 people standing and sitting together in front of a doorway with their hands up and happy looks on their faces
+    Group photo of participants smiling enthusiastically with their hands in the air.
   ImageCaption: >
-    TEXT NEEDED HERE
+    Participants of p5.js Contributors Conference 2019.
   DonateDescription: >
     p5.js needs your support!
   # FaqDescription: >
@@ -99,7 +100,7 @@ tutorialCategories:
   "advanced": "Advanced Topics"
 tutorialsPage:
   education-resources: Education Resources
-  education-resources-snippet: "Every teaching has its own unique goals, messages, conditions, and environments. By documenting and sharing p5 workshops, classes, and materials, we hope to better connect the p5.js learner and educator communities around the world."
+  education-resources-snippet: "Every teaching experience has unique goals, messages, conditions, and environments. By documenting and sharing p5.js educational resources, such as workshops and classes, we aim to better connect the p5.js learner and educator communities worldwide. "
   view-education-resources: View Education Resources
 exampleCategories:
   Featured: "Featured"
