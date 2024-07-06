@@ -4,6 +4,22 @@ module: Math
 submodule: Trigonometry
 file: src/math/trigonometry.js
 description: >
+  <p><a href="#/p5/cos">cos()</a> の逆関数で、値の逆余弦を返します。</p>
+
+  <p>この関数は、-1から1の範囲の値を想定しており、<a href="#/p5/angleMode">angleMode()</a> が RADIANS
+  の場合は0からPI(3.1415927)の範囲の値が、DEGREES の場合は0から180の範囲の値が返されます。</p>
+
+  <p>/// todo ///</p>
+
+  <p>The inverse of <a href="#/p5/cos">cos()</a>, returns the arc cosine of a
+  value. This function expects arguments in the range -1 to 1. By default,
+  <code>acos()</code> returns values in the range 0 to π (about 3.14). If the <a
+  href="#/p5/angleMode">angleMode()</a> is <code>DEGREES</code>, then values are
+  returned in the range 0 to 180.</p>
+
+
+  <hr/>
+
   <p>Calculates the arc cosine of a number.</p>
 
   <p><code>acos()</code> is the inverse of <a
@@ -71,10 +87,13 @@ class: p5
 params:
   - name: value
     description: |
+      <p>逆余弦を返す値</p>
       <p>value whose arc cosine is to be returned.</p>
     type: Number
 return:
-  description: arc cosine of the given value.
+  description: |-
+    与えられた値の逆余弦
+    arc cosine of the given value.
   type: Number
 chainable: false
 ---

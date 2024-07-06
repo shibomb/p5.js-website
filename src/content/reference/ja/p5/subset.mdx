@@ -3,12 +3,26 @@ title: subset
 module: Data
 submodule: Array Functions
 file: src/utilities/array_functions.js
-description: |
+description: >
+  <p>既存の配列から要素の配列を抽出します。</p>
+
+  <p>list パラメーターは、要素がコピーされる配列を定義し、start と count パラメーターは抽出する要素を指定します。count
+  が指定されていない場合、配列の最初から最後までの要素が抽出されます。start
+  を指定するときは、最初の配列要素が0であることを覚えておいてください。この関数はソース配列を変更しません。</p>
+
+
+  <hr/>
+
   <p>Extracts an array of elements from an existing array. The list parameter
+
   defines the array from which the elements will be copied, and the start
+
   and count parameters specify which elements to extract. If no count is
+
   given, elements will be extracted from the start to the end of the array.
+
   When specifying the start, remember that the first array element is 0.
+
   This function does not change the source array.</p>
 line: 381
 isConstructor: false
@@ -31,19 +45,24 @@ class: p5
 params:
   - name: list
     description: |
+      <p>抽出元の配列</p>
       <p>Array to extract from</p>
     type: Array
   - name: start
     description: |
+      <p>開始位置</p>
       <p>position to begin</p>
     type: Integer
   - name: count
     description: |
+      <p>(オプション) 抽出する値の数</p>
       <p>number of values to extract</p>
     type: Integer
     optional: true
 return:
-  description: Array of extracted elements
+  description: |-
+    抽出された要素の配列
+    Array of extracted elements
   type: Array
 chainable: false
 ---

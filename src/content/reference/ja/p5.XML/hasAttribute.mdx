@@ -3,7 +3,14 @@ title: hasAttribute
 module: IO
 submodule: Input
 file: src/io/p5.XML.js
-description: >
+description: >-
+  <p>指定された属性が要素に存在するかどうかをチェックします。</p>
+
+  <p></p>
+
+
+  <hr/>
+
   <p>Returns <code>true</code> if the element has a given attribute and
   <code>false</code> if not.</p>
 
@@ -18,6 +25,17 @@ description: >
 
   <a href="/reference/p5.XML/getNum">myXML.getNum()</a> to return an attribute's
   value.</p>
+
+
+  <pre>
+
+  todo: param name not found in ja-legacy:
+
+  {
+      "the": "String:チェックする属性"
+  }
+
+  </pre>
 line: 821
 isConstructor: false
 itemtype: method
@@ -68,7 +86,9 @@ params:
       <p>name of the attribute to be checked.</p>
     type: String
 return:
-  description: whether the element has the attribute.
+  description: |-
+    Boolean:属性が見つかった場合は true、それ以外は false
+    whether the element has the attribute.
   type: Boolean
 chainable: false
 ---

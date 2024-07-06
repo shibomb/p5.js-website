@@ -4,6 +4,10 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
+  <p>ID にもとづいてコールバックを削除します。</p>
+  <p>ID は addCue メソッドによって返されます。</p>
+
+  <hr/>
   <p>Remove a callback based on its ID. The ID is returned by the
   addCue method.</p>
 line: 2790
@@ -13,6 +17,7 @@ class: p5.SoundFile
 params:
   - name: id
     description: |
+      <p>cue の ID。addCue で返された値です。</p>
       <p>ID of the cue, as returned by addCue</p>
     type: Number
 chainable: false

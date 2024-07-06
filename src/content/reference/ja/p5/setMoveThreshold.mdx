@@ -4,6 +4,14 @@ module: Events
 submodule: Acceleration
 file: src/events/acceleration.js
 description: >
+  <p><a href="#/p5/setMoveThreshold">setMoveThreshold()</a> 関数は、<a
+  href="#/p5/deviceMoved">deviceMoved()</a> 関数の動作閾値を設定するために使用されます。</p>
+
+  <p>デフォルトの閾値は0.5に設定されています。</p>
+
+
+  <hr/>
+
   <p>The <a href="/reference/p5/setMoveThreshold">setMoveThreshold()</a>
   function is used to set the movement threshold for
 
@@ -47,6 +55,7 @@ class: p5
 params:
   - name: value
     description: |
+      <p>閾値</p>
       <p>The threshold value</p>
     type: Number
 chainable: false

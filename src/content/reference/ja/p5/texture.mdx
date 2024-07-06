@@ -4,6 +4,22 @@ module: 3D
 submodule: Material
 file: src/webgl/material.js
 description: >
+  <p>これ以降に描画される図形に使用されるテクスチャを設定します。</p>
+
+  <p></p>
+
+  <p>テクスチャは、3D ジオメトリを覆う「皮膚」のようなものです。現在サポートされているテクスチャは画像、ビデオ、オフスクリーンレンダリングです。</p>
+
+  <p><a href="#/p5/beginShape">beginShape()</a> で作成されたジオメトリにテクスチャを適用するには、<a
+  href="#/p5/vertex">vertex()</a> で uv 座標を指定する必要があります。</p>
+
+  <p>なお、texture() は WebGL モードでのみ使用できます。</p>
+
+  <p>この <a href="/examples/3d-materials.html">例</a> でさらに多くのマテリアルを見ることができます。</p>
+
+
+  <hr/>
+
   <p>Sets the texture that will be used on shapes.</p>
 
   <p>A texture is like a skin that wraps around a shape. <code>texture()</code>
@@ -194,6 +210,7 @@ class: p5
 params:
   - name: tex
     description: |
+      <p>テクスチャとして使用する画像</p>
       <p>media to use as the texture.</p>
     type: >-
       p5.Image|p5.MediaElement|p5.Graphics|p5.Texture|p5.Framebuffer|p5.FramebufferTexture

@@ -3,7 +3,17 @@ title: vertex
 module: Shape
 submodule: Vertex
 file: src/core/shape/vertex.js
-description: >
+description: >-
+  <p>すべての図形は、一連の頂点を接続することで構築されます。</p>
+
+  <p><a href="#/p5/vertex">vertex()</a>
+  は、点、線、三角形、四角形、ポリゴンの頂点座標を指定するために使用されます。これは、<a
+  href="#/p5/beginShape">beginShape()</a> および <a
+  href="#/p5/endShape">endShape()</a> 関数内でのみ使用されます。</p>
+
+
+  <hr/>
+
   <p>Adds a vertex to a custom shape.</p>
 
   <p><code>vertex()</code> sets the coordinates of vertices drawn between the
@@ -29,6 +39,21 @@ description: >
 
   <a href="/reference/p5/endShape">endShape()</a>. By default, <code>u</code>
   and <code>v</code> are both 0.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "x": "Number: 頂点の x 座標",
+      "y": "Number: 頂点の y 座標",
+      "z": "Number: (オプション) 頂点の z 座標。指定されていない場合はデフォルトで0になります。",
+      "u": "Number: (オプション) 頂点のテクスチャ u 座標",
+      "v": "Number: (オプション) 頂点のテクスチャ v 座標"
+  }
+
+  </pre>
 line: 1850
 isConstructor: false
 itemtype: method

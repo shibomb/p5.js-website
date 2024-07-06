@@ -4,6 +4,23 @@ module: Shape
 submodule: Attributes
 file: src/core/shape/attributes.js
 description: >
+  <p>楕円、円、弧が描かれる位置を変更します。</p>
+
+  <p>デフォルトでは、最初の2つのパラメーターは形の中心のxおよびy座標です。次のパラメーターはその幅と高さです。<code>ellipseMode(CENTER)</code>を呼び出すのと同等です。</p>
+
+  <p><code>ellipseMode(RADIUS)</code>もまた、最初の2つのパラメーターを使用して形の中心のxおよびy座標を設定します。次のパラメーターは形状の幅と高さの半分です。<code>ellipse(0,
+  0, 10, 15)</code>を呼び出すと、幅が 20、高さが 30 の形状が描かれます。</p>
+
+  <p><code>ellipseMode(CORNER)</code>は、最初の2つのパラメーターを形状の左上隅とします。次のパラメーターはその幅と高さです。</p>
+
+  <p><code>ellipseMode(CORNERS)</code>は、最初の2つのパラメーターを楕円のバウンディングボックスの一角の位置とします。3番目と4番目のパラメーターは逆の角の位置です。</p>
+
+  <p><code>ellipseMode()</code>に渡される引数は、<code>CENTER</code>、<code>RADIUS</code>、<code>CORNER</code>、および<code>CORNERS</code>という定数がこのように定義されているため、すべて大文字で書く必要があります。
+  JavaScript は大文字と小文字を区別する言語です。</p>
+
+
+  <hr/>
+
   <p>Changes where ellipses, circles, and arcs are drawn.</p>
 
   <p>By default, the first two parameters of
@@ -101,6 +118,7 @@ class: p5
 params:
   - name: mode
     description: |
+      <p>CENTER、RADIUS、CORNER、CORNERS のいずれか</p>
       <p>either CENTER, RADIUS, CORNER, or CORNERS</p>
     type: Constant
 chainable: true

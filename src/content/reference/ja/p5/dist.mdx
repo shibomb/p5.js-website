@@ -3,7 +3,28 @@ title: dist
 module: Math
 submodule: Calculation
 file: src/math/calculation.js
-description: >
+description: >-
+  <p>2点間の距離を、2次元または3次元で計算します。</p>
+
+  <p>2つのベクトル間の距離を探している場合は、<a herf="#/p5.Vector/dist">p5.Vector.dist()</a>
+  を参照してください。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Calculates the distance between two points.</p>
+
+  <p>The version of <code>dist()</code> with four parameters calculates distance
+  in two dimensions.</p>
+
+  <p>The version of <code>dist()</code> with six parameters calculates distance
+  in three dimensions.</p>
+
+  <p>Use <a href="#/p5.Vector/dist">p5.Vector.dist()</a> to calculate the
+  distance between two <a href="#/p5.Vector">p5.Vector</a> objects.</p>
+
+
+  <hr/>
+
   <p>Calculates the distance between two points.</p>
 
   <p>The version of <code>dist()</code> with four parameters calculates distance
@@ -21,6 +42,22 @@ description: >
 
   distance between two <a href="/reference/p5/p5.Vector">p5.Vector</a>
   objects.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "x1": "Number: 第1点の x 座標",
+      "y1": "Number: 第1点の y 座標",
+      "x2": "Number: 第2点の x 座標",
+      "y2": "Number: 第2点の y 座標",
+      "z1": "Number: 第1点の z 座標",
+      "z2": "Number: 第2点の z 座標"
+  }
+
+  </pre>
 line: 155
 isConstructor: false
 itemtype: method
@@ -62,7 +99,9 @@ example:
     </div>
 class: p5
 return:
-  description: distance between the two points.
+  description: |-
+    2点間の距離
+    distance between the two points.
   type: Number
 overloads:
   - line: 155

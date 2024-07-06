@@ -4,6 +4,21 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
+  <p>指定された要素の属性を削除します。</p>
+
+  <p></p>
+
+  <p>/// todo ///</p>
+
+  <p>Removes an attribute from the element.</p>
+
+  <p>The parameter <code>attr</code> is the attribute's name as a string. For
+  example, calling <code>myElement.removeAttribute('align')</code> removes its
+  <code>align</code> attribute if it's been set.</p>
+
+
+  <hr/>
+
   <p>Removes an attribute from the element.</p>
 
   <p>The parameter <code>attr</code> is the attribute's name as a string. For
@@ -47,6 +62,7 @@ class: p5.Element
 params:
   - name: attr
     description: |
+      <p>削除する属性</p>
       <p>attribute to remove.</p>
     type: String
 chainable: true

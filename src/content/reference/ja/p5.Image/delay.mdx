@@ -4,6 +4,21 @@ module: Image
 submodule: Image
 file: src/image/p5.Image.js
 description: >
+  <p>アニメーション GIF のフレーム間の遅延時間を変更します。</p>
+
+  <p>2番目のオプションパラメーターを指定することで、特定のフレームの遅延時間を変更できます。インデックスが指定されていない場合、すべてのフレームに新しい遅延時間が適用されます。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Changes the delay between frames in an animated GIF.</p>
+
+  <p>The second parameter, <code>index</code>, is optional. If provided, only
+  the frame at <code>index</code> will have its delay modified. All other frames
+  will keep their default delay.</p>
+
+
+  <hr/>
+
   <p>Changes the delay between frames in an animated GIF.</p>
 
   <p>The first parameter, <code>delay</code>, is the length of the delay in
@@ -83,11 +98,17 @@ example:
 class: p5.Image
 params:
   - name: d
-    description: |
+    description: >
+      <p>delay in milliseconds between switching frames. /// todo /// Number: 
+      フレームを切り替える間の遅延時間（ミリ秒単位）</p>
+
       <p>delay in milliseconds between switching frames.</p>
     type: Number
   - name: index
-    description: |
+    description: >
+      <p>(Optional) index of the frame that will have its delay modified. ///
+      todo /// Number:  (オプション) 新しい遅延時間が適用されるフレームのインデックス {オプション}</p>
+
       <p>index of the frame that will have its delay modified.</p>
     type: Number
     optional: true

@@ -4,6 +4,13 @@ module: Shape
 submodule: 3D Primitives
 file: src/webgl/3d_primitives.js
 description: >
+  <p>指定された幅と高さで平面を描画します。</p>
+
+  <p></p>
+
+
+  <hr/>
+
   <p>Draws a plane.</p>
 
   <p>A plane is a four-sided, flat shape with every angle measuring 90˚. It’s
@@ -124,21 +131,25 @@ class: p5
 params:
   - name: width
     description: |
+      <p>(オプション) 平面の幅</p>
       <p>width of the plane.</p>
     type: Number
     optional: true
   - name: height
     description: |
+      <p>(オプション) 平面の高さ</p>
       <p>height of the plane.</p>
     type: Number
     optional: true
   - name: detailX
     description: |
+      <p>(オプション) x 次元の三角形の細分割数</p>
       <p>number of triangle subdivisions along the x-axis.</p>
     type: Integer
     optional: true
   - name: detailY
     description: |
+      <p>(オプション) y 次元の三角形の細分割数</p>
       <p>number of triangle subdivisions along the y-axis.</p>
     type: Integer
     optional: true

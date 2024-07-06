@@ -4,6 +4,26 @@ module: Environment
 submodule: Environment
 file: src/core/environment.js
 description: >
+  <p>描画キャンバスの高さを保存するシステム変数です。</p>
+
+  <p><a href="#/p5/createCanvas">createCanvas()</a>
+  関数の2番目のパラメーターによってこの値が設定されます。たとえば、関数呼び出し createCanvas(320, 240)は、height
+  変数の値を240に設定します。<a href="#/p5/createCanvas">createCanvas()</a>
+  がプログラム内で使用されていない場合、height の値はデフォルトで100になります。</p>
+
+  <p>/// todo ///</p>
+
+  <p>A numeric variable that stores the height of the drawing canvas. Its
+  default value is 100.</p>
+
+  <p>Calling <a href="#/p5/createCanvas">createCanvas()</a> or <a
+  href="#/p5/resizeCanvas">resizeCanvas()</a> changes the value of
+  <code>height</code>. Calling <a href="#/p5/noCanvas">noCanvas()</a> sets its
+  value to 0.</p>
+
+
+  <hr/>
+
   <p>A <code>Number</code> variable that stores the height of the canvas in
   pixels.</p>
 

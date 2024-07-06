@@ -4,6 +4,22 @@ module: Shape
 submodule: Attributes
 file: src/core/shape/attributes.js
 description: >
+  <p>長方形と正方形が描かれる位置を変更します。</p>
+
+  <p>デフォルトでは、最初の2つのパラメーターは形状の左上隅のx座標とy座標です。次のパラメーターはその幅と高さです。これは、<code>rectMode(CORNER)</code>を呼び出すのと同等です。</p>
+
+  <p><code>rectMode(CORNERS)</code>もまた、最初の2つのパラメーターを角の1つの位置として使用します。3つ目と4つ目のパラメーターは反対側の角の位置です。</p>
+
+  <p><code>rectMode(CENTER)</code>は、最初の2つのパラメーターを形状の中心のx座標とy座標として使用します。次のパラメーターはその幅と高さです。</p>
+
+  <p><code>rectMode(RADIUS)</code>もまた、最初の2つのパラメーターを形状の中心のx座標とy座標として使用します。次のパラメーターは形状の幅と高さの半分です。</p>
+
+  <p><code>rectMode()</code>に渡される引数は、定数<code>CENTER</code>、<code>RADIUS</code>、<code>CORNER</code>、および<code>CORNERS</code>がこのように定義されているため、すべて大文字で記述する必要があります。
+  JavaScript は大文字と小文字を区別する言語です。</p>
+
+
+  <hr/>
+
   <p>Changes where rectangles and squares are drawn.</p>
 
   <p>By default, the first two parameters of
@@ -130,6 +146,7 @@ class: p5
 params:
   - name: mode
     description: |
+      <p>CORNER、CORNERS、CENTER、RADIUS のいずれか</p>
       <p>either CORNER, CORNERS, CENTER, or RADIUS</p>
     type: Constant
 chainable: true

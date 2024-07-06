@@ -3,7 +3,35 @@ title: attribute
 module: DOM
 submodule: DOM
 file: src/dom/dom.js
-description: >
+description: >-
+  <p>指定された要素に新しい属性を追加するか、既存の属性の値を変更します。</p>
+
+  <p>値が指定されていない場合、指定された属性の値を返すか、属性が設定されていない場合は null を返します。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Adds an <a
+  href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started#attributes"
+  target="_blank">attribute</a> to the element. This method is useful for
+  advanced tasks.</p>
+
+  <p>Most commonly-used attributes, such as <code>id</code>, can be set with
+  their dedicated methods. For example, <code>nextButton.id('next')</code> sets
+  an element's <code>id</code> attribute.</p>
+
+  <p>The first parameter, <code>attr</code>, is the attribute's name as a
+  string. Calling <code>myElement.attribute('align')</code> returns the
+  attribute's current value as a string or <code>null</code> if it hasn't been
+  set.</p>
+
+  <p>The second parameter, <code>value</code>, is optional. It's a string used
+  to set the attribute's value. For example, calling
+  <code>myElement.attribute('align', 'center')</code> sets the element's
+  horizontal alignment to <code>center</code>.</p>
+
+
+  <hr/>
+
   <p>Adds an
 
   <a
@@ -38,6 +66,18 @@ description: >
   horizontal
 
   alignment to <code>center</code>.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "attr": "String: 設定する属性",
+      "value": "String: 属性に割り当てる値"
+  }
+
+  </pre>
 line: 3256
 isConstructor: false
 itemtype: method
@@ -77,7 +117,9 @@ example:
     </div>
 class: p5.Element
 return:
-  description: value of the attribute.
+  description: |-
+    属性の値
+    value of the attribute.
   type: String
 overloads:
   - line: 3256

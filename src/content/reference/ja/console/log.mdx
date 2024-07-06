@@ -4,6 +4,28 @@ module: Foundation
 submodule: Foundation
 file: src/core/reference.js
 description: >
+  <p>メッセージをブラウザーのウェブコンソールに出力します。</p>
+
+  <p>p5 を使用する場合、<a href="#/p5/print">print</a> と <a
+  href="#/p5/console/log">console.log</a> を互換性があります。</p>
+
+  <p>コンソールは、使用しているブラウザーによって異なる方法で開きます。以下は、<a
+  href="https://developer.mozilla.org/ja/docs/Tools/Web_Console/Opening_the_Web_Console">Firefox</a>、<a
+  href="https://developers.google.com/web/tools/chrome-devtools/open">Chrome</a>、<a
+  href="https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide/console">Edge</a>、および
+  <a
+  href="https://support.apple.com/en-ca/guide/safari/sfri20948/mac">Safari</a>
+  でコンソールを開く方法に関するリンクです。 <a href="https://editor.p5js.org/">オンライン p5 エディタ</a>
+  では、コンソールはコードエディタの下に直接埋め込まれています。</p>
+
+  <p><a href="https://developer.mozilla.org/ja/docs/Web/API/Console/log">MDN
+  エントリ</a> から: Console メソッド log() は、ウェブコンソールにメッセージを出力します。メッセージは、単一の <a
+  href="#/p5/string">文字列</a>（オプションの置換値付き）であっても、ひとつ以上の JavaScript <a
+  href="#/p5/object">オブジェクト</a> であっても構いません。</p>
+
+
+  <hr/>
+
   <p>Prints a message to your browser's web console. When using p5, you can use
   <a href="/reference/p5/print">print</a>
 
@@ -55,6 +77,7 @@ class: console
 params:
   - name: message
     description: |
+      <p>コンソールに出力したいメッセージ</p>
       <p>:Message that you would like to print to the console</p>
     type: String|Expression|Object
 chainable: false

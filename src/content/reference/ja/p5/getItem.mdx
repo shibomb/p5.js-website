@@ -4,6 +4,13 @@ module: Data
 submodule: LocalStorage
 file: src/data/local_storage.js
 description: >
+  <p>storeItem() を使用してローカルストレージに保存されたアイテムの値を返します。</p>
+
+  <p></p>
+
+
+  <hr/>
+
   <p>Returns a value in the web browser's local storage.</p>
 
   <p>Web browsers can save small amounts of data using the built-in
@@ -135,10 +142,13 @@ class: p5
 params:
   - name: key
     description: |
+      <p>ローカルストレージに保存するために使用した名前</p>
       <p>name of the value.</p>
     type: String
 return:
-  description: stored item.
+  description: |-
+    Number|Object|String|Boolean|p5.Color|p5.Vector: 保存されたアイテムの値
+    stored item.
   type: String|Number|Boolean|Object|Array
 chainable: false
 ---

@@ -4,6 +4,14 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: >
+  <p>1/N オクターブバンドを計算して返します。</p>
+
+  <p>N のデフォルト値は3で、最小中心周波数は15.625Hz です。(1 / 3オクターブバンド ~= 31周波数バンド) fCtr0
+  をより高いオクターブの中心値に設定すると、低いバンドを無視して、より少ない周波数グループを生成します。</p>
+
+
+  <hr/>
+
   <p>Calculates and Returns the 1/N
 
   <a href="https://en.wikipedia.org/wiki/Octave_band" target="_blank">Octave
@@ -24,14 +32,18 @@ class: p5.FFT
 params:
   - name: 'N'
     description: |
+      <p>生成されたオクターブバンドのタイプを 1/N で指定します。</p>
       <p>Specifies the 1/N type of generated octave bands</p>
     type: Number
   - name: fCtr0
     description: |
+      <p>最低バンドの中心周波数を指定します。</p>
       <p>Minimum central frequency for the lowest band</p>
     type: Number
 return:
-  description: octaveBands   Array of octave band objects with their bounds
+  description: |-
+    octaveBands オクターブバンドオブジェクトの配列
+    octaveBands   Array of octave band objects with their bounds
   type: Array
 chainable: false
 ---

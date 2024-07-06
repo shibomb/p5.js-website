@@ -4,6 +4,20 @@ module: Shape
 submodule: 2D Primitives
 file: src/core/shape/2d_primitives.js
 description: >
+  <p>キャンバスに四角形を描きます。</p>
+
+  <p>四角形は、角度がすべて90度で、辺の長さが等しい四辺形です。デフォルトでは、最初の2つのパラメーターは四角形の左上の位置を設定します。3番目のパラメーターはその辺の大きさを設定します。これらのパラメーターの解釈方法は、<a
+  href="#/p5/rectMode">rectMode()</a> 関数を使用して変更できます。</p>
+
+  <p>4つのパラメーターをもつ <code>square()</code>
+  のバージョンでは、丸みを帯びた四角形が作成されます。4番目のパラメーターはすべての角の半径値として使用されます。</p>
+
+  <p>7つのパラメーターをもつ <code>square()</code>
+  のバージョンでも、丸みを帯びた四角形が作成されます。7つのパラメーターを使うと、後ろの4つは各角の弧の半径を別々に設定します。半径は左上の角から始まり、四角形を時計回りに移動します。これらのパラメーターが省略された場合、最後に指定した角の半径の値に設定されます。</p>
+
+
+  <hr/>
+
   <p>Draws a square.</p>
 
   <p>A square is a four-sided shape defined by the <code>x</code>,
@@ -123,33 +137,40 @@ class: p5
 params:
   - name: x
     description: |
+      <p>正方形の x 座標</p>
       <p>x-coordinate of the square.</p>
     type: Number
   - name: 'y'
     description: |
+      <p>正方形の y 座標</p>
       <p>y-coordinate of the square.</p>
     type: Number
   - name: s
     description: |
+      <p>正方形の辺の長さ</p>
       <p>side size of the square.</p>
     type: Number
   - name: tl
     description: |
+      <p>(オプション) 左上の角の半径</p>
       <p>optional radius of top-left corner.</p>
     type: Number
     optional: true
   - name: tr
     description: |
+      <p>(オプション) 右上の角の半径</p>
       <p>optional radius of top-right corner.</p>
     type: Number
     optional: true
   - name: br
     description: |
+      <p>(オプション) 右下の角の半径</p>
       <p>optional radius of bottom-right corner.</p>
     type: Number
     optional: true
   - name: bl
     description: |
+      <p>(オプション) 左下の角の半径</p>
       <p>optional radius of bottom-left corner.</p>
     type: Number
     optional: true

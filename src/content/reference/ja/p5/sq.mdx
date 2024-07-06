@@ -4,6 +4,22 @@ module: Math
 submodule: Calculation
 file: src/math/calculation.js
 description: >
+  <p>数値の二乗（数値を自分自身で乗算）。</p>
+
+  <p>結果は常に正の数です。なぜなら、2つの負の数を乗算すると常に正の結果が得られるからです。たとえば、-1 * -1 = 1。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Squares a number, which means multiplying the number by itself. The value
+  returned is always a positive number.</p>
+
+  <p>For example, <code>sq(3)</code> evaluates 3 × 3 which is 9.
+  <code>sq(-3)</code> evaluates -3 × -3 which is also 9. Multiplying two
+  negative numbers produces a positive number.</p>
+
+
+  <hr/>
+
   <p>Calculates the square of a number.</p>
 
   <p>Squaring a number means multiplying the number by itself. For example,
@@ -68,10 +84,13 @@ class: p5
 params:
   - name: 'n'
     description: |
+      <p>二乗する数値</p>
       <p>number to square.</p>
     type: Number
 return:
-  description: squared number.
+  description: |-
+    二乗された数値
+    squared number.
   type: Number
 chainable: false
 ---

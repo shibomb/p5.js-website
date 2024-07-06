@@ -4,6 +4,10 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
+  <p>遅延用のローパスフィルター周波数を設定します。</p>
+  <p>ローパスフィルターは、フィルター周波数より高い周波数をカットオフします。</p>
+
+  <hr/>
   <p>Set a lowpass filter frequency for the delay. A lowpass filter
   will cut off any frequencies higher than the filter frequency.</p>
 line: 8148
@@ -13,11 +17,15 @@ class: p5.Delay
 params:
   - name: cutoffFreq
     description: |
+      <p>フィルター周波数より高い周波数をカットオフするローパスフィルター。</p>
       <p>A lowpass filter will cut off any
                                   frequencies higher than the filter frequency.</p>
     type: Number|Object
   - name: res
-    description: |
+    description: >
+      <p>フィルター周波数カットオフのレゾナンス、またはこのパラメーターをモジュレートするために使用できるオブジェクト（例：p5.Oscillator）。
+      高い数値（例: 15）はレゾナンスを、低い数値（例: .2）はスロープを生み出します。</p>
+
       <p>Resonance of the filter frequency
                                   cutoff, or an object (i.e. a p5.Oscillator)
                                   that can be used to modulate this parameter.

@@ -4,6 +4,20 @@ module: 3D
 submodule: Material
 file: src/webgl/material.js
 description: >
+  <p>提供された頂点シェーダーとフラグメントシェーダーのコードから新しい <a href="#/p5.Shader">p5.Shader</a>
+  オブジェクトを作成します。</p>
+
+  <p></p>
+
+  <p>注意:シェーダーは WebGL モードでのみ使用できます。</p>
+
+  <p>Shaders can alter the positioning of shapes drawn with them. To ensure
+  consistency in rendering, it's recommended to use the vertex shader shown in
+  the example below. /// todo ///  add 1 line</p>
+
+
+  <hr/>
+
   <p>Creates a new <a href="/reference/p5/p5.Shader">p5.Shader</a> object.</p>
 
   <p>Shaders are programs that run on the graphics processing unit (GPU). They
@@ -272,14 +286,17 @@ class: p5
 params:
   - name: vertSrc
     description: |
+      <p>頂点シェーダーのソースコード</p>
       <p>source code for the vertex shader.</p>
     type: String
   - name: fragSrc
     description: |
+      <p>フラグメントシェーダーのソースコード</p>
       <p>source code for the fragment shader.</p>
     type: String
 return:
   description: |-
+    提供された頂点シェーダーとフラグメントシェーダーから作成されたシェーダーオブジェクト。
     new shader object created from the
     vertex and fragment shaders.
   type: p5.Shader

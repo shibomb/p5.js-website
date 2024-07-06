@@ -4,6 +4,27 @@ module: Shape
 submodule: 3D Primitives
 file: src/webgl/p5.Geometry.js
 description: >
+  <p>各頂点について、各面の平均としてスムーズな法線を計算します。</p>
+
+  <p></p>
+
+  <p>/// todo ///</p>
+
+  <p>This function calculates normals for each face, where each vertex's normal
+  is the average of the normals of all faces it's connected to. i.e computes
+  smooth normals per vertex as an average of each face.</p>
+
+  <p>When using <code>FLAT</code> shading, vertices are disconnected/duplicated
+  i.e each face has its own copy of vertices. When using <code>SMOOTH</code>
+  shading, vertices are connected/deduplicated i.e each face has its vertices
+  shared with other faces.</p>
+
+  <p>Options can include: <ul> <li><code>roundToPrecision</code>: Precision
+  value for rounding computations. Defaults to 3.</li> </ul></p>
+
+
+  <hr/>
+
   <p>Calculates the normal vector for each vertex on the geometry.</p>
 
   <p>All 3D shapes are made by connecting sets of points called
@@ -343,12 +364,17 @@ example:
 class: p5.Geometry
 params:
   - name: shadingType
-    description: |
+    description: >
+      <p>(Optional) shading type (<code>FLAT</code> for flat shading or
+      <code>SMOOTH</code> for smooth shading) for buildGeometry() outputs.
+      Defaults to <code>FLAT</code>. /// todo /// </p>
+
       <p>shading type. either FLAT or SMOOTH. Defaults to <code>FLAT</code>.</p>
     type: String
     optional: true
   - name: options
     description: |
+      <p>(Optional) An optional object with configuration. /// todo /// </p>
       <p>shading options.</p>
     type: Object
     optional: true

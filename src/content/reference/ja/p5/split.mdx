@@ -4,6 +4,17 @@ module: Data
 submodule: String Functions
 file: src/utilities/string_functions.js
 description: >
+  <p><a href="#/p5/split">split()</a> 関数は、String.split()
+  にマップされ、区切り文字または文字列を使用してテキストを分割します。</p>
+
+  <p>delim パラメーターは、各部分の境界を示す文字または文字列を指定します。分割された各部分を含む String[]配列が返されます。</p>
+
+  <p><a href="#/p5/splitTokens">splitTokens()</a>
+  関数も同様に機能しますが、特定の文字やシーケンスではなく、複数の文字を使って分割します。</p>
+
+
+  <hr/>
+
   <p>Splits a <code>String</code> into pieces and returns an array containing
   the pieces.</p>
 
@@ -68,14 +79,18 @@ class: p5
 params:
   - name: value
     description: |
+      <p>分割される文字列</p>
       <p>the String to be split</p>
     type: String
   - name: delim
     description: |
+      <p>データを分割するために使用される文字列</p>
       <p>the String used to separate the data</p>
     type: String
 return:
-  description: Array of Strings
+  description: |-
+    文字列の配列
+    Array of Strings
   type: 'String[]'
 chainable: false
 ---

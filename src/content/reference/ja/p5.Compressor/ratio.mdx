@@ -4,6 +4,10 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
+  <p>現在の ratio を取得するか、時間ランプを使用して値を設定します。</p>
+  <p></p>
+
+  <hr/>
   <p>Get current ratio or set value w/ time ramp</p>
 line: 10204
 isConstructor: false
@@ -12,12 +16,14 @@ class: p5.Compressor
 params:
   - name: ratio
     description: |
+      <p>(オプション) 出力の 1dB の変化に対して入力が変化する dB の量を表します。デフォルトは12、範囲は1-20</p>
       <p>The amount of dB change in input for a 1 dB change in output
                                  default = 12, range 1 - 20</p>
     type: Number
     optional: true
   - name: time
     description: |
+      <p>(オプション) 値の変更をスケジュールするための時間値を指定します。</p>
       <p>Assign time value to schedule the change in value</p>
     type: Number
     optional: true

@@ -3,7 +3,21 @@ title: pointLight
 module: 3D
 submodule: Lights
 file: src/webgl/light.js
-description: >
+description: >-
+  <p>指定された色と位置で点光源を作成します。</p>
+
+  <p></p>
+
+  <p>点光源は、単一の点からすべての方向に光を放射します。光は特定の点（位置）から放射されるため、オブジェクトに対して遠くまたは近くに配置すると効果が異なります。</p>
+
+  <p>一度にアクティブにできる点光源は <strong>5</strong> つまでです。</p>
+
+  <p>注: ループプログラム内でライトを持続させるためには、draw() 内でライトを呼び出す必要があります（直接または間接的に）。setup()
+  に配置すると、ループの最初の通過でのみ効果があります。</p>
+
+
+  <hr/>
+
   <p>Creates a light that shines from a point in all directions.</p>
 
   <p>Point lights are like light bulbs that shine in all directions. They can be
@@ -85,6 +99,24 @@ description: >
 
   position set by the <code>lightPos</code> vector with the color value of
   <code>myColor</code>.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "v1": "Number: 現在のカラーレンジに対する赤または色相の値",
+      "v2": "Number: 現在のカラーレンジに対する緑または彩度の値",
+      "v3": "Number: 現在のカラーレンジに対する青または明度の値",
+      "x": "Number: 位置の x 成分",
+      "y": "Number: 位置の y 成分",
+      "z": "Number: 位置の z 成分",
+      "position": "p5.Vector: <a href=\"#/p5.Vector\">p5.Vector</a> としての光の位置",
+      "color": "p5.Color|Number[]|String: <a href=\"#/p5.Color\">p5.Color</a>、配列、または CSS 文字列としての色"
+  }
+
+  </pre>
 line: 682
 isConstructor: false
 itemtype: method

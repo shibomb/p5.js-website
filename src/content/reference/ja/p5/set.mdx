@@ -4,6 +4,45 @@ module: Image
 submodule: Pixels
 file: src/image/pixels.js
 description: >
+  <p>任意のピクセルの色を変更するか、画像を直接表示ウィンドウに書き込みます。</p>
+
+  <p>x および y パラメーターは、変更するピクセルを指定し、c パラメーターは色の値を指定します。これは、<a
+  href="#/p5.Color">p5.Color</a> オブジェクト、または [R, G, B, A]
+  ピクセル配列であることができます。また、単一のグレースケール値でも構いません。画像を設定する場合、x および y パラメーターは、現在の <a
+  href="#/p5/imageMode">imageMode()</a> に関係なく、画像の左上隅の座標を定義します。</p>
+
+  <p><a href="#/p5/set">set()</a> を使用した後、変更を反映させるために <a
+  href="#/p5/updatePixels">updatePixels()</a>
+  を呼び出す必要があります。これは、すべてのピクセルが設定された後に一度だけ呼び出す必要があり、.<a href="#/p5/get">get()</a>
+  を呼び出すか、画像を描画する前に呼び出す必要があります。</p>
+
+  <p>set(x, y) を使ってひとつのピクセルの色を設定するのは簡単ですが、<a href="#/p5/pixels">pixels[]</a>
+  に直接データを入れるより速くはありません。リタイナディスプレイで作業している場合、<a href="#/p5/pixels">pixels[]</a>
+  の値を直接設定することは複雑になるかもしれませんが、多くのピクセルを毎回ループで直接設定する必要がある場合は、パフォーマンスが向上します。<a
+  href="#/p5/pixels">pixels[]</a> に関する詳細は、そのリファレンスを参照してください。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Sets the color of a pixel or draws an image to the canvas.</p>
+
+  <p><code>set()</code> is easy to use but it's not as fast as <a
+  href="#/p5/pixels">pixels</a>. Use <a href="#/p5/pixels">pixels</a> to set
+  many pixel values.</p>
+
+  <p><code>set()</code> interprets the first two parameters as x- and
+  y-coordinates. It interprets the last parameter as a grayscale value, a
+  <code>[R, G, B, A]</code> pixel array, a <a href="#/p5.Color">p5.Color</a>
+  object, or a <a href="#/p5.Image">p5.Image</a> object. If an image is passed,
+  the first two parameters set the coordinates for the image's upper-left
+  corner, regardless of the current <a
+  href="#/p5/imageMode">imageMode()</a>.</p>
+
+  <p><a href="#/p5/updatePixels">updatePixels()</a> must be called after using
+  <code>set()</code> for changes to appear.</p>
+
+
+  <hr/>
+
   <p>Sets the color of a pixel or draws an image to the canvas.</p>
 
   <p><code>set()</code> is easy to use but it's not as fast as
@@ -136,14 +175,19 @@ class: p5
 params:
   - name: x
     description: |
+      <p>ピクセルの x 座標</p>
       <p>x-coordinate of the pixel.</p>
     type: Number
   - name: 'y'
     description: |
+      <p>ピクセルの y 座標</p>
       <p>y-coordinate of the pixel.</p>
     type: Number
   - name: c
-    description: |
+    description: >
+      <p>グレースケール値 | ピクセル配列 |  <a href="#/p5.Color">p5.Color</a> オブジェクト | コピーする
+      <a href="#/p5.Image">p5.Image</a></p>
+
       <p>grayscale value | pixel array |
                                      <a href="#/p5.Color">p5.Color</a> object | <a href="#/p5.Image">p5.Image</a> to copy.</p>
     type: 'Number|Number[]|Object'

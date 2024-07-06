@@ -3,7 +3,29 @@ title: textBounds
 module: Typography
 submodule: Loading & Displaying
 file: src/typography/p5.Font.js
-description: >
+description: >-
+  <p>このフォントを使用して、指定されたテキスト文字列に対して、タイトな境界ボックスを返します。</p>
+
+  <p></p>
+
+  <p>/// todo ///</p>
+
+  <p>Returns the bounding box for a string of text written using this <a
+  href="#/p5.Font">p5.Font</a>.</p>
+
+  <p>The first parameter, <code>str</code>, is a string of text. The second and
+  third parameters, <code>x</code> and <code>y</code>, are the text's position.
+  By default, they set the coordinates of the bounding box's bottom-left corner.
+  See <a href="#/p5/textAlign">textAlign()</a> for more ways to align text.</p>
+
+  <p>The fourth parameter, <code>fontSize</code>, is optional. It sets the font
+  size used to determine the bounding box. By default,
+  <code>font.textBounds()</code> will use the current <a
+  href="#/p5/textSize">textSize()</a>.</p>
+
+
+  <hr/>
+
   <p>Returns the bounding box for a string of text written using the font.</p>
 
   <p>The bounding box is the smallest rectangle that can contain a string of
@@ -38,6 +60,20 @@ description: >
   use the
 
   current <a href="/reference/p5/textSize">textSize()</a>.</p>
+
+
+  <pre>
+
+  todo: param str not found in ja-legacy:
+
+  {
+      "line": "String: テキストの行",
+      "x": "Number: テキストの x 座標",
+      "y": "Number: テキストの y 座標",
+      "fontSize": "Number: (Optional) font size. Defaults to the current  <a href=\"#/p5/textSize\">textSize()</a>. /// todo /// Number: (オプション) 使用するフォントサイズ (デフォルトは12)"
+  }
+
+  </pre>
 line: 62
 isConstructor: false
 itemtype: method
@@ -138,20 +174,29 @@ params:
     type: String
   - name: x
     description: |
+      <p>テキストの x 座標</p>
       <p>x-coordinate of the text.</p>
     type: Number
   - name: 'y'
     description: |
+      <p>テキストの y 座標</p>
       <p>y-coordinate of the text.</p>
     type: Number
   - name: fontSize
-    description: |
+    description: >
+      <p>(Optional) font size. Defaults to the current  <a
+      href="#/p5/textSize">textSize()</a>. /// todo /// Number: (オプション)
+      使用するフォントサイズ (デフォルトは12)</p>
+
       <p>font size. Defaults to the current
                                   <a href="#/p5/textSize">textSize()</a>.</p>
     type: Number
     optional: true
 return:
-  description: |-
+  description: >-
+    object describing the bounding box with  properties x, y, w, and h. /// todo
+    /// オブジェクト: x、y、w、h プロパティをもつ矩形オブジェクト
+
     object describing the bounding box with
                                 properties x, y, w, and h.
   type: Object

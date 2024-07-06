@@ -4,6 +4,25 @@ module: 3D
 submodule: Material
 file: src/webgl/material.js
 description: >
+  <p>次に描画される図形に使用される <a href="#/p5.Shader">p5.Shader</a> オブジェクトを設定します。</p>
+
+  <p></p>
+
+  <p>Shaders can alter the positioning of shapes drawn with them. To ensure
+  consistency in rendering, it's recommended to use the vertex shader in the <a
+  href="#/p5/createShader">createShader example</a>. /// todo /// add 1 line</p>
+
+  <p>カスタムシェーダーは、<a href="#/p5/createShader">createShader()</a> および <a
+  href="#/p5/loadShader">loadShader()</a> 関数を使用して作成できます。</p>
+
+  <p>デフォルトのシェーダーを復元するには、<a href="#/p5/resetShader">resetShader()</a>
+  を使用してください。</p>
+
+  <p>注意:シェーダーは WebGL モードでのみ使用できます。</p>
+
+
+  <hr/>
+
   <p>Sets the <a href="/reference/p5/p5.Shader">p5.Shader</a> object to apply
   while drawing.</p>
 
@@ -231,6 +250,7 @@ class: p5
 params:
   - name: s
     description: |
+      <p>図形の描画に使用する <a href="#/p5.Shader">p5.Shader</a> オブジェクト。</p>
       <p><a href="#/p5.Shader">p5.Shader</a> object
                            to apply.</p>
     type: p5.Shader

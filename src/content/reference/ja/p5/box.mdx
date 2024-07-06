@@ -4,6 +4,13 @@ module: Shape
 submodule: 3D Primitives
 file: src/webgl/3d_primitives.js
 description: >
+  <p>指定された幅、高さ、奥行きで箱を描画します。</p>
+
+  <p></p>
+
+
+  <hr/>
+
   <p>Draws a box (rectangular prism).</p>
 
   <p>A box is a 3D shape with six faces. Each face makes a 90˚ with four
@@ -153,26 +160,31 @@ class: p5
 params:
   - name: width
     description: |
+      <p>(オプション) 箱の幅</p>
       <p>width of the box.</p>
     type: Number
     optional: true
   - name: height
     description: |
+      <p>(オプション) 箱の高さ</p>
       <p>height of the box.</p>
     type: Number
     optional: true
   - name: depth
     description: |
+      <p>(オプション) 箱の奥行き</p>
       <p>depth of the box.</p>
     type: Number
     optional: true
   - name: detailX
     description: |
+      <p>(オプション) x 次元の三角形の細分割数</p>
       <p>number of triangle subdivisions along the x-axis.</p>
     type: Integer
     optional: true
   - name: detailY
     description: |
+      <p>(オプション) y 次元の三角形の細分割数</p>
       <p>number of triangle subdivisions along the y-axis.</p>
     type: Integer
     optional: true

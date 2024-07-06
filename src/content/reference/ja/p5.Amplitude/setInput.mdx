@@ -4,6 +4,10 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
+  <p>デフォルトで p5sound インスタンス（メイン出力）に接続します。</p>
+  <p>オプションで、特定のソース（たとえば、サウンドファイル）を渡すこともできます。</p>
+
+  <hr/>
   <p>Connects to the p5sound instance (main output) by default.
   Optionally, you can pass in a specific source (i.e. a soundfile).</p>
 line: 3117
@@ -48,6 +52,7 @@ class: p5.Amplitude
 params:
   - name: snd
     description: |
+      <p>(オプション) 音源を設定します。デフォルトはメイン出力です。</p>
       <p>set the sound source
                                            (optional, defaults to
                                            main output)</p>
@@ -55,6 +60,7 @@ params:
     optional: true
   - name: smoothing
     description: |
+      <p>(オプション) ボリューム読み取りのスムージングを0.0から1.0の範囲で設定します。</p>
       <p>a range between 0.0 and 1.0
                                             to smooth amplitude readings</p>
     type: Number|undefined

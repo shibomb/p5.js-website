@@ -4,6 +4,18 @@ module: Events
 submodule: Mouse
 file: src/events/mouse.js
 description: >
+  <p><a href="#/p5/mousePressed">mousePressed()</a>
+  関数は、マウスボタンが押されるたびに1回呼び出されます。</p>
+
+  <p>mouseButton 変数（関連するリファレンスエントリを参照）を使用して、どのボタンが押されたかを判断できます。<a
+  href="#/p5/mousePressed">mousePressed()</a> 関数が定義されていない場合、代わりに <a
+  href="#/p5/touchStarted">touchStarted()</a>
+  関数が呼び出されます（定義されている場合）。ブラウザーには、さまざまなマウスイベントに対して異なるデフォルトの動作が付随している場合があります。このイベントのデフォルトの動作を防ぐには、関数の最後に「return
+  false」を追加してください。</p>
+
+
+  <hr/>
+
   <p>A function that's called once when a mouse button is pressed.</p>
 
   <p>Declaring the function <code>mousePressed()</code> sets a code block to run
@@ -180,6 +192,7 @@ class: p5
 params:
   - name: event
     description: |
+      <p>(オプション) オプションの MouseEvent コールバック引数。</p>
       <p>optional <code>MouseEvent</code> argument.</p>
     type: MouseEvent
     optional: true

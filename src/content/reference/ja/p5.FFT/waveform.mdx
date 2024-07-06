@@ -4,6 +4,10 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
+  <p>単一のバッファ内の振幅読み取りのスナップショットを表す、-1.0から+1.0 の振幅値の配列を返します。</p>
+  <p>長さは bins に等しく（デフォルトは1024）。音響信号の波形を描画するために使用することができます。</p>
+
+  <hr/>
   <p>Returns an array of amplitude values (between -1.0 and +1.0) that represent
   a snapshot of amplitude readings in a single buffer. Length will be
   equal to bins (defaults to 1024). Can be used to draw the waveform
@@ -15,12 +19,14 @@ class: p5.FFT
 params:
   - name: bins
     description: |
+      <p>(オプション) 16から1024の間で2の累乗である必要があります。デフォルトは1024です。</p>
       <p>Must be a power of two between
                                 16 and 1024. Defaults to 1024.</p>
     type: Number
     optional: true
   - name: precision
     description: |
+      <p>(オプション) 値が提供されている場合、通常の配列よりも正確な Float32 の配列で結果を返します。</p>
       <p>If any value is provided, will return results
                                   in a Float32 Array which is more precise
                                   than a regular array.</p>
@@ -28,6 +34,7 @@ params:
     optional: true
 return:
   description: |-
+    時間にわたる振幅値の配列（-1から1）。配列の長さは bins です。
     Array    Array of amplitude values (-1 to 1)
                               over time. Array length = bins.
   type: Array

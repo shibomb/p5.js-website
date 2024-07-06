@@ -4,6 +4,23 @@ module: Math
 submodule: Trigonometry
 file: src/math/trigonometry.js
 description: >
+  <p><a href="#/p5/tan">tan()</a> の逆関数で、値の逆正接を返します。</p>
+
+  <p>この関数は、-Infinity から Infinity(exclusive) の範囲の値を想定しており、angleMode が RADIANS
+  の場合は -PI / 2 から PI / 2 の範囲の値が、DEGREES の場合は-90から90の範囲の値が返されます。</p>
+
+  <p>/// todo ///</p>
+
+  <p>The inverse of <a href="#/p5/tan">tan()</a>, returns the arc tangent of a
+  value. This function expects input values in the range of -Infinity to
+  Infinity. By default, <code>atan()</code> returns values in the range -π ÷ 2
+  (about -1.57) to π ÷ 2 (about 1.57). If the <a
+  href="#/p5/angleMode">angleMode()</a> is <code>DEGREES</code> then values are
+  returned in the range -90 to 90.</p>
+
+
+  <hr/>
+
   <p>Calculates the arc tangent of a number.</p>
 
   <p><code>atan()</code> is the inverse of <a
@@ -71,10 +88,13 @@ class: p5
 params:
   - name: value
     description: |
+      <p>逆正接を返す値</p>
       <p>value whose arc tangent is to be returned.</p>
     type: Number
 return:
-  description: arc tangent of the given value.
+  description: |-
+    与えられた値の逆正接
+    arc tangent of the given value.
   type: Number
 chainable: false
 ---

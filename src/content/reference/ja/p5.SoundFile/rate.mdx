@@ -4,6 +4,10 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
+  <p>サウンドファイルの再生速度を設定します。</p>
+  <p>速度とピッチが変化します。0未満の値はオーディオバッファを逆方向に再生します。</p>
+
+  <hr/>
   <p>Set the playback rate of a sound file. Will change the speed and the pitch.
   Values less than zero will reverse the audio buffer.</p>
 line: 2146
@@ -48,6 +52,7 @@ class: p5.SoundFile
 params:
   - name: playbackRate
     description: |
+      <p> (オプション) 再生速度を設定します。1.0は通常の速度、0.5は半分の速度、2.0は2倍の速度です。0未満の値は逆再生します。</p>
       <p>Set the playback rate. 1.0 is normal,
                                          .5 is half-speed, 2.0 is twice as fast.
                                          Values less than zero play backwards.</p>

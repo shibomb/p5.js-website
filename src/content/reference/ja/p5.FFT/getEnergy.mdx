@@ -3,18 +3,39 @@ title: getEnergy
 module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
-description: |
+description: >
+  <p>特定の <a href="https://en.wikipedia.org/wiki/Audio_frequency"
+  target="_blank">周波数</a> のエネルギー（ボリューム）または2つの周波数の間の平均エネルギー量を返します。</p>
+
+  <p>周波数（Hz）に対応する数値または周波数範囲を示す"文字列"を受け入れます（"bass"、"lowMid"、"mid"、"highMid"、"treble"）。値は0（その周波数でのエネルギー/ボリュームなし）から255（最大エネルギー）の範囲です。
+  <em>注意:getEnergy() を使用する前に analyze() を呼び出す必要があります。analyze() は、FFT
+  に周波数データを解析するように指示し、getEnergy() はその結果を使用して特定の周波数または周波数範囲の値を決定します。</em></p>
+
+
+  <hr/>
+
   <p>Returns the amount of energy (volume) at a specific
+
   <a href="https://en.wikipedia.org/wiki/Audio_frequency" target="_blank">
+
   frequency</a>, or the average amount of energy between two
+
   frequencies. Accepts Number(s) corresponding
+
   to frequency (in Hz), or a "string" corresponding to predefined
+
   frequency ranges ("bass", "lowMid", "mid", "highMid", "treble").
+
   Returns a range between 0 (no energy/volume at that frequency) and
+
   255 (maximum energy).
+
   <em>NOTE: analyze() must be called prior to getEnergy(). analyze()
+
   tells the FFT to analyze frequency data, and getEnergy() uses
+
   the results to determine the value at a specific frequency or
+
   range of frequencies.</em></p>
 line: 3650
 isConstructor: false
@@ -22,7 +43,9 @@ itemtype: method
 class: p5.FFT
 params:
   - name: frequency1
-    description: |
+    description: >
+      <p>この周波数でのエネルギーを表す値が返されます。また、"bass"、"lowMid"、"mid"、"highMid"、"treble"の文字列を指定すると、事前に定義された周波数範囲が返されます。</p>
+
       <p>Will return a value representing
                                     energy at this frequency. Alternately,
                                     the strings "bass", "lowMid" "mid",
@@ -31,6 +54,7 @@ params:
     type: Number|String
   - name: frequency2
     description: |
+      <p>(オプション) 2番目の周波数が指定された場合、2つの周波数の間に存在するエネルギーの平均量が返されます。</p>
       <p>If a second frequency is given,
                                     will return average amount of
                                     energy that exists between the
@@ -39,6 +63,7 @@ params:
     optional: true
 return:
   description: |-
+    エネルギー。0から255までの値。
     Energy   Energy (volume/amplitude) from
                                 0 and 255.
   type: Number

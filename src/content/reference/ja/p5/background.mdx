@@ -3,7 +3,43 @@ title: background
 module: Color
 submodule: Setting
 file: src/color/setting.js
-description: >
+description: >-
+  <p><a href="#/p5/background">background()</a> 関数は、p5.js
+  キャンバスの背景に使用される色を設定します。</p>
+
+  <p>デフォルトの背景は透明です。この関数は通常、<a href="#/p5/draw">draw()</a>
+  内で各フレームの開始時にディスプレイウィンドウをクリアするために使用されますが、<a href="#/p5/setup">setup()</a>
+  内でアニメーションの最初のフレームの背景を設定するために使用されることもありますし、背景を一度だけ設定する必要がある場合にも使用できます。</p>
+
+  <p>色は、現在の <a href="#/p5/colorMode">colorMode</a> に応じて、RGB、HSB、HSL
+  カラーで指定されます。（デフォルトのカラースペースは RGB で、各値の範囲は0から255です）。デフォルトでは、アルファの範囲も0から255です。</p>
+
+  <p>単一の文字列引数が提供された場合、RGB、RGBA、および16進数の CSS
+  カラー文字列およびすべての名前付きカラー文字列がサポートされます。この場合、2番目の引数としてのアルファ数値はサポートされず、RGBA
+  形式を使用する必要があります。</p>
+
+  <p><a href="#/p5.Color">p5.Color</a> オブジェクトを渡して背景色を設定することもできます。</p>
+
+  <p>また、<a href="#/p5.Image">p5.Image</a> を渡して背景画像を設定することもできます。</p>
+
+  <p>キャンバスの背景に使用される色を設定します。デフォルトでは、背景は透明です。この関数は通常、<a
+  href="#/p5/draw">draw()</a>内で使用され、各フレームの開始時に表示ウィンドウをクリアするために使用されます。また、<a
+  href="#/p5/setup">setup()</a>内で使用して、アニメーションの最初のフレームの背景を設定することもできます。</p>
+
+  <p><code>background()</code>のパラメーターが1つあるバージョンは、その値を4つの方法で解釈します。パラメーターが数字の場合、それはグレースケール値と解釈されます。パラメーターが文字列の場合、それは
+  CSS カラー文字列と解釈されます。RGB、RGBA、HSL、HSLA、16進数、および名前付き色文字列がサポートされています。パラメーターが<a
+  href="#/p5.Color">p5.Color</a>オブジェクトの場合、それは背景色として使用されます。パラメーターが<a
+  href="#/p5.Image">p5.Image</a>オブジェクトの場合、それは背景画像として使用されます。</p>
+
+  <p><code>background()</code>のパラメーターが2つあるバージョンは、最初のパラメーターをグレースケール値と解釈します。2番目のパラメーターはアルファ（透明度）値を設定します。</p>
+
+  <p><code>background()</code>のパラメーターが3つあるバージョンは、それらを RGB、HSB、または HSL
+  色と解釈します。これは現在の<a href="#/p5/colorMode">colorMode()</a>に依存します。デフォルトでは、色は RGB
+  値で指定されます。 background(255,204,0) を呼び出すと、背景が鮮やかな黄色になります。</p>
+
+
+  <hr/>
+
   <p>Sets the color used for the background of the canvas.</p>
 
   <p>By default, the background is transparent. <code>background()</code> is
@@ -59,6 +95,25 @@ description: >
   background a bright
 
   yellow color.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "color": "p5.Color: <a href=\"#/p5/color\">color()</a> 関数で作成された任意の値",
+      "colorstring": "String: カラー文字列、対応する形式は次のとおりです: 整数 rgb() または rgba()、パーセンテージ、rgb() または rgba()、3桁の16進数、6桁の16進数",
+      "a": "Number: (オプション) 現在のカラー範囲に対する背景の不透明度（デフォルトは0-255）",
+      "gray": "Number: 白と黒の間の値を指定",
+      "v1": "Number: カラーモードが RGB の場合:赤の値、カラーモードが HSB の場合:色相の値",
+      "v2": "Number: カラーモードが RGB の場合:緑の値、カラーモードが HSB の場合:彩度の値",
+      "v3": "Number: カラーモードが RGB の場合:青の値、カラーモードが HSB の場合:明るさの値",
+      "values": "Number[]: 色の赤、緑、青、およびアルファ成分を含む配列",
+      "image": "p5.Image: 背景として設定する <a href=\"#/p5/loadImage\">loadImage()</a> または <a href=\"#/p5/createImage\">createImage()</a> で作成された画像（スケッチウィンドウと同じサイズである必要があります）"
+  }
+
+  </pre>
 line: 414
 isConstructor: false
 itemtype: method

@@ -4,6 +4,16 @@ module: 3D
 submodule: Material
 file: src/webgl/material.js
 description: >
+  <p>テクスチャマッピングの座標空間を設定します。</p>
+
+  <p>デフォルトモードは IMAGE で、画像の実際の座標を指します。NORMAL は、0から1の範囲の正規化された値の空間を指します。</p>
+
+  <p>IMAGE では、画像が100 × 200ピクセルの場合、画像をクワッド全体のサイズにマッピングするには、点(0,0) (100, 0)
+  (100,200) (0,200)が必要です。NORMAL では、同じマッピングが(0,0) (1,0) (1,1) (0,1)になります。</p>
+
+
+  <hr/>
+
   <p>Changes the coordinate system used for textures when they’re applied to
 
   custom shapes.</p>
@@ -236,6 +246,7 @@ class: p5
 params:
   - name: mode
     description: |
+      <p>IMAGE、NORMAL のいずれか</p>
       <p>either IMAGE or NORMAL.</p>
     type: Constant
 chainable: false

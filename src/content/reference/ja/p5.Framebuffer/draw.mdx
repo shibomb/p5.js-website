@@ -4,6 +4,13 @@ module: Rendering
 submodule: ''
 file: src/webgl/p5.Framebuffer.js
 description: >
+  <p>キャンバスではなくフレームバッファに描画する関数を実行します。</p>
+
+  <p>これは<code>framebuffer.begin()</code>を呼び出し、関数を実行し、<code>framebuffer.end()</code>を呼び出すのと同等ですが、<code>begin</code>や<code>end</code>を忘れることがないようにします。</p>
+
+
+  <hr/>
+
   <p>Draws to the framebuffer by calling a function that contains drawing
 
   instructions.</p>
@@ -73,6 +80,7 @@ class: p5.Framebuffer
 params:
   - name: callback
     description: |
+      <p>キャンバスに描画する関数。この関数は即座に実行されますが、キャンバスではなくフレームバッファに描画されます。</p>
       <p>function that draws to the framebuffer.</p>
     type: Function
 chainable: false

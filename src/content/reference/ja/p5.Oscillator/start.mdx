@@ -3,10 +3,23 @@ title: start
 module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
-description: |
+description: >
+  <p>オシレーターを開始します。</p>
+
+  <p></p>
+
+  <p>ユーザージェスチャーでオシレーターを開始すると、Chrome
+  や多くのモバイルデバイスを含む厳格な自動再生ポリシーをもつブラウザーでオーディオが有効になります。参照:<code>userStartAudio()</code>。</p>
+
+
+  <hr/>
+
   <p>Start an oscillator.</p>
+
   <p>Starting an oscillator on a user gesture will enable audio in browsers
+
   that have a strict autoplay policy, including Chrome and most mobile
+
   devices. See also: <code>userStartAudio()</code>.</p>
 line: 4168
 isConstructor: false
@@ -15,11 +28,13 @@ class: p5.Oscillator
 params:
   - name: time
     description: |
+      <p>(オプション) 現在からの開始時間（秒単位）</p>
       <p>startTime in seconds from now.</p>
     type: Number
     optional: true
   - name: frequency
     description: |
+      <p>(オプション) 周波数（Hz）</p>
       <p>frequency in Hz.</p>
     type: Number
     optional: true

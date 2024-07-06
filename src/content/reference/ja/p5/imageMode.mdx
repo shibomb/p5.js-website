@@ -4,6 +4,41 @@ module: Image
 submodule: Loading & Displaying
 file: src/image/loading_displaying.js
 description: >
+  <p>画像モードを設定します。</p>
+
+  <p><a href="#/p5/image">image()</a>
+  に与えられるパラメーターの解釈方法を変更することで、画像が描画される位置を変更します。デフォルトのモードは imageMode(CORNER) で、<a
+  href="#/p5/image">image()</a>
+  の第2および第3のパラメーターを画像の左上の角として解釈します。さらに2つのパラメーターが指定されている場合、それらは画像の幅と高さを設定するために使用されます。</p>
+
+  <p>imageMode(CORNERS)は、<a href="#/p5/image">image()</a>
+  の第2および第3のパラメーターをひとつの角の位置として解釈し、第4および第5のパラメーターを反対側の角として解釈します。</p>
+
+  <p>imageMode(CENTER)は、<a href="#/p5/image">image()</a>
+  の第2および第3のパラメーターを画像の中心点として解釈します。さらに2つのパラメーターが指定されている場合、それらは画像の幅と高さを設定するために使用されます。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Changes the location from which images are drawn when <a
+  href="#/p5/image">image()</a> is called.</p>
+
+  <p>By default, the first two parameters of <a href="#/p5/image">image()</a>
+  are the x- and y-coordinates of the image's upper-left corner. The next
+  parameters are its width and height. This is the same as calling
+  <code>imageMode(CORNER)</code>.</p>
+
+  <p><code>imageMode(CORNERS)</code> also uses the first two parameters of <a
+  href="#/p5/image">image()</a> as the x- and y-coordinates of the image's
+  top-left corner. The third and fourth parameters are the coordinates of its
+  bottom-right corner.</p>
+
+  <p><code>imageMode(CENTER)</code> uses the first two parameters of <a
+  href="#/p5/image">image()</a> as the x- and y-coordinates of the image's
+  center. The next parameters are its width and height.</p>
+
+
+  <hr/>
+
   <p>Changes the location from which images are drawn when
 
   <a href="/reference/p5/image">image()</a> is called.</p>
@@ -117,6 +152,7 @@ class: p5
 params:
   - name: mode
     description: |
+      <p>CORNER、CORNERS、CENTER のいずれか</p>
       <p>either CORNER, CORNERS, or CENTER.</p>
     type: Constant
 chainable: false

@@ -4,6 +4,25 @@ module: Environment
 submodule: Environment
 file: src/core/environment.js
 description: >
+  <p>現在の URL パラメーターをオブジェクトとして取得します。</p>
+
+  <p>注意: p5 エディターを使用している場合、スケッチが iframe
+  に埋め込まれているため、この関数は空のオブジェクトを返します。エディターのプレゼント URL やシェア URL
+  でスケッチを表示すると、正しく機能します。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Returns the current <a
+  href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL#parameters"
+  target="_blank">URL parameters</a> in an Object.</p>
+
+  <p>For example, calling <code>getURLParams()</code> in a sketch hosted at the
+  URL <code>http://p5js.org?year=2014&month=May&day=15</code> returns <code>{
+  year: 2014, month: 'May', day: 15 }</code>.</p>
+
+
+  <hr/>
+
   <p>Returns the current
 
   <a
@@ -47,7 +66,9 @@ example:
     </div>
 class: p5
 return:
-  description: URL params
+  description: |-
+    URL パラメーター
+    URL params
   type: Object
 chainable: false
 ---

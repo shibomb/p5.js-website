@@ -3,7 +3,19 @@ title: ambientLight
 module: 3D
 submodule: Lights
 file: src/webgl/light.js
-description: >
+description: >-
+  <p>与えられた色でアンビエントライトを作成します。</p>
+
+  <p></p>
+
+  <p>アンビエントライトは特定の方向から来るものではありません。オブジェクトはすべての面から均等に照らされます。アンビエントライトは、ほとんどの場合、他の種類のライトと組み合わせて使用されます。</p>
+
+  <p>注意: ループするプログラムでライトが持続するためには、draw() 内で（直接的または間接的に）呼び出す必要があります。setup()
+  に配置すると、ループの最初のサイクルでのみ効果があります。</p>
+
+
+  <hr/>
+
   <p>Creates a light that shines from all directions.</p>
 
   <p>Ambient light does not come from one direction. Instead, 3D shapes are
@@ -52,6 +64,24 @@ description: >
   using
 
   the current <a href="/reference/p5/colorMode">colorMode()</a>.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "v1": "Number: 現在のカラーレンジに対する赤または色相の値",
+      "v2": "Number: 現在のカラーレンジに対する緑または彩度の値",
+      "v3": "Number: 現在のカラーレンジに対する青または明るさの値",
+      "alpha": "Number: (オプション) 現在のカラーレンジに対するアルファ値 (デフォルトは0-255)",
+      "gray": "Number: 白と黒の間の値を指定する数値",
+      "value": "String: 色を表す文字列",
+      "values": "Number[]: 色の赤、緑、青、アルファ成分を含む配列",
+      "color": "p5.Color: <a href=\"#/p5.Color\">p5.Color</a> としての色"
+  }
+
+  </pre>
 line: 10
 isConstructor: false
 itemtype: method

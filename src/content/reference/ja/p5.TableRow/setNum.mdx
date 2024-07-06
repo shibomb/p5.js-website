@@ -4,6 +4,10 @@ module: IO
 submodule: Table
 file: src/io/p5.TableRow.js
 description: |
+  <p>TableRow の指定された列に浮動小数点値を格納します。</p>
+  <p>列は、ID またはタイトルのいずれかで指定できます。</p>
+
+  <hr/>
   <p>Stores a Float value in the TableRow's specified column.
   The column may be specified by either its ID or title.</p>
 line: 97
@@ -43,11 +47,13 @@ class: p5.TableRow
 params:
   - name: column
     description: |
+      <p>列 ID（数値）またはタイトル（文字列）</p>
       <p>Column ID (Number)
                                     or Title (String)</p>
     type: String|Integer
   - name: value
     description: |
+      <p>浮動小数点数として格納する値</p>
       <p>The value to be stored
                                     as a Float</p>
     type: Number|String

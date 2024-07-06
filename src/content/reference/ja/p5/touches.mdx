@@ -4,6 +4,16 @@ module: Events
 submodule: Touch
 file: src/events/touch.js
 description: >
+  <p>システム変数 touches[]は、キャンバスの (0, 0) に対する現在のすべてのタッチポイントの位置と、移動するユニークなタッチを識別する ID
+  が含まれた配列です。</p>
+
+  <p>配列の各要素は、x, y および id プロパティをもつオブジェクトです。</p>
+
+  <p>touches[]配列は、タッチベースのデスクトップ（ノートパソコン）の Safari および IE ではサポートされていません。</p>
+
+
+  <hr/>
+
   <p>An <code>Array</code> of all the current touch points on a touchscreen
   device.</p>
 

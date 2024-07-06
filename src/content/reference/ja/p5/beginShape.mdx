@@ -4,6 +4,45 @@ module: Shape
 submodule: Vertex
 file: src/core/shape/vertex.js
 description: >
+  <p><a href="#/p5/beginShape">beginShape()</a> 関数と <a
+  href="#/p5/endShape">endShape()</a> 関数を使用することで、より複雑な形状を作成できます。</p>
+
+  <p><a href="#/p5/beginShape">beginShape()</a> は、形状の頂点を記録するために使用され、<a
+  href="#/p5/endShape">endShape()</a> は記録を停止します。kind
+  パラメーターの値によって、提供された頂点からどのタイプの形状を作成するかを指定できます。モードが指定されていない場合、形状は任意の不規則なポリゴンである可能性があります。</p>
+
+  <p><a href="#/p5/beginShape">beginShape()</a> 関数で利用可能なパラメーターは次のとおりです:</p>
+
+  <p>POINTS: 点のシリーズを描画します。</p>
+
+  <p>LINES: つながっていない線分のシリーズを描画します。</p>
+
+  <p>TRIANGLES: 別々の三角形のシリーズを描画します。</p>
+
+  <p>TRIANGLE_FAN: ファンのように、最初の頂点を共有する接続された三角形のシリーズを描画します。</p>
+
+  <p>TRIANGLE_STRIP: ストリップ状に接続された三角形のシリーズを描画します。</p>
+
+  <p>QUADS: 別々の四角形のシリーズを描画します。</p>
+
+  <p>QUAD_STRIP: 隣接する辺を使用して次の四角形を形成する四角形ストリップを描画します。</p>
+
+  <p>TESS (WebGL のみ): 曲線を埋めるための不規則なポリゴンを、明示的なテッセレーションで制御します。</p>
+
+  <p><a href="#/p5/beginShape">beginShape()</a> 関数を呼び出した後、一連の <a
+  href="#/p5/vertex">vertex()</a> コマンドが続きます。図形の描画を停止するには、<a
+  href="#/p5/endShape">endShape()</a>
+  を呼び出します。各図形は現在のストロークカラーで輪郭が描かれ、塗りつぶしカラーで塗りつぶされます。</p>
+
+  <p><a href="#/p5/translate">translate()</a>、<a
+  href="#/p5/rotate">rotate()</a>、<a href="#/p5/scale">scale()</a> などの変換は <a
+  href="#/p5/beginShape">beginShape()</a> 内では機能しません。<a
+  href="#/p5/ellipse">ellipse()</a> や <a href="#/p5/rect">rect()</a> などの他の図形も、<a
+  href="#/p5/beginShape">beginShape()</a> 内では使用できません。</p>
+
+
+  <hr/>
+
   <p>Begins adding vertices to a custom shape.</p>
 
   <p>The <code>beginShape()</code> and <a
@@ -432,7 +471,10 @@ example:
 class: p5
 params:
   - name: kind
-    description: |
+    description: >
+      <p>(オプション) POINTS, LINES, TRIANGLES, TRIANGLE_FAN, TRIANGLE_STRIP, QUADS,
+      QUAD_STRIP, TESS のいずれか</p>
+
       <p>either POINTS, LINES, TRIANGLES, TRIANGLE_FAN
                                      TRIANGLE_STRIP, QUADS, QUAD_STRIP or TESS.</p>
     type: Constant

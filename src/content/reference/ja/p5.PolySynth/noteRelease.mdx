@@ -4,6 +4,10 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
+  <p>AudioVoice の音符のリリースをトリガーします。</p>
+  <p>これは、ピアノのキーを離して、リリースレベルとリリース時間に応じて音がフェードアウトするのに似ています。</p>
+
+  <hr/>
   <p>Trigger the Release of an AudioVoice note. This is similar to releasing
   the key on a piano and letting the sound fade according to the
   release level and release time.</p>
@@ -44,12 +48,14 @@ class: p5.PolySynth
 params:
   - name: note
     description: |
+      <p>(オプション) リリースをトリガーする MIDI ノート。値が提供されない場合、すべての音符がリリースされます。</p>
       <p>midi note on which attack should be triggered.
                                         If no value is provided, all notes will be released.</p>
     type: Number
     optional: true
   - name: secondsFromNow
     description: |
+      <p>(オプション) リリースをトリガーするまでの時間（秒単位）</p>
       <p>time to trigger the release</p>
     type: Number
     optional: true

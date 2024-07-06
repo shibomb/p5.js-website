@@ -4,6 +4,10 @@ module: IO
 submodule: Table
 file: src/io/p5.Table.js
 description: |
+  <p>指定したテーブルの特定の行と列から文字列を取得します。</p>
+  <p>行は ID で指定され、列は ID またはタイトルで指定することができます。</p>
+
+  <hr/>
   <p>Retrieves a String value from the Table's specified row and column.
   The row is specified by its ID, while the column may be specified by
   either its ID or title.</p>
@@ -49,15 +53,18 @@ class: p5.Table
 params:
   - name: row
     description: |
+      <p>行 ID</p>
       <p>row ID</p>
     type: Integer
   - name: column
     description: |
+      <p>列名(string)または ID(number)</p>
       <p>columnName (string) or
                                         ID (number)</p>
     type: String|Integer
 return:
-  description: ''
+  description: |
+    String:
   type: String
 chainable: false
 ---

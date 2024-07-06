@@ -3,7 +3,26 @@ title: loadModel
 module: Shape
 submodule: 3D Models
 file: src/webgl/loading.js
-description: >
+description: >-
+  <p>OBJ または STL ファイルから 3D モデルを読み込みます。</p>
+
+  <p></p>
+
+  <p><a href="#/p5/loadModel">loadModel()</a> は、<a
+  href="#/p5/preload">preload()</a>
+  の中に配置する必要があります。これにより、モデルが他のコードが実行される前に完全に読み込まれます。</p>
+
+  <p>OBJ および STL
+  形式の制約のひとつは、スケールの組み込み概念がないことです。これは、異なるプログラムからエクスポートされたモデルが非常に異なるサイズになる可能性があることを意味します。モデルが表示されない場合は、正規化パラメーターを
+  true に設定して <a href="#/p5/loadModel">loadModel()</a> を呼び出してみてください。これにより、モデルが p5
+  に適したスケールにリサイズされます。<a href="#/p5/scale">scale()</a>
+  関数を使ってモデルの最終サイズにさらに変更を加えることもできます。</p>
+
+  <p>また、カラー付き STL ファイルのサポートはありません。カラー付きの STL ファイルは、カラープロパティなしでレンダリングされます。</p>
+
+
+  <hr/>
+
   <p>Loads a 3D model to create a
 
   <a href="/reference/p5/p5.Geometry">p5.Geometry</a> object.</p>
@@ -126,6 +145,21 @@ description: >
   <p>Note: There’s no support for colored STL files. STL files with color will
 
   be rendered without color.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "path": "String: 読み込むモデルのパス",
+      "normalize": "Boolean: true の場合、読み込み時にモデルを標準化されたサイズにスケールします。",
+      "successCallback": "function(p5.Geometry): (オプション) モデルが読み込まれた後に呼び出される関数。3D モデルオブジェクトが渡されます。",
+      "failureCallback": "Function(Event): (オプション) モデルの読み込みに失敗した場合にイベントエラーとともに呼び出される関数。",
+      "fileType": "String: (オプション) モデルのファイル拡張子（<code>.stl</code>, <code>.obj</code>）"
+  }
+
+  </pre>
 line: 12
 isConstructor: false
 itemtype: method
@@ -357,7 +391,9 @@ example:
     </div>
 class: p5
 return:
-  description: the <a href="#/p5.Geometry">p5.Geometry</a> object
+  description: |-
+    <a href="#/p5.Geometry">p5.Geometry</a> オブジェクト
+    the <a href="#/p5.Geometry">p5.Geometry</a> object
   type: p5.Geometry
 overloads:
   - line: 12

@@ -4,6 +4,24 @@ module: Environment
 submodule: Environment
 file: src/core/environment.js
 description: >
+  <p>デフォルトの <a href="#/p5/pixelDensity">pixelDensity</a>
+  にしたがって画面表示の幅を保存するシステム変数です。</p>
+
+  <p>これは、任意の表示サイズでフルスクリーンプログラムを実行するために使用されます。実際の画面サイズを返すには、これに pixelDensity
+  を掛けます。</p>
+
+  <p>/// todo ///</p>
+
+  <p>A numeric variable that stores the width of the screen display. Its value
+  depends on the current <a href="#/p5/pixelDensity">pixelDensity()</a>.
+  <code>displayWidth</code> is useful for running full-screen programs.</p>
+
+  <p>Note: The actual screen width can be computed as <code>displayWidth *
+  pixelDensity()</code>.</p>
+
+
+  <hr/>
+
   <p>A <code>Number</code> variable that stores the width of the screen
   display.</p>
 

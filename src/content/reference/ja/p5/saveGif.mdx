@@ -4,6 +4,43 @@ module: Image
 submodule: Loading & Displaying
 file: src/image/loading_displaying.js
 description: >
+  <p>現在のアニメーションを gif として生成し、コンピューターにダウンロードします！。</p>
+
+  <p>duration 引数は、アニメーションから録画したい秒数を指定します。この値は、units
+  の値に応じて、生成する必要があるフレーム数に変換されます。次の段落で詳しく説明します。</p>
+
+  <p>さらに2つの引数を含むオプションのオブジェクトです:delay（number）および units（string）。</p>
+
+  <p><code>delay</code> は、録画を開始する前に待つ時間を指定します。</p>
+
+  <p><code>units</code>
+  は、'seconds'または'frames'のいずれかの文字列です。デフォルトでは'seconds'です。</p>
+
+  <p><code>units</code> は、duration と delay
+  引数の動作方法を指定します。'seconds'の場合、これらの引数は秒に対応し、3秒間のアニメーションが作成されることを意味します。'frames'の場合、引数はアニメーションのフレーム数に対応し、この数値が非常に確実な場合に限ります。</p>
+
+  <p>これは、setup で呼び出すことも、以下の例のように、keyPressed や mousePressed
+  などのイベント関数内で呼び出すこともできます。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Generates a gif from a sketch and saves it to a file.
+  <code>saveGif()</code> may be called in <a href="#/p5/setup">setup()</a> or at
+  any point while a sketch is running.</p>
+
+  <p>The first parameter, <code>fileName</code>, sets the gif's file name. The
+  second parameter, <code>duration</code>, sets the gif's duration in
+  seconds.</p>
+
+  <p>The third parameter, <code>options</code>, is optional. If an object is
+  passed, <code>saveGif()</code> will use its properties to customize the gif.
+  <code>saveGif()</code> recognizes the properties <code>delay</code>,
+  <code>units</code>, <code>silent</code>, <code>notificationDuration</code>,
+  and <code>notificationID</code>.</p>
+
+
+  <hr/>
+
   <p>Generates a gif from a sketch and saves it to a file.</p>
 
   <p><code>saveGif()</code> may be called in <a
@@ -92,14 +129,34 @@ class: p5
 params:
   - name: filename
     description: |
+      <p>file name of gif. /// todo /// String: gif ファイルのファイル名</p>
       <p>file name of gif.</p>
     type: String
   - name: duration
-    description: |
+    description: >
+      <p>duration in seconds to capture from the sketch. /// todo /// Number:
+      スケッチからキャプチャしたい秒数の長さ</p>
+
       <p>duration in seconds to capture from the sketch.</p>
     type: Number
   - name: options
-    description: |
+    description: >
+      <p>(Optional) an object that can contain five more properties: 
+      <code>delay</code>, a Number specifying how much time to wait before
+      recording;  <code>units</code>, a String that can be either 'seconds' or
+      'frames'. By default it's 'seconds’;  <code>silent</code>, a Boolean that
+      defines presence of progress notifications. By default it’s
+      <code>false</code>;  <code>notificationDuration</code>, a Number that
+      defines how long in seconds the final notification  will live. By default
+      it's <code>0</code>, meaning the notification will never be removed; 
+      <code>notificationID</code>, a String that specifies the id of the
+      notification's DOM element. By default it’s <code>'progressBar’</code>.
+      /// todo /// Object: 5つの引数を含むことができるオプションのオブジェクトです: delay,
+      録画するまでの待ち時間を指定します。; units, 'seconds' または 'frames' の文字列です。デフォルトは 'seconds'
+      です。; silent, 進捗通知の有無を定義するブール値です。デフォルトは false です。; notificationDuration,
+      最終通知が表示される時間を秒単位で定義する数値です。デフォルト値の 0 は、通知が削除されないことを意味します。; notificationID,
+      通知先の DOM 要素 ID を指定する文字列です。デフォルトでは 'progressBar' です。</p>
+
       <p>an object that can contain five more properties:
                        <code>delay</code>, a Number specifying how much time to wait before recording;
                        <code>units</code>, a String that can be either 'seconds' or 'frames'. By default it's 'seconds’;

@@ -3,7 +3,26 @@ title: lerp
 module: Math
 submodule: Vector
 file: src/math/p5.Vector.js
-description: >
+description: >-
+  <p>線形補間によってベクトルを別のベクトルに移動します。</p>
+
+  <p></p>
+
+  <p>/// todo ///</p>
+
+  <p>Calculates new <code>x</code>, <code>y</code>, and <code>z</code>
+  components that are proportionally the same distance between two vectors. The
+  <code>amt</code> parameter is the amount to interpolate between the old vector
+  and the new vector. 0.0 keeps all components equal to the old vector's, 0.5 is
+  halfway between, and 1.0 sets all components equal to the new vector's.</p>
+
+  <p>The static version of <code>lerp()</code>, as in <code>p5.Vector.lerp(v0,
+  v1, 0.5)</code>, returns a new <a href="#/p5.Vector">p5.Vector</a> object and
+  doesn't change the original.</p>
+
+
+  <hr/>
+
   <p>Calculates new <code>x</code>, <code>y</code>, and <code>z</code>
   components that are proportionally the
 
@@ -23,6 +42,24 @@ description: >
   doesn't change
 
   the original.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "x": "Number: x 成分。",
+      "y": "Number: y 成分。",
+      "z": "Number: z 成分。",
+      "amt": "Number: amount of interpolation between 0.0 (old vector)  and 1.0 (new vector). 0.5 is halfway between. /// todo /// Number: 補間の割合。0.0 (移動元ベクトル) から1.0 (移動先ベクトル) までの値。0.9は移動先のベクトルに非常に近く、0.5は中間点になります。",
+      "v": "p5.Vector: <a href=\"#/p5.Vector\">p5.Vector</a> to lerp toward. /// todo /// p5.Vector: 移動先の <a href=\"#/p5.Vector\">p5.Vector</a>。",
+      "v1": "p5.Vector",
+      "v2": "p5.Vector",
+      "target": "p5.Vector: (オプション) 結果を受け取るベクトル。"
+  }
+
+  </pre>
 line: 2538
 isConstructor: false
 itemtype: method

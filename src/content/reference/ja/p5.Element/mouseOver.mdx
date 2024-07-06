@@ -3,8 +3,22 @@ title: mouseOver
 module: DOM
 submodule: DOM
 file: src/core/p5.Element.js
-description: |
+description: >
+  <p>マウスが要素に移動するたびに、<a href="#/p5.Element/mouseOver">mouseOver()</a>
+  メソッドが1回呼び出されます。</p>
+
+  <p>これは、要素固有のイベントリスナーをアタッチするために使用できます。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Calls a function when the mouse moves onto the element. Calling
+  <code>myElement.mouseOver(false)</code> disables the function.</p>
+
+
+  <hr/>
+
   <p>Calls a function when the mouse moves onto the element.</p>
+
   <p>Calling <code>myElement.mouseOver(false)</code> disables the function.</p>
 line: 665
 isConstructor: false
@@ -39,7 +53,12 @@ example:
 class: p5.Element
 params:
   - name: fxn
-    description: |
+    description: >
+      <p>function to call when the mouse  moves onto the element. 
+      <code>false</code> disables the function. /// todo /// Function|Boolean:
+      マウスが要素に移動したときに発火する関数。代わりに <code>false</code>
+      が渡された場合、以前の発火関数はもう発火しなくなります。</p>
+
       <p>function to call when the mouse
                                      moves onto the element.
                                      <code>false</code> disables the function.</p>

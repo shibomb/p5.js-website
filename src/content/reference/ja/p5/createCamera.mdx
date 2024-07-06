@@ -4,6 +4,23 @@ module: 3D
 submodule: Camera
 file: src/webgl/p5.Camera.js
 description: >
+  <p>新しい <a href="#/p5.Camera">p5.Camera</a>
+  オブジェクトを作成し、現在の(アクティブな)カメラとして設定します。</p>
+
+  <p></p>
+
+  <p>新しいカメラは、デフォルトの位置( <a href="#/p5.Camera/camera">camera()</a>
+  を参照)とデフォルトの遠近法プロジェクション( <a href="#/p5.Camera/perspective">perspective()</a>
+  を参照)で初期化されます。プロパティは <a href="#/p5.Camera">p5.Camera</a> のメソッドで制御できます。</p>
+
+  <p>注:すべての 3D スケッチは、デフォルトのカメラで初期化されます。このカメラは、シーン内で唯一のカメラである場合、グローバルなメソッド <a
+  href="#/p5/camera">camera()</a>、<a
+  href="#/p5/perspective">perspective()</a>、<a href="#/p5/ortho">ortho()</a>、および
+  <a href="#/p5/frustum">frustum()</a> で制御できます。</p>
+
+
+  <hr/>
+
   <p>Creates a new <a href="/reference/p5/p5.Camera">p5.Camera</a> object and
   sets it
 
@@ -87,7 +104,9 @@ example:
     </div>
 class: p5
 return:
-  description: the new camera.
+  description: |-
+    新しく作成されたカメラオブジェクト。
+    the new camera.
   type: p5.Camera
 chainable: false
 ---

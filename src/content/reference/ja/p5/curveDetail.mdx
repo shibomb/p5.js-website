@@ -4,6 +4,15 @@ module: Shape
 submodule: Curves
 file: src/core/shape/curves.js
 description: >
+  <p>曲線の表示解像度を設定します。</p>
+
+  <p>デフォルト値は20で、最小値は3です。</p>
+
+  <p>この関数は、WebGL レンダラーを使用している場合にのみ有用であり、デフォルトのキャンバスレンダラーはこの情報を使用しません。</p>
+
+
+  <hr/>
+
   <p>Sets the number of segments used to draw spline curves in WebGL mode.</p>
 
   <p>In WebGL mode, smooth shapes are drawn using many flat segments. Adding
@@ -105,6 +114,7 @@ class: p5
 params:
   - name: resolution
     description: |
+      <p>曲線の解像度</p>
       <p>number of segments to use. Defaults to 20.</p>
     type: Number
 chainable: true

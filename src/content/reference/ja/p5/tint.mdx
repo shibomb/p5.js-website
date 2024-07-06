@@ -3,7 +3,42 @@ title: tint
 module: Image
 submodule: Loading & Displaying
 file: src/image/loading_displaying.js
-description: >
+description: >-
+  <p>画像の表示に使用する塗りつぶしの値を設定します。</p>
+
+  <p>画像は指定された色に着色されたり、アルファ値を含むことで透明になったりします。</p>
+
+  <p>画像の色に影響を与えずに透明性を適用するには、塗り色に白を使用し、アルファ値を指定してください。たとえば、tint(255,
+  128)は、画像を50％透明にします（デフォルトのアルファ範囲が0-255であることを前提にしていますが、<a
+  href="#/p5/colorMode">colorMode()</a> で変更することができます）。</p>
+
+  <p>gray パラメーターの値は、<a href="#/p5/colorMode">colorMode()</a>
+  で指定された現在の最大値以下でなければなりません。デフォルトの最大値は255です。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Tints images using a specified color.</p>
+
+  <p>The version of <code>tint()</code> with one parameter interprets it one of
+  four ways. If the parameter is a number, it's interpreted as a grayscale
+  value. If the parameter is a string, it's interpreted as a CSS color string.
+  An array of <code>[R, G, B, A]</code> values or a <a
+  href="#/p5.Color">p5.Color</a> object can also be used to set the tint
+  color.</p>
+
+  <p>The version of <code>tint()</code> with two parameters uses the first one
+  as a grayscale value and the second as an alpha value. For example, calling
+  <code>tint(255, 128)</code> will make an image 50% transparent.</p>
+
+  <p>The version of <code>tint()</code> with three parameters interprets them as
+  RGB or HSB values, depending on the current <a
+  href="#/p5/colorMode">colorMode()</a>. The optional fourth parameter sets the
+  alpha value. For example, <code>tint(255, 0, 0, 100)</code> will give images a
+  red tint and make them transparent.</p>
+
+
+  <hr/>
+
   <p>Tints images using a color.</p>
 
   <p>The version of <code>tint()</code> with one parameter interprets it one of
@@ -37,6 +72,24 @@ description: >
   images
 
   a red tint and make them transparent.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "v1": "Number: 赤または色相の値",
+      "v2": "Number: 緑または彩度の値",
+      "v3": "Number: 青または明度の値",
+      "alpha": "Number (オプション)",
+      "value": "String: CSSカラー文字列",
+      "gray": "Number: グレースケールの値",
+      "values": "Number[]: 色の赤、緑、青、およびアルファ成分を含む配列",
+      "color": "p5.Color: 着色する色"
+  }
+
+  </pre>
 line: 1192
 isConstructor: false
 itemtype: method

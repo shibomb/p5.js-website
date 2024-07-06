@@ -4,6 +4,10 @@ module: Data
 submodule: Array Functions
 file: src/utilities/array_functions.js
 description: |
+  <p>配列の末尾に値を追加します。</p>
+  <p>配列の長さがひとつ延びます。Array.push() に対応します。</p>
+
+  <hr/>
   <p>Adds a value to the end of an array. Extends the length of
   the array by one. Maps to Array.push().</p>
 line: 10
@@ -25,14 +29,18 @@ class: p5
 params:
   - name: array
     description: |
+      <p>追加する配列</p>
       <p>Array to append</p>
     type: Array
   - name: value
     description: |
+      <p>配列に追加される値</p>
       <p>to be added to the Array</p>
     type: Any
 return:
-  description: the array that was appended to
+  description: |-
+    追加された配列
+    the array that was appended to
   type: Array
 chainable: false
 ---

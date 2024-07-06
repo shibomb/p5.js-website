@@ -4,6 +4,13 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
+  <p>p5.Element を親に対して垂直方向、水平方向、または両方で中央に配置します。</p>
+
+  <p>親がない場合は、ボディに対して中央に配置されます。引数が渡されない場合、p5.Element は垂直方向と水平方向の両方で整列されます。</p>
+
+
+  <hr/>
+
   <p>Centers the element either vertically, horizontally, or both.</p>
 
   <p><code>center()</code> will center the element relative to its parent or
@@ -44,6 +51,7 @@ class: p5.Element
 params:
   - name: align
     description: |
+      <p>(オプション) 'vertical'、'horizontal'を渡すと、要素がそれに応じて整列されます</p>
       <p>passing 'vertical', 'horizontal' aligns element accordingly</p>
     type: String
     optional: true

@@ -4,6 +4,10 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
+  <p>ソースをリバーブに接続し、リバーブのパラメーターを割り当てます。</p>
+  <p></p>
+
+  <hr/>
   <p>Connect a source to the reverb, and assign reverb parameters.</p>
 line: 8409
 isConstructor: false
@@ -12,23 +16,27 @@ class: p5.Reverb
 params:
   - name: src
     description: |
+      <p>p5.sound / Web Audio オブジェクト（サウンド出力）。</p>
       <p>p5.sound / Web Audio object with a sound
                                output.</p>
     type: Object
   - name: seconds
     description: |
+      <p>(オプション) リバーブの持続時間（秒単位）。最小値: 0、最大値: 10。デフォルトは3</p>
       <p>Duration of the reverb, in seconds.
                                Min: 0, Max: 10. Defaults to 3.</p>
     type: Number
     optional: true
   - name: decayRate
     description: |
+      <p>(オプション) 各エコーでの減衰の割合。最小値: 0、最大値: 100。デフォルトは2</p>
       <p>Percentage of decay with each echo.
                                 Min: 0, Max: 100. Defaults to 2.</p>
     type: Number
     optional: true
   - name: reverse
     description: |
+      <p>(オプション) リバーブを逆再生または順再生するかどうか。</p>
       <p>Play the reverb backwards or forwards.</p>
     type: Boolean
     optional: true

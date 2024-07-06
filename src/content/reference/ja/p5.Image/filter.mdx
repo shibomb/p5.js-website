@@ -3,31 +3,119 @@ title: filter
 module: Image
 submodule: Image
 file: src/image/p5.Image.js
-description: |
+description: >
+  <p><a href="#/p5.Image">p5.Image</a> に画像フィルターを適用します。</p>
+
+  <p></p>
+
+  <p>THRESHOLD
+  は、レベルパラメーターで定義された閾値を基準に、画像を白黒のピクセルに変換します。パラメーターは0.0（黒）から1.0（白）の間でなければなりません。レベルが指定されていない場合、0.5が使用されます。</p>
+
+  <p>GRAY は、画像内の任意の色をグレースケールに変換します。パラメーターは使用されません。</p>
+
+  <p>OPAQUE は、アルファチャンネルを完全に不透明に設定します。パラメーターは使用されません。</p>
+
+  <p>INVERT は、各ピクセルをその反対値に設定します。パラメーターは使用されません。</p>
+
+  <p>POSTERIZE
+  は、画像の各チャンネルをパラメーターで指定された色数に制限します。パラメーターは2から255の値を設定できますが、下限の範囲で効果が最も顕著に現れます。</p>
+
+  <p>BLUR
+  は、レベルパラメーターを使用してガウシアンブラーを実行し、ぼかしの程度を指定します。パラメーターが使用されていない場合、ぼかしは半径1のガウシアンブラーと同等です。値が大きくなると、ぼかしが増加します。</p>
+
+  <p>ERODE は、明るい領域を減らします。パラメーターは使用されません。</p>
+
+  <p>DILATE は、明るい領域を増やします。パラメーターは使用されません。</p>
+
+  <p>filter() は WebGL モードでは機能しません。 WebGL モードでは、カスタムシェーダーを使用して類似の効果を実現できます。 Adam
+  Ferriss は、フィルターの例に含まれる多くの効果を含む <a
+  href="https://github.com/aferriss/p5jsShaderExamples"
+  target='_blank'>シェーダー例の選択</a> を作成しました。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Applies an image filter to the <a href="#/p5.Image">p5.Image</a> object.
+  The preset options are:</p>
+
+  <p><code>INVERT</code> Inverts the colors in the image. No parameter is
+  used.</p>
+
+  <p><code>GRAY</code> Converts the image to grayscale. No parameter is
+  used.</p>
+
+  <p><code>THRESHOLD</code> Converts the image to black and white. Pixels with a
+  grayscale value above a given threshold are converted to white. The rest are
+  converted to black. The threshold must be between 0.0 (black) and 1.0 (white).
+  If no value is specified, 0.5 is used.</p>
+
+  <p><code>OPAQUE</code> Sets the alpha channel to be entirely opaque. No
+  parameter is used.</p>
+
+  <p><code>POSTERIZE</code> Limits the number of colors in the image. Each color
+  channel is limited to the number of colors specified. Values between 2 and 255
+  are valid, but results are most noticeable with lower values. The default
+  value is 4.</p>
+
+  <p><code>BLUR</code> Blurs the image. The level of blurring is specified by a
+  blur radius. Larger values increase the blur. The default value is 4. A
+  gaussian blur is used in <code>P2D</code> mode. A box blur is used in
+  <code>WEBGL</code> mode.</p>
+
+  <p><code>ERODE</code> Reduces the light areas. No parameter is used.</p>
+
+  <p><code>DILATE</code> Increases the light areas. No parameter is used.</p>
+
+
+  <hr/>
+
   <p>Applies an image filter to the image.</p>
+
   <p>The preset options are:</p>
+
   <p><code>INVERT</code>
+
   Inverts the colors in the image. No parameter is used.</p>
+
   <p><code>GRAY</code>
+
   Converts the image to grayscale. No parameter is used.</p>
+
   <p><code>THRESHOLD</code>
+
   Converts the image to black and white. Pixels with a grayscale value
+
   above a given threshold are converted to white. The rest are converted to
+
   black. The threshold must be between 0.0 (black) and 1.0 (white). If no
+
   value is specified, 0.5 is used.</p>
+
   <p><code>OPAQUE</code>
+
   Sets the alpha channel to be entirely opaque. No parameter is used.</p>
+
   <p><code>POSTERIZE</code>
+
   Limits the number of colors in the image. Each color channel is limited to
+
   the number of colors specified. Values between 2 and 255 are valid, but
+
   results are most noticeable with lower values. The default value is 4.</p>
+
   <p><code>BLUR</code>
+
   Blurs the image. The level of blurring is specified by a blur radius. Larger
+
   values increase the blur. The default value is 4. A gaussian blur is used
+
   in <code>P2D</code> mode. A box blur is used in <code>WEBGL</code> mode.</p>
+
   <p><code>ERODE</code>
+
   Reduces the light areas. No parameter is used.</p>
+
   <p><code>DILATE</code>
+
   Increases the light areas. No parameter is used.</p>
 line: 1199
 isConstructor: false
@@ -222,11 +310,13 @@ class: p5.Image
 params:
   - name: filterType
     description: |
+      <p>THRESHOLD、GRAY、OPAQUE、INVERT、POSTERIZE、ERODE、DILATE、BLUR のいずれか。</p>
       <p>either THRESHOLD, GRAY, OPAQUE, INVERT,
                                      POSTERIZE, ERODE, DILATE or BLUR.</p>
     type: Constant
   - name: filterParam
     description: |
+      <p> (オプション) 各フィルターユニークなパラメーター。</p>
       <p>parameter unique to each filter.</p>
     type: Number
     optional: true

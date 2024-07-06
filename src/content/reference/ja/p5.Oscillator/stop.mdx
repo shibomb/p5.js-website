@@ -4,6 +4,10 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
+  <p>オシレーターを停止します。</p>
+  <p>オシレーターが停止するまでの時間（秒単位）を決定するためのオプションパラメーターを受け付けます。</p>
+
+  <hr/>
   <p>Stop an oscillator. Accepts an optional parameter
   to determine how long (in seconds from now) until the
   oscillator stops.</p>
@@ -14,6 +18,7 @@ class: p5.Oscillator
 params:
   - name: secondsFromNow
     description: |
+      <p>現在からの秒数</p>
       <p>Time, in seconds from now.</p>
     type: Number
 chainable: false

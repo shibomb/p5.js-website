@@ -4,6 +4,10 @@ module: Data
 submodule: Dictionary
 file: src/data/p5.TypedDict.js
 description: |
+  <p>指定されたキーが Dictionary にすでに存在する場合、そのキーに関連付けられた値を更新します。</p>
+  <p>それ以外の場合は、新しいキーと値のペアが追加されます。</p>
+
+  <hr/>
   <p>Updates the value associated with the given key in case it already exists
   in the Dictionary. Otherwise a new key-value pair is added.</p>
 line: 171
@@ -23,10 +27,12 @@ example:
 class: p5.TypedDict
 params:
   - name: key
-    description: ''
+    description: |
+      <p>Number|String</p>
     type: Number|String
   - name: value
-    description: ''
+    description: |
+      <p>Number|String</p>
     type: Number|String
 chainable: false
 ---

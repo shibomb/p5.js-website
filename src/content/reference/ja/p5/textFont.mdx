@@ -3,7 +3,35 @@ title: textFont
 module: Typography
 submodule: Loading & Displaying
 file: src/typography/loading_displaying.js
-description: >
+description: >-
+  <p><a href="#/p5/text">text()</a> 関数で描画される現在のフォントを設定します。</p>
+
+  <p>textFont()
+  が引数なしで呼び出されると、すでに設定されているフォントがあれば現在のフォントを返します。そうでなければ、デフォルトフォントの名前を文字列として返します。textFont()
+  が使用するフォントで呼び出されると、p5 オブジェクトを返します。</p>
+
+  <p><b>WebGL</b>: <a href="#/p5/loadFont">loadFont()</a>
+  で読み込まれたフォントのみがサポートされています。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Sets the font used by the <a href="#/p5/text">text()</a> function.</p>
+
+  <p>The first parameter, <code>font</code>, sets the font.
+  <code>textFont()</code> recognizes either a <a href="#/p5.Font">p5.Font</a>
+  object or a string with the name of a system font. For example, <code>'Courier
+  New'</code>.</p>
+
+  <p>The second parameter, <code>size</code>, is optional. It sets the font size
+  in pixels. This has the same effect as calling <a
+  href="#/p5/textSize">textSize()</a>.</p>
+
+  <p>Note: <code>WEBGL</code> mode only supports fonts loaded with <a
+  href="#/p5/loadFont">loadFont()</a>.</p>
+
+
+  <hr/>
+
   <p>Sets the font used by the <a href="/reference/p5/text">text()</a>
   function.</p>
 
@@ -24,6 +52,18 @@ description: >
   <p>Note: <code>WEBGL</code> mode only supports fonts loaded with
 
   <a href="/reference/p5/loadFont">loadFont()</a>.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "font": "Object|String: font as a <a href=\"#/p5.Font\">p5.Font</a> object or a string. /// todo /// Object|String: <a href=\"#/p5/loadFont\">loadFont()</a> で読み込まれたフォント、または <a href=\"https://mzl.la/2dOw8WD\">ウェブセーフフォント</a>（一般的にすべてのシステムで利用可能なフォント）を表す文字列",
+      "size": "Number: (Optional) font size in pixels. /// todo /// Number:  (オプション) 使用するフォントサイズ"
+  }
+
+  </pre>
 line: 335
 isConstructor: false
 itemtype: method
@@ -97,7 +137,9 @@ example:
     </div>
 class: p5
 return:
-  description: current font or p5 Object.
+  description: |-
+    現在のフォント または p5 オブジェクト
+    current font or p5 Object.
   type: Object
 overloads:
   - line: 335

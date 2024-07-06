@@ -3,7 +3,20 @@ title: line
 module: Shape
 submodule: 2D Primitives
 file: src/core/shape/2d_primitives.js
-description: >
+description: >-
+  <p>二点間の直線、つまり一直線を描きます。</p>
+
+  <p>デフォルトの幅は1ピクセルです。<code>line()</code>の四つのパラメーターをもつバージョンは2Dで線を描きます。線に色をつけるには、<a
+  href="#/p5/stroke">stroke()</a>関数を使用します。その幅を変更するには、<a
+  href="#/p5/strokeWeight">strokeWeight()</a>関数を使用します。 線は塗りつぶすことができませんので、<a
+  href="#/p5/fill">fill()</a>関数は線の色に影響を与えません。</p>
+
+  <p><code>line()</code>の6つのパラメーターをもつバージョンは、線が3D空間に描かれることを可能にします。そのためには、<a
+  href="#/p5/createCanvas">createCanvas()</a>に<code>WEBGL</code>の引数を追加する必要があります。</p>
+
+
+  <hr/>
+
   <p>Draws a straight line between two points.</p>
 
   <p>A line's default width is one pixel. The version of <code>line()</code>
@@ -26,6 +39,22 @@ description: >
   3D space. Doing so requires adding the <code>WEBGL</code> argument to
 
   <a href="/reference/p5/createCanvas">createCanvas()</a>.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "x1": "Number: 最初の点の x 座標",
+      "y1": "Number: 最初の点の y 座標",
+      "x2": "Number: 2番目の点の x 座標",
+      "y2": "Number: 2番目の点の y 座標",
+      "z1": "Number: 最初の点の z 座標",
+      "z2": "Number: 2番目の点の z 座標"
+  }
+
+  </pre>
 line: 574
 isConstructor: false
 itemtype: method

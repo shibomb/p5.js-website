@@ -3,8 +3,22 @@ title: changed
 module: DOM
 submodule: DOM
 file: src/dom/dom.js
-description: |
+description: >
+  <p>.<a href="#/p5.Element/changed">changed()</a> 関数は、要素の値が変更されたときに呼び出されます。</p>
+
+  <p>これは、要素固有のイベントリスナーをアタッチするために使用できます。</p>
+
+  <p>/// todo ///</p>
+
+  <p><code>myElement.changed()</code> sets a function to call when the value of
+  the <a href="#/p5.Element">p5.Element</a> object changes. Calling
+  <code>myElement.changed(false)</code> disables the function.</p>
+
+
+  <hr/>
+
   <p>Calls a function when the element changes.</p>
+
   <p>Calling <code>myElement.changed(false)</code> disables the function.</p>
 line: 329
 isConstructor: false
@@ -73,7 +87,11 @@ example:
 class: p5
 params:
   - name: fxn
-    description: |
+    description: >
+      <p>function to call when the element changes.  <code>false</code> disables
+      the function. /// todo /// Function|Boolean: 要素の値が変更されたときに発火する関数。代わりに
+      <code>false</code> が渡されると、以前に発火していた関数はもう発火しなくなります。</p>
+
       <p>function to call when the element changes.
                                      <code>false</code> disables the function.</p>
     type: Function|Boolean

@@ -4,6 +4,10 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
+  <p>バンドパス周波数の幅または低/高通過周波数のレゾナンスを制御します。</p>
+  <p></p>
+
+  <hr/>
   <p>Controls either width of a bandpass frequency,
   or the resonance of a low/highpass cutoff frequency.</p>
 line: 6811
@@ -13,17 +17,21 @@ class: p5.Filter
 params:
   - name: res
     description: |
+      <p>フィルタ周波数のレゾナンス/幅、0.001から1000まで</p>
       <p>Resonance/Width of filter freq
                            from 0.001 to 1000</p>
     type: Number
   - name: timeFromNow
     description: |
+      <p>(オプション) このイベントを何秒後に予定するか</p>
       <p>schedule this event to happen
                                     seconds from now</p>
     type: Number
     optional: true
 return:
-  description: value Returns the current res value
+  description: |-
+    現在の res 値を返します
+    value Returns the current res value
   type: Number
 chainable: false
 ---

@@ -4,6 +4,16 @@ module: Shape
 submodule: Attributes
 file: src/core/shape/attributes.js
 description: >
+  <p>線の終端の描画スタイルを設定します。</p>
+
+  <p>これらの終端は、丸く（<code>ROUND</code>）、四角く（<code>SQUARE</code>）、または延長され（<code>PROJECT</code>）ます。デフォルトのキャップは<code>ROUND</code>です。</p>
+
+  <p><code>strokeCap()</code>へ渡される引数は、定数<code>ROUND</code>、<code>SQUARE</code>、そして<code>PROJECT</code>がこのように定義されているため、すべて大文字で記述する必要があります。
+  JavaScript は大文字と小文字を区別する言語です。</p>
+
+
+  <hr/>
+
   <p>Sets the style for rendering the ends of lines.</p>
 
   <p>The caps for line endings are either rounded (<code>ROUND</code>), squared
@@ -55,6 +65,7 @@ class: p5
 params:
   - name: cap
     description: |
+      <p>ROUND、SQUARE、PROJECT のいずれか</p>
       <p>either ROUND, SQUARE, or PROJECT</p>
     type: Constant
 chainable: true

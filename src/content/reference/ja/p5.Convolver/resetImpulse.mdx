@@ -4,6 +4,10 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
+  <p>.addImpulse と似ていますが、メモリーを節約するために <code>.impulses</code> 配列がリセットされます。</p>
+  <p>新しい <code>.impulses</code> 配列が作成され、このインパルスが唯一の項目として保存されます。</p>
+
+  <hr/>
   <p>Similar to .addImpulse, except that the <code>.impulses</code>
   Array is reset to save memory. A new <code>.impulses</code>
   array is created with this impulse as the only item.</p>
@@ -14,14 +18,17 @@ class: p5.Convolver
 params:
   - name: path
     description: |
+      <p>サウンドファイルへのパス</p>
       <p>path to a sound file</p>
     type: String
   - name: callback
     description: |
+      <p>関数 (オプション) </p>
       <p>function (optional)</p>
     type: Function
   - name: errorCallback
     description: |
+      <p>関数 (オプション) </p>
       <p>function (optional)</p>
     type: Function
 chainable: false

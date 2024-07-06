@@ -4,6 +4,10 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
+  <p>振幅を0から1.0の間で設定します。</p>
+  <p>また、オーディオ信号で振幅を変調するようなオシレーターなどのオブジェクトを渡すこともできます。</p>
+
+  <hr/>
   <p>Set the amplitude between 0 and 1.0. Or, pass in an object
   such as an oscillator to modulate amplitude with an audio signal.</p>
 line: 4238
@@ -13,22 +17,28 @@ class: p5.Oscillator
 params:
   - name: vol
     description: |
+      <p>Number | Object: 0から1.0の間またはモジュレーション信号/オシレーター</p>
       <p>between 0 and 1.0
                                   or a modulating signal/oscillator</p>
     type: Number|Object
   - name: rampTime
     description: |
+      <p>(オプション) rampTime に続くフェードを作成します</p>
       <p>create a fade that lasts rampTime</p>
     type: Number
     optional: true
   - name: timeFromNow
     description: |
+      <p>(オプション) このイベントが発生する時間を現在から秒単位でスケジュールします</p>
       <p>schedule this event to happen
                                     seconds from now</p>
     type: Number
     optional: true
 return:
-  description: |-
+  description: >-
+    gain。値が指定されていない場合、このオシレーターの gain/amplitude/volume を制御する Web オーディオ API の
+    AudioParam を返します。
+
     gain  If no value is provided,
                                 returns the Web Audio API
                                 AudioParam that controls

@@ -3,7 +3,27 @@ title: specularMaterial
 module: 3D
 submodule: Material
 file: src/webgl/material.js
-description: >
+description: >-
+  <p>マテリアルのスペキュラーカラーを設定します。</p>
+
+  <p></p>
+
+  <p>スペキュラーマテリアルは反射性（光沢）があります。<a href="#/p5/shininess">shininess()</a>
+  関数で光沢度を調整できます。</p>
+
+  <p><a href="#/p5/ambientMaterial">ambientMaterial()</a>
+  と同様に、specularMaterial() カラーは、物体が <a
+  href="#/p5/ambientLight">ambientLight()</a> もとで反射する色です。ただし、ambientMaterial()
+  とは異なり、他のすべてのタイプの光源（<a href="#/p5/directionalLight">directionalLight()</a>、<a
+  href="#/p5/pointLight">pointLight()</a>、<a
+  href="#/p5/spotLight">spotLight()</a>）に対して、スペキュラーマテリアルは <strong>光源の色</strong>
+  を反射します。これが「光沢」のある外観を与える理由です。</p>
+
+  <p>他のマテリアルは、この <a href="/examples/3d-materials.html">例</a> で見ることができます。</p>
+
+
+  <hr/>
+
   <p>Sets the specular color of shapes’ surface material.</p>
 
   <p>The <code>specularMaterial()</code> color sets the components of light
@@ -71,6 +91,22 @@ description: >
   using
 
   the current <a href="/reference/p5/colorMode">colorMode()</a>.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "gray": "Number: 白と黒の間の値を指定する数値。",
+      "alpha": "Number: (オプション) 現在のカラーレンジに対するアルファ値 (デフォルトは0-255)",
+      "v1": "Number: 現在のカラーレンジに対する赤または色相値",
+      "v2": "Number: 現在のカラーレンジに対する緑または彩度値",
+      "v3": "Number: 現在のカラーレンジに対する青または明度値",
+      "color": "p5.Color|Number[]|String: <a href=\"#/p5.Color\">p5.Color</a> としての色、配列としての色、または CSS 文字列としての色"
+  }
+
+  </pre>
 line: 1888
 isConstructor: false
 itemtype: method

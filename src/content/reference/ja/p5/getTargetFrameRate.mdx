@@ -3,9 +3,24 @@ title: getTargetFrameRate
 module: Environment
 submodule: Environment
 file: src/core/environment.js
-description: |
+description: >
+  <p>_targetFrameRate 変数を返します。</p>
+
+  <p>デフォルトの_targetFrameRate は60に設定されています。これは、frameRate()
+  を呼び出して希望する値に設定することで変更できます。getTargetFrameRate() を呼び出した場合は、設定された値が返されます。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Returns the target frame rate. The value is either the system frame rate or
+  the last value passed to <a href="#/p5/frameRate">frameRate()</a>.</p>
+
+
+  <hr/>
+
   <p>Returns the target frame rate.</p>
+
   <p>The value is either the system frame rate or the last value passed to
+
   <a href="/reference/p5/frameRate">frameRate()</a>.</p>
 line: 447
 isConstructor: false
@@ -36,7 +51,9 @@ example:
     </div>
 class: p5
 return:
-  description: _targetFrameRate
+  description: |-
+    _targetFrameRate
+    _targetFrameRate
   type: Number
 chainable: false
 ---

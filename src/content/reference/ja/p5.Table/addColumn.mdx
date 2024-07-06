@@ -4,6 +4,15 @@ module: IO
 submodule: Table
 file: src/io/p5.Table.js
 description: >
+  <p><a href="#/p5.Table">Table</a> オブジェクトに新しい列を追加するには、<a
+  href="#/p5/addColumn">addColumn()</a> を使用します。</p>
+
+  <p>通常、列を名前で簡単に参照できるようにするために、タイトルを指定する必要があります。（タイトルが指定されていない場合、新しい列のタイトルは null
+  になります。）</p>
+
+
+  <hr/>
+
   <p>Use <a href="/reference/p5/addColumn">addColumn()</a> to add a new column
   to a <a href="/reference/p5/p5.Table">Table</a> object.
 
@@ -55,6 +64,7 @@ class: p5.Table
 params:
   - name: title
     description: |
+      <p>(オプション) 列のタイトル</p>
       <p>title of the given column</p>
     type: String
     optional: true

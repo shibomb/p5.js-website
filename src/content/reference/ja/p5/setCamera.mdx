@@ -4,6 +4,13 @@ module: 3D
 submodule: Camera
 file: src/webgl/p5.Camera.js
 description: >
+  <p>3D スケッチの現在の(アクティブな)カメラを設定します。</p>
+
+  <p>複数のカメラ間を切り替えることができます。</p>
+
+
+  <hr/>
+
   <p>Sets the current (active) camera of a 3D sketch.</p>
 
   <p><code>setCamera()</code> allows for switching between multiple cameras
@@ -69,6 +76,7 @@ class: p5
 params:
   - name: cam
     description: |
+      <p>p5.Camera オブジェクト</p>
       <p>camera that should be made active.</p>
     type: p5.Camera
 chainable: false

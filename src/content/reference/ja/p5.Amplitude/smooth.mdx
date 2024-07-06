@@ -4,6 +4,10 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
+  <p>直近の解析フレームと平均化することで、Amplitude 解析をスムーズにします。</p>
+  <p>デフォルトではオフになっています。</p>
+
+  <hr/>
   <p>Smooth Amplitude analysis by averaging with the last analysis
   frame. Off by default.</p>
 line: 3293
@@ -13,6 +17,7 @@ class: p5.Amplitude
 params:
   - name: set
     description: |
+      <p>スムージングを0.0 <= 1.0の範囲で設定します。</p>
       <p>smoothing from 0.0 <= 1</p>
     type: Number
 chainable: false

@@ -4,6 +4,17 @@ module: Shape
 submodule: 3D Primitives
 file: src/webgl/3d_primitives.js
 description: >
+  <p>指定された半径と高さの円柱を描画します。</p>
+
+  <p></p>
+
+  <p>DetailX および detailY は、円柱の x 次元および y
+  次元の細分割数を決定します。細分割が多いほど、円柱は滑らかに見えます。detailX
+  の推奨される最大値は24です。24より大きい値を使用すると、警告が表示されるか、ブラウザーが遅くなる可能性があります。</p>
+
+
+  <hr/>
+
   <p>Draws a cylinder.</p>
 
   <p>A cylinder is a 3D shape with triangular faces that connect a flat bottom
@@ -242,33 +253,41 @@ class: p5
 params:
   - name: radius
     description: |
+      <p>(オプション) 表面の半径</p>
       <p>radius of the cylinder. Defaults to 50.</p>
     type: Number
     optional: true
   - name: height
     description: >
+      <p>(オプション) 円柱の高さ</p>
+
       <p>height of the cylinder. Defaults to the value of
       <code>radius</code>.</p>
     type: Number
     optional: true
   - name: detailX
     description: |
+      <p>(オプション) x 次元の細分割数; デフォルトは24</p>
       <p>number of edges along the top and bottom. Defaults to 24.</p>
     type: Integer
     optional: true
   - name: detailY
     description: |
+      <p>(オプション) y 次元の細分割数; デフォルトは1</p>
       <p>number of triangle subdivisions along the y-axis. Defaults to 1.</p>
     type: Integer
     optional: true
   - name: bottomCap
     description: >
+      <p>(オプション) 円柱の底面を描画するかどうか</p>
+
       <p>whether to draw the cylinder's bottom. Defaults to
       <code>true</code>.</p>
     type: Boolean
     optional: true
   - name: topCap
     description: |
+      <p>(オプション) 円柱の上面を描画するかどうか</p>
       <p>whether to draw the cylinder's top. Defaults to <code>true</code>.</p>
     type: Boolean
     optional: true

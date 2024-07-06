@@ -3,7 +3,19 @@ title: rect
 module: Shape
 submodule: 2D Primitives
 file: src/core/shape/2d_primitives.js
-description: >
+description: >-
+  <p>キャンバスに長方形を描画します。</p>
+
+  <p>長方形は、すべての角度が90度の四辺形です。デフォルトでは、最初の2つのパラメーターは矩形の左上角の位置を設定します。3番目と4番目は形状の幅と高さをそれぞれ設定します。これらのパラメーターの解釈方法は、<a
+  href="#/p5/rectMode">rectMode()</a>関数で変更可能です。</p>
+
+  <p>5つのパラメーターをもつ<code>rect()</code>のバージョンは、角丸の矩形を作成します。5番目のパラメーターは、すべての角の半径値として使用されます。</p>
+
+  <p>8つのパラメーターをもつ<code>rect()</code>のバージョンも、角丸の矩形を作成します。8つのパラメーターを使用する場合、後半4つは、それぞれの角での弧の半径を個別に設定します。半径は矩形の左上の角から始まり、時計回りに移動します。これらのパラメーターが省略された場合、最後に指定した角の半径の値に設定されます。</p>
+
+
+  <hr/>
+
   <p>Draws a rectangle.</p>
 
   <p>A rectangle is a four-sided shape defined by the <code>x</code>,
@@ -35,6 +47,26 @@ description: >
   rectangle. If any of these parameters are omitted, they are set to the
 
   value of the last radius that was set.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "x": "Number: 長方形の x 座標",
+      "y": "Number: 長方形の y 座標",
+      "w": "Number: 長方形の幅",
+      "h": "Number: (オプション) 長方形の高さ",
+      "tl": "Number: (オプション) 左上の角の半径",
+      "tr": "Number: (オプション) 右上の角の半径",
+      "br": "Number: (オプション) 右下の角の半径",
+      "bl": "Number: (オプション) 左下の角の半径",
+      "detailX": "Integer: (オプション) x 方向のセグメント数（WebGL モード用）",
+      "detailY": "Integer: (オプション) y 方向のセグメント数（WebGL モード用）"
+  }
+
+  </pre>
 line: 1086
 isConstructor: false
 itemtype: method

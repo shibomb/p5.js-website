@@ -4,6 +4,15 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: >
+  <p>従来の <a
+  href="https://en.wikipedia.org/wiki/Synthesizer#/media/File:ADSR_parameter.svg">ADSR
+  エンベロープ</a> のように値を設定します。</p>
+
+  <p></p>
+
+
+  <hr/>
+
   <p>Set values like a traditional
 
   <a
@@ -56,17 +65,25 @@ class: p5.Envelope
 params:
   - name: attackTime
     description: |
+      <p>攻撃レベルに到達するまでの時間（秒単位）</p>
       <p>Time (in seconds before envelope
                                     reaches Attack Level</p>
     type: Number
   - name: decayTime
     description: |
+      <p>(オプション) ディケイ/サステインレベルに到達するまでの時間（秒単位）</p>
       <p>Time (in seconds) before envelope
                                     reaches Decay/Sustain Level</p>
     type: Number
     optional: true
   - name: susRatio
-    description: |
+    description: >
+      <p>(オプション) 0から1のスケールでの attackLevel と releaseLevel
+      の比率で、1.0=attackLevel、0.0=releaseLevel です。susRatio は decayLevel とエンベロープの
+      sustain 部分が維持されるレベルを決定します。たとえば、attackLevel が0.4、releaseLevel が0で、susAmt
+      が0.5の場合、decayLevel は0.2になります。<code>setRange</code> を使用して attackLevel
+      を1.0に増やすと、decayLevel も比例して増加して0.5になります。</p>
+
       <p>Ratio between attackLevel and releaseLevel, on a scale from 0 to 1,
                                     where 1.0 = attackLevel, 0.0 = releaseLevel.
                                     The susRatio determines the decayLevel and the level at which the
@@ -79,6 +96,7 @@ params:
     optional: true
   - name: releaseTime
     description: |
+      <p>(オプション) 今から何秒後にリリースするか（デフォルトは0）</p>
       <p>Time in seconds from now (defaults to 0)</p>
     type: Number
     optional: true

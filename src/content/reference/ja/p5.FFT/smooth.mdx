@@ -4,6 +4,10 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
+  <p>前回の解析フレームと平均化して FFT 解析をスムージングします。</p>
+  <p></p>
+
+  <hr/>
   <p>Smooth FFT analysis by averaging with the last analysis frame.</p>
 line: 3826
 isConstructor: false
@@ -12,6 +16,7 @@ class: p5.FFT
 params:
   - name: smoothing
     description: |
+      <p>0.0 < smoothing < 1.0.  デフォルトは0.8</p>
       <p>0.0 < smoothing < 1.0.
                                    Defaults to 0.8.</p>
     type: Number

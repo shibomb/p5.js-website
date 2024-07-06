@@ -4,6 +4,23 @@ module: Image
 submodule: Image
 file: src/image/p5.Image.js
 description: >
+  <p>画像を新しい幅と高さにリサイズします。</p>
+
+  <p>画像を比例的にスケーリングするには、wide または high
+  パラメーターの値として0を使用します。たとえば、画像の幅を150ピクセルにし、同じ比率で高さを変更するには、resize(150,
+  0)を使用します。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Resizes the <a href="#/p5.Image">p5.Image</a> object to a given
+  <code>width</code> and <code>height</code>. The image's original aspect ratio
+  can be kept by passing 0 for either <code>width</code> or <code>height</code>.
+  For example, calling <code>img.resize(50, 0)</code> on an image that was 500 ×
+  300 pixels will resize it to 50 × 30 pixels.</p>
+
+
+  <hr/>
+
   <p>Resizes the image to a given width and height.</p>
 
   <p>The image's original aspect ratio can be kept by passing 0 for either
@@ -99,10 +116,12 @@ class: p5.Image
 params:
   - name: width
     description: |
+      <p>リサイズ後の画像の幅</p>
       <p>resized image width.</p>
     type: Number
   - name: height
     description: |
+      <p>リサイズ後の画像の高さ</p>
       <p>resized image height.</p>
     type: Number
 chainable: false

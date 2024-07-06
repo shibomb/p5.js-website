@@ -4,6 +4,16 @@ module: Events
 submodule: Acceleration
 file: src/events/acceleration.js
 description: >
+  <p>システム変数 pRotationX は、前のフレームから現在のフレームにかけてのデバイスの x 軸に沿った回転を常に格納しています。</p>
+
+  <p>スケッチの <a href="#/p5/angleMode"> angleMode()</a> が DEGREES
+  に設定されている場合、値は-180から180になります。RADIANS に設定されている場合、値は-PI から PI になります。</p>
+
+  <p>pRotationX は、X 軸に沿ったデバイスの回転方向を決定するために、rotationX と一緒に使用することもできます。</p>
+
+
+  <hr/>
+
   <p>The system variable pRotationX always contains the rotation of the
 
   device along the x axis in the frame previous to the current frame.

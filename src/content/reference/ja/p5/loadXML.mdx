@@ -3,7 +3,28 @@ title: loadXML
 module: IO
 submodule: Input
 file: src/io/files.js
-description: >
+description: >-
+  <p>ファイルの内容を読み込み、その値をもつ XML オブジェクトを作成します。</p>
+
+  <p>ファイル名がパラメーターとして使用される場合、例のように、ファイルはスケッチディレクトリ/フォルダ内に配置する必要があります。</p>
+
+  <p>また、ファイルはローカルコンピューターのどこからでも絶対パスを使ってロードすることができます（Unix および Linux
+  では/で始まるもの、Windows ではドライブレターで始まるもの）、またはファイル名パラメーターはネットワーク上にあるファイルの URL
+  になることがあります。</p>
+
+  <p>このメソッドは非同期であり、スケッチの次の行が実行される前に終了しない場合があります。<a
+  href="#/p5/loadXML">loadXML()</a> を <a href="#/p5/preload">preload()</a>
+  内で呼び出すと、<a href="#/p5/setup">setup()</a> および <a href="#/p5/draw">draw()</a>
+  が呼び出される前に操作が完了することが保証されます。</p>
+
+  <p><a href="#/p5/preload">preload()</a>
+  の外では、オブジェクトを処理するコールバック関数を提供することができます。</p>
+
+  <p>このメソッドは、最大64MB のファイルをフェッチするのに適しています。</p>
+
+
+  <hr/>
+
   <p>Loads an XML file to create a <a href="/reference/p5/p5.XML">p5.XML</a>
   object.</p>
 
@@ -61,6 +82,31 @@ description: >
 
   <a href="/reference/p5/setup">setup()</a> or <a
   href="/reference/p5/draw">draw()</a>.</p>
+
+
+  <pre>
+
+  todo: param path not found in ja-legacy:
+
+  {
+      "filename": "String: ロードするファイル名または URL",
+      "callback": "Function: (オプション) <a href=\"#/p5/loadXML\">loadXML()</a> 完了後に実行される関数。XML オブジェクトが最初の引数として渡されます。",
+      "errorCallback": "Function: (オプション) エラーがあった場合に実行される関数。レスポンスが最初の引数として渡されます。"
+  }
+
+  </pre>
+
+  <pre>
+
+  todo: param successCallback not found in ja-legacy:
+
+  {
+      "filename": "String: ロードするファイル名または URL",
+      "callback": "Function: (オプション) <a href=\"#/p5/loadXML\">loadXML()</a> 完了後に実行される関数。XML オブジェクトが最初の引数として渡されます。",
+      "errorCallback": "Function: (オプション) エラーがあった場合に実行される関数。レスポンスが最初の引数として渡されます。"
+  }
+
+  </pre>
 line: 780
 isConstructor: false
 itemtype: method
@@ -200,6 +246,7 @@ params:
     optional: true
   - name: errorCallback
     description: |
+      <p>(オプション) エラーがあった場合に実行される関数。レスポンスが最初の引数として渡されます。</p>
       <p>function to call if the data fails to
                                          load. Will be passed an <code>Error</code> event
                                          object.</p>
@@ -207,6 +254,7 @@ params:
     optional: true
 return:
   description: |-
+    Object: データを含む XML オブジェクト
     XML data loaded into a <a href="#/p5.XML">p5.XML</a>
                      object.
   type: p5.XML

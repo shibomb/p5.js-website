@@ -3,7 +3,20 @@ title: emissiveMaterial
 module: 3D
 submodule: Material
 file: src/webgl/material.js
-description: >
+description: >-
+  <p>マテリアルのエミッシブカラーを設定します。</p>
+
+  <p></p>
+
+  <p>エミッシブマテリアルは、照明に関係なくエミッシブカラーを最大強度で表示します。これにより、オブジェクトが光っているように見える効果が得られます。</p>
+
+  <p>ただし、「エミッシブ」という言葉は、マテリアルが周囲のオブジェクトに影響を与える光を実際に放射しないという意味では誤解を招くものです。</p>
+
+  <p>他のマテリアルは、この <a href="/examples/3d-materials.html">例</a> で見ることができます。</p>
+
+
+  <hr/>
+
   <p>Sets the emissive color of shapes’ surface material.</p>
 
   <p>The <code>emissiveMaterial()</code> color sets a color shapes display at
@@ -56,6 +69,22 @@ description: >
   the current <a href="/reference/p5/colorMode">colorMode()</a>.</p>
 
   <p>Note: <code>emissiveMaterial()</code> can only be used in WebGL mode.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "v1": "Number: 現在のカラーレンジに対する赤または色相値",
+      "v2": "Number: 現在のカラーレンジに対する緑または彩度値",
+      "v3": "Number: 現在のカラーレンジに対する青または明度値",
+      "alpha": "Number: (オプション) 現在のカラーレンジに対するアルファ値 (デフォルトは0-255)",
+      "gray": "Number: 白と黒の間の値を指定する数値",
+      "color": "p5.Color|Number[]|String: <a href=\"#/p5.Color\">p5.Color</a> としての色、配列としての色、または CSS 文字列としての色"
+  }
+
+  </pre>
 line: 1792
 isConstructor: false
 itemtype: method

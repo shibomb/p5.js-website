@@ -4,6 +4,40 @@ module: 3D
 submodule: Camera
 file: src/webgl/p5.Camera.js
 description: >
+  <p>3D スケッチの現在のカメラに対して透視投影を設定します。</p>
+
+  <p>この投影は、縮尺を通じて奥行きを表現します。カメラに近いオブジェクトは実際のサイズで表示され、カメラから離れたオブジェクトは小さく表示されます。</p>
+
+  <p>この関数のパラメーターは、垂直視野角、アスペクト比（通常は幅/高さ）、および、近距離および遠距離クリッピング平面を通じて、視錐台（カメラによってオブジェクトが見られる切り取られたピラミッド）を定義します。</p>
+
+  <p>If no parameters are given, the default values are used as: <ul>
+  <li><code>fov</code> : The default field of view for the camera is such that
+  the full height of renderer is visible when it is positioned at a default
+  distance of 800 units from the camera.</li> <li><code>aspect</code> : The
+  default aspect ratio is the ratio of renderer's width to renderer's
+  height.</li> <li><code>near</code> : The default value for the near clipping
+  plane is 80, which is 0.1 times the default distance from the camera to its
+  subject.</li> <li><code>far</code> : The default value for the far clipping
+  plane is 8000, which is 10 times the default distance from the camera to its
+  subject.</li> </ul></p>
+
+  <p>If you prefer a fixed field of view, follow these steps: <ol> <li>Choose
+  your desired field of view angle (<code>fovy</code>). This is how wide the
+  camera can see.</li> <li>To ensure that you can see the entire width across
+  horizontally and height across vertically, place the camera a distance of
+  <code>(height / 2) / tan(fovy / 2)</code> back from its subject.</li> <li>Call
+  perspective with the chosen field of view, canvas aspect ratio, and near/far
+  values: <code>perspective(fovy, width / height, cameraDistance / 10,
+  cameraDistance * 10);</code></li> </ol></p>
+
+  <p>/// todo /// change 1 line to 2 lines</p>
+
+  <p>パラメーターが指定されていない場合、デフォルトで次のようになります: perspective(PI/3, width/height, eyeZ/10,
+  eyeZ*10)。ここで、eyeZ は((height/2) / tan(PI/6))と等しいです。</p>
+
+
+  <hr/>
+
   <p>Sets a perspective projection for the current camera in a 3D sketch.</p>
 
   <p>In a perspective projection, shapes that are further from the camera appear
@@ -161,25 +195,31 @@ example:
 class: p5
 params:
   - name: fovy
-    description: |
+    description: >
+      <p>(オプション) カメラの視錐台の垂直視野角、ビューの下から上まで、<a href="#/p5/angleMode">angleMode</a>
+      の単位で</p>
+
       <p>camera frustum vertical field of view. Defaults to
                                 <code>2 * atan(height / 2 / 800)</code>.</p>
     type: Number
     optional: true
   - name: aspect
     description: |
+      <p>(オプション) カメラの視錐台のアスペクト比</p>
       <p>camera frustum aspect ratio. Defaults to
                                 <code>width / height</code>.</p>
     type: Number
     optional: true
   - name: near
     description: |
+      <p>(オプション) 視錐台の近距離平面の長さ</p>
       <p>distance from the camera to the near clipping plane.
                                 Defaults to <code>0.1 * 800</code>.</p>
     type: Number
     optional: true
   - name: far
     description: |
+      <p>(オプション) 視錐台の遠距離平面の長さ</p>
       <p>distance from the camera to the far clipping plane.
                                 Defaults to <code>10 * 800</code>.</p>
     type: Number

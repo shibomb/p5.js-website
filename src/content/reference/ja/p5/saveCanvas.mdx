@@ -3,7 +3,19 @@ title: saveCanvas
 module: Image
 submodule: Image
 file: src/image/image.js
-description: >
+description: >-
+  <p>現在のキャンバスを画像として保存します。</p>
+
+  <p>ブラウザーは、ファイルをすぐに保存するか、ダイアログウィンドウでユーザーにプロンプトを表示します。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Saves the current canvas as an image. The browser will either save the file
+  immediately or prompt the user with a dialogue window.</p>
+
+
+  <hr/>
+
   <p>Saves the current canvas as an image.</p>
 
   <p>By default, <code>saveCanvas()</code> saves the canvas as a PNG image
@@ -32,6 +44,19 @@ description: >
   <p>Note: The browser will either save the file immediately or prompt the user
 
   with a dialogue window.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "selectedCanvas": "p5.Framebuffer|p5.Element|HTMLCanvasElement: reference to a  specific HTML5 canvas element. /// todo /// p5.Element|HTMLCanvasElement: 特定の html5 キャンバスを表す変数 (オプション) ",
+      "filename": "String: (Optional) file name. Defaults to 'untitled'.  /// todo /// String (オプション) ",
+      "extension": "String: (Optional) file extension, either 'jpg' or 'png'. Defaults to 'png'. /// todo /// String: (オプション) 'jpg'または'png'"
+  }
+
+  </pre>
 line: 153
 isConstructor: false
 itemtype: method

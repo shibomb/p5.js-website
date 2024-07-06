@@ -4,6 +4,29 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: >-
+  <p>ユーザーにオーディオの開始制御を与えることはよい慣習だけでなく、iOS や <a href="https://goo.gl/7K7WLu"
+  title="Google Chrome's autoplay policy">Google Chrome</a> などの多くの Web
+  ブラウザーによって強制されるポリシーです。</p>
+
+  <p>これらのブラウザー固有のポリシーでは、Web Audio API の <a
+  href="https://developer.mozilla.org/ja/docs/Web/API/AudioContext" title="Audio
+  Context @ MDN">Audio Context</a> は一時停止状態で作成されます。</p>
+
+  <p>これらの場合、ユーザーが操作イベント（例:
+  <code>mousePressed()</code>）を明示的に再開するか、オーディオノードを開始するまで、サウンドは再生されません。これは、<code>p5.Oscillator</code>
+  の <code>start()</code>、<code>p5.SoundFile</code> の <code>play()</code>、または
+  <code>userStartAudio()</code> を呼び出すことで達成できます。</p>
+
+  <p><code>userStartAudio()</code> は、ユーザージェスチャーで AudioContext
+  を開始します。デフォルトの動作では、どの mouseUp または touchEnd
+  イベントでもオーディオが有効になります。下の例のように、<code>mousePressed()</code>
+  などの特定のインタラクション関数に配置することもできます。この方法では、Yotam Mann による <a
+  href="https://github.com/tambien/StartAudioContext">StartAudioContext </a>
+  ライブラリ（MIT ライセンス、2016年）を使用します。</p>
+
+
+  <hr/>
+
   <p>It is not only a good practice to give users control over starting
 
   audio. This policy is enforced by many web browsers, including iOS and
@@ -72,7 +95,10 @@ example:
 class: p5
 params:
   - name: elements
-    description: |
+    description: >
+      <p> (オプション) この引数は Element、Selector String、NodeList、p5.Element、jQuery
+      Element、またはそれらのいずれかの配列である必要があります。</p>
+
       <p>This argument can be an Element,
                                     Selector String, NodeList, p5.Element,
                                     jQuery Element, or an Array of any of those.</p>
@@ -80,12 +106,14 @@ params:
     optional: true
   - name: callback
     description: |
+      <p> (オプション) AudioContext が開始されたときに呼び出すコールバック関数</p>
       <p>Callback to invoke when the AudioContext
                                     has started</p>
     type: Function
     optional: true
 return:
   description: |-
+    AudioContext の状態が「実行中」になったときに解決される Promise を返します
     Returns a Promise that resolves when
                                          the AudioContext state is 'running'
   type: Promise

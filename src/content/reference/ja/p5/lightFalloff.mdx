@@ -4,6 +4,23 @@ module: 3D
 submodule: Lights
 file: src/webgl/light.js
 description: >
+  <p><a href="#/p5/pointLight">pointLight()</a> および <a
+  href="#/p5/spotLight">spotLight()</a> の減衰率を設定します。</p>
+
+  <p></p>
+
+  <p>lightFalloff() は、コード内でそれ以降に作成されたライトにのみ影響します。</p>
+
+  <p><code>constant</code>、<code>linear</code>、および <code>quadratic</code>
+  パラメーターは、次のように減衰を計算するために使用されます:</p>
+
+  <p>d = 光の位置から頂点位置までの距離</p>
+
+  <p>減衰 = 1 / (CONSTANT + d * LINEAR + (d * d) * QUADRATIC)</p>
+
+
+  <hr/>
+
   <p>Sets the falloff rate for <a
   href="/reference/p5/pointLight">pointLight()</a>
 
@@ -80,14 +97,17 @@ class: p5
 params:
   - name: constant
     description: |
+      <p>減衰を決定する CONSTANT 値</p>
       <p>constant value for calculating falloff.</p>
     type: Number
   - name: linear
     description: |
+      <p>減衰を決定する LINEAR 値</p>
       <p>linear value for calculating falloff.</p>
     type: Number
   - name: quadratic
     description: |
+      <p>減衰を決定する QUADRATIC 値</p>
       <p>quadratic value for calculating falloff.</p>
     type: Number
 chainable: true

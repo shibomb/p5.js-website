@@ -4,6 +4,17 @@ module: Events
 submodule: Mouse
 file: src/events/mouse.js
 description: >
+  <p><a href="#/p5/doubleClicked">doubleClicked()</a> 関数は、DOM L3 仕様の一部である
+  dblclick イベントを検出したイベントリスナーがあるたびに実行されます。</p>
+
+  <p>doubleClicked
+  イベントは、ポインティングデバイスのボタン（通常はマウスのプライマリボタン）がひとつの要素上で2回クリックされると発火します。dblclick
+  イベントの詳細については、mozilla のドキュメントを参照してください: <a
+  href="https://developer.mozilla.org/en-US/docs/Web/Events/dblclick">https://developer.mozilla.org/en-US/docs/Web/Events/dblclick</a></p>
+
+
+  <hr/>
+
   <p>A function that's called once when a mouse button is clicked twice
   quickly.</p>
 
@@ -144,6 +155,7 @@ class: p5
 params:
   - name: event
     description: |
+      <p>(オプション) オプションの MouseEvent コールバック引数。</p>
       <p>optional <code>MouseEvent</code> argument.</p>
     type: MouseEvent
     optional: true

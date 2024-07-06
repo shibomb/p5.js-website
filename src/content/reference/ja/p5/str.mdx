@@ -4,6 +4,13 @@ module: Data
 submodule: Conversion
 file: src/utilities/conversion.js
 description: >
+  <p>ブール値、文字列、または数値をその文字列表現に変換します。</p>
+
+  <p>値の配列が渡された場合、同じ長さの文字列の配列が返されます。</p>
+
+
+  <hr/>
+
   <p>Converts a <code>Boolean</code> or <code>Number</code> to
   <code>String</code>.</p>
 
@@ -119,10 +126,13 @@ class: p5
 params:
   - name: 'n'
     description: |
+      <p>String|Boolean|Number|Array: 解析する値</p>
       <p>value to convert.</p>
     type: String|Boolean|Number
 return:
-  description: converted string.
+  description: |-
+    値の文字列表現
+    converted string.
   type: String
 chainable: false
 ---

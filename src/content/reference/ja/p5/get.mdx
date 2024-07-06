@@ -3,7 +3,55 @@ title: get
 module: Image
 submodule: Pixels
 file: src/image/pixels.js
-description: >
+description: >-
+  <p>キャンバスからピクセルの領域、またはひとつのピクセルを取得します。</p>
+
+  <p></p>
+
+  <p>任意のピクセルの[R,G,B,A]の値の配列を返すか、画像の一部を取得します。パラメーターが指定されていない場合、画像全体が返されます。x と y
+  パラメーターを使用してひとつのピクセルの値を取得します。表示ウィンドウの一部を取得するには、追加の w と h
+  パラメーターを指定します。画像を取得する場合、x および y パラメーターは、現在の <a
+  href="#/p5/imageMode">imageMode()</a> に関係なく、画像の左上隅の座標を定義します。</p>
+
+  <p>get(x, y)を使用してひとつのピクセルの色を取得することは簡単ですが、<a href="#/p5/pixels">pixels[]</a>
+  からデータを直接取得するより速くはありません。ピクセル密度 d をもつ <a href="#/p5/pixels">pixels[]</a> を使用した
+  get(x, y)の同等の文は次のとおりです。<pre><code class="language-javascript">let x, y, d; //
+  これらを座標に設定します let off = (y * width + x) * d * 4; let components = [ 
+  pixels[off],  pixels[off + 1],  pixels[off + 2],  pixels[off + 3] ];
+  print(components); </code></pre></p>
+
+  <p><a href="#/p5/pixels">pixels[]</a> に関する詳細情報は、リファレンスを参照してください。</p>
+
+  <p>p5.Image オブジェクトから色の配列やサブ画像を抽出する場合は、<a
+  href="#/p5.Image/get">p5.Image.get()</a> を参照してください。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Gets a pixel or a region of pixels from the canvas.</p>
+
+  <p><code>get()</code> is easy to use but it's not as fast as <a
+  href="#/p5/pixels">pixels</a>. Use <a href="#/p5/pixels">pixels</a> to read
+  many pixel values.</p>
+
+  <p>The version of <code>get()</code> with no parameters returns the entire
+  canvas.</p>
+
+  <p>The version of <code>get()</code> with two parameters interprets them as
+  coordinates. It returns an array with the <code>[R, G, B, A]</code> values of
+  the pixel at the given point.</p>
+
+  <p>The version of <code>get()</code> with four parameters interprets them as
+  coordinates and dimensions. It returns a subsection of the canvas as a <a
+  href="#/p5.Image">p5.Image</a> object. The first two parameters are the
+  coordinates for the upper-left corner of the subsection. The last two
+  parameters are the width and height of the subsection.</p>
+
+  <p>Use <a href="#/p5.Image/get">p5.Image.get()</a> to work directly with <a
+  href="#/p5.Image">p5.Image</a> objects.</p>
+
+
+  <hr/>
+
   <p>Gets a pixel or a region of pixels from the canvas.</p>
 
   <p><code>get()</code> is easy to use but it's not as fast as
@@ -39,6 +87,20 @@ description: >
   with
 
   <a href="/reference/p5/p5.Image">p5.Image</a> objects.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "x": "Number: ピクセルの x 座標",
+      "y": "Number: ピクセルの y 座標",
+      "w": "Number: 返却されるセクションの幅",
+      "h": "Number: 返却されるセクションの高さ"
+  }
+
+  </pre>
 line: 820
 isConstructor: false
 itemtype: method
@@ -128,7 +190,11 @@ example:
     </div>
 class: p5
 return:
-  description: subsection as a <a href="#/p5.Image">p5.Image</a> object.
+  description: >-
+    subsection as a <a href="#/p5.Image">p5.Image</a> object. /// todo ///
+    p5.Image: 矩形 <a href="#/p5.Image">p5.Image</a>
+
+    subsection as a <a href="#/p5.Image">p5.Image</a> object.
   type: p5.Image
 overloads:
   - line: 820

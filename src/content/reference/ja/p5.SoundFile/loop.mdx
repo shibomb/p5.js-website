@@ -4,6 +4,10 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
+  <p>p5.SoundFile をループ再生します。</p>
+  <p>再生レート、再生ボリューム、ループ開始地点、ループ終了地点をオプションで設定できます。</p>
+
+  <hr/>
   <p>Loop the p5.SoundFile. Accepts optional parameters to set the
   playback rate, playback volume, loopStart, loopEnd.</p>
 line: 1905
@@ -40,27 +44,32 @@ class: p5.SoundFile
 params:
   - name: startTime
     description: |
+      <p>(オプション) 何秒後にイベントを予約するか指定します。</p>
       <p>(optional) schedule event to occur
                                   seconds from now</p>
     type: Number
     optional: true
   - name: rate
     description: |
+      <p>(オプション) 再生レートを指定します。</p>
       <p>(optional) playback rate</p>
     type: Number
     optional: true
   - name: amp
     description: |
+      <p>(オプション) 再生ボリュームを指定します。</p>
       <p>(optional) playback volume</p>
     type: Number
     optional: true
   - name: cueLoopStart
     description: |
+      <p>(オプション) ループの開始地点を秒単位で指定します。</p>
       <p>(optional) startTime in seconds</p>
     type: Number
     optional: true
   - name: duration
     description: |
+      <p>(オプション) ループの長さを秒単位で指定します。</p>
       <p>(optional) loop duration in seconds</p>
     type: Number
     optional: true

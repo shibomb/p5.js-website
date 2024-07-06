@@ -4,6 +4,22 @@ module: Events
 submodule: Keyboard
 file: src/events/keyboard.js
 description: >
+  <p><a href="#/p5/keyTyped">keyTyped()</a>
+  関数は、キーが押されるたびに1回呼び出されますが、Backspace、Delete、Ctrl、Shift、Alt
+  などのアクションキーは無視されます。</p>
+
+  <p>これらのキーの keyCode を検出しようとしている場合は、代わりに <a
+  href="#/p5/keyPressed">keyPressed()</a> 関数を使用してください。最も最近に入力されたキーは、key
+  変数に格納されます。</p>
+
+  <p>オペレーティングシステムがキーリピートを処理する方法のため、キーを押し続けると、<a
+  href="#/p5/keyTyped">keyTyped()</a>（および <a
+  href="#/p5/keyReleased">keyReleased()</a>）が複数回呼び出されます。リピートの速度は、オペレーティングシステムと各コンピューターの設定によって決まります。ブラウザーには、さまざまなキーイベントに対して異なるデフォルトの動作が付与されている場合があります。このイベントのデフォルトの動作を防ぐには、関数の最後に「return
+  false」を追加してください。</p>
+
+
+  <hr/>
+
   <p>A function that's called once when keys with printable characters are
   pressed.</p>
 
@@ -157,6 +173,7 @@ class: p5
 params:
   - name: event
     description: |
+      <p>(オプション) オプションの KeyboardEvent コールバック引数。</p>
       <p>optional <code>KeyboardEvent</code> callback argument.</p>
     type: KeyboardEvent
     optional: true

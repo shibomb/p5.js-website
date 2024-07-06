@@ -126,15 +126,19 @@ class: p5
 params:
   - name: name
     description: |
+      <p>作成するファイルの名前</p>
       <p>name of the file to create.</p>
     type: String
   - name: extension
     description: |
+      <p>String (オプション) </p>
       <p>format to use for the file.</p>
     type: String
     optional: true
 return:
-  description: stream for writing data.
+  description: |-
+    p5.PrintWriter:
+    stream for writing data.
   type: p5.PrintWriter
 chainable: false
 ---

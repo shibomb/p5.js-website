@@ -4,6 +4,14 @@ module: Rendering
 submodule: ''
 file: src/webgl/p5.Framebuffer.js
 description: >
+  <p>新しい <a href="#/p5.FramebufferCamera">p5.FramebufferCamera</a>
+  を作成し、このフレームバッファに描画する際に使用します。</p>
+
+  <p>カメラは現在アクティブなカメラとして設定されます。</p>
+
+
+  <hr/>
+
   <p>Creates a new
 
   <a href="/reference/p5/p5.Camera">p5.Camera</a> object to use with the
@@ -144,7 +152,9 @@ example:
     </div>
 class: p5.Framebuffer
 return:
-  description: new camera.
+  description: |-
+    新しいカメラ
+    new camera.
   type: p5.Camera
 chainable: false
 ---

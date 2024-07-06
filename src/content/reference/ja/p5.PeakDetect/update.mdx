@@ -3,10 +3,23 @@ title: update
 module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
-description: |
+description: >
+  <p><code>update</code> メソッドは描画ループで実行されます。</p>
+
+  <p></p>
+
+  <p>FFT オブジェクトを受け入れます。ピーク検出には完了した FFT 解析が必要なため、FFT オブジェクトで
+  <code>.analyze()</code> を呼び出す必要があります。</p>
+
+
+  <hr/>
+
   <p>The update method is run in the draw loop.</p>
+
   <p>Accepts an FFT object. You must call .analyze()
+
   on the FFT object prior to updating the peakDetect
+
   because it relies on a completed FFT analysis.</p>
 line: 10432
 isConstructor: false
@@ -15,6 +28,7 @@ class: p5.PeakDetect
 params:
   - name: fftObject
     description: |
+      <p>p5.FFT オブジェクト</p>
       <p>A p5.FFT object</p>
     type: p5.FFT
 chainable: false

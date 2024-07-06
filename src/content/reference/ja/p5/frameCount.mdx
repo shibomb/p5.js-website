@@ -4,6 +4,23 @@ module: Environment
 submodule: Environment
 file: src/core/environment.js
 description: >
+  <p>システム変数 <a href="#/p5/frameCount">frameCount</a>
+  は、プログラムが開始されてから表示されたフレームの数を格納します。</p>
+
+  <p>この変数の値は <a href="#/p5/setup">setup()</a> 内では0で、<a
+  href="#/p5/draw">draw()</a> の最初の反復後に1以上になります。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Tracks the number of frames drawn since the sketch started.</p>
+
+  <p><code>frameCount</code>'s value is 0 inside <a
+  href="#/p5/setup">setup()</a>. It increments by 1 each time the code in <a
+  href="#/p5/draw">draw()</a> finishes executing.</p>
+
+
+  <hr/>
+
   <p>A <code>Number</code> variable that tracks the number of frames drawn since
   the sketch
 

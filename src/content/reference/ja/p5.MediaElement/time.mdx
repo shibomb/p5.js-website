@@ -3,7 +3,23 @@ title: time
 module: DOM
 submodule: DOM
 file: src/dom/dom.js
-description: >
+description: >-
+  <p>引数が与えられていない場合、要素の現在の時間を返します。</p>
+
+  <p>引数が与えられた場合、要素の現在の時間がそれに設定されます。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Manages the media element's playback time. Calling
+  <code>media.time()</code> returns the number of seconds the audio/video has
+  played. Time resets to 0 when the looping media restarts.</p>
+
+  <p>The parameter, <code>time</code>, is optional. It's a number that specifies
+  the time, in seconds, to jump to when playback begins.</p>
+
+
+  <hr/>
+
   <p>Sets the media element's playback time.</p>
 
   <p>The parameter, <code>time</code>, is optional. It's a number that specifies
@@ -17,6 +33,17 @@ description: >
   the audio/video has played.</p>
 
   <p>Note: Time resets to 0 when looping media restarts.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "time": "Number: 移動する時間（秒単位）"
+  }
+
+  </pre>
 line: 4747
 isConstructor: false
 itemtype: method
@@ -97,7 +124,9 @@ example:
     </div>
 class: p5.MediaElement
 return:
-  description: current time (in seconds).
+  description: |-
+    現在の時間（秒単位）
+    current time (in seconds).
   type: Number
 overloads:
   - line: 4747

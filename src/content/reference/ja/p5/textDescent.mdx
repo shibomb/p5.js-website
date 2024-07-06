@@ -4,6 +4,10 @@ module: Typography
 submodule: Attributes
 file: src/typography/attributes.js
 description: |
+  <p>現在のフォントの下降を、現在のサイズで返します。</p>
+  <p>下降は、ベースラインから最も長い降り幅をもつ文字までの距離（ピクセル単位）を表します。</p>
+
+  <hr/>
   <p>Calculates the descent of the current font at its current size.</p>
   <p>The descent represents the distance, in pixels, of the character with the
   longest descender below the baseline.</p>
@@ -59,7 +63,9 @@ example:
     </div>
 class: p5
 return:
-  description: descent measured in units of pixels.
+  description: |-
+    descent measured in units of pixels. /// todo /// 
+    descent measured in units of pixels.
   type: Number
 chainable: false
 ---

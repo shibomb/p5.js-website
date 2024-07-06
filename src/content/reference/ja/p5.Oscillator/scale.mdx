@@ -4,6 +4,10 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
+  <p>このオシレーターの振幅値を指定された範囲にスケーリングし、オシレーターを返します。</p>
+  <p>このメソッドを再度呼び出すと、最初の scale() を新しい値で上書きします。</p>
+
+  <hr/>
   <p>Scale this oscillator's amplitude values to a given
   range, and return the oscillator. Calling this method
   again will override the initial scale() with new values.</p>
@@ -14,22 +18,27 @@ class: p5.Oscillator
 params:
   - name: inMin
     description: |
+      <p>入力範囲の最小値</p>
       <p>input range minumum</p>
     type: Number
   - name: inMax
     description: |
+      <p>入力範囲の最大値</p>
       <p>input range maximum</p>
     type: Number
   - name: outMin
     description: |
+      <p>出力範囲の最小値</p>
       <p>input range minumum</p>
     type: Number
   - name: outMax
     description: |
+      <p>出力範囲の最大値</p>
       <p>input range maximum</p>
     type: Number
 return:
   description: |-
+    p5.Oscillator:オシレーター。スケールされた出力をもつこのオシレーターを返します。
     Oscillator Returns this oscillator
                                        with scaled output
   type: p5.Oscillator

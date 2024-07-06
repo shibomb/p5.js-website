@@ -4,6 +4,18 @@ module: Events
 submodule: Mouse
 file: src/events/mouse.js
 description: >
+  <p><a href="#/p5/mouseClicked">mouseClicked()</a>
+  関数は、マウスボタンが押されてから離された後に1回だけ呼び出されます。</p>
+
+  <p>ブラウザーはクリックを異なる方法で処理するため、この関数は左マウスボタンがクリックされたときに実行されることが保証されています。他のマウスボタンが押されたり離されたりするのを処理するには、<a
+  href="#/p5/mousePressed">mousePressed()</a> または <a
+  href="#/p5/mouseReleased">mouseReleased()</a>
+  を参照してください。ブラウザーには、さまざまなマウスイベントに関連するデフォルトの動作が異なる場合があります。このイベントのデフォルトの動作を防ぐには、関数の最後に「return
+  false」を追加してください。</p>
+
+
+  <hr/>
+
   <p>A function that's called once after a mouse button is pressed and
   released.</p>
 
@@ -182,6 +194,7 @@ class: p5
 params:
   - name: event
     description: |
+      <p>(オプション) オプションの MouseEvent コールバック引数。</p>
       <p>optional <code>MouseEvent</code> argument.</p>
     type: MouseEvent
     optional: true

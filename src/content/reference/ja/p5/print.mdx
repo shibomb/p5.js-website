@@ -4,6 +4,27 @@ module: Environment
 submodule: Environment
 file: src/core/environment.js
 description: >
+  <p><a href="#/p5/print">print()</a> 関数を使用するとブラウザーのコンソールエリアに出力することができます。</p>
+
+  <p>この関数は、プログラムが生成しているデータを確認するのに役立ちます。この関数を使用すると、関数が呼び出されるたびに新しい行でテキストが作成されます。個々の要素はクォート（""）で区切り、加算演算子（+）で結合できます。</p>
+
+  <p>引数なしで print() を呼び出すと、window.print()
+  関数が呼び出され、ブラウザーの印刷ダイアログが開きます。コンソールに空行を出力するには、print('\n')と記述します。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Displays text in the web browser's console.</p>
+
+  <p><code>print()</code> is helpful for printing values while debugging. Each
+  call to <code>print()</code> creates a new line of text.</p>
+
+  <p>Note: Call <code>print('\n')</code> to print a blank line. Calling
+  <code>print()</code> without an argument opens the browser's dialog for
+  printing documents.</p>
+
+
+  <hr/>
+
   <p>Displays text in the web browser's console.</p>
 
   <p><code>print()</code> is helpful for printing values while debugging. Each
@@ -42,7 +63,10 @@ example:
 class: p5
 params:
   - name: contents
-    description: |
+    description: >
+      <p>content to print to the console. /// todo /// Any: 印刷する
+      Number、String、Object、Boolean、Array の任意の組み合わせ</p>
+
       <p>content to print to the console.</p>
     type: Any
 chainable: false

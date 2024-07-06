@@ -3,7 +3,20 @@ title: blend
 module: Image
 submodule: Pixels
 file: src/image/pixels.js
-description: >
+description: >-
+  <p>指定されたブレンドモードを使用して、ある画像のピクセル領域を別の画像にコピーします。</p>
+
+  <p></p>
+
+  <p>/// todo ///</p>
+
+  <p>Copies a region of pixels from one image to another. The
+  <code>blendMode</code> parameter blends the images' colors to create different
+  effects.</p>
+
+
+  <hr/>
+
   <p>Copies a region of pixels from one image to another.</p>
 
   <p>The first parameter, <code>srcImage</code>, is the
@@ -39,6 +52,26 @@ description: >
 
   <code>SOFT_LIGHT</code>, <code>DODGE</code>, <code>BURN</code>,
   <code>ADD</code>, or <code>NORMAL</code></p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "srcImage": "p5.Image: ソース画像",
+      "sx": "Integer: ソースの左上隅の X 座標",
+      "sy": "Integer: ソースの左上隅の Y 座標",
+      "sw": "Integer: ソース画像の幅",
+      "sh": "Integer: ソース画像の高さ",
+      "dx": "Integer: 送り先の左上隅の X 座標",
+      "dy": "Integer: 送り先の左上隅の Y 座標",
+      "dw": "Integer: 送り先画像の幅",
+      "dh": "Integer: 送り先画像の高さ",
+      "blendMode": "Constant: ブレンドモード。BLEND, DARKEST, LIGHTEST, DIFFERENCE, MULTIPLY, EXCLUSION, SCREEN, REPLACE, OVERLAY, HARD_LIGHT, SOFT_LIGHT, DODGE, BURN, ADD, NORMAL のいずれか。"
+  }
+
+  </pre>
 line: 148
 isConstructor: false
 itemtype: method

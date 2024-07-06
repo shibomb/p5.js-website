@@ -4,6 +4,21 @@ module: 3D
 submodule: Camera
 file: src/webgl/p5.Camera.js
 description: >
+  <p>パラメーターで定義された現在のカメラの視錐台を設定します。</p>
+
+  <p></p>
+
+  <p>視錐台は幾何学的な形状であり、頂点が切り取られたピラミッドです。視聴者の目が想像上のピラミッドの頂点に位置しているとき、視錐台の6つの面は3Dビューをレンダリングする際のクリッピング平面として機能します。したがって、クリッピング平面内のどんな形状も可視であり、それらの平面の外側にあるものは可視ではありません。</p>
+
+  <p>視錐台を設定すると、レンダリングされるシーンの視点が変わります。多くの場合、これは<a
+  href="https://p5js.org/reference/#/p5/perspective">perspective()</a>を使用することでより簡単に達成できます。</p>
+
+  <p>パラメーターが指定されていない場合、次のデフォルトが使用されます: frustum(-width/20, width/20, height/20,
+  -height/20, eyeZ/10, eyeZ*10)、ここでeyeZは((height/2) / tan(PI/6))と等しいです。</p>
+
+
+  <hr/>
+
   <p>Sets the frustum of the current camera in a 3D sketch.</p>
 
   <p>In a frustum projection, shapes that are further from the camera appear
@@ -131,36 +146,48 @@ class: p5
 params:
   - name: left
     description: >
+      <p>(オプション) カメラの視錐台の左面</p>
+
       <p>x-coordinate of the frustum’s left plane. Defaults to <code>-width /
       20</code>.</p>
     type: Number
     optional: true
   - name: right
     description: >
+      <p>(オプション) カメラの視錐台の右面</p>
+
       <p>x-coordinate of the frustum’s right plane. Defaults to <code>width /
       20</code>.</p>
     type: Number
     optional: true
   - name: bottom
     description: >
+      <p>(オプション) カメラの視錐台の底面</p>
+
       <p>y-coordinate of the frustum’s bottom plane. Defaults to <code>height /
       20</code>.</p>
     type: Number
     optional: true
   - name: top
     description: >
+      <p>(オプション) カメラの視錐台の上面</p>
+
       <p>y-coordinate of the frustum’s top plane. Defaults to <code>-height /
       20</code>.</p>
     type: Number
     optional: true
   - name: near
     description: >
+      <p>(オプション) カメラの視錐台の近面</p>
+
       <p>z-coordinate of the frustum’s near plane. Defaults to <code>0.1 *
       800</code>.</p>
     type: Number
     optional: true
   - name: far
     description: >
+      <p>(オプション) カメラの視錐台の遠面</p>
+
       <p>z-coordinate of the frustum’s far plane. Defaults to <code>10 *
       800</code>.</p>
     type: Number

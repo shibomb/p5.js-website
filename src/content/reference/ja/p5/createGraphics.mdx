@@ -3,7 +3,24 @@ title: createGraphics
 module: Rendering
 submodule: Rendering
 file: src/core/rendering.js
-description: >
+description: >-
+  <p>新しい p5.Graphics オブジェクトを作成して返します。</p>
+
+  <p>オフスクリーンのグラフィックスバッファに描画する必要がある場合は、このクラスを使用します。2つのパラメーターは、ピクセル単位の幅と高さを定義します。</p>
+
+  <p>WebGL p5.Graphics は、ブラウザーが WebGL2 をサポートしている場合、WebGL2 コンテキストを使用します。</p>
+
+  <p>レンダラーの <a href="#/p5/webglVersion">pg.webglVersion</a>
+  プロパティを確認して使用しているバージョンを確認するか、<a href="#/p5/setAttributes">pg.setAttributes({
+  version: 1 })</a> を呼び出して WebGL1 コンテキストを作成します。</p>
+
+  <p>オプションとして、セレクター（例:
+  document.getElementById('')）を使用して既存のキャンバスを渡すことができます。デフォルトではこのキャンバスは非表示（オフスクリーンバッファ）になりますが、表示するには、要素のスタイルを
+  display:block; に設定します。</p>
+
+
+  <hr/>
+
   <p>Creates a <a href="/reference/p5/p5.Graphics">p5.Graphics</a> object.</p>
 
   <p><code>createGraphics()</code> creates an offscreen drawing canvas (graphics
@@ -68,6 +85,20 @@ description: >
   create a
 
   WebGL1 context.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "w": "Number: オフスクリーングラフィックバッファの幅",
+      "h": "Number: オフスクリーングラフィックバッファの高さ",
+      "renderer": "Constant: (オプション) P2D または WEBGL。未定義の場合は P2D がデフォルトです。",
+      "canvas": "HTMLCanvasElement: (オプション) 既存の HTML Canvas 要素"
+  }
+
+  </pre>
 line: 370
 isConstructor: false
 itemtype: method
@@ -139,7 +170,9 @@ example:
     </div>
 class: p5
 return:
-  description: new graphics buffer.
+  description: |-
+    オフスクリーングラフィックバッファ
+    new graphics buffer.
   type: p5.Graphics
 overloads:
   - line: 370

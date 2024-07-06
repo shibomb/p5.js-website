@@ -4,6 +4,10 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
+  <p>p5.Oscillator の出力振幅を固定値で乗算します（つまり、上げます！）。</p>
+  <p>このメソッドを再度呼び出すと、最初の mult() を新しい値で上書きします。</p>
+
+  <hr/>
   <p>Multiply the p5.Oscillator's output amplitude
   by a fixed value (i.e. turn it up!). Calling this method
   again will override the initial mult() with a new value.</p>
@@ -14,10 +18,12 @@ class: p5.Oscillator
 params:
   - name: number
     description: |
+      <p>乗算する定数</p>
       <p>Constant number to multiply</p>
     type: Number
 return:
   description: |-
+    オシレーター。乗算された出力をもつこのオシレーターを返します。
     Oscillator Returns this oscillator
                                        with multiplied output
   type: p5.Oscillator

@@ -3,8 +3,21 @@ title: floor
 module: Math
 submodule: Calculation
 file: src/math/calculation.js
-description: |
+description: >
+  <p>パラメーターの値以下の最も近い int 値を計算します。</p>
+
+  <p>Math.floor() にマッピングされます。</p>
+
+  <p>/// todo ///</p>
+
   <p>Calculates the closest integer value that is less than or equal to the
+  value of the <code>n</code> parameter.</p>
+
+
+  <hr/>
+
+  <p>Calculates the closest integer value that is less than or equal to the
+
   value of a number.</p>
 line: 294
 isConstructor: false
@@ -42,10 +55,13 @@ class: p5
 params:
   - name: 'n'
     description: |
+      <p>切り捨てる数値</p>
       <p>number to round down.</p>
     type: Number
 return:
-  description: rounded down number.
+  description: |-
+    切り捨てられた数値
+    rounded down number.
   type: Integer
 chainable: false
 ---

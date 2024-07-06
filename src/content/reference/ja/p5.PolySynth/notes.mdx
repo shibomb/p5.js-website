@@ -3,11 +3,23 @@ title: notes
 module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
-description: |
+description: >
+  <p>再生された音符と現在再生されている音符の情報を保持するオブジェクト。</p>
+
+  <p>新しい音符は動的にキーとして追加されます。音符がアタックされた状態である間、キーの値はその音を生成している AudioVoice
+  です。音符がリリースされると、キーの値は undefined になります。</p>
+
+
+  <hr/>
+
   <p>An object that holds information about which notes have been played and
+
   which notes are currently being played. New notes are added as keys
+
   on the fly. While a note has been attacked, but not released, the value of the
+
   key is the audiovoice which is generating that note. When notes are released,
+
   the value of the key becomes undefined.</p>
 line: 11742
 isConstructor: false

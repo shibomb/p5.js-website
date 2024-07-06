@@ -3,7 +3,43 @@ title: get
 module: Image
 submodule: Image
 file: src/image/p5.Image.js
-description: >
+description: >-
+  <p>画像からピクセルの領域を取得します。</p>
+
+  <p></p>
+
+  <p>パラメーターが指定されていない場合、全体の画像が返されます。x と y
+  だけが渡された場合、単一のピクセルが抽出されます。すべてのパラメーターが渡された場合、矩形領域が抽出され、<a
+  href="#/p5.Image">p5.Image</a> が返されます。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Gets a pixel or a region of pixels from a <a href="#/p5.Image">p5.Image</a>
+  object.</p>
+
+  <p><code>img.get()</code> is easy to use but it's not as fast as <a
+  href="#/p5.Image/pixels">img.pixels</a>. Use <a
+  href="#/p5.Image/pixels">img.pixels</a> to read many pixel values.</p>
+
+  <p>The version of <code>img.get()</code> with no parameters returns the entire
+  image.</p>
+
+  <p>The version of <code>img.get()</code> with two parameters interprets them
+  as coordinates. It returns an array with the <code>[R, G, B, A]</code> values
+  of the pixel at the given point.</p>
+
+  <p>The version of <code>img.get()</code> with four parameters interprets them
+  as coordinates and dimensions. It returns a subsection of the canvas as a <a
+  href="#/p5.Image">p5.Image</a> object. The first two parameters are the
+  coordinates for the upper-left corner of the subsection. The last two
+  parameters are the width and height of the subsection.</p>
+
+  <p>Use <a href="#/p5.Image/get">img.get()</a> to work directly with <a
+  href="#/p5.Image">p5.Image</a> objects.</p>
+
+
+  <hr/>
+
   <p>Gets a pixel or a region of pixels from the image.</p>
 
   <p><code>img.get()</code> is easy to use but it's not as fast as
@@ -39,6 +75,20 @@ description: >
   to work directly
 
   with images.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "x": "Number:ピクセルの x 座標",
+      "y": "Number:ピクセルの y 座標",
+      "w": "Number: width of the subsection to be returned. /// todo /// Number:幅",
+      "h": "Number: height of the subsection to be returned. /// todo /// Number:高さ"
+  }
+
+  </pre>
 line: 563
 isConstructor: false
 itemtype: method
@@ -130,7 +180,11 @@ example:
     </div>
 class: p5.Image
 return:
-  description: subsection as a <a href="#/p5.Image">p5.Image</a> object.
+  description: >-
+    subsection as a <a href="#/p5.Image">p5.Image</a> object. /// todo ///
+    p5.Image: 矩形 <a href="#/p5.Image">p5.Image</a>。
+
+    subsection as a <a href="#/p5.Image">p5.Image</a> object.
   type: p5.Image
 overloads:
   - line: 563

@@ -4,6 +4,17 @@ module: Color
 submodule: Creating & Reading
 file: src/color/creating_reading.js
 description: >
+  <p><a href="#/p5.Color">p5.Color</a>オブジェクト、色成分の配列、または CSS
+  カラー文字列から彩度の値を抽出します。</p>
+
+  <p></p>
+
+  <p>HSB と HSL では、飽和度が異なる尺度でスケールされます。デフォルトでは、この関数は HSL の飽和度を返します。<a
+  href="#/colorMode">colorMode()</a> が HSB に設定されている場合、 HSB の飽和度を返します。</p>
+
+
+  <hr/>
+
   <p>Gets the saturation value of a color.</p>
 
   <p><code>saturation()</code> extracts the saturation value from a
@@ -185,11 +196,14 @@ class: p5
 params:
   - name: color
     description: |
+      <p><a href="#/p5.Color">p5.Color</a> オブジェクト、色成分の配列、または CSS カラー文字列</p>
       <p><a href="#/p5.Color">p5.Color</a> object, array of
                                               color components, or CSS color string.</p>
     type: 'p5.Color|Number[]|String'
 return:
-  description: the saturation value
+  description: |-
+    彩度の値
+    the saturation value
   type: Number
 chainable: false
 ---

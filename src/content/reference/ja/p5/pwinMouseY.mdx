@@ -4,6 +4,14 @@ module: Events
 submodule: Mouse
 file: src/events/mouse.js
 description: >
+  <p>システム変数 pwinMouseY は、現在のフレームの前のフレームにおける、ウィンドウの (0, 0)
+  に対するマウスの垂直位置を常に含んでいます。</p>
+
+  <p>注意:pwinMouseY は、各タッチイベントの開始時に現在の winMouseY の値にリセットされます。</p>
+
+
+  <hr/>
+
   <p>A <code>Number</code> variable that tracks the mouse's previous vertical
   position
 

@@ -3,7 +3,20 @@ title: loadJSON
 module: IO
 submodule: Input
 file: src/io/files.js
-description: >
+description: >-
+  <p>ファイルまたは URL から JSON ファイルをロードし、オブジェクトを返します。</p>
+
+  <p>JSON ファイルに配列が含まれていても、インデックス番号がキーとなるオブジェクトが返されることに注意してください。</p>
+
+  <p>このメソッドは非同期であり、スケッチの次の行が実行される前に終了しない場合があります。JSONP はポリフィルを介してサポートされており、<a
+  href="https://github.com/camsong/ fetch-jsonp">こちら</a> で指定されている構文に従った JSON
+  コールバックの定義を含むオブジェクトを2番目の引数として渡すことができます。</p>
+
+  <p>このメソッドは、最大64MB のファイルをフェッチするのに適しています。</p>
+
+
+  <hr/>
+
   <p>Loads a JSON file to create an <code>Object</code>.</p>
 
   <p>JavaScript Object Notation
@@ -61,6 +74,21 @@ description: >
 
   <a href="/reference/p5/setup">setup()</a> or <a
   href="/reference/p5/draw">draw()</a>.</p>
+
+
+  <pre>
+
+  todo: param successCallback not found in ja-legacy:
+
+  {
+      "path": "String: ロードするファイル名または URL",
+      "jsonpOptions": "Object: (オプション) jsonp 関連設定のオプションオブジェクト",
+      "datatype": "String: (オプション) \"json\"または\"jsonp\"",
+      "callback": "Function: (オプション) <a href=\"#/p5/loadJSON\">loadJSON()</a> 完了後に実行される関数。データが最初の引数として渡されます。",
+      "errorCallback": "Function: (オプション) エラーがあった場合に実行される関数。レスポンスが最初の引数として渡されます。"
+  }
+
+  </pre>
 line: 17
 isConstructor: false
 itemtype: method
@@ -261,6 +289,7 @@ class: p5
 params:
   - name: path
     description: |
+      <p>ロードするファイル名または URL</p>
       <p>path of the JSON file to be loaded.</p>
     type: String
   - name: successCallback
@@ -271,12 +300,16 @@ params:
     optional: true
   - name: errorCallback
     description: >
+      <p>(オプション) エラーがあった場合に実行される関数。レスポンスが最初の引数として渡されます。</p>
+
       <p>function to call if the data fails to load. Will be passed an
       <code>Error</code> event object.</p>
     type: Function
     optional: true
 return:
-  description: object containing the loaded data.
+  description: |-
+    Object|Array: JSON データ
+    object containing the loaded data.
   type: Object
 chainable: false
 ---

@@ -4,6 +4,10 @@ module: IO
 submodule: Table
 file: src/io/p5.Table.js
 description: |
+  <p>提供された正規表現に一致する最初の行をテーブルから検索し、その行への参照を返します。</p>
+  <p>複数の行が可能な場合でも、最初にマッチした行のみが返されます。検索する列は、ID またはタイトルで指定できます。</p>
+
+  <hr/>
   <p>Finds the first row in the Table that matches the regular
   expression provided, and returns a reference to that row.
   Even if multiple rows are possible matches, only the first
@@ -45,15 +49,19 @@ class: p5.Table
 params:
   - name: regexp
     description: |
+      <p>一致する正規表現</p>
       <p>The regular expression to match</p>
     type: String|RegExp
   - name: column
     description: |
+      <p> 列 ID（数字）またはタイトル（文字列）</p>
       <p>The column ID (number) or
                                        title (string)</p>
     type: String|Integer
 return:
-  description: TableRow object
+  description: |-
+    TableRow オブジェクト
+    TableRow object
   type: p5.TableRow
 chainable: false
 ---

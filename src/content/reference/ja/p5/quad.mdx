@@ -3,7 +3,17 @@ title: quad
 module: Shape
 submodule: 2D Primitives
 file: src/core/shape/2d_primitives.js
-description: >
+description: >-
+  <p>キャンバスに四角形を描きます。</p>
+
+  <p>四角形は四辺形、つまり4辺の多角形です。四角形の例には、長方形、正方形、ひし形、台形があります。最初のパラメーターのペア（<code>x1</code>、<code>y1</code>）は四角形の最初の点を設定します。その後のパラメーターのペアは、次の3つの点の座標を設定します。パラメーターは、形状を時計回りまたは反時計周りに進む必要があります。</p>
+
+  <p><code>quad()</code>の12パラメーターのバージョンでは、四角形を3D空間に描くことができます。これを行うには、<a
+  href="#/p5/createCanvas">createCanvas()</a>に<code>WEBGL</code>引数を追加する必要があります。</p>
+
+
+  <hr/>
+
   <p>Draws a quadrilateral (four-sided shape).</p>
 
   <p>Quadrilaterals include rectangles, squares, rhombuses, and trapezoids. The
@@ -30,6 +40,30 @@ description: >
   set the number of segments used to draw the quadrilateral in the x- and
 
   y-directions. They're both 25 by default.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "x1": "Number: 最初の点の x 座標",
+      "y1": "Number: 最初の点の y 座標",
+      "x2": "Number: 2番目の点の x 座標",
+      "y2": "Number: 2番目の点の y 座標",
+      "x3": "Number: 3番目の点の x 座標",
+      "y3": "Number: 3番目の点の y 座標",
+      "x4": "Number: 4番目の点の x 座標",
+      "y4": "Number: 4番目の点の y 座標",
+      "detailX": "Integer: (オプション) x 方向のセグメントの数",
+      "detailY": "Integer: (オプション) y 方向のセグメントの数",
+      "z1": "Number: 最初の点の z 座標",
+      "z2": "Number: 2番目の点の z 座標",
+      "z3": "Number: 3番目の点の z 座標",
+      "z4": "Number: 4番目の点の z 座標"
+  }
+
+  </pre>
 line: 923
 isConstructor: false
 itemtype: method

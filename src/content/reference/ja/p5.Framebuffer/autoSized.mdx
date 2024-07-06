@@ -3,7 +3,16 @@ title: autoSized
 module: Rendering
 submodule: ''
 file: src/webgl/p5.Framebuffer.js
-description: >
+description: >-
+  <p>このフレームバッファがキャンバスのサイズに合わせて自動的にリサイズされるかどうかを取得または設定します。</p>
+
+  <p></p>
+
+  <p>現在自動サイズ調整が行われているかどうかを確認するには、このメソッドを引数なしで呼び出すか、このプロパティを設定するために真偽値を渡します。</p>
+
+
+  <hr/>
+
   <p>Toggles the framebuffer's autosizing mode or returns the current mode.</p>
 
   <p>By default, the framebuffer automatically resizes to match the canvas
@@ -16,6 +25,13 @@ description: >
   <code>true</code> if
 
   the framebuffer automatically resizes and <code>false</code> if not.</p>
+
+
+  <pre>
+
+  todo: return not found in ja-legacy.
+
+  </pre>
 line: 402
 isConstructor: false
 itemtype: method
@@ -70,6 +86,8 @@ class: p5.Framebuffer
 params:
   - name: autoSized
     description: >
+      <p>(オプション) フレームバッファがキャンバスに合わせてサイズを変更すべきかどうか</p>
+
       <p>whether to automatically resize the framebuffer to match the
       canvas.</p>
     type: Boolean

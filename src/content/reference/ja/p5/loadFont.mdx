@@ -4,6 +4,46 @@ module: Typography
 submodule: Loading & Displaying
 file: src/typography/loading_displaying.js
 description: >
+  <p>ファイルまたは URL から OpenType フォントファイル（.otf、.ttf）をロードし、<a
+  href="#/p5.Font">p5.Font</a> オブジェクトを返します。</p>
+
+  <p>この関数は非同期であり、スケッチの次の行が実行される前に終了しない場合があります。</p>
+
+  <p>フォントへのパスは、スケッチにリンクされた HTML ファイルに対して相対的である必要があります。URL
+  や他のリモート場所からのフォントの読み込みは、ブラウザーの組み込みセキュリティによりブロックされることがあります。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Loads a font and creates a <a href="#/p5.Font">p5.Font</a> object.
+  <code>loadFont()</code> can load fonts in either .otf or .ttf format. Loaded
+  fonts can be used to style text on the canvas and in HTML elements.</p>
+
+  <p>The first parameter, <code>path</code>, is the path to a font file. Paths
+  to local files should be relative. For example,
+  <code>'assets/inconsolata.otf'</code>. The Inconsolata font used in the
+  following examples can be downloaded for free <a
+  href="https://www.fontsquirrel.com/fonts/inconsolata"
+  target="_blank">here</a>. Paths to remote files should be URLs. For example,
+  <code>'https://example.com/inconsolata.otf'</code>. URLs may be blocked due to
+  browser security.</p>
+
+  <p>The second parameter, <code>successCallback</code>, is optional. If a
+  function is passed, it will be called once the font has loaded. The callback
+  function may use the new <a href="#/p5.Font">p5.Font</a> object if needed.</p>
+
+  <p>The third parameter, <code>failureCallback</code>, is also optional. If a
+  function is passed, it will be called if the font fails to load. The callback
+  function may use the error <a
+  href="https://developer.mozilla.org/en-US/docs/Web/API/Event"
+  target="_blank">Event</a> object if needed.</p>
+
+  <p>Fonts can take time to load. Calling <code>loadFont()</code> in <a
+  href="#/p5/preload">preload()</a> ensures fonts load before they're used in <a
+  href="#/p5/setup">setup()</a> or <a href="#/p5/draw">draw()</a>.</p>
+
+
+  <hr/>
+
   <p>Loads a font and creates a <a href="/reference/p5/p5.Font">p5.Font</a>
   object.
 
@@ -141,25 +181,39 @@ example:
 class: p5
 params:
   - name: path
-    description: |
+    description: >
+      <p>path of the font to be loaded. /// todo /// String:  ロードするファイルまたは URL
+      の名前</p>
+
       <p>path of the font to be loaded.</p>
     type: String
   - name: successCallback
-    description: |
+    description: >
+      <p>(Optional) function called with the  <a href="#/p5.Font">p5.Font</a>
+      object after it  loads. /// todo /// 関数: (オプション) <a
+      href="#/p5/loadFont">loadFont()</a> が完了した後に実行される関数</p>
+
       <p>function called with the
                                                 <a href="#/p5.Font">p5.Font</a> object after it
                                                 loads.</p>
     type: Function
     optional: true
   - name: failureCallback
-    description: |
+    description: >
+      <p>(Optional) function called with the error  <a
+      href="https://developer.mozilla.org/en-US/docs/Web/API/Event"
+      target="_blank">Event</a>  object if the font fails to load. /// todo ///
+      関数: (オプション) エラーが発生した場合に実行される関数</p>
+
       <p>function called with the error
                                                 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event" target="_blank">Event</a>
                                                 object if the font fails to load.</p>
     type: Function
     optional: true
 return:
-  description: <a href="#/p5.Font">p5.Font</a> object.
+  description: |-
+    <a href="#/p5.Font">p5.Font</a> オブジェクト
+    <a href="#/p5.Font">p5.Font</a> object.
   type: p5.Font
 chainable: false
 ---

@@ -4,6 +4,52 @@ module: Image
 submodule: Image
 file: src/image/p5.Image.js
 description: >
+  <p>ディスプレイウィンドウ内のすべてのピクセルの値を含む配列です。</p>
+
+  <p>これらの値は数値です。この配列のサイズは、ピクセル密度の適切な係数を含めたディスプレイウィンドウのサイズ×4 で、各ピクセルの R、G、B、A
+  値が順番に表示されます。左から右に各行を移動し、各列を下に移動します。Retina
+  やその他の高密度ディスプレイでは、ピクセルがより多く存在します（pixelDensity^2
+  倍）。「たとえば、画像が100×100ピクセルの場合、40000ピクセルがあります。pixelDensity = 2
+  の場合、160000になります。配列内の最初の4つの値（インデックス0〜3）は、（0、0）のピクセルの R、G、B、A
+  値です。次の4つの値（インデックス4〜7）には、（1、0）のピクセルの R、G、B、A
+  値が含まれます。一般的に、（x、y）のピクセルの値を設定するには:<pre><code class="language-javascript">let d
+  = pixelDensity(); for (let i = 0; i < d; i++) {  for (let j = 0; j < d; j++)
+  {  // loop over  index = 4 * ((y * d + j) * width * d + (x * d + i)); 
+  pixels[index] = r;  pixels[index+1] = g;  pixels[index+2] = b; 
+  pixels[index+3] = a;  } } </code></pre></p>
+
+  <p>この配列にアクセスする前に、<a href="#/p5.Image/loadPixels">loadPixels()</a>
+  関数でデータを読み込む必要があります。配列データが変更された後、変更内容を反映させるには、<a
+  href="#/p5.Image/updatePixels">updatePixels()</a> 関数を実行する必要があります。</p>
+
+  <p>/// todo ///</p>
+
+  <p>An array containing the color of each pixel in the <a
+  href="#/p5.Image">p5.Image</a> object. Colors are stored as numbers
+  representing red, green, blue, and alpha (RGBA) values.
+  <code>img.pixels</code> is a one-dimensional array for performance
+  reasons.</p>
+
+  <p>Each pixel occupies four elements in the pixels array, one for each RGBA
+  value. For example, the pixel at coordinates (0, 0) stores its RGBA values at
+  <code>img.pixels[0]</code>, <code>img.pixels[1]</code>,
+  <code>img.pixels[2]</code>, and <code>img.pixels[3]</code>, respectively. The
+  next pixel at coordinates (1, 0) stores its RGBA values at
+  <code>img.pixels[4]</code>, <code>img.pixels[5]</code>,
+  <code>img.pixels[6]</code>, and <code>img.pixels[7]</code>. And so on. The
+  <code>img.pixels</code> array for a 100×100 <a href="#/p5.Image">p5.Image</a>
+  object has 100 × 100 × 4 = 40,000 elements.</p>
+
+  <p>Accessing the RGBA values for a pixel in the <a
+  href="#/p5.Image">p5.Image</a> object requires a little math as shown below.
+  The <a href="#/p5.Image/loadPixels">img.loadPixels()</a> method must be called
+  before accessing the <code>img.pixels</code> array. The <a
+  href="#/p5.Image/updatePixels">img.updatePixels()</a> method must be called
+  after any changes are made.</p>
+
+
+  <hr/>
+
   <p>An array containing the color of each pixel in the image.</p>
 
   <p>Colors are stored as numbers representing red, green, blue, and alpha

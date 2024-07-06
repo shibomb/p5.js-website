@@ -4,6 +4,15 @@ module: Data
 submodule: LocalStorage
 file: src/data/local_storage.js
 description: >
+  <p>キー名の下にローカルストレージに値を保存します。</p>
+
+  <p>ローカルストレージはブラウザーに保存され、閲覧セッションやページのリロード間で持続します。キーは変数名であることができますが、必ずしもそうである必要はありません。<a
+  href="#/p5/getItem">getItem</a>
+  を参照して保存されたアイテムを取得してください。パスワードや個人情報などの機密データは、ローカルストレージに保存しないでください。</p>
+
+
+  <hr/>
+
   <p>Stores a value in the web browser's local storage.</p>
 
   <p>Web browsers can save small amounts of data using the built-in
@@ -132,10 +141,12 @@ class: p5
 params:
   - name: key
     description: |
+      <p>String</p>
       <p>name of the value.</p>
     type: String
   - name: value
     description: |
+      <p>String|Number|Object|Boolean|p5.Color|p5.Vector</p>
       <p>value to be stored.</p>
     type: String|Number|Boolean|Object|Array
 chainable: false

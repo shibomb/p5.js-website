@@ -4,6 +4,10 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
+  <p>呼び出された瞬間の単一の Amplitude 読み取り値を返します。</p>
+  <p>連続した読み取りを行う場合は、draw ループで実行します。</p>
+
+  <hr/>
   <p>Returns a single Amplitude reading at the moment it is called.
   For continuous readings, run in the draw loop.</p>
 line: 3209
@@ -45,11 +49,14 @@ class: p5.Amplitude
 params:
   - name: channel
     description: |
+      <p>(オプション) チャンネル0（左）または1（右）だけを返すようにオプションで指定できます。</p>
       <p>Optionally return only channel 0 (left) or 1 (right)</p>
     type: Number
     optional: true
 return:
-  description: Amplitude as a number between 0.0 and 1.0
+  description: |-
+    0.0から1.0の範囲内の Amplitude
+    Amplitude as a number between 0.0 and 1.0
   type: Number
 chainable: false
 ---

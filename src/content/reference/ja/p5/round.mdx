@@ -4,6 +4,18 @@ module: Math
 submodule: Calculation
 file: src/math/calculation.js
 description: >
+  <p>n パラメーターに最も近い整数を計算します。</p>
+
+  <p>たとえば、round(133.8)は値134を返します。Math.round() にマップされます。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Calculates the integer closest to the <code>n</code> parameter. For
+  example, <code>round(133.8)</code> returns the value 134.</p>
+
+
+  <hr/>
+
   <p>Calculates the integer closest to a number.</p>
 
   <p>For example, <code>round(133.8)</code> returns the value 134.</p>
@@ -68,15 +80,19 @@ class: p5
 params:
   - name: 'n'
     description: |
+      <p>四捨五入する数値</p>
       <p>number to round.</p>
     type: Number
   - name: decimals
     description: |
+      <p>(オプション) 四捨五入する小数点以下の桁数。デフォルトは0</p>
       <p>number of decimal places to round to, default is 0.</p>
     type: Number
     optional: true
 return:
-  description: rounded number.
+  description: |-
+    四捨五入された数値
+    rounded number.
   type: Integer
 chainable: false
 ---

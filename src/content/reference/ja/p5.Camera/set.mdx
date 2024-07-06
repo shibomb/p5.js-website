@@ -4,6 +4,13 @@ module: 3D
 submodule: Camera
 file: src/webgl/p5.Camera.js
 description: >
+  <p>パラメーターで指定された元のカメラのビューとプロジェクションに関する情報を、このカメラオブジェクトにコピーします。</p>
+
+  <p>このカメラオブジェクトがアクティブであれば、それが画面に反映されます。</p>
+
+
+  <hr/>
+
   <p>Sets the camera’s position, orientation, and projection by copying another
 
   camera.</p>
@@ -67,6 +74,7 @@ class: p5.Camera
 params:
   - name: cam
     description: |
+      <p>元のカメラ</p>
       <p>camera to copy.</p>
     type: p5.Camera
 chainable: false

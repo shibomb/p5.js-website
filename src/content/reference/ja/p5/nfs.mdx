@@ -3,7 +3,29 @@ title: nfs
 module: Data
 submodule: String Functions
 file: src/utilities/string_functions.js
-description: >
+description: >-
+  <p>数値を文字列にフォーマットするユーティリティ関数。</p>
+
+  <p><a href="#/p5/nf">nf()</a>
+  と似ていますが、正の数の前に追加の「_」（スペース）を付けて、マイナス記号を含む負の数と整列させます。</p>
+
+  <p>nfs() の主な使用例は、非負数の桁（位）を負数と整列させたい場合に見られます（例を参照して明確なイメージを得てください）。float
+  用のバージョンと int 用のバージョンの2つがあります。</p>
+
+  <p>digits、left、right パラメーターの値は常に正の整数である必要があります。</p>
+
+  <p>（重要）:キャンバス上の結果、つまり期待される整列は、使用している書体によって異なる場合があります。</p>
+
+  <p>（注意）:left と right
+  パラメーターを使用する際には注意してください。パラメーターが現在の数値の長さよりも大きい場合、0の数が前に付加されます。</p>
+
+  <p>たとえば、数値が123.2で、left
+  パラメーターに4（123（整数部分）の長さよりも大きい3）が渡された場合、結果は0123.2になります。right パラメーターについても同様で、right
+  が3の場合、結果は123.200になります。</p>
+
+
+  <hr/>
+
   <p>Converts a positive <code>Number</code> into a <code>String</code> with an
   extra space in front.</p>
 
@@ -56,6 +78,20 @@ description: >
 
   calling <code>nfs(123.45, 4, 3)</code> returns the string <code>'
   0123.450'</code>.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "num": "Number: フォーマットする数値",
+      "left": "Integer: (オプション) 小数点の左の桁数",
+      "right": "Integer: (オプション) 小数点の右の桁数",
+      "nums": "Array: フォーマットする数値"
+  }
+
+  </pre>
 line: 566
 isConstructor: false
 itemtype: method
@@ -125,7 +161,9 @@ example:
     </div>
 class: p5
 return:
-  description: formatted string.
+  description: |-
+    フォーマットされた文字列
+    formatted string.
   type: String
 overloads:
   - line: 566

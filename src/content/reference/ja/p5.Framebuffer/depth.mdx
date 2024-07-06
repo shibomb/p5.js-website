@@ -4,6 +4,19 @@ module: Rendering
 submodule: ''
 file: src/webgl/p5.Framebuffer.js
 description: >
+  <p>フレームバッファの深度情報が含まれているテクスチャ。</p>
+
+  <p>フレームバッファが設定で <code>{ depth: false }</code> と作成された場合、このプロパティは未定義となります。これを <a
+  href="#/p5/texture">texture()</a> に渡してキャンバスに描画するか、<a
+  href="#/p5.Shader/setUniform">setUniform()</a> に渡すことでそのデータを読み取ることができます。</p>
+
+  <p>フレームバッファは WebGL によって管理されているため、y
+  座標は画像やビデオと比較して反転して保存されています。フレームバッファのテクスチャでテクスチャリングをするときに、垂直に反転させたい場合は
+  <code>plane(framebuffer.width, -framebuffer.height)</code> のようにしてみてください。</p>
+
+
+  <hr/>
+
   <p>An object that stores the framebuffer's dpeth data.</p>
 
   <p>Each framebuffer uses a

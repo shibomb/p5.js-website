@@ -4,6 +4,13 @@ module: 3D
 submodule: Interaction
 file: src/webgl/interaction.js
 description: >
+  <p>マウス、トラックパッド、またはタッチを使って、3D スケッチを操作することができます。</p>
+
+  <p>左クリックしてドラッグしたり、スワイプ動作をすると、カメラの位置がスケッチの中心を中心に回転します。右クリックしてドラッグしたり、マルチスワイプをすると、カメラの位置が回転せずにパンします。また、マウスホイール（スクロール）を使ったり、ピンチイン/アウトをしたりすると、カメラをスケッチの中心から遠ざけたり近づけたりすることができます。この関数は、X軸とY軸に沿ったマウス/タッチの動きの感度を指定するパラメーターで呼び出すことができます。パラメーターを指定せずにこの関数を呼び出すことは、orbitControl(1,1)を呼び出すことと同じです。いずれかの軸の移動方向を逆にするには、感度の値に負の数を入力します。</p>
+
+
+  <hr/>
+
   <p>Allows the user to orbit around a 3D sketch using a mouse, trackpad, or
 
   touchscreen.</p>
@@ -173,21 +180,33 @@ class: p5
 params:
   - name: sensitivityX
     description: |
+      <p>(オプション) X 軸に沿ったマウス移動の感度</p>
       <p>sensitivity to movement along the x-axis. Defaults to 1.</p>
     type: Number
     optional: true
   - name: sensitivityY
     description: |
+      <p>(オプション) Y 軸に沿ったマウス移動の感度</p>
       <p>sensitivity to movement along the y-axis. Defaults to 1.</p>
     type: Number
     optional: true
   - name: sensitivityZ
     description: |
+      <p>(オプション) Z 軸に沿ったスクロール移動の感度</p>
       <p>sensitivity to movement along the z-axis. Defaults to 1.</p>
     type: Number
     optional: true
   - name: options
-    description: |
+    description: >
+      <p>(オプション) 追加の設定を含むオブジェクト、disableTouchActions - Boolean: デフォルト値は true
+      です。これを true
+      に設定すると、orbit中の偶然のページインタラクションが防がれるで、モバイルでのインタラクションがスムーズになります。しかし、すでにcssを通じて行っているか、デフォルトのタッチアクションが必要な場合は、これを
+      false に設定することを検討してください。 freeRotation - Boolan: デフォルト値は false
+      です。デフォルトでは、マウスまたはタッチポインターの水平方向の動きはカメラを y 軸周りに回転させ、垂直方向の動きはカメラを x
+      軸周りに回転させます。しかし、このオプションを true
+      に設定すると、カメラは常にポインターが移動している方向に回転します。ズームと移動については、 true/false
+      に関係なく挙動は同じです。</p>
+
       <p>object with two optional properties, <code>disableTouchActions</code>
                                  and <code>freeRotation</code>. Both are <code>Boolean</code>s. <code>disableTouchActions</code>
                                  defaults to <code>true</code> and <code>freeRotation</code> defaults to <code>false</code>.</p>

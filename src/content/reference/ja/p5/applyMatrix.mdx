@@ -3,7 +3,26 @@ title: applyMatrix
 module: Transform
 submodule: Transform
 file: src/core/transform.js
-description: >
+description: >-
+  <p>現在の行列に、パラメーターで指定された行列を乗算します。</p>
+
+  <p>これは、translate, scale, shear, rotate を一度に実行できる強力な操作です。変換行列については、<a
+  href="https://en.wikipedia.org/wiki/Transformation_matrix">Wikipedia</a>
+  で詳しく学ぶことができます。</p>
+
+  <p>ここでの引数の命名は、<a href=
+  "https://html.spec.whatwg.org/multipage/canvas.html#dom-context-2d-transform">
+  WHATWG 仕様</a> の命名にしたがっており、以下の形式の変換行列に対応しています:<blockquote></p>
+
+  <p><img style="max-width: 150px" src="assets/transformation-matrix.png"
+  alt="applyMatrix が呼び出されたときに使用される変換行列"/> </blockquote></p>
+
+  <p><img style="max-width: 300px" src="assets/transformation-matrix-4-4.png"
+  alt="applyMatrix が4 x 4行列で呼び出されたときに使用される変換行列"/></p>
+
+
+  <hr/>
+
   <p>Applies a transformation matrix to the coordinate system.</p>
 
   <p>Transformations such as
@@ -92,6 +111,33 @@ description: >
   function won't
 
   cause shapes to transform continuously.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "arr": "Array: 数値の配列 - 6または16の長さである必要があります（2 x 3または4 x 4行列値）",
+      "a": "Number: 乗算される2 x 3または4 x 4行列を定義する数値",
+      "b": "Number: 乗算される2 x 3または4 x 4行列を定義する数値",
+      "c": "Number: 乗算される2 x 3または4 x 4行列を定義する数値",
+      "d": "Number: 乗算される2 x 3または4 x 4行列を定義する数値",
+      "e": "Number: 乗算される2 x 3または4 x 4行列を定義する数値",
+      "f": "Number: 乗算される2 x 3または4 x 4行列を定義する数値",
+      "g": "Number: 乗算される4 x 4行列を定義する数値",
+      "h": "Number: 乗算される4 x 4行列を定義する数値",
+      "i": "Number: 乗算される4 x 4行列を定義する数値",
+      "j": "Number: 乗算される4 x 4行列を定義する数値",
+      "k": "Number: 乗算される4 x 4行列を定義する数値",
+      "l": "Number: 乗算される4 x 4行列を定義する数値",
+      "m": "Number: 乗算される4 x 4行列を定義する数値",
+      "n": "Number: 乗算される4 x 4行列を定義する数値",
+      "o": "Number: 乗算される4 x 4行列を定義する数値",
+      "p": "Number: 乗算される4 x 4行列を定義する数値"
+  }
+
+  </pre>
 line: 11
 isConstructor: false
 itemtype: method

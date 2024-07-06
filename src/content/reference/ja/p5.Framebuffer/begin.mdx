@@ -4,6 +4,14 @@ module: Rendering
 submodule: ''
 file: src/webgl/p5.Framebuffer.js
 description: >
+  <p>このフレームバッファに描画を開始します。</p>
+
+  <p>その後の描画関数はフレームバッファのテクスチャに描画され、すぐには可視化されません。描画関数を再びキャンバスに直接行うようにし、フレームバッファのテクスチャの内容を読み取るためには、<a
+  href="#/p5.Framebuffer/end">end()</a> を呼び出します。</p>
+
+
+  <hr/>
+
   <p>Begins drawing shapes to the framebuffer.</p>
 
   <p><code>myBuffer.begin()</code> and <a

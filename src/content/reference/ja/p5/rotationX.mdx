@@ -3,13 +3,30 @@ title: rotationX
 module: Events
 submodule: Acceleration
 file: src/events/acceleration.js
-description: |
+description: >
+  <p>システム変数 rotationX は常にデバイスの x 軸に沿った回転を格納しています。</p>
+
+  <p><a href="#/p5/angleMode"> angleMode()</a> が DEGREES
+  に設定されている場合、値は-180から180になります。RADIANS に設定されている場合、値は-PI から PI になります。</p>
+
+  <p>注:回転が呼び出される順序は重要であり、つまり、一緒に使用される場合、Z-X-Y
+  の順序で呼び出さなければならず、そうでないと予期しない動作が発生する可能性があります。</p>
+
+
+  <hr/>
+
   <p>The system variable rotationX always contains the rotation of the
+
   device along the x axis. If the sketch <a href="/reference/p5/angleMode">
+
   angleMode()</a> is set to DEGREES, the value will be -180 to 180. If
+
   it is set to RADIANS, the value will be -PI to PI.</p>
+
   <p>Note: The order the rotations are called is important, ie. if used
+
   together, it must be called in the order Z-X-Y or there might be
+
   unexpected behaviour.</p>
 line: 131
 isConstructor: false

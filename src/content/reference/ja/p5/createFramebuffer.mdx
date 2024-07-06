@@ -3,7 +3,78 @@ title: createFramebuffer
 module: Rendering
 submodule: Rendering
 file: src/core/rendering.js
-description: >
+description: >-
+  <p>新しい <a href="#/p5.Framebuffer">p5.Framebuffer</a> を作成し返します。</p>
+
+  <p>これは高性能な WebGL オブジェクトで、これに描画したり、テクスチャとして使用することができます。</p>
+
+  <p>オプションには以下のものがあります: <ul> <li><code>format</code>:
+  テクスチャのデータフォーマット。<code>UNSIGNED_BYTE</code>、<code>FLOAT</code>、<code>HALF_FLOAT</code>
+  のいずれか。デフォルトは <code>UNSIGNED_BYTE</code> です。</li> <li><code>channels</code>:
+  保存する色チャンネル。<code>RGB</code> または
+  <code>RGBA</code>。デフォルトでは、メインキャンバスのチャンネルを一致させます（<code>setAttributes</code>
+  で無効化しない限り、アルファが含まれます）。</li> <li><code>depth</code>:
+  デプスバッファを含めるかどうかのブール値。デフォルトは true です。</li> <li><code>depthFormat</code>:
+  デプス情報のデータフォーマット。<code>UNSIGNED_INT</code> または
+  <code>FLOAT</code>。デフォルトは利用可能な場合は <code>FLOAT</code>、それ以外の場合は
+  <code>UNSIGNED_INT</code> です。</li> <li><code>antialias</code>:
+  ブール値または数値で、エッジが滑らかになるようにレンダリングするかどうか、またはその場合、使用するサンプルの数。メインキャンバスが滑らかに描画されるかどうかにもとづきますが、デフォルトでは2つのサンプルを使用します。アンチエイリアシングは
+  WebGL 2 が利用可能な場合のみサポートされます。</li> <li><code>width</code>:
+  テクスチャの幅。デフォルトはメインキャンバスと一致します。</li> <li><code>height</code>:
+  テクスチャの高さ。デフォルトはメインキャンバスと一致します。</li> <li><code>density</code>:
+  テクスチャのピクセル密度。デフォルトはメインキャンバスのピクセル密度と一致します。</li>
+  <li><code>textureFiltering</code>:
+  <code>LINEAR</code>（色テクスチャから値を読み取る際に近くのピクセルが補間されます）か
+  <code>NEAREST</code>（補間なし）。通常、テクスチャを画像として使用する場合は <code>LINEAR</code>
+  を、テクスチャをデータとして読み取る場合は <code>NEAREST</code> を使用します。デフォルトは <code>LINEAR</code>
+  です。</li> </ul></p>
+
+  <p><code>width</code>、<code>height</code>、<code>density</code>
+  が指定されている場合、フレームバッファはそのサイズを手動で変更されるまで保持されます。それ以外の場合は、自動サイズが設定され、メインキャンバスのサイズや密度が変更されたときにそれに合わせて更新されます。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Creates and returns a new <a href="#/p5.Framebuffer">p5.Framebuffer</a>, a
+  high-performance WebGL object that you can draw to and then use as a
+  texture.</p>
+
+  <p>Options can include: <ul> <li><code>format</code>: The data format of the
+  texture, either <code>UNSIGNED_BYTE</code>, <code>FLOAT</code>, or
+  <code>HALF_FLOAT</code>. The default is <code>UNSIGNED_BYTE</code>.</li>
+  <li><code>channels</code>: What color channels to store, either
+  <code>RGB</code> or <code>RGBA</code>. The default is to match the channels in
+  the main canvas (with alpha unless disabled with
+  <code>setAttributes</code>.)</li> <li><code>depth</code>: A boolean, whether
+  or not to include a depth buffer. Defaults to true.</li>
+  <li><code>depthFormat</code>: The data format for depth information, either
+  <code>UNSIGNED_INT</code> or <code>FLOAT</code>. The default is
+  <code>FLOAT</code> if available, or <code>UNSIGNED_INT</code> otherwise.</li>
+  <li><code>stencil</code>: A boolean, whether or not to include a stencil
+  buffer, which can be used for masking. This may only be used if also using a
+  depth buffer. Defaults to the value of <code>depth</code>, which is true if
+  not provided.</li> <li><code>antialias</code>: Boolean or Number, whether or
+  not to render with antialiased edges, and if so, optionally the number of
+  samples to use. Defaults to whether or not the main canvas is antialiased,
+  using a default of 2 samples if so. Antialiasing is only supported when WebGL
+  2 is available.</li> <li><code>width</code>: The width of the texture.
+  Defaults to matching the main canvas.</li> <li><code>height</code>: The height
+  of the texture. Defaults to matching the main canvas.</li>
+  <li><code>density</code>: The pixel density of the texture. Defaults to the
+  pixel density of the main canvas.</li> <li><code>textureFiltering</code>:
+  Either <code>LINEAR</code> (nearby pixels will be interpolated when reading
+  values from the color texture) or <code>NEAREST</code> (no interpolation.)
+  Generally, use <code>LINEAR</code> when using the texture as an image, and use
+  <code>NEAREST</code> if reading the texture as data. Defaults to
+  <code>LINEAR</code>.</li> </ul></p>
+
+  <p>If <code>width</code>, <code>height</code>, or <code>density</code> are
+  specified, then the framebuffer will keep that size until manually changed.
+  Otherwise, it will be autosized, and it will update to match the main canvas's
+  size and density when the main canvas changes.</p>
+
+
+  <hr/>
+
   <p>Creates and a new <a href="/reference/p5/p5.Framebuffer">p5.Framebuffer</a>
   object.</p>
 
@@ -79,6 +150,13 @@ description: >
   changed manually.</p>
 
   <p>Note: <code>createFramebuffer()</code> can only be used in WebGL mode.</p>
+
+
+  <pre>
+
+  todo: return not found in ja-legacy.
+
+  </pre>
 line: 495
 isConstructor: false
 itemtype: method
@@ -192,6 +270,7 @@ class: p5
 params:
   - name: options
     description: |
+      <p>(オプション) 設定を含むオプションのオブジェクト</p>
       <p>configuration options.</p>
     type: Object
     optional: true

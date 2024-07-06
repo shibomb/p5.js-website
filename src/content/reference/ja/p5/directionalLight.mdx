@@ -3,7 +3,25 @@ title: directionalLight
 module: 3D
 submodule: Lights
 file: src/webgl/light.js
-description: >
+description: >-
+  <p>指定された色と方向の指向性光を作成します。</p>
+
+  <p></p>
+
+  <p>指向性光はひとつの方向から来ます。方向は、-1から1までの数字で指定されます。たとえば、方向を(0, -1,
+  0)に設定すると、ジオメトリが下から照らされます（光が真上を向いているため）。同様に、方向を(1, 0,
+  0)に設定すると、ジオメトリが左から照らされます（光が真右を向いているため）。</p>
+
+  <p>指向性光には特定の発光源がないため、ジオメトリから遠ざけたり近づけたりすることはできません。</p>
+
+  <p>一度にアクティブにできる指向性光は <strong>5</strong> つまでです。</p>
+
+  <p>注: ループプログララム内でライトを持続させるためには、draw() 内でライトを呼び出す必要があります（直接または間接的に）。setup()
+  に配置すると、ループの最初の通過でのみ効果があります。</p>
+
+
+  <hr/>
+
   <p>Creates a light that shines in one direction.</p>
 
   <p>Directional lights don’t shine from a specific point. They’re like a sun
@@ -90,6 +108,24 @@ description: >
 
   direction the <code>lightDir</code> vector points with the color value of
   <code>myColor</code>.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "v1": "Number: 現在のカラーレンジに対する赤または色相の値",
+      "v2": "Number: 現在のカラーレンジに対する緑または彩度の値",
+      "v3": "Number: 現在のカラーレンジに対する青または明度の値",
+      "x": "Number: 方向の x 成分（-1から1までの範囲を含む）",
+      "y": "Number: 方向の y 成分（-1から1までの範囲を含む）",
+      "z": "Number: 方向の z 成分（-1から1までの範囲を含む）",
+      "direction": "p5.Vector: <a href=\"#/p5.Vector\">p5.Vector</a> としての光の方向",
+      "color": "p5.Color|Number[]|String: <a href=\"#/p5.Color\">p5.Color</a>、配列、または CSS 文字列としての色"
+  }
+
+  </pre>
 line: 461
 isConstructor: false
 itemtype: method

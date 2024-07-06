@@ -3,7 +3,20 @@ title: copy
 module: Image
 submodule: Pixels
 file: src/image/pixels.js
-description: >
+description: >-
+  <p>Copies pixels from a source image to a region of the canvas. The source
+  image can be the canvas itself or a <a href="#/p5.Image">p5.Image</a> object.
+  <code>copy()</code> will scale pixels from the source region if it isn't the
+  same size as the destination region.。</p>
+
+  <p>/// todo ///</p>
+
+  <p>キャンバスの一部を別の領域にコピーし、srcImg パラメーターとして使用される画像のピクセル領域をキャンバスにコピーします。srcImage
+  が指定されている場合、これがソースとして使用されます。ソースと宛先の領域が同じサイズでない場合、ソースのピクセルが自動的に指定されたターゲット領域に合わせてサイズ変更されます。</p>
+
+
+  <hr/>
+
   <p>Copies pixels from a source image to a region of the canvas.</p>
 
   <p>The first parameter, <code>srcImage</code>, is the
@@ -35,6 +48,25 @@ description: >
 
   region. <code>dw</code> and <code>dh</code> are the region's width and
   height.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "srcImage": "p5.Image|p5.Element: ソース画像",
+      "sx": "Integer: ソースの左上隅の X 座標",
+      "sy": "Integer: ソースの左上隅の Y 座標",
+      "sw": "Integer: ソース画像の幅",
+      "sh": "Integer: ソース画像の高さ",
+      "dx": "Integer: 宛先の左上隅の X 座標",
+      "dy": "Integer: 宛先の左上隅の Y 座標",
+      "dw": "Integer: 宛先画像の幅",
+      "dh": "Integer: 宛先画像の高さ"
+  }
+
+  </pre>
 line: 288
 isConstructor: false
 itemtype: method

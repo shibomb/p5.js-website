@@ -3,7 +3,21 @@ title: get
 module: Rendering
 submodule: ''
 file: src/webgl/p5.Framebuffer.js
-description: >
+description: >-
+  <p><a href="#/p5.Image">p5.Image</a>
+  の形でキャンバスからピクセルの領域を取得するか、あるいは数値の配列として単一のピクセルを取得します。</p>
+
+  <p></p>
+
+  <p>任意のピクセルの [R,G,B,A]
+  の値の配列を返すか、画像のセクションを返します。フレームバッファがアルファ値を保存しないように設定されている場合は、 [R,G,B]
+  のみが返されます。パラメーターが指定されていない場合、すべての画像が返されます。ピクセルの値を1つ取得するには、 x と y
+  パラメーターを使用します。追加の w と h パラメーターを指定してディスプレイウィンドウのセクションを取得します。画像を取得する際、 x と y
+  パラメーターは、現在の<a href="#/p5/imageMode">imageMode()</a>に関係なく、画像の左上角の座標を指定します。</p>
+
+
+  <hr/>
+
   <p>Gets a pixel or a region of pixels from the framebuffer.</p>
 
   <p><code>myBuffer.get()</code> is easy to use but it's not as fast as
@@ -39,12 +53,28 @@ description: >
   the coordinates for the upper-left corner of the subsection. The last two
 
   parameters are the width and height of the subsection.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "x": "Number: ピクセルの x 座標",
+      "y": "Number: ピクセルの y 座標",
+      "w": "Number: 返されるセクションの幅",
+      "h": "Number: 返されるセクションの高さ"
+  }
+
+  </pre>
 line: 1454
 isConstructor: false
 itemtype: method
 class: p5.Framebuffer
 return:
-  description: subsection as a <a href="#/p5.Image">p5.Image</a> object.
+  description: |-
+    矩形の <a href="#/p5.Image">p5.Image</a>
+    subsection as a <a href="#/p5.Image">p5.Image</a> object.
   type: p5.Image
 overloads:
   - line: 1454

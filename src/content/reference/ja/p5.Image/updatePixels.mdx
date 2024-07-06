@@ -3,7 +3,36 @@ title: updatePixels
 module: Image
 submodule: Image
 file: src/image/p5.Image.js
-description: >
+description: >-
+  <p>この画像のバッキングキャンバスを[pixels]配列の内容で更新します。</p>
+
+  <p></p>
+
+  <p>この画像がアニメーション GIF の場合、ピクセルは現在表示されているフレームで更新されます。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Updates the canvas with the RGBA values in the <a
+  href="#/p5.Image/pixels">img.pixels</a> array.</p>
+
+  <p><code>img.updatePixels()</code> only needs to be called after changing
+  values in the <a href="#/p5.Image/pixels">img.pixels</a> array. Such changes
+  can be made directly after calling <a
+  href="#/p5.Image/loadPixels">img.loadPixels()</a> or by calling <a
+  href="#/p5.Image/set">img.set()</a>.</p>
+
+  <p>The optional parameters <code>x</code>, <code>y</code>, <code>width</code>,
+  and <code>height</code> define a subsection of the <a
+  href="#/p5.Image">p5.Image</a> object to update. Doing so can improve
+  performance in some cases.</p>
+
+  <p>If the <a href="#/p5.Image">p5.Image</a> object was loaded from a GIF, then
+  calling <code>img.updatePixels()</code> will update the pixels in current
+  frame.</p>
+
+
+  <hr/>
+
   <p>Updates the canvas with the RGBA values in the
 
   <a href="/reference/p5.Image/pixels">img.pixels</a> array.</p>
@@ -31,6 +60,20 @@ description: >
   <code>img.updatePixels()</code>
 
   will update the pixels in current frame.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "x": "Integer: x-coordinate of the upper-left corner  of the subsection to update. /// todo /// Integer: アンダーラインキャンバスのターゲット更新領域の x オフセット",
+      "y": "Integer: y-coordinate of the upper-left corner  of the subsection to update. /// todo /// Integer: アンダーラインキャンバスのターゲット更新領域の y オフセット",
+      "w": "Integer: width of the subsection to update. /// todo /// Integer: アンダーラインキャンバスのターゲット更新領域の幅",
+      "h": "Integer: height of the subsection to update. /// todo /// Integer: アンダーラインキャンバスのターゲット更新領域の高さ"
+  }
+
+  </pre>
 line: 462
 isConstructor: false
 itemtype: method

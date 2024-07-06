@@ -4,6 +4,10 @@ module: Data
 submodule: Array Functions
 file: src/utilities/array_functions.js
 description: |
+  <p>2つの配列を連結します。</p>
+  <p>Array.concat() に対応します。入力配列は変更されません。</p>
+
+  <hr/>
   <p>Concatenates two arrays, maps to Array.concat(). Does not modify the
   input arrays.</p>
 line: 112
@@ -31,14 +35,18 @@ class: p5
 params:
   - name: a
     description: |
+      <p>連結する最初の配列</p>
       <p>first Array to concatenate</p>
     type: Array
   - name: b
     description: |
+      <p>連結する2番目の配列</p>
       <p>second Array to concatenate</p>
     type: Array
 return:
-  description: concatenated array
+  description: |-
+    連結された配列
+    concatenated array
   type: Array
 chainable: false
 ---

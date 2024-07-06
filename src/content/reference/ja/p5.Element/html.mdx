@@ -3,7 +3,15 @@ title: html
 module: DOM
 submodule: DOM
 file: src/dom/dom.js
-description: >
+description: >-
+  <p>引数が与えられた場合、要素の内部 HTML を設定し、既存の HTML を置き換えます。</p>
+
+  <p>true が2番目の引数として含まれている場合、HTML は既存の HTML を置き換えるのではなく追加されます。引数が与えられない場合、要素の内部
+  HTML が返されます。</p>
+
+
+  <hr/>
+
   <p>Sets the inner HTML of the element, replacing any existing HTML.</p>
 
   <p>The second parameter, <code>append</code>, is optional. If
@@ -18,6 +26,18 @@ description: >
   element's inner
 
   HTML is returned.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "html": "String: (オプション) 要素内に配置される HTML",
+      "append": "Boolean: (オプション) HTML を既存のものに追加するかどうか"
+  }
+
+  </pre>
 line: 2874
 isConstructor: false
 itemtype: method
@@ -79,7 +99,9 @@ example:
     </div>
 class: p5.Element
 return:
-  description: the inner HTML of the element
+  description: |-
+    要素の内部 HTML
+    the inner HTML of the element
   type: String
 overloads:
   - line: 2874

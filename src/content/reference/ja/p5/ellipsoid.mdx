@@ -3,7 +3,17 @@ title: ellipsoid
 module: Shape
 submodule: 3D Primitives
 file: src/webgl/3d_primitives.js
-description: >
+description: >-
+  <p>指定された半径の楕円体を描画します。</p>
+
+  <p></p>
+
+  <p>DetailX および detailY は、楕円体の x 次元および y
+  次元の細分割数を決定します。細分割が多いほど、楕円体は滑らかに見えます。細分割数が150以上にならないようにしてください。それはブラウザーがクラッシュする原因になるかもしれません。</p>
+
+
+  <hr/>
+
   <p>Draws an ellipsoid.</p>
 
   <p>An ellipsoid is a 3D shape with triangular faces that connect to form a
@@ -64,6 +74,49 @@ description: >
   triangles to form their surfaces. By default, <code>detailY</code> is 16.</p>
 
   <p>Note: <code>ellipsoid()</code> can only be used in WebGL mode.</p>
+
+
+  <pre>
+
+  todo: param radiusX not found in ja-legacy:
+
+  {
+      "radiusx": "Number: (オプション) 楕円体の x 半径",
+      "radiusy": "Number: (オプション) 楕円体の y 半径",
+      "radiusz": "Number: (オプション) 楕円体の z 半径",
+      "detailX": "Integer: (オプション) セグメント数, セグメントが多いほど、ジオメトリが滑らかになります。デフォルトは24。細分割数が150以上にならないようにしてください。それはブラウザーがクラッシュする原因になるかもしれません。",
+      "detailY": "Integer: (オプション) セグメント数, セグメントが多いほど、ジオメトリが滑らかになります。デフォルトは16。細分割数が150以上にならないようにしてください。それはブラウザーがクラッシュする原因になるかもしれません。"
+  }
+
+  </pre>
+
+  <pre>
+
+  todo: param radiusY not found in ja-legacy:
+
+  {
+      "radiusx": "Number: (オプション) 楕円体の x 半径",
+      "radiusy": "Number: (オプション) 楕円体の y 半径",
+      "radiusz": "Number: (オプション) 楕円体の z 半径",
+      "detailX": "Integer: (オプション) セグメント数, セグメントが多いほど、ジオメトリが滑らかになります。デフォルトは24。細分割数が150以上にならないようにしてください。それはブラウザーがクラッシュする原因になるかもしれません。",
+      "detailY": "Integer: (オプション) セグメント数, セグメントが多いほど、ジオメトリが滑らかになります。デフォルトは16。細分割数が150以上にならないようにしてください。それはブラウザーがクラッシュする原因になるかもしれません。"
+  }
+
+  </pre>
+
+  <pre>
+
+  todo: param radiusZ not found in ja-legacy:
+
+  {
+      "radiusx": "Number: (オプション) 楕円体の x 半径",
+      "radiusy": "Number: (オプション) 楕円体の y 半径",
+      "radiusz": "Number: (オプション) 楕円体の z 半径",
+      "detailX": "Integer: (オプション) セグメント数, セグメントが多いほど、ジオメトリが滑らかになります。デフォルトは24。細分割数が150以上にならないようにしてください。それはブラウザーがクラッシュする原因になるかもしれません。",
+      "detailY": "Integer: (オプション) セグメント数, セグメントが多いほど、ジオメトリが滑らかになります。デフォルトは16。細分割数が150以上にならないようにしてください。それはブラウザーがクラッシュする原因になるかもしれません。"
+  }
+
+  </pre>
 line: 1965
 isConstructor: false
 itemtype: method
@@ -214,12 +267,18 @@ params:
     type: Number
     optional: true
   - name: detailX
-    description: |
+    description: >
+      <p>(オプション) セグメント数,
+      セグメントが多いほど、ジオメトリが滑らかになります。デフォルトは24。細分割数が150以上にならないようにしてください。それはブラウザーがクラッシュする原因になるかもしれません。</p>
+
       <p>number of triangle subdivisions along the x-axis. Defaults to 24.</p>
     type: Integer
     optional: true
   - name: detailY
-    description: |
+    description: >
+      <p>(オプション) セグメント数,
+      セグメントが多いほど、ジオメトリが滑らかになります。デフォルトは16。細分割数が150以上にならないようにしてください。それはブラウザーがクラッシュする原因になるかもしれません。</p>
+
       <p>number of triangle subdivisions along the y-axis. Defaults to 16.</p>
     type: Integer
     optional: true

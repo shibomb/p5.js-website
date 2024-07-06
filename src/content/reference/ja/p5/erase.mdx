@@ -4,6 +4,28 @@ module: Color
 submodule: Setting
 file: src/color/setting.js
 description: >
+  <p><a
+  href="#/p5/erase">erase()</a>の後に続くすべての描画は、キャンバスから減算され、その下のウェブページを明らかにします。</p>
+
+  <p>消去されたエリアは透明になり、キャンバスの背後のコンテンツを見せることができます。<a href="#/p5/fill">fill()</a>、<a
+  href="#/p5/stroke">stroke()</a> および <a href="#/p5/blendMode">blendMode()</a> は
+  <code>erase()</code>が呼び出されると効果がなくなります。</p>
+
+  <p><code>erase()</code>
+  関数には2つのオプションのパラメーターがあります。第一のパラメーターは、形の内部による消去の強度を設定します。値が 0 の場合、消去は発生しません。値が
+  255 の場合、形の内部のコンテンツを完全に消去します。デフォルトの値は 255（全強度）です。</p>
+
+  <p>第二のパラメーターは、形のエッジによる消去の強度を設定します。値が 0 の場合、消去は発生しません。値が 255
+  の場合、形のエッジを完全に消去します。デフォルトの値は 255（全強度）です。</p>
+
+  <p>消去効果をキャンセルするには、<a href="#/p5/noErase">noErase()</a>関数を使用します。</p>
+
+  <p><code>erase()</code>は、 <a href="#/p5/image">image()</a> 関数と <a
+  href="#/p5/background">background()</a> 関数で行われる描画には影響しません。</p>
+
+
+  <hr/>
+
   <p>Starts using shapes to erase parts of the canvas.</p>
 
   <p>All drawing that follows <code>erase()</code> will subtract from the
@@ -103,12 +125,14 @@ class: p5
 params:
   - name: strengthFill
     description: |
+      <p>(オプション) シェイプ内部の消去の強さを数値（0-255）で指定します。デフォルトは255で、完全に消去されます。</p>
       <p>a number (0-255) for the strength of erasing under a shape's interior.
                                              Defaults to 255, which is full strength.</p>
     type: Number
     optional: true
   - name: strengthStroke
     description: |
+      <p>(オプション) シェイプのエッジ消去の強さを数値（0-255）で指定します。デフォルは255で、完全に消去されます。</p>
       <p>a number (0-255) for the strength of erasing under a shape's edge.
                                              Defaults to 255, which is full strength.</p>
     type: Number

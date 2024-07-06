@@ -4,6 +4,20 @@ module: Data
 submodule: String Functions
 file: src/utilities/string_functions.js
 description: >
+  <p>この関数は、正規表現をテキストに適用し、一致するグループ（括弧内に見つかった要素）を二次元の String 配列として返すために使用されます。</p>
+
+  <p>一致がない場合は、null
+  値が返されます。正規表現でグループが指定されていないが、シーケンスが一致している場合でも、二次元配列が返されますが、2次元目の長さは1です。</p>
+
+  <p>この関数を使用するには、最初に結果が null かどうかを確認してください。結果が null
+  の場合、シーケンスはまったく一致しませんでした。シーケンスが一致した場合、2次元配列が返されます。</p>
+
+  <p>正規表現にグループ（括弧で指定されたセット）がある場合、それぞれの内容が配列に返されます。カウンタ変数 i
+  をもつループを仮定すると、正規表現の一致の要素[i][0]は、一致する文字列全体を返し、一致グループは要素[i][1]で始まります（最初のグループは[i][1]、2番目のグループは[i][2]、といった具合）。</p>
+
+
+  <hr/>
+
   <p>Applies a regular expression to a string and returns an array of
   matches.</p>
 
@@ -88,14 +102,18 @@ class: p5
 params:
   - name: str
     description: |
+      <p>検索対象の文字列</p>
       <p>string to search.</p>
     type: String
   - name: regexp
     description: |
+      <p>一致させるために使用される正規表現</p>
       <p>regular expression to match.</p>
     type: String
 return:
-  description: matches found.
+  description: |-
+    見つかった文字列の2次元配列
+    matches found.
   type: 'String[]'
 chainable: false
 ---

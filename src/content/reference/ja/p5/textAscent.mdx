@@ -4,6 +4,10 @@ module: Typography
 submodule: Attributes
 file: src/typography/attributes.js
 description: |
+  <p>現在のフォントの上昇を、現在のサイズで返します。</p>
+  <p>上昇は、ベースラインから最も高い文字までの距離（ピクセル単位）を表します。</p>
+
+  <hr/>
   <p>Calculates the ascent of the current font at its current size.</p>
   <p>The ascent represents the distance, in pixels, of the tallest character
   above the baseline.</p>
@@ -59,7 +63,9 @@ example:
     </div>
 class: p5
 return:
-  description: ascent measured in units of pixels.
+  description: |-
+    ascent measured in units of pixels. /// todo /// 
+    ascent measured in units of pixels.
   type: Number
 chainable: false
 ---

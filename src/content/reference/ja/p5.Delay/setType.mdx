@@ -3,9 +3,18 @@ title: setType
 module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
-description: |
+description: >
+  <p>遅延のプリセットタイプを選択します。</p>
+
+  <p>'pingPong'は、信号を左から右のチャンネルに跳ね返してステレオ効果を生成します。それ以外のパラメーターは、デフォルトの遅延設定に戻ります。</p>
+
+
+  <hr/>
+
   <p>Choose a preset type of delay. 'pingPong' bounces the signal
+
   from the left to the right channel to produce a stereo effect.
+
   Any other parameter will revert to the default delay setting.</p>
 line: 8170
 isConstructor: false
@@ -14,6 +23,7 @@ class: p5.Delay
 params:
   - name: type
     description: |
+      <p>'pingPong'(1)または'default'(0)</p>
       <p>'pingPong' (1) or 'default' (0)</p>
     type: String|Number
 chainable: false

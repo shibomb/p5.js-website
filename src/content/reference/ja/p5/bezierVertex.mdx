@@ -3,7 +3,24 @@ title: bezierVertex
 module: Shape
 submodule: Vertex
 file: src/core/shape/vertex.js
-description: >
+description: >-
+  <p>Bezier 曲線の頂点座標を指定します。</p>
+
+  <p>bezierVertex() を呼び出すごとに、Bezier
+  曲線の2つのコントロールポイントとひとつのアンカーポイントの位置が定義され、線または図形に新しいセグメントが追加されます。WebGL
+  モードでは、bezierVertex() は 2D および 3D モードの両方で使用できます。2D モードでは6つのパラメーターが必要ですが、3D
+  モードでは9つのパラメーター（z 座標を含む）が必要です。</p>
+
+  <p><a href="#/p5/beginShape">beginShape()</a> 呼び出し内で初めて bezierVertex()
+  を使用する際は、最初のアンカーポイントを設定するために <a href="#/p5/vertex">vertex()</a>
+  呼び出しを先頭に置く必要があります。この関数は <a href="#/p5/beginShape">beginShape()</a> と <a
+  href="#/p5/endShape">endShape()</a> の間でのみ使用できますが、<a
+  href="#/p5/beginShape">beginShape()</a> に MODE または POINTS
+  パラメーターが指定されている場合は使用できません。</p>
+
+
+  <hr/>
+
   <p>Adds a Bézier curve segment to a custom shape.</p>
 
   <p><code>bezierVertex()</code> adds a curved segment to custom shapes. The
@@ -48,6 +65,25 @@ description: >
   <p>Note: <code>bezierVertex()</code> won’t work when an argument is passed to
 
   <a href="/reference/p5/beginShape">beginShape()</a>.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "x2": "Number: 第1コントロールポイントの x 座標",
+      "y2": "Number: 第1コントロールポイントの y 座標",
+      "x3": "Number: 第2コントロールポイントの x 座標",
+      "y3": "Number: 第2コントロールポイントの y 座標",
+      "x4": "Number: アンカーポイントの x 座標",
+      "y4": "Number: アンカーポイントの y 座標",
+      "z2": "Number: 第1コントロールポイントの z 座標 (WebGL モード用)",
+      "z3": "Number: 第2コントロールポイントの z 座標 (WebGL モード用)",
+      "z4": "Number: アンカーポイントの z 座標 (WebGL モード用)"
+  }
+
+  </pre>
 line: 543
 isConstructor: false
 itemtype: method

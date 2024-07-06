@@ -4,6 +4,35 @@ module: Image
 submodule: Image
 file: src/image/p5.Image.js
 description: >
+  <p>画像をファイルに保存し、ブラウザーをダウンロードするように指示します。</p>
+
+  <p>ファイル名と拡張子の2つの文字列を受け入れます。png（デフォルト）、jpg、および gif がサポートされています。 p5.Image が GIF
+  ファイルから読み込まれた場合のみ、ファイルはアニメーション GIF としてダウンロードされます。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Saves the <a href="#/p5.Image">p5.Image</a> object to a file. The browser
+  will either save the file immediately or prompt the user with a dialogue
+  window.</p>
+
+  <p>By default, calling <code>img.save()</code> will save the image as
+  <code>untitled.png</code>.</p>
+
+  <p>Calling <code>img.save()</code> with one argument, as in
+  <code>img.save('photo.png')</code>, will set the image's filename and type
+  together.</p>
+
+  <p>Calling <code>img.save()</code> with two arguments, as in
+  <code>image.save('photo', 'png')</code>, will set the image's filename and
+  type separately.</p>
+
+  <p>The image will only be downloaded as an animated GIF if the <a
+  href="#/p5.Image">p5.Image</a> object was loaded from a GIF file. See <a
+  href="#/p5/saveGif">saveGif()</a> to create new GIFs.</p>
+
+
+  <hr/>
+
   <p>Saves the image to a file.</p>
 
   <p>By default, <code>img.save()</code> saves the image as a PNG image called
@@ -76,11 +105,17 @@ example:
 class: p5.Image
 params:
   - name: filename
-    description: |
+    description: >
+      <p>filename. Defaults to 'untitled'. /// todo /// String: 
+      ファイル名を指定してください</p>
+
       <p>filename. Defaults to 'untitled'.</p>
     type: String
   - name: extension
-    description: |
+    description: >
+      <p>(Optional) file extension, either 'png' or 'jpg'.  Defaults to 'png'.
+      /// todo /// String:  'png'または'jpg'</p>
+
       <p>file extension, either 'png' or 'jpg'.
                                  Defaults to 'png'.</p>
     type: String

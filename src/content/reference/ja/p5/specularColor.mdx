@@ -3,7 +3,26 @@ title: specularColor
 module: 3D
 submodule: Lights
 file: src/webgl/light.js
-description: >
+description: >-
+  <p>非環境光（つまり、<a href="#/p5/ambientLight">ambientLight()</a>
+  を除くすべての光）のスペキュラハイライトの色を設定します。</p>
+
+  <p></p>
+
+  <p>specularColor() は、コード内でそれ以降に作成される光にのみ影響します。</p>
+
+  <p>この関数は、<a href="#/p5/specularMaterial">specularMaterial()</a>
+  と組み合わせて使用されます。ジオメトリが specularMaterial() を使用しない場合、この関数は効果がありません。</p>
+
+  <p>デフォルトの色は白（255, 255, 255）で、specularColor() が明示的に呼び出されない場合に使用されます。</p>
+
+  <p>注: specularColor は、Processing 関数の <a
+  href="https://processing.org/reference/lightSpecular_.html">lightSpecular</a>
+  と同等です。</p>
+
+
+  <hr/>
+
   <p>Sets the specular color for lights.</p>
 
   <p><code>specularColor()</code> affects lights that bounce off a surface in a
@@ -74,6 +93,23 @@ description: >
   color. Color values will be interpreted using the current
 
   <a href="/reference/p5/colorMode">colorMode()</a>.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "v1": "Number: 現在のカラーレンジに対する赤または色相の値",
+      "v2": "Number: 現在のカラーレンジに対する緑または彩度の値",
+      "v3": "Number: 現在のカラーレンジに対する青または明度の値",
+      "gray": "Number: 白と黒の間の値を指定する数",
+      "value": "String: CSS 文字列としての色",
+      "values": "Number[]: 赤、緑、青の成分を含む配列としての色",
+      "color": "p5.Color: <a href=\"#/p5.Color\">p5.Color</a> としての色"
+  }
+
+  </pre>
 line: 205
 isConstructor: false
 itemtype: method

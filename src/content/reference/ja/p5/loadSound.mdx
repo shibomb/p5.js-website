@@ -3,13 +3,30 @@ title: loadSound
 module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
-description: |
+description: >
+  <p>指定されたパスから新しい p5.SoundFile を返します。</p>
+
+  <p>preload() 中に呼び出された場合、p5.SoundFile は setup() および draw()
+  の実行前に再生準備ができます。preload() の外で呼び出された場合、p5.SoundFile はすぐに再生準備ができないため、loadSound
+  にはコールバック関数が第二引数として渡されます。外部ファイルをロードする場合は、<a
+  href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>
+  を使用することをお勧めします。</p>
+
+
+  <hr/>
+
   <p>loadSound() returns a new p5.SoundFile from a specified
+
   path. If called during preload(), the p5.SoundFile will be ready
+
   to play in time for setup() and draw(). If called outside of
+
   preload, the p5.SoundFile will not be ready immediately, so
+
   loadSound accepts a callback as the second parameter. Using a
+
   <a href="https://github.com/processing/p5.js/wiki/Local-server">
+
   local server</a> is recommended when loading external files.</p>
 line: 2946
 isConstructor: false
@@ -40,7 +57,10 @@ example:
 class: p5
 params:
   - name: path
-    description: |
+    description: >
+      <p>音声ファイルへのパス、または複数の形式の音声ファイルへのパスを含む配列、例: ['sound.ogg',
+      'sound.mp3']。また、HTML5 File API または p5.File からのオブジェクトも受け入れます。</p>
+
       <p>Path to the sound file, or an array with
                                         paths to soundfiles in multiple formats
                                         i.e. ['sound.ogg', 'sound.mp3'].
@@ -49,24 +69,29 @@ params:
     type: String|Array
   - name: successCallback
     description: |
+      <p>(オプション) ファイルの読み込みが完了したときに呼び出す関数の名前</p>
       <p>Name of a function to call once file loads</p>
     type: Function
     optional: true
   - name: errorCallback
     description: |
+      <p>(オプション) ファイルの読み込み中にエラーが発生した場合に呼び出す関数の名前。</p>
       <p>Name of a function to call if there is
                                           an error loading the file.</p>
     type: Function
     optional: true
   - name: whileLoading
     description: |
+      <p>(オプション) ファイルの読み込み中に呼び出す関数の名前。現在読み込まれているパーセンテージ（0.0〜1.0）が渡されます。</p>
       <p>Name of a function to call while file is loading.
                                      This function will receive the percentage loaded
                                      so far, from 0.0 to 1.0.</p>
     type: Function
     optional: true
 return:
-  description: Returns a p5.SoundFile
+  description: |-
+    p5.SoundFile を返します。
+    Returns a p5.SoundFile
   type: SoundFile
 chainable: false
 ---

@@ -3,7 +3,31 @@ title: stroke
 module: Color
 submodule: Setting
 file: src/color/setting.js
-description: >
+description: >-
+  <p>線や図形の周り枠線を描くために使用される色を設定します。</p>
+
+  <p> <code>stroke(255, 165, 0)</code> または <code>stroke('orange')</code>
+  を呼び出すと、その後に描かれたすべての形状はオレンジ色になります。これらのパラメーターの解釈方法は、<a
+  href="#/p5/colorMode">colorMode()</a>関数で変更することができます。</p>
+
+  <p><code>stroke()</code>の1つのパラメーターのバージョンは、値を3つの方法のいずれかで解釈します。
+  パラメーターが数値の場合、それはグレースケールの値として解釈されます。 パラメーターが文字列の場合、それは CSS
+  カラー文字列として解釈されます。ストロークカラーを設定するために、<a
+  href="#/p5.Color">p5.Color</a>オブジェクトも提供することができます。</p>
+
+  <p><code>stroke()</code>の2つのパラメーターのバージョンは、最初のパラメーターをグレースケールの値として解釈します。
+  2つ目のパラメーターは、アルファ（透明度）値を設定します。</p>
+
+  <p><code>stroke()</code>の3つのパラメーターのバージョンは、それらを RGB、HSB、HSL
+  の色として解釈します。これは現在の<code>colorMode()</code>に依存します。</p>
+
+  <p><code>stroke()</code>の4つのパラメーターのバージョンは、それらを RGBA、HSBA、HSLA
+  の色として解釈します。これは現在の<code>colorMode()</code>に依存します。
+  最後のパラメーターはアルファ（透明度）値を設定します。</p>
+
+
+  <hr/>
+
   <p>Sets the color used to draw points, lines, and the outlines of shapes.</p>
 
   <p>Calling <code>stroke(255, 165, 0)</code> or <code>stroke('orange')</code>
@@ -47,6 +71,24 @@ description: >
   parameter
 
   sets the alpha (transparency) value.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "v1": "Number: カラーモードが RGB の場合:赤の値、カラーモードが HSB の場合:色相の値",
+      "v2": "Number: カラーモードが RGB の場合:緑の値、カラーモードが HSB の場合:彩度の値",
+      "v3": "Number: カラーモードが RGB の場合:青の値、カラーモードが HSB の場合:明るさの値",
+      "alpha": "Number (オプション)",
+      "value": "String: カラー文字列",
+      "gray": "Number: グレースケールの値",
+      "values": "Number[]: 色の赤、緑、青、アルファ成分を含む配列",
+      "color": "p5.Color: ストロークカラー"
+  }
+
+  </pre>
 line: 1335
 isConstructor: false
 itemtype: method

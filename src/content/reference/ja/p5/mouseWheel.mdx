@@ -4,6 +4,18 @@ module: Events
 submodule: Mouse
 file: src/events/mouse.js
 description: >
+  <p>関数 <a href="#/p5/mouseWheel">mouseWheel()</a>
+  は、実際のマウスホイールまたはタッチパッドによってトリガーされるたびに、垂直方向のマウスホイールイベントが検出されるたびに実行されます。</p>
+
+  <p>event.delta
+  プロパティは、マウスホイールがスクロールした量を返します。値は、スクロール方向によって正または負になることがあります（macOS
+  で「ナチュラル」スクロールが有効になっている場合、符号が反転します）。ブラウザーによっては、さまざまなマウスイベントにデフォルトの動作が関連付けられていることがあります。このイベントのデフォルトの動作を防ぐには、メソッドの最後に「return
+  false」を追加します。現在の Safari における「wheel」イベントのサポート状況のため、Safari
+  を使用している場合には、期待通りの動作をするために「return false」を含める必要があります。</p>
+
+
+  <hr/>
+
   <p>A function that's called once when the mouse wheel moves.</p>
 
   <p>Declaring the function <code>mouseWheel()</code> sets a code block to run
@@ -149,6 +161,7 @@ class: p5
 params:
   - name: event
     description: |
+      <p>(オプション) オプションの WheelEvent コールバック引数。</p>
       <p>optional <code>WheelEvent</code> argument.</p>
     type: WheelEvent
     optional: true

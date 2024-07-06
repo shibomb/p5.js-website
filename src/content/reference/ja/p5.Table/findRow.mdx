@@ -4,6 +4,10 @@ module: IO
 submodule: Table
 file: src/io/p5.Table.js
 description: |
+  <p>提供された値を含む最初の行を見つけ、その行への参照を返します。</p>
+  <p>複数の行が可能な場合でも、最初にマッチした行のみが返されます。検索する列は、ID またはタイトルで指定できます。</p>
+
+  <hr/>
   <p>Finds the first row in the Table that contains the value
   provided, and returns a reference to that row. Even if
   multiple rows are possible matches, only the first matching
@@ -46,15 +50,18 @@ class: p5.Table
 params:
   - name: value
     description: |
+      <p>マッチする値</p>
       <p>The value to match</p>
     type: String
   - name: column
     description: |
+      <p>検索する列の ID 番号またはタイトル</p>
       <p>ID number or title of the
                                      column to search</p>
     type: Integer|String
 return:
-  description: ''
+  description: |
+    p5.TableRow:
   type: p5.TableRow
 chainable: false
 ---

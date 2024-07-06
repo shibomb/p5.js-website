@@ -3,7 +3,23 @@ title: nf
 module: Data
 submodule: String Functions
 file: src/utilities/string_functions.js
-description: >
+description: >-
+  <p>数値を文字列にフォーマットするためのユーティリティ関数。</p>
+
+  <p>float 用のものと int 用のものの2つのバージョンがあります。</p>
+
+  <p>digits、left、right パラメーターの値は常に正の整数である必要があります。</p>
+
+  <p>（注意）:left と right
+  パラメーターを使用する際には注意してください。パラメーターが現在の数値の長さよりも大きい場合、0の数が前に付加されます。</p>
+
+  <p>たとえば、数値が123.2で、left
+  パラメーターに4（123（整数部分）の長さよりも大きい3）が渡された場合、結果は0123.2になります。right パラメーターについても同様で、right
+  が3の場合、結果は123.200になります。</p>
+
+
+  <hr/>
+
   <p>Converts a <code>Number</code> into a <code>String</code> with a given
   number of digits.</p>
 
@@ -57,6 +73,20 @@ description: >
   then unused decimal places will be set to 0. For example, calling
 
   <code>nf(123.45, 4, 3)</code> returns the string <code>'0123.450'</code>.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "num": "Number|String: フォーマットする数値",
+      "left": "Integer|String: (オプション) 小数点の左の桁数",
+      "right": "Integer|String: (オプション) 小数点の右の桁数",
+      "nums": "Array: フォーマットする数値"
+  }
+
+  </pre>
 line: 199
 isConstructor: false
 itemtype: method
@@ -100,7 +130,9 @@ example:
     </div>
 class: p5
 return:
-  description: formatted string.
+  description: |-
+    フォーマットされた文字列
+    formatted string.
   type: String
 overloads:
   - line: 199

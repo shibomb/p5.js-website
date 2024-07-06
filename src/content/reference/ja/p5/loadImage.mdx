@@ -4,6 +4,48 @@ module: Image
 submodule: Loading & Displaying
 file: src/image/loading_displaying.js
 description: >
+  <p>画像をパスから読み込み、<a href="#/p5.Image">p5.Image</a> を作成します。</p>
+
+  <p></p>
+
+  <p>画像はレンダリングのためにすぐに利用できない場合があります。画像が準備完了してから何かを行いたい場合は、<a
+  href="#/p5/loadImage">loadImage()</a> を <a href="#/p5/preload">preload()</a>
+  の中に入れてください。また、準備ができたときに画像を処理するためのコールバック関数を提供することもできます。</p>
+
+  <p>画像へのパスは、スケッチにリンクする HTML ファイルに対して相対的であるべきです。URL
+  や他のリモート場所からの画像の読み込みは、ブラウザーの組み込みセキュリティによってブロックされることがあります。</p>
+
+  <p>ファイルパスの代わりに、base64 でエンコードされた画像の文字列を渡すこともできます。文字列の前に
+  "data:image/png;base64," を追加することを忘れないでください。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Loads an image to create a <a href="#/p5.Image">p5.Image</a> object.</p>
+
+  <p><code>loadImage()</code> interprets the first parameter one of three ways.
+  If the path to an image file is provided, <code>loadImage()</code> will load
+  it. Paths to local files should be relative, such as
+  <code>'assets/thundercat.jpg'</code>. URLs such as
+  <code>'https://example.com/thundercat.jpg'</code> may be blocked due to
+  browser security. Raw image data can also be passed as a base64 encoded image
+  in the form
+  <code>'data:image/png;base64,arandomsequenceofcharacters'</code>.</p>
+
+  <p>The second parameter is optional. If a function is passed, it will be
+  called once the image has loaded. The callback function can optionally use the
+  new <a href="#/p5.Image">p5.Image</a> object.</p>
+
+  <p>The third parameter is also optional. If a function is passed, it will be
+  called if the image fails to load. The callback function can optionally use
+  the event error.</p>
+
+  <p>Images can take time to load. Calling <code>loadImage()</code> in <a
+  href="#/p5/preload">preload()</a> ensures images load before they're used in
+  <a href="#/p5/setup">setup()</a> or <a href="#/p5/draw">draw()</a>.</p>
+
+
+  <hr/>
+
   <p>Loads an image to create a <a href="/reference/p5/p5.Image">p5.Image</a>
   object.</p>
 
@@ -108,24 +150,37 @@ example:
 class: p5
 params:
   - name: path
-    description: |
+    description: >
+      <p>path of the image to be loaded or base64 encoded image. /// todo ///
+      String: 読み込む画像のパス</p>
+
       <p>path of the image to be loaded or base64 encoded image.</p>
     type: String
   - name: successCallback
-    description: |
+    description: >
+      <p>(Optional) function called with  <a href="#/p5.Image">p5.Image</a> once
+      it  loads. /// todo /// function(p5.Image): (オプション) 画像が読み込まれたら呼び出される関数。<a
+      href="#/p5.Image">p5.Image</a> が渡されます。</p>
+
       <p>function called with
                                     <a href="#/p5.Image">p5.Image</a> once it
                                     loads.</p>
     type: function(p5.Image)
     optional: true
   - name: failureCallback
-    description: |
+    description: >
+      <p>(Optional) function called with event  error if the image fails to
+      load. /// todo /// Function(Event): (オプション)
+      画像の読み込みに失敗した場合、イベントエラーとともに呼び出されます。</p>
+
       <p>function called with event
                                     error if the image fails to load.</p>
     type: Function(Event)
     optional: true
 return:
-  description: the <a href="#/p5.Image">p5.Image</a> object.
+  description: |-
+    <a href="#/p5.Image">p5.Image</a> オブジェクト
+    the <a href="#/p5.Image">p5.Image</a> object.
   type: p5.Image
 chainable: false
 ---

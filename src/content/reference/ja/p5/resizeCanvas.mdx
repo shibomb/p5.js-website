@@ -3,7 +3,14 @@ title: resizeCanvas
 module: Rendering
 submodule: Rendering
 file: src/core/rendering.js
-description: >
+description: >-
+  <p>キャンバスを指定された幅と高さにリサイズします。</p>
+
+  <p>キャンバスはクリアされ、直ちに描画が呼び出され、スケッチがリサイズされたキャンバスで再レンダリングされます。</p>
+
+
+  <hr/>
+
   <p>Resizes the canvas to a given width and height.</p>
 
   <p><code>resizeCanvas()</code> immediately clears the canvas and calls
@@ -50,6 +57,31 @@ description: >
   immediately. By default, <a href="/reference/p5/redraw">redraw()</a> is called
 
   immediately when <code>resizeCanvas()</code> finishes executing.</p>
+
+
+  <pre>
+
+  todo: param width not found in ja-legacy:
+
+  {
+      "w": "Number: キャンバスの幅",
+      "h": "Number: キャンバスの高さ",
+      "noRedraw": "Boolean: (オプション) キャンバスを直ちに再描画しない"
+  }
+
+  </pre>
+
+  <pre>
+
+  todo: param height not found in ja-legacy:
+
+  {
+      "w": "Number: キャンバスの幅",
+      "h": "Number: キャンバスの高さ",
+      "noRedraw": "Boolean: (オプション) キャンバスを直ちに再描画しない"
+  }
+
+  </pre>
 line: 221
 isConstructor: false
 itemtype: method
@@ -117,6 +149,7 @@ params:
     type: Number
   - name: noRedraw
     description: |
+      <p>(オプション) キャンバスを直ちに再描画しない</p>
       <p>whether to delay calling
                                    <a href="#/p5/redraw">redraw()</a>. Defaults
                                    to <code>false</code>.</p>

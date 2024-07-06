@@ -4,6 +4,10 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
+  <p>スコア内のすべてのパートのテンポを設定します。</p>
+  <p></p>
+
+  <hr/>
   <p>Set the tempo for all parts in the score</p>
 line: 9628
 isConstructor: false
@@ -12,10 +16,12 @@ class: p5.Score
 params:
   - name: BPM
     description: |
+      <p>一分間あたりのビート数</p>
       <p>Beats Per Minute</p>
     type: Number
   - name: rampTime
     description: |
+      <p>現在からの秒数</p>
       <p>Seconds from now</p>
     type: Number
 chainable: false

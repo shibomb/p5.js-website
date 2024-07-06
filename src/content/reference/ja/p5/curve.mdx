@@ -3,7 +3,18 @@ title: curve
 module: Shape
 submodule: Curves
 file: src/core/shape/curves.js
-description: >
+description: >-
+  <p>2点間を曲線で結びます。</p>
+
+  <p>曲線は、中間の4つのパラメーターで指定された2点の間に描画されます。最初の2つのパラメーターはコントロールポイントであり、曲線が描かれない場合でも、曲線がこの点から生じているように見えます。最後の2つのパラメーターも同様に、他のコントロールポイントを指定します。
+  <br /><br /> 長い曲線は、<a href="#/p5/curve">curve()</a> 関数を連結して使用するか、<a
+  href="#/p5/curveVertex">curveVertex()</a> を使用して作成できます。さらに <a
+  href="#/p5/curveTightness">curveTightness()</a> 関数を使用すると、曲線のビジュアル品質を制御できます。<a
+  href="#/p5/curve">curve()</a> 関数は Catmull-Rom スプラインの実装です。</p>
+
+
+  <hr/>
+
   <p>Draws a curve using a Catmull-Rom spline.</p>
 
   <p>Spline curves can form shapes and curves that slope gently. They’re like
@@ -36,6 +47,28 @@ description: >
   <code>curve()</code> has twelve arguments because each point has x-, y-, and
 
   z-coordinates.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "x1": "Number: 最初のコントロールポイントの x 座標",
+      "y1": "Number: 最初のコントロールポイントの y 座標",
+      "x2": "Number: 最初の点の x 座標",
+      "y2": "Number: 最初の点の y 座標",
+      "x3": "Number: 2番目の点の x 座標",
+      "y3": "Number: 2番目の点の y 座標",
+      "x4": "Number: 最後のコントロールポイントの x 座標",
+      "y4": "Number: 最後のコントロールポイントの y 座標",
+      "z1": "Number: 最初のコントロールポイントの z 座標",
+      "z2": "Number: 最初の点の z 座標",
+      "z3": "Number: 2番目の点の z 座標",
+      "z4": "Number: 最後のコントロールポイントの z 座標"
+  }
+
+  </pre>
 line: 570
 isConstructor: false
 itemtype: method

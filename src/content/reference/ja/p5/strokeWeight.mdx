@@ -4,6 +4,15 @@ module: Shape
 submodule: Attributes
 file: src/core/shape/attributes.js
 description: >
+  <p>線、点、形状の周りの枠線に使用されるストロークの幅を設定します。</p>
+
+  <p>すべての幅はピクセル単位で設定されます。</p>
+
+  <p>以前に適用された変換やスケーリングが<code>strokeWeight()</code>に影響を及ぼすことに注意してください。</p>
+
+
+  <hr/>
+
   <p>Sets the width of the stroke used for points, lines, and the outlines of
 
   shapes.</p>
@@ -65,6 +74,7 @@ class: p5
 params:
   - name: weight
     description: |
+      <p>ストロークの幅（ピクセル単位）</p>
       <p>the weight of the stroke (in pixels).</p>
     type: Number
 chainable: true

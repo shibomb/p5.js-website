@@ -4,6 +4,14 @@ module: Color
 submodule: Creating & Reading
 file: src/color/creating_reading.js
 description: >
+  <p><a href="#/p5.Color">p5.Color</a>オブジェクト、色成分の配列、または CSS
+  カラー文字列からアルファ値(透明度)の値を抽出します。</p>
+
+  <p></p>
+
+
+  <hr/>
+
   <p>Gets the alpha (transparency) value of a color.</p>
 
   <p><code>alpha()</code> extracts the alpha value from a
@@ -104,11 +112,14 @@ class: p5
 params:
   - name: color
     description: |
+      <p><a href="#/p5.Color">p5.Color</a> オブジェクト、色成分の配列、または CSS カラー文字列</p>
       <p><a href="#/p5.Color">p5.Color</a> object, array of
                                               color components, or CSS color string.</p>
     type: 'p5.Color|Number[]|String'
 return:
-  description: the alpha value.
+  description: |-
+    アルファ値
+    the alpha value.
   type: Number
 chainable: false
 ---

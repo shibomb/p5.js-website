@@ -4,6 +4,14 @@ module: Color
 submodule: Creating & Reading
 file: src/color/p5.Color.js
 description: >
+  <p>カラーのアルファ(透明度)成分を設定します。</p>
+
+  <p>範囲は <a href="#/colorMode">colorMode()</a> に依存します。デフォルトの RGB モードでは、0 から 255
+  の範囲です。</p>
+
+
+  <hr/>
+
   <p>Sets the alpha (transparency) value of a color.</p>
 
   <p>The range depends on the
@@ -76,6 +84,7 @@ class: p5.Color
 params:
   - name: alpha
     description: |
+      <p>新しいアルファ値</p>
       <p>the new alpha value.</p>
     type: Number
 chainable: false

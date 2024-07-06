@@ -4,6 +4,18 @@ module: Shape
 submodule: Attributes
 file: src/core/shape/attributes.js
 description: >
+  <p>ラインセグメントを接続するジョイントのスタイルを設定します。</p>
+
+  <p>これらのジョイントは、ミター（<code>MITER</code>）、ビベル（<code>BEVEL</code>）、またはラウンド（<code>ROUND</code>）のいずれかです。デフォルトのジョイントは
+  2D モードでは<code>MITER</code>、WebGL モードでは<code>ROUND</code>です。</p>
+
+  <p><code>strokeJoin()</code> に渡す引数は、定数
+  <code>MITER</code>、<code>BEVEL</code>、<code>ROUND</code>
+  がこのように定義されているため、すべて大文字で記述する必要があります。 JavaScript は大文字と小文字を区別する言語です。</p>
+
+
+  <hr/>
+
   <p>Sets the style of the joints that connect line segments.</p>
 
   <p>Joints are either mitered (<code>MITER</code>), beveled
@@ -102,6 +114,7 @@ class: p5
 params:
   - name: join
     description: |
+      <p>MITER、BEVEL、ROUND のいずれか</p>
       <p>either MITER, BEVEL, or ROUND</p>
     type: Constant
 chainable: true

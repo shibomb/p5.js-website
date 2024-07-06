@@ -3,7 +3,20 @@ title: loadStrings
 module: IO
 submodule: Input
 file: src/io/files.js
-description: >
+description: >-
+  <p>ファイルの内容を読み取り、その個々の行のString配列を作成します。</p>
+
+  <p>上記の例のように、ファイル名がパラメーターとして使用される場合、ファイルはスケッチディレクトリ/フォルダに配置されている必要があります。</p>
+
+  <p>あるいは、ファイルは絶対パス（UnixやLinuxでは/から始まり、Windowsではドライブ文字から始まるもの）を使用してローカルコンピュータからどこでもロードできるか、またはファイル名パラメーターはネットワーク上にあるファイルのURLにすることができます。</p>
+
+  <p>この方法は非同期であり、スケッチの次の行が実行される前に終了しない可能性があります。</p>
+
+  <p>この方法は、64MBまでのファイルを取得するのに適しています。</p>
+
+
+  <hr/>
+
   <p>Loads a text file to create an <code>Array</code>.</p>
 
   <p>The first parameter, <code>path</code>, is always a string with the path to
@@ -51,6 +64,31 @@ description: >
 
   <a href="/reference/p5/setup">setup()</a> or <a
   href="/reference/p5/draw">draw()</a>.</p>
+
+
+  <pre>
+
+  todo: param path not found in ja-legacy:
+
+  {
+      "filename": "String: ロードするファイル名または URL",
+      "callback": "Function: (オプション) <a href=\"#/p5/loadStrings\">loadStrings()</a> 完了後に実行される関数。配列が最初の引数として渡されます。",
+      "errorCallback": "Function: (オプション) エラーがあった場合に実行される関数。レスポンスが最初の引数として渡されます。"
+  }
+
+  </pre>
+
+  <pre>
+
+  todo: param successCallback not found in ja-legacy:
+
+  {
+      "filename": "String: ロードするファイル名または URL",
+      "callback": "Function: (オプション) <a href=\"#/p5/loadStrings\">loadStrings()</a> 完了後に実行される関数。配列が最初の引数として渡されます。",
+      "errorCallback": "Function: (オプション) エラーがあった場合に実行される関数。レスポンスが最初の引数として渡されます。"
+  }
+
+  </pre>
 line: 309
 isConstructor: false
 itemtype: method
@@ -170,13 +208,16 @@ params:
     optional: true
   - name: errorCallback
     description: |
+      <p>(オプション) エラーがあった場合に実行される関数。レスポンスが最初の引数として渡されます。</p>
       <p>function to call if the data fails to
                                          load. Will be passed an <code>Error</code> event
                                          object.</p>
     type: Function
     optional: true
 return:
-  description: new array containing the loaded text.
+  description: |-
+    文字列の配列
+    new array containing the loaded text.
   type: 'String[]'
 chainable: false
 ---

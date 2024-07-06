@@ -3,7 +3,32 @@ title: slerp
 module: Math
 submodule: Vector
 file: src/math/p5.Vector.js
-description: >
+description: >-
+  <p>他のベクトルと球面線形補間を実行し、結果のベクトルを返します。</p>
+
+  <p>これは 3D と 2D の両方で機能します。2D について、 2D ベクトルとの補完の結果は常に 2D ベクトルになります。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Calculates a new heading and magnitude that are between two vectors. The
+  <code>amt</code> parameter is the amount to interpolate between the old vector
+  and the new vector. 0.0 keeps the heading and magnitude equal to the old
+  vector's, 0.5 sets them halfway between, and 1.0 sets the heading and
+  magnitude equal to the new vector's.</p>
+
+  <p><code>slerp()</code> differs from <a href="#/p5.Vector/lerp">lerp()</a>
+  because it interpolates magnitude. Calling <code>v0.slerp(v1, 0.5)</code> sets
+  <code>v0</code>'s magnitude to a value halfway between its original magnitude
+  and <code>v1</code>'s. Calling <code>v0.lerp(v1, 0.5)</code> makes no such
+  guarantee.</p>
+
+  <p>The static version of <code>slerp()</code>, as in <code>p5.Vector.slerp(v0,
+  v1, 0.5)</code>, returns a new <a href="#/p5.Vector">p5.Vector</a> object and
+  doesn't change the original.</p>
+
+
+  <hr/>
+
   <p>Calculates a new heading and magnitude that are between two vectors.</p>
 
   <p>The <code>amt</code> parameter is the amount to interpolate between the old
@@ -33,6 +58,21 @@ description: >
   doesn't change
 
   the original.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "v": "p5.Vector: <a href=\"#/p5.Vector\">p5.Vector</a> to slerp toward. /// todo /// p5.Vector: 移動先 p5.Vector",
+      "amt": "Number: amount of interpolation between 0.0 (old vector)  and 1.0 (new vector). 0.5 is halfway between. /// todo /// Number: 補間の割合。 0.0 (移動元のベクトル) と1.0 (移動先のベクトル)までの値。 0.9は移動先のベクトルに非常に近く、0.5は中間になります。",
+      "v1": "p5.Vector: 移動元のベクトル",
+      "v2": "p5.Vector: 移動先のベクトル",
+      "target": "p5.Vector: (オプション) 結果を受け取るベクトル。"
+  }
+
+  </pre>
 line: 2667
 isConstructor: false
 itemtype: method
@@ -152,7 +192,8 @@ example:
     </div>
 class: p5.Vector
 return:
-  description: ''
+  description: |
+    p5.Vector:
   type: p5.Vector
 overloads:
   - line: 2667

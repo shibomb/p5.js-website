@@ -3,40 +3,7 @@ title: splitTokens
 module: Data
 submodule: String Functions
 file: src/utilities/string_functions.js
-description: >
-  <p>Splits a <code>String</code> into pieces and returns an array containing
-  the pieces.</p>
-
-  <p><code>splitTokens()</code> is an enhanced version of
-
-  <a href="/reference/p5/split">split()</a>. It can split a string when any
-  characters
-
-  from a list are detected.</p>
-
-  <p>The first parameter, <code>value</code>, is the string to split.</p>
-
-  <p>The second parameter, <code>delim</code>, is optional. It sets the
-  character(s) that
-
-  should be used to split the string. <code>delim</code> can be a single string,
-  as in
-
-  <code>splitTokens('rock...paper...scissors...shoot', '...')</code>, or an
-  array of
-
-  strings, as in
-
-  <code>splitTokens('rock;paper,scissors...shoot, [';', ',', '...'])</code>. By
-  default,
-
-  if no <code>delim</code> characters are specified, then any whitespace
-  character is
-
-  used to split. Whitespace characters include tab (<code>\t</code>), line feed
-  (<code>\n</code>),
-
-  carriage return (<code>\r</code>), form feed (<code>\f</code>), and space.</p>
+description: "<p><a href=\"#/p5/splitTokens\">splitTokens()</a> 関数は、ひとつまたは複数の文字区切り（トークン）で文字列を分割します。</p>\n<p>delim パラメーターは、境界として使用される文字または文字列を指定します。</p>\n<p>delim 文字が指定されていない場合、任意の空白文字が分割に使用されます。空白文字には、タブ（\t）、改行（\n）、キャリッジリターン（\r）、フォームフィード（\f）、およびスペースが含まれます。</p>\n\n<hr/>\n<p>Splits a <code>String</code> into pieces and returns an array containing the pieces.</p>\n<p><code>splitTokens()</code> is an enhanced version of\n<a href=\"/reference/p5/split\">split()</a>. It can split a string when any characters\nfrom a list are detected.</p>\n<p>The first parameter, <code>value</code>, is the string to split.</p>\n<p>The second parameter, <code>delim</code>, is optional. It sets the character(s) that\nshould be used to split the string. <code>delim</code> can be a single string, as in\n<code>splitTokens('rock...paper...scissors...shoot', '...')</code>, or an array of\nstrings, as in\n<code>splitTokens('rock;paper,scissors...shoot, [';', ',', '...'])</code>. By default,\nif no <code>delim</code> characters are specified, then any whitespace character is\nused to split. Whitespace characters include tab (<code>\\t</code>), line feed (<code>\\n</code>),\ncarriage return (<code>\\r</code>), form feed (<code>\\f</code>), and space.</p>\n"
 line: 744
 isConstructor: false
 itemtype: method
@@ -160,15 +127,19 @@ class: p5
 params:
   - name: value
     description: |
+      <p>分割される文字列</p>
       <p>string to split.</p>
     type: String
   - name: delim
     description: |
+      <p>(オプション) セパレータとして使用される個々の文字列のリスト</p>
       <p>character(s) to use for splitting the string.</p>
     type: String
     optional: true
 return:
-  description: separated strings.
+  description: |-
+    文字列の配列
+    separated strings.
   type: 'String[]'
 chainable: false
 ---

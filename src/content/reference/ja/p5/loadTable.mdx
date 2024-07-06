@@ -4,6 +4,25 @@ module: IO
 submodule: Input
 file: src/io/files.js
 description: >
+  <p>ファイルまたは URL の内容を読み込み、その値をもつ <a href="#/p5.Table">p5.Table</a>
+  オブジェクトを作成します。</p>
+
+  <p>ファイルが指定されている場合、スケッチの「data」フォルダ内に配置する必要があります。filename
+  パラメーターは、オンラインで見つかったファイルの URL でも構いません。デフォルトでは、ファイルはカンマ区切り（CSV
+  形式）であると想定されています。'header'オプションが含まれている場合にのみ、テーブルはヘッダー行を探します。</p>
+
+  <p>このメソッドは非同期であり、スケッチの次の行が実行される前に終了しない場合があります。<a
+  href="#/p5/loadTable">loadTable()</a> を <a href="#/p5/preload">preload()</a>
+  内で呼び出すと、<a href="#/p5/setup">setup()</a> および <a href="#/p5/draw">draw()</a>
+  が呼び出される前に操作が完了することが保証されます。<a href="#/p5/preload">preload()</a>
+  の外では、オブジェクトを処理するコールバック関数を提供することができます。</p>
+
+  <p>すべてのロードおよび保存されたファイルは UTF-8 エンコーディングを使用します。このメソッドは、最大64MB
+  のファイルをフェッチするのに適しています。</p>
+
+
+  <hr/>
+
   <p>Reads the contents of a file or URL and creates a <a
   href="/reference/p5/p5.Table">p5.Table</a> object with
 
@@ -83,21 +102,27 @@ class: p5
 params:
   - name: filename
     description: |
+      <p>ロードするファイル名または URL</p>
       <p>name of the file or URL to load</p>
     type: String
   - name: extension
     description: |
+      <p>(オプション) カンマ区切りの値「csv」、セミコロン区切りの値「ssv」、タブ区切りの値「tsv」でテーブルを解析します。</p>
       <p>parse the table by comma-separated values "csv", semicolon-separated
                                            values "ssv", or tab-separated values "tsv"</p>
     type: String
     optional: true
   - name: header
     description: |
+      <p>(オプション) テーブルにヘッダー行があることを示す「header」</p>
       <p>"header" to indicate table has header row</p>
     type: String
     optional: true
   - name: callback
-    description: |
+    description: >
+      <p>(オプション) <a href="#/p5/loadTable">loadTable()</a> 完了後に実行される関数。成功時には、<a
+      href="#/p5.Table">Table</a> オブジェクトが最初の引数として渡されます。</p>
+
       <p>function to be executed after
                                            <a href="#/p5/loadTable">loadTable()</a> completes. On success, the
                                            <a href="#/p5.Table">Table</a> object is passed in as the
@@ -106,13 +131,16 @@ params:
     optional: true
   - name: errorCallback
     description: |
+      <p>(オプション) エラーがあった場合に実行される関数。レスポンスが最初の引数として渡されます。</p>
       <p>function to be executed if
                                            there is an error, response is passed
                                            in as first argument</p>
     type: Function
     optional: true
 return:
-  description: <a href="#/p5.Table">Table</a> object containing data
+  description: |-
+    データを含む <a href="#/p5.Table">Table</a> オブジェクト
+    <a href="#/p5.Table">Table</a> object containing data
   type: Object
 chainable: false
 ---

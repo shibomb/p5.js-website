@@ -4,6 +4,29 @@ module: Foundation
 submodule: Foundation
 file: src/core/reference.js
 description: >
+  <p><a href="#/p5/for">for</a> は、コードのひとつのセクションを複数回実行するために便利なループを作成します。</p>
+
+  <p></p>
+
+  <p>「for
+  ループ」は、括弧内に3つの異なる式が含まれ、そのすべてがオプションです。これらの式は、ループが実行される回数を制御するために使用されます。最初の式は、ループの初期状態を設定するために使用される文です。2番目の式は、各ループの前にチェックする条件です。この式が
+  false
+  を返すと、ループは終了します。3番目の式は、各ループの終わりに実行されます。これらの式は、セミコロン（;）で区切られます。空の式の場合、セミコロンだけが書かれます。</p>
+
+  <p>ループ本体の（波括弧内の）コードは、2番目の式と3番目の式の評価の間に実行されます。</p>
+
+  <p>どのループにおいても、ループを「終了」するか、テスト条件が false に評価されることを確認することが重要です。for
+  ループにおけるテスト条件は、上記で詳述された2番目の式です。この式が最終的に false
+  になるように確保することで、ループが無限に実行されることがなくなり、ブラウザーのクラッシュを防ぎます。</p>
+
+  <p><a
+  href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/for">MDN
+  エントリ</a> から: 指定された文が false
+  に評価されるまで、文を繰り返し実行するループを作成します。条件は文を実行した後に評価され、指定された文が少なくとも1回実行されます。</p>
+
+
+  <hr/>
+
   <p>A way to repeat a block of code when the number of iterations is known.</p>
 
   <p><code>for</code> loops are helpful for repeating statements a certain

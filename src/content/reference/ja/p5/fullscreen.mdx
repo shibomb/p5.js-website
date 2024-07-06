@@ -4,6 +4,27 @@ module: Environment
 submodule: Environment
 file: src/core/environment.js
 description: >
+  <p>引数が与えられた場合、引数の値にもとづいてスケッチをフルスクリーンにするかどうかを設定します。</p>
+
+  <p>引数が与えられなかった場合、現在のフルスクリーン状態を返します。ただし、ブラウザーの制限により、この関数を呼び出せるのはユーザー入力時のみです。たとえば、下記の例のようにマウスプレス時に呼び出せます。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Toggles full-screen mode or returns the current mode.</p>
+
+  <p>Calling <code>fullscreen(true)</code> makes the sketch full-screen. Calling
+  <code>fullscreen(false)</code> makes the sketch its original size.</p>
+
+  <p>Calling <code>fullscreen()</code> without an argument returns
+  <code>true</code> if the sketch is in full-screen mode and <code>false</code>
+  if not.</p>
+
+  <p>Note: Due to browser restrictions, <code>fullscreen()</code> can only be
+  called with user input such as a mouse press.</p>
+
+
+  <hr/>
+
   <p>Toggles full-screen mode or returns the current mode.</p>
 
   <p>Calling <code>fullscreen(true)</code> makes the sketch full-screen. Calling
@@ -46,12 +67,17 @@ example:
 class: p5
 params:
   - name: val
-    description: |
+    description: >
+      <p>(Optional) whether the sketch should be in fullscreen mode. /// todo
+      /// Boolean: (オプション) スケッチをフルスクリーンモードにするかどうか</p>
+
       <p>whether the sketch should be in fullscreen mode.</p>
     type: Boolean
     optional: true
 return:
-  description: current fullscreen state.
+  description: |-
+    現在のフルスクリーン状態
+    current fullscreen state.
   type: Boolean
 chainable: false
 ---

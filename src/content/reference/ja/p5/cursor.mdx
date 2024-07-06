@@ -4,6 +4,34 @@ module: Environment
 submodule: Environment
 file: src/core/environment.js
 description: >
+  <p>カーソルを事前定義された記号や画像に設定するか、すでに非表示の場合は表示するようにします。</p>
+
+  <p>カーソルとして画像を設定する場合、推奨されるサイズは16×16または32×32ピクセルです。パラメーター x と y
+  の値は、画像の寸法よりも小さくする必要があります。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Changes the cursor's appearance.</p>
+
+  <p>The first parameter, <code>type</code>, sets the type of cursor to display.
+  The built-in options are <code>ARROW</code>, <code>CROSS</code>,
+  <code>HAND</code>, <code>MOVE</code>, <code>TEXT</code>, and
+  <code>WAIT</code>. <code>cursor()</code> also recognizes standard CSS cursor
+  properties passed as strings: <code>'help'</code>, <code>'wait'</code>,
+  <code>'crosshair'</code>, <code>'not-allowed'</code>, <code>'zoom-in'</code>,
+  and <code>'grab'</code>. If the path to an image is passed, as in
+  <code>cursor('assets/target.png')</code>, then the image will be used as the
+  cursor. Images must be in .cur, .gif, .jpg, .jpeg, or .png format.</p>
+
+  <p>The parameters <code>x</code> and <code>y</code> are optional. If an image
+  is used for the cursor, <code>x</code> and <code>y</code> set the location
+  pointed to within the image. They are both 0 by default, so the cursor points
+  to the image's top-left corner. <code>x</code> and <code>y</code> must be less
+  than the image's width and height, respectively.</p>
+
+
+  <hr/>
+
   <p>Changes the cursor's appearance.</p>
 
   <p>The first parameter, <code>type</code>, sets the type of cursor to display.
@@ -114,18 +142,31 @@ example:
 class: p5
 params:
   - name: type
-    description: |
+    description: >
+      <p>Built-in: either ARROW, CROSS, HAND, MOVE, TEXT, or WAIT.  Native CSS
+      properties: 'grab', 'progress', and so on.  Path to cursor image. /// todo
+      /// String|Constant: 組み込み: ARROW, CROSS, HAND, MOVE, TEXT, WAIT  ネイティブ CSS
+      プロパティ: 'grab', 'progress', 'cell'など  外部: カーソル画像のパス（許可されるファイル拡張子: .cur,
+      .gif, .jpg, .jpeg, .png）  ネイティブ CSS カーソルと url の詳細については、次のリンクを参照してください: <a
+      href="https://developer.mozilla.org/ja/docs/Web/CSS/cursor">https://developer.mozilla.org/ja/docs/Web/CSS/cursor</a></p>
+
       <p>Built-in: either ARROW, CROSS, HAND, MOVE, TEXT, or WAIT.
                                     Native CSS properties: 'grab', 'progress', and so on.
                                     Path to cursor image.</p>
     type: String|Constant
   - name: x
-    description: |
+    description: >
+      <p>(Optional) horizontal active spot of the cursor. /// todo /// Number:
+      (オプション) カーソルの水平方向のアクティブスポット（32未満にする必要があります）</p>
+
       <p>horizontal active spot of the cursor.</p>
     type: Number
     optional: true
   - name: 'y'
-    description: |
+    description: >
+      <p>(Optional) vertical active spot of the cursor. /// todo /// Number:
+      (オプション) カーソルの垂直方向のアクティブスポット（32未満にする必要があります）</p>
+
       <p>vertical active spot of the cursor.</p>
     type: Number
     optional: true

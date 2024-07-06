@@ -4,6 +4,10 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
+  <p>p5.sound オブジェクトのステレオパンニングを、-1.0（左）から1.0（右）までの浮動小数点数で設定します。</p>
+  <p>デフォルトは0.0（中央）です。</p>
+
+  <hr/>
   <p>Set the stereo panning of a p5.sound object to
   a floating point number between -1.0 (left) and 1.0 (right).
   Default is 0.0 (center).</p>
@@ -42,11 +46,13 @@ class: p5.SoundFile
 params:
   - name: panValue
     description: |
+      <p> (オプション) ステレオパンニングを設定します。</p>
       <p>Set the stereo panner</p>
     type: Number
     optional: true
   - name: timeFromNow
     description: |
+      <p> (オプション) このイベントが発生するまでの秒数を指定します。</p>
       <p>schedule this event to happen
                                       seconds from now</p>
     type: Number

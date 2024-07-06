@@ -3,7 +3,28 @@ title: speed
 module: DOM
 submodule: DOM
 file: src/dom/dom.js
-description: >
+description: >-
+  <p>引数が与えられていない場合、要素の現在の再生速度を返します。</p>
+
+  <p>speed パラメーターは、2.0で要素を2倍の速度で再生し、0.5で半分の速度で再生し、-1
+  で通常の速度で逆再生します。（すべてのブラウザーが後方再生をサポートしているわけではなく、サポートしていても再生がスムーズでない場合があります。）</p>
+
+  <p>/// todo ///</p>
+
+  <p>Manages the audio/video playback speed. Calling <code>media.speed()</code>
+  returns the current speed as a number.</p>
+
+  <p>The parameter, <code>val</code>, is optional. It's a number that sets the
+  playback speed. 1 plays the media at normal speed, 0.5 plays it at half speed,
+  2 plays it at double speed, and so on. -1 plays the media at normal speed in
+  reverse.</p>
+
+  <p>Note: Not all browsers support backward playback. Even if they do, playback
+  might not be smooth.</p>
+
+
+  <hr/>
+
   <p>Sets the audio/video playback speed.</p>
 
   <p>The parameter, <code>val</code>, is optional. It's a number that sets the
@@ -21,6 +42,17 @@ description: >
   <p>Note: Not all browsers support backward playback. Even if they do,
 
   playback might not be smooth.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "speed": "Number: 再生速度の乗数"
+  }
+
+  </pre>
 line: 4672
 isConstructor: false
 itemtype: method
@@ -68,7 +100,9 @@ example:
     </code>
 class: p5.MediaElement
 return:
-  description: current playback speed.
+  description: |-
+    現在の再生速度
+    current playback speed.
   type: Number
 overloads:
   - line: 4672

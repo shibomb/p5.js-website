@@ -4,6 +4,13 @@ module: 3D
 submodule: Camera
 file: src/webgl/p5.Camera.js
 description: >
+  <p>現在のカメラの向きを保ったまま、ワールド空間内のカメラの位置を設定します。</p>
+
+  <p></p>
+
+
+  <hr/>
+
   <p>Sets the camera’s position in "world" space without changing its
 
   orientation.</p>
@@ -147,14 +154,17 @@ class: p5.Camera
 params:
   - name: x
     description: |
+      <p>ワールド空間内の点の x 座標</p>
       <p>x-coordinate in "world" space.</p>
     type: Number
   - name: 'y'
     description: |
+      <p>ワールド空間内の点の y 座標</p>
       <p>y-coordinate in "world" space.</p>
     type: Number
   - name: z
     description: |
+      <p>ワールド空間内の点の z 座標</p>
       <p>z-coordinate in "world" space.</p>
     type: Number
 chainable: false

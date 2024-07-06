@@ -4,6 +4,10 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
+  <p>p5.SoundFile のループフラグを true または false に設定します。</p>
+  <p>再生中の場合、現在の再生が終了した時点でこの変更が反映されます。</p>
+
+  <hr/>
   <p>Set a p5.SoundFile's looping flag to true or false. If the sound
   is currently playing, this change will take effect when it
   reaches the end of the current playback.</p>
@@ -14,6 +18,7 @@ class: p5.SoundFile
 params:
   - name: Boolean
     description: |
+      <p>ループを true または false に設定します。</p>
       <p>set looping to true or false</p>
     type: Boolean
 chainable: false

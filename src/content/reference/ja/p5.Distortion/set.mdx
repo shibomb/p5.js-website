@@ -4,6 +4,10 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
+  <p>waveshaper 歪みの量と oversample を設定します。</p>
+  <p></p>
+
+  <hr/>
   <p>Set the amount and oversample of the waveshaper distortion.</p>
 line: 10900
 isConstructor: false
@@ -12,6 +16,7 @@ class: p5.Distortion
 params:
   - name: amount
     description: |
+      <p>(オプション) 歪みの量。通常、値は0-1の範囲内です。</p>
       <p>Unbounded distortion amount.
                                      Normal values range from 0-1.</p>
     type: Number
@@ -19,6 +24,7 @@ params:
     optdefault: '0.25'
   - name: oversample
     description: |
+      <p>(オプション) 'none'、'2x'、'4x'のいずれか</p>
       <p>'none', '2x', or '4x'.</p>
     type: String
     optional: true

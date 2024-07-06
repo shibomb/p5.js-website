@@ -3,7 +3,27 @@ title: sub
 module: Math
 submodule: Vector
 file: src/math/p5.Vector.js
-description: >
+description: >-
+  <p>ベクトルから <code>x</code>、<code>y</code>、<code>z</code> 成分を引きます。</p>
+
+  <p>また、ひとつのベクトルから別のベクトルを引き、2つの独立したベクトルを引くこともできます。2つのベクトルを引くメソッドは静的メソッドで、<a
+  href="#/p5.Vector">p5.Vector</a>
+  を返します。その他のメソッドはベクトルに直接作用します。このメソッドに引数を配列として提供することもできます。詳細については、例を参照してください。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Subtracts from a vector's <code>x</code>, <code>y</code>, and
+  <code>z</code> components using separate numbers, another <a
+  href="#/p5.Vector">p5.Vector</a> object, or an array of numbers. Calling
+  <code>sub()</code> with no arguments has no effect.</p>
+
+  <p>The static version of <code>sub()</code>, as in <code>p5.Vector.sub(v2,
+  v1)</code>, returns a new <a href="#/p5.Vector">p5.Vector</a> object and
+  doesn't change the originals.</p>
+
+
+  <hr/>
+
   <p>Subtracts from a vector's <code>x</code>, <code>y</code>, and
   <code>z</code> components.</p>
 
@@ -29,6 +49,23 @@ description: >
   <a href="/reference/p5/p5.Vector">p5.Vector</a> object and doesn't change the
 
   originals.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "x": "Number: 引かれるベクトルの x 成分",
+      "y": "Number: (オプション) 引かれるベクトルの y 成分",
+      "z": "Number: (オプション) 引かれるベクトルの z 成分",
+      "value": "p5.Vector|Number[]: 引かれるベクトル",
+      "v1": "p5.Vector: 引かれる <a href=\"#/p5.Vector\">p5.Vector</a>",
+      "v2": "p5.Vector: 引く <a href=\"#/p5.Vector\">p5.Vector</a>",
+      "target": "p5.Vector: (オプション) 結果を受け取るベクトル"
+  }
+
+  </pre>
 line: 635
 isConstructor: false
 itemtype: method

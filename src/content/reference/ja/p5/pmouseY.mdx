@@ -4,6 +4,14 @@ module: Events
 submodule: Mouse
 file: src/events/mouse.js
 description: >
+  <p>システム変数 pmouseY は、常にマウスまたは指の垂直位置を、前のフレームに対してキャンバスの (0, 0) を基準にして格納します。</p>
+
+  <p>左上隅の値は、2-D の場合は (0, 0) 、WebGL の場合は (-width/2, -height/2)
+  です。注意:各タッチイベントの開始時に、pmouseY は現在の mouseY 値にリセットされます。</p>
+
+
+  <hr/>
+
   <p>A <code>Number</code> system variable that tracks the mouse's previous
   vertical
 

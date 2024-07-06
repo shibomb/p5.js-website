@@ -4,6 +4,18 @@ module: Color
 submodule: Creating & Reading
 file: src/color/creating_reading.js
 description: >
+  <p><a href="#/p5.Color">p5.Color</a>オブジェクト、色成分の配列、または CSS
+  カラー文字列から色相値を抽出します。</p>
+
+  <p></p>
+
+  <p>Hue は HSB と HSL の両方に存在します。これは色相環上の色の位置を表しています。デフォルトでは、この関数は HSL
+  に正規化された色相を返します。もし <a href="#/colorMode">colorMode()</a> が HSB に設定されている場合は、 HSB
+  に正規化された色相を返します。</p>
+
+
+  <hr/>
+
   <p>Gets the hue value of a color.</p>
 
   <p><code>hue()</code> extracts the hue value from a
@@ -129,11 +141,14 @@ class: p5
 params:
   - name: color
     description: |
+      <p><a href="#/p5.Color">p5.Color</a> オブジェクト、色成分の配列、または CSS カラー文字列</p>
       <p><a href="#/p5.Color">p5.Color</a> object, array of
                                               color components, or CSS color string.</p>
     type: 'p5.Color|Number[]|String'
 return:
-  description: the hue value.
+  description: |-
+    色相
+    the hue value.
   type: Number
 chainable: false
 ---

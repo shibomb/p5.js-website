@@ -4,6 +4,17 @@ module: Color
 submodule: Creating & Reading
 file: src/color/creating_reading.js
 description: >
+  <p>2つの色をブレンドして、それらの間の第三の色を見つけます。</p>
+
+  <p> <code>amt</code> パラメーターは、2つの値の間で補間する量を指定します。0 は最初の色と等しく、0.1
+  は最初の色に非常に近く、0.5 は2つの色の半分で、以降、同様です。負の数は 0 に設定されます。1 より大きい数は 1 に設定されます。これは<a
+  href="#/lerp">lerp</a>の動作とは異なりますが、範囲外の数値が奇妙で予期しない色を生成しないようにするためです。</p>
+
+  <p>色がどのように補間されるかは、現在の<a href="#/colorMode">colorMode()</a>に依存します。</p>
+
+
+  <hr/>
+
   <p>Blends two colors to find a third color between them.</p>
 
   <p>The <code>amt</code> parameter specifies the amount to interpolate between
@@ -71,18 +82,23 @@ class: p5
 params:
   - name: c1
     description: |
+      <p>この色から補間</p>
       <p>interpolate from this color.</p>
     type: p5.Color
   - name: c2
     description: |
+      <p>この色へ補間</p>
       <p>interpolate to this color.</p>
     type: p5.Color
   - name: amt
     description: |
+      <p>0から1までの数値</p>
       <p>number between 0 and 1.</p>
     type: Number
 return:
-  description: interpolated color.
+  description: |-
+    補間された色
+    interpolated color.
   type: p5.Color
 chainable: false
 ---

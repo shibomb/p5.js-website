@@ -4,6 +4,16 @@ module: Shape
 submodule: 3D Primitives
 file: src/webgl/3d_primitives.js
 description: >
+  <p>指定された半径の球を描画します。</p>
+
+  <p></p>
+
+  <p>DetailX および detailY は、球の x 次元および y
+  次元の細分割数を決定します。細分割が多いほど、球は滑らかに見えます。推奨される最大値は24です。24より大きい値を使用すると、警告が表示されるか、ブラウザーが遅くなる可能性があります。</p>
+
+
+  <hr/>
+
   <p>Draws a sphere.</p>
 
   <p>A sphere is a 3D shape with triangular faces that connect to form a round
@@ -142,16 +152,19 @@ class: p5
 params:
   - name: radius
     description: |
+      <p>(オプション) 円の半径</p>
       <p>radius of the sphere. Defaults to 50.</p>
     type: Number
     optional: true
   - name: detailX
     description: |
+      <p>(オプション) x 次元の細分割数</p>
       <p>number of triangle subdivisions along the x-axis. Defaults to 24.</p>
     type: Integer
     optional: true
   - name: detailY
     description: |
+      <p>(オプション) y 次元の細分割数</p>
       <p>number of triangle subdivisions along the y-axis. Defaults to 16.</p>
     type: Integer
     optional: true

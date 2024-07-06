@@ -4,6 +4,40 @@ module: Environment
 submodule: Environment
 file: src/accessibility/describe.js
 description: >
+  <p>キャンバスにスクリーンリーダー対応の説明を作成します。</p>
+
+  <p>最初のパラメーターは、キャンバスの説明を示す文字列である必要があります。2つ目のパラメーターはオプションです。指定された場合、説明の表示方法が決まります。</p>
+
+  <p><code class="language-javascript">describe(text, LABEL)</code> は、キャンバスに隣接する
+  div 内にある <a href="https://en.wikipedia.org/wiki/Museum_label"
+  target="_blank">キャプションパネル</a> として、すべてのユーザーに説明を表示します。CSS で好みのスタイルに変更できます。</p>
+
+  <p><code class="language-javascript">describe(text, FALLBACK)</code> は、<a
+  href="https://developer.mozilla.org/ja/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility"
+  target="_blank">キャンバス要素内のサブ DOM</a>
+  で、スクリーンリーダーユーザーのみが説明を利用できるようにします。2つ目のパラメーターが指定されていない場合、デフォルトで説明はスクリーンリーダーユーザーにのみ利用可能です。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Creates a screen reader-accessible description for the canvas.</p>
+
+  <p>The first parameter, <code>text</code>, is the description of the
+  canvas.</p>
+
+  <p>The second parameter, <code>display</code>, is optional. It determines how
+  the description is displayed. If <code>LABEL</code> is passed, as in
+  <code>describe('A description.', LABEL)</code>, the description will be
+  visible in a div element next to the canvas. If <code>FALLBACK</code> is
+  passed, as in <code>describe('A description.', FALLBACK)</code>, the
+  description will only be visible to screen readers. This is the default
+  mode.</p>
+
+  <p>Read <a href="/learn/labeling-canvases.html">How to label your p5.js
+  code</a> to learn more about making sketches accessible.</p>
+
+
+  <hr/>
+
   <p>Creates a screen reader-accessible description of the canvas.</p>
 
   <p>The first parameter, <code>text</code>, is the description of the
@@ -119,10 +153,12 @@ class: p5
 params:
   - name: text
     description: |
+      <p>キャンバスの説明</p>
       <p>description of the canvas.</p>
     type: String
   - name: display
     description: |
+      <p>(オプション) LABEL または FALLBACK のいずれか</p>
       <p>either LABEL or FALLBACK.</p>
     type: Constant
     optional: true

@@ -4,6 +4,13 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: >
+  <p>現在のオシレーターのタイプを返します。</p>
+
+  <p>例: 'sine'、 'triangle'、 'sawtooth'、 'square'</p>
+
+
+  <hr/>
+
   <p>Returns  current type of oscillator eg. 'sine', 'triangle', 'sawtooth' or
   'square'.</p>
 line: 4386
@@ -11,7 +18,9 @@ isConstructor: false
 itemtype: method
 class: p5.Oscillator
 return:
-  description: 'type of oscillator  eg . ''sine'', ''triangle'', ''sawtooth'' or ''square''.'
+  description: |-
+    オシレーターのタイプ。例: 'sine'、 'triangle'、 'sawtooth'、 'square'
+    type of oscillator  eg . 'sine', 'triangle', 'sawtooth' or 'square'.
   type: String
 chainable: false
 ---

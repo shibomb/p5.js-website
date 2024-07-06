@@ -4,6 +4,15 @@ module: Structure
 submodule: Structure
 file: src/core/structure.js
 description: >
+  <p>デフォルトでは、p5.js は draw() を継続的にループし、その中にあるコードを実行します。</p>
+
+  <p>スケッチが <a href="#/p5/noLoop">noLoop()</a> で停止された場合、または <a
+  href="#/p5/loop">loop()</a> で再開された場合、isLooping()
+  はカスタムイベントハンドラ内で使用するために現在の状態を返します。</p>
+
+
+  <hr/>
+
   <p>Returns <code>true</code> if the draw loop is running and
   <code>false</code> if not.</p>
 
@@ -53,7 +62,8 @@ example:
     </div>
 class: p5
 return:
-  description: ''
+  description: |
+    Boolean:
   type: Boolean
 chainable: false
 ---

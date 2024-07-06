@@ -4,6 +4,64 @@ module: Math
 submodule: Noise
 file: src/math/noise.js
 description: >
+  <p>指定された座標でのパーリンノイズ値を返します。</p>
+
+  <p>パーリンノイズは、標準の <a href="#/p5/random">random()</a>
+  関数と比較して、より自然に順序付けられた調和のある数列を生成するランダムシーケンスジェネレータです。1980年代に Ken Perlin
+  によって発明され、以降、グラフィカルアプリケーションで手続き的テクスチャ、自然な動き、形状、地形などを生成するために使用されています。<br /><br
+  /><a href="#/p5/random">random()</a> 関数との主な違いは、パーリンノイズは無限の n
+  次元空間で定義されており、座標のペアごとに固定の半乱数値（プログラムの寿命に対してのみ固定; <a
+  href="#/p5/noiseSeed">noiseSeed()</a> 関数を参照）が対応していることです。p5.js は、与えられた座標の数に応じて
+  1D、2D、3D
+  のノイズを計算することができます。結果として得られる値は常に0.0から1.0の間になります。ノイズ値は、例で示されているように、ノイズ空間を移動することでアニメーション化することができます。第2および第3の次元は、時間としても解釈できます。<br
+  /><br
+  />実際のノイズは、周波数の利用に関してオーディオ信号に似た構造を持っています。物理学の調和の概念に似て、パーリンノイズはいくつかのオクターブで計算され、最終結果に加算されます。<br
+  /><br
+  />結果として得られるシーケンスの性格を調整するもうひとつの方法は、入力座標のスケールです。関数が無限の空間で動作するため、座標の値自体は重要ではなく、連続する座標間の距離だけが重要です(たとえば、ループ内で
+  <a href="#/p5/noise">noise()</a>
+  を使用する場合)。一般的には、座標間の差が小さいほど、得られるノイズシーケンスは滑らかになります。ほとんどのアプリケーションでは0.005-0.03のステップが最適ですが、用途によっては異なります。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Returns random numbers that can be tuned to feel more organic. The values
+  returned will always be between 0 and 1.</p>
+
+  <p>Values returned by <a href="#/p5/random">random()</a> and <a
+  href="#/p5/randomGaussian">randomGaussian()</a> can change by large amounts
+  between function calls. By contrast, values returned by <code>noise()</code>
+  can be made "smooth". Calls to <code>noise()</code> with similar inputs will
+  produce similar outputs. <code>noise()</code> is used to create textures,
+  motion, shapes, terrains, and so on. Ken Perlin invented <code>noise()</code>
+  while animating the original <em>Tron</em> film in the 1980s.</p>
+
+  <p><code>noise()</code> returns the same value for a given input while a
+  sketch is running. It produces different results each time a sketch runs. The
+  <a href="#/p5/noiseSeed">noiseSeed()</a> function can be used to generate the
+  same sequence of Perlin noise values each time a sketch runs.</p>
+
+  <p>The character of the noise can be adjusted in two ways. The first way is to
+  scale the inputs. <code>noise()</code> interprets inputs as coordinates. The
+  sequence of noise values will be smoother when the input coordinates are
+  closer. The second way is to use the <a
+  href="#/p5/noiseDetail">noiseDetail()</a> function.</p>
+
+  <p>The version of <code>noise()</code> with one parameter computes noise
+  values in one dimension. This dimension can be thought of as space, as in
+  <code>noise(x)</code>, or time, as in <code>noise(t)</code>.</p>
+
+  <p>The version of <code>noise()</code> with two parameters computes noise
+  values in two dimensions. These dimensions can be thought of as space, as in
+  <code>noise(x, y)</code>, or space and time, as in <code>noise(x,
+  t)</code>.</p>
+
+  <p>The version of <code>noise()</code> with three parameters computes noise
+  values in three dimensions. These dimensions can be thought of as space, as in
+  <code>noise(x, y, z)</code>, or space and time, as in <code>noise(x, y,
+  t)</code>.</p>
+
+
+  <hr/>
+
   <p>Returns random numbers that can be tuned to feel organic.</p>
 
   <p>Values returned by <a href="/reference/p5/random">random()</a> and
@@ -256,20 +314,27 @@ class: p5
 params:
   - name: x
     description: |
+      <p>ノイズ空間の x 座標</p>
       <p>x-coordinate in noise space.</p>
     type: Number
   - name: 'y'
     description: |
+      <p>(オプション) ノイズ空間の y 座標</p>
       <p>y-coordinate in noise space.</p>
     type: Number
     optional: true
   - name: z
     description: |
+      <p>(オプション) ノイズ空間の z 座標</p>
       <p>z-coordinate in noise space.</p>
     type: Number
     optional: true
 return:
-  description: Perlin noise value at specified coordinates.
+  description: >-
+    Perlin noise value at specified coordinates. /// todo /// Number:
+    指定された座標でのパーリンノイズ値（0から1の間）
+
+    Perlin noise value at specified coordinates.
   type: Number
 chainable: false
 ---

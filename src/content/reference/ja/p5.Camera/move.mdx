@@ -4,6 +4,13 @@ module: 3D
 submodule: Camera
 file: src/webgl/p5.Camera.js
 description: >
+  <p>現在のカメラの向きを保ったまま、ローカル座標系でカメラを移動させます。</p>
+
+  <p></p>
+
+
+  <hr/>
+
   <p>Moves the camera along its "local" axes without changing its
   orientation.</p>
 
@@ -87,14 +94,17 @@ class: p5.Camera
 params:
   - name: x
     description: |
+      <p>カメラの左右軸に沿って移動する量</p>
       <p>distance to move along the camera’s "local" x-axis.</p>
     type: Number
   - name: 'y'
     description: |
+      <p>カメラの上下軸に沿って移動する量</p>
       <p>distance to move along the camera’s "local" y-axis.</p>
     type: Number
   - name: z
     description: |
+      <p>カメラの前後軸に沿って移動する量</p>
       <p>distance to move along the camera’s "local" z-axis.</p>
     type: Number
 chainable: false

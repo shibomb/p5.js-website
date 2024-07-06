@@ -4,6 +4,17 @@ module: 3D
 submodule: Material
 file: src/webgl/p5.Shader.js
 description: >
+  <p>Shaders belong to the main canvas or a p5.Graphics. Once they are compiled,
+  they can only be used in the context they were compiled on.。</p>
+
+  <p>Use this method to make a new copy of a shader that gets compiled on a
+  different context.</p>
+
+  <p>/// todo ///</p>
+
+
+  <hr/>
+
   <p>Copies the shader from one drawing context to another.</p>
 
   <p>Each <code>p5.Shader</code> object must be compiled by calling
@@ -211,11 +222,16 @@ example:
 class: p5.Shader
 params:
   - name: context
-    description: |
+    description: >
+      <p>The graphic or instance to copy this shader to. Pass
+      <code>window</code> if you need to copy to the main canvas.</p>
+
       <p>WebGL context for the copied shader.</p>
     type: p5|p5.Graphics
 return:
-  description: new shader compiled for the target context.
+  description: |-
+    A new shader on the target context.
+    new shader compiled for the target context.
   type: p5.Shader
 chainable: false
 ---

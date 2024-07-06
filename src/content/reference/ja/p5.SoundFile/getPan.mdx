@@ -4,6 +4,10 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
+  <p>現在のステレオパン位置（-1.0から1.0）を返します。</p>
+  <p></p>
+
+  <hr/>
   <p>Returns the current stereo pan position (-1.0 to 1.0)</p>
 line: 2131
 isConstructor: false
@@ -11,6 +15,7 @@ itemtype: method
 class: p5.SoundFile
 return:
   description: |-
+    Oscillator の現在のステレオパン設定を、-1.0（左）から1.0（右）までの数値で返します。デフォルトは0.0（中央）です。
     Returns the stereo pan setting of the Oscillator
                              as a number between -1.0 (left) and 1.0 (right).
                              0.0 is center and default.

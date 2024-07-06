@@ -4,6 +4,15 @@ module: Shape
 submodule: Curves
 file: src/core/shape/curves.js
 description: >
+  <p>ベジェ曲線の表示に使用される解像度を設定します。</p>
+
+  <p>デフォルト値は20です。</p>
+
+  <p>なお、この関数は WebGL レンダラーを使用する場合にのみ有用であり、デフォルトのキャンバスレンダラーはこの情報を使用しません。</p>
+
+
+  <hr/>
+
   <p>Sets the number of segments used to draw Bézier curves in WebGL mode.</p>
 
   <p>In WebGL mode, smooth shapes are drawn using many flat segments. Adding
@@ -109,6 +118,7 @@ class: p5
 params:
   - name: detail
     description: |
+      <p>曲線の解像度</p>
       <p>number of segments to use. Defaults to 20.</p>
     type: Number
 chainable: true

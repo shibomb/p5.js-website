@@ -4,6 +4,17 @@ module: Shape
 submodule: 3D Primitives
 file: src/webgl/3d_primitives.js
 description: >
+  <p>指定された半径とチューブ半径のトーラスを描画します。</p>
+
+  <p></p>
+
+  <p>detailX および detailY は、トーラスの x 次元および y
+  次元の細分割数を決定します。細分割が多いほど、トーラスは滑らかに見えます。detailX および detailY
+  のデフォルト値および最大値はそれぞれ24および16です。それらを比較的小さな値に設定することで、トーラス以外の新しい形状を作成できます。</p>
+
+
+  <hr/>
+
   <p>Draws a torus.</p>
 
   <p>A torus is a 3D shape with triangular faces that connect to form a ring.
@@ -172,21 +183,25 @@ class: p5
 params:
   - name: radius
     description: |
+      <p>(オプション) リング全体の半径</p>
       <p>radius of the torus. Defaults to 50.</p>
     type: Number
     optional: true
   - name: tubeRadius
     description: |
+      <p>(オプション) チューブの半径</p>
       <p>radius of the tube. Defaults to 10.</p>
     type: Number
     optional: true
   - name: detailX
     description: |
+      <p>(オプション) x 次元のセグメント数, セグメントが多いほど、ジオメトリが滑らかになります。デフォルトは24</p>
       <p>number of edges that form the hole. Defaults to 24.</p>
     type: Integer
     optional: true
   - name: detailY
     description: |
+      <p>(オプション) y 次元のセグメント数, セグメントが多いほど、ジオメトリが滑らかになります。デフォルトは16</p>
       <p>number of triangle subdivisions along the y-axis. Defaults to 16.</p>
     type: Integer
     optional: true

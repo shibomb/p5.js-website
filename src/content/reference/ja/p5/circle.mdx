@@ -4,6 +4,14 @@ module: Shape
 submodule: 2D Primitives
 file: src/core/shape/2d_primitives.js
 description: >
+  <p>キャンバスに円を描きます。</p>
+
+  <p>円は丸い形です。円の端のすべての点は、その中心から同じ距離にあります。デフォルトでは、最初の2つのパラメーターは円の中心の位置を設定します。3つ目のパラメーターは形状の幅と高さ（直径）を設定します。<a
+  href="#/p5/ellipseMode">ellipseMode()</a>関数で原点を変更することができます。</p>
+
+
+  <hr/>
+
   <p>Draws a circle.</p>
 
   <p>A circle is a round shape defined by the <code>x</code>, <code>y</code>,
@@ -57,14 +65,17 @@ class: p5
 params:
   - name: x
     description: |
+      <p>円の中心の x 座標</p>
       <p>x-coordinate of the center of the circle.</p>
     type: Number
   - name: 'y'
     description: |
+      <p>円の中心の y 座標</p>
       <p>y-coordinate of the center of the circle.</p>
     type: Number
   - name: d
     description: |
+      <p>円の直径。</p>
       <p>diameter of the circle.</p>
     type: Number
 chainable: true

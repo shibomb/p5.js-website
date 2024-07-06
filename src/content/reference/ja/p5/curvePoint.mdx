@@ -4,6 +4,14 @@ module: Shape
 submodule: Curves
 file: src/core/shape/curves.js
 description: >
+  <p>点 a、b、c、d の位置 t における曲線を評価します。</p>
+
+  <p>パラメーター t は0から1の間で変化し、a と d は曲線のコントロールポイント、b と c は曲線の始点と終点です。これは x 座標で1回、y
+  座標で2回行われ、t における曲線の位置を取得できます。</p>
+
+
+  <hr/>
+
   <p>Calculates coordinates along a spline curve using interpolation.</p>
 
   <p><code>curvePoint()</code> calculates coordinates along a spline curve using
@@ -129,26 +137,33 @@ class: p5
 params:
   - name: a
     description: |
+      <p>曲線の最初のコントロールポイントの座標</p>
       <p>coordinate of first anchor point.</p>
     type: Number
   - name: b
     description: |
+      <p>最初の点の座標</p>
       <p>coordinate of first control point.</p>
     type: Number
   - name: c
     description: |
+      <p>2番目の点の座標</p>
       <p>coordinate of second control point.</p>
     type: Number
   - name: d
     description: |
+      <p>曲線の2番目のコントロールポイントの座標</p>
       <p>coordinate of second anchor point.</p>
     type: Number
   - name: t
     description: |
+      <p>0から1までの値</p>
       <p>amount to interpolate between 0 and 1.</p>
     type: Number
 return:
-  description: coordinate of a point on the curve.
+  description: |-
+    <a href="#/p5/curve">曲線</a> 上の位置 t の値
+    coordinate of a point on the curve.
   type: Number
 chainable: false
 ---

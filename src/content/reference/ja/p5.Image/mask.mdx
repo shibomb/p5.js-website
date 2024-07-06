@@ -4,6 +4,13 @@ module: Image
 submodule: Image
 file: src/image/p5.Image.js
 description: >
+  <p>他の画像をロードし、そのアルファチャンネルをこの画像のアルファチャンネルとして使用することにより、画像の一部を表示しないようにマスクします。</p>
+
+  <p>マスクは累積的であり、画像オブジェクトに適用されると、削除することはできません。</p>
+
+
+  <hr/>
+
   <p>Masks part of the image with another.</p>
 
   <p><code>img.mask()</code> uses another <a
@@ -48,6 +55,7 @@ class: p5.Image
 params:
   - name: srcImage
     description: |
+      <p>ソース画像</p>
       <p>source image.</p>
     type: p5.Image
 chainable: false

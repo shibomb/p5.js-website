@@ -4,6 +4,21 @@ module: Environment
 submodule: Environment
 file: src/core/environment.js
 description: >
+  <p>現在の URL を取得します。</p>
+
+  <p>注意: p5 エディターを使用している場合、スケッチが iframe
+  に埋め込まれているため、この関数は空のオブジェクトを返します。エディターのプレゼント URL やシェア URL
+  でスケッチを表示すると、正しく機能します。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Returns the sketch's current <a
+  href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL"
+  target="_blank">URL</a> as a string.</p>
+
+
+  <hr/>
+
   <p>Returns the sketch's current
 
   <a
@@ -34,7 +49,9 @@ example:
     </div>
 class: p5
 return:
-  description: url
+  description: |-
+    url
+    url
   type: String
 chainable: false
 ---

@@ -4,6 +4,10 @@ module: IO
 submodule: Table
 file: src/io/p5.TableRow.js
 description: |
+  <p>TableRow の指定された列から浮動小数点値を取得します。</p>
+  <p>列は、ID またはタイトルのいずれかで指定できます。</p>
+
+  <hr/>
   <p>Retrieves a Float value from the TableRow's specified
   column. The column may be specified by either its ID or
   title.</p>
@@ -46,11 +50,14 @@ class: p5.TableRow
 params:
   - name: column
     description: |
+      <p>列名（文字列）または ID（数値）</p>
       <p>columnName (string) or
                                        ID (number)</p>
     type: String|Integer
 return:
-  description: Float Floating point number
+  description: |-
+    浮動小数点数
+    Float Floating point number
   type: Number
 chainable: false
 ---

@@ -3,7 +3,27 @@ title: add
 module: Math
 submodule: Vector
 file: src/math/p5.Vector.js
-description: >
+description: >-
+  <p><code>x</code>、<code>y</code> および <code>z</code>
+  成分をベクトルに加算したり、ひとつのベクトルを別のベクトルに加算したり、2つの独立したベクトルを合わせたりします。</p>
+
+  <p>2つのベクトルを加算するメソッドのバージョンは静的メソッドで、<a href="#/p5.Vector">p5.Vector</a>
+  を返します。その他のバージョンは、ベクトルに直接作用します。また、このメソッドの引数に配列を指定することもできます。詳細については、例を参照してください。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Adds to a vector's <code>x</code>, <code>y</code>, and <code>z</code>
+  components using separate numbers, another <a href="#/p5.Vector">p5.Vector</a>
+  object, or an array of numbers. Calling <code>add()</code> with no arguments
+  has no effect.</p>
+
+  <p>The static version of <code>add()</code>, as in <code>p5.Vector.add(v2,
+  v1)</code>, returns a new <a href="#/p5.Vector">p5.Vector</a> object and
+  doesn't change the originals.</p>
+
+
+  <hr/>
+
   <p>Adds to a vector's <code>x</code>, <code>y</code>, and <code>z</code>
   components.</p>
 
@@ -29,6 +49,23 @@ description: >
   <a href="/reference/p5/p5.Vector">p5.Vector</a> object and doesn't change the
 
   originals.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "x": "Number: 加算するベクトルの x 成分",
+      "y": "Number:  (オプション) 加算するベクトルの y 成分",
+      "z": "Number:  (オプション) 加算するベクトルの z 成分",
+      "value": "p5.Vector|Number[]: 加算するベクトル",
+      "v1": "p5.Vector: 加算する <a href=\"#/p5.Vector\">p5.Vector</a>",
+      "v2": "p5.Vector: 加算する <a href=\"#/p5.Vector\">p5.Vector</a>",
+      "target": "p5.Vector:  (オプション) 結果を受け取るベクトル"
+  }
+
+  </pre>
 line: 282
 isConstructor: false
 itemtype: method

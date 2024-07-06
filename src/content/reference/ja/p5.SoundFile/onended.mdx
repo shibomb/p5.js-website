@@ -4,6 +4,10 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
+  <p>サウンドファイルが再生を終了したときに実行されるイベントをスケジュールします。</p>
+  <p>サウンドファイルが1回だけ再生される場合、終了時に呼び出されます。ループ再生されている場合は、stop が呼び出されたときに呼び出されます。</p>
+
+  <hr/>
   <p>Schedule an event to be called when the soundfile
   reaches the end of a buffer. If the soundfile is
   playing through once, this will be called when it
@@ -16,6 +20,7 @@ class: p5.SoundFile
 params:
   - name: callback
     description: |
+      <p>サウンドファイルが終了したときに実行される関数</p>
       <p>function to call when the
                                   soundfile has ended.</p>
     type: Function

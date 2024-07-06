@@ -4,6 +4,10 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
+  <p>エフェクトをチェーンで接続します。</p>
+  <p>使用例: filter.chain(reverb, delay, panner); 任意の数の引数で使用できます</p>
+
+  <hr/>
   <p>Link effects together in a chain
   Example usage: filter.chain(reverb, delay, panner);
   May be used with an open-ended number of arguments</p>
@@ -14,6 +18,7 @@ class: p5.Effect
 params:
   - name: arguments
     description: |
+      <p>(オプション) 複数の音声オブジェクトをチェーンで接続します</p>
       <p>Chain together multiple sound objects</p>
     type: Object
     optional: true

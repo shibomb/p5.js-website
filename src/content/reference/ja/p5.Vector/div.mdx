@@ -3,7 +3,36 @@ title: div
 module: Math
 submodule: Vector
 file: src/math/p5.Vector.js
-description: >
+description: >-
+  <p>ベクトルをスカラーで除算したり、ベクトルを <code>x</code>、<code>y</code>、<code>z</code>
+  の各成分で除算したり、2つのベクトルの <code>x</code>、<code>y</code>、<code>z</code>
+  成分同士を除算したりします。</p>
+
+  <p>スカラーでベクトルを除算する場合、ベクトルの <code>x</code>、<code>y</code>、<code>z</code>
+  成分がスカラーで除算されます。ベクトルでベクトルを除算する場合、ソースベクトルの
+  <code>x</code>、<code>y</code>、<code>z</code> 成分が被除数、引数の
+  <code>x</code>、<code>y</code>、<code>z</code> 成分が除数として扱われます。たとえば、2つのベクトル
+  <code>a</code> と <code>b</code> の場合、<code>a.x / b.x</code>、<code>a.y /
+  b.y</code>、<code>a.z / b.z</code>
+  のようになります。第2のベクトルのいずれかの成分が0の場合、除算0エラーがログに出力されます。ただし、両方のベクトルの <code>z</code>
+  成分に0がある場合は、<code>x</code> と <code>y</code> 成分のみが除算されます。このメソッドの static 版は新しい <a
+  href="#/p5.Vector">p5.Vector</a> を作成し、non-static
+  版はベクトル自体に作用します。このメソッドに引数を配列として提供することもできます。詳細については、例を参照してください。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Divides a vector's <code>x</code>, <code>y</code>, and <code>z</code>
+  components by the same number, separate numbers, the components of another <a
+  href="#/p5.Vector">p5.Vector</a> object, or an array of numbers. Calling
+  <code>div()</code> with no arguments has no effect.</p>
+
+  <p>The static version of <code>div()</code>, as in <code>p5.Vector.div(v,
+  2)</code>, returns a new <a href="#/p5.Vector">p5.Vector</a> object and
+  doesn't change the originals.</p>
+
+
+  <hr/>
+
   <p>Divides a vector's <code>x</code>, <code>y</code>, and <code>z</code>
   components.</p>
 
@@ -34,6 +63,25 @@ description: >
   <a href="/reference/p5/p5.Vector">p5.Vector</a> object and doesn't change the
 
   originals.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "n": "Number: ベクトルを除算する数値",
+      "x": "Number: ベクトルの x 成分を除算する数値",
+      "y": "Number: ベクトルの y 成分を除算する数値",
+      "z": "Number: (オプション) ベクトルの z 成分を除算する数値",
+      "arr": "Number[]: ベクトルの各成分を除算する配列",
+      "v": "p5.Vector: 元のベクトルの各成分を除算するベクトル",
+      "target": "p5.Vector: (オプション) 結果を受け取るベクトル",
+      "v0": "p5.Vector",
+      "v1": "p5.Vector"
+  }
+
+  </pre>
 line: 1065
 isConstructor: false
 itemtype: method

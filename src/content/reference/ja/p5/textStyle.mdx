@@ -3,7 +3,25 @@ title: textStyle
 module: Typography
 submodule: Attributes
 file: src/typography/attributes.js
-description: >
+description: >-
+  <p>システムフォントのテキストスタイルを NORMAL、ITALIC、BOLD、または BOLDITALIC に設定/取得します。</p>
+
+  <p>注意: これは CSS
+  のスタイル設定によって上書きされる場合があります。非システムフォント（オープンタイプ、トゥルータイプなど）の場合は、代わりにスタイル付きフォントを読み込んでください。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Sets the style for system fonts when <a href="#/p5/text">text()</a> is
+  called. <code>textStyle()</code> accepts the following values:
+  <code>NORMAL</code>, <code>ITALIC</code>, <code>BOLD</code> or
+  <code>BOLDITALIC</code>.</p>
+
+  <p><code>textStyle()</code> may be overridden by CSS styling. This function
+  doesn't affect fonts loaded with <a href="#/p5/loadFont">loadFont()</a>.</p>
+
+
+  <hr/>
+
   <p>Sets the style for system fonts when
 
   <a href="/reference/p5/text">text()</a> is called.</p>
@@ -17,6 +35,17 @@ description: >
   doesn't
 
   affect fonts loaded with <a href="/reference/p5/loadFont">loadFont()</a>.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "style": "Constant: テキストのスタイル。NORMAL、ITALIC、BOLD、BOLDITALIC"
+  }
+
+  </pre>
 line: 197
 isConstructor: false
 itemtype: method

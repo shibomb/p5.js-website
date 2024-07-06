@@ -4,6 +4,13 @@ module: IO
 submodule: Time & Date
 file: src/utilities/time_date.js
 description: >
+  <p>スケッチの開始時からのミリ秒（1秒の千分の1）を返します（<code>setup()</code> が呼ばれる時点）。</p>
+
+  <p>この情報は、イベントやアニメーションシーケンスのタイミングによく使われます。</p>
+
+
+  <hr/>
+
   <p>Returns the number of milliseconds since a sketch started running.</p>
 
   <p><code>millis()</code> keeps track of how long a sketch has been running in
@@ -134,7 +141,9 @@ example:
     </div>
 class: p5
 return:
-  description: number of milliseconds since starting the sketch.
+  description: |-
+    スケッチ開始からのミリ秒数
+    number of milliseconds since starting the sketch.
   type: Number
 chainable: false
 ---

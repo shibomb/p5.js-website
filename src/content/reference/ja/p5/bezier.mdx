@@ -3,7 +3,18 @@ title: bezier
 module: Shape
 submodule: Curves
 file: src/core/shape/curves.js
-description: >
+description: >-
+  <p>画面上にキュビックベジェ曲線を描画します。</p>
+
+  <p>これらの曲線は、一連のアンカーポイントとコントロールポイントで定義されます。最初の2つのパラメーターは最初のアンカーポイントを指定し、最後の2つのパラメーターは他のアンカーポイントを指定します。これらのアンカーポイントは曲線の最初と最後のポイントになります。中間のパラメーターは曲線の形状を定義する2つのコントロールポイントを指定します。大まかにいうと、コントロールポイントは曲線を自分の方向に「引っ張ります」。</p>
+
+  <p>ベジェ曲線は、フランスの自動車技師 Pierre Bezier
+  によって開発され、ゆるやかに傾斜した曲線を定義するためにコンピューターグラフィックスで一般的に使用されます。<a
+  href="#/p5/curve">curve()</a> も参照してください。</p>
+
+
+  <hr/>
+
   <p>Draws a Bézier curve.</p>
 
   <p>Bézier curves can form shapes and curves that slope gently. They're defined
@@ -34,6 +45,28 @@ description: >
   <code>bezier()</code> has twelve arguments because each point has x-, y-,
 
   and z-coordinates.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "x1": "Number: 最初のアンカーポイントの x 座標",
+      "y1": "Number: 最初のアンカーポイントの y 座標",
+      "x2": "Number: 最初のコントロールポイントの x 座標",
+      "y2": "Number: 最初のコントロールポイントの y 座標",
+      "x3": "Number: 2番目のコントロールポイントの x 座標",
+      "y3": "Number: 2番目のコントロールポイントの y 座標",
+      "x4": "Number: 2番目のアンカーポイントの x 座標",
+      "y4": "Number: 2番目のアンカーポイントの y 座標",
+      "z1": "Number: 最初のアンカーポイントの z 座標",
+      "z2": "Number: 最初のコントロールポイントの z 座標",
+      "z3": "Number: 2番目のコントロールポイントの z 座標",
+      "z4": "Number: 2番目のアンカーポイントの z 座標"
+  }
+
+  </pre>
 line: 13
 isConstructor: false
 itemtype: method

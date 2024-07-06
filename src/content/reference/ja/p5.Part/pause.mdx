@@ -4,6 +4,10 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
+  <p>このパートを一時停止します。</p>
+  <p>再生は現在のステップから再開されます。</p>
+
+  <hr/>
   <p>Pause the part. Playback will resume
   from the current step.</p>
 line: 9363
@@ -13,6 +17,7 @@ class: p5.Part
 params:
   - name: time
     description: |
+      <p>現在からの秒数</p>
       <p>seconds from now</p>
     type: Number
 chainable: false

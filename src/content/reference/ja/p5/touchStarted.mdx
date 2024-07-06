@@ -4,6 +4,16 @@ module: Events
 submodule: Touch
 file: src/events/touch.js
 description: >
+  <p>touchStarted() 関数は、タッチが登録されるたびに1回呼び出されます。</p>
+
+  <p>もし <a href="#/p5/touchStarted">touchStarted()</a> 関数が定義されていない場合、代わりに定義されている
+  <a href="#/p5/mousePressed">mousePressed()</a>
+  関数が呼び出されます。ブラウザーは、さまざまなタッチイベントに対して異なるデフォルトの動作を持っている場合があります。このイベントのデフォルトの動作を防ぐには、メソッドの最後に「return
+  false」を追加してください。</p>
+
+
+  <hr/>
+
   <p>A function that's called once each time the user touches the screen.</p>
 
   <p>Declaring a function called <code>touchStarted()</code> sets a code block
@@ -184,6 +194,7 @@ class: p5
 params:
   - name: event
     description: |
+      <p>(オプション) オプションの TouchEvent コールバック引数。</p>
       <p>optional <code>TouchEvent</code> argument.</p>
     type: TouchEvent
     optional: true

@@ -4,6 +4,41 @@ module: Image
 submodule: Image
 file: src/image/image.js
 description: >
+  <p>新しい <a href="#/p5.Image">p5.Image</a>（画像を格納するデータ型）を作成します。</p>
+
+  <p>これにより、新しいピクセルバッファが利用できるようになります。バッファのサイズを、width および height パラメーターで設定します。</p>
+
+  <p>.<a href="#/p5.Image/pixels">pixels</a>
+  は、表示ウィンドウ内のすべてのピクセルの値を含む配列にアクセスできます。これらの値は数字です。この配列は、表示ウィンドウのサイズ（<a
+  href="#/p5/pixelDensity">pixelDensity</a> の適切な係数を含む）x4 で、各ピクセルの R、G、B、A
+  の値を順番に、各行を左から右に、各列を上から下に移動して表現しています。詳細については、.<a
+  href="#/p5.Image/pixels">pixels</a> を参照してください。また、<a
+  href="#/p5.Image/set">set()</a> や <a href="#/p5.Image/get">get()</a>
+  を使用する方が簡単かもしれません。</p>
+
+  <p>画像のピクセルにアクセスする前に、<a href="#/p5.Image/loadPixels">loadPixels()</a>
+  関数を使用してデータをロードする必要があります。配列データが変更された後、変更を更新するために <a
+  href="#/p5.Image/updatePixels">updatePixels()</a> 関数を実行する必要があります。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Creates a new <a href="#/p5.Image">p5.Image</a> object. The new image is
+  transparent by default.</p>
+
+  <p><code>createImage()</code> uses the <code>width</code> and
+  <code>height</code> paremeters to set the new <a
+  href="#/p5.Image">p5.Image</a> object's dimensions in pixels. The new <a
+  href="#/p5.Image">p5.Image</a> can be modified by updating its <a
+  href="#/p5.Image/pixels">pixels</a> array or by calling its <a
+  href="#/p5.Image/get">get()</a> and <a href="#/p5.Image/set">set()</a>
+  methods. The <a href="#/p5.Image/loadPixels">loadPixels()</a> method must be
+  called before reading or modifying pixel values. The <a
+  href="#/p5.Image/updatePixels">updatePixels()</a> method must be called for
+  updates to take effect.</p>
+
+
+  <hr/>
+
   <p>Creates a new <a href="/reference/p5/p5.Image">p5.Image</a> object.</p>
 
   <p><code>createImage()</code> uses the <code>width</code> and
@@ -153,14 +188,18 @@ class: p5
 params:
   - name: width
     description: |
+      <p>ピクセル単位の幅</p>
       <p>width in pixels.</p>
     type: Integer
   - name: height
     description: |
+      <p>ピクセル単位の高さ</p>
       <p>height in pixels.</p>
     type: Integer
 return:
-  description: new <a href="#/p5.Image">p5.Image</a> object.
+  description: |-
+    新しい <a href="#/p5.Image">p5.Image</a> オブジェクト
+    new <a href="#/p5.Image">p5.Image</a> object.
   type: p5.Image
 chainable: false
 ---

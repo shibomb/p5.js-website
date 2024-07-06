@@ -4,6 +4,24 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
+  <p>与えられた内部 HTML をもつ DOM 内の <code>&lt;span&gt;&lt;/span&gt;</code>
+  要素を作成します。</p>
+
+  <p></p>
+
+  <p>/// todo ///</p>
+
+  <p>Creates a <code>&lt;span&gt;&lt;/span&gt;</code> element. It's commonly
+  used as a container for inline elements. For example, a
+  <code>&lt;span&gt;&lt;/span&gt;</code> can hold part of a sentence that's a
+  <span style="color: deeppink;">different</span> style.</p>
+
+  <p>The parameter <code>html</code> is optional. It accepts a string that sets
+  the inner HTML of the new <code>&lt;span&gt;&lt;/span&gt;</code>.</p>
+
+
+  <hr/>
+
   <p>Creates a <code><span></span></code> element.</p>
 
   <p><code><span></span></code> elements are commonly used as containers
@@ -76,12 +94,20 @@ class: p5
 params:
   - name: html
     description: >
+      <p>(Optional) inner HTML for the new
+      <code>&lt;span&gt;&lt;/span&gt;</code> element. /// todo /// String:
+      (オプション) 作成された要素の内部 HTML</p>
+
       <p>inner HTML for the new <code>&lt;span&gt;&lt;/span&gt;</code>
       element.</p>
     type: String
     optional: true
 return:
-  description: new <a href="#/p5.Element">p5.Element</a> object.
+  description: >-
+    new <a href="#/p5.Element">p5.Element</a> object. /// todo /// p5.Element:
+    作成されたノードを保持する <a href="#/p5.Element">p5.Element</a> へのポインター
+
+    new <a href="#/p5.Element">p5.Element</a> object.
   type: p5.Element
 chainable: false
 ---

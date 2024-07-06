@@ -4,6 +4,14 @@ module: Shape
 submodule: 2D Primitives
 file: src/core/shape/2d_primitives.js
 description: >
+  <p>キャンバスに三角形を描きます。</p>
+
+  <p>三角形は3辺の多角形です。最初の2つのパラメーターは三角形の第一点<code>(x1,y1)</code>を指定します。中間の2つのパラメーターはその第二点<code>(x2,y2)</code>を指定します。そして、最後の2つのパラメーターはその第三点<code>(x3,
+  y3)</code>を指定します。</p>
+
+
+  <hr/>
+
   <p>Draws a triangle.</p>
 
   <p>A triangle is a three-sided shape defined by three points. The
@@ -72,26 +80,32 @@ class: p5
 params:
   - name: x1
     description: |
+      <p>最初の点の x 座標</p>
       <p>x-coordinate of the first point.</p>
     type: Number
   - name: y1
     description: |
+      <p>最初の点の y 座標</p>
       <p>y-coordinate of the first point.</p>
     type: Number
   - name: x2
     description: |
+      <p>2番目の点の x 座標</p>
       <p>x-coordinate of the second point.</p>
     type: Number
   - name: y2
     description: |
+      <p>2番目の点の y 座標</p>
       <p>y-coordinate of the second point.</p>
     type: Number
   - name: x3
     description: |
+      <p>3番目の点の x 座標</p>
       <p>x-coordinate of the third point.</p>
     type: Number
   - name: y3
     description: |
+      <p>3番目の点の y 座標</p>
       <p>y-coordinate of the third point.</p>
     type: Number
 chainable: true

@@ -4,7 +4,17 @@ module: Shape
 submodule: 2D Primitives
 file: src/core/shape/2d_primitives.js
 description: >
-  <p>円弧を描きます。</p>
+  <p>キャンバスに弧を描きます。</p>
+
+  <p>弧は<code>x</code>、<code>y</code>、<code>w</code>、<code>h</code>パラメーターで定義された楕円（オーバル）の外側に沿って描かれます。<code>start</code>および<code>stop</code>パラメーターを使用して、弧を描く角度（ラジアン単位）を指定します。弧は常に<code>start</code>から<code>stop</code>まで時計回りに描かれます。弧の楕円の原点は、<a
+  href="#/p5/ellipseMode">ellipseMode()</a>関数で変更することができます。</p>
+
+  <p>オプションの<code>mode</code>パラメーターは、弧の塗りつぶしスタイルを決定します。塗りつぶしモードは半円（<code>OPEN</code>）、閉じた半円（<code>CHORD</code>）、または閉じたパイセグメント（<code>PIE</code>）です。</p>
+
+
+  <hr/>
+
+  <p>Draws an arc.</p>
 
   <p>An arc is a section of an ellipse defined by the <code>x</code>,
   <code>y</code>, <code>w</code>, and
@@ -38,29 +48,6 @@ description: >
   how many
 
   vertices are used to draw the arc in WebGL mode. The default value is 25.</p>
-
-  <div class="w-full mt-8 bg-gray-400 p-2">
-    <h6 class="text-white font-bold pb-2">WIP: こちらは旧バージョンの日本語リソースです</h6>
-    <pre class="w-full p-2 bg-white whitespace-break-spaces">
-    <!-- ここに i18n/ja legacy リポジトリの /src/data/reference/ja.json のjsonを貼り付け -->
-    "arc": {
-      "description": [
-        "キャンバスに弧を描きます。弧は<code>x</code>、<code>y</code>、<code>w</code>、<code>h</code>パラメーターで定義された楕円（オーバル）の外側に沿って描かれます。<code>start</code>および<code>stop</code>パラメーターを使用して、弧を描く角度（ラジアン単位）を指定します。弧は常に<code>start</code>から<code>stop</code>まで時計回りに描かれます。弧の楕円の原点は、<a href=\"#/p5/ellipseMode\">ellipseMode()</a>関数で変更することができます。",
-        "オプションの<code>mode</code>パラメーターは、弧の塗りつぶしスタイルを決定します。塗りつぶしモードは半円（<code>OPEN</code>）、閉じた半円（<code>CHORD</code>）、または閉じたパイセグメント（<code>PIE</code>）です。"
-      ],
-      "params": {
-        "x": "Number: 円弧の楕円の x 座標",
-        "y": "Number: 円弧の楕円の y 座標",
-        "w": "Number: デフォルトでの円弧の楕円の幅",
-        "h": "Number: デフォルトでの円弧の楕円の高さ",
-        "start": "Number: 円弧を開始する角度（ラジアンで指定）",
-        "stop": "Number: 円弧を終了する角度（ラジアンで指定）",
-        "mode": "Constant: (オプション) 円弧の描画方法を決定するオプションパラメーター。CHORD、PIE、OPEN のいずれか。",
-        "detail": "Integer: (オプション) WebGL モード専用のオプションパラメーター。これは、円弧の周囲を構成する頂点の数を指定するためのものです。デフォルト値は25です。細かさが50を超える場合にはストロークを描画しません。"
-      }
-    },
-    </pre>
-  </div>
 line: 102
 isConstructor: false
 itemtype: method
@@ -246,36 +233,46 @@ class: p5
 params:
   - name: x
     description: |
+      <p>円弧の楕円の x 座標</p>
       <p>x-coordinate of the arc's ellipse.</p>
     type: Number
   - name: 'y'
     description: |
+      <p>円弧の楕円の y 座標</p>
       <p>y-coordinate of the arc's ellipse.</p>
     type: Number
   - name: w
     description: |
+      <p>デフォルトでの円弧の楕円の幅</p>
       <p>width of the arc's ellipse by default.</p>
     type: Number
   - name: h
     description: |
+      <p>デフォルトでの円弧の楕円の高さ</p>
       <p>height of the arc's ellipse by default.</p>
     type: Number
   - name: start
     description: |
+      <p>円弧を開始する角度（ラジアンで指定）</p>
       <p>angle to start the arc, specified in radians.</p>
     type: Number
   - name: stop
     description: |
+      <p>円弧を終了する角度（ラジアンで指定）</p>
       <p>angle to stop the arc, specified in radians.</p>
     type: Number
   - name: mode
     description: |
+      <p>(オプション) 円弧の描画方法を決定するオプションパラメーター。CHORD、PIE、OPEN のいずれか。</p>
       <p>optional parameter to determine the way of drawing
                               the arc. either CHORD, PIE, or OPEN.</p>
     type: Constant
     optional: true
   - name: detail
-    description: |
+    description: >
+      <p>(オプション) WebGL
+      モード専用のオプションパラメーター。これは、円弧の周囲を構成する頂点の数を指定するためのものです。デフォルト値は25です。細かさが50を超える場合にはストロークを描画しません。</p>
+
       <p>optional parameter for WebGL mode only. This is to
                               specify the number of vertices that makes up the
                               perimeter of the arc. Default value is 25. Won't

@@ -4,6 +4,26 @@ module: Shape
 submodule: Vertex
 file: src/core/shape/vertex.js
 description: >
+  <p><a href="#/p5/beginContour">beginContour()</a> 関数と <a
+  href="#/p5/endContour">endContour()</a>
+  関数を使用して、文字「0」の中心などのような形状内の負の形状を作成します。</p>
+
+  <p><a href="#/p5/beginContour">beginContour()</a> 関数は形状の頂点の記録を開始し、<a
+  href="#/p5/endContour">endContour()</a>
+  関数は記録を停止します。負の形状を定義する頂点は、外部形状とは逆方向に「巻かれる」必要があります。まず外部の頂点を時計回りの順序で描き、内部の形状では反時計回りに頂点を描画します。</p>
+
+  <p>これらの関数は、<a href="#/p5/beginShape">beginShape()</a>/<a
+  href="#/p5/endShape">endShape()</a> のペア内でのみ使用できます。また、<a
+  href="#/p5/translate">translate()</a>、<a href="#/p5/rotate">rotate()</a>、および
+  <a href="#/p5/scale">scale()</a> などの変換は、<a
+  href="#/p5/beginContour">beginContour()</a>/<a
+  href="#/p5/endContour">endContour()</a> のペア内では機能しません。<a
+  href="#/p5/ellipse">ellipse()</a> や <a href="#/p5/rect">rect()</a>
+  などの他の図形を使用することもできません。</p>
+
+
+  <hr/>
+
   <p>Begins creating a hole within a flat shape.</p>
 
   <p>The <code>beginContour()</code> and <a

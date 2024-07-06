@@ -4,6 +4,10 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
+  <p>p5.SoundRecorder に特定のデバイスを接続します。</p>
+  <p>パラメーターが与えられない場合、p5.SoundRecorder はスケッチから出力されるすべての音を記録します。</p>
+
+  <hr/>
   <p>Connect a specific device to the p5.SoundRecorder.
   If no parameter is given, p5.SoundRecorer will record
   all audible p5.sound from your sketch.</p>
@@ -14,6 +18,7 @@ class: p5.SoundRecorder
 params:
   - name: unit
     description: |
+      <p>(オプション) p5.sound オブジェクトまたは音を出力する Web Audio ユニット</p>
       <p>p5.sound object or a web audio unit
                              that outputs sound</p>
     type: Object

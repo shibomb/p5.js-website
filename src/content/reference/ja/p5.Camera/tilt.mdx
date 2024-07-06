@@ -4,6 +4,13 @@ module: 3D
 submodule: Camera
 file: src/webgl/p5.Camera.js
 description: >
+  <p>チルトは、カメラビューを上下に回転させます。</p>
+
+  <p></p>
+
+
+  <hr/>
+
   <p>Rotates the camera up and down.</p>
 
   <p>Tilting rotates the camera without changing its position. The rotation
@@ -71,7 +78,10 @@ example:
 class: p5.Camera
 params:
   - name: angle
-    description: |
+    description: >
+      <p>現在の <a href="#/p5/angleMode">angleMode</a>
+      モード単位でカメラを回転する量。0より大きい値は反時計回りに回転（左）します。</p>
+
       <p>amount to rotate in the current
                             <a href="#/p5/angleMode">angleMode()</a>.</p>
     type: Number

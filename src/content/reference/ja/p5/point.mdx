@@ -3,7 +3,22 @@ title: point
 module: Shape
 submodule: 2D Primitives
 file: src/core/shape/2d_primitives.js
-description: >
+description: >-
+  <p>点を描画します。</p>
+
+  <p>これは空間内の単一の座標です。デフォルトのサイズは1ピクセルです。最初の2つのパラメーターは、それぞれポイントのx座標とy座標です。ポイントに色を付けるには、<a
+  href="#/p5/stroke">stroke()</a>関数を使用します。そのサイズを変更するには、<a
+  href="#/p5/strokeWeight">strokeWeight()</a>関数を使用します。</p>
+
+  <p>3つのパラメーターをもつ<code>point()</code>のバージョンでは、ポイントを3D空間に描画できます。これを行うには、<a
+  href="#/p5/createCanvas">createCanvas()</a>に<code>WEBGL</code>引数を追加する必要があります。</p>
+
+  <p>1つのパラメーターをもつpoint()のバージョンでは、ポイントの位置を<a
+  href="#/p5/p5.Vector">p5.Vector</a>オブジェクトで設定できます。</p>
+
+
+  <hr/>
+
   <p>Draws a single point in space.</p>
 
   <p>A point's default width is one pixel. To color a point, use the
@@ -36,6 +51,20 @@ description: >
   location to
 
   be set with a <a href="/reference/p5/p5.Vector">p5.Vector</a> object.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "x": "Number: x 座標",
+      "y": "Number: y 座標",
+      "z": "Number: (オプション) z 座標（WebGL モード用）",
+      "coordinate_vector": "p5.Vector: 座標ベクトル"
+  }
+
+  </pre>
 line: 731
 isConstructor: false
 itemtype: method

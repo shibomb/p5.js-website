@@ -4,6 +4,27 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
+  <p>DOM にチェックボックスの <code>&lt;input&gt;&lt;/input&gt;</code> 要素を作成します。</p>
+
+  <p>チェックボックスに対して .checked() を呼び出すと、チェックされているかどうかを示すブール値が返されます。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Creates a checkbox <code>&lt;input&gt;&lt;/input&gt;</code> element.
+  Checkboxes extend the <a href="#/p5.Element">p5.Element</a> class with a
+  <code>checked()</code> method. Calling <code>myBox.checked()</code> returns
+  <code>true</code> if it the box is checked and <code>false</code>
+  otherwise.</p>
+
+  <p>The first parameter, <code>label</code>, is optional. It's a string that
+  sets the label to display next to the checkbox.</p>
+
+  <p>The second parameter, <code>value</code>, is also optional. It's a boolean
+  that sets the checkbox's value.</p>
+
+
+  <hr/>
+
   <p>Creates a checkbox <code><input></input></code> element.</p>
 
   <p>Checkboxes extend the <a href="/reference/p5/p5.Element">p5.Element</a>
@@ -109,17 +130,26 @@ class: p5
 params:
   - name: label
     description: |
+      <p>(オプション) チェックボックスの後に表示されるラベル</p>
       <p>label displayed after the checkbox.</p>
     type: String
     optional: true
   - name: value
     description: >
+      <p>(Optional) value of the checkbox. Checked is <code>true</code> and
+      unchecked is <code>false</code>. /// todo /// Boolean: (オプション) チェックボックスの値;
+      チェックされている場合は true、チェックされていない場合は false</p>
+
       <p>value of the checkbox. Checked is <code>true</code> and unchecked is
       <code>false</code>.</p>
     type: Boolean
     optional: true
 return:
-  description: new <a href="#/p5.Element">p5.Element</a> object.
+  description: >-
+    new <a href="#/p5.Element">p5.Element</a> object. /// todo /// p5.Element:
+    作成されたノードを保持する <a href="#/p5.Element">p5.Element</a> へのポインター
+
+    new <a href="#/p5.Element">p5.Element</a> object.
   type: p5.Element
 chainable: false
 ---

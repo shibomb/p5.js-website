@@ -3,7 +3,20 @@ title: translate
 module: Transform
 submodule: Transform
 file: src/core/transform.js
-description: >
+description: >-
+  <p>表示ウィンドウ内のオブジェクトを移動する量を指定します。</p>
+
+  <p>x パラメーターは左/右の移動を指定し、y パラメーターは上/下の移動を指定します。</p>
+
+  <p>変換は累積的であり、それ以降に発生するすべてのことに適用され、関数への後続の呼び出しは効果を蓄積します。たとえば、translate(50,
+  0)を呼び出した後に translate(20, 0)を呼び出すと、translate(70, 0)と同じになります。 <a
+  href="#/p5/translate">translate()</a> が <a href="#/p5/draw">draw()</a>
+  内で呼び出された場合、ループが再度始まるときに変換がリセットされます。この関数は、<a href="#/p5/push">push()</a> および <a
+  href="#/p5/pop">pop()</a> を使用してさらに制御できます。</p>
+
+
+  <hr/>
+
   <p>Translates the coordinate system.</p>
 
   <p>By default, the origin <code>(0, 0)</code> is at the sketch's top-left
@@ -72,6 +85,20 @@ description: >
   href="/reference/p5/draw">draw()</a> function won't
 
   cause shapes to move continuously.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "x": "Number: 左/右の移動",
+      "y": "Number: 上/下の移動",
+      "z": "Number: (オプション) 前/後ろの移動 (WebGL のみ)",
+      "vector": "p5.Vector: 移動するベクトル"
+  }
+
+  </pre>
 line: 1223
 isConstructor: false
 itemtype: method

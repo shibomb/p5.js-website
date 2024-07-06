@@ -4,6 +4,12 @@ module: Math
 submodule: Calculation
 file: src/math/calculation.js
 description: |
+  <p>最小値と最大値の間に値を制限します。</p>
+  <p></p>
+  <p>/// todo ///</p>
+  <p>Constrains a number between a minimum and maximum value.</p>
+
+  <hr/>
   <p>Constrains a number between a minimum and maximum value.</p>
 line: 91
 isConstructor: false
@@ -63,18 +69,23 @@ class: p5
 params:
   - name: 'n'
     description: |
+      <p>制限する数値</p>
       <p>number to constrain.</p>
     type: Number
   - name: low
     description: |
+      <p>最小限</p>
       <p>minimum limit.</p>
     type: Number
   - name: high
     description: |
+      <p>最大限</p>
       <p>maximum limit.</p>
     type: Number
 return:
-  description: constrained number.
+  description: |-
+    制限された数値
+    constrained number.
   type: Number
 chainable: false
 ---

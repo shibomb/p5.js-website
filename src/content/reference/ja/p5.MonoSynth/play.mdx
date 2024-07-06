@@ -4,6 +4,10 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
+  <p>play() メソッドは、MonoSynth に指定した音符を演奏するよう指示します。</p>
+  <p>このメソッドは、.triggerAttack と.triggerRelease の呼び出しをスケジュールします。</p>
+
+  <hr/>
   <p>Play tells the MonoSynth to start playing a note. This method schedules
   the calling of .triggerAttack and .triggerRelease.</p>
 line: 11379
@@ -42,7 +46,10 @@ example:
 class: p5.MonoSynth
 params:
   - name: note
-    description: |
+    description: >
+      <p>演奏する音符を指定します。周波数をヘルツ数で指定する場合は数値、または Note/Octave 形式で MIDI
+      値を指定する場合は("C4", "Eb3"...など)。デフォルト値は440 Hz です。</p>
+
       <p>the note you want to play, specified as a
                                      frequency in Hertz (Number) or as a midi
                                      value in Note/Octave format ("C4", "Eb3"...etc")
@@ -51,16 +58,20 @@ params:
     type: String | Number
   - name: velocity
     description: |
+      <p>(オプション) 演奏する音符のベロシティ (0～1 の範囲)</p>
       <p>velocity of the note to play (ranging from 0 to 1)</p>
     type: Number
     optional: true
   - name: secondsFromNow
     description: |
+      <p>(オプション) 何秒後に演奏を開始するかを指定します。</p>
       <p>time from now (in seconds) at which to play</p>
     type: Number
     optional: true
   - name: sustainTime
     description: >
+      <p>(オプション) エンベロープのリリースをトリガーする前に継続する時間を指定します。デフォルト値は0.15秒です。</p>
+
       <p>time to sustain before releasing the envelope. Defaults to 0.15
       seconds.</p>
     type: Number

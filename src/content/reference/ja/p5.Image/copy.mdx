@@ -3,7 +3,21 @@ title: copy
 module: Image
 submodule: Image
 file: src/image/p5.Image.js
-description: >
+description: >-
+  <p>画像の一部を別の画像にコピーします。</p>
+
+  <p>srcImage
+  が指定されていない場合は、これがソースとして使用されます。ソースと宛先の領域が同じサイズでない場合、ソースピクセルを自動的に指定されたターゲット領域に合わせてリサイズします。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Copies pixels from a source <a href="#/p5.Image">p5.Image</a>  to this one.
+  Calling <code>img.copy()</code> will scale pixels from the source  region if
+  it isn't the same size as the destination region.</p>
+
+
+  <hr/>
+
   <p>Copies pixels from a source image to this image.</p>
 
   <p>The first parameter, <code>srcImage</code>, is an optional
@@ -38,6 +52,25 @@ description: >
   it isn't
 
   the same size as the destination region.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "srcImage": "p5.Image|p5.Element: ソース画像",
+      "sx": "Integer: ソースの左上隅の X 座標",
+      "sy": "Integer: ソースの左上隅の Y 座標",
+      "sw": "Integer: ソース画像の幅",
+      "sh": "Integer: ソース画像の高さ",
+      "dx": "Integer: 宛先の左上隅の X 座標",
+      "dy": "Integer: 宛先の左上隅の Y 座標",
+      "dw": "Integer: 宛先画像の幅",
+      "dh": "Integer: 宛先画像の高さ"
+  }
+
+  </pre>
 line: 1006
 isConstructor: false
 itemtype: method

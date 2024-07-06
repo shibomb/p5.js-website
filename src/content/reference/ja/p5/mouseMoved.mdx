@@ -4,6 +4,15 @@ module: Events
 submodule: Mouse
 file: src/events/mouse.js
 description: >
+  <p><a href="#/p5/mouseMoved">mouseMoved()</a>
+  関数は、マウスが移動し、マウスボタンが押されていない場合に呼び出されます。</p>
+
+  <p>ブラウザーには、さまざまなマウスイベントに関連付けられたデフォルトの動作が異なる場合があります。このイベントのデフォルトの動作を防ぐには、「return
+  false」をメソッドの最後に追加します。</p>
+
+
+  <hr/>
+
   <p>A function that's called when the mouse moves.</p>
 
   <p>Declaring the function <code>mouseMoved()</code> sets a code block to run
@@ -105,6 +114,7 @@ class: p5
 params:
   - name: event
     description: |
+      <p>(オプション) オプションの MouseEvent コールバック引数。</p>
       <p>optional <code>MouseEvent</code> argument.</p>
     type: MouseEvent
     optional: true

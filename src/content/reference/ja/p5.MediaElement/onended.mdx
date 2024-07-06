@@ -3,9 +3,26 @@ title: onended
 module: DOM
 submodule: DOM
 file: src/dom/dom.js
-description: |
+description: >
+  <p>オーディオまたはビデオ要素が終了したときに呼び出されるイベントをスケジュールします。</p>
+
+  <p>要素がループしている場合、これは呼び出されません。要素は、onended コールバックの引数として渡されます。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Calls a function when the audio/video reaches the end of its playback The
+  function won't be called if the media is looping.</p>
+
+  <p>The <code>p5.MediaElement</code> is passed as an argument to the callback
+  function.</p>
+
+
+  <hr/>
+
   <p>Calls a function when the audio/video reaches the end of its playback.</p>
+
   <p>The element is passed as an argument to the callback function.</p>
+
   <p>Note: The function won't be called if the media is looping.</p>
 line: 5005
 isConstructor: false
@@ -65,7 +82,11 @@ example:
 class: p5.MediaElement
 params:
   - name: callback
-    description: |
+    description: >
+      <p>function to call when playback ends.  The <code>p5.MediaElement</code>
+      is passed as  the argument. /// todo /// Function:
+      サウンドファイルが終了したときに呼び出す関数。メディア要素がコールバックの引数として渡されます。</p>
+
       <p>function to call when playback ends.
                                   The <code>p5.MediaElement</code> is passed as
                                   the argument.</p>

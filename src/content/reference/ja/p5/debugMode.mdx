@@ -3,7 +3,20 @@ title: debugMode
 module: 3D
 submodule: Interaction
 file: src/webgl/interaction.js
-description: >
+description: >-
+  <p>debugMode() は、3D 空間を視覚化するのに役立ちます。</p>
+
+  <p>グリッドを追加してスケッチ内の「地面」の位置を示し、+X、+Y、+Z
+  方向を示す軸アイコンを表示します。この関数は、デフォルトのグリッドと軸アイコンを作成するために引数なしで呼び出すことができますし、例にしたがってグリッドおよび/または軸アイコンのサイズと位置をカスタマイズするために呼び出すことができます。グリッドは、最も最近設定されたストロークの色と太さで描画されます。これらのパラメーターを指定するには、draw()
+  ループの直前に stroke() および strokeWeight() を追加してください。</p>
+
+  <p>デフォルトでは、グリッドはスケッチの原点(0,0,0)を中心に XZ
+  平面に沿って走り、軸アイコンは原点からオフセットされます。グリッドと軸アイコンの両方が、現在のキャンバスサイズに応じてサイズが調整されます。グリッドがデフォルトのカメラビューに平行して走るため、グリッドを完全に表示できるように
+  debugMode と orbitControl を一緒に使用することがよく役立ちます。</p>
+
+
+  <hr/>
+
   <p>Adds a grid and an axes icon to clarify orientation in 3D sketches.</p>
 
   <p><code>debugMode()</code> adds a grid that shows where the “ground” is in a
@@ -114,6 +127,29 @@ description: >
   50 and
 
   offsets the icon 10 pixels along each axis.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "mode": "Constant: GRID または AXES",
+      "gridSize": "Number: (オプション) グリッドの一辺のサイズ",
+      "gridDivisions": "Number: (オプション) グリッドの分割数",
+      "xOff": "Number: (オプション) 原点 (0,0,0) からの X 軸オフセット",
+      "yOff": "Number: (オプション) 原点 (0,0,0) からの Y 軸オフセット",
+      "zOff": "Number: (オプション) 原点 (0,0,0) からの Z 軸オフセット",
+      "axesSize": "Number: (オプション) 軸アイコンのサイズ",
+      "gridXOff": "Number (オプション) ",
+      "gridYOff": "Number (オプション) ",
+      "gridZOff": "Number (オプション) ",
+      "axesXOff": "Number (オプション) ",
+      "axesYOff": "Number (オプション) ",
+      "axesZOff": "Number (オプション) "
+  }
+
+  </pre>
 line: 471
 isConstructor: false
 itemtype: method

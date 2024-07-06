@@ -3,7 +3,31 @@ title: spotLight
 module: 3D
 submodule: Lights
 file: src/webgl/light.js
-description: >
+description: >-
+  <p>指定された色、位置、光の方向、角度、および集中度でスポットライトを作成します。</p>
+
+  <p></p>
+
+  <p><a href="#/p5/pointLight">pointLight()</a> と同様に、spotLight()
+  は特定の点（位置）から光を放射します。オブジェクトに対して遠くまたは近くに配置すると効果が異なります。</p>
+
+  <p>ただし、pointLight() とは異なり、光は <strong>一方向</strong>
+  に沿って円錐状に放射されます。円錐の形状は、<code>angle</code> および <code>concentration</code>
+  パラメーターを使用して制御できます。</p>
+
+  <p><code>angle</code>
+  パラメーターは、円錐の半径を決定するために使用されます。そして、<code>concentration</code>
+  パラメーターは、円錐の中心に向かって光を集めるために使用されます</p>
+
+  <p>両方のパラメーターはオプションですが、<code>concentration</code> を指定する場合は、<code>angle</code>
+  も指定する必要があります。最小集中値は1です。一度に最大 <strong>5</strong> つのスポットライトがアクティブにできます。</p>
+
+  <p>注意: ループプログラム内でライトを持続させるためには、draw() 内でライトを呼び出す必要があります（直接または間接的に）。setup()
+  に配置すると、ループの最初の通過でのみ効果があります。</p>
+
+
+  <hr/>
+
   <p>Creates a light that shines from a point in one direction.</p>
 
   <p>Spot lights are like flashlights that shine in one direction creating a
@@ -52,6 +76,30 @@ description: >
   concentration of 50. By
 
   default, <code>concentration</code> is 100.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "v1": "Number: 現在の色範囲に対する赤または色相値",
+      "v2": "Number: 現在の色範囲に対する緑または彩度値",
+      "v3": "Number: 現在の色範囲に対する青または明るさ値",
+      "x": "Number: 位置の x 成分",
+      "y": "Number: 位置の y 成分",
+      "z": "Number: 位置の z 成分",
+      "rx": "Number: 光の方向の x 成分（-1から1までの範囲を含む）",
+      "ry": "Number: 光の方向の y 成分（-1から1までの範囲を含む）",
+      "rz": "Number: 光の方向の z 成分（-1から1までの範囲を含む）",
+      "angle": "Number:  (オプション) 円錐の角度。デフォルトは PI/3",
+      "concentration": "Number:  (オプション) 円錐の集中度。デフォルトは100",
+      "color": "p5.Color|Number[]|String: <a href=\"#/p5.Color\">p5.Color</a> としての色、配列として、または CSS 文字列として",
+      "position": "p5.Vector: <a href=\"#/p5.Vector\">p5.Vector</a> としてのライトの位置",
+      "direction": "p5.Vector: <a href=\"#/p5.Vector\">p5.Vector</a> としてのライトの方向"
+  }
+
+  </pre>
 line: 1271
 isConstructor: false
 itemtype: method

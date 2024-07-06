@@ -3,7 +3,26 @@ title: pixelDensity
 module: Environment
 submodule: Environment
 file: src/core/environment.js
-description: >
+description: >-
+  <p>高ピクセル密度ディスプレイのピクセルスケーリングを設定します。</p>
+
+  <p>デフォルトでは、ピクセル密度は表示密度に合わせて設定されています。これをオフにするには、pixelDensity(1) を呼び出します。<a
+  href="#/p5/pixelDensity">pixelDensity()</a>
+  を引数なしで呼び出すと、スケッチの現在のピクセル密度が返されます。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Sets the pixel scaling for high pixel density displays.</p>
+
+  <p>By default, the pixel density is set to match display density. Calling
+  <code>pixelDensity(1)</code> turn this off.</p>
+
+  <p>Calling <code>pixelDensity()</code> without an argument returns the current
+  pixel density.</p>
+
+
+  <hr/>
+
   <p>Sets the pixel density or returns the current density.</p>
 
   <p>Computer displays are grids of little lights called <em>pixels</em>. A
@@ -25,6 +44,17 @@ description: >
   pixel
 
   density.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "val": "Number: (Optional) desired pixel density. /// todo /// Number: スケッチを拡大縮小するかどうか、またはどの程度拡大縮小するか"
+  }
+
+  </pre>
 line: 996
 isConstructor: false
 itemtype: method

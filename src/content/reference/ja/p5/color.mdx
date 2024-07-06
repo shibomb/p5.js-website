@@ -3,7 +3,27 @@ title: color
 module: Color
 submodule: Creating & Reading
 file: src/color/creating_reading.js
-description: >
+description: >-
+  <p><a href="#/p5/p5.Color">p5.Color</a> オブジェクトを作成します。</p>
+
+  <p>デフォルトでは、パラメーターはRGB値として解釈されます。 <code>color(255, 204, 0)</code>
+  を呼び出すと、明るい黄色の色が返されます。これらのパラメーターが解釈される方法は、<a
+  href="#/p5/colorMode">colorMode()</a> 関数で変更できます。</p>
+
+  <p>1つのパラメーターをもつ<code>color()</code>のバージョンは、その値を2つの方法で解釈します。パラメーターが数字の場合、グレースケールの値として解釈されます。パラメーターが文字列の場合、CSS
+  カラー文字列として解釈されます。</p>
+
+  <p>2つのパラメーターをもつ<code>color()</code>のバージョンは、最初のものをグレースケールの値として解釈します。2つ目のパラメーターは、アルファ（透明度）の値を設定します。</p>
+
+  <p>3つのパラメーターをもつ<code>color()</code>のバージョンは、それらを RGB、HSB、HSL
+  の色として解釈します。現在の<code>colorMode()</code>に依存します。</p>
+
+  <p>4つのパラメーターをもつ<code>color()</code>のバージョンは、それらを RGBA、HSBA、HSLA
+  の色として解釈します。現在の<code>colorMode()</code>に依存します。最後のパラメーターは、アルファ（透明度）の値を設定します。</p>
+
+
+  <hr/>
+
   <p>Creates a <a href="/reference/p5/p5.Color">p5.Color</a> object.</p>
 
   <p>By default, the parameters are interpreted as RGB values. Calling
@@ -39,6 +59,24 @@ description: >
   parameter
 
   sets the alpha (transparency) value.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "gray": "Number: 白と黒の間の値を指定する数値。",
+      "alpha": "Number: (オプション) 現在のカラーモードの色範囲に対するアルファ値（デフォルトは0〜255）",
+      "v1": "Number: 現在のカラーモードの色範囲に対する赤または色相値",
+      "v2": "Number: 現在のカラーモードの色範囲に対する緑または彩度値",
+      "v3": "Number: 現在のカラーモードの色範囲に対する青または明度値",
+      "value": "String: カラー文字列",
+      "values": "Number[]: 色の赤、緑、青、およびアルファ成分を含む配列",
+      "color": "p5.Color"
+  }
+
+  </pre>
 line: 398
 isConstructor: false
 itemtype: method
@@ -270,7 +308,9 @@ example:
     </div>
 class: p5
 return:
-  description: resulting color.
+  description: |-
+    結果の色
+    resulting color.
   type: p5.Color
 overloads:
   - line: 398

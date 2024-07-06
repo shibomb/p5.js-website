@@ -4,6 +4,21 @@ module: Transform
 submodule: Transform
 file: src/core/transform.js
 description: >
+  <p>指定された角度パラメーターで図形を回転させます。</p>
+
+  <p>この関数は <a href="#/p5/angleMode">angleMode</a> を考慮しているため、角度は RADIANS または
+  DEGREES で入力できます。</p>
+
+  <p>オブジェクトは常に原点に対する相対位置を中心に回転し、正の数値はオブジェクトを時計回りに回転させます。変換はその後のすべての操作に適用され、関数への後続の呼び出しは効果を累積します。たとえば、rotate(HALF_PI)を呼び出した後に
+  rotate(HALF_PI)を呼び出すことは、rotate(PI)と同じです。すべての変換は、<a href="#/p5/draw">draw()</a>
+  が再度始まるとリセットされます。</p>
+
+  <p>技術的には、<a href="#/p5/rotate">rotate()</a> は現在の変換行列に回転行列を乗算します。この関数は、<a
+  href="#/p5/push">push()</a> および <a href="#/p5/pop">pop()</a> でさらに制御できます。</p>
+
+
+  <hr/>
+
   <p>Rotates the coordinate system.</p>
 
   <p>By default, the positive x-axis points to the right and the positive y-axis
@@ -208,11 +223,14 @@ class: p5
 params:
   - name: angle
     description: >
+      <p>現在の angleMode に応じて、ラジアンまたは度で指定された回転角</p>
+
       <p>angle of rotation in the current <a
       href="#/p5/angleMode">angleMode()</a>.</p>
     type: Number
   - name: axis
     description: |
+      <p>(オプション) (3D の場合) 回転する軸</p>
       <p>axis to rotate about in 3D.</p>
     type: 'p5.Vector|Number[]'
     optional: true

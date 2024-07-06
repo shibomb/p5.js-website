@@ -4,6 +4,66 @@ module: Image
 submodule: Pixels
 file: src/image/pixels.js
 description: >
+  <p>ディスプレイウィンドウ内のすべてのピクセルの値を含む <a
+  href='https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray'
+  target='_blank'>Uint8ClampedArray</a> です。</p>
+
+  <p>これらの値は数値です。この配列は、ディスプレイウィンドウのサイズ（<a
+  href="#/p5/pixelDensity">pixelDensity</a> の適切な係数を含む）x4 で、各ピクセルの R、G、B、A
+  の値を左から右へ、各行から下へ移動しながら順番に表現しています。Retina
+  やその他の高密度ディスプレイは、ピクセル密度の二乗の係数であるピクセル[]を持っています。たとえば、画像が100 ×
+  100ピクセルの場合、40,000になります。Retina ディスプレイでは160,000になります。</p>
+
+  <p>配列の最初の4つの値（インデックス0-3）は、ピクセル(0, 0)の R、G、B、A の値です。次の4つの値（インデックス4-7）は、ピクセル(1,
+  0)の R、G、B、A の値が含まれます。一般的には、(x, y)のピクセルの値を設定するには、次のようにします:<pre><code
+  class="language-javascript">let d = pixelDensity(); for (let i = 0; i < d;
+  i++) {  for (let j = 0; j < d; j++) {  // loop over  index = 4 * ((y * d + j)
+  * width * d + (x * d + i));  pixels[index] = r;  pixels[index+1] = g; 
+  pixels[index+2] = b;  pixels[index+3] = a;  } } </code></pre></p>
+
+  <p>上記の方法は複雑ですが、任意の pixelDensity で動作する柔軟性があります。<a href="#/p5/set">set()</a>
+  は、任意の pixelDensity で指定された(x, y)に対して <a href="#/p5/pixels">pixels[]</a>
+  内の適切な値を自動的に設定しますが、ピクセル配列に多くの変更が加えられるとパフォーマンスが低下することがあります。</p>
+
+  <p>この配列にアクセスする前に、<a href="#/p5/loadPixels">loadPixels()</a>
+  関数でデータをロードする必要があります。配列データが変更された後、<a
+  href="#/p5/updatePixels">updatePixels()</a> 関数を実行して変更を更新する必要があります。</p>
+
+  <p>これは標準的な JavaScript の配列ではないことに注意してください。これは、<a href="#/p5/slice">slice()</a>
+  や <a href="#/p5/arrayCopy">arrayCopy()</a> などの標準的な JavaScript
+  関数が動作しないことを意味します。</p>
+
+  <p>/// todo ///</p>
+
+  <p>An array containing the color of each pixel on the canvas. Colors are
+  stored as numbers representing red, green, blue, and alpha (RGBA) values.
+  <code>pixels</code> is a one-dimensional array for performance reasons.</p>
+
+  <p>Each pixel occupies four elements in the <code>pixels</code> array, one for
+  each RGBA value. For example, the pixel at coordinates (0, 0) stores its RGBA
+  values at <code>pixels[0]</code>, <code>pixels[1]</code>,
+  <code>pixels[2]</code>, and <code>pixels[3]</code>, respectively. The next
+  pixel at coordinates (1, 0) stores its RGBA values at <code>pixels[4]</code>,
+  <code>pixels[5]</code>, <code>pixels[6]</code>, and <code>pixels[7]</code>.
+  And so on. The <code>pixels</code> array for a 100×100 canvas has 100 × 100 ×
+  4 = 40,000 elements.</p>
+
+  <p>Some displays use several smaller pixels to set the color at a single
+  point. The <a href="#/p5/pixelDensity">pixelDensity()</a> function returns the
+  pixel density of the canvas. High density displays often have a <a
+  href="#/p5/pixelDensity">pixelDensity()</a> of 2. On such a display, the
+  <code>pixels</code> array for a 100×100 canvas has 200 × 200 × 4 = 160,000
+  elements.</p>
+
+  <p>Accessing the RGBA values for a point on the canvas requires a little math
+  as shown below. The <a href="#/p5/loadPixels">loadPixels()</a> function must
+  be called before accessing the <code>pixels</code> array. The <a
+  href="#/p5/updatePixels">updatePixels()</a> function must be called after any
+  changes are made.</p>
+
+
+  <hr/>
+
   <p>An array containing the color of each pixel on the canvas.</p>
 
   <p>Colors are stored as numbers representing red, green, blue, and alpha

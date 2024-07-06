@@ -3,10 +3,21 @@ title: setType
 module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
-description: |
+description: >
+  <p>p5.Filter のタイプを設定します。</p>
+
+  <p>可能なタイプには、「lowpass」（デフォルト）、
+  「highpass」、「bandpass」、「lowshelf」、「highshelf」、「peaking」、「notch」、「allpass」があります。</p>
+
+
+  <hr/>
+
   <p>Set the type of a p5.Filter. Possible types include:
+
   "lowpass" (default), "highpass", "bandpass",
+
   "lowshelf", "highshelf", "peaking", "notch",
+
   "allpass".</p>
 line: 6884
 isConstructor: false
@@ -14,7 +25,8 @@ itemtype: method
 class: p5.Filter
 params:
   - name: t
-    description: ''
+    description: |
+      <p>String</p>
     type: String
 chainable: false
 ---

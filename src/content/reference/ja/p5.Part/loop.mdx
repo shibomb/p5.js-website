@@ -4,6 +4,10 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
+  <p>このパートの再生をループさせます。</p>
+  <p>setBPM で決定された速度で、すべてのフレーズをループ再生します。</p>
+
+  <hr/>
   <p>Loop playback of this part. It will begin
   looping through all of its phrases at a speed
   determined by setBPM.</p>
@@ -14,6 +18,7 @@ class: p5.Part
 params:
   - name: time
     description: |
+      <p>(オプション) 現在からの秒数</p>
       <p>seconds from now</p>
     type: Number
     optional: true

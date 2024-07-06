@@ -4,6 +4,11 @@ module: IO
 submodule: Table
 file: src/io/p5.Table.js
 description: |
+  <p>指定された文字（または"tokens"）を削除します。</p>
+  <p></p>
+  <p>列が指定されていない場合、すべての列と行の値が処理されます。特定の列は、ID またはタイトルのいずれかで参照できます。</p>
+
+  <hr/>
   <p>Removes any of the specified characters (or "tokens").</p>
   <p>If no column is specified, then the values in all columns and
   rows are processed. A specific column may be referenced by
@@ -41,10 +46,12 @@ class: p5.Table
 params:
   - name: chars
     description: |
+      <p>削除する文字をリストアップした文字列</p>
       <p>String listing characters to be removed</p>
     type: String
   - name: column
     description: |
+      <p>(オプション) 列の ID（数字）または名前（文字列）</p>
       <p>Column ID (number)
                                        or name (string)</p>
     type: String|Integer

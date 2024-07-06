@@ -4,6 +4,10 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
+  <p>エコーの遅延時間を秒単位で設定します。</p>
+  <p>通常、この値は0.0から1.0の間の浮動小数点数になります。</p>
+
+  <hr/>
   <p>Set the delay (echo) time, in seconds. Usually this value will be
   a floating point number between 0.0 and 1.0.</p>
 line: 8094
@@ -13,6 +17,7 @@ class: p5.Delay
 params:
   - name: delayTime
     description: |
+      <p>エコーの遅延時間（秒単位）</p>
       <p>Time (in seconds) of the delay</p>
     type: Number
 chainable: false

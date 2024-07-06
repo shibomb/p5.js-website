@@ -4,6 +4,14 @@ module: Events
 submodule: Mouse
 file: src/events/mouse.js
 description: >
+  <p>システム変数 pwinMouseX は、現在のフレームの前のフレームにおける、ウィンドウの (0, 0)
+  に対するマウスの水平位置を常に含んでいます。</p>
+
+  <p>注意:pwinMouseX は、各タッチイベントの開始時に現在の winMouseX の値にリセットされます。</p>
+
+
+  <hr/>
+
   <p>A <code>Number</code> variable that tracks the mouse's previous horizontal
   position
 

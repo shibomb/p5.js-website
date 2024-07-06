@@ -4,6 +4,16 @@ module: Shape
 submodule: Curves
 file: src/core/shape/curves.js
 description: >
+  <p>曲線描画に使用される <a href="#/p5/curve">curve()</a> や <a
+  href="#/p5/curveVertex">curveVertex()</a> の形状の品質を変更します。</p>
+
+  <p>tightness パラメーターは、曲線を頂点ポイントに合わせる方法を決定します。値0.0は tightness
+  のデフォルト値であり、Catmull-Rom
+  スプラインで曲線が定義されます。値1.0はすべてのポイントを直線でつなぎます。-5.0から5.0の範囲内の値では曲線がいびつになりますが、それでも認識可能な形状を保ち、値が増大すると曲線はさらにいびつになります。</p>
+
+
+  <hr/>
+
   <p>Adjusts the way <a href="/reference/p5/curve">curve()</a> and
 
   <a href="/reference/p5/curveVertex">curveVertex()</a> draw.</p>
@@ -65,6 +75,7 @@ class: p5
 params:
   - name: amount
     description: |
+      <p>元の頂点からの変形量</p>
       <p>amount of tightness.</p>
     type: Number
 chainable: true

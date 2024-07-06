@@ -4,6 +4,29 @@ module: Math
 submodule: Calculation
 file: src/math/calculation.js
 description: >
+  <p>特定の増分で2つの数値の間の数値を計算します。</p>
+
+  <p>amt
+  パラメーターは、2つの値の間で補間する量で、0.0は最初のポイントと等しく、0.1は最初のポイントに非常に近く、0.5は中間で、1.0は2番目のポイントと等しいです。amt
+  の値が1.0を超えるか、0.0未満の場合、2つの与えられた数値の比率に応じて数値が計算されます。lerp()
+  関数は、直線上の動きを作成したり、点線を描画するのに便利です。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Calculates a number between two numbers at a specific increment. The
+  <code>amt</code> parameter is the amount to interpolate between the two
+  numbers. 0.0 is equal to the first number, 0.1 is very near the first number,
+  0.5 is half-way in between, and 1.0 is equal to the second number. The
+  <code>lerp()</code> function is convenient for creating motion along a
+  straight path and for drawing dotted lines.</p>
+
+  <p>If the value of <code>amt</code> is less than 0 or more than 1,
+  <code>lerp()</code> will return a number outside of the original interval. For
+  example, calling <code>lerp(0, 10, 1.5)</code> will return 15.</p>
+
+
+  <hr/>
+
   <p>Calculates a number between two numbers at a specific increment.</p>
 
   <p>The <code>amt</code> parameter is the amount to interpolate between the two
@@ -99,18 +122,23 @@ class: p5
 params:
   - name: start
     description: |
+      <p>最初の値</p>
       <p>first value.</p>
     type: Number
   - name: stop
     description: |
+      <p>2番目の値</p>
       <p>second value.</p>
     type: Number
   - name: amt
     description: |
+      <p>数値</p>
       <p>number.</p>
     type: Number
 return:
-  description: lerped value.
+  description: |-
+    lerped 値
+    lerped value.
   type: Number
 chainable: false
 ---

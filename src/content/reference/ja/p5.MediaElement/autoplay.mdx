@@ -4,6 +4,24 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
+  <p>HTML5 メディア要素を自動再生するかどうかを設定します。</p>
+
+  <p>引数が指定されていない場合、デフォルトで自動再生されます。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Sets the audio/video to play once it's loaded.</p>
+
+  <p>The parameter, <code>shouldAutoplay</code>, is optional. Calling
+  <code>media.autoplay()</code> without an argument causes the media to play
+  automatically. If <code>true</code> is passed, as in
+  <code>media.autoplay(true)</code>, the media will automatically play. If
+  <code>false</code> is passed, as in <code>media.autoPlay(false)</code>, it
+  won't play automatically.</p>
+
+
+  <hr/>
+
   <p>Sets the audio/video to play once it's loaded.</p>
 
   <p>The parameter, <code>shouldAutoplay</code>, is optional. Calling
@@ -73,6 +91,7 @@ class: p5.MediaElement
 params:
   - name: shouldAutoplay
     description: |
+      <p>(オプション) 要素が自動再生すべきかどうか</p>
       <p>whether the element should autoplay.</p>
     type: Boolean
     optional: true

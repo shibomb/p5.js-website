@@ -4,6 +4,23 @@ module: Math
 submodule: Calculation
 file: src/math/calculation.js
 description: >
+  <p>数値の平方根を計算します。</p>
+
+  <p>数値の平方根は常に正ですが、有効な負のルートがある場合もあります。数値 a の平方根 s は、s*s = a
+  となるものです。二乗の逆の操作です。Math.sqrt() にマップされます。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Calculates the square root of a number. A number's square root can be
+  multiplied by itself to produce the original number.</p>
+
+  <p>For example, <code>sqrt(9)</code> returns 3 because 3 × 3 = 9.
+  <code>sqrt()</code> always returns a positive value. <code>sqrt()</code>
+  doesn't work with negative arguments such as <code>sqrt(-9)</code>.</p>
+
+
+  <hr/>
+
   <p>Calculates the square root of a number.</p>
 
   <p>A number's square root can be multiplied by itself to produce the original
@@ -69,10 +86,13 @@ class: p5
 params:
   - name: 'n'
     description: |
+      <p>平方根を求める非負の数値</p>
       <p>non-negative number to square root.</p>
     type: Number
 return:
-  description: square root of number.
+  description: |-
+    数値の平方根
+    square root of number.
   type: Number
 chainable: false
 ---

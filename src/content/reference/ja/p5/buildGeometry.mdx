@@ -4,6 +4,24 @@ module: Shape
 submodule: 3D Primitives
 file: src/webgl/3d_primitives.js
 description: >
+  <p>Creates a new <a href="#/p5.Geometry">p5.Geometry</a> that contains all the
+  shapes drawn in a provided callback function. The returned combined shape can
+  then be drawn all at once using <a href="#/p5/model">model()</a>.。</p>
+
+  <p>If you need to draw complex shapes every frame which don't change over
+  time, combining them with <code>buildGeometry()</code> once and then drawing
+  that will run faster than repeatedly drawing the individual pieces.</p>
+
+  <p>One can also draw shapes directly between <a
+  href="#/p5/beginGeometry">beginGeometry()</a> and <a
+  href="#/p5/endGeometry">endGeometry()</a> instead of using a callback
+  function.</p>
+
+  <p>/// todo ///</p>
+
+
+  <hr/>
+
   <p>Creates a custom <a href="/reference/p5/p5.Geometry">p5.Geometry</a> object
   from
 
@@ -248,10 +266,13 @@ class: p5
 params:
   - name: callback
     description: |
+      <p>A function that draws shapes.</p>
       <p>function that draws the shape.</p>
     type: Function
 return:
-  description: new 3D shape.
+  description: |-
+    The model that was built from the callback function.
+    new 3D shape.
   type: p5.Geometry
 chainable: false
 ---

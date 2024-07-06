@@ -4,6 +4,19 @@ module: Math
 submodule: Calculation
 file: src/math/calculation.js
 description: >
+  <p>数値の自然対数（底 e の対数）を計算します。</p>
+
+  <p>この関数は、n パラメーターが0.0より大きい値であることを期待しています。Math.log() にマップされます。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Calculates the natural logarithm (the base-e logarithm) of a number. This
+  function expects the <code>n</code> parameter to be a value greater than
+  0.0.</p>
+
+
+  <hr/>
+
   <p>Calculates the natural logarithm (the base-e logarithm) of a number.</p>
 
   <p><code>log()</code> expects the <code>n</code> parameter to be a value
@@ -64,10 +77,13 @@ class: p5
 params:
   - name: 'n'
     description: |
+      <p>0より大きい数</p>
       <p>number greater than 0.</p>
     type: Number
 return:
-  description: natural logarithm of n.
+  description: |-
+    n の自然対数
+    natural logarithm of n.
   type: Number
 chainable: false
 ---

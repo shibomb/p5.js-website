@@ -4,6 +4,21 @@ module: DOM
 submodule: DOM
 file: src/core/p5.Element.js
 description: >
+  <p>タッチが登録されるたびに、<a href="#/p5.Element/touchStarted">touchStarted()</a>
+  メソッドが1回呼び出されます。</p>
+
+  <p>これは、要素固有のイベントリスナーをアタッチするために使用できます。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Calls a function when the element is touched. Calling
+  <code>myElement.touchStarted(false)</code> disables the function.</p>
+
+  <p>Note: Touch functions only work on mobile devices.</p>
+
+
+  <hr/>
+
   <p>Calls a function when the element is touched.</p>
 
   <p>Calling <code>myElement.touchStarted(false)</code> disables the
@@ -43,7 +58,11 @@ example:
 class: p5.Element
 params:
   - name: fxn
-    description: |
+    description: >
+      <p>function to call when the touch  starts.  <code>false</code> disables
+      the function. /// todo /// Function|Boolean: 要素上でタッチが開始されたときに発火する関数。代わりに
+      <code>false</code> が渡された場合、以前の発火関数はもう発火しなくなります。</p>
+
       <p>function to call when the touch
                                      starts.
                                      <code>false</code> disables the function.</p>

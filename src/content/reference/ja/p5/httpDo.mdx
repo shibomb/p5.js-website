@@ -3,7 +3,16 @@ title: httpDo
 module: IO
 submodule: Input
 file: src/io/files.js
-description: >
+description: >-
+  <p>HTTP リクエストを実行するためのメソッドです。</p>
+
+  <p>データ型が指定されていない場合、p5 は URL
+  にもとづいて推測し、デフォルトではテキストになります。より高度な使用法として、最初の引数にパス、2番目の引数にオブジェクトを渡すこともできます。シグネチャは
+  Fetch API 仕様にしたがっています。このメソッドは、"GET"が使用された場合、最大64MB のファイルを取得するのに適しています。</p>
+
+
+  <hr/>
+
   <p>Method for executing an HTTP request. If data type is not specified,
 
   p5 will try to guess based on the URL, defaulting to text.<br><br>
@@ -16,6 +25,23 @@ description: >
 
   This method is suitable for fetching files up to size of 64MB when "GET" is
   used.</br></br></p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "path": "String: 読み込むファイル名または URL",
+      "method": "String: (オプション) \"GET\"、\"POST\"、または\"PUT\"のいずれかで、デフォルトは\"GET\"",
+      "datatype": "String: (オプション) \"json\"、\"jsonp\"、\"xml\"、または\"text\"",
+      "data": "Object: (オプション) リクエストとともに送信されるパラメーターデータ",
+      "callback": "Function: (オプション) <a href=\"#/p5/httpGet\">httpGet()</a> が完了した後に実行される関数で、データが最初の引数として渡されます。",
+      "errorCallback": "Function: (オプション) エラーが発生した場合に実行される関数で、レスポンスが最初の引数として渡されます。",
+      "options": "Object: リクエストオブジェクトのオプションで、\"fetch\" API の <a href=\"https://developer.mozilla.org/en/docs/Web/API/Fetch_API\">リファレンス</a> に記載されています。"
+  }
+
+  </pre>
 line: 1208
 isConstructor: false
 itemtype: method
@@ -70,6 +96,7 @@ example:
 class: p5
 return:
   description: |-
+    操作が正常に完了した場合にデータで解決されるプロミス、またはエラーが発生した後にエラーでリジェクトされるプロミス。
     A promise that resolves with the data when the operation
                       completes successfully or rejects with the error after
                       one occurs.

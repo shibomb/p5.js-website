@@ -4,6 +4,33 @@ module: Structure
 submodule: Structure
 file: src/core/structure.js
 description: >
+  <p><a href="#/p5/draw">draw()</a> 内のコードを継続的に実行することを停止します。</p>
+
+  <p> <a href="#/p5/loop">loop()</a> が呼び出された場合、<a href="#/p5/draw">draw()</a>
+  内のコードが再び継続的に実行されます。 <a href="#/p5/setup">setup()</a> 内の <a
+  href="#/p5/noLoop">noLoop()</a> を使用する場合は、ブロック内の最後の行にする必要があります。</p>
+
+  <p><a href="#/p5/noLoop">noLoop()</a> を使用すると、<a
+  href="#/p5/mousePressed">mousePressed()</a> や <a
+  href="#/p5/keyPressed">keyPressed()</a>
+  などのイベント処理関数内で画面を操作またはアクセスすることができません。代わりに、これらの関数を使用して <a
+  href="#/p5/redraw">redraw()</a> または <a href="#/p5/loop">loop()</a> を呼び出し、<a
+  href="#/p5/draw">draw()</a> を実行して、画面を適切に更新します。つまり、<a
+  href="#/p5/noLoop">noLoop()</a> が呼び出された場合、描画は行われず、<a
+  href="#/p5/saveFrames">saveFrames()</a> や <a
+  href="#/p5/loadPixels">loadPixels()</a> などの関数を使用できない可能性があることに注意してください。</p>
+
+  <p>スケッチがサイズ変更された場合、<a href="#/p5/noLoop">noLoop()</a> が指定された後でも、<a
+  href="#/p5/redraw">redraw()</a>
+  が呼び出されてスケッチが更新されることに注意してください。そうしないと、スケッチが奇妙な状態になり、<a
+  href="#/p5/loop">loop()</a> が呼び出されるまで戻らなくなります。</p>
+
+  <p><a href="#/p5/isLooping">isLooping()</a> を使用して、<a
+  href="#/p5/loop">loop()</a> の現在の状態を確認してください。</p>
+
+
+  <hr/>
+
   <p>Stops the code in <a href="/reference/p5/draw">draw()</a> from running
   repeatedly.</p>
 

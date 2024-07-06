@@ -4,6 +4,10 @@ module: IO
 submodule: Table
 file: src/io/p5.Table.js
 description: |
+  <p>指定した列内のすべての値を取得し、それらを配列として返します。</p>
+  <p>列は、ID またはタイトルで指定できます。</p>
+
+  <hr/>
   <p>Retrieves all values in the specified column, and returns them
   as an array. The column may be specified by either its ID or title.</p>
 line: 542
@@ -42,10 +46,13 @@ class: p5.Table
 params:
   - name: column
     description: |
+      <p>列の文字列または数値</p>
       <p>String or Number of the column to return</p>
     type: String|Number
 return:
-  description: Array of column values
+  description: |2-
+     列値の配列
+    Array of column values
   type: Array
 chainable: false
 ---

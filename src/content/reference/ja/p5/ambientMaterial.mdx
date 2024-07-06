@@ -3,7 +3,25 @@ title: ambientMaterial
 module: 3D
 submodule: Material
 file: src/webgl/material.js
-description: >
+description: >-
+  <p>マテリアルのアンビエントカラーを設定します。</p>
+
+  <p></p>
+
+  <p>ambientMaterial() カラーは、オブジェクトが反射する <strong>ambientLight()</strong>
+  カラーの成分を表します。</p>
+
+  <p>色が黄色 (255, 255, 0) の ambientMaterial() を考えてみてください。ambientLight() が白色 (255,
+  255, 255) を発しいる場合、オブジェクトは赤と緑の光を反射するため黄色に見えます。ambientLight() が赤色 (255, 0, 0)
+  を発しいる場合、オブジェクトは赤色の光を反射するために赤色に見えます。ambientLight() が青色 (0, 0, 255)
+  を発しいる場合、オブジェクトは反射できる光の成分がないため、黒色に見えます。</p>
+
+  <p>より多くのマテリアルをこの <a href="https://p5js.org/examples/3d-materials.html">例</a>
+  で見ることができます。</p>
+
+
+  <hr/>
+
   <p>Sets the ambient color of shapes’ surface material.</p>
 
   <p>The <code>ambientMaterial()</code> color sets the components of the
@@ -52,6 +70,21 @@ description: >
   using the current <a href="/reference/p5/colorMode">colorMode()</a>.</p>
 
   <p>Note: <code>ambientMaterial()</code> can only be used in WebGL mode.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "v1": "Number: 現在のカラーレンジに対する赤または色相値",
+      "v2": "Number: 現在のカラーレンジに対する緑または彩度値",
+      "v3": "Number: 現在のカラーレンジに対する青または明度値",
+      "gray": "Number: 白と黒の間の値を指定する数値",
+      "color": "p5.Color|Number[]|String: <a href=\"#/p5.Color\">p5.Color</a> としての色、配列としての色、または CSS 文字列としての色"
+  }
+
+  </pre>
 line: 1561
 isConstructor: false
 itemtype: method

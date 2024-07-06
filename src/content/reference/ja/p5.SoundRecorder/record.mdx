@@ -3,13 +3,28 @@ title: record
 module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
-description: |
+description: >
+  <p>録音を開始します。</p>
+
+  <p>録音した内容にアクセスするには、最初のパラメーターとして p5.SoundFile
+  を提供してください。録音が完了したら、p5.SoundRecorder はその録音を p5.SoundFile
+  に送信し、再生用に利用できるようにします。オプションのパラメーターには、録音の時間（秒単位）と、完了後に呼び出されるコールバック関数があります。</p>
+
+
+  <hr/>
+
   <p>Start recording. To access the recording, provide
+
   a p5.SoundFile as the first parameter. The p5.SoundRecorder
+
   will send its recording to that p5.SoundFile for playback once
+
   recording is complete. Optional parameters include duration
+
   (in seconds) of the recording, and a callback function that
+
   will be called once the complete recording has been
+
   transfered to the p5.SoundFile.</p>
 line: 10703
 isConstructor: false
@@ -19,14 +34,17 @@ params:
   - name: soundFile
     description: |
       <p>p5.SoundFile</p>
+      <p>p5.SoundFile</p>
     type: p5.SoundFile
   - name: duration
     description: |
+      <p>(オプション) 時間（秒単位）</p>
       <p>Time (in seconds)</p>
     type: Number
     optional: true
   - name: callback
     description: |
+      <p>(オプション) 録音が完了した時に呼び出される関数の名前</p>
       <p>The name of a function that will be
                                     called once the recording completes</p>
     type: Function

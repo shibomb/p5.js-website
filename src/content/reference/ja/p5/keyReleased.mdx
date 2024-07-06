@@ -4,6 +4,15 @@ module: Events
 submodule: Keyboard
 file: src/events/keyboard.js
 description: >
+  <p><a href="#/p5/keyReleased">keyReleased()</a> 関数は、キーが離されるたびに1回呼び出されます。</p>
+
+  <p><a href="#/p5/key">key</a> および <a href="#/p5/keyCode">keyCode</a>
+  を参照してください。ブラウザーには、さまざまなキーイベントに対して異なるデフォルトの動作が関連付けられている場合があります。このイベントのデフォルトの動作を防ぐには、関数の最後に
+  "return false" を追加してください。</p>
+
+
+  <hr/>
+
   <p>A function that's called once when any key is released.</p>
 
   <p>Declaring the function <code>keyReleased()</code> sets a code block to run
@@ -175,6 +184,7 @@ class: p5
 params:
   - name: event
     description: |
+      <p>(オプション) オプションの KeyboardEvent コールバック引数。</p>
       <p>optional <code>KeyboardEvent</code> callback argument.</p>
     type: KeyboardEvent
     optional: true

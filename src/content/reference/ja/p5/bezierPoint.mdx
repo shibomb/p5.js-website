@@ -4,6 +4,15 @@ module: Shape
 submodule: Curves
 file: src/core/shape/curves.js
 description: >
+  <p>ベジェ曲線のコントロールポイントとアンカーポイントの x 座標または y 座標の値が与えられた場合、この関数はベジェ曲線の t 位置での x
+  座標または y 座標を評価します。</p>
+
+  <p>パラメーター a と d は曲線上の最初と最後の点の x または y 座標であり、b と c はコントロールポイントの座標です。最後のパラメーター t
+  は、0から1の値で示される結果の点の位置です。これを x 座標で1回、y 座標で1回実行することで、t 位置におけるベジェ曲線の位置を取得できます。</p>
+
+
+  <hr/>
+
   <p>Calculates coordinates along a Bézier curve using interpolation.</p>
 
   <p><code>bezierPoint()</code> calculates coordinates along a Bézier curve
@@ -131,26 +140,33 @@ class: p5
 params:
   - name: a
     description: |
+      <p>曲線上の最初の点の座標</p>
       <p>coordinate of first control point.</p>
     type: Number
   - name: b
     description: |
+      <p>最初のコントロールポイントの座標</p>
       <p>coordinate of first anchor point.</p>
     type: Number
   - name: c
     description: |
+      <p>2番目のコントロールポイントの座標</p>
       <p>coordinate of second anchor point.</p>
     type: Number
   - name: d
     description: |
+      <p>曲線上の最後の点の座標</p>
       <p>coordinate of second control point.</p>
     type: Number
   - name: t
     description: |
+      <p>0から1までの値</p>
       <p>amount to interpolate between 0 and 1.</p>
     type: Number
 return:
-  description: coordinate of the point on the curve.
+  description: |-
+    t 位置でのベジェ曲線の値
+    coordinate of the point on the curve.
   type: Number
 chainable: false
 ---

@@ -4,6 +4,13 @@ module: IO
 submodule: Input
 file: src/io/p5.XML.js
 description: >
+  <p>要素のすべての子要素を <a href="#/p5.XML">p5.XML</a> オブジェクトの配列として返します。</p>
+
+  <p>name パラメーターが指定された場合、その名前に一致するすべての子要素を返します。</p>
+
+
+  <hr/>
+
   <p>Returns an array with the element's child elements as new
 
   <a href="/reference/p5/p5.XML">p5.XML</a> objects.</p>
@@ -108,11 +115,14 @@ class: p5.XML
 params:
   - name: name
     description: |
+      <p>(オプション) 要素名</p>
       <p>name of the elements to return.</p>
     type: String
     optional: true
 return:
-  description: child elements.
+  description: |-
+    p5.XML[]:要素の子要素
+    child elements.
   type: 'p5.XML[]'
 chainable: false
 ---

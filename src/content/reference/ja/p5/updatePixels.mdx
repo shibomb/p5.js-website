@@ -4,6 +4,28 @@ module: Image
 submodule: Pixels
 file: src/image/pixels.js
 description: >
+  <p>画面に <a href="#/p5/pixels">pixels[]</a> 配列のデータを更新します。</p>
+
+  <p><a href="#/p5/loadPixels">loadPixels()</a>
+  と併用して使用してください。配列からピクセルを読み取るだけであれば、<a
+  href="#/p5/updatePixels">updatePixels()</a> を呼び出す必要はありません。更新は変更を適用する場合にのみ必要です。
+  <a href="#/p5/updatePixels">updatePixels()</a> は、pixels 配列が操作されるたび、または <a
+  href="#/p5/set">set()</a> が呼び出されるたびに呼び出されるべきであり、<a href="#/p5/set">set()</a>
+  で行われた変更や <a href="#/p5/pixels">pixels[]</a> への直接の変更のみが発生します。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Updates the canvas with the RGBA values in the <a
+  href="#/p5/pixels">pixels</a> array.</p>
+
+  <p><code>updatePixels()</code> only needs to be called after changing values
+  in the <a href="#/p5/pixels">pixels</a> array. Such changes can be made
+  directly after calling <a href="#/p5/loadPixels">loadPixels()</a> or by
+  calling <a href="#/p5/set">set()</a>.</p>
+
+
+  <hr/>
+
   <p>Updates the canvas with the RGBA values in the
 
   <a href="/reference/p5/pixels">pixels</a> array.</p>
@@ -64,23 +86,27 @@ class: p5
 params:
   - name: x
     description: |
+      <p>(オプション) 更新する領域の左上の x 座標</p>
       <p>x-coordinate of the upper-left corner of region
                               to update.</p>
     type: Number
     optional: true
   - name: 'y'
     description: |
+      <p>(オプション) 更新する領域の左上の y 座標</p>
       <p>y-coordinate of the upper-left corner of region
                               to update.</p>
     type: Number
     optional: true
   - name: w
     description: |
+      <p>(オプション) 更新する領域の幅</p>
       <p>width of region to update.</p>
     type: Number
     optional: true
   - name: h
     description: |
+      <p>(オプション) 更新する領域の高さ</p>
       <p>height of region to update.</p>
     type: Number
     optional: true

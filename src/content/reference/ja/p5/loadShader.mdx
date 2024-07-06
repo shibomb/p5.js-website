@@ -3,7 +3,24 @@ title: loadShader
 module: 3D
 submodule: Material
 file: src/webgl/material.js
-description: >
+description: >-
+  <p>提供された頂点シェーダーとフラグメントシェーダーファイルから新しい <a href="#/p5.Shader">p5.Shader</a>
+  オブジェクトを作成します。</p>
+
+  <p></p>
+
+  <p>シェーダーファイルはバックグラウンドで非同期にロードされるため、このメソッドは <a
+  href="#/p5/preload">preload()</a> で使用する必要があります。</p>
+
+  <p>Shaders can alter the positioning of shapes drawn with them. To ensure
+  consistency in rendering, it's recommended to use the vertex shader in the <a
+  href="#/p5/createShader">createShader example</a>. /// todo /// add 1 line</p>
+
+  <p>注意:シェーダーは WebGL モードでのみ使用できます。</p>
+
+
+  <hr/>
+
   <p>Loads vertex and fragment shaders to create a
 
   <a href="/reference/p5/p5.Shader">p5.Shader</a> object.</p>
@@ -68,6 +85,33 @@ description: >
   href="/reference/p5/draw">draw()</a>.</p>
 
   <p>Note: Shaders can only be used in WebGL mode.</p>
+
+
+  <pre>
+
+  todo: param successCallback not found in ja-legacy:
+
+  {
+      "vertFilename": "String: 頂点シェーダーソースコードが含まれるファイルへのパス",
+      "fragFilename": "String: フラグメントシェーダーソースコードが含まれるファイルへのパス",
+      "callback": "Function: (オプション) loadShader が完了した後に実行されるコールバック。成功時には、p5.Shader オブジェクトが最初の引数として渡されます。",
+      "errorCallback": "Function: (オプション) loadShader 内でエラーが発生した場合に実行されるコールバック。エラー発生時には、エラーが最初の引数として渡されます。"
+  }
+
+  </pre>
+
+  <pre>
+
+  todo: param failureCallback not found in ja-legacy:
+
+  {
+      "vertFilename": "String: 頂点シェーダーソースコードが含まれるファイルへのパス",
+      "fragFilename": "String: フラグメントシェーダーソースコードが含まれるファイルへのパス",
+      "callback": "Function: (オプション) loadShader が完了した後に実行されるコールバック。成功時には、p5.Shader オブジェクトが最初の引数として渡されます。",
+      "errorCallback": "Function: (オプション) loadShader 内でエラーが発生した場合に実行されるコールバック。エラー発生時には、エラーが最初の引数として渡されます。"
+  }
+
+  </pre>
 line: 12
 isConstructor: false
 itemtype: method
@@ -141,10 +185,12 @@ class: p5
 params:
   - name: vertFilename
     description: |
+      <p>頂点シェーダーソースコードが含まれるファイルへのパス</p>
       <p>path of the vertex shader to be loaded.</p>
     type: String
   - name: fragFilename
     description: |
+      <p>フラグメントシェーダーソースコードが含まれるファイルへのパス</p>
       <p>path of the fragment shader to be loaded.</p>
     type: String
   - name: successCallback
@@ -160,7 +206,9 @@ params:
     type: Function
     optional: true
 return:
-  description: new shader created from the vertex and fragment shader files.
+  description: |-
+    提供された頂点シェーダーとフラグメントシェーダーファイルから作成されたシェーダーオブジェクト。
+    new shader created from the vertex and fragment shader files.
   type: p5.Shader
 chainable: false
 ---

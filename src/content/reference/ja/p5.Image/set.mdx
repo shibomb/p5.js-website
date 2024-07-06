@@ -4,6 +4,33 @@ module: Image
 submodule: Image
 file: src/image/p5.Image.js
 description: >
+  <p>単一のピクセルの色を設定するか、この <a href="#/p5.Image">p5.Image</a> に画像を書き込みます。</p>
+
+  <p></p>
+
+  <p>多数のピクセルを扱う場合、pixels 配列を直接操作し、<a
+  href="#/p5.Image/updatePixels">updatePixels()</a> を呼び出す方が高速です。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Sets the color of one or more pixels within a <a
+  href="#/p5.Image">p5.Image</a> object.</p>
+
+  <p><code>img.set()</code> is easy to use but it's not as fast as <a
+  href="#/p5.Image/pixels">img.pixels</a>. Use <a
+  href="#/p5.Image/pixels">img.pixels</a> to set many pixel values.</p>
+
+  <p><code>img.set()</code> interprets the first two parameters as x- and
+  y-coordinates. It interprets the last parameter as a grayscale value, a
+  <code>[R, G, B, A]</code> pixel array, a <a href="#/p5.Color">p5.Color</a>
+  object, or another <a href="#/p5.Image">p5.Image</a> object.</p>
+
+  <p><a href="#/p5.Image/updatePixels">img.updatePixels()</a> must be called
+  after using <code>img.set()</code> for changes to appear.</p>
+
+
+  <hr/>
+
   <p>Sets the color of one or more pixels within an image.</p>
 
   <p><code>img.set()</code> is easy to use but it's not as fast as
@@ -148,14 +175,19 @@ class: p5.Image
 params:
   - name: x
     description: |
+      <p>Number:ピクセルの x 座標</p>
       <p>x-coordinate of the pixel.</p>
     type: Number
   - name: 'y'
     description: |
+      <p>Number:ピクセルの y 座標</p>
       <p>y-coordinate of the pixel.</p>
     type: Number
   - name: a
-    description: |
+    description: >
+      <p>グレースケール値 | ピクセル配列 | <a href="#/p5.Color">p5.Color</a> | コピーする <a
+      href="#/p5.Image">p5.Image</a></p>
+
       <p>grayscale value | pixel array |
                                         <a href="#/p5.Color">p5.Color</a> object |
                                         <a href="#/p5.Image">p5.Image</a> to copy.</p>

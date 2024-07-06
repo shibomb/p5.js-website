@@ -4,6 +4,10 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
+  <p>フィルタの周波数とレゾナンスを設定します。</p>
+  <p></p>
+
+  <hr/>
   <p>Set the frequency and the resonance of the filter.</p>
 line: 6760
 isConstructor: false
@@ -12,16 +16,19 @@ class: p5.Filter
 params:
   - name: freq
     description: |
+      <p>(オプション) 10から22050Hz までの周波数</p>
       <p>Frequency in Hz, from 10 to 22050</p>
     type: Number
     optional: true
   - name: res
     description: |
+      <p>(オプション) 0.001から1000までのレゾナンス（Q）</p>
       <p>Resonance (Q) from 0.001 to 1000</p>
     type: Number
     optional: true
   - name: timeFromNow
     description: |
+      <p>(オプション) このイベントを何秒後に予定するか</p>
       <p>schedule this event to happen
                                     seconds from now</p>
     type: Number

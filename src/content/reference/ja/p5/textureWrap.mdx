@@ -4,6 +4,24 @@ module: 3D
 submodule: Material
 file: src/webgl/material.js
 description: >
+  <p>グローバルなテクスチャラッピングモードを設定します。</p>
+
+  <p>これにより、uv が0から1の範囲外になった場合のテクスチャの動作が制御されます。選択肢は CLAMP、REPEAT、MIRROR
+  の3つです。</p>
+
+  <p>CLAMP は、テクスチャの端にあるピクセルが境界まで伸びるようになります。REPEAT
+  は、テクスチャが境界に達するまで繰り返しタイルされます。MIRROR は、REPEAT
+  と同様に動作しますが、新しいタイルごとにテクスチャが反転します。</p>
+
+  <p>REPEAT と MIRROR は、テクスチャのサイズが2の累乗である場合（128、256、512、1024など）にのみ利用可能です。</p>
+
+  <p>このメソッドは、次の textureWrap() 呼び出しが行われるまで、スケッチ内のすべてのテクスチャに影響します。</p>
+
+  <p>引数がひとつだけ指定された場合、水平軸と垂直軸の両方に適用されます。</p>
+
+
+  <hr/>
+
   <p>Changes the way textures behave when a shape’s uv coordinates go beyond the
 
   texture.</p>
@@ -353,10 +371,12 @@ class: p5
 params:
   - name: wrapX
     description: |
+      <p>CLAMP、REPEAT、MIRROR のいずれか</p>
       <p>either CLAMP, REPEAT, or MIRROR</p>
     type: Constant
   - name: wrapY
     description: |
+      <p>(オプション) CLAMP、REPEAT、MIRROR のいずれか</p>
       <p>either CLAMP, REPEAT, or MIRROR</p>
     type: Constant
     optional: true

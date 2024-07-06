@@ -4,6 +4,59 @@ module: Environment
 submodule: Environment
 file: src/accessibility/outputs.js
 description: >
+  <p><code class="language-javascript">gridOutput()</code>
+  は、キャンバスの内容を、各形状の空間的な位置にもとづいたグリッド（html テーブル）の形でレイアウトします。</p>
+
+  <p>テーブル出力の前に、キャンバスの簡単な説明が利用可能です。この説明には、背景の色、キャンバスのサイズ、オブジェクトの数、オブジェクトの種類（例:「ラベンダーブルーのキャンバスは200
+  x
+  200で、3つの楕円とひとつの長方形が含まれています」）が含まれます。グリッドは空間的にコンテンツを記述し、各要素はその位置に応じてテーブルのセルに配置されます。各セル内の要素には、その要素の色と形状の種類が利用可能です（例:「オレンジ色の楕円」）。これらの説明は個別に選択して詳細を取得できます。形状、色、位置、面積が説明された要素のリスト（例:「オレンジ色の楕円
+  位置 = 左上 面積 = 1%」）も利用可能です。</p>
+
+  <p><code class="language-javascript">gridOutput()</code> および <code
+  class="language-javascript">gridOutput(FALLBACK)</code> は、<a
+  href="https://developer.mozilla.org/ja/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility"
+  target="_blank">キャンバス要素内のサブ DOM</a> でスクリーンリーダーにアクセス可能な出力を利用可能にします。<code
+  class="language-javascript">gridOutput(LABEL)</code> は、キャンバスに隣接する出力が含まれる追加の
+  div を作成しますが、これはコーディング時にキャンバスのサブ DOM 外に出力を表示したい非スクリーンリーダーユーザーにとって便利です。ただし、LABEL
+  を使用すると、スクリーンリーダーユーザーにとって不要な冗長性が生じます。スケッチの開発プロセスの一部としてのみ LABEL
+  を使用し、公開またはスクリーンリーダーユーザーと共有する前に削除することをお勧めします。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Creates a screen reader-accessible description for shapes on the canvas.
+  <code>gridOutput()</code> adds a general description, table of shapes, and
+  list of shapes to the web page.</p>
+
+  <p>The general description includes the canvas size, canvas color, and number
+  of shapes. For example, <code>gray canvas, 100 by 100 pixels, contains 2
+  shapes: 1 circle 1 square</code>.</p>
+
+  <p><code>gridOutput()</code> uses its table of shapes as a grid. Each shape in
+  the grid is placed in a cell whose row and column correspond to the shape's
+  location on the canvas. The grid cells describe the color and type of shape at
+  that location. For example, <code>red circle</code>. These descriptions can be
+  selected individually to get more details. This is different from <a
+  href="#/p5/textOutput">textOutput()</a>, which uses its table as a list.</p>
+
+  <p>A list of shapes follows the table. The list describes the color, type,
+  location, and area of each shape. For example, <code>red circle, location =
+  middle, area = 3 %</code>.</p>
+
+  <p>The <code>display</code> parameter is optional. It determines how the
+  description is displayed. If <code>LABEL</code> is passed, as in
+  <code>gridOutput(LABEL)</code>, the description will be visible in a div
+  element next to the canvas. Using <code>LABEL</code> creates unhelpful
+  duplicates for screen readers. Only use <code>LABEL</code> during development.
+  If <code>FALLBACK</code> is passed, as in <code>gridOutput(FALLBACK)</code>,
+  the description will only be visible to screen readers. This is the default
+  mode.</p>
+
+  <p>Read <a href="/learn/labeling-canvases.html">How to label your p5.js
+  code</a> to learn more about making sketches accessible.</p>
+
+
+  <hr/>
+
   <p>Creates a screen reader-accessible description of shapes on the canvas.</p>
 
   <p><code>gridOutput()</code> adds a general description, table of shapes, and
@@ -150,6 +203,7 @@ class: p5
 params:
   - name: display
     description: |
+      <p>(オプション) FALLBACK または LABEL のいずれか</p>
       <p>either FALLBACK or LABEL.</p>
     type: Constant
     optional: true

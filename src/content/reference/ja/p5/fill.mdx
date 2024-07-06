@@ -3,7 +3,23 @@ title: fill
 module: Color
 submodule: Setting
 file: src/color/setting.js
-description: >
+description: >-
+  <p>図形の塗りつぶし色を設定します。</p>
+
+  <p><code>fill(255, 165, 0)</code>や<code>fill('orange')</code>を呼び出すと、fill
+  コマンドの後に描かれるすべての形状は、オレンジ色で塗りつぶされます。</p>
+
+  <p>1つのパラメーターをもつ<code>fill()</code>のバージョンは、値を3つの方法で解釈します。パラメーターが数値の場合、その値はグレースケール値として解釈されます。もしパラメーターが文字列なら、それは
+  CSS カラー文字列として解釈されます。<a
+  href="#/p5.Color">p5.Color</a>オブジェクトも塗りつぶし色を設定するために提供できます。</p>
+
+  <p>3つのパラメーターをもつ<code>fill()</code>のバージョンは、現在の<a
+  href="#/p5/colorMode">colorMode()</a>にもとづいて RGB、HSB、HSL
+  の色としてそれらを解釈します。デフォルトのカラースペースは RGB で、各値の範囲は 0 から 255 までです。</p>
+
+
+  <hr/>
+
   <p>Sets the color used to fill shapes.</p>
 
   <p>Calling <code>fill(255, 165, 0)</code> or <code>fill('orange')</code> means
@@ -34,6 +50,24 @@ description: >
   RGB,
 
   with each value in the range from 0 to 255.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "v1": "Number: カラーモードが RGB の場合:赤の値、カラーモードが HSB の場合:色相の値",
+      "v2": "Number: カラーモードが RGB の場合:緑の値、カラーモードが HSB の場合:彩度の値",
+      "v3": "Number: カラーモードが RGB の場合:青の値、カラーモードが HSB の場合:明るさの値",
+      "alpha": "Number (オプション)",
+      "value": "String: カラー文字列",
+      "gray": "Number: グレースケールの値",
+      "values": "Number[]: 赤、緑、青、およびアルファ成分を含む配列",
+      "color": "p5.Color: 塗りつぶし色"
+  }
+
+  </pre>
 line: 982
 isConstructor: false
 itemtype: method

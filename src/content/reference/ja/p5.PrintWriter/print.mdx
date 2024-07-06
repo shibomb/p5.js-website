@@ -4,6 +4,11 @@ module: IO
 submodule: Output
 file: src/io/files.js
 description: >
+  <p>PrintWriter ストリームにデータを書き込み、末尾に改行を追加します。</p>
+
+
+  <hr/>
+
   <p>Writes data to the print stream with new lines added.</p>
 
   <p>The parameter, <code>data</code>, is the data to write. <code>data</code>
@@ -58,6 +63,7 @@ class: p5.PrintWriter
 params:
   - name: data
     description: |
+      <p>Array: PrintWriter によって出力されるすべてのデータ</p>
       <p>data to be written as a string, number,
                                         or array of strings and numbers.</p>
     type: String|Number|Array

@@ -4,6 +4,13 @@ module: Color
 submodule: Creating & Reading
 file: src/color/p5.Color.js
 description: >
+  <p>色を文字列としてフォーマットして返します。</p>
+
+  <p>これはデバッグに役立つことがあります。また、p5.js を他のライブラリと一緒に使用する場合にも役立ちます。</p>
+
+
+  <hr/>
+
   <p>Returns the color formatted as a <code>String</code>.</p>
 
   <p>Calling <code>myColor.toString()</code> can be useful for debugging, as in
@@ -28,6 +35,12 @@ class: p5.Color
 params:
   - name: format
     description: >
+      <p>(オプション) カラー文字列の書式設定方法。空白にすると、rgba(r、g、b、a)として文字列をフォーマットします。 '#rgb'、
+      '#rgba'、 '#rrggbb'、および'#rrggbbaa'は16進数のカラーコードとしてフォーマットされます。 'rgb'、
+      'hsb'、および'hsl'は、指定されたカラーモードでフォーマットされたカラーを返します。 'rgba'、
+      'hsba'、および'hsla'は、上記と同じですがアルファチャネルが含まれます。 'rgb%'、 'hsb%'、 'hsl%'、 'rgba%'、
+      'hsba%'、および'hsla%'はパーセントとしてフォーマットされます。</p>
+
       <p>how the color string will be formatted.
 
       Leaving this empty formats the string as rgba(r, g, b, a).
@@ -46,6 +59,7 @@ params:
     optional: true
 return:
   description: |-
+    フォーマットされた文字列
     the formatted string.
 
     <div>

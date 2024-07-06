@@ -4,6 +4,19 @@ module: 3D
 submodule: Camera
 file: src/webgl/p5.Camera.js
 description: >
+  <p>3D スケッチの現在のカメラに対して正射影を設定し、オブジェクトが見られる箱型の視錐台を定義します。</p>
+
+  <p>この投影では、同じ次元のすべてのオブジェクトは、カメラに近いか遠いかに関係なく、同じサイズで表示されます。</p>
+
+  <p>この関数のパラメーターは、左と右が最小および最大の x 値、上と下が最小および最大の y 値、および近くと遠くが最小および最大の z
+  値である視錐台を指定します。</p>
+
+  <p>パラメーターが指定されていない場合、デフォルトで次のようになります: ortho(-width/2, width/2, -height/2,
+  height/2)。</p>
+
+
+  <hr/>
+
   <p>Sets an orthographic projection for the current camera in a 3D sketch.</p>
 
   <p>In an orthographic projection, shapes with the same size always appear the
@@ -125,35 +138,46 @@ class: p5
 params:
   - name: left
     description: >
+      <p>(オプション) カメラの視錐台の左平面</p>
+
       <p>x-coordinate of the frustum’s left plane. Defaults to <code>-width /
       2</code>.</p>
     type: Number
     optional: true
   - name: right
     description: >
+      <p>(オプション) カメラの視錐台の右平面</p>
+
       <p>x-coordinate of the frustum’s right plane. Defaults to <code>width /
       2</code>.</p>
     type: Number
     optional: true
   - name: bottom
     description: >
+      <p>(オプション) カメラの視錐台の下平面</p>
+
       <p>y-coordinate of the frustum’s bottom plane. Defaults to <code>height /
       2</code>.</p>
     type: Number
     optional: true
   - name: top
     description: >
+      <p>(オプション) カメラの視錐台の上平面</p>
+
       <p>y-coordinate of the frustum’s top plane. Defaults to <code>-height /
       2</code>.</p>
     type: Number
     optional: true
   - name: near
     description: |
+      <p>(オプション) カメラの視錐台の近平面</p>
       <p>z-coordinate of the frustum’s near plane. Defaults to 0.</p>
     type: Number
     optional: true
   - name: far
     description: >
+      <p>(オプション) カメラの視錐台の遠平面</p>
+
       <p>z-coordinate of the frustum’s far plane. Defaults to <code>max(width,
       height) + 800</code>.</p>
     type: Number

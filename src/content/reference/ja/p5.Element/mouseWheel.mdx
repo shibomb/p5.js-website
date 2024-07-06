@@ -4,6 +4,35 @@ module: DOM
 submodule: DOM
 file: src/core/p5.Element.js
 description: >
+  <p>要素の上でマウスホイールがスクロールされるたびに、<a href="#/p5.Element/mouseWheel">mouseWheel()</a>
+  メソッドが1回呼び出されます。</p>
+
+  <p>これは、要素固有のイベントリスナーをアタッチするために使用できます。</p>
+
+  <p>このメソッドは、コールバック関数を引数として受け入れ、要素で <code>wheel</code>
+  イベントがトリガーされると実行されます。コールバック関数には、<code>event</code>
+  というひとつの引数が渡されます。<code>event.deltaY</code>
+  プロパティは、マウスホイールが上に回転するか、ユーザーから離れる方向に回転すると負の値を返し、他の方向では正の値を返します。<code>event.deltaX</code>
+  は、<code>event.deltaY</code> と同様のことを行いますが、マウスホイールの水平方向のスクロールを読み取ります。</p>
+
+  <p>macOS で「ナチュラル」スクロールが有効になっている場合、<code>event.deltaY</code> の値は反転します。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Calls a function when the mouse wheel scrolls over th element.</p>
+
+  <p>The callback function, <code>fxn</code>, is passed an <code>event</code>
+  object. <code>event</code> has two numeric properties, <code>deltaY</code> and
+  <code>deltaX</code>. <code>event.deltaY</code> is negative if the mouse wheel
+  rotates away from the user. It's positive if the mouse wheel rotates toward
+  the user. <code>event.deltaX</code> is positive if the mouse wheel moves to
+  the right. It's negative if the mouse wheel moves to the left.</p>
+
+  <p>Calling <code>myElement.mouseWheel(false)</code> disables the function.</p>
+
+
+  <hr/>
+
   <p>Calls a function when the mouse wheel scrolls over the element.</p>
 
   <p>The callback function, <code>fxn</code>, is passed an <code>event</code>
@@ -92,7 +121,12 @@ example:
 class: p5.Element
 params:
   - name: fxn
-    description: |
+    description: >
+      <p>function to call when the mouse wheel is  scrolled over the element. 
+      <code>false</code> disables the function. /// todo /// Function|Boolean:
+      要素の上でマウスがスクロールされたときに発火する関数。代わりに <code>false</code>
+      が渡された場合、以前の発火関数はもう発火しなくなります。</p>
+
       <p>function to call when the mouse wheel is
                                      scrolled over the element.
                                      <code>false</code> disables the function.</p>

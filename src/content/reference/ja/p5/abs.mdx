@@ -4,6 +4,20 @@ module: Math
 submodule: Calculation
 file: src/math/calculation.js
 description: >
+  <p>数値の絶対値（大きさ）を計算します。</p>
+
+  <p>Math.abs() にマッピングされます。数値の絶対値は常に正です。</p>
+
+  <p>/// todo ///</p>
+
+  <p>Calculates the absolute value of a number. A number's absolute value is its
+  distance from zero on the number line. -5 and 5 are both five units away from
+  zero, so calling <code>abs(-5)</code> and <code>abs(5)</code> both return 5.
+  The absolute value of a number is always positive.</p>
+
+
+  <hr/>
+
   <p>Calculates the absolute value of a number.</p>
 
   <p>A number's absolute value is its distance from zero on the number line.
@@ -46,10 +60,13 @@ class: p5
 params:
   - name: 'n'
     description: |
+      <p>計算する数値</p>
       <p>number to compute.</p>
     type: Number
 return:
-  description: absolute value of given number.
+  description: |-
+    与えられた数値の絶対値
+    absolute value of given number.
   type: Number
 chainable: false
 ---

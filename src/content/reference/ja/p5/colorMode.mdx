@@ -3,7 +3,27 @@ title: colorMode
 module: Color
 submodule: Setting
 file: src/color/setting.js
-description: >
+description: >-
+  <p>p5.jsが色データを解釈する方法を変更します。</p>
+
+  <p>デフォルトでは、<a href="#/p5/fill">fill()</a>、<a
+  href="#/p5/stroke">stroke()</a>、<a href="#/p5/background">background()</a>、<a
+  href="#/p5/color">color()</a>の数値パラメーターは、RGBカラーモデルを使用して 0 から 255
+  までの値で定義されます。これは<code>colorMode(RGB, 255)</code>を呼び出すことと同等です。純粋な赤はこのモデルでは
+  <code>color(255, 0, 0)</code> です。</p>
+
+  <p><code>colorMode(RGB, 100)</code> を呼び出すと、色が0から100までの RGB
+  カラー値として解釈されます。純粋な赤はこのモデルでは<code>color(100, 0, 0)</code>です。</p>
+
+  <p><code>colorMode(HSB)</code> または <code>colorMode(HSL)</code> を呼び出すと、RGB
+  の代わりに HSB または HSL システムに切り替わります。</p>
+
+  <p><a href="#/p5.Color">p5.Color</a>
+  オブジェクトは、作成時のモードを記憶しています。モードを変更してもその外観には影響しません。</p>
+
+
+  <hr/>
+
   <p>Changes the way color values are interpreted.</p>
 
   <p>By default, the <code>Number</code> parameters for <a
@@ -38,6 +58,22 @@ description: >
   that they were
 
   created in. Changing modes doesn't affect their appearance.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "mode": "Constant: RGB、HSB、または HSL のいずれか。それぞれ、赤/緑/青と色相/彩度/明度（または輝度）に対応します。",
+      "max": "Number: (オプション) すべての値の範囲",
+      "max1": "Number: 現在のカラーモードに対応する、赤または色相の範囲",
+      "max2": "Number: 現在のカラーモードに対応する、緑または彩度の範囲",
+      "max3": "Number: 現在のカラーモードに対応する、青または明度/輝度の範囲",
+      "maxA": "Number: (オプション) アルファの範囲"
+  }
+
+  </pre>
 line: 733
 isConstructor: false
 itemtype: method

@@ -3,7 +3,15 @@ title: child
 module: DOM
 submodule: DOM
 file: src/dom/dom.js
-description: >
+description: >-
+  <p>要素を指定された親に子としてアタッチします。</p>
+
+  <p>文字列 ID、DOM ノード、または <a href="#/p5.Element">p5.Element</a>
+  を受け入れます。引数が指定されていない場合、子 DOM ノードの配列が返されます。</p>
+
+
+  <hr/>
+
   <p>Attaches the element as a child of another element.</p>
 
   <p><code>myElement.child()</code> accepts either a string ID, DOM node, or
@@ -14,6 +22,17 @@ description: >
   array of
 
   children DOM nodes is returned.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "child": "String|p5.Element: (オプション) 現在の要素に追加する ID、DOM ノード、または <a href=\"#/p5.Element\">p5.Element</a>"
+  }
+
+  </pre>
 line: 2703
 isConstructor: false
 itemtype: method
@@ -89,7 +108,9 @@ example:
     </div>
 class: p5.Element
 return:
-  description: an array of child nodes.
+  description: |-
+    子ノードの配列
+    an array of child nodes.
   type: 'Node[]'
 overloads:
   - line: 2703

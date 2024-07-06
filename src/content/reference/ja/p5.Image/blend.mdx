@@ -3,7 +3,20 @@ title: blend
 module: Image
 submodule: Image
 file: src/image/p5.Image.js
-description: >
+description: >-
+  <p>指定されたブレンドモードを使用して、ひとつの画像からピクセルの領域をコピーし、他の画像に貼り付けます。</p>
+
+  <p></p>
+
+  <p>/// todo ///</p>
+
+  <p>Copies a region of pixels from another <a href="#/p5.Image">p5.Image</a>
+  object into this one. The <code>blendMode</code> parameter blends the images'
+  colors to create different effects.</p>
+
+
+  <hr/>
+
   <p>Copies a region of pixels from another image into this one.</p>
 
   <p>The first parameter, <code>srcImage</code>, is the
@@ -39,6 +52,26 @@ description: >
 
   <code>SOFT_LIGHT</code>, <code>DODGE</code>, <code>BURN</code>,
   <code>ADD</code>, or <code>NORMAL</code>.</p>
+
+
+  <pre>
+
+  todo: update overloads.
+
+  {
+      "srcImage": "p5.Image: コピー元の画像",
+      "sx": "Integer: コピー元画像の左上隅の X 座標",
+      "sy": "Integer: コピー元画像の左上隅の Y 座標",
+      "sw": "Integer: コピー元画像の幅",
+      "sh": "Integer: コピー元画像の高さ",
+      "dx": "Integer: コピー先画像の左上隅の X 座標",
+      "dy": "Integer: コピー先画像の左上隅の Y 座標",
+      "dw": "Integer: コピー先画像の幅",
+      "dh": "Integer: コピー先画像の高さ",
+      "blendMode": "定数: ブレンドモード。BLEND、DARKEST、LIGHTEST、DIFFERENCE、MULTIPLY、EXCLUSION、SCREEN、REPLACE、OVERLAY、HARD_LIGHT、SOFT_LIGHT、DODGE、BURN、ADD、NORMAL のいずれか。使用可能なブレンドモードは: normal | multiply | screen | overlay | darken | lighten | color-dodge | color-burn | hard-light | soft-light | difference | exclusion | hue | saturation | color | luminosity<a href=\"http://blogs.adobe.com/webplatform/2013/01/28/blending-features-in-canvas/\">http://blogs.adobe.com/webplatform/2013/01/28/blending-features-in-canvas/</a>"
+  }
+
+  </pre>
 line: 1430
 isConstructor: false
 itemtype: method
