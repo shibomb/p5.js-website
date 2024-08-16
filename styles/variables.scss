@@ -6,7 +6,10 @@ $breakpoint-laptop: 1024px;
 $breakpoint-desktop: 1280px;
 
 html {
-  --font-sans: "National Park", sans-serif;
+  --ja-font-size-by: 0.85;
+  --ja-line-height-by: 1.5;
+
+  --font-sans: "National Park", "BIZ+UDPGothic", sans-serif;
   --font-serif: "Courier", monospace;
 
   /* Background Colors */

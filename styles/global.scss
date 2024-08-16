@@ -1,6 +1,22 @@
 @import "variables.scss";
 
 @font-face {
+  font-family: "BIZ+UDPGothic";
+  src: url("/fonts/BIZUDPGothic-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "BIZ+UDPGothic";
+  src: url("/fonts/BIZUDPGothic-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: "National Park";
   src: url("/fonts/NationalPark-Regular.woff2") format("woff2");
   font-weight: 400;
@@ -70,14 +86,14 @@ h4,
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: calc(2.5rem * var(--ja-font-size-by));
   line-height: 1.1;
   -webkit-text-stroke-width: 0.2px;
   margin-bottom: var(--spacing-md);
   font-family: var(--font-sans);
 
   @media (min-width: $breakpoint-tablet) {
-    font-size: 4rem;
+    font-size: calc(4rem * var(--ja-font-size-by));
     font-size: 3.5rem;
     line-height: 1;
     -webkit-text-stroke-width: 0.25px;
@@ -86,14 +102,14 @@ h1 {
 
 .text-h2,
 h2 {
-  font-size: 2rem;
+  font-size: calc(2rem * var(--ja-font-size-by));
   line-height: 1.125;
   -webkit-text-stroke-width: 0.2px;
   font-family: var(--font-sans);
   margin-top: var(--spacing-lg);
 
   @media (min-width: $breakpoint-tablet) {
-    font-size: 2.5rem;
+    font-size: calc(2.5rem * var(--ja-font-size-by));
     line-height: 1.1;
     -webkit-text-stroke-width: 0.2px;
   }
@@ -101,14 +117,14 @@ h2 {
 
 .text-h3,
 h3 {
-  font-size: 1.5rem;
+  font-size: calc(1.5rem * var(--ja-font-size-by));
   line-height: 1.167;
   -webkit-text-stroke-width: 0.15px;
   font-family: var(--font-sans);
   margin-top: var(--spacing-md);
 
   @media (min-width: $breakpoint-tablet) {
-    font-size: 1.875rem;
+    font-size: calc(1.875rem * var(--ja-font-size-by));
     line-height: 1.1333;
     -webkit-text-stroke-width: 0.2px;
   }
@@ -116,67 +132,67 @@ h3 {
 
 .text-h4,
 h4 {
-  font-size: 1.25rem;
+  font-size: calc(1.25rem * var(--ja-font-size-by));
   line-height: 1.167;
   -webkit-text-stroke-width: 0.1px;
   font-family: var(--font-sans);
   margin-top: var(--spacing-md);
 
   @media (min-width: $breakpoint-tablet) {
-    font-size: 1.5rem;
+    font-size: calc(1.5rem * var(--ja-font-size-by));
     line-height: 1.1333;
     -webkit-text-stroke-width: 0.15px;
   } 
 }
 
 .text-body-large {
-  font-size: 1.25rem;
-  line-height: 1.2;
+  font-size: calc(1.25rem * var(--ja-font-size-by));
+  line-height: calc(1.2 * var(--ja-line-height-by));
   -webkit-text-stroke-width: 0.1px;
   font-family: var(--font-sans);
 
   @media (min-width: $breakpoint-tablet) {
-    font-size: 1.5rem;
-    line-height: 1.167;
+    font-size: calc(1.5rem * var(--ja-font-size-by));
+    line-height: calc(1.167 * var(--ja-line-height-by));
     -webkit-text-stroke-width: 0.15px;
   }
 }
 
 .text-body-mono {
-  font-size: 1rem;
-  line-height: 1.25;
+  font-size: calc(1rem * var(--ja-font-size-by));
+  line-height: calc(1.25 * var(--ja-line-height-by));
   -webkit-text-stroke-width: 0.05px;
   font-family: var(--font-serif);
 
   @media (min-width: $breakpoint-tablet) {
-    font-size: 1.25rem;
-    line-height: 1.2;
+    font-size: calc(1.25rem * var(--ja-font-size-by));
+    line-height: calc(1.2 * var(--ja-line-height-by));
     -webkit-text-stroke-width: 0.1px;
   }
 }
 
 .text-body {
-  font-size: 1rem;
-  line-height: 1.25;
+  font-size: calc(1rem * var(--ja-font-size-by));
+  line-height: calc(1.25 * var(--ja-line-height-by));
   -webkit-text-stroke-width: 0.05px;
   font-family: var(--font-sans);
 
   @media (min-width: $breakpoint-tablet) {
-    font-size: 1.25rem;
-    line-height: 1.2;
+    font-size: calc(1.25rem * var(--ja-font-size-by));
+    line-height: calc(1.2 * var(--ja-line-height-by));
     -webkit-text-stroke-width: 0.15px;
   }
 }
 
 .text-body-caption {
-  font-size: 0.75rem;
-  line-height: 1.33;
+  font-size: calc(0.75rem * var(--ja-font-size-by));
+  line-height: calc(1.33 * var(--ja-line-height-by));
   -webkit-text-stroke-width: 0.05px;
   font-family: var(--font-sans);
 
   @media (min-width: $breakpoint-tablet) {
-    font-size: 0.875rem;
-    line-height: 1.42;
+    font-size: calc(0.875rem * var(--ja-font-size-by));
+    line-height: calc(1.42 * var(--ja-line-height-by));
     -webkit-text-stroke-width: 0.1px;
   }
 }
