@@ -197,6 +197,14 @@ h4 {
   }
 }
 
+input {
+  line-height: calc(1 * var(--ja-line-height-by));
+
+  @media (min-width: $breakpoint-tablet) {
+    line-height: calc(1 * var(--ja-line-height-by));
+  }
+}
+
 /** BASE ELEMENTS **/
 
 body {
