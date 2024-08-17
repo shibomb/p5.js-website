@@ -198,10 +198,18 @@ h4 {
 }
 
 input {
-  line-height: calc(1 * var(--ja-line-height-by));
+  line-height: calc(1rem * var(--ja-line-height-by));
 
   @media (min-width: $breakpoint-tablet) {
-    line-height: calc(1 * var(--ja-line-height-by));
+    line-height: calc(1rem * var(--ja-line-height-by));
+  }
+}
+
+li:has(button.capitalize) {
+  line-height: calc(1rem * var(--ja-line-height-by));
+
+  @media (min-width: $breakpoint-tablet) {
+    line-height: calc(1rem * var(--ja-line-height-by));
   }
 }
 
