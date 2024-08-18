@@ -11,6 +11,7 @@ import { contentTypes } from "../../globals/globals";
 import { supportedLocales as localesWithSearchSupport } from "../../i18n/const";
 import type { LanguageName } from "keyword-extractor/types/lib/keyword_extractor";
 import { removeNestedReferencePaths } from "../../pages/_utils-node";
+import { defaultLocale } from "@/src/i18n/const";
 
 interface SearchIndex {
   [title: string]: {
@@ -94,11 +95,11 @@ const saveSearchIndex = async (
     // There isn't a 'colorMode' translation yet but I can navigate to and
     // view the English version of the page. This is better than not
     // having any search results at all.
-    if (locale !== "en") {
-      for (const contentType in fullSearchIndex["en"]) {
+    if (locale !== defaultLocale) {
+      for (const contentType in fullSearchIndex[defaultLocale]) {
         if (!output) continue;
         output[`${contentType}-fallback` as ContentType] =
-          fullSearchIndex?.["en" as SearchSupportedLocales]?.[
+          fullSearchIndex?.[defaultLocale as SearchSupportedLocales]?.[
             contentType as ContentType
           ];
       }
@@ -182,7 +183,7 @@ export const generateSearchIndex = async (
     await fs.access(localeDir);
   } catch {
     // The default locale might be at the root of the content directory
-    if (locale === "en") {
+    if (locale === defaultLocale) {
       localeDir = contentDir;
     } else {
       console.warn(`localeDir ${localeDir} does not exist. Skipping...`);

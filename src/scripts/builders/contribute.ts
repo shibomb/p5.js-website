@@ -19,6 +19,7 @@ import matter from "gray-matter";
 import { compile } from "@mdx-js/mdx";
 import isAbsoluteUrl from "is-absolute-url";
 import { nonDefaultSupportedLocales } from "@/src/i18n/const";
+import { defaultLocale } from "@/src/i18n/const";
 
 /* Repo to pull the contributor documentation from */
 const docsRepoUrl = "https://github.com/processing/p5.js.git";
@@ -304,13 +305,13 @@ const buildContributorDocs = async () => {
       // remaining conditionals handle that case depending on the kind of file
     } else if (isDirectory) {
       console.debug(`Moving regular folder into 'en' (${tlf.name})`);
-      await moveContentDirectory(tlf, path.join(outputDirectory, "en", base));
+      await moveContentDirectory(tlf, path.join(outputDirectory, defaultLocale, base));
     } else if (!isDirectory && ext === ".md") {
       console.debug(`Converting Markdown file into MDX in 'en' (${tlf.name})`);
-      await convertMdtoMdx(fullFilePath, path.join(outputDirectory, "en"));
+      await convertMdtoMdx(fullFilePath, path.join(outputDirectory, defaultLocale));
     } else {
       console.debug(`Copying file into 'en' (${tlf.name})`);
-      await copyDirectory(fullFilePath, path.join(outputDirectory, "en", base));
+      await copyDirectory(fullFilePath, path.join(outputDirectory, defaultLocale, base));
     }
   }
   console.log("Contributor docs build completed.");

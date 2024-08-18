@@ -7,6 +7,7 @@ import {
 } from "../utils";
 import { readFile } from "fs/promises";
 import yaml from "js-yaml";
+import { defaultLocale } from "@/src/i18n/const";
 
 /* Repo to pull the contributor documentation from */
 const sourceRepoUrl = "https://github.com/processing/p5.js.git";
@@ -18,7 +19,7 @@ const outputDirectory = path.join(
   "src",
   "content",
   "people",
-  "en",
+  defaultLocale,
 );
 
 const run = async () => {

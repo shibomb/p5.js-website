@@ -1,13 +1,14 @@
 ---
 import { getCurrentLocale, getUiTranslator } from "@/src/i18n/utils";
 import { Icon } from "../Icon";
+import { defaultLocale } from "@/src/i18n/const";
 
 const currentLocale = getCurrentLocale(Astro.url.pathname);
 const t = await getUiTranslator(currentLocale);
 ---
 
 <form
-  action={`${currentLocale === "en" ? "" : `/${currentLocale}`}/search`}
+  action={`${currentLocale === defaultLocale ? "" : `/${currentLocale}`}/search`}
   method="GET"
   role="search"
   class="relative w-full h-full text-accent-type-color bg-accent-color border-accent-type-color border rounded-[20px] !mx-0"
