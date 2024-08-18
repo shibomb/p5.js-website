@@ -4,7 +4,7 @@ import AboutLayout from "../layouts/AboutLayout.astro";
 import { setJumpToState } from "../globals/state";
 import { defaultLocale } from "@/src/i18n/const";
 
-const entry = await getEntry("text-detail", defaultLocale + "/about");
+const entry = await getEntry("text-detail", `${defaultLocale}/about`);
 setJumpToState(null);
 ---
 
