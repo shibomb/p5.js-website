@@ -86,11 +86,11 @@ const seenParams: Record<string, true> = {};
   topic="reference"
   className="reference-item"
 >
-  <div class="content-grid mt-0 max-w-[750px]">
+  <div class="content-grid mt-0 max-w-[770px]">
     <div class="col-span-9 xl:min-w-[1000px]">
       <div
         set:html={description}
-        class="[&_a]:text-type-magenta-dark [&_a]:!decoration-type-magenta-dark mb-xl reference-item"
+        class="[&_a]:text-type-magenta-dark [&_a]:!decoration-type-magenta-dark mb-xl reference-item rendered-markdown"
       />
       {
         examples && (
