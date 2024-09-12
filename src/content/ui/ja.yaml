@@ -44,16 +44,16 @@ Download p5.js: p5.js ダウンロード
 No Results: No entries found for that search.
 No alt text: No alt text
 briefPageDescriptions:
-  Reference: p5.jsの各コードのわかりやすい解説を見つけてください。
-  Examples: Explore the possibilities of p5.js with short examples.
-  Tutorials: Start from scratch or expand your skills with step-by-step lessons in p5.js.
-  Contribute: Get involved with p5.js—create, code, document, donate, teach, and more!
-  Community: See what people around the world are making with p5.js, and share what you’re building
-  Sketches: Get inspired by sketches from the p5.js community.
-  Events: See how p5.js brings people together—or organize your own event.
-  Libraries: Expand the possibilities of p5.js with community-created libraries.
-  About: Learn about the mission, values, and people behind p5.js.
-  People: Get to know the p5.js team.
+  Reference: p5.jsのコードのわかりやすい説明を見つけましょう。
+  Examples: 小さな例がたくさんあります。p5.jsの可能性を探索しましょう。
+  Tutorials: ステップ-バイ-ステップのレッスンでp5.jsをはじめましょう。もちろんスキルも伸ばせます。
+  Contribute: p5.jsに参加しましょう！つくる、コーディング、ドキュメント、寄付、教える・・・なんでも！
+  Community: 世界中の人々がp5.jsで色んなものをつくっています。あなたもつくってシェアしてみませんか？
+  Sketches: p5.jsコミュニティの作品をご紹介。ひらめきのヒントに。
+  Events: p5.jsのもとにみんなが集まっています。あなたもイベントを開いてみませんか？
+  Libraries: コミュニティがつくったライブラリがp5.jsの可能性を広げています。
+  About: p5.jsを支えるミッション、価値観、メンバーについてご紹介します。
+  People: p5.jsチームを知ろう。
 contributePage:
   Statement: >
     Our community values contributions of all forms and seeks to expand the meaning of the word contributor as far and wide as possible. It includes documentation, teaching, writing code, making art, writing, design, activism, organizing, curating, or anything else you might imagine.
