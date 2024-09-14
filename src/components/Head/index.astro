@@ -10,7 +10,7 @@ interface Props {
 
 const {
   title,
-  featuredImageSrc = "/favicon.svg",
+  featuredImageSrc = "/assets/img/p5js.png",
   locale,
   description,
 } = Astro.props;
@@ -32,7 +32,6 @@ const localizedDescription =
 
 const rootUrl = new URL('/', process.env.NODE_ENV === "production" ? Astro.site : Astro.url.href);
 const ogpImageSrc = new URL(featuredImageSrc, rootUrl);
-
 ---
 
 <head>
