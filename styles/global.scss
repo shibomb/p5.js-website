@@ -247,7 +247,7 @@ li:has(button.capitalize) {
 body {
   background-color: var(--bg-color);
   color: var(--type-color);
-  -webkit-text-stroke-color: var(--type-color);
+  -webkit-text-stroke-color: currentcolor;
   @extend .text-body;
   font-weight: 400;
 }
@@ -352,7 +352,7 @@ pre.code-box,
   white-space: break-spaces;
 }
 
-.callout {
+.callout, .experimental {
   padding: var(--spacing-sm);
   border-radius: 20px;
   background-color: var(--bg-magenta-20);
@@ -362,11 +362,15 @@ pre.code-box,
   .dark-theme & {
     color: var(--type-black);
   }
+
+  & h5 {
+    font-weight: bold;
+    margin-bottom: var(--spacing-sm);
+  }
 }
 
-.callout h5 {
-  font-weight: bold;
-  margin-bottom: var(--spacing-sm);
+.experimental {
+  background-color: var(--bg-yellow);
 }
 
 .callout.callout-note {
@@ -376,7 +380,6 @@ pre.code-box,
 .sidebar {
   background-color: var(--sidebar-bg-color);
   color: var(--sidebar-type-color);
-  -webkit-text-stroke-color: var(--sidebar-type-color);
 }
 
 /** LAYOUT **/

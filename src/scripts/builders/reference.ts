@@ -43,6 +43,16 @@ export const buildReference = async () => {
     ...(await convertDocsToMDX(Object.values(parsedOutput.classitems))),
     ...(await convertDocsToMDX(Object.values(parsedOutput.classes))),
   ];
+
+  // Remove the old .mdx files so that reference items that no longer
+  // exist don't linger
+  const existing = await fs.readdir(prefix)
+  for (const f of existing) {
+    if ((await fs.lstat(path.join(prefix, f))).isDirectory()) {
+      await fs.rm(path.join(prefix, f), { recursive: true });
+    }
+  }
+
   // Save the MDX files to the file system
   await saveMDX(mdxDocs);
   console.log("Done building reference docs!");
@@ -293,6 +303,7 @@ const getMethodFrontmatter = (doc: ReferenceClassItemMethod) => {
     overloads,
     itemtype,
     chainable: doc.chainable === 1,
+    beta: doc.beta ? !!doc.beta : undefined,
   };
 };
 
