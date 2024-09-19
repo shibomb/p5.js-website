@@ -4,25 +4,7 @@ module: Shape
 submodule: 3D Primitives
 file: src/webgl/3d_primitives.js
 description: >
-  <p>Creates a new <a href="#/p5.Geometry">p5.Geometry</a> that contains all the
-  shapes drawn in a provided callback function. The returned combined shape can
-  then be drawn all at once using <a href="#/p5/model">model()</a>.。</p>
-
-  <p>If you need to draw complex shapes every frame which don't change over
-  time, combining them with <code>buildGeometry()</code> once and then drawing
-  that will run faster than repeatedly drawing the individual pieces.</p>
-
-  <p>One can also draw shapes directly between <a
-  href="#/p5/beginGeometry">beginGeometry()</a> and <a
-  href="#/p5/endGeometry">endGeometry()</a> instead of using a callback
-  function.</p>
-
-  <p>/// todo ///</p>
-
-
-  <hr/>
-
-  <p>Creates a custom <a href="/reference/p5/p5.Geometry">p5.Geometry</a> object
+  <p>Creates a custom <a href="/reference/p5/p5.Geometry/">p5.Geometry</a> object
   from
 
   simpler 3D shapes.</p>
@@ -30,7 +12,7 @@ description: >
   <p><code>buildGeometry()</code> helps with creating complex 3D shapes from
   simpler ones
 
-  such as <a href="/reference/p5/sphere">sphere()</a>. It can help to make
+  such as <a href="/reference/p5/sphere/">sphere()</a>. It can help to make
   sketches
 
   more performant. For example, if a complex 3D shape doesn’t change while a
@@ -38,7 +20,7 @@ description: >
   sketch runs, then it can be created with <code>buildGeometry()</code>.
   Creating a
 
-  <a href="/reference/p5/p5.Geometry">p5.Geometry</a> object once and then
+  <a href="/reference/p5/p5.Geometry/">p5.Geometry</a> object once and then
   drawing it
 
   will run faster than repeatedly drawing the individual pieces.</p>
@@ -46,15 +28,15 @@ description: >
   <p>The parameter, <code>callback</code>, is a function with the drawing
   instructions for
 
-  the new <a href="/reference/p5/p5.Geometry">p5.Geometry</a> object. It will be
+  the new <a href="/reference/p5/p5.Geometry/">p5.Geometry</a> object. It will be
   called
 
   once to create the new 3D shape.</p>
 
-  <p>See <a href="/reference/p5/beginGeometry">beginGeometry()</a> and
+  <p>See <a href="/reference/p5/beginGeometry/">beginGeometry()</a> and
 
-  <a href="/reference/p5/endGeometry">endGeometry()</a> for another way to build
-  3D
+  <a href="/reference/p5/endGeometry/">endGeometry()</a> for another way to
+  build 3D
 
   shapes.</p>
 
@@ -266,13 +248,10 @@ class: p5
 params:
   - name: callback
     description: |
-      <p>A function that draws shapes.</p>
       <p>function that draws the shape.</p>
     type: Function
 return:
-  description: |-
-    The model that was built from the callback function.
-    new 3D shape.
+  description: new 3D shape.
   type: p5.Geometry
 chainable: false
 ---

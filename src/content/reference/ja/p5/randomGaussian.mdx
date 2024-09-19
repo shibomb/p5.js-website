@@ -9,33 +9,6 @@ description: >
   <p><a href="#/p5/randomGaussian">randomGaussian()</a>
   が理論的に返す最小値や最大値はありません。むしろ、平均値から離れた値が返される確率は非常に低く、平均値に近い数が返される確率が高いです。0、1、または2の引数を取ります。引数がない場合、平均は0で標準偏差は1です。引数がひとつの場合、その引数が平均で標準偏差は1です。引数が2つの場合、最初の引数が平均で、2つ目が標準偏差です。</p>
 
-  <p>/// todo ///</p>
-
-  <p>Returns a random number fitting a Gaussian, or normal, distribution. Normal
-  distributions look like bell curves when plotted. Values from a normal
-  distribution cluster around a central value called the mean. The cluster's
-  standard deviation describes its spread.</p>
-
-  <p>By default, <code>randomGaussian()</code> produces different results each
-  time a sketch runs. The <a href="#/p5/randomSeed">randomSeed()</a> function
-  can be used to generate the same sequence of numbers each time a sketch
-  runs.</p>
-
-  <p>There's no minimum or maximum value that <code>randomGaussian()</code>
-  might return. Values far from the mean are very unlikely and values near the
-  mean are very likely.</p>
-
-  <p>The version of <code>randomGaussian()</code> with no parameters returns
-  values with a mean of 0 and standard deviation of 1.</p>
-
-  <p>The version of <code>randomGaussian()</code> with one parameter interprets
-  the argument passed as the mean. The standard deviation is 1.</p>
-
-  <p>The version of <code>randomGaussian()</code> with two parameters interprets
-  the first argument passed as the mean and the second as the standard
-  deviation.</p>
-
-
   <hr/>
 
   <p>Returns a random number fitting a Gaussian, or normal, distribution.</p>
@@ -49,7 +22,7 @@ description: >
   <p>By default, <code>randomGaussian()</code> produces different results each
   time a
 
-  sketch runs. The <a href="/reference/p5/randomSeed">randomSeed()</a> function
+  sketch runs. The <a href="/reference/p5/randomSeed/">randomSeed()</a> function
   can be
 
   used to generate the same sequence of numbers each time a sketch runs.</p>
@@ -75,7 +48,7 @@ description: >
   the first
 
   argument passed as the mean and the second as the standard deviation.</p>
-line: 293
+line: 292
 isConstructor: false
 itemtype: method
 example:
