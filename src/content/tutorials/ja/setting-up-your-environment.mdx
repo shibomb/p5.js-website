@@ -1,6 +1,6 @@
 ---
-title: "Setting Up Your Environment"
-description: A quick tutorial for setting up the p5.js Web Editor and VS Code to write and save p5.js projects.
+title: "環境セットアップ"
+description: p5.js の Web エディターや VS Code をセットアップして、p5.js プロジェクトを書いたり保存したりするための簡単なチュートリアルです。
 category: introduction
 categoryIndex: 0
 featuredImage: ../images/featured/SetupA.jpg
@@ -21,335 +21,342 @@ import Callout from "../../../components/Callout/index.astro";
 ![Logos for p5.js and Visual Code Studio.](../images/introduction/p5VScode.png)
 
 
-## Introduction
+## はじめに
 
-To begin writing code using [p5.js](/reference/), you need to set up the coding environment you will use to write and save your programs. In this guide, you will:
+[p5.js](/reference/) を使用してコードを書き始めるには、プログラムを作成し保存するためのコーディング環境をセットアップする必要があります。このガイドでは、以下のことを行います：
 
-1. Set up your coding environment on the web using the [p5.js Web Editor](https://editor.p5js.org/), or on your computer using [Visual Studio Code (VS Code).](https://code.visualstudio.com/)
-2. Use the [p5.js reference](/reference/) to help you write your first simple program using shapes and color.
-3. Save and share your code.
+1. [p5.js Web エディタ](https://editor.p5js.org/)を使用してウェブ上でコーディング環境をセットアップするか、[Visual Studio Code (VS Code)](https://code.visualstudio.com/)を使用してコンピュータ上でセットアップします。
+2. [p5.js リファレンス](/reference/)を使用して、図形と色を使った最初の簡単なプログラムを書きます。
+3. コードを保存し、共有します。
 
 
-## What you will need
+## 必要なもの
 
-1. Access to the internet and a desktop browser such as:
+1. インターネットへのアクセスと、以下のデスクトップブラウザのいずれか：
    - [Chrome](https://www.google.com/chrome/dr/download/?brand=SJWC\&geo=US\&gclid=Cj0KCQjw-pyqBhDmARIsAKd9XIM88u9RUlUagd7fpeqWx3AL_8VbhoIFULSME9tiz87t00L64-wLAlMaAm_QEALw_wcB\&gclsrc=aw.ds)
    - [Firefox](https://www.mozilla.org/en-US/firefox/)
    - [Safari](https://www.apple.com/safari/)
    - [Edge](https://www.microsoft.com/en-us/edge?ep=193\&form=MA13L2\&es=40)
-2. A desktop computer, laptop, or chromebook
+2. デスクトップコンピュータ、ラップトップ、またはクロームブック
 
 
-## Step 0: Choose the type of coding environment 
+## ステップ 0: コーディング環境を選択する
 
-You can begin your coding journey with [p5.js](/reference/) using the [p5.js Web Editor](https://editor.p5js.org/) or [VS Code](https://code.visualstudio.com/). 
+[p5.js](/reference/) を使用してコーディングの旅を始めることができます。[p5.js Web エディタ](https://editor.p5js.org/) または [VS Code](https://code.visualstudio.com/) を使用します。
 
-The [p5.js Web Editor](https://editor.p5js.org/) is a website where programmers can write, test, share, or remix p5.js programs without needing to download or configure a *code editor* on a computer. A *code editor* makes writing and reading code easier by organizing and coloring text in a way that helps programmers see different parts of the code.
+[p5.js Web エディタ](https://editor.p5js.org/) は、プログラマーが p5.js プログラムを書く、テストする、共有する、またはリミックスするためのウェブサイトです。コンピュータに *コードエディタ* をダウンロードしたり設定したりする必要がありません。*コードエディタ* は、コードを書くときにテキストを整理し、色付けして、プログラマーがコードの異なる部分を見やすくするのに役立ちます。
 
-[VS Code](https://code.visualstudio.com/) is a popular code editor you install on your computer that provides a more advanced coding experience. Depending on your needs, choose the coding environment that is best for you.
+[VS Code](https://code.visualstudio.com/) は、コンピュータにインストールする人気のあるコードエディタで、より高度なコーディング体験を提供します。ニーズに応じて、最適なコーディング環境を選択してください。
 
-- [Link to p5.js Web Editor how-to](#web-editor)
-- [Link to VS Code how-to](#vscode)
+- [p5.js Web エディタの使い方へのリンク](#web-editor)
+- [VS Code の使い方へのリンク](#vscode)
 
-If you are new to p5.js, start with the [p5.js Web Editor](https://editor.p5js.org/)!
-
-
-## Using the p5.js Web Editor<a id="web-editor"></a>
-
-### Step 1: Open the [p5.js Web Editor](https://editor.p5js.org/) sign-up page
-
-- Open a desktop browser on your computer and go to [https://editor.p5js.org/](https://editor.p5js.org/).
-- Click the [“Sign up”](https://editor.p5js.org/signup) link on the top-right of the web page.
-
-![An arrow pointing to the “Sign Up” link in the top right corner of the p5.js Web Editor.](../images/introduction/web-editor-signup.png)
+p5.js が初めてであれば、[p5.js Web エディタ](https://editor.p5js.org/) から始めてください！
 
 
-### Step 2: Create an account with [p5.js Web Editor](https://editor.p5js.org/)
+## p5.js Web エディタの使用<a id="web-editor"></a>
 
-- Once on the [sign-up page](https://editor.p5js.org/signup), create an account on the [p5.js Web Editor](https://editor.p5js.org/) using one of the following options:
-- Manual sign-up
-  - Create a username.
-  - Enter your email address.
-  - Create and confirm a password. 
-  - Click the “Sign Up” button.
+### ステップ 1: [p5.js Web エディタ](https://editor.p5js.org/) のサインアップページを開く
 
-![A user clicks the “Sign Up” button in the p5.js Web Editor,  enters a new username, email address, and password.](../images/introduction/editor-signup.gif)
+- コンピュータ上のデスクトップブラウザを開き、[https://editor.p5js.org/](https://editor.p5js.org/) にアクセスします。
+- ウェブページの右上にある [「サインアップ」](https://editor.p5js.org/signup) リンクをクリックします。
 
-- Using a Google account
-  - Click on the button on the bottom of the page that says “Login with Google.” 
-
-![A Google login button displaying “Login with Google”](../images/introduction/login-with-google.png)
-
-- Follow the prompts to enter your email and password for your Google account (if necessary). 
-- Using a Github account
-  - Click on the button on the bottom of the page that says “Login with GitHub.” 
-
-![A Github login button displaying “Login with Github”](../images/introduction/login-with-github.png)
-
-- Follow the prompts to enter your username and password for GitHub.
-- Authorize the [p5.js Web Editor](https://editor.p5js.org/) to access your GitHub details by clicking the “Authorize processing” button.
-
-![A GitHub third party authorization window informing users that p5.js Web Editor wants to access their GitHub account and read email addresses from their personal user data. Users can cancel the request by clicking the “Cancel” button, or approve the request by clicking the “Authorize processing” button.](../images/introduction/github-auth.png)
+![An arrow pointing to the "Sign Up" link in the top right corner of the p5.js Web Editor.](../images/introduction/web-editor-signup.png)
 
 
-### Step 3: Explore the [p5.js Web Editor](https://editor.p5js.org/)
+### ステップ 2: [p5.js Web エディタ](https://editor.p5js.org/) でアカウントを作成する
 
-The [p5.js Web Editor](https://editor.p5js.org/) is an online environment where programmers can write and test their p5.js code. Explore the different elements of the [p5.js Web Editor](https://editor.p5js.org/) and their functions. 
+- [サインアップページ](https://editor.p5js.org/signup) に移動したら、以下のいずれかのオプションを使用して [p5.js Web エディタ](https://editor.p5js.org/) でアカウントを作成します：
+- 手動サインアップ
+  - ユーザー名を作成します。
+  - メールアドレスを入力します。
+  - パスワードを作成し、確認します。
+  - 「サインアップ」ボタンをクリックします。
 
-The following diagram labels and describes each element of the editor’s interface:
+![A user clicks the "Sign Up" button in the p5.js Web Editor,  enters a new username, email address, and password.](../images/introduction/editor-signup.gif)
 
-![A labeled diagram of the p5.js Web Editor’s user interface.](../images/introduction/web-editor-diagram.png)
+- Google アカウントを使用する
+  - ページの下部にある「Google でログイン」ボタンをクリックします。
+
+![A Google login button displaying "Login with Google"](../images/introduction/login-with-google.png)
+
+- Google アカウントのメールアドレスとパスワードを入力するように求められたら、入力します（必要に応じて）。
+- GitHub アカウントを使用する
+  - ページの下部にある「GitHub でログイン」ボタンをクリックします。
+
+![A Github login button displaying "Login with Github"](../images/introduction/login-with-github.png)
+
+- GitHub のユーザー名とパスワードを入力するように求められたら、入力します。
+- [p5.js Web エディタ](https://editor.p5js.org/) が GitHub の詳細にアクセスできるようにするため、“Authorize processing” ボタンをクリックします。
+
+![A GitHub third party authorization window informing users that p5.js Web Editor wants to access their GitHub account and read email addresses from their personal user data. Users can cancel the request by clicking the "Cancel" button, or approve the request by clicking the "Authorize processing" button.](../images/introduction/github-auth.png)
 
 
-### Step 4: Name, save, and run your first sketch
+### ステップ 3: [p5.js Web エディタ](https://editor.p5js.org/) を探索する
 
-- Name your projects by clicking on the pencil icon above the text editor and typing in a name for your project.
-- Save projects by clicking on *File* in the top toolbar, and selecting *Save*. 
-  - Make sure you are logged in to your account or you will not be able to save the sketch.
-  - Saving projects frequently helps to ensure that code isn’t lost if something happens to your computer, browser, or internet connection while you are coding.
+[p5.js Web エディタ](https://editor.p5js.org/) は、プログラマーが p5.js コードを書くとテストするためのオンライン環境です。[p5.js Web エディタ](https://editor.p5js.org/) のさまざまな要素とその機能を探索します。
 
-![A user on the p5.js Web Editor names a new project “My First Sketch” and saves it. A notification box then appears for a moment with the text “Sketch saved.”](../images/introduction/renameSave.gif)
+以下の図は、エディタのインターフェースの各要素をラベル付けし、説明しています：
 
-To view the output of your code, click the *Play* button in the top left corner: 
+![A labeled diagram of the p5.js Web Editor's user interface.](../images/introduction/web-editor-diagram.png)
 
-![A blank canvas appears in the preview window of the p5.js Web Editor when a user clicks on the “Play” button in the top right corner.](../images/introduction/play.gif)
 
-A *p5.js sketch* is a text file with code written in the *JavaScript* programming language. *JavaScript* is a programming language used to make web pages interactive. p5.js is a library written in *JavaScript* – which is why it ends in “*.js*” for *JavaScript*. With p5.js, you can create programs that are colorful and animated, with features that users can interact with! To learn more about some of the things you can do with p5.js, watch the [p5.js Welcome Video!](https://hello.p5js.org/) To learn more about JavaScript, you can visit [this resource.](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+### ステップ 4: 最初のスケッチを名前付け、保存、実行する
 
-The editor begins with the following code in the *sketch.js* file:
+- テキストエディタの上にある鉛筆アイコンをクリックし、プロジェクトの名前を入力します。
+- 上部のツールバーの *ファイル* をクリックし、*保存* を選択します。
+  - アカウントにログインしていることを確認してください。そうでないとスケッチを保存できません。
+  - プロジェクトを頻繁に保存することで、コーディング中にコンピュータ、ブラウザ、またはインターネット接続に何かが起こった場合でもコードが失われないことを確実にできます。
+
+![A user on the p5.js Web Editor names a new project "My First Sketch" and saves it. A notification box then appears for a moment with the text "Sketch saved."](../images/introduction/renameSave.gif)
+
+コードの出力を表示するには、左上隅の *再生* ボタンをクリックします：
+
+![A blank canvas appears in the preview window of the p5.js Web Editor when a user clicks on the "Play" button in the top right corner.](../images/introduction/play.gif)
+
+*p5.js スケッチ* は、*JavaScript* プログラミング言語で書かれたテキストファイルです。
+*JavaScript* は、ウェブページをインタラクティブにするためのプログラミング言語です。
+p5.js は *JavaScript* で書かれたライブラリです - 末尾が「*.js*」なっているのは「*JavaScript*」のためのものだからです。
+p5.js を使えば、カラフルなアニメーションや、ユーザーがインタラクティブに操作できる機能を持ったプログラムを作ることができます！
+p5.js でできることをもっと知りたい方は、[p5.js ウェルカムビデオ](https://hello.p5js.org/) を見てください。JavaScript について学ぶには、[このリソース](https://developer.mozilla.org/en-US/docs/Web/JavaScript) をご覧ください。
+
+エディタは、*sketch.js* ファイルに以下のコードを持っています：
 
 ```js
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(400, 400);
 }
 function draw() {
-  background(220);
+  background(220);
 }
 ```
 
-The code above creates a canvas element in the preview that is 400 pixels wide and 400 pixels high. It also sets the background to a shade of gray. 
+上記のコードは、プレビューウィンドウに 400 ピクセル幅、400 ピクセル高さのキャンバス要素を作成します。また、背景を灰色のシェードに設定します。
 
 
 #### `createCanvas()`
 
-Computer screens are made up of tiny lights called *pixels*, which are the smallest elements that make up any image. The line of code that creates a canvas in the preview window is [`createCanvas(400, 400)`](/reference/p5/createCanvas). Without this line of code, there will be no canvas to draw on! The numbers 400, 400 correspond to the width and the height of the canvas in pixels. These numbers are also known as *arguments* for the [`createCanvas()`](/reference/p5/createCanvas) function. 
+コンピュータ画面は、画像のすべての要素を構成する最小の要素である *ピクセル* と呼ばれる小さな光で構成されています。プレビューウィンドウにキャンバスを作成するコード行は [`createCanvas(400, 400)`](/reference/p5/createCanvas) です。この行がなければ、描画するキャンバスがありません！数字 400、400 は、ピクセル単位でキャンバスの幅と高さを表しています。これらの数字は [`createCanvas()`](/reference/p5/createCanvas) 関数の *引数* とも呼ばれます。
 
-Any values that you place within parentheses of a function are called *arguments*: any value used to customize functions. [`createCanvas()`](/reference/p5/createCanvas) appears within the [`setup()`](/reference/p5/setup) function to create an HTML canvas element that you can draw on. 
+関数の丸括弧内に配置するすべての値は *引数* と呼ばれます：関数をカスタマイズするために使用される値です。[`createCanvas()`](/reference/p5/createCanvas) は [`setup()`](/reference/p5/setup) 関数内にあり、描画できる HTML キャンバス要素を作成します。
 
-To learn more, visit the [p5.js reference](/reference) pages for [`setup()`](/reference/p5/setup) and [`createCanvas()`](/reference/p5/createCanvas).
+詳細については、[p5.js リファレンス](/reference) の [`setup()`](/reference/p5/setup) と [`createCanvas()`](/reference/p5/createCanvas) ページをご覧ください。
 
 
-### Step 5: Change the color of the canvas
+### ステップ 5: キャンバスの色を変更する
 
-- You can type commands for any sketch in the text editor, and view the output of your code in the preview window by clicking *Play*. 
-- Change the background color of your canvas by changing the *argument* for the [`background()`](/reference/p5/background) function. 
-  - Change `background(220);` to `background("aqua");` and press *Play*.
+- テキストエディタに任意のスケッチのコマンドを入力し、*再生* をクリックすると、プレビューウィンドウにコードの出力が表示されます。
+- [`background()`](/reference/p5/background) 関数の *引数* を変更することで、キャンバスの背景色を変更できます。
+  - `background(220);` を `background("aqua");` に変更し、*再生* をクリックします。
 
 ```js
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(400, 400);
 }
 function draw() {
-  background("aqua");
+  background("aqua");
 }
 ```
 
 
 #### `background()`
 
-The `background()` function colors the background a specific color. You can use words inside quotations or numbers to color the background of the canvas. To learn more, visit the [p5.js reference](/reference) pages for [`background()`](/reference/p5/background) & [color](/reference/p5/color).
+`background()` 関数は、背景を特定の色に塗ります。引用符内の単語や数字を使用して、キャンバスの背景を色付けできます。詳細については、[p5.js リファレンス](/reference) の [`background()`](/reference/p5/background) と [color](/reference/p5/color) ページをご覧ください。
 
 
-### Step 6: Draw shapes on the canvas
+### ステップ 6: キャンバスに図形を描く
 
-- Draw a circle on the canvas.
-  - Add the following text under the [`background()`](/reference/p5/background) function:
+- キャンバスに円を描きます。
+  - [`background()`](/reference/p5/background) 関数の下に以下のテキストを追加します：
 
     ```js
     //circle in the center with a width of 100
     circle(200,200,100);
     ```
 
-- Click the *Play* button.
+- *再生* ボタンをクリックします。
 
-Your code should look like this:
+コードは以下のようになります：
 
 ```js
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(400, 400);
 }
 function draw() {
-  background(220);
+  background(220);
 
-  // Draw a circle in the center with
-  // a width of 100.
-  circle(200, 200, 100);
+  // Draw a circle in the center with
+  // a width of 100.
+  circle(200, 200, 100);
 }
 ```
 
 #### `draw()`
 
-You can draw shapes on the canvas by typing specific commands for shapes within the curly brackets `{}` after [`function draw()`](/reference/p5/draw). 
+[`function draw()`](/reference/p5/draw) の後の波括弧 `{}` 内に図形のコマンドを入力することで、キャンバスに図形を描くことができます。
 
-The sketch above draws a circle on the canvas by calling the [`circle()`](/reference/p5/circle) function within [`draw()`](/reference/p5/draw). The first two *arguments –* `200, 200` – place the circle in the center of the canvas, and the last *argument* – `100` – indicates that the circle is 100 pixels wide. The comments embedded in the sketch in the lines above the [`circle()`](/reference/p5/circle)` `function describe what the code does. To learn more, visit the [p5.js reference](/reference/) pages for [`draw()`](/reference/p5/draw) and [`circle()`](/reference/p5/circle).
+上記のスケッチは、[`draw()`](/reference/p5/draw) 内で [`circle()`](/reference/p5/circle) 関数を呼び出すことで、キャンバスに円を描きます。最初の 2 つの *引数* - `200, 200` - は円をキャンバスの中央に配置し、最後の *引数* - `100` - は円が 100 ピクセル幅であることを示しています。スケッチ内の [`circle()`](/reference/p5/circle) 関数の上の行に埋め込まれたコメントは、コードが何を行うかを説明しています。詳細については、[p5.js リファレンス](/reference/) の [`draw()`](/reference/p5/draw) と [`circle()`](/reference/p5/circle) ページをご覧ください。
 
 
-### Step 7: Create!
+### ステップ 7: 作成する
 
-p5.js has many functions you can use to incorporate both static and interactive elements in your canvas. 
+p5.js には、キャンバスに静的要素とインタラクティブ要素を両方組み込むために使用できる多くの関数があります。
 
-- Replace the background and circle commands with the following text:
+- 背景と円のコマンドを以下のテキストで置き換えます：
 
   ```js
   //when mouse button is pressed, circles turn black
   if (mouseIsPressed === true) {
-    fill(0);
+    fill(0);
   } else {
-    fill(255);
+    fill(255);
   }
 
   //white circles drawn at mouse position
   circle(mouseX, mouseY, 100);
   ```
 
-Your code should look like this:
+コードは以下のようになります：
 
 <EditableSketch code={`
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(400, 400);
 }
 function draw() {
-  //when mouse button is pressed, circles turn black
-  if (mouseIsPressed === true) {
-    fill(0);
-  } else {
-    fill(255);
-  }
+  //when mouse button is pressed, circles turn black
+  if (mouseIsPressed === true) {
+    fill(0);
+  } else {
+    fill(255);
+  }
 
-  //white circles drawn at mouse position
-  circle(mouseX, mouseY, 100);
+  //white circles drawn at mouse position
+  circle(mouseX, mouseY, 100);
 }
 `} />
 
 <Callout>
-Press and hold the mouse button as you drag the mouse pointer over the canvas.
+マウスボタンを押しながらマウスポインタをキャンバス上でドラッグします。
 </Callout>
 
 
-The code above draws white circles in the same position as the mouse pointer. When a mouse button is pressed, the circle’s color changes to black. 
+上記のコードは、マウスポインタの位置に白い円を描きます。マウスボタンを押すと、円の色が黒に変わります。
 
-Visit the [p5.js reference](/reference/) for more p5.js functions like [2D Primitive shapes](/referencegroup-Shape). 
-
-
-### Errors
-
-It is easy to spell function names wrong or forget a comma. Syntax rules help the computer interpret code. When a “rule” is broken, an error message will appear in the console (for example, if [`circle()`](/reference/p5/circle) is spelled wrong). These errors are commonly referred to as “bugs.” The console displays messages from the editor with details about any mistakes you might have made. When your code does not execute correctly, there might be a bug in your code!
-
-Visit the [Field Guide to Debugging](/tutorials/field-guide-to-debugging) for more information on how to fix errors in your code.
+[p5.js リファレンス](/reference/) で、[2D プリミティブ図形](/reference/#Shape) などの他の p5.js 関数をご覧ください。
 
 
-#### Accessibility Note:
+### エラー
 
-If you are using a screen reader, you must turn on the accessible outputs in the [p5.js Web Editor](https://editor.p5js.org/) and add the accessibility library in your html. To learn more, visit our guide to [using the p5.js Web Editor with a screen reader.](/tutorials/using-web-editor-with-screen-reader)
+関数名を間違えたり、カンマを忘れたりするのは簡単です。構文ルールは、コンピュータがコードを解釈するのに役立ちます。「ルール」が破られると（例えば、[`circle()`](/reference/p5/circle) が間違ってスペルされている場合）、ブラウザのコンソールにメッセージが表示されます。これらのエラーは「バグ」と呼ばれ、コードが正しく実行されない場合、コードにバグがある可能性があります！
 
-### Step 8: Share Your Project
+コードのエラーを修正する方法についての詳細は、[デバッグのフィールドガイド](/tutorials/field-guide-to-debugging)をご覧ください。
 
-Once your project is saved, you can share it!
+#### アクセシビリティに関する注意事項：
 
-- Share projects by clicking *File* in the upper toolbar, selecting *Share*, and copying one of the links provided. You can share your projects in three different ways:
-  - Embed: Add your p5.js sketch to a website or blog that uses html (does not show code).
-  - Fullscreen: Share your project with a link (does not show code).
-  - Edit: Share your project code in the p5.js editor with a link.
+スクリーンリーダーを使用している場合は、[p5.js Web エディタ](https://editor.p5js.org/) でアクセシブルな出力を有効にし、html にアクセシビリティライブラリを追加する必要があります。詳細については、[スクリーンリーダーで p5.js Web エディタを使用する方法](/tutorials/p5js-with-screen-reader) のガイドをご覧ください。
+
+### ステップ 8: プロジェクトを共有する
+
+プロジェクトが保存されると、共有できます！
+
+- 上部のツールバーの *ファイル* をクリックし、*共有* を選択して、提供されるリンクのいずれかをコピーします。プロジェクトを 3 つの方法で共有できます：
+  - 埋め込み：html を使用するウェブサイトやブログに p5.js スケッチを追加します（コードは表示されません）。
+  - 全画面：リンクでプロジェクトを共有します（コードは表示されません）。
+  - 編集：p5.js エディタでプロジェクトのコードをリンクで共有します。
 
 
-## Next steps: 
+## 次のステップ：
 
-- Next Tutorial: [Get Started](/tutorials/get-started)
-- Explore some [p5.js examples](/examples/)
+- 次のチュートリアル：[はじめに](/tutorials/get-started)
+- [p5.js の例](/examples/) をいくつか見てみる
 
 
-## Resources:
+## リソース：
 
-- [p5.js Welcome Video](https://hello.p5js.org/)
+- [p5.js ウェルカムビデオ](https://hello.p5js.org/)
 - The Coding Train: [1.2: p5.js Web Editor - p5.js Tutorial](https://www.youtube.com/watch?v=MXs1cOlidWs)
-- [p5.js reference page](/reference/)
-- [Javascript - MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-- [Field Guide to Debugging](https://docs.google.com/document/d/1Uc5Uey4_UDgix6-O0ez-pcRD-FZQSOaRD9TAGZYzD6c/edit)
-- [How to Use the p5.js Web Editor with a Screen Reader](/tutorials/using-web-editor-with-screen-reader)
+- [p5.js リファレンスページ](/reference/)
+- [Javascript - MDN リファレンス](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [デバッグのフィールドガイド](/tutorials/field-guide-to-debugging)
+- [スクリーンリーダーで p5.js Web エディタを使用する方法](/tutorials/p5js-with-screen-reader)
 
 ---
 
 
-## Using VS Code<a id="vscode"></a>
+## VS Code の使用<a id="vscode"></a>
 
-[VS Code](https://code.visualstudio.com/) offers a more advanced code editing experience compared to the Web Editor. We recommend this option if you’re already familiar with VS Code.
-
-
-### Step 1: Download VS Code
-
-- Download VS Code onto your device using [this link](https://code.visualstudio.com/download).
-- Explore the features of VS Code and various setup options using [these resources](https://code.visualstudio.com/docs/getstarted/introvideos).
+[VS Code](https://code.visualstudio.com/) は、Web エディタに比べてより高度なコード編集体験を提供します。VS Code に慣れている場合は、このオプションをお勧めします。
 
 
-### Step 2: Install the p5.js library extension
+### ステップ 1: VS Code をダウンロードする
 
-- Open VS Code and navigate to the extensions manager on the left toolbar.
-- Type [*p5.vscode*](https://marketplace.visualstudio.com/items?itemName=samplavigne.p5-vscode) in the search bar, select the extension, and click the install button.
-- Familiarize yourself with details for this extension [here](https://github.com/antiboredom/p5.vscode/blob/master/README.md).
-
-
-### Step 3: Create a p5.js project
-
-- Click on *View* on the top toolbar and select Command Palette.
-- Type *Create p5.js Project* in the search bar and select the folder on your machine in which you would like to save your project.
+- [このリンク](https://code.visualstudio.com/download) から VS Code をデバイスにダウンロードします。
+- [これらのリソース](https://code.visualstudio.com/docs/getstarted/introvideos) を使用して、VS Code の機能を探索し、さまざまなセットアップオプションを設定します。
 
 
-### Step 4: View your first sketch
+### ステップ 2: p5.js ライブラリ拡張機能をインストールする
 
-To view the preview for your code:
+- VS Code を開き、左側のツールバーの拡張機能マネージャに移動します。
+- 検索バーに [*p5.vscode*](https://marketplace.visualstudio.com/items?itemName=samplavigne.p5-vscode) と入力し、拡張機能を選択して、インストールボタンをクリックします。
+- この拡張機能の詳細については [こちら](https://github.com/antiboredom/p5.vscode/blob/master/README.md) をご覧ください。
 
-- Right click on the *index.html* file in the *VSCODE* tab on the left Explorer panel.
-- Select *Open Live Server*. 
-- A window will open in your default browser with the output of your project.
 
-A *p5.js sketch* is a text file with code written in the *JavaScript* programming language. *JavaScript* is a programming language used to make web pages interactive. p5.js is a library written in *JavaScript* – which is why it ends in “*.js*” for *JavaScript*. With p5.js, you can create programs that are colorful and animated, with features that users can interact with! To learn more about some of the things you can do with p5.js, watch the [p5.js Welcome Video!](https://hello.p5js.org/) To learn more about JavaScript, you can visit [this resource.](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+### ステップ 3: p5.js プロジェクトを作成する
 
-The editor begins with the following code in the *sketch.js* file and preview:
+- 上部のツールバーの *表示* をクリックし、コマンドパレットを選択します。
+- 検索バーに *Create p5.js Project* と入力し、プロジェクトを保存するマシン上のフォルダを選択します。
+
+
+### ステップ 4: 最初のスケッチを表示する
+
+プレビューを表示するには：
+
+- VSCODE タブの左側のエクスプローラパネルで *index.html* ファイルを右クリックします。
+- *Open Live Server* を選択します。
+- デフォルトのブラウザでプロジェクトの出力が表示されるウィンドウが開きます。
+
+*p5.js スケッチ* は、*JavaScript* プログラミング言語で書かれたテキストファイルです。
+*JavaScript* は、ウェブページをインタラクティブにするためのプログラミング言語です。
+p5.js は *JavaScript* で書かれたライブラリです - 末尾が「*.js*」なっているのは「*JavaScript*」のためのものだからです。
+p5.js を使えば、カラフルなアニメーションや、ユーザーがインタラクティブに操作できる機能を持ったプログラムを作ることができます！
+p5.js でできることをもっと知りたい方は、[p5.js ウェルカムビデオ](https://hello.p5js.org/) を見てください。JavaScript について学ぶには、[このリソース](https://developer.mozilla.org/en-US/docs/Web/JavaScript) をご覧ください。
+
+エディタは、*sketch.js* ファイルとプレビューに以下のコードを持っています：
 
 <EditableSketch code={`
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(400, 400);
 }
 function draw() {
-  background(220);
+  background(220);
 }
 `} />
 
-The code above creates a canvas element in the preview that is 400 pixels wide and 400 pixels high. It also sets the background to a shade of gray. 
+上記のコードは、プレビューウィンドウに 400 ピクセル幅、400 ピクセル高さのキャンバス要素を作成します。また、背景を灰色のシェードに設定します。
 
 
 #### `createCanvas()`
 
-Computer screens are made up of tiny lights called *pixels*, which are the smallest elements that make up any image. The line of code that creates a canvas in the preview window is [`createCanvas(400, 400)`](/reference/p5/createCanvas). Without this line of code, there will be no canvas to draw on! The numbers 400, 400 correspond to the width and the height of the canvas in pixels. These numbers are also known as *arguments* for the [`createCanvas()`](/reference/p5/createCanvas) function. 
+コンピュータ画面は、画像のすべての要素を構成する最小の要素である *ピクセル* と呼ばれる小さな光で構成されています。プレビューウィンドウにキャンバスを作成するコード行は [`createCanvas(400, 400)`](/reference/p5/createCanvas) です。この行がなければ、描画するキャンバスがありません！数字 400、400 は、ピクセル単位でキャンバスの幅と高さを表しています。これらの数字は [`createCanvas()`](/reference/p5/createCanvas) 関数の *引数* とも呼ばれます。
 
-Any values that you place within parentheses of a function are called *arguments*: any value used to customize functions. [`createCanvas()`](/reference/p5/createCanvas) appears within the [`setup()`](/reference/p5/setup) function to create an HTML canvas element that you can draw on. 
+関数の丸括弧内に配置するすべての値は *引数* と呼ばれます：関数をカスタマイズするために使用される値です。[`createCanvas()`](/reference/p5/createCanvas) は [`setup()`](/reference/p5/setup) 関数内にあり、描画できる HTML キャンバス要素を作成します。
 
-To learn more, visit the [p5.js reference](/reference/) pages for [`setup()`](/reference/p5/setup) & [`createCanvas()`](/reference/p5/createCanvas).
+詳細については、[p5.js リファレンス](/reference/) の [`setup()`](/reference/p5/setup) と [`createCanvas()`](/reference/p5/createCanvas) ページをご覧ください。
 
 
-### Step 5: Change the color of the canvas
+### ステップ 5: キャンバスの色を変更する
 
-- Change the background color of your canvas by changing the *argument* for the [`background()`](/reference/p5/background) function. 
-  - Change `background(220);` to `background("aqua");` and press *Play*.
+- [`background()`](/reference/p5/background) 関数の *引数* を変更することで、キャンバスの背景色を変更できます。
+  - `background(220);` を `background("aqua");` に変更し、*再生* をクリックします。
 
-Your code should look like this:
+コードは以下のようになります：
 
 <EditableSketch code={`
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(400, 400);
 }
 function draw() {
-  background("aqua");
+  background("aqua");
 }
 `} />
 
@@ -357,116 +364,116 @@ function draw() {
 
 #### `background()`
 
-The `background()` function colors the background a specific color. You can use words inside quotations or numbers to color the background of the canvas. To learn more, visit the [p5.js reference](/reference/) pages for [`background()`](/reference/p5/background) & [color](/referencegroup-Color).
+`background()` 関数は、背景を特定の色に塗ります。引用符内の単語や数字を使用して、キャンバスの背景を色付けできます。詳細については、[p5.js リファレンス](/reference/) の [`background()`](/reference/p5/background) と [color](/referencegroup-Color) ページをご覧ください。
 
 
-### Step 6: Draw shapes on the canvas
+### ステップ 6: キャンバスに図形を描く
 
-- Draw a circle on the canvas.
-  - Add the following text under the [`background()`](/reference/p5/background) function:
+- キャンバスに円を描きます。
+  - [`background()`](/reference/p5/background) 関数の下に以下のテキストを追加します：
 
     ```js
     //circle in the center with a width of 100
     circle(200,200,100);
     ```
 
-- Don’t forget to save your changes to update the preview window.
+- 変更を保存して、プレビューウィンドウを更新します。
 
-Your code should look like this:
+コードは以下のようになります：
 
 <EditableSketch code={`
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(400, 400);
 }
 function draw() {
-  background(220);
-  //circle in the center with a width of 100
-  circle(200,200,100);
+  background(220);
+  //circle in the center with a width of 100
+  circle(200,200,100);
 }
 `} />
 
 
 #### `draw()`
 
-You can draw shapes on the canvas by typing specific commands for shapes within the curly brackets `{}` after [`function draw()`](/reference/p5/draw). 
+[`function draw()`](/reference/p5/draw) の後の波括弧 `{}` 内に図形のコマンドを入力することで、キャンバスに図形を描くことができます。
 
-The sketch above draws a circle on the canvas by calling the [`circle()`](/reference/p5/circle) function within [`draw()`](/reference/p5/draw). The first two *arguments* – `200, 200` – place the circle in the center of the canvas, and the last *argument* – `100` – indicates that the circle is 100 pixels wide. The comments embedded in the sketch in the lines above the [`circle()`](/reference/p5/circle)` `function describe what the code does. To learn more, visit the [p5.js reference](/reference/) pages for [`draw()`](/reference/p5/draw) and [`circle()`](/reference/p5/circle).
+上記のスケッチは、[`draw()`](/reference/p5/draw) 内で [`circle()`](/reference/p5/circle) 関数を呼び出すことで、キャンバスに円を描きます。最初の 2 つの *引数* - `200, 200` - は円をキャンバスの中央に配置し、最後の *引数* - `100` - は円が 100 ピクセル幅であることを示しています。スケッチ内の [`circle()`](/reference/p5/circle) 関数の上の行に埋め込まれたコメントは、コードが何を行うかを説明しています。詳細については、[p5.js リファレンス](/reference/) の [`draw()`](/reference/p5/draw) と [`circle()`](/reference/p5/circle) ページをご覧ください。
 
 
-### Step 7: Create!
+### ステップ 7: 作成する
 
-p5.js has many functions you can use to incorporate both static and interactive elements in your canvas. 
+p5.js には、キャンバスに静的要素とインタラクティブ要素を両方組み込むために使用できる多くの関数があります。
 
-- Replace the circle command with the following text:
+- 円のコマンドを以下のテキストで置き換えます：
 
   ```js
   //when mouse button is pressed, circles turn black
   if (mouseIsPressed === true) {
-    fill(0);
+    fill(0);
   } else {
-    fill(255);
+    fill(255);
   }
 
   //white circles drawn at mouse position
   circle(mouseX, mouseY, 100);
   ```
 
-Your code should look like this:
+コードは以下のようになります：
 
 <EditableSketch code={`
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(400, 400);
 }
 function draw() {
-  background(220);
-  //when mouse button is pressed, circles turn black
-if (mouseIsPressed === true) {
-    fill(0);
-  } else {
-    fill(255);
-  }
+  background(220);
+  //when mouse button is pressed, circles turn black
+  if (mouseIsPressed === true) {
+    fill(0);
+  } else {
+    fill(255);
+  }
 
- //white circles drawn at mouse position
-  circle(mouseX, mouseY, 100);
+  //white circles drawn at mouse position
+  circle(mouseX, mouseY, 100);
 }
 `} />
 
 <Callout>
-Press and hold the mouse button as you drag the mouse pointer over the canvas.
+マウスボタンを押しながらマウスポインタをキャンバス上でドラッグします。
 </Callout>
 
-The code above draws white circles in the same position as the mouse pointer. When a mouse button is pressed, the circle’s color changes to black. 
+上記のコードは、マウスポインタの位置に白い円を描きます。マウスボタンを押すと、円の色が黒に変わります。
 
-Visit the [p5.js reference](/reference/) for more p5.js functions, such as other shapes you can draw. 
-
-
-### Errors
-
-It is easy to spell function names wrong or forget a comma. Syntax rules help the computer interpret code. When a “rule” is broken (for example, if [`circle()`](/reference/p5/circle) is spelled wrong), a message will appear in the browser’s console. These errors are commonly referred to as bugs; when your code does not execute correctly, there might be a bug in your code! 
-
-- Visit these resources for instructions on how to view the console in specific browsers: [Chrome](https://developer.chrome.com/docs/devtools/console/reference/) | [Firefox](https://firefox-source-docs.mozilla.org/devtools-user/web_console/) | [Safari](https://support.apple.com/guide/safari-developer/safari-developer-tools-overview-dev073038698/11.0/mac/10.13) | [Edge](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/)
-- Visit the [Field Guide to Debugging](https://docs.google.com/document/d/1Uc5Uey4_UDgix6-O0ez-pcRD-FZQSOaRD9TAGZYzD6c/edit) for more information on how to fix errors in your code.
+[p5.js リファレンス](/reference/) で、描くことができる他の図形などの他の p5.js 関数をご覧ください。
 
 
-### Accessibility note
+### エラー
 
-If you are using a screen reader, use the [p5.js Web Editor](https://editor.p5js.org/) instead! To learn more, visit the “[How to Use the p5.js Web Editor with a Screen Reader](https://docs.google.com/document/u/0/d/1Q_leNn8lkeSUfAyq1jLQeLYq1h8pU9134QHNvMu4Tcw/edit)” resource.
+関数名を間違えたり、カンマを忘れたりするのは簡単です。構文ルールは、コンピュータがコードを解釈するのに役立ちます。「ルール」が破られると（例えば、[`circle()`](/reference/p5/circle) が間違ってスペルされている場合）、ブラウザのコンソールにメッセージが表示されます。これらのエラーは「バグ」と呼ばれ、コードが正しく実行されない場合、コードにバグがある可能性があります！
 
-
-## Next steps: 
-
-- Next Tutorial: [Get Started](/tutorials/get-started)
-- Explore some [p5.js examples](/examples/)
+- 特定のブラウザでコンソールを表示する方法については、以下のリソースをご覧ください：[Chrome](https://developer.chrome.com/docs/devtools/console/reference/) | [Firefox](https://firefox-source-docs.mozilla.org/devtools-user/web_console/) | [Safari](https://support.apple.com/guide/safari-developer/safari-developer-tools-overview-dev073038698/11.0/mac/10.13) | [Edge](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/)
+- [デバッグのフィールドガイド](/tutorials/field-guide-to-debugging) で、コードのエラーを修正する方法について詳しく学ぶことができます。
 
 
-## Resources:
+### アクセシビリティに関する注意事項
 
-- [p5.js Welcome Video](https://hello.p5js.org/)
+スクリーンリーダーを使用している場合は、[p5.js Web エディタ](https://editor.p5js.org/) を使用してください！詳細については、「[スクリーンリーダーで p5.js Web エディタを使用する方法](https://docs.google.com/document/u/0/d/1Q_leNn8lkeSUfAyq1jLQeLYq1h8pU9134QHNvMu4Tcw/edit)」リソースをご覧ください。
+
+
+## 次のステップ：
+
+- 次のチュートリアル：[はじめに](/tutorials/get-started)
+- [p5.js の例](/examples/) をいくつか見てみる
+
+
+## リソース：
+
+- [p5.js ウェルカムビデオ](https://hello.p5js.org/)
 - The Coding Train: [1.2: p5.js Web Editor - p5.js Tutorial](https://www.youtube.com/watch?v=MXs1cOlidWs)
-- [p5.js reference page](/reference/)
-- [Javascript - MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-- [Field Guide to Debugging](https://docs.google.com/document/d/1Uc5Uey4_UDgix6-O0ez-pcRD-FZQSOaRD9TAGZYzD6c/edit)
-- [p5.js with VSCode](https://www.youtube.com/watch?v=zMAnM9ly0a8) (video tutorial)
-- [VSCode Overview](https://code.visualstudio.com/docs/getstarted/introvideos)
-- [p5.vscode reference](https://github.com/antiboredom/p5.vscode/blob/master/README.md)
-- Browser consoles in [Chrome](https://developer.chrome.com/docs/devtools/console/reference/) | [Firefox](https://firefox-source-docs.mozilla.org/devtools-user/web_console/) | [Safari](https://support.apple.com/guide/safari-developer/safari-developer-tools-overview-dev073038698/11.0/mac/10.13) | [Edge](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/)
+- [p5.js リファレンスページ](/reference/)
+- [Javascript - MDN リファレンス](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [デバッグのフィールドガイド](/tutorials/field-guide-to-debugging)
+- [p5.js with VSCode](https://www.youtube.com/watch?v=zMAnM9ly0a8) (ビデオチュートリアル)
+- [VSCode 概要](https://code.visualstudio.com/docs/getstarted/introvideos)
+- [p5.vscode リファレンス](https://github.com/antiboredom/p5.vscode/blob/master/README.md)
+- ブラウザコンソール：[Chrome](https://developer.chrome.com/docs/devtools/console/reference/) | [Firefox](https://firefox-source-docs.mozilla.org/devtools-user/web_console/) | [Safari](https://support.apple.com/guide/safari-developer/safari-developer-tools-overview-dev073038698/11.0/mac/10.13) | [Edge](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/)
