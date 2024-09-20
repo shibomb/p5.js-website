@@ -4,27 +4,17 @@ module: Math
 submodule: Vector
 file: src/math/p5.Vector.js
 description: >
-  <p>Rotates a 2D vector by an angle without changing its magnitude.</p>
+  <p>2Dベクトルを角度だけ回転させます。ただし、その大きさは変更しません。</p>
 
-  <p>By convention, the positive x-axis has an angle of 0. Angles increase in
+  <p>慣例により、正のx軸の角度は0とされています。角度は時計回りに増加します。</p>
 
-  the clockwise direction.</p>
+  <p>ベクトルが<a href="/reference/p5/createVector/">createVector()</a>で作成された場合、
+  <code>rotate()</code>は現在の<a href="/reference/p5/angleMode/">angleMode()</a>の
+  単位を使用します。</p>
 
-  <p>If the vector was created with
-
-  <a href="/reference/p5/createVector/">createVector()</a>,
-  <code>rotate()</code> uses
-
-  the units of the current <a
-  href="/reference/p5/angleMode/">angleMode()</a>.</p>
-
-  <p>The static version of <code>rotate()</code>, as in
-  <code>p5.Vector.rotate(v, PI)</code>,
-
-  returns a new <a href="/reference/p5/p5.Vector">p5.Vector</a> object and
-  doesn't change
-
-  the original.</p>
+  <p><code>rotate()</code>の静的バージョン（例：<code>p5.Vector.rotate(v, PI)</code>）は、
+  新しい<a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトを返し、
+  元のオブジェクトは変更しません。</p>
 line: 2238
 isConstructor: false
 itemtype: method
@@ -34,16 +24,16 @@ example:
     <div class="norender">
     <code>
     function setup() {
-      // Create a p5.Vector object.
+      // p5.Vectorオブジェクトを作成します。
       let v = createVector(1, 0);
 
-      // Prints "p5.Vector Object : [1, 0, 0]" to the console.
+      // コンソールに "p5.Vector Object : [1, 0, 0]" と出力します。
       print(v.toString());
 
-      // Rotate a quarter turn.
+      // 4分の1回転させます。
       v.rotate(HALF_PI);
 
-      // Prints "p5.Vector Object : [0, 1, 0]" to the console.
+      // コンソールに "p5.Vector Object : [0, 1, 0]" と出力します。
       print(v.toString());
     }
     </code>
@@ -52,19 +42,19 @@ example:
     <div class="norender">
     <code>
     function setup() {
-      // Use degrees.
+      // 度数法を使用します。
       angleMode(DEGREES);
 
-      // Create a p5.Vector object.
+      // p5.Vectorオブジェクトを作成します。
       let v = createVector(1, 0);
 
-      // Prints "p5.Vector Object : [1, 0, 0]" to the console.
+      // コンソールに "p5.Vector Object : [1, 0, 0]" と出力します。
       print(v.toString());
 
-      // Rotate a quarter turn.
+      // 4分の1回転させます。
       v.rotate(90);
 
-      // Prints "p5.Vector Object : [0, 1, 0]" to the console.
+      // コンソールに "p5.Vector Object : [0, 1, 0]" と出力します。
       print(v.toString());
     }
     </code>
@@ -73,15 +63,15 @@ example:
     <div class="norender">
     <code>
     function setup() {
-      // Create a p5.Vector object.
+      // p5.Vectorオブジェクトを作成します。
       let v0 = createVector(1, 0);
 
-      // Create a rotated copy.
+      // 回転したコピーを作成します。
       let v1 = p5.Vector.rotate(v0, HALF_PI);
 
-      // Prints "p5.Vector Object : [1, 0, 0]" to the console.
+      // コンソールに "p5.Vector Object : [1, 0, 0]" と出力します。
       print(v0.toString());
-      // Prints "p5.Vector Object : [0, 1, 0]" to the console.
+      // コンソールに "p5.Vector Object : [0, 1, 0]" と出力します。
       print(v1.toString());
     }
     </code>
@@ -90,19 +80,19 @@ example:
     <div class="norender">
     <code>
     function setup() {
-      // Use degrees.
+      // 度数法を使用します。
       angleMode(DEGREES);
 
-      // Create a p5.Vector object.
+      // p5.Vectorオブジェクトを作成します。
       let v0 = createVector(1, 0);
 
-      // Create a rotated copy.
+      // 回転したコピーを作成します。
       let v1 = p5.Vector.rotate(v0, 90);
 
-      // Prints "p5.Vector Object : [1, 0, 0]" to the console.
+      // コンソールに "p5.Vector Object : [1, 0, 0]" と出力します。
       print(v0.toString());
 
-      // Prints "p5.Vector Object : [0, 1, 0]" to the console.
+      // コンソールに "p5.Vector Object : [0, 1, 0]" と出力します。
       print(v1.toString());
     }
     </code>
@@ -116,24 +106,24 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create p5.Vector objects.
+      // p5.Vectorオブジェクトを作成します。
       v0 = createVector(50, 50);
       v1 = createVector(30, 0);
 
-      describe('A black arrow extends from the center of a gray square. The arrow rotates clockwise.');
+      describe('灰色の正方形の中心から黒い矢印が伸びています。矢印は時計回りに回転します。');
     }
 
     function draw() {
       background(240);
 
-      // Rotate v1.
+      // v1を回転させます。
       v1.rotate(0.01);
 
-      // Draw the black arrow.
+      // 黒い矢印を描画します。
       drawArrow(v0, v1, 'black');
     }
 
-    // Draws an arrow between two vectors.
+    // 2つのベクトル間に矢印を描画します。
     function drawArrow(base, vec, myColor) {
       push();
       stroke(myColor);
@@ -155,7 +145,7 @@ overloads:
     params:
       - name: angle
         description: |
-          <p>angle of rotation.</p>
+          <p>回転角度。</p>
         type: Number
     chainable: 1
   - line: 3491
@@ -168,15 +158,16 @@ overloads:
         type: Number
       - name: target
         description: |
-          <p>The vector to receive the result</p>
+          <p>結果を受け取るベクトル</p>
         type: p5.Vector
         optional: true
     static: 1
     return:
-      description: The resulting new <a href="#/p5.Vector">p5.Vector</a>
+      description: 結果として得られる新しい<a href="#/p5.Vector">p5.Vector</a>
       type: p5.Vector
 chainable: true
 ---
 
 
 # rotate
+

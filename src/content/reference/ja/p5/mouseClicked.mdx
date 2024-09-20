@@ -4,93 +4,85 @@ module: Events
 submodule: Mouse
 file: src/events/mouse.js
 description: >
-  <p>A function that's called once after a mouse button is pressed and
-  released.</p>
+  <p>マウスボタンが押されて離された後、一度だけ呼び出される関数です。</p>
 
-  <p>Declaring the function <code>mouseClicked()</code> sets a code block to run
+  <p><code>mouseClicked()</code>関数を宣言すると、ユーザーがマウスボタンを押して
 
-  automatically when the user releases a mouse button after having pressed
-
-  it:</p>
+  離した後に自動的に実行されるコードブロックを設定できます：</p>
 
   <pre><code class="language-js">function mouseClicked() {
-    // Code to run.
+    // 実行するコード
   }
 
   </code></pre>
 
-  <p>The mouse system variables, such as <a
-  href="/reference/p5/mouseX/">mouseX</a> and
+  <p><a href="/reference/p5/mouseX/">mouseX</a>や
 
-  <a href="/reference/p5/mouseY/">mouseY</a>, will be updated with their most
-  recent
+  <a href="/reference/p5/mouseY/">mouseY</a>などのマウスシステム変数は、
 
-  value when <code>mouseClicked()</code> is called by p5.js:</p>
+  p5.jsによって<code>mouseClicked()</code>が呼び出されたときに
+
+  最新の値に更新されます：</p>
 
   <pre><code class="language-js">function mouseClicked() {
     if (mouseX < 50) {
-      // Code to run if the mouse is on the left.
+      // マウスが左側にある場合に実行するコード
     }
 
     if (mouseY > 50) {
-      // Code to run if the mouse is near the bottom.
+      // マウスが下部付近にある場合に実行するコード
     }
   }
 
   </code></pre>
 
-  <p>The parameter, <code>event</code>, is optional. <code>mouseClicked()</code>
-  is always passed a
+  <p>パラメータ<code>event</code>はオプションです。<code>mouseClicked()</code>には常に
+
+  マウスクリックイベントを説明するプロパティを持つ
 
   <a href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/"
   target="_blank">MouseEvent</a>
 
-  object with properties that describe the mouse click event:</p>
+  オブジェクトが渡されます：</p>
 
   <pre><code class="language-js">function mouseClicked(event) {
-    // Code to run that uses the event.
+    // イベントを使用して実行するコード
     console.log(event);
   }
 
   </code></pre>
 
-  <p>On touchscreen devices, <code>mouseClicked()</code> will run when a user’s
-  touch
+  <p>タッチスクリーンデバイスでは、<a href="/reference/p5/touchEnded/">touchEnded()</a>が
 
-  ends if <a href="/reference/p5/touchEnded/">touchEnded()</a> isn’t declared.
-  If
+  宣言されていない場合、ユーザーのタッチが終了したときに<code>mouseClicked()</code>が
 
-  <a href="/reference/p5/touchEnded/">touchEnded()</a> is declared, then
+  実行されます。<a href="/reference/p5/touchEnded/">touchEnded()</a>が宣言されている場合、
 
-  <a href="/reference/p5/touchEnded/">touchEnded()</a> will run when a user’s
-  touch
+  ユーザーのタッチが終了したときに<a href="/reference/p5/touchEnded/">touchEnded()</a>が
 
-  ends and <code>mouseClicked()</code> won’t.</p>
+  実行され、<code>mouseClicked()</code>は実行されません。</p>
 
-  <p>Browsers may have default behaviors attached to various mouse events. For
+  <p>ブラウザには、様々なマウスイベントにデフォルトの動作が設定されている場合があります。
 
-  example, some browsers highlight text when the user moves the mouse while
+  例えば、一部のブラウザでは、ユーザーがマウスボタンを押しながらマウスを動かすと
 
-  pressing a mouse button. To prevent any default behavior for this event,
+  テキストがハイライトされます。このイベントのデフォルトの動作を防ぐには、
 
-  add <code>return false;</code> to the end of the function.</p>
+  関数の最後に<code>return false;</code>を追加してください。</p>
 
-  <p>Note: <a href="/reference/p5/mousePressed/">mousePressed()</a>,
+  <p>注意：<a href="/reference/p5/mousePressed/">mousePressed()</a>、
 
-  <a href="/reference/p5/mouseReleased/">mouseReleased()</a>,
+  <a href="/reference/p5/mouseReleased/">mouseReleased()</a>、
 
-  and <code>mouseClicked()</code> are all related.
+  そして<code>mouseClicked()</code>は全て関連しています。
 
-  <a href="/reference/p5/mousePressed/">mousePressed()</a> runs as soon as the
-  user
+  <a href="/reference/p5/mousePressed/">mousePressed()</a>はユーザーがマウスをクリックした
 
-  clicks the mouse. <a href="/reference/p5/mouseReleased/">mouseReleased()</a>
-  runs as
+  瞬間に実行されます。<a href="/reference/p5/mouseReleased/">mouseReleased()</a>は
 
-  soon as the user releases the mouse click. <code>mouseClicked()</code> runs
+  ユーザーがマウスクリックを離した瞬間に実行されます。<code>mouseClicked()</code>は
 
-  immediately after <a
-  href="/reference/p5/mouseReleased/">mouseReleased()</a>.</p>
+  <a href="/reference/p5/mouseReleased/">mouseReleased()</a>の直後に実行されます。</p>
 line: 1429
 isConstructor: false
 itemtype: method
@@ -105,28 +97,28 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'A gray square with a black square at its center. The inner square changes color when the user presses and releases a mouse button.'
+        'グレーの正方形の中央に黒い正方形があります。ユーザーがマウスボタンを押して離すと、内側の正方形の色が変わります。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Style the square.
+      // 正方形のスタイルを設定
       fill(value);
 
-      // Draw the square.
+      // 正方形を描画
       square(25, 25, 50);
     }
 
-    // Toggle the square's color when the user clicks.
+    // ユーザーがクリックしたときに正方形の色を切り替える
     function mouseClicked() {
       if (value === 0) {
         value = 255;
       } else {
         value = 0;
       }
-      // Uncomment to prevent any default behavior.
+      // デフォルトの動作を防ぐにはコメントを解除してください
       // return false;
     }
     </code>
@@ -137,42 +129,41 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Style the circle.
+      // 円のスタイルを設定
       fill('orange');
       stroke('royalblue');
       strokeWeight(10);
 
       describe(
-        'An orange circle with a thick, blue border drawn on a gray background. When the user presses and holds the mouse, the border becomes thin and pink. When the user releases the mouse, the border becomes thicker and changes color to blue.'
+        'グレーの背景に、太い青い枠線のオレンジ色の円が描かれています。ユーザーがマウスを押して保持すると、枠線が細くピンク色になります。ユーザーがマウスを離すと、枠線が太くなり青色に変わります。'
       );
     }
 
     function draw() {
       background(220);
 
-      // Draw the circle.
+      // 円を描画
       circle(50, 50, 20);
     }
 
-    // Set the stroke color and weight as soon as the user clicks.
+    // ユーザーがクリックした瞬間にストロークの色と太さを設定
     function mousePressed() {
       stroke('deeppink');
       strokeWeight(3);
     }
 
-    // Set the stroke and fill colors as soon as the user releases
-    // the mouse.
+    // ユーザーがマウスを離した瞬間にストロークと塗りつぶしの色を設定
     function mouseReleased() {
       stroke('royalblue');
 
-      // This is never visible because fill() is called
-      // in mouseClicked() which runs immediately after
-      // mouseReleased();
+      // これは表示されません。なぜならfill()が
+      // mouseClicked()内で呼び出され、mouseReleased()の
+      // 直後に実行されるからです
       fill('limegreen');
     }
 
-    // Set the fill color and stroke weight after
-    // mousePressed() and mouseReleased() are called.
+    // mousePressed()とmouseReleased()が呼び出された後に
+    // 塗りつぶしの色とストロークの太さを設定
     function mouseClicked() {
       fill('orange');
       strokeWeight(10);
@@ -183,7 +174,7 @@ class: p5
 params:
   - name: event
     description: |
-      <p>optional <code>MouseEvent</code> argument.</p>
+      <p>オプションの<code>MouseEvent</code>引数。</p>
     type: MouseEvent
     optional: true
 chainable: false
@@ -191,3 +182,4 @@ chainable: false
 
 
 # mouseClicked
+

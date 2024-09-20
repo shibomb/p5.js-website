@@ -3,43 +3,44 @@ title: random
 module: Math
 submodule: Random
 file: src/math/random.js
-description: "<p>Returns a random number or a random element from an array.</p>\n<p><code>random()</code> follows uniform distribution, which means that all outcomes are\nequally likely. When <code>random()</code> is used to generate numbers, all\nnumbers in the output range are equally likely to be returned. When\n<code>random()</code> is used to select elements from an array, all elements are\nequally likely to be chosen.</p>\n<p>By default, <code>random()</code> produces different results each time a sketch runs.\nThe <a href=\"/reference/p5/randomSeed/\">randomSeed()</a> function can be used to\ngenerate the same sequence of numbers or choices each time a sketch runs.</p>\n<p>The version of <code>random()</code> with no parameters returns a random number from 0\nup to but not including 1.</p>\n<p>The version of <code>random()</code> with one parameter works one of two ways. If the\nargument passed is a number, <code>random()</code> returns a random number from 0 up\nto but not including the number. For example, calling <code>random(5)</code> returns\nvalues between 0 and 5. If the argument passed is an array, <code>random()</code>\nreturns a random element from that array. For example, calling\n<code>random(['\U0001F981', '\U0001F42F', '\U0001F43B'])</code> returns either a lion, tiger, or bear emoji.</p>\n<p>The version of <code>random()</code> with two parameters returns a random number from\na given range. The arguments passed set the range's lower and upper bounds.\nFor example, calling <code>random(-5, 10.2)</code> returns values from -5 up to but\nnot including 10.2.</p>\n"
+description: "<p>ランダムな数値または配列からランダムな要素を返します。</p>\n<p><code>random()</code>は一様分布に従います。これは、すべての結果が等しく起こりやすいことを意味します。<code>random()</code>が数値を生成するために使用される場合、出力範囲内のすべての数値が等しく返される可能性があります。<code>random()</code>が配列から要素を選択するために使用される場合、すべての要素が等しく選ばれる可能性があります。</p>\n<p>デフォルトでは、<code>random()</code>はスケッチが実行されるたびに異なる結果を生成します。<a href=\"/reference/p5/randomSeed/\">randomSeed()</a>関数を使用すると、スケッチが実行されるたびに同じ数値または選択のシーケンスを生成することができます。</p>\n<p>パラメータなしの<code>random()</code>バージョンは、0以上1未満のランダムな数値を返します。</p>\n<p>1つのパラメータを持つ<code>random()</code>バージョンは2つの方法で動作します。渡された引数が数値の場合、<code>random()</code>は0以上その数値未満のランダムな数値を返します。例えば、<code>random(5)</code>を呼び出すと、0から5の間の値が返されます。渡された引数が配列の場合、<code>random()</code>はその配列からランダムな要素を返します。例えば、<code>random(['\U0001F981', '\U0001F42F', '\U0001F43B'])</code>を呼び出すと、ライオン、トラ、またはクマの絵文字のいずれかが返されます。</p>\n<p>2つのパラメータを持つ<code>random()</code>バージョンは、指定された範囲からランダムな数値を返します。渡された引数は範囲の下限と上限を設定します。例えば、<code>random(-5, 10.2)</code>を呼び出すと、-5以上10.2未満の値が返されます。</p>\n"
 line: 86
 isConstructor: false
 itemtype: method
 example:
-  - "\n<div>\n<code>\nfunction setup() {\n  createCanvas(100, 100);\n\n  background(200);\n\n  // Get random coordinates between 0 and 100.\n  let x = random(0, 100);\n  let y = random(0, 100);\n\n  // Draw a point.\n  strokeWeight(5);\n  point(x, y);\n\n  describe('A black dot appears in a random position on a gray square.');\n}\n</code>\n</div>\n\n<div>\n<code>\nfunction setup() {\n  createCanvas(100, 100);\n\n  background(200);\n\n  // Get random coordinates between 0 and 100.\n  let x = random(100);\n  let y = random(100);\n\n  // Draw the point.\n  strokeWeight(5);\n  point(x, y);\n\n  describe('A black dot appears in a random position on a gray square.');\n}\n</code>\n</div>\n\n<div>\n<code>\nfunction setup() {\n  createCanvas(100, 100);\n\n  background(200);\n\n  // Create an array of emoji strings.\n  let animals = ['\U0001F981', '\U0001F42F', '\U0001F43B'];\n\n  // Choose a random element from the array.\n  let choice = random(animals);\n\n  // Style the text.\n  textAlign(CENTER);\n  textSize(20);\n\n  // Display the emoji.\n  text(choice, 50, 50);\n\n  describe('An animal face is displayed at random. Either a lion, tiger, or bear.');\n}\n</code>\n</div>\n\n<div>\n<code>\nfunction setup() {\n  createCanvas(100, 100);\n\n  // Slow the frame rate.\n  frameRate(5);\n\n  describe('A black dot moves around randomly on a gray square.');\n}\n\nfunction draw() {\n  background(200);\n\n  // Get random coordinates between 0 and 100.\n  let x = random(100);\n  let y = random(100);\n\n  // Draw the point.\n  strokeWeight(5);\n  point(x, y);\n}\n</code>\n</div>\n\n<div>\n<code>\nfunction setup() {\n  createCanvas(100, 100);\n\n  // Slow the frame rate.\n  frameRate(5);\n\n  describe('A black dot moves around randomly in the middle of a gray square.');\n}\n\nfunction draw() {\n  background(200);\n\n  // Get random coordinates between 45 and 55.\n  let x = random(45, 55);\n  let y = random(45, 55);\n\n  // Draw the point.\n  strokeWeight(5);\n  point(x, y);\n}\n</code>\n</div>\n\n<div>\n<code>\nlet x = 50;\nlet y = 50;\n\nfunction setup() {\n  createCanvas(100, 100);\n\n  background(200);\n\n  describe('A black dot moves around randomly leaving a trail.');\n}\n\nfunction draw() {\n  // Update x and y randomly.\n  x += random(-1, 1);\n  y += random(-1, 1);\n\n  // Draw the point.\n  point(x, y);\n}\n</code>\n</div>"
+  - "\n<div>\n<code>\nfunction setup() {\n  createCanvas(100, 100);\n\n  background(200);\n\n  // 0から100の間のランダムな座標を取得します。\n  let x = random(0, 100);\n  let y = random(0, 100);\n\n  // 点を描画します。\n  strokeWeight(5);\n  point(x, y);\n\n  describe('灰色の正方形上のランダムな位置に黒い点が表示されます。');\n}\n</code>\n</div>\n\n<div>\n<code>\nfunction setup() {\n  createCanvas(100, 100);\n\n  background(200);\n\n  // 0から100の間のランダムな座標を取得します。\n  let x = random(100);\n  let y = random(100);\n\n  // 点を描画します。\n  strokeWeight(5);\n  point(x, y);\n\n  describe('灰色の正方形上のランダムな位置に黒い点が表示されます。');\n}\n</code>\n</div>\n\n<div>\n<code>\nfunction setup() {\n  createCanvas(100, 100);\n\n  background(200);\n\n  // 絵文字の文字列の配列を作成します。\n  let animals = ['\U0001F981', '\U0001F42F', '\U0001F43B'];\n\n  // 配列からランダムな要素を選択します。\n  let choice = random(animals);\n\n  // テキストのスタイルを設定します。\n  textAlign(CENTER);\n  textSize(20);\n\n  // 絵文字を表示します。\n  text(choice, 50, 50);\n\n  describe('ランダムに動物の顔が表示されます。ライオン、トラ、またはクマのいずれかです。');\n}\n</code>\n</div>\n\n<div>\n<code>\nfunction setup() {\n  createCanvas(100, 100);\n\n  // フレームレートを遅くします。\n  frameRate(5);\n\n  describe('黒い点が灰色の正方形上をランダムに動き回ります。');\n}\n\nfunction draw() {\n  background(200);\n\n  // 0から100の間のランダムな座標を取得します。\n  let x = random(100);\n  let y = random(100);\n\n  // 点を描画します。\n  strokeWeight(5);\n  point(x, y);\n}\n</code>\n</div>\n\n<div>\n<code>\nfunction setup() {\n  createCanvas(100, 100);\n\n  // フレームレートを遅くします。\n  frameRate(5);\n\n  describe('黒い点が灰色の正方形の中央付近をランダムに動き回ります。');\n}\n\nfunction draw() {\n  background(200);\n\n  // 45から55の間のランダムな座標を取得します。\n  let x = random(45, 55);\n  let y = random(45, 55);\n\n  // 点を描画します。\n  strokeWeight(5);\n  point(x, y);\n}\n</code>\n</div>\n\n<div>\n<code>\nlet x = 50;\nlet y = 50;\n\nfunction setup() {\n  createCanvas(100, 100);\n\n  background(200);\n\n  describe('黒い点が軌跡を残しながらランダムに動き回ります。');\n}\n\nfunction draw() {\n  // xとyをランダムに更新します。\n  x += random(-1, 1);\n  y += random(-1, 1);\n\n  // 点を描画します。\n  point(x, y);\n}\n</code>\n</div>"
 class: p5
 return:
-  description: random number.
+  description: ランダムな数値。
   type: Number
 overloads:
   - line: 86
     params:
       - name: min
         description: |
-          <p>lower bound (inclusive).</p>
+          <p>下限（含む）。</p>
         type: Number
         optional: true
       - name: max
         description: |
-          <p>upper bound (exclusive).</p>
+          <p>上限（含まない）。</p>
         type: Number
         optional: true
     return:
-      description: random number.
+      description: ランダムな数値。
       type: Number
   - line: 259
     params:
       - name: choices
         description: |
-          <p>array to choose from.</p>
+          <p>選択元の配列。</p>
         type: Array
     return:
-      description: random element from the array.
+      description: 配列からのランダムな要素。
       type: '*'
 chainable: false
 ---
 
 
 # random
+

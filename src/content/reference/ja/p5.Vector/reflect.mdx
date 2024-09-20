@@ -4,19 +4,15 @@ module: Math
 submodule: Vector
 file: src/math/p5.Vector.js
 description: >
-  <p>Reflects a vector about a line in 2D or a plane in 3D.</p>
+  <p>2Dの線または3Dの平面についてベクトルを反射させます。</p>
 
-  <p>The orientation of the line or plane is described by a normal vector that
+  <p>線または平面の向きは、形状から離れる方向を指す法線ベクトルによって記述されます。</p>
 
-  points away from the shape.</p>
+  <p><code>reflect()</code>の静的バージョン（<code>p5.Vector.reflect(v, n)</code>のような形式）は、
 
-  <p>The static version of <code>reflect()</code>, as in
-  <code>p5.Vector.reflect(v, n)</code>,
+  新しい<a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトを返し、
 
-  returns a new <a href="/reference/p5/p5.Vector">p5.Vector</a> object and
-  doesn't change
-
-  the original.</p>
+  元のオブジェクトは変更しません。</p>
 line: 2869
 isConstructor: false
 itemtype: method
@@ -26,15 +22,15 @@ example:
     <div class="norender">
     <code>
     function setup() {
-      // Create a normal vector.
+      // 法線ベクトルを作成します。
       let n = createVector(0, 1);
-      // Create a vector to reflect.
+      // 反射させるベクトルを作成します。
       let v = createVector(4, 6);
 
-      // Reflect v about n.
+      // vをnについて反射させます。
       v.reflect(n);
 
-      // Prints "p5.Vector Object : [4, -6, 0]" to the console.
+      // コンソールに "p5.Vector Object : [4, -6, 0]" と出力します。
       print(v.toString());
     }
     </code>
@@ -43,16 +39,16 @@ example:
     <div class="norender">
     <code>
     function setup() {
-      // Create a normal vector.
+      // 法線ベクトルを作成します。
       let n = createVector(0, 1);
 
-      // Create a vector to reflect.
+      // 反射させるベクトルを作成します。
       let v0 = createVector(4, 6);
 
-      // Create a reflected vector.
+      // 反射したベクトルを作成します。
       let v1 = p5.Vector.reflect(v0, n);
 
-      // Prints "p5.Vector Object : [4, -6, 0]" to the console.
+      // コンソールに "p5.Vector Object : [4, -6, 0]" と出力します。
       print(v1.toString());
     }
     </code>
@@ -63,40 +59,40 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('Three arrows extend from the center of a gray square with a vertical line down its middle. A black arrow points to the right, a blue arrow points to the bottom left, and a red arrow points to the bottom right.');
+      describe('中央に垂直な線が引かれたグレーの正方形から3本の矢印が伸びています。黒い矢印は右を指し、青い矢印は左下を指し、赤い矢印は右下を指しています。');
     }
     function draw() {
       background(200);
 
-      // Draw a vertical line.
+      // 垂直な線を描画します。
       line(50, 0, 50, 100);
 
-      // Create a normal vector.
+      // 法線ベクトルを作成します。
       let n = createVector(1, 0);
 
-      // Center.
+      // 中心。
       let v0 = createVector(50, 50);
 
-      // Create a vector to reflect.
+      // 反射させるベクトルを作成します。
       let v1 = createVector(30, 40);
 
-      // Create a reflected vector.
+      // 反射したベクトルを作成します。
       let v2 = p5.Vector.reflect(v1, n);
 
-      // Scale the normal vector for drawing.
+      // 描画のために法線ベクトルのスケールを調整します。
       n.setMag(30);
 
-      // Draw the black arrow.
+      // 黒い矢印を描画します。
       drawArrow(v0, n, 'black');
 
-      // Draw the red arrow.
+      // 赤い矢印を描画します。
       drawArrow(v0, v1, 'red');
 
-      // Draw the blue arrow.
+      // 青い矢印を描画します。
       drawArrow(v0, v2, 'blue');
     }
 
-    // Draws an arrow between two vectors.
+    // 2つのベクトル間に矢印を描画します。
     function drawArrow(base, vec, myColor) {
       push();
       stroke(myColor);
@@ -118,30 +114,30 @@ overloads:
     params:
       - name: surfaceNormal
         description: |
-          <p><a href="#/p5.Vector">p5.Vector</a>
-                                             to reflect about.</p>
+          <p>反射の基準となる<a href="#/p5.Vector">p5.Vector</a>。</p>
         type: p5.Vector
     chainable: 1
   - line: 3826
     params:
       - name: incidentVector
         description: |
-          <p>vector to be reflected.</p>
+          <p>反射させるベクトル。</p>
         type: p5.Vector
       - name: surfaceNormal
         description: ''
         type: p5.Vector
       - name: target
         description: |
-          <p>vector to receive the result.</p>
+          <p>結果を受け取るベクトル。</p>
         type: p5.Vector
         optional: true
     static: 1
     return:
-      description: the reflected vector
+      description: 反射したベクトル
       type: p5.Vector
 chainable: true
 ---
 
 
 # reflect
+

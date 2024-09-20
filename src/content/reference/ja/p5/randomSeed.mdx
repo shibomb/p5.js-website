@@ -4,22 +4,19 @@ module: Math
 submodule: Random
 file: src/math/random.js
 description: >
-  <p>Sets the seed value for the <a href="/reference/p5/random/">random()</a>
-  and
+  <p><a href="/reference/p5/random/">random()</a>関数と
 
-  <a href="/reference/p5/randomGaussian/">randomGaussian()</a> functions.</p>
+  <a href="/reference/p5/randomGaussian/">randomGaussian()</a>関数のシード値を設定します。</p>
 
-  <p>By default, <a href="/reference/p5/random/">random()</a> and
+  <p>デフォルトでは、<a href="/reference/p5/random/">random()</a>と
 
-  <a href="/reference/p5/randomGaussian/">randomGaussian()</a> produce different
+  <a href="/reference/p5/randomGaussian/">randomGaussian()</a>は、スケッチが実行されるたびに
 
-  results each time a sketch is run. Calling <code>randomSeed()</code> with a
-  constant
+  異なる結果を生成します。<code>randomSeed()</code>を定数の引数で呼び出すと、
 
-  argument, such as <code>randomSeed(99)</code>, makes these functions produce
-  the same
+  例えば<code>randomSeed(99)</code>のように、これらの関数はスケッチが
 
-  results each time a sketch is run.</p>
+  実行されるたびに同じ結果を生成するようになります。</p>
 line: 37
 isConstructor: false
 itemtype: method
@@ -33,25 +30,25 @@ example:
 
       background(200);
 
-      // Get random coordinates.
+      // ランダムな座標を取得
       let x = random(0, 100);
       let y = random(0, 100);
 
-      // Draw the white circle.
+      // 白い円を描画
       circle(x, y, 10);
 
-      // Set a random seed for consistency.
+      // 一貫性のためにランダムシードを設定
       randomSeed(99);
 
-      // Get random coordinates.
+      // ランダムな座標を取得
       x = random(0, 100);
       y = random(0, 100);
 
-      // Draw the black circle.
+      // 黒い円を描画
       fill(0);
       circle(x, y, 10);
 
-      describe('A white circle appears at a random position. A black circle appears at (27.4, 25.8).');
+      describe('ランダムな位置に白い円が表示されます。黒い円は(27.4, 25.8)の位置に表示されます。');
     }
     </code>
     </div>
@@ -59,10 +56,9 @@ class: p5
 params:
   - name: seed
     description: |
-      <p>seed value.</p>
+      <p>シード値。</p>
     type: Number
 chainable: false
 ---
-
 
 # randomSeed

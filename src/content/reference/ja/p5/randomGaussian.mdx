@@ -4,43 +4,39 @@ module: Math
 submodule: Random
 file: src/math/random.js
 description: >
-  <p>Returns a random number fitting a Gaussian, or normal, distribution.</p>
+  <p>ガウス分布、または正規分布に適合するランダムな数値を返します。</p>
 
-  <p>Normal distributions look like bell curves when plotted. Values from a
+  <p>正規分布をプロットすると釣鐘型の曲線になります。正規分布からの値は、
 
-  normal distribution cluster around a central value called the mean. The
+  平均と呼ばれる中心値の周りに集まります。分布の標準偏差は、その広がりを
 
-  cluster's standard deviation describes its spread.</p>
+  表します。</p>
 
-  <p>By default, <code>randomGaussian()</code> produces different results each
-  time a
+  <p>デフォルトでは、<code>randomGaussian()</code>はスケッチが実行されるたびに
+  異なる
 
-  sketch runs. The <a href="/reference/p5/randomSeed/">randomSeed()</a> function
-  can be
+  結果を生成します。<a href="/reference/p5/randomSeed/">randomSeed()</a>関数を
+  使用すると、
 
-  used to generate the same sequence of numbers each time a sketch runs.</p>
+  スケッチが実行されるたびに同じ数列を生成することができます。</p>
 
-  <p>There's no minimum or maximum value that <code>randomGaussian()</code>
-  might return.
+  <p><code>randomGaussian()</code>が返す値に最小値や最大値はありません。
 
-  Values far from the mean are very unlikely and values near the mean are
+  平均から遠い値は非常に稀で、平均に近い値は
 
-  very likely.</p>
+  非常に高い確率で発生します。</p>
 
-  <p>The version of <code>randomGaussian()</code> with no parameters returns
-  values with a
+  <p>パラメータなしの<code>randomGaussian()</code>バージョンは、
 
-  mean of 0 and standard deviation of 1.</p>
+  平均0、標準偏差1の値を返します。</p>
 
-  <p>The version of <code>randomGaussian()</code> with one parameter interprets
-  the
+  <p>1つのパラメータを持つ<code>randomGaussian()</code>バージョンは、
 
-  argument passed as the mean. The standard deviation is 1.</p>
+  渡された引数を平均として解釈します。標準偏差は1です。</p>
 
-  <p>The version of <code>randomGaussian()</code> with two parameters interprets
-  the first
+  <p>2つのパラメータを持つ<code>randomGaussian()</code>バージョンは、最初の
 
-  argument passed as the mean and the second as the standard deviation.</p>
+  引数を平均として、2番目を標準偏差として解釈します。</p>
 line: 292
 isConstructor: false
 itemtype: method
@@ -54,25 +50,25 @@ example:
 
       background(200);
 
-      describe('Three horizontal black lines are filled in randomly. The top line spans entire canvas. The middle line is very short. The bottom line spans two-thirds of the canvas.');
+      describe('3本の水平な黒い線がランダムに塗りつぶされています。上の線はキャンバス全体に広がっています。中央の線は非常に短いです。下の線はキャンバスの3分の2に広がっています。');
     }
 
     function draw() {
-      // Style the circles.
+      // 円のスタイルを設定します。
       noStroke();
       fill(0, 10);
 
-      // Uniform distribution between 0 and 100.
+      // 0から100の間の一様分布。
       let x = random(100);
       let y = 25;
       circle(x, y, 5);
 
-      // Gaussian distribution with a mean of 50 and sd of 1.
+      // 平均50、標準偏差1のガウス分布。
       x = randomGaussian(50);
       y = 50;
       circle(x, y, 5);
 
-      // Gaussian distribution with a mean of 50 and sd of 10.
+      // 平均50、標準偏差10のガウス分布。
       x = randomGaussian(50, 10);
       y = 75;
       circle(x, y, 5);
@@ -83,19 +79,19 @@ class: p5
 params:
   - name: mean
     description: |
-      <p>mean.</p>
+      <p>平均。</p>
     type: Number
     optional: true
   - name: sd
     description: |
-      <p>standard deviation.</p>
+      <p>標準偏差。</p>
     type: Number
     optional: true
 return:
-  description: random number.
+  description: ランダムな数値。
   type: Number
 chainable: false
 ---
 
-
 # randomGaussian
+

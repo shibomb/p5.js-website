@@ -4,20 +4,15 @@ module: Math
 submodule: Trigonometry
 file: src/math/trigonometry.js
 description: >
-  <p>Calculates the arc sine of a number.</p>
+  <p>数値のアークサイン（逆正弦）を計算します。</p>
 
-  <p><code>asin()</code> is the inverse of <a
-  href="/reference/p5/sin/">sin()</a>. It expects input
+  <p><code>asin()</code>は<a href="/reference/p5/sin/">sin()</a>の逆関数です。-1から1の範囲の入力値を
 
-  values in the range of -1 to 1. By default, <code>asin()</code> returns values
-  in the
+  期待します。デフォルトでは、<code>asin()</code>は-π ÷ 2（約-1.57）から
 
-  range -π ÷ 2 (about -1.57) to π ÷ 2 (about 1.57). If
+  π ÷ 2（約1.57）の範囲の値を返します。<a href="/reference/p5/angleMode/">angleMode()</a>が
 
-  the <a href="/reference/p5/angleMode/">angleMode()</a> is <code>DEGREES</code>
-  then values are
-
-  returned in the range -90 to 90.</p>
+  <code>DEGREES</code>に設定されている場合、値は-90から90の範囲で返されます。</p>
 line: 80
 isConstructor: false
 itemtype: method
@@ -31,17 +26,17 @@ example:
 
       background(200);
 
-      // Calculate sin() and asin() values.
+      // sin()とasin()の値を計算します。
       let a = PI / 3;
       let s = sin(a);
       let as = asin(s);
 
-      // Display the values.
+      // 値を表示します。
       text(`${round(a, 3)}`, 35, 25);
       text(`${round(s, 3)}`, 35, 50);
       text(`${round(as, 3)}`, 35, 75);
 
-      describe('The numbers 1.047, 0.866, and 1.047 written on separate rows.');
+      describe('別々の行に書かれた数字1.047、0.866、1.047。');
     }
     </code>
     </div>
@@ -53,17 +48,17 @@ example:
 
       background(200);
 
-      // Calculate sin() and asin() values.
+      // sin()とasin()の値を計算します。
       let a = PI + PI / 3;
       let s = sin(a);
       let as = asin(s);
 
-      // Display the values.
+      // 値を表示します。
       text(`${round(a, 3)}`, 35, 25);
       text(`${round(s, 3)}`, 35, 50);
       text(`${round(as, 3)}`, 35, 75);
 
-      describe('The numbers 4.189, -0.866, and -1.047 written on separate rows.');
+      describe('別々の行に書かれた数字4.189、-0.866、-1.047。');
     }
     </code>
     </div>
@@ -71,13 +66,14 @@ class: p5
 params:
   - name: value
     description: |
-      <p>value whose arc sine is to be returned.</p>
+      <p>アークサインを求める値。</p>
     type: Number
 return:
-  description: arc sine of the given value.
+  description: 与えられた値のアークサイン。
   type: Number
 chainable: false
 ---
 
 
 # asin
+

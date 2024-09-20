@@ -4,12 +4,10 @@ module: Math
 submodule: Vector
 file: src/math/p5.Vector.js
 description: >
-  <p>Returns a string representation of a vector.</p>
+  <p>ベクトルの文字列表現を返します。</p>
 
-  <p>Calling <code>toString()</code> is useful for printing vectors to the
-  console while
-
-  debugging.</p>
+  <p><code>toString()</code>を呼び出すことは、デバッグ中にコンソールに
+  ベクトルを出力する際に便利です。</p>
 line: 136
 isConstructor: false
 itemtype: method
@@ -21,17 +19,18 @@ example:
     function setup() {
       let v = createVector(20, 30);
 
-      // Prints 'p5.Vector Object : [20, 30, 0]'.
+      // 'p5.Vector Object : [20, 30, 0]' と出力します。
       print(v.toString());
     }
     </code>
     </div>
 class: p5.Vector
 return:
-  description: string representation of the vector.
+  description: ベクトルの文字列表現。
   type: String
 chainable: false
 ---
 
 
 # toString
+

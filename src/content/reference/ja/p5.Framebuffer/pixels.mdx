@@ -4,24 +4,18 @@ module: Rendering
 submodule: ''
 file: src/webgl/p5.Framebuffer.js
 description: >
-  <p>An array containing the color of each pixel in the framebuffer.</p>
+  <p>フレームバッファ内の各ピクセルの色を含む配列です。</p>
 
-  <p><a href="/reference/p5.Framebuffer/loadPixels/">myBuffer.loadPixels()</a>
-  must be
-
-  called before accessing the <code>myBuffer.pixels</code> array.
-
+  <p><code>myBuffer.pixels</code>配列にアクセスする前に、
+  <a href="/reference/p5.Framebuffer/loadPixels/">myBuffer.loadPixels()</a>
+  を呼び出す必要があります。
+  変更を加えた後は
   <a href="/reference/p5.Framebuffer/updatePixels/">myBuffer.updatePixels()</a>
+  を呼び出す必要があります。</p>
 
-  must be called after any changes are made.</p>
-
-  <p>Note: Updating pixels via this property is slower than drawing to the
-
-  framebuffer directly. Consider using a
-
-  <a href="/reference/p5/p5.Shader">p5.Shader</a> object instead of looping over
-
-  <code>myBuffer.pixels</code>.</p>
+  <p>注意：このプロパティを介してピクセルを更新することは、フレームバッファに
+  直接描画するよりも遅くなります。<code>myBuffer.pixels</code>をループする代わりに、
+  <a href="/reference/p5/p5.Shader">p5.Shader</a>オブジェクトの使用を検討してください。</p>
 line: 111
 isConstructor: false
 itemtype: property
@@ -35,17 +29,16 @@ example:
 
       background(200);
 
-      // Create a p5.Framebuffer object.
+      // p5.Framebufferオブジェクトを作成します。
       let myBuffer = createFramebuffer();
 
-      // Load the pixels array.
+      // pixels配列をロードします。
       myBuffer.loadPixels();
 
-      // Get the number of pixels in the
-      // top half of the framebuffer.
+      // フレームバッファの上半分のピクセル数を取得します。
       let numPixels = myBuffer.pixels.length / 2;
 
-      // Set the framebuffer's top half to pink.
+      // フレームバッファの上半分をピンク色に設定します。
       for (let i = 0; i < numPixels; i += 4) {
         myBuffer.pixels[i] = 255;
         myBuffer.pixels[i + 1] = 102;
@@ -53,13 +46,13 @@ example:
         myBuffer.pixels[i + 3] = 255;
       }
 
-      // Update the pixels array.
+      // pixels配列を更新します。
       myBuffer.updatePixels();
 
-      // Draw the p5.Framebuffer object to the canvas.
+      // p5.Framebufferオブジェクトをキャンバスに描画します。
       image(myBuffer, -50, -50);
 
-      describe('A pink rectangle above a gray rectangle.');
+      describe('灰色の長方形の上にピンクの長方形があります。');
     }
     </code>
     </div>
@@ -69,3 +62,4 @@ type: 'Number[]'
 
 
 # pixels
+

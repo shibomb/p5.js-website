@@ -4,17 +4,15 @@ module: Math
 submodule: Calculation
 file: src/math/calculation.js
 description: >
-  <p>Returns the largest value in a sequence of numbers.</p>
+  <p>数値の並びの中で最大の値を返します。</p>
 
-  <p>The version of <code>max()</code> with one parameter interprets it as an
-  array of
+  <p>1つのパラメータを持つ<code>max()</code>のバージョンは、それを数値の配列として解釈し、
 
-  numbers and returns the largest number.</p>
+  最大の数値を返します。</p>
 
-  <p>The version of <code>max()</code> with two or more parameters interprets
-  them as
+  <p>2つ以上のパラメータを持つ<code>max()</code>のバージョンは、それらを
 
-  individual numbers and returns the largest number.</p>
+  個別の数値として解釈し、最大の数値を返します。</p>
 line: 618
 isConstructor: false
 itemtype: method
@@ -28,17 +26,17 @@ example:
 
       background(200);
 
-      // Calculate the maximum of 10, 5, and 20.
+      // 10、5、20の最大値を計算します。
       let m = max(10, 5, 20);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER);
       textSize(16);
 
-      // Display the max.
+      // 最大値を表示します。
       text(m, 50, 50);
 
-      describe('The number 20 written in the middle of a gray square.');
+      describe('灰色の正方形の中央に数字20が書かれています。');
     }
     </code>
     </div>
@@ -50,46 +48,46 @@ example:
 
       background(200);
 
-      // Create an array of numbers.
+      // 数値の配列を作成します。
       let numbers = [10, 5, 20];
 
-      // Calculate the maximum of the array.
+      // 配列の最大値を計算します。
       let m = max(numbers);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER);
       textSize(16);
 
-      // Display the max.
+      // 最大値を表示します。
       text(m, 50, 50);
 
-      describe('The number 20 written in the middle of a gray square.');
+      describe('灰色の正方形の中央に数字20が書かれています。');
     }
     </code>
     </div>
 class: p5
 return:
-  description: maximum number.
+  description: 最大の数値。
   type: Number
 overloads:
   - line: 618
     params:
       - name: n0
         description: |
-          <p>first number to compare.</p>
+          <p>比較する最初の数値。</p>
         type: Number
       - name: n1
         description: |
-          <p>second number to compare.</p>
+          <p>比較する2番目の数値。</p>
         type: Number
     return:
-      description: maximum number.
+      description: 最大の数値。
       type: Number
   - line: 680
     params:
       - name: nums
         description: |
-          <p>numbers to compare.</p>
+          <p>比較する数値。</p>
         type: 'Number[]'
     return:
       description: ''
@@ -99,3 +97,4 @@ chainable: false
 
 
 # max
+

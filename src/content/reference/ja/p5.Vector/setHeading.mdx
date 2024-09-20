@@ -4,19 +4,13 @@ module: Math
 submodule: Vector
 file: src/math/p5.Vector.js
 description: >
-  <p>Rotates a 2D vector to a specific angle without changing its magnitude.</p>
+  <p>2Dベクトルを、その大きさを変えずに特定の角度に回転させます。</p>
 
-  <p>By convention, the positive x-axis has an angle of 0. Angles increase in
+  <p>慣例により、正のx軸の角度は0です。角度は時計回りに増加します。</p>
 
-  the clockwise direction.</p>
-
-  <p>If the vector was created with
-
-  <a href="/reference/p5/createVector/">createVector()</a>,
-  <code>setHeading()</code> uses
-
-  the units of the current <a
-  href="/reference/p5/angleMode/">angleMode()</a>.</p>
+  <p>ベクトルが<a href="/reference/p5/createVector/">createVector()</a>で作成された場合、
+  <code>setHeading()</code>は現在の<a href="/reference/p5/angleMode/">angleMode()</a>の
+  単位を使用します。</p>
 line: 2134
 isConstructor: false
 itemtype: method
@@ -26,16 +20,16 @@ example:
     <div class="norender">
     <code>
     function setup() {
-      // Create a p5.Vector object.
+      // p5.Vectorオブジェクトを作成します。
       let v = createVector(0, 1);
 
-      // Prints "1.570..." to the console.
+      // コンソールに "1.570..." と表示されます。
       print(v.heading());
 
-      // Point to the left.
+      // 左を指すように設定します。
       v.setHeading(PI);
 
-      // Prints "3.141..." to the console.
+      // コンソールに "3.141..." と表示されます。
       print(v.heading());
     }
     </code>
@@ -44,19 +38,19 @@ example:
     <div class="norender">
     <code>
     function setup() {
-      // Use degrees.
+      // 度数法を使用します。
       angleMode(DEGREES);
 
-      // Create a p5.Vector object.
+      // p5.Vectorオブジェクトを作成します。
       let v = createVector(0, 1);
 
-      // Prints "90" to the console.
+      // コンソールに "90" と表示されます。
       print(v.heading());
 
-      // Point to the left.
+      // 左を指すように設定します。
       v.setHeading(180);
 
-      // Prints "180" to the console.
+      // コンソールに "180" と表示されます。
       print(v.heading());
     }
     </code>
@@ -67,27 +61,27 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('Two arrows extend from the center of a gray square. The red arrow points to the right and the blue arrow points down.');
+      describe('灰色の正方形の中心から2本の矢印が伸びています。赤い矢印は右を指し、青い矢印は下を指しています。');
     }
 
     function draw() {
       background(200);
 
-      // Create p5.Vector objects.
+      // p5.Vectorオブジェクトを作成します。
       let v0 = createVector(50, 50);
       let v1 = createVector(30, 0);
 
-      // Draw the red arrow.
+      // 赤い矢印を描画します。
       drawArrow(v0, v1, 'red');
 
-      // Point down.
+      // 下を指すように設定します。
       v1.setHeading(HALF_PI);
 
-      // Draw the blue arrow.
+      // 青い矢印を描画します。
       drawArrow(v0, v1, 'blue');
     }
 
-    // Draws an arrow between two vectors.
+    // 2つのベクトル間に矢印を描画します。
     function drawArrow(base, vec, myColor) {
       push();
       stroke(myColor);
@@ -107,10 +101,11 @@ class: p5.Vector
 params:
   - name: angle
     description: |
-      <p>angle of rotation.</p>
+      <p>回転の角度。</p>
     type: Number
 chainable: true
 ---
 
 
 # setHeading
+

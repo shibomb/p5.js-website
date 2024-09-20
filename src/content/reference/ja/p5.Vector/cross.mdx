@@ -4,18 +4,15 @@ module: Math
 submodule: Vector
 file: src/math/p5.Vector.js
 description: >
-  <p>Calculates the cross product of two vectors.</p>
+  <p>2つのベクトルの外積を計算します。</p>
 
-  <p>The cross product is a vector that points straight out of the plane created
+  <p>外積は、2つのベクトルによって作られる平面から真っ直ぐに飛び出すベクトルです。外積の大きさは、
 
-  by two vectors. The cross product's magnitude is the area of the parallelogram
+  元の2つのベクトルによって形成される平行四辺形の面積です。</p>
 
-  formed by the original two vectors.</p>
+  <p><code>cross()</code>の静的バージョン、つまり<code>p5.Vector.cross(v1, v2)</code>は、
 
-  <p>The static version of <code>cross()</code>, as in <code>p5.Vector.cross(v1,
-  v2)</code>, is the same
-
-  as calling <code>v1.cross(v2)</code>.</p>
+  <code>v1.cross(v2)</code>を呼び出すのと同じです。</p>
 line: 1554
 isConstructor: false
 itemtype: method
@@ -25,14 +22,14 @@ example:
     <div class="norender">
     <code>
     function setup() {
-      // Create p5.Vector objects.
+      // p5.Vectorオブジェクトを作成します。
       let v1 = createVector(1, 0);
       let v2 = createVector(3, 4);
 
-      // Calculate the cross product.
+      // 外積を計算します。
       let cp = v1.cross(v2);
 
-      // Prints "p5.Vector Object : [0, 0, 4]" to the console.
+      // コンソールに "p5.Vector Object : [0, 0, 4]" と出力します。
       print(cp.toString());
     }
     </code>
@@ -41,48 +38,49 @@ example:
     <div class="norender">
     <code>
     function setup() {
-      // Create p5.Vector objects.
+      // p5.Vectorオブジェクトを作成します。
       let v1 = createVector(1, 0);
       let v2 = createVector(3, 4);
 
-      // Calculate the cross product.
+      // 外積を計算します。
       let cp = p5.Vector.cross(v1, v2);
 
-      // Prints "p5.Vector Object : [0, 0, 4]" to the console.
+      // コンソールに "p5.Vector Object : [0, 0, 4]" と出力します。
       print(cp.toString());
     }
     </code>
     </div>
 class: p5.Vector
 return:
-  description: cross product as a <a href="#/p5.Vector">p5.Vector</a>.
+  description: 外積を<a href="#/p5.Vector">p5.Vector</a>として返します。
   type: p5.Vector
 overloads:
   - line: 1554
     params:
       - name: v
         description: |
-          <p><a href="#/p5.Vector">p5.Vector</a> to be crossed.</p>
+          <p>外積を取る<a href="#/p5.Vector">p5.Vector</a>。</p>
         type: p5.Vector
     return:
-      description: cross product as a <a href="#/p5.Vector">p5.Vector</a>.
+      description: 外積を<a href="#/p5.Vector">p5.Vector</a>として返します。
       type: p5.Vector
   - line: 3590
     params:
       - name: v1
         description: |
-          <p>first <a href="#/p5.Vector">p5.Vector</a>.</p>
+          <p>1つ目の<a href="#/p5.Vector">p5.Vector</a>。</p>
         type: p5.Vector
       - name: v2
         description: |
-          <p>second <a href="#/p5.Vector">p5.Vector</a>.</p>
+          <p>2つ目の<a href="#/p5.Vector">p5.Vector</a>。</p>
         type: p5.Vector
     static: 1
     return:
-      description: cross product.
+      description: 外積。
       type: Number
 chainable: false
 ---
 
 
 # cross
+

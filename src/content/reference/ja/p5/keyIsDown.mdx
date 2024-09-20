@@ -4,32 +4,32 @@ module: Events
 submodule: Keyboard
 file: src/events/keyboard.js
 description: >
-  <p>Returns <code>true</code> if the key it’s checking is pressed and
-  <code>false</code> if not.</p>
+  <p>チェックしているキーが押されている場合は<code>true</code>を返し、
+  押されていない場合は<code>false</code>を返します。</p>
 
-  <p><code>keyIsDown()</code> is helpful when checking for multiple different
-  key presses.
+  <p><code>keyIsDown()</code>は、複数の異なるキー押下を
+  チェックする際に便利です。
 
-  For example, <code>keyIsDown()</code> can be used to check if both
-  <code>LEFT_ARROW</code> and
+  例えば、<code>keyIsDown()</code>を使用して<code>LEFT_ARROW</code>と
 
-  <code>UP_ARROW</code> are pressed:</p>
+  <code>UP_ARROW</code>の両方が押されているかどうかを確認できます：</p>
 
   <pre><code class="language-js">if (keyIsDown(LEFT_ARROW) &&
   keyIsDown(UP_ARROW)) {
-    // Move diagonally.
+    // 斜めに移動する。
   }
 
   </code></pre>
 
-  <p><code>keyIsDown()</code> can check for key presses using
+  <p><code>keyIsDown()</code>は、<code>keyIsDown(37)</code>や
 
-  <a href="/reference/p5/keyCode/">keyCode</a> values, as in
-  <code>keyIsDown(37)</code> or
+  <code>keyIsDown(LEFT_ARROW)</code>のように、
 
-  <code>keyIsDown(LEFT_ARROW)</code>. Key codes can be found on websites such as
+  <a href="/reference/p5/keyCode/">keyCode</a>の値を使用してキー押下を
+  チェックできます。キーコードは
 
-  <a href="https://keycode.info" target="_blank">keycode.info</a>.</p>
+  <a href="https://keycode.info" target="_blank">keycode.info</a>などの
+  ウェブサイトで確認できます。</p>
 line: 795
 isConstructor: false
 itemtype: method
@@ -38,7 +38,7 @@ example:
 
     <div>
     <code>
-    // Click on the canvas to begin detecting key presses.
+    // キャンバスをクリックしてキー押下の検出を開始します。
 
     let x = 50;
     let y = 50;
@@ -49,12 +49,12 @@ example:
       background(200);
 
       describe(
-        'A gray square with a black circle at its center. The circle moves when the user presses an arrow key. It leaves a trail as it moves.'
+        'グレーの正方形の中央に黒い円があります。ユーザーが矢印キーを押すと円が移動します。移動すると軌跡が残ります。'
       );
     }
 
     function draw() {
-      // Update x and y if an arrow key is pressed.
+      // 矢印キーが押されたらxとyを更新します。
       if (keyIsDown(LEFT_ARROW) === true) {
         x -= 1;
       }
@@ -71,10 +71,10 @@ example:
         y += 1;
       }
 
-      // Style the circle.
+      // 円のスタイルを設定します。
       fill(0);
 
-      // Draw the circle.
+      // 円を描画します。
       circle(x, y, 5);
     }
     </code>
@@ -82,7 +82,7 @@ example:
 
     <div>
     <code>
-    // Click on the canvas to begin detecting key presses.
+    // キャンバスをクリックしてキー押下の検出を開始します。
 
     let x = 50;
     let y = 50;
@@ -93,12 +93,12 @@ example:
       background(200);
 
       describe(
-        'A gray square with a black circle at its center. The circle moves when the user presses an arrow key. It leaves a trail as it moves.'
+        'グレーの正方形の中央に黒い円があります。ユーザーが矢印キーを押すと円が移動します。移動すると軌跡が残ります。'
       );
     }
 
     function draw() {
-      // Update x and y if an arrow key is pressed.
+      // 矢印キーが押されたらxとyを更新します。
       if (keyIsDown(37) === true) {
         x -= 1;
       }
@@ -115,10 +115,10 @@ example:
         y += 1;
       }
 
-      // Style the circle.
+      // 円のスタイルを設定します。
       fill(0);
 
-      // Draw the circle.
+      // 円を描画します。
       circle(x, y, 5);
     }
     </code>
@@ -127,13 +127,14 @@ class: p5
 params:
   - name: code
     description: |
-      <p>key to check.</p>
+      <p>チェックするキー。</p>
     type: Number
 return:
-  description: whether the key is down or not.
+  description: キーが押されているかどうか。
   type: Boolean
 chainable: false
 ---
 
 
 # keyIsDown
+

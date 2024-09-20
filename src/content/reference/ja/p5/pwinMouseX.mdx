@@ -4,39 +4,19 @@ module: Events
 submodule: Mouse
 file: src/events/mouse.js
 description: >
-  <p>A <code>Number</code> variable that tracks the mouse's previous horizontal
-  position
+  <p>ブラウザ内のマウスの前回の水平位置を追跡する<code>Number</code>変数です。</p>
 
-  within the browser.</p>
+  <p><code>pwinMouseX</code>は、ブラウザウィンドウの左上隅を基準としたマウスの位置を
+  追跡します。その値は前のフレームの<a href="/reference/p5/winMouseX/">winMouseX</a>
+  です。例えば、前のフレームでマウスがブラウザの左端から50ピクセルの位置にあった場合、
+  <code>pwinMouseX</code>は50になります。</p>
 
-  <p><code>pwinMouseX</code> keeps track of the mouse's position relative to the
-  top-left
+  <p>タッチスクリーンデバイスでは、<code>pwinMouseX</code>は最新のタッチポイントの
+  x座標を保持します。<code>pwinMouseX</code>は各タッチイベントの開始時に現在の
+  <a href="/reference/p5/winMouseX/">winMouseX</a>の値にリセットされます。</p>
 
-  corner of the browser window. Its value is
-
-  <a href="/reference/p5/winMouseX/">winMouseX</a> from the previous frame. For
-
-  example, if the mouse was 50 pixels from
-
-  the left edge of the browser during the last frame, then
-  <code>pwinMouseX</code> will
-
-  be 50.</p>
-
-  <p>On a touchscreen device, <code>pwinMouseX</code> will hold the x-coordinate
-  of the most
-
-  recent touch point. <code>pwinMouseX</code> is reset to the current
-
-  <a href="/reference/p5/winMouseX/">winMouseX</a> value at the start of each
-  touch
-
-  event.</p>
-
-  <p>Note: Use <a href="/reference/p5/pmouseX/">pmouseX</a> to track the mouse’s
-  previous
-
-  x-coordinate within the canvas.</p>
+  <p>注意：キャンバス内のマウスの前回のx座標を追跡するには、
+  <a href="/reference/p5/pmouseX/">pmouseX</a>を使用してください。</p>
 line: 551
 isConstructor: false
 itemtype: property
@@ -48,19 +28,19 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Slow the frame rate.
+      // フレームレートを遅くする
       frameRate(10);
 
-      describe('A gray square. A white circle at its center grows larger when the mouse moves horizontally.');
+      describe('灰色の正方形。中央の白い円は、マウスが水平に動くと大きくなります。');
     }
 
     function draw() {
       background(200);
 
-      // Calculate the circle's diameter.
+      // 円の直径を計算する
       let d = winMouseX - pwinMouseX;
 
-      // Draw the circle.
+      // 円を描画する
       circle(50, 50, d);
     }
     </code>
@@ -69,21 +49,21 @@ example:
     <div>
     <code>
     function setup() {
-      // Create the canvas and set its position.
+      // キャンバスを作成し、位置を設定する
       let cnv = createCanvas(100, 100);
       cnv.position(20, 20);
 
-      describe('A gray square with a number at its center. The number changes as the user moves the mouse vertically.');
+      describe('中央に数字がある灰色の正方形。ユーザーがマウスを垂直に動かすと数字が変化します。');
     }
 
     function draw() {
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定する
       textAlign(CENTER);
       textSize(16);
 
-      // Display pwinMouseX.
+      // pwinMouseXを表示する
       text(pwinMouseX, 50, 50);
     }
     </code>
@@ -94,3 +74,4 @@ type: Number
 
 
 # pwinMouseX
+

@@ -4,74 +4,68 @@ module: Rendering
 submodule: ''
 file: src/webgl/p5.Framebuffer.js
 description: >
-  <p>Gets a pixel or a region of pixels from the framebuffer.</p>
+  <p>フレームバッファからピクセルまたはピクセル領域を取得します。</p>
 
-  <p><code>myBuffer.get()</code> is easy to use but it's not as fast as
+  <p><code>myBuffer.get()</code>は使いやすいですが、
 
-  <a href="/reference/p5.Framebuffer/pixels/">myBuffer.pixels</a>. Use
+  <a href="/reference/p5.Framebuffer/pixels/">myBuffer.pixels</a>ほど高速ではありません。
 
-  <a href="/reference/p5.Framebuffer/pixels/">myBuffer.pixels</a> to read many
-  pixel
+  多くのピクセル値を読み取るには
 
-  values.</p>
+  <a href="/reference/p5.Framebuffer/pixels/">myBuffer.pixels</a>を使用してください。</p>
 
-  <p>The version of <code>myBuffer.get()</code> with no parameters returns the
-  entire
+  <p>パラメータなしの<code>myBuffer.get()</code>バージョンは、
 
-  framebuffer as a a <a href="/reference/p5/p5.Image">p5.Image</a> object.</p>
+  フレームバッファ全体を<a href="/reference/p5/p5.Image">p5.Image</a>オブジェクトとして返します。</p>
 
-  <p>The version of <code>myBuffer.get()</code> with two parameters interprets
-  them as
+  <p>2つのパラメータを持つ<code>myBuffer.get()</code>バージョンは、
 
-  coordinates. It returns an array with the <code>[R, G, B, A]</code> values of
-  the
+  それらを座標として解釈します。指定されたポイントの<code>[R, G, B, A]</code>値を
 
-  pixel at the given point.</p>
+  含む配列を返します。</p>
 
-  <p>The version of <code>myBuffer.get()</code> with four parameters interprets
-  them as
+  <p>4つのパラメータを持つ<code>myBuffer.get()</code>バージョンは、
 
-  coordinates and dimensions. It returns a subsection of the framebuffer as
+  それらを座標と寸法として解釈します。フレームバッファのサブセクションを
 
-  a <a href="/reference/p5/p5.Image">p5.Image</a> object. The first two
-  parameters are
+  <a href="/reference/p5/p5.Image">p5.Image</a>オブジェクトとして返します。最初の2つの
 
-  the coordinates for the upper-left corner of the subsection. The last two
+  パラメータはサブセクションの左上隅の座標です。最後の2つの
 
-  parameters are the width and height of the subsection.</p>
+  パラメータはサブセクションの幅と高さです。</p>
 line: 1455
 isConstructor: false
 itemtype: method
 class: p5.Framebuffer
 return:
-  description: subsection as a <a href="#/p5.Image">p5.Image</a> object.
+  description: サブセクションを<a href="#/p5.Image">p5.Image</a>オブジェクトとして。
   type: p5.Image
 overloads:
   - line: 1455
     params:
       - name: x
         description: |
-          <p>x-coordinate of the pixel. Defaults to 0.</p>
+          <p>ピクセルのx座標。デフォルトは0。</p>
         type: Number
       - name: 'y'
         description: |
-          <p>y-coordinate of the pixel. Defaults to 0.</p>
+          <p>ピクセルのy座標。デフォルトは0。</p>
         type: Number
       - name: w
         description: |
-          <p>width of the subsection to be returned.</p>
+          <p>返されるサブセクションの幅。</p>
         type: Number
       - name: h
         description: |
-          <p>height of the subsection to be returned.</p>
+          <p>返されるサブセクションの高さ。</p>
         type: Number
     return:
-      description: subsection as a <a href="#/p5.Image">p5.Image</a> object.
+      description: サブセクションを<a href="#/p5.Image">p5.Image</a>オブジェクトとして。
       type: p5.Image
   - line: 1483
     params: []
     return:
-      description: entire framebuffer as a <a href="#/p5.Image">p5.Image</a> object.
+      description: フレームバッファ全体を<a href="#/p5.Image">p5.Image</a>オブジェクトとして。
       type: p5.Image
   - line: 1487
     params:
@@ -83,11 +77,11 @@ overloads:
         type: Number
     return:
       description: >-
-        color of the pixel at `(x, y)` as an array of color values `[R, G, B,
-        A]`.
+        `(x, y)`におけるピクセルの色を色値の配列`[R, G, B, A]`として。
       type: 'Number[]'
 chainable: false
 ---
 
 
 # get
+

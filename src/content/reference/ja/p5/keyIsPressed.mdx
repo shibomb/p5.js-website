@@ -4,10 +4,9 @@ module: Events
 submodule: Keyboard
 file: src/events/keyboard.js
 description: >
-  <p>A <code>Boolean</code> system variable that's <code>true</code> if any key
-  is currently pressed
+  <p><code>Boolean</code>型のシステム変数で、何かキーが現在押されている場合は<code>true</code>、
 
-  and <code>false</code> if not.</p>
+  そうでない場合は<code>false</code>となります。</p>
 line: 10
 isConstructor: false
 itemtype: property
@@ -16,27 +15,27 @@ example:
 
     <div>
     <code>
-    // Click on the canvas to begin detecting key presses.
+    // キャンバスをクリックしてキー押下の検出を開始します。
 
     function setup() {
       createCanvas(100, 100);
 
       describe(
-        'A gray square with a white square at its center. The white square turns black when the user presses a key.'
+        '中央に白い四角形がある灰色の四角形。ユーザーがキーを押すと白い四角形が黒くなります。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Style the square.
+      // 四角形のスタイルを設定します。
       if (keyIsPressed === true) {
         fill(0);
       } else {
         fill(255);
       }
 
-      // Draw the square.
+      // 四角形を描画します。
       square(25, 25, 50);
     }
     </code>
@@ -44,27 +43,27 @@ example:
 
     <div>
     <code>
-    // Click on the canvas to begin detecting key presses.
+    // キャンバスをクリックしてキー押下の検出を開始します。
 
     function setup() {
       createCanvas(100, 100);
 
       describe(
-        'A gray square with a white square at its center. The white square turns black when the user presses a key.'
+        '中央に白い四角形がある灰色の四角形。ユーザーがキーを押すと白い四角形が黒くなります。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Style the square.
+      // 四角形のスタイルを設定します。
       if (keyIsPressed) {
         fill(0);
       } else {
         fill(255);
       }
 
-      // Draw the square.
+      // 四角形を描画します。
       square(25, 25, 50);
     }
     </code>
@@ -72,24 +71,24 @@ example:
 
     <div>
     <code>
-    // Click on the canvas to begin detecting key presses.
+    // キャンバスをクリックしてキー押下の検出を開始します。
 
     function setup() {
       createCanvas(100, 100);
 
       describe(
-        'A gray square with the word "false" at its center. The word switches to "true" when the user presses a key.'
+        '中央に"false"という単語がある灰色の四角形。ユーザーがキーを押すと単語が"true"に切り替わります。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER);
       textSize(16);
 
-      // Display the value of keyIsPressed.
+      // keyIsPressedの値を表示します。
       text(keyIsPressed, 50, 50);
     }
     </code>
@@ -100,3 +99,4 @@ type: Boolean
 
 
 # keyIsPressed
+

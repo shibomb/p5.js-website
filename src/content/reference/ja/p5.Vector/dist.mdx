@@ -4,21 +4,17 @@ module: Math
 submodule: Vector
 file: src/math/p5.Vector.js
 description: >
-  <p>Calculates the distance between two points represented by vectors.</p>
+  <p>ベクトルで表現された2点間の距離を計算します。</p>
 
-  <p>A point's coordinates can be represented by the components of a vector
+  <p>点の座標は、原点からその点まで伸びるベクトルの成分で表現できます。</p>
 
-  that extends from the origin to the point.</p>
+  <p><code>dist()</code>の静的バージョンである<code>p5.Vector.dist(v1, v2)</code>は、
 
-  <p>The static version of <code>dist()</code>, as in <code>p5.Vector.dist(v1,
-  v2)</code>, is the same
+  <code>v1.dist(v2)</code>を呼び出すのと同じです。</p>
 
-  as calling <code>v1.dist(v2)</code>.</p>
+  <p><code>dist(x1, y1, x2, y2)</code>のように座標を使用して点間の距離を計算するには、
 
-  <p>Use <a href="/reference/p5/dist/">dist()</a> to calculate the distance
-  between points
-
-  using coordinates as in <code>dist(x1, y1, x2, y2)</code>.</p>
+  <a href="/reference/p5/dist/">dist()</a>を使用してください。</p>
 line: 1612
 isConstructor: false
 itemtype: method
@@ -32,14 +28,14 @@ example:
 
       background(200);
 
-      // Create p5.Vector objects.
+      // p5.Vectorオブジェクトを作成します。
       let v1 = createVector(1, 0);
       let v2 = createVector(0, 1);
 
-      // Calculate the distance between them.
+      // それらの間の距離を計算します。
       let d = v1.dist(v2);
 
-      // Prints "1.414..." to the console.
+      // コンソールに "1.414..." と表示されます。
       print(d);
     }
     </code>
@@ -52,14 +48,14 @@ example:
 
       background(200);
 
-      // Create p5.Vector objects.
+      // p5.Vectorオブジェクトを作成します。
       let v1 = createVector(1, 0);
       let v2 = createVector(0, 1);
 
-      // Calculate the distance between them.
+      // それらの間の距離を計算します。
       let d = p5.Vector.dist(v1, v2);
 
-      // Prints "1.414..." to the console.
+      // コンソールに "1.414..." と表示されます。
       print(d);
     }
     </code>
@@ -70,7 +66,7 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('Three arrows drawn on a gray square. A red and a blue arrow extend from the top left. A purple arrow extends from the tip of the red arrow to the tip of the blue arrow. The number 36 is written in black near the purple arrow.');
+      describe('灰色の正方形に3本の矢印が描かれています。赤と青の矢印が左上から伸びています。紫の矢印が赤い矢印の先端から青い矢印の先端まで伸びています。紫の矢印の近くに黒で数字36が書かれています。');
     }
 
     function draw() {
@@ -78,27 +74,27 @@ example:
 
       let origin = createVector(0, 0);
 
-      // Draw the red arrow.
+      // 赤い矢印を描画します。
       let v1 = createVector(50, 50);
       drawArrow(origin, v1, 'red');
 
-      // Draw the blue arrow.
+      // 青い矢印を描画します。
       let v2 = createVector(20, 70);
       drawArrow(origin, v2, 'blue');
 
-      // Purple arrow.
+      // 紫の矢印。
       let v3 = p5.Vector.sub(v2, v1);
       drawArrow(v1, v3, 'purple');
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER);
 
-      // Display the magnitude.
+      // 大きさを表示します。
       let m = floor(v3.mag());
       text(m, 50, 75);
     }
 
-    // Draws an arrow between two vectors.
+    // 2つのベクトル間に矢印を描画します。
     function drawArrow(base, vec, myColor) {
       push();
       stroke(myColor);
@@ -116,35 +112,35 @@ example:
     </div>
 class: p5.Vector
 return:
-  description: distance.
+  description: 距離。
   type: Number
 overloads:
   - line: 1612
     params:
       - name: v
         description: >
-          <p>x, y, and z coordinates of a <a
-          href="#/p5.Vector">p5.Vector</a>.</p>
+          <p><a href="#/p5.Vector">p5.Vector</a>のx、y、z座標。</p>
         type: p5.Vector
     return:
-      description: distance.
+      description: 距離。
       type: Number
   - line: 3605
     params:
       - name: v1
         description: |
-          <p>The first <a href="#/p5.Vector">p5.Vector</a></p>
+          <p>1つ目の<a href="#/p5.Vector">p5.Vector</a></p>
         type: p5.Vector
       - name: v2
         description: |
-          <p>The second <a href="#/p5.Vector">p5.Vector</a></p>
+          <p>2つ目の<a href="#/p5.Vector">p5.Vector</a></p>
         type: p5.Vector
     static: 1
     return:
-      description: The distance
+      description: 距離
       type: Number
 chainable: false
 ---
 
 
 # dist
+

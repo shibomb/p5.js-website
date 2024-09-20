@@ -4,69 +4,66 @@ module: Events
 submodule: Mouse
 file: src/events/mouse.js
 description: >
-  <p>A function that's called once when a mouse button is clicked twice
-  quickly.</p>
+  <p>マウスボタンが素早く2回クリックされたときに1回呼び出される関数です。</p>
 
-  <p>Declaring the function <code>doubleClicked()</code> sets a code block to
-  run
+  <p><code>doubleClicked()</code>関数を宣言すると、ユーザーがマウスボタンを素早く2回押して離したときに
 
-  automatically when the user presses and releases the mouse button twice
-
-  quickly:</p>
+  自動的に実行されるコードブロックを設定します：</p>
 
   <pre><code class="language-js">function doubleClicked() {
-    // Code to run.
+    // 実行するコード
   }
 
   </code></pre>
 
-  <p>The mouse system variables, such as <a
-  href="/reference/p5/mouseX/">mouseX</a> and
+  <p><a href="/reference/p5/mouseX/">mouseX</a>や
 
-  <a href="/reference/p5/mouseY/">mouseY</a>, will be updated with their most
-  recent
+  <a href="/reference/p5/mouseY/">mouseY</a>などのマウスシステム変数は、
 
-  value when <code>doubleClicked()</code> is called by p5.js:</p>
+  p5.jsによって<code>doubleClicked()</code>が呼び出されたときに
+
+  最新の値で更新されます：</p>
 
   <pre><code class="language-js">function doubleClicked() {
     if (mouseX < 50) {
-      // Code to run if the mouse is on the left.
+      // マウスが左側にある場合に実行するコード
     }
 
     if (mouseY > 50) {
-      // Code to run if the mouse is near the bottom.
+      // マウスが下部付近にある場合に実行するコード
     }
   }
 
   </code></pre>
 
-  <p>The parameter, <code>event</code>, is optional.
-  <code>doubleClicked()</code> is always passed a
+  <p>パラメータ<code>event</code>はオプションです。
+  <code>doubleClicked()</code>には常に
+
+  ダブルクリックイベントを説明するプロパティを持つ
 
   <a href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/"
   target="_blank">MouseEvent</a>
 
-  object with properties that describe the double-click event:</p>
+  オブジェクトが渡されます：</p>
 
   <pre><code class="language-js">function doubleClicked(event) {
-    // Code to run that uses the event.
+    // イベントを使用して実行するコード
     console.log(event);
   }
 
   </code></pre>
 
-  <p>On touchscreen devices, code placed in <code>doubleClicked()</code> will
-  run after two
+  <p>タッチスクリーンデバイスでは、<code>doubleClicked()</code>に配置されたコードは
 
-  touches that occur within a short time.</p>
+  短時間内に2回のタッチが発生した後に実行されます。</p>
 
-  <p>Browsers may have default behaviors attached to various mouse events. For
+  <p>ブラウザは、様々なマウスイベントにデフォルトの動作を関連付けている場合があります。
 
-  example, some browsers highlight text when the user moves the mouse while
+  例えば、一部のブラウザでは、ユーザーがマウスボタンを押しながらマウスを動かすと
 
-  pressing a mouse button. To prevent any default behavior for this event,
+  テキストがハイライトされます。このイベントのデフォルトの動作を防ぐには、
 
-  add <code>return false;</code> to the end of the function.</p>
+  関数の最後に<code>return false;</code>を追加してください。</p>
 line: 1585
 isConstructor: false
 itemtype: method
@@ -81,28 +78,28 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'A gray square with a black square at its center. The inner square changes color when the user double-clicks.'
+        'グレーの正方形の中央に黒い正方形がある。ユーザーがダブルクリックすると内側の正方形の色が変わる。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Style the square.
+      // 正方形のスタイルを設定
       fill(value);
 
-      // Draw the square.
+      // 正方形を描画
       square(25, 25, 50);
     }
 
-    // Toggle the square's color when the user double-clicks.
+    // ユーザーがダブルクリックしたときに正方形の色を切り替える
     function doubleClicked() {
       if (value === 0) {
         value = 255;
       } else {
         value = 0;
       }
-      // Uncomment to prevent any default behavior.
+      // デフォルトの動作を防ぐにはコメントを解除してください
       // return false;
     }
     </code>
@@ -116,26 +113,26 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'A gray square with a black circle at its center. When the user double-clicks on the circle, it changes color to white.'
+        'グレーの正方形の中央に黒い円がある。ユーザーが円をダブルクリックすると、円の色が白に変わる。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Style the circle.
+      // 円のスタイルを設定
       fill(value);
 
-      // Draw the circle.
+      // 円を描画
       circle(50, 50, 80);
     }
 
-    // Reassign value to 255 when the user double-clicks on the circle.
+    // ユーザーが円をダブルクリックしたときにvalueを255に再代入する
     function doubleClicked() {
       if (dist(50, 50, mouseX, mouseY) < 40) {
         value = 255;
       }
-      // Uncomment to prevent any default behavior.
+      // デフォルトの動作を防ぐにはコメントを解除してください
       // return false;
     }
     </code>
@@ -144,7 +141,7 @@ class: p5
 params:
   - name: event
     description: |
-      <p>optional <code>MouseEvent</code> argument.</p>
+      <p>オプションの<code>MouseEvent</code>引数。</p>
     type: MouseEvent
     optional: true
 chainable: false
@@ -152,3 +149,4 @@ chainable: false
 
 
 # doubleClicked
+

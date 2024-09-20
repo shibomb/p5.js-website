@@ -4,33 +4,29 @@ module: Math
 submodule: Vector
 file: src/math/p5.Vector.js
 description: >
-  <p>Calculates the dot product of two vectors.</p>
+  <p>2つのベクトルのドット積（内積）を計算します。</p>
 
-  <p>The dot product is a number that describes the overlap between two vectors.
+  <p>ドット積は、2つのベクトル間の重なりを表す数値です。
 
-  Visually, the dot product can be thought of as the "shadow" one vector
+  視覚的には、ドット積は一方のベクトルがもう一方のベクトルに投影する「影」と
 
-  casts on another. The dot product's magnitude is largest when two vectors
+  考えることができます。ドット積の大きさは、2つのベクトルが同じ方向または
 
-  point in the same or opposite directions. Its magnitude is 0 when two
+  反対方向を向いているときに最大になります。2つのベクトルが直角を
 
-  vectors form a right angle.</p>
+  形成するとき、その大きさは0になります。</p>
 
-  <p>The version of <code>dot()</code> with one parameter interprets it as
-  another
+  <p>1つのパラメータを持つ<code>dot()</code>のバージョンは、それを別の
 
-  <a href="/reference/p5/p5.Vector">p5.Vector</a> object.</p>
+  <a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトとして解釈します。</p>
 
-  <p>The version of <code>dot()</code> with multiple parameters interprets them
-  as the
+  <p>複数のパラメータを持つ<code>dot()</code>のバージョンは、それらを別のベクトルの
 
-  <code>x</code>, <code>y</code>, and <code>z</code> components of another
-  vector.</p>
+  <code>x</code>、<code>y</code>、<code>z</code>成分として解釈します。</p>
 
-  <p>The static version of <code>dot()</code>, as in <code>p5.Vector.dot(v1,
-  v2)</code>, is the same
+  <p><code>dot()</code>の静的バージョン（<code>p5.Vector.dot(v1, v2)</code>のような）は、
 
-  as calling <code>v1.dot(v2)</code>.</p>
+  <code>v1.dot(v2)</code>を呼び出すのと同じです。</p>
 line: 1441
 isConstructor: false
 itemtype: method
@@ -40,14 +36,14 @@ example:
     <div class="norender">
     <code>
     function setup() {
-      // Create p5.Vector objects.
+      // p5.Vectorオブジェクトを作成します。
       let v1 = createVector(3, 4);
       let v2 = createVector(3, 0);
 
-      // Calculate the dot product.
+      // ドット積を計算します。
       let dp = v1.dot(v2);
 
-      // Prints "9" to the console.
+      // コンソールに "9" を出力します。
       print(dp);
     }
     </code>
@@ -56,14 +52,14 @@ example:
     <div class="norender">
     <code>
     function setup() {
-      // Create p5.Vector objects.
+      // p5.Vectorオブジェクトを作成します。
       let v1 = createVector(1, 0);
       let v2 = createVector(0, 1);
 
-      // Calculate the dot product.
+      // ドット積を計算します。
       let dp = p5.Vector.dot(v1, v2);
 
-      // Prints "0" to the console.
+      // コンソールに "0" を出力します。
       print(dp);
     }
     </code>
@@ -74,29 +70,29 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('Two arrows drawn on a gray square. A black arrow points to the right and a red arrow follows the mouse. The text "v1 • v2 = something" changes as the mouse moves.');
+      describe('灰色の正方形に描かれた2つの矢印。黒い矢印は右を指し、赤い矢印はマウスに従います。テキスト "v1 • v2 = 何か" はマウスが動くにつれて変化します。');
     }
 
     function draw() {
       background(200);
 
-      // Center.
+      // 中心。
       let v0 = createVector(50, 50);
 
-      // Draw the black arrow.
+      // 黒い矢印を描画します。
       let v1 = createVector(30, 0);
       drawArrow(v0, v1, 'black');
 
-      // Draw the red arrow.
+      // 赤い矢印を描画します。
       let v2 = createVector(mouseX - 50, mouseY - 50);
       drawArrow(v0, v2, 'red');
 
-      // Display the dot product.
+      // ドット積を表示します。
       let dp = v2.dot(v1);
       text(`v2 • v1 = ${dp}`, 10, 20);
     }
 
-    // Draws an arrow between two vectors.
+    // 2つのベクトル間に矢印を描画します。
     function drawArrow(base, vec, myColor) {
       push();
       stroke(myColor);
@@ -114,33 +110,33 @@ example:
     </div>
 class: p5.Vector
 return:
-  description: dot product.
+  description: ドット積。
   type: Number
 overloads:
   - line: 1441
     params:
       - name: x
         description: |
-          <p>x component of the vector.</p>
+          <p>ベクトルのx成分。</p>
         type: Number
       - name: 'y'
         description: |
-          <p>y component of the vector.</p>
+          <p>ベクトルのy成分。</p>
         type: Number
         optional: true
       - name: z
         description: |
-          <p>z component of the vector.</p>
+          <p>ベクトルのz成分。</p>
         type: Number
         optional: true
     return:
-      description: dot product.
+      description: ドット積。
       type: Number
   - line: 1542
     params:
       - name: v
         description: |
-          <p><a href="#/p5.Vector">p5.Vector</a> to be dotted.</p>
+          <p>ドット積を計算する<a href="#/p5.Vector">p5.Vector</a>。</p>
         type: p5.Vector
     return:
       description: ''
@@ -149,18 +145,19 @@ overloads:
     params:
       - name: v1
         description: |
-          <p>first <a href="#/p5.Vector">p5.Vector</a>.</p>
+          <p>1つ目の<a href="#/p5.Vector">p5.Vector</a>。</p>
         type: p5.Vector
       - name: v2
         description: |
-          <p>second <a href="#/p5.Vector">p5.Vector</a>.</p>
+          <p>2つ目の<a href="#/p5.Vector">p5.Vector</a>。</p>
         type: p5.Vector
     static: 1
     return:
-      description: dot product.
+      description: ドット積。
       type: Number
 chainable: false
 ---
 
 
 # dot
+

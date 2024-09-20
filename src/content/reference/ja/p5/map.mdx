@@ -4,30 +4,25 @@ module: Math
 submodule: Calculation
 file: src/math/calculation.js
 description: >
-  <p>Re-maps a number from one range to another.</p>
+  <p>ある範囲の数値を別の範囲に再マッピングします。</p>
 
-  <p>For example, calling <code>map(2, 0, 10, 0, 100)</code> returns 20. The
-  first three
+  <p>例えば、<code>map(2, 0, 10, 0, 100)</code>を呼び出すと20が返されます。最初の3つの
 
-  arguments set the original value to 2 and the original range from 0 to 10.
+  引数は元の値を2に設定し、元の範囲を0から10に設定します。
 
-  The last two arguments set the target range from 0 to 100. 20's position
+  最後の2つの引数は目標範囲を0から100に設定します。20の目標範囲[0, 100]における
 
-  in the target range [0, 100] is proportional to 2's position in the
+  位置は、2の元の範囲[0, 10]における位置に比例しています。</p>
 
-  original range [0, 10].</p>
+  <p>6番目のパラメータ<code>withinBounds</code>はオプションです。デフォルトでは、<code>map()</code>は
 
-  <p>The sixth parameter, <code>withinBounds</code>, is optional. By default,
-  <code>map()</code> can
+  目標範囲外の値を返すことができます。例えば、
 
-  return values outside of the target range. For example,
+  <code>map(11, 0, 10, 0, 100)</code>は110を返します。6番目のパラメータとして<code>true</code>を渡すと、
 
-  <code>map(11, 0, 10, 0, 100)</code> returns 110. Passing <code>true</code> as
-  the sixth parameter
+  再マッピングされた値を目標範囲内に制限します。例えば、
 
-  constrains the remapped value to the target range. For example,
-
-  <code>map(11, 0, 10, 0, 100, true)</code> returns 100.</p>
+  <code>map(11, 0, 10, 0, 100, true)</code>は100を返します。</p>
 line: 534
 isConstructor: false
 itemtype: method
@@ -39,19 +34,19 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('Two horizontal lines. The top line grows horizontally as the mouse moves to the right. The bottom line also grows horizontally but is scaled to stay on the left half of the canvas.');
+      describe('2本の水平な線。上の線はマウスが右に移動するにつれて水平方向に伸びます。下の線も水平方向に伸びますが、キャンバスの左半分に収まるようにスケーリングされています。');
     }
 
     function draw() {
       background(200);
 
-      // Draw the top line.
+      // 上の線を描画します。
       line(0, 25, mouseX, 25);
 
-      // Remap mouseX from [0, 100] to [0, 50].
+      // mouseXを[0, 100]から[0, 50]に再マッピングします。
       let x = map(mouseX, 0, 100, 0, 50);
 
-      // Draw the bottom line.
+      // 下の線を描画します。
       line(0, 75, x, 75);
     }
     </code>
@@ -62,19 +57,19 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('A circle changes color from black to white as the mouse moves from left to right.');
+      describe('円がマウスを左から右に動かすにつれて黒から白に色が変化します。');
     }
 
     function draw() {
       background(200);
 
-      // Remap mouseX from [0, 100] to [0, 255]
+      // mouseXを[0, 100]から[0, 255]に再マッピングします
       let c = map(mouseX, 0, 100, 0, 255);
 
-      // Style the circle.
+      // 円のスタイルを設定します。
       fill(c);
 
-      // Draw the circle.
+      // 円を描画します。
       circle(50, 50, 20);
     }
     </code>
@@ -83,34 +78,35 @@ class: p5
 params:
   - name: value
     description: |
-      <p>the value to be remapped.</p>
+      <p>再マッピングする値。</p>
     type: Number
   - name: start1
     description: |
-      <p>lower bound of the value's current range.</p>
+      <p>現在の値の範囲の下限。</p>
     type: Number
   - name: stop1
     description: |
-      <p>upper bound of the value's current range.</p>
+      <p>現在の値の範囲の上限。</p>
     type: Number
   - name: start2
     description: |
-      <p>lower bound of the value's target range.</p>
+      <p>目標範囲の下限。</p>
     type: Number
   - name: stop2
     description: |
-      <p>upper bound of the value's target range.</p>
+      <p>目標範囲の上限。</p>
     type: Number
   - name: withinBounds
     description: |
-      <p>constrain the value to the newly mapped range.</p>
+      <p>値を新しくマッピングされた範囲内に制限します。</p>
     type: Boolean
     optional: true
 return:
-  description: remapped number.
+  description: 再マッピングされた数値。
   type: Number
 chainable: false
 ---
 
 
 # map
+

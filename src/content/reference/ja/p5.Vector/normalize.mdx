@@ -4,18 +4,15 @@ module: Math
 submodule: Vector
 file: src/math/p5.Vector.js
 description: >
-  <p>Scales the components of a <a href="/reference/p5/p5.Vector">p5.Vector</a>
-  object so
+  <p><a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトのコンポーネントを
 
-  that its magnitude is 1.</p>
+  スケーリングして、その大きさを1にします。</p>
 
-  <p>The static version of <code>normalize()</code>,  as in
-  <code>p5.Vector.normalize(v)</code>,
+  <p><code>normalize()</code>の静的バージョン、つまり<code>p5.Vector.normalize(v)</code>は、
 
-  returns a new <a href="/reference/p5/p5.Vector">p5.Vector</a> object and
-  doesn't change
+  新しい<a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトを返し、
 
-  the original.</p>
+  元のオブジェクトは変更しません。</p>
 line: 1726
 isConstructor: false
 itemtype: method
@@ -29,13 +26,13 @@ example:
 
       background(200);
 
-      // Create a p5.Vector.
+      // p5.Vectorを作成します。
       let v = createVector(10, 20, 2);
 
-      // Normalize.
+      // 正規化します。
       v.normalize();
 
-      // Prints "p5.Vector Object : [0.445..., 0.890..., 0.089...]" to the console.
+      // コンソールに "p5.Vector Object : [0.445..., 0.890..., 0.089...]" と出力します。
       print(v.toString());
     }
     </code>
@@ -48,15 +45,15 @@ example:
 
       background(200);
 
-      // Create a p5.Vector.
+      // p5.Vectorを作成します。
       let v0 = createVector(10, 20, 2);
 
-      // Create a normalized copy.
+      // 正規化されたコピーを作成します。
       let v1 = p5.Vector.normalize(v0);
 
-      // Prints "p5.Vector Object : [10, 20, 2]" to the console.
+      // コンソールに "p5.Vector Object : [10, 20, 2]" と出力します。
       print(v0.toString());
-      // Prints "p5.Vector Object : [0.445..., 0.890..., 0.089...]" to the console.
+      // コンソールに "p5.Vector Object : [0.445..., 0.890..., 0.089...]" と出力します。
       print(v1.toString());
     }
     </code>
@@ -67,34 +64,34 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe("A red and blue arrow extend from the center of a circle. Both arrows follow the mouse, but the blue arrow's length is fixed to the circle's radius.");
+      describe("赤と青の矢印が円の中心から伸びています。両方の矢印はマウスに追従しますが、青い矢印の長さは円の半径に固定されています。");
     }
 
     function draw() {
       background(240);
 
-      // Vector to the center.
+      // 中心へのベクトル
       let v0 = createVector(50, 50);
 
-      // Vector from the center to the mouse.
+      // 中心からマウスへのベクトル
       let v1 = createVector(mouseX - 50, mouseY - 50);
 
-      // Circle's radius.
+      // 円の半径
       let r = 25;
 
-      // Draw the red arrow.
+      // 赤い矢印を描画
       drawArrow(v0, v1, 'red');
 
-      // Draw the blue arrow.
+      // 青い矢印を描画
       v1.normalize();
       drawArrow(v0, v1.mult(r), 'blue');
 
-      // Draw the circle.
+      // 円を描画
       noFill();
       circle(50, 50, r * 2);
     }
 
-    // Draws an arrow between two vectors.
+    // 2つのベクトル間に矢印を描画
     function drawArrow(base, vec, myColor) {
       push();
       stroke(myColor);
@@ -112,31 +109,32 @@ example:
     </div>
 class: p5.Vector
 return:
-  description: normalized <a href="#/p5.Vector">p5.Vector</a>.
+  description: 正規化された<a href="#/p5.Vector">p5.Vector</a>。
   type: p5.Vector
 overloads:
   - line: 1726
     params: []
     return:
-      description: normalized <a href="#/p5.Vector">p5.Vector</a>.
+      description: 正規化された<a href="#/p5.Vector">p5.Vector</a>。
       type: p5.Vector
   - line: 3711
     params:
       - name: v
         description: |
-          <p>The vector to normalize</p>
+          <p>正規化するベクトル</p>
         type: p5.Vector
       - name: target
         description: |
-          <p>The vector to receive the result</p>
+          <p>結果を受け取るベクトル</p>
         type: p5.Vector
         optional: true
     static: 1
     return:
-      description: 'The vector v, normalized to a length of 1'
+      description: '長さ1に正規化されたベクトルv'
       type: p5.Vector
 chainable: false
 ---
 
 
 # normalize
+

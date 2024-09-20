@@ -4,32 +4,30 @@ module: Math
 submodule: Calculation
 file: src/math/calculation.js
 description: >
-  <p>Calculates the magnitude, or length, of a vector.</p>
+  <p>ベクトルの大きさ、または長さを計算します。</p>
 
-  <p>A vector can be thought of in different ways. In one view, a vector is a
+  <p>ベクトルは異なる方法で考えることができます。一つの見方では、ベクトルは
 
-  point in space. The vector's components, <code>x</code> and <code>y</code>,
-  are the point's
+  空間上の点です。ベクトルの成分、<code>x</code>と<code>y</code>は、点の
 
-  coordinates <code>(x, y)</code>. A vector's magnitude is the distance from the
-  origin
+  座標<code>(x, y)</code>です。ベクトルの大きさは、原点
 
-  <code>(0, 0)</code> to <code>(x, y)</code>. <code>mag(x, y)</code> is a
-  shortcut for calling
+  <code>(0, 0)</code>から<code>(x, y)</code>までの距離です。<code>mag(x, y)</code>は
 
-  <code>dist(0, 0, x, y)</code>.</p>
+  <code>dist(0, 0, x, y)</code>を呼び出すための短縮形です。</p>
 
-  <p>A vector can also be thought of as an arrow pointing in space. This view is
+  <p>ベクトルは、空間内を指す矢印としても考えることができます。この見方は
 
-  helpful for programming motion. See <a
-  href="/reference/p5/p5.Vector">p5.Vector</a> for
+  動きをプログラミングする際に役立ちます。詳細については<a
+  href="/reference/p5/p5.Vector">p5.Vector</a>を
 
-  more details.</p>
+  参照してください。</p>
 
-  <p>Use <a href="/reference/p5.Vector/mag/">p5.Vector.mag()</a> to calculate
-  the
+  <p><a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトの
 
-  magnitude of a <a href="/reference/p5/p5.Vector">p5.Vector</a> object.</p>
+  大きさを計算するには、<a href="/reference/p5.Vector/mag/">p5.Vector.mag()</a>を
+
+  使用してください。</p>
 line: 481
 isConstructor: false
 itemtype: method
@@ -43,21 +41,21 @@ example:
 
       background(200);
 
-      // Set the vector's components.
+      // ベクトルの成分を設定します。
       let x = 30;
       let y = 40;
 
-      // Calculate the magnitude.
+      // 大きさを計算します。
       let m = mag(x, y);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textSize(16);
 
-      // Display the vector and its magnitude.
+      // ベクトルとその大きさを表示します。
       line(0, 0, x, y);
       text(m, x, y);
 
-      describe('A diagonal line is drawn from the top left of the canvas. The number 50 is written at the end of the line.');
+      describe('キャンバスの左上から対角線が引かれています。線の端に数字50が書かれています。');
     }
     </code>
     </div>
@@ -65,17 +63,18 @@ class: p5
 params:
   - name: x
     description: |
-      <p>first component.</p>
+      <p>最初の成分。</p>
     type: Number
   - name: 'y'
     description: |
-      <p>second component.</p>
+      <p>2番目の成分。</p>
     type: Number
 return:
-  description: magnitude of vector.
+  description: ベクトルの大きさ。
   type: Number
 chainable: false
 ---
 
 
 # mag
+

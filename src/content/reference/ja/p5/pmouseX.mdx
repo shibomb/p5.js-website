@@ -4,40 +4,22 @@ module: Events
 submodule: Mouse
 file: src/events/mouse.js
 description: >
-  <p>A <code>Number</code> system variable that tracks the mouse's previous
-  horizontal
+  <p><code>Number</code>型のシステム変数で、マウスの前回の水平位置を追跡します。</p>
 
-  position.</p>
+  <p>2Dモードでは、<code>pmouseX</code>はキャンバスの左上隅を基準にしたマウスの位置を
+  追跡します。その値は前のフレームの<a href="/reference/p5/mouseX/">mouseX</a>です。
+  例えば、前のフレームでマウスがキャンバスの左端から50ピクセルの位置にあった場合、
+  <code>pmouseX</code>は50になります。</p>
 
-  <p>In 2D mode, <code>pmouseX</code> keeps track of the mouse's position
-  relative to the
+  <p>WebGLモードでは、<code>pmouseX</code>はキャンバスの中心を基準にしたマウスの位置を
+  追跡します。例えば、前のフレームでマウスがキャンバスの中心から右に50ピクセルの
+  位置にあった場合、<code>pmouseX</code>は50になります。</p>
 
-  top-left corner of the canvas. Its value is
+  <p>マウスの代わりにタッチが使用された場合、<code>pmouseX</code>は最後のタッチポイントの
+  x座標を保持します。</p>
 
-  <a href="/reference/p5/mouseX/">mouseX</a> from the previous frame. For
-  example, if
-
-  the mouse was 50 pixels from the left edge of the canvas during the last
-
-  frame, then <code>pmouseX</code> will be 50.</p>
-
-  <p>In WebGL mode, <code>pmouseX</code> keeps track of the mouse's position
-  relative to the
-
-  center of the canvas. For example, if the mouse was 50 pixels to the right
-
-  of the canvas' center during the last frame, then <code>pmouseX</code> will be
-  50.</p>
-
-  <p>If touch is used instead of the mouse, then <code>pmouseX</code> will hold
-  the
-
-  x-coordinate of the last touch point.</p>
-
-  <p>Note: <code>pmouseX</code> is reset to the current <a
-  href="/reference/p5/mouseX/">mouseX</a>
-
-  value at the start of each touch event.</p>
+  <p>注意：<code>pmouseX</code>は各タッチイベントの開始時に現在の<a
+  href="/reference/p5/mouseX/">mouseX</a>の値にリセットされます。</p>
 line: 331
 isConstructor: false
 itemtype: property
@@ -49,10 +31,10 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Slow the frame rate.
+      // フレームレートを遅くする
       frameRate(10);
 
-      describe('A line follows the mouse as it moves. The line grows longer with faster movements.');
+      describe('マウスが動くにつれて線が追従します。動きが速いほど線は長くなります。');
     }
 
     function draw() {
@@ -68,20 +50,20 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A line follows the mouse as it moves. The line grows longer with faster movements.');
+      describe('マウスが動くにつれて線が追従します。動きが速いほど線は長くなります。');
     }
 
     function draw() {
       background(200);
 
-      // Adjust coordinates for WebGL mode.
-      // The origin (0, 0) is at the center of the canvas.
+      // WebGLモードの座標を調整する
+      // 原点(0, 0)はキャンバスの中心にある
       let pmx = pmouseX - 50;
       let pmy = pmouseY - 50;
       let mx = mouseX - 50;
       let my = mouseY - 50;
 
-      // Draw the line.
+      // 線を描画する
       line(pmx, pmy, mx, my);
     }
     </code>
@@ -92,3 +74,4 @@ type: Number
 
 
 # pmouseX
+

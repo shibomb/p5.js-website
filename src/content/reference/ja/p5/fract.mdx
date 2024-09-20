@@ -4,9 +4,9 @@ module: Math
 submodule: Calculation
 file: src/math/calculation.js
 description: |
-  <p>Calculates the fractional part of a number.</p>
-  <p>A number's fractional part includes its decimal values. For example,
-  <code>fract(12.34)</code> returns 0.34.</p>
+  <p>数値の小数部分を計算します。</p>
+  <p>数値の小数部分には、その小数値が含まれます。例えば、
+  <code>fract(12.34)</code> は 0.34 を返します。</p>
 line: 1048
 isConstructor: false
 itemtype: method
@@ -20,19 +20,19 @@ example:
 
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER);
       textSize(16);
 
-      // Original number.
+      // 元の数値。
       let n = 56.78;
       text(n, 50, 33);
 
-      // Fractional part.
+      // 小数部分。
       let f = fract(n);
       text(f, 50, 67);
 
-      describe('The number 56.78 written above the number 0.78.');
+      describe('数値56.78が上に、数値0.78が下に書かれています。');
     }
     </code>
     </div>
@@ -40,13 +40,14 @@ class: p5
 params:
   - name: 'n'
     description: |
-      <p>number whose fractional part will be found.</p>
+      <p>小数部分を求める数値。</p>
     type: Number
 return:
-  description: fractional part of n.
+  description: nの小数部分。
   type: Number
 chainable: false
 ---
 
 
 # fract
+

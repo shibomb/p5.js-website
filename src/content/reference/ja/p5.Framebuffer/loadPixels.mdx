@@ -4,14 +4,13 @@ module: Rendering
 submodule: ''
 file: src/webgl/p5.Framebuffer.js
 description: >
-  <p>Loads the current value of each pixel in the framebuffer into its
+  <p>フレームバッファ内の各ピクセルの現在の値を
 
-  <a href="/reference/p5.Framebuffer/pixels/">pixels</a> array.</p>
+  <a href="/reference/p5.Framebuffer/pixels/">pixels</a>配列に読み込みます。</p>
 
-  <p><code>myBuffer.loadPixels()</code> must be called before reading from or
-  writing to
+  <p><code>myBuffer.loadPixels()</code>は、
 
-  <a href="/reference/p5.Framebuffer/pixels/">myBuffer.pixels</a>.</p>
+  <a href="/reference/p5.Framebuffer/pixels/">myBuffer.pixels</a>から読み取りまたは書き込みを行う前に呼び出す必要があります。</p>
 line: 1386
 isConstructor: false
 itemtype: method
@@ -25,17 +24,16 @@ example:
 
       background(200);
 
-      // Create a p5.Framebuffer object.
+      // p5.Framebufferオブジェクトを作成します。
       let myBuffer = createFramebuffer();
 
-      // Load the pixels array.
+      // pixels配列を読み込みます。
       myBuffer.loadPixels();
 
-      // Get the number of pixels in the
-      // top half of the framebuffer.
+      // フレームバッファの上半分のピクセル数を取得します。
       let numPixels = myBuffer.pixels.length / 2;
 
-      // Set the framebuffer's top half to pink.
+      // フレームバッファの上半分をピンク色に設定します。
       for (let i = 0; i < numPixels; i += 4) {
         myBuffer.pixels[i] = 255;
         myBuffer.pixels[i + 1] = 102;
@@ -43,13 +41,13 @@ example:
         myBuffer.pixels[i + 3] = 255;
       }
 
-      // Update the pixels array.
+      // pixels配列を更新します。
       myBuffer.updatePixels();
 
-      // Draw the p5.Framebuffer object to the canvas.
+      // p5.Framebufferオブジェクトをキャンバスに描画します。
       image(myBuffer, -50, -50);
 
-      describe('A pink rectangle above a gray rectangle.');
+      describe('灰色の長方形の上にピンク色の長方形があります。');
     }
     </code>
     </div>
@@ -59,3 +57,4 @@ chainable: false
 
 
 # loadPixels
+

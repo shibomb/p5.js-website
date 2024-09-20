@@ -4,16 +4,12 @@ module: Math
 submodule: Trigonometry
 file: src/math/trigonometry.js
 description: >
-  <p>Calculates the tangent of an angle.</p>
+  <p>角度の正接を計算します。</p>
 
-  <p><code>tan()</code> is useful for many geometric tasks in creative coding.
-  The values
-
-  returned range from -Infinity to Infinity and repeat periodically as the
-
-  input angle increases. <code>tan()</code> takes into account the current
-
-  <a href="/reference/p5/angleMode/">angleMode()</a>.</p>
+  <p><code>tan()</code>はクリエイティブコーディングにおける多くの幾何学的タスクに有用です。
+  返される値は-無限大から無限大の範囲で、
+  入力角度が増加するにつれて周期的に繰り返されます。<code>tan()</code>は現在の
+  <a href="/reference/p5/angleMode/">angleMode()</a>を考慮します。</p>
 line: 441
 isConstructor: false
 itemtype: method
@@ -27,15 +23,15 @@ example:
 
       background(200);
 
-      describe('A series of identical curves drawn with black dots. Each curve starts from the top of the canvas, continues down at a slight angle, flattens out at the middle of the canvas, then continues to the bottom.');
+      describe('黒い点で描かれた一連の同一の曲線。各曲線はキャンバスの上部から始まり、わずかな角度で下に続き、キャンバスの中央で平坦になり、その後底部まで続きます。');
     }
 
     function draw() {
-      // Calculate the coordinates.
+      // 座標を計算します。
       let x = frameCount;
       let y = 5 * tan(x * 0.1) + 50;
 
-      // Draw the point.
+      // 点を描画します。
       point(x, y);
     }
     </code>
@@ -44,13 +40,14 @@ class: p5
 params:
   - name: angle
     description: |
-      <p>the angle.</p>
+      <p>角度。</p>
     type: Number
 return:
-  description: tangent of the angle.
+  description: 角度の正接。
   type: Number
 chainable: false
 ---
 
 
 # tan
+

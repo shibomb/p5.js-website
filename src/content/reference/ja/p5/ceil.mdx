@@ -4,14 +4,10 @@ module: Math
 submodule: Calculation
 file: src/math/calculation.js
 description: >
-  <p>Calculates the closest integer value that is greater than or equal to a
+  <p>数値以上の最も近い整数値を計算します。</p>
 
-  number.</p>
-
-  <p>For example, calling <code>ceil(9.03)</code> and <code>ceil(9.97)</code>
-  both return the value
-
-  10.</p>
+  <p>例えば、<code>ceil(9.03)</code>と<code>ceil(9.97)</code>を呼び出すと、
+  どちらも値10を返します。</p>
 line: 48
 isConstructor: false
 itemtype: method
@@ -25,24 +21,24 @@ example:
 
       background(200);
 
-      // Use RGB color with values from 0 to 1.
+      // 0から1の値でRGBカラーを使用します。
       colorMode(RGB, 1);
 
       noStroke();
 
-      // Draw the left rectangle.
+      // 左の長方形を描画します。
       let r = 0.3;
       fill(r, 0, 0);
       rect(0, 0, 50, 100);
 
-      // Round r up to 1.
+      // rを1に切り上げます。
       r = ceil(r);
 
-      // Draw the right rectangle.
+      // 右の長方形を描画します。
       fill(r, 0, 0);
       rect(50, 0, 50, 100);
 
-      describe('Two rectangles. The one on the left is dark red and the one on the right is bright red.');
+      describe('2つの長方形。左側は暗い赤色で、右側は明るい赤色です。');
     }
     </code>
     </div>
@@ -50,13 +46,14 @@ class: p5
 params:
   - name: 'n'
     description: |
-      <p>number to round up.</p>
+      <p>切り上げる数値。</p>
     type: Number
 return:
-  description: rounded up number.
+  description: 切り上げられた数値。
   type: Integer
 chainable: false
 ---
 
 
 # ceil
+

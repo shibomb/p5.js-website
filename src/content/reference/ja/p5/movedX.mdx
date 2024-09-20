@@ -4,24 +4,16 @@ module: Events
 submodule: Mouse
 file: src/events/mouse.js
 description: >
-  <p>A <code>Number</code> system variable that tracks the mouse's horizontal
-  movement.</p>
+  <p><code>Number</code>型のシステム変数で、マウスの水平方向の動きを追跡します。</p>
 
-  <p><code>movedX</code> tracks how many pixels the mouse moves left or right
-  between
+  <p><code>movedX</code>は、フレーム間でマウスが左右に動いたピクセル数を追跡します。
+  <code>movedX</code>は、フレーム間でマウスが左に動いた場合は負の値を、
+  右に動いた場合は正の値を持ちます。<code>movedX</code>は
+  <code>mouseX - pmouseX</code>として計算できます。</p>
 
-  frames. <code>movedX</code> will have a negative value if the mouse moves left
-  between
-
-  frames and a positive value if it moves right. <code>movedX</code> can be
-  calculated
-
-  as <code>mouseX - pmouseX</code>.</p>
-
-  <p>Note: <code>movedX</code> continues updating even when
-
-  <a href="/reference/p5/requestPointerLock/">requestPointerLock()</a> is
-  active.</p>
+  <p>注意：<code>movedX</code>は
+  <a href="/reference/p5/requestPointerLock/">requestPointerLock()</a>が
+  アクティブな場合でも更新し続けます。</p>
 line: 12
 isConstructor: false
 itemtype: property
@@ -34,19 +26,19 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'A gray square. The text ">>" appears when the user moves the mouse to the right. The text "<<" appears when the user moves the mouse to the left.'
+        'グレーの正方形。ユーザーがマウスを右に動かすと ">>" というテキストが表示されます。ユーザーがマウスを左に動かすと "<<" というテキストが表示されます。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER);
       textSize(16);
 
-      // Display >> when movedX is positive and
-      // << when it's negative.
+      // movedXが正の場合は >> を表示し、
+      // 負の場合は << を表示します。
       if (movedX > 0) {
         text('>>', 50, 50);
       } else if (movedX < 0) {
@@ -61,3 +53,4 @@ type: Number
 
 
 # movedX
+

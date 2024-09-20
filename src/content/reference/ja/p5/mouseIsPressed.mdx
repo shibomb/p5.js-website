@@ -4,10 +4,9 @@ module: Events
 submodule: Mouse
 file: src/events/mouse.js
 description: >
-  <p>A <code>Boolean</code> system variable that's <code>true</code> if the
-  mouse is pressed and
+  <p><code>Boolean</code>型のシステム変数で、マウスが押されている場合は<code>true</code>、
 
-  <code>false</code> if not.</p>
+  押されていない場合は<code>false</code>となります。</p>
 line: 761
 isConstructor: false
 itemtype: property
@@ -20,18 +19,18 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'A gray square with the word "false" at its center. The word changes to "true" when the user presses a mouse button.'
+        '中央に"false"という単語が書かれた灰色の正方形。ユーザーがマウスボタンを押すと、単語が"true"に変わります。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER);
       textSize(16);
 
-      // Display the mouseIsPressed variable.
+      // mouseIsPressed変数を表示します。
       text(mouseIsPressed, 25, 50);
     }
     </code>
@@ -43,21 +42,21 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'A gray square with a white square at its center. The inner square turns black when the user presses the mouse.'
+        '中央に白い正方形がある灰色の正方形。ユーザーがマウスを押すと、内側の正方形が黒くなります。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Style the square.
+      // 正方形のスタイルを設定します。
       if (mouseIsPressed === true) {
         fill(0);
       } else {
         fill(255);
       }
 
-      // Draw the square.
+      // 正方形を描画します。
       square(25, 25, 50);
     }
     </code>
@@ -68,3 +67,4 @@ type: Boolean
 
 
 # mouseIsPressed
+

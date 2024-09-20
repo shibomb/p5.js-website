@@ -4,49 +4,40 @@ module: Events
 submodule: Keyboard
 file: src/events/keyboard.js
 description: >
-  <p>A <code>Number</code> system variable that contains the code of the last
-  key typed.</p>
+  <p><code>Number</code>型のシステム変数で、最後に入力されたキーのコードを含みます。</p>
 
-  <p>All keys have a <code>keyCode</code>. For example, the <code>a</code> key
-  has the <code>keyCode</code> 65.
+  <p>すべてのキーには<code>keyCode</code>があります。例えば、<code>a</code>キーの
+  <code>keyCode</code>は65です。
 
-  The <code>keyCode</code> variable is helpful for checking whether a special
-  key has
-
-  been typed. For example, the following conditional checks whether the enter
-
-  key has been typed:</p>
+  <code>keyCode</code>変数は、特殊キーが入力されたかどうかを確認するのに
+  役立ちます。例えば、以下の条件文はエンターキーが押されたかどうかを
+  チェックします：</p>
 
   <pre><code class="language-js">if (keyCode === 13) {
-    // Code to run if the enter key was pressed.
+    // エンターキーが押された場合に実行するコード。
   }
 
   </code></pre>
 
-  <p>The same code can be written more clearly using the system variable
-  <code>ENTER</code>
-
-  which has a value of 13:</p>
+  <p>同じコードは、値が13のシステム変数<code>ENTER</code>を使用して
+  より明確に書くことができます：</p>
 
   <pre><code class="language-js">if (keyCode === ENTER) {
-    // Code to run if the enter key was pressed.
+    // エンターキーが押された場合に実行するコード。
   }
 
   </code></pre>
 
-  <p>The system variables <code>BACKSPACE</code>, <code>DELETE</code>,
-  <code>ENTER</code>, <code>RETURN</code>, <code>TAB</code>,
+  <p>システム変数<code>BACKSPACE</code>、<code>DELETE</code>、
+  <code>ENTER</code>、<code>RETURN</code>、<code>TAB</code>、
 
-  <code>ESCAPE</code>, <code>SHIFT</code>, <code>CONTROL</code>,
-  <code>OPTION</code>, <code>ALT</code>, <code>UP_ARROW</code>,
-  <code>DOWN_ARROW</code>,
+  <code>ESCAPE</code>、<code>SHIFT</code>、<code>CONTROL</code>、
+  <code>OPTION</code>、<code>ALT</code>、<code>UP_ARROW</code>、<code>DOWN_ARROW</code>、
 
-  <code>LEFT_ARROW</code>, and <code>RIGHT_ARROW</code> are all helpful
-  shorthands the key codes of
+  <code>LEFT_ARROW</code>、<code>RIGHT_ARROW</code>はすべて、特殊キーのキーコードの
+  便利な省略形です。キーコードは
 
-  special keys. Key codes can be found on websites such as
-
-  <a href="http://keycode.info/">keycode.info</a>.</p>
+  <a href="http://keycode.info/">keycode.info</a>などのウェブサイトで確認できます。</p>
 line: 184
 isConstructor: false
 itemtype: property
@@ -55,24 +46,24 @@ example:
 
     <div>
     <code>
-    // Click on the canvas to begin detecting key presses.
+    // キャンバスをクリックしてキー入力の検出を開始します。
 
     function setup() {
       createCanvas(100, 100);
 
       describe(
-        'A gray square. The last key pressed and its code are displayed at the center.'
+        'グレーの正方形。最後に押されたキーとそのコードが中央に表示されます。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER);
       textSize(16);
 
-      // Display the last key pressed and its code.
+      // 最後に押されたキーとそのコードを表示します。
       text(`${key} : ${keyCode}`, 50, 50);
     }
     </code>
@@ -80,7 +71,7 @@ example:
 
     <div>
     <code>
-    // Click on the canvas to begin detecting key presses.
+    // キャンバスをクリックしてキー入力の検出を開始します。
 
     let x = 50;
     let y = 50;
@@ -91,12 +82,12 @@ example:
       background(200);
 
       describe(
-        'A gray square with a black circle at its center. The circle moves when the user presses an arrow key. It leaves a trail as it moves.'
+        'グレーの正方形で、中央に黒い円があります。ユーザーが矢印キーを押すと円が動きます。移動すると軌跡が残ります。'
       );
     }
 
     function draw() {
-      // Update x and y if an arrow key is pressed.
+      // 矢印キーが押されたらxとyを更新します。
       if (keyIsPressed === true) {
         if (keyCode === UP_ARROW) {
           y -= 1;
@@ -109,10 +100,10 @@ example:
         }
       }
 
-      // Style the circle.
+      // 円のスタイルを設定します。
       fill(0);
 
-      // Draw the circle at (x, y).
+      // (x, y)に円を描画します。
       circle(x, y, 5);
     }
     </code>
@@ -123,3 +114,4 @@ type: Integer
 
 
 # keyCode
+

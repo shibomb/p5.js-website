@@ -4,16 +4,15 @@ module: Structure
 submodule: Structure
 file: src/core/main.js
 description: >
-  <p>Removes the sketch from the web page.</p>
+  <p>スケッチをウェブページから削除します。</p>
 
-  <p>Calling <code>remove()</code> stops the draw loop and removes any HTML
-  elements
+  <p><code>remove()</code>を呼び出すと、描画ループを停止し、キャンバスを含む
 
-  created by the sketch, including the canvas. A new sketch can be
+  スケッチによって作成されたすべてのHTML要素を削除します。新しいスケッチは
 
-  created by using the <a href="/reference/p5/p5/">p5()</a> constructor, as in
+  <a href="/reference/p5/p5/">p5()</a>コンストラクタを使用して作成できます。
 
-  <code>new p5()</code>.</p>
+  例えば、<code>new p5()</code>のようにします。</p>
 line: 560
 isConstructor: false
 itemtype: method
@@ -22,25 +21,25 @@ example:
 
     <div>
     <code>
-    // Double-click to remove the canvas.
+    // ダブルクリックでキャンバスを削除します。
 
     function setup() {
       createCanvas(100, 100);
 
       describe(
-        'A white circle on a gray background. The circle follows the mouse as the user moves. The sketch disappears when the user double-clicks.'
+        'グレーの背景に白い円。円はユーザーがマウスを動かすと追従します。ユーザーがダブルクリックするとスケッチが消えます。'
       );
     }
 
     function draw() {
-      // Paint the background repeatedly.
+      // 背景を繰り返し描画します。
       background(200);
 
-      // Draw circles repeatedly.
+      // 円を繰り返し描画します。
       circle(mouseX, mouseY, 40);
     }
 
-    // Remove the sketch when the user double-clicks.
+    // ユーザーがダブルクリックするとスケッチを削除します。
     function doubleClicked() {
       remove();
     }
@@ -52,3 +51,4 @@ chainable: false
 
 
 # remove
+

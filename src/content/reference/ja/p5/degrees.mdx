@@ -4,12 +4,12 @@ module: Math
 submodule: Trigonometry
 file: src/math/trigonometry.js
 description: |
-  <p>Converts an angle measured in radians to its value in degrees.</p>
-  <p>Degrees and radians are both units for measuring angles. There are 360˚ in
-  one full rotation. A full rotation is 2 × π (about 6.28) radians.</p>
-  <p>The same angle can be expressed in with either unit. For example, 90° is a
-  quarter of a full rotation. The same angle is 2 × π ÷ 4
-  (about 1.57) radians.</p>
+  <p>ラジアンで測定された角度を度数法の値に変換します。</p>
+  <p>度数法とラジアンは両方とも角度を測定する単位です。1回転は360°です。
+  1回転は2 × π（約6.28）ラジアンです。</p>
+  <p>同じ角度はどちらの単位でも表現できます。例えば、90°は
+  1回転の4分の1です。同じ角度は2 × π ÷ 4
+  （約1.57）ラジアンです。</p>
 line: 479
 isConstructor: false
 itemtype: method
@@ -23,14 +23,14 @@ example:
 
       background(200);
 
-      // Calculate the angle conversion.
+      // 角度の変換を計算する
       let rad = QUARTER_PI;
       let deg = degrees(rad);
 
-      // Display the conversion.
+      // 変換結果を表示する
       text(`${round(rad, 2)} rad = ${deg}˚`, 10, 50);
 
-      describe('The text "0.79 rad = 45˚".');
+      describe('テキスト "0.79 rad = 45˚".');
     }
     </code>
     </div>
@@ -38,13 +38,12 @@ class: p5
 params:
   - name: radians
     description: |
-      <p>radians value to convert to degrees.</p>
+      <p>度数法に変換するラジアン値。</p>
     type: Number
 return:
-  description: converted angle.
+  description: 変換された角度。
   type: Number
 chainable: false
 ---
-
 
 # degrees

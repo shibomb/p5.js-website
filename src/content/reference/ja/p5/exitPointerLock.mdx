@@ -4,28 +4,18 @@ module: Events
 submodule: Mouse
 file: src/events/mouse.js
 description: >
-  <p>Exits a pointer lock started with
+  <p><a href="/reference/p5/requestPointerLock/">requestPointerLock</a>で開始されたポインターロックを終了します。</p>
 
-  <a href="/reference/p5/requestPointerLock/">requestPointerLock</a>.</p>
+  <p><code>requestPointerLock()</code>を呼び出すと、
+  <a href="/reference/p5/mouseX/">mouseX</a>、<a href="/reference/p5/mouseY/">mouseY</a>、
+  <a href="/reference/p5/pmouseX/">pmouseX</a>、および<a href="/reference/p5/pmouseY/">pmouseY</a>の値がロックされます。
+  <code>exitPointerLock()</code>を呼び出すと、マウスシステム変数の更新が再開されます。</p>
 
-  <p>Calling <code>requestPointerLock()</code> locks the values of
+  <p>注意：ほとんどのブラウザでは、<code>requestPointerLock()</code>を呼び出す前に
+  クリックなどの入力が必要です。<code>requestPointerLock()</code>は
+  <a href="/reference/p5/doubleClicked/">doubleClicked()</a>などのイベント関数内で
+  呼び出すことをお勧めします。</p>
 
-  <a href="/reference/p5/mouseX/">mouseX</a>, <a
-  href="/reference/p5/mouseY/">mouseY</a>,
-
-  <a href="/reference/p5/pmouseX/">pmouseX</a>, and <a
-  href="/reference/p5/pmouseY/">pmouseY</a>.
-
-  Calling <code>exitPointerLock()</code> resumes updating the mouse system
-  variables.</p>
-
-  <p>Note: Most browsers require an input, such as a click, before calling
-
-  <code>requestPointerLock()</code>. It’s recommended to call
-  <code>requestPointerLock()</code> in
-
-  an event function such as <a
-  href="/reference/p5/doubleClicked/">doubleClicked()</a>.</p>
 line: 1932
 isConstructor: false
 itemtype: method
@@ -40,18 +30,18 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'A gray square with a word at its center. The word changes between "Unlocked" and "Locked" when the user double-clicks.'
+        '中央に単語が表示されている灰色の正方形。ユーザーがダブルクリックすると、単語が"Unlocked"と"Locked"の間で切り替わります。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER);
       textSize(16);
 
-      // Tell the user whether the pointer is locked.
+      // ポインターがロックされているかどうかをユーザーに伝えます。
       if (isLocked === true) {
         text('Locked', 50, 50);
       } else {
@@ -59,7 +49,7 @@ example:
       }
     }
 
-    // Toggle the pointer lock when the user double-clicks.
+    // ユーザーがダブルクリックしたときにポインターロックを切り替えます。
     function doubleClicked() {
       if (isLocked === true) {
         exitPointerLock();
@@ -77,3 +67,4 @@ chainable: false
 
 
 # exitPointerLock
+

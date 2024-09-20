@@ -4,16 +4,12 @@ module: Math
 submodule: Trigonometry
 file: src/math/trigonometry.js
 description: >
-  <p>Calculates the cosine of an angle.</p>
+  <p>角度のコサインを計算します。</p>
 
-  <p><code>cos()</code> is useful for many geometric tasks in creative coding.
-  The values
-
-  returned oscillate between -1 and 1 as the input angle increases.
-  <code>cos()</code>
-
-  takes into account the current <a
-  href="/reference/p5/angleMode/">angleMode()</a>.</p>
+  <p><code>cos()</code>はクリエイティブコーディングにおける多くの幾何学的タスクに役立ちます。
+  返される値は、入力される角度が増加するにつれて-1から1の間で振動します。
+  <code>cos()</code>は現在の<a
+  href="/reference/p5/angleMode/">angleMode()</a>を考慮します。</p>
 line: 281
 isConstructor: false
 itemtype: method
@@ -25,17 +21,17 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('A white ball on a string oscillates left and right.');
+      describe('白い球が紐に付いて左右に振動します。');
     }
 
     function draw() {
       background(200);
 
-      // Calculate the coordinates.
+      // 座標を計算します。
       let x = 30 * cos(frameCount * 0.05) + 50;
       let y = 50;
 
-      // Draw the oscillator.
+      // 振動子を描画します。
       line(50, y, x, y);
       circle(x, y, 20);
     }
@@ -49,15 +45,15 @@ example:
 
       background(200);
 
-      describe('A series of black dots form a wave pattern.');
+      describe('一連の黒い点が波のパターンを形成します。');
     }
 
     function draw() {
-      // Calculate the coordinates.
+      // 座標を計算します。
       let x = frameCount;
       let y = 30 * cos(x * 0.1) + 50;
 
-      // Draw the point.
+      // 点を描画します。
       point(x, y);
     }
     </code>
@@ -70,15 +66,15 @@ example:
 
       background(200);
 
-      describe('A series of black dots form an infinity symbol.');
+      describe('一連の黒い点が無限大記号を形成します。');
     }
 
     function draw() {
-      // Calculate the coordinates.
+      // 座標を計算します。
       let x = 30 * cos(frameCount * 0.1) + 50;
       let y = 10 * sin(frameCount * 0.2) + 50;
 
-      // Draw the point.
+      // 点を描画します。
       point(x, y);
     }
     </code>
@@ -87,13 +83,14 @@ class: p5
 params:
   - name: angle
     description: |
-      <p>the angle.</p>
+      <p>角度。</p>
     type: Number
 return:
-  description: cosine of the angle.
+  description: 角度のコサイン。
   type: Number
 chainable: false
 ---
 
 
 # cos
+

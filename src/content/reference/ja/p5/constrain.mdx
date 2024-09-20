@@ -4,7 +4,7 @@ module: Math
 submodule: Calculation
 file: src/math/calculation.js
 description: |
-  <p>Constrains a number between a minimum and maximum value.</p>
+  <p>数値を最小値と最大値の間に制限します。</p>
 line: 91
 isConstructor: false
 itemtype: method
@@ -16,7 +16,7 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('A black dot drawn on a gray square follows the mouse from left to right. Its movement is constrained to the middle third of the square.');
+      describe('灰色の正方形の上に描かれた黒い点が、左から右へマウスに従って動きます。その動きは正方形の中央3分の1に制限されています。');
     }
 
     function draw() {
@@ -36,23 +36,23 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('Two vertical lines. Two circles move horizontally with the mouse. One circle stops at the vertical lines.');
+      describe('2本の垂直線。2つの円がマウスに合わせて水平に動きます。1つの円は垂直線で止まります。');
     }
 
     function draw() {
       background(200);
 
-      // Set boundaries and draw them.
+      // 境界線を設定し、描画します。
       let leftWall = 25;
       let rightWall = 75;
       line(leftWall, 0, leftWall, 100);
       line(rightWall, 0, rightWall, 100);
 
-      // Draw a circle that follows the mouse freely.
+      // マウスに自由に従う円を描画します。
       fill(255);
       circle(mouseX, 33, 9);
 
-      // Draw a circle that's constrained.
+      // 制限された円を描画します。
       let xc = constrain(mouseX, leftWall, rightWall);
       fill(0);
       circle(xc, 67, 9);
@@ -63,21 +63,20 @@ class: p5
 params:
   - name: 'n'
     description: |
-      <p>number to constrain.</p>
+      <p>制限する数値。</p>
     type: Number
   - name: low
     description: |
-      <p>minimum limit.</p>
+      <p>最小値。</p>
     type: Number
   - name: high
     description: |
-      <p>maximum limit.</p>
+      <p>最大値。</p>
     type: Number
 return:
-  description: constrained number.
+  description: 制限された数値。
   type: Number
 chainable: false
 ---
-
 
 # constrain

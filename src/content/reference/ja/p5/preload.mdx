@@ -4,36 +4,33 @@ module: Structure
 submodule: Structure
 file: src/core/main.js
 description: >
-  <p>A function that's called once to load assets before the sketch runs.</p>
+  <p>スケッチが実行される前にアセットを読み込むために一度だけ呼び出される関数です。</p>
 
-  <p>Declaring the function <code>preload()</code> sets a code block to run once
+  <p><code>preload()</code>関数を宣言すると、<a href="/reference/p5/setup/">setup()</a>や
 
-  automatically before <a href="/reference/p5/setup/">setup()</a> or
+  <a href="/reference/p5/draw/">draw()</a>の前に自動的に一度実行されるコードブロックが設定されます。
 
-  <a href="/reference/p5/draw/">draw()</a>. It's used to load assets including
-
-  multimedia files, fonts, data, and 3D models:</p>
+  マルチメディアファイル、フォント、データ、3Dモデルなどのアセットを読み込むために使用されます：</p>
 
   <pre><code class="language-js">function preload() {
-    // Code to run before the rest of the sketch.
+    // スケッチの残りの部分の前に実行されるコード。
   }
 
   </code></pre>
 
-  <p>Functions such as <a href="/reference/p5/loadImage/">loadImage()</a>,
+  <p><a href="/reference/p5/loadImage/">loadImage()</a>、
 
-  <a href="/reference/p5/loadFont/">loadFont()</a>,
+  <a href="/reference/p5/loadFont/">loadFont()</a>、
 
-  <a href="/reference/p5/loadJSON/">loadJSON()</a>, and
+  <a href="/reference/p5/loadJSON/">loadJSON()</a>、
 
-  <a href="/reference/p5/loadModel/">loadModel()</a> are guaranteed to either
+  <a href="/reference/p5/loadModel/">loadModel()</a>などの関数は、<code>preload()</code>内で
 
-  finish loading or raise an error if they're called within
-  <code>preload()</code>.
+  呼び出された場合、読み込みが完了するかエラーが発生することが保証されています。
 
-  Doing so ensures that assets are available when the sketch begins
+  これにより、スケッチの実行が開始されるときにアセットが利用可能であることが
 
-  running.</p>
+  確保されます。</p>
 line: 41
 isConstructor: false
 itemtype: method
@@ -44,7 +41,7 @@ example:
     <code>
     let img;
 
-    // Load an image and create a p5.Image object.
+    // 画像を読み込み、p5.Imageオブジェクトを作成します。
     function preload() {
       img = loadImage('/assets/bricks.jpg');
     }
@@ -52,10 +49,10 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Draw the image.
+      // 画像を描画します。
       image(img, 0, 0);
 
-      describe('A red brick wall.');
+      describe('赤レンガの壁。');
     }
     </code>
     </div>
@@ -65,3 +62,4 @@ chainable: false
 
 
 # preload
+

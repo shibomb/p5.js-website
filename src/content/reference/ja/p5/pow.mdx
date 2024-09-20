@@ -4,10 +4,9 @@ module: Math
 submodule: Calculation
 file: src/math/calculation.js
 description: |
-  <p>Calculates exponential expressions such as <var>2<sup>3</sup></var>.</p>
-  <p>For example, <code>pow(2, 3)</code> evaluates the expression
-  2 × 2 × 2. <code>pow(2, -3)</code> evaluates 1 ÷
-  (2 × 2 × 2).</p>
+  <p><var>2<sup>3</sup></var>のような指数表現を計算します。</p>
+  <p>例えば、<code>pow(2, 3)</code>は2 × 2 × 2という式を評価します。
+  <code>pow(2, -3)</code>は1 ÷ (2 × 2 × 2)を評価します。</p>
 line: 815
 isConstructor: false
 itemtype: method
@@ -21,26 +20,26 @@ example:
 
       background(200);
 
-      // Set the base of the exponent.
+      // 指数の底を設定します。
       let base = 3;
 
-      // Top-left.
+      // 左上
       let d = pow(base, 1);
       circle(10, 10, d);
 
-      // Left-center.
+      // 左中央
       d = pow(base, 2);
       circle(20, 20, d);
 
-      // Right-center.
+      // 右中央
       d = pow(base, 3);
       circle(40, 40, d);
 
-      // Bottom-right.
+      // 右下
       d = pow(base, 4);
       circle(80, 80, d);
 
-      describe('A series of circles that grow exponentially from top left to bottom right.');
+      describe('左上から右下に向かって指数関数的に大きくなる一連の円。');
     }
     </code>
     </div>
@@ -48,17 +47,18 @@ class: p5
 params:
   - name: 'n'
     description: |
-      <p>base of the exponential expression.</p>
+      <p>指数表現の底。</p>
     type: Number
   - name: e
     description: |
-      <p>power by which to raise the base.</p>
+      <p>底を累乗する指数。</p>
     type: Number
 return:
-  description: n^e.
+  description: n^e
   type: Number
 chainable: false
 ---
 
 
 # pow
+

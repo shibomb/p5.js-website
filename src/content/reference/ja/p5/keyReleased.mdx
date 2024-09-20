@@ -4,59 +4,55 @@ module: Events
 submodule: Keyboard
 file: src/events/keyboard.js
 description: >
-  <p>A function that's called once when any key is released.</p>
+  <p>任意のキーが離されたときに一度呼び出される関数です。</p>
 
-  <p>Declaring the function <code>keyReleased()</code> sets a code block to run
-  once
-
-  automatically when the user releases any key:</p>
+  <p><code>keyReleased()</code>関数を宣言すると、ユーザーが任意のキーを離したときに
+  自動的に一度実行されるコードブロックを設定します：</p>
 
   <pre><code class="language-js">function keyReleased() {
-    // Code to run.
+    // 実行するコード
   }
 
   </code></pre>
 
-  <p>The <a href="/reference/p5/key/">key</a> and <a
-  href="/reference/p5/keyCode/">keyCode</a>
+  <p><a href="/reference/p5/key/">key</a>変数と<a
+  href="/reference/p5/keyCode/">keyCode</a>変数は、
 
-  variables will be updated with the most recently released value when
+  p5.jsによって<code>keyReleased()</code>が呼び出されたときに、
 
-  <code>keyReleased()</code> is called by p5.js:</p>
+  最後に離されたキーの値で更新されます：</p>
 
   <pre><code class="language-js">function keyReleased() {
     if (key === 'c') {
-      // Code to run.
+      // 実行するコード
     }
 
     if (keyCode === ENTER) {
-      // Code to run.
+      // 実行するコード
     }
   }
 
   </code></pre>
 
-  <p>The parameter, <code>event</code>, is optional. <code>keyReleased()</code>
-  is always passed a
+  <p>パラメータ<code>event</code>はオプションです。<code>keyReleased()</code>には常に
 
-  <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/"
+  キー押下イベントを説明するプロパティを持つ<a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/"
   target="_blank">KeyboardEvent</a>
 
-  object with properties that describe the key press event:</p>
+  オブジェクトが渡されます：</p>
 
   <pre><code class="language-js">function keyReleased(event) {
-    // Code to run that uses the event.
+    // イベントを使用して実行するコード
     console.log(event);
   }
 
   </code></pre>
 
-  <p>Browsers may have default behaviors attached to various key events. To
+  <p>ブラウザは様々なキーイベントにデフォルトの動作を関連付けている場合があります。
 
-  prevent any default behavior for this event, add <code>return false;</code> to
-  the end
+  このイベントのデフォルトの動作を防ぐには、関数の最後に<code>return false;</code>を
 
-  of the function.</p>
+  追加してください。</p>
 line: 461
 isConstructor: false
 itemtype: method
@@ -65,7 +61,7 @@ example:
 
     <div>
     <code>
-    // Click on the canvas to begin detecting key presses.
+    // キャンバスをクリックしてキー押下の検出を開始します。
 
     let value = 0;
 
@@ -73,28 +69,28 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'A gray square with a black square at its center. The inner square changes color when the user releases a key.'
+        '中央に黒い正方形がある灰色の正方形。ユーザーがキーを離すと内側の正方形の色が変わります。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Style the square.
+      // 正方形のスタイルを設定
       fill(value);
 
-      // Draw the square.
+      // 正方形を描画
       square(25, 25, 50);
     }
 
-    // Toggle value when the user releases a key.
+    // ユーザーがキーを離したときにvalueを切り替えます。
     function keyReleased() {
       if (value === 0) {
         value = 255;
       } else {
         value = 0;
       }
-      // Uncomment to prevent any default behavior.
+      // デフォルトの動作を防ぐにはコメントを解除してください。
       // return false;
     }
     </code>
@@ -102,7 +98,7 @@ example:
 
     <div>
     <code>
-    // Click on the canvas to begin detecting key presses.
+    // キャンバスをクリックしてキー押下の検出を開始します。
 
     let value = 0;
 
@@ -110,26 +106,26 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'A gray square with a black square at its center. The inner square becomes white when the user releases the "w" key.'
+        '中央に黒い正方形がある灰色の正方形。ユーザーが"w"キーを離すと内側の正方形が白くなります。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Style the square.
+      // 正方形のスタイルを設定
       fill(value);
 
-      // Draw the square.
+      // 正方形を描画
       square(25, 25, 50);
     }
 
-    // Set value to 255 the user releases the 'w' key.
+    // ユーザーが'w'キーを離したときにvalueを255に設定します。
     function keyReleased() {
       if (key === 'w') {
         value = 255;
       }
-      // Uncomment to prevent any default behavior.
+      // デフォルトの動作を防ぐにはコメントを解除してください。
       // return false;
     }
     </code>
@@ -137,7 +133,7 @@ example:
 
     <div>
     <code>
-    // Click on the canvas to begin detecting key presses.
+    // キャンバスをクリックしてキー押下の検出を開始します。
 
     let value = 0;
 
@@ -145,28 +141,28 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'A gray square with a black square at its center. The inner square turns white when the user presses and releases the left arrow key. It turns black when the user presses and releases the right arrow key.'
+        '中央に黒い正方形がある灰色の正方形。ユーザーが左矢印キーを押して離すと内側の正方形が白くなります。右矢印キーを押して離すと黒くなります。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Style the square.
+      // 正方形のスタイルを設定
       fill(value);
 
-      // Draw the square.
+      // 正方形を描画
       square(25, 25, 50);
     }
 
-    // Toggle the background color when the user releases an arrow key.
+    // ユーザーが矢印キーを離したときに背景色を切り替えます。
     function keyReleased() {
       if (keyCode === LEFT_ARROW) {
         value = 255;
       } else if (keyCode === RIGHT_ARROW) {
         value = 0;
       }
-      // Uncomment to prevent any default behavior.
+      // デフォルトの動作を防ぐにはコメントを解除してください。
       // return false;
     }
     </code>
@@ -175,7 +171,7 @@ class: p5
 params:
   - name: event
     description: |
-      <p>optional <code>KeyboardEvent</code> callback argument.</p>
+      <p>オプションの<code>KeyboardEvent</code>コールバック引数。</p>
     type: KeyboardEvent
     optional: true
 chainable: false
@@ -183,3 +179,4 @@ chainable: false
 
 
 # keyReleased
+

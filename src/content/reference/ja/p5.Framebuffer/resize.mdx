@@ -4,18 +4,15 @@ module: Rendering
 submodule: ''
 file: src/webgl/p5.Framebuffer.js
 description: >
-  <p>Resizes the framebuffer to a given width and height.</p>
+  <p>フレームバッファを指定された幅と高さにリサイズします。</p>
 
-  <p>The parameters, <code>width</code> and <code>height</code>, set the
-  dimensions of the
+  <p>パラメータの<code>width</code>と<code>height</code>は、フレームバッファの
 
-  framebuffer. For example, calling <code>myBuffer.resize(300, 500)</code>
-  resizes
+  寸法を設定します。例えば、<code>myBuffer.resize(300, 500)</code>を呼び出すと、
 
-  the framebuffer to 300×500 pixels, then sets <code>myBuffer.width</code> to
-  300
+  フレームバッファを300×500ピクセルにリサイズし、その後<code>myBuffer.width</code>を300に、
 
-  and <code>myBuffer.height</code> 500.</p>
+  <code>myBuffer.height</code>を500に設定します。</p>
 line: 238
 isConstructor: false
 itemtype: method
@@ -29,28 +26,28 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Framebuffer object.
+      // p5.Framebufferオブジェクトを作成します。
       myBuffer = createFramebuffer();
 
-      describe('A multicolor sphere on a white surface. The image grows larger or smaller when the user moves the mouse, revealing a gray background.');
+      describe('白い表面上のマルチカラーの球体。ユーザーがマウスを動かすと画像が大きくなったり小さくなったりし、灰色の背景が現れます。');
     }
 
     function draw() {
       background(200);
 
-      // Draw to the p5.Framebuffer object.
+      // p5.Framebufferオブジェクトに描画します。
       myBuffer.begin();
       background(255);
       normalMaterial();
       sphere(20);
       myBuffer.end();
 
-      // Display the p5.Framebuffer object.
+      // p5.Framebufferオブジェクトを表示します。
       image(myBuffer, -50, -50);
     }
 
-    // Resize the p5.Framebuffer object when the
-    // user moves the mouse.
+    // ユーザーがマウスを動かすと
+    // p5.Framebufferオブジェクトをリサイズします。
     function mouseMoved() {
       myBuffer.resize(mouseX, mouseY);
     }
@@ -60,14 +57,15 @@ class: p5.Framebuffer
 params:
   - name: width
     description: |
-      <p>width of the framebuffer.</p>
+      <p>フレームバッファの幅。</p>
     type: Number
   - name: height
     description: |
-      <p>height of the framebuffer.</p>
+      <p>フレームバッファの高さ。</p>
     type: Number
 chainable: false
 ---
 
 
 # resize
+

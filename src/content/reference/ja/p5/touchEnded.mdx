@@ -4,29 +4,26 @@ module: Events
 submodule: Touch
 file: src/events/touch.js
 description: >
-  <p>A function that's called once each time a screen touch ends.</p>
+  <p>スクリーンタッチが終了するたびに1回呼び出される関数です。</p>
 
-  <p>Declaring the function <code>touchEnded()</code> sets a code block to run
-
-  automatically when the user stops touching a touchscreen device:</p>
+  <p><code>touchEnded()</code>関数を宣言すると、ユーザーがタッチスクリーンデバイスでのタッチを
+  終了したときに自動的に実行されるコードブロックを設定します：</p>
 
   <pre><code class="language-js">function touchEnded() {
-    // Code to run.
+    // 実行するコード
   }
 
   </code></pre>
 
-  <p>The <a href="/reference/p5/touches/">touches</a> array will be updated with
-  the most
-
-  recent touch points when <code>touchEnded()</code> is called by p5.js:</p>
+  <p><code>touchEnded()</code>がp5.jsによって呼び出されると、<a href="/reference/p5/touches/">touches</a>配列が
+  最新のタッチポイントで更新されます：</p>
 
   <pre><code class="language-js">function touchEnded() {
-    // Paint over the background.
+    // 背景を塗りつぶす
     background(200);
 
-    // Mark each remaining touch point when the user stops
-    // a touch.
+    // ユーザーがタッチを終了したときに、
+    // 残っている各タッチポイントをマークする
     for (let touch of touches) {
       circle(touch.x, touch.y, 40);
     }
@@ -34,47 +31,31 @@ description: >
 
   </code></pre>
 
-  <p>The parameter, event, is optional. <code>touchEnded()</code> will be passed
-  a
-
+  <p>パラメータのeventはオプションです。<code>touchEnded()</code>には
+  タッチイベントを説明するプロパティを持つ
   <a href="https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent/"
   target="_blank">TouchEvent</a>
-
-  object with properties that describe the touch event:</p>
+  オブジェクトが渡されます：</p>
 
   <pre><code class="language-js">function touchEnded(event) {
-    // Code to run that uses the event.
+    // イベントを使用するコード
     console.log(event);
   }
 
   </code></pre>
 
-  <p>On touchscreen devices, <a
-  href="/reference/p5/mouseReleased/">mouseReleased()</a> will
+  <p>タッチスクリーンデバイスでは、<code>touchEnded()</code>が宣言されていない場合、
+  ユーザーのタッチが終了すると<a href="/reference/p5/mouseReleased/">mouseReleased()</a>が
+  実行されます。<code>touchEnded()</code>が宣言されている場合、ユーザーのタッチが終了すると
+  <code>touchEnded()</code>が実行され、<a href="/reference/p5/mouseReleased/">mouseReleased()</a>は
+  実行されません。</p>
 
-  run when the user’s touch ends if <code>touchEnded()</code> isn’t declared. If
-
-  <code>touchEnded()</code> is declared, then <code>touchEnded()</code> will run
-  when a user’s
-
-  touch ends and <a href="/reference/p5/mouseReleased/">mouseReleased()</a>
-  won’t.</p>
-
-  <p>Note: <a href="/reference/p5/touchStarted/">touchStarted()</a>,
-
-  <code>touchEnded()</code>, and <a
-  href="/reference/p5/touchMoved/">touchMoved()</a> are all
-
-  related. <a href="/reference/p5/touchStarted/">touchStarted()</a> runs as soon
-  as the
-
-  user touches a touchscreen device. <code>touchEnded()</code> runs as soon as
-  the user
-
-  ends a touch. <a href="/reference/p5/touchMoved/">touchMoved()</a> runs
-  repeatedly as
-
-  the user moves any touch points.</p>
+  <p>注意：<a href="/reference/p5/touchStarted/">touchStarted()</a>、
+  <code>touchEnded()</code>、<a href="/reference/p5/touchMoved/">touchMoved()</a>は
+  すべて関連しています。<a href="/reference/p5/touchStarted/">touchStarted()</a>は
+  ユーザーがタッチスクリーンデバイスにタッチした瞬間に実行されます。<code>touchEnded()</code>は
+  ユーザーがタッチを終了した瞬間に実行されます。<a href="/reference/p5/touchMoved/">touchMoved()</a>は
+  ユーザーがタッチポイントを動かすたびに繰り返し実行されます。</p>
 line: 468
 isConstructor: false
 itemtype: method
@@ -83,8 +64,7 @@ example:
 
     <div>
     <code>
-    // On a touchscreen device, touch the canvas using one or more fingers
-    // at the same time.
+    // タッチスクリーンデバイスで、1本以上の指で同時にキャンバスにタッチしてください。
 
     let value = 0;
 
@@ -92,21 +72,21 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'A gray square with a black square at its center. The inner square switches color between black and white each time the user stops touching the screen.'
+        '中央に黒い正方形がある灰色の正方形。ユーザーが画面へのタッチを終了するたびに、内側の正方形の色が黒と白の間で切り替わります。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Style the square.
+      // 正方形のスタイルを設定
       fill(value);
 
-      // Draw the square.
+      // 正方形を描画
       square(25, 25, 50);
     }
 
-    // Toggle colors when a touch ends.
+    // タッチが終了したら色を切り替える
     function touchEnded() {
       if (value === 0) {
         value = 255;
@@ -119,8 +99,7 @@ example:
 
     <div>
     <code>
-    // On a touchscreen device, touch the canvas using one or more fingers
-    // at the same time.
+    // タッチスクリーンデバイスで、1本以上の指で同時にキャンバスにタッチしてください。
 
     let bgColor = 50;
     let fillColor = 255;
@@ -130,49 +109,49 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'A gray square with the number 0 at the top-center. The number tracks the number of places the user is touching the screen. Circles appear at each touch point and change style in response to events.'
+        '上部中央に数字0がある灰色の正方形。数字はユーザーが画面にタッチしている場所の数を追跡します。各タッチポイントに円が表示され、イベントに応じてスタイルが変化します。'
       );
     }
 
     function draw() {
       background(bgColor);
 
-      // Style the text.
+      // テキストのスタイルを設定
       textAlign(CENTER);
       textSize(16);
       fill(0);
       noStroke();
 
-      // Display the number of touch points.
+      // タッチポイントの数を表示
       text(touches.length, 50, 20);
 
-      // Style the touch points.
+      // タッチポイントのスタイルを設定
       fill(fillColor);
       stroke(0);
       strokeWeight(borderWidth);
 
-      // Display the touch points as circles.
+      // タッチポイントを円として表示
       for (let touch of touches) {
         circle(touch.x, touch.y, 40);
       }
     }
 
-    // Set the background color to a random grayscale value.
+    // 背景色をランダムなグレースケール値に設定
     function touchStarted() {
       bgColor = random(80, 255);
     }
 
-    // Set the fill color to a random grayscale value.
+    // 塗りつぶし色をランダムなグレースケール値に設定
     function touchEnded() {
       fillColor = random(0, 255);
     }
 
-    // Set the stroke weight.
+    // ストロークの太さを設定
     function touchMoved() {
-      // Increment the border width.
+      // ボーダーの幅を増加
       borderWidth += 0.1;
 
-      // Reset the border width once it's too thick.
+      // ボーダーの幅が大きくなりすぎたらリセット
       if (borderWidth > 20) {
         borderWidth = 0.5;
       }
@@ -183,7 +162,7 @@ class: p5
 params:
   - name: event
     description: |
-      <p>optional <code>TouchEvent</code> argument.</p>
+      <p>オプションの <code>TouchEvent</code> 引数。</p>
     type: TouchEvent
     optional: true
 chainable: false
@@ -191,3 +170,4 @@ chainable: false
 
 
 # touchEnded
+

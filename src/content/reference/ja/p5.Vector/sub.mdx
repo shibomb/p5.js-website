@@ -4,31 +4,20 @@ module: Math
 submodule: Vector
 file: src/math/p5.Vector.js
 description: >
-  <p>Subtracts from a vector's <code>x</code>, <code>y</code>, and
-  <code>z</code> components.</p>
+  <p>ベクトルの<code>x</code>、<code>y</code>、<code>z</code>成分から減算します。</p>
 
-  <p><code>sub()</code> can use separate numbers, as in <code>v.sub(1, 2,
-  3)</code>, another
+  <p><code>sub()</code>は、<code>v.sub(1, 2, 3)</code>のように個別の数値、
+  <code>v.sub(v2)</code>のように別の<a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクト、
+  または<code>v.sub([1, 2, 3])</code>のように数値の配列を使用できます。</p>
 
-  <a href="/reference/p5/p5.Vector">p5.Vector</a> object, as in
-  <code>v.sub(v2)</code>, or an array
+  <p>成分に値が提供されない場合、その成分は変更されません。例えば、
+  <code>v.sub(4, 5)</code>は<code>v.x</code>から4を、<code>v.y</code>から5を減算し、
+  <code>v.z</code>からは0を減算します。引数なしで<code>sub()</code>を呼び出す
+  （<code>v.sub()</code>のように）と、何の効果もありません。</p>
 
-  of numbers, as in <code>v.sub([1, 2, 3])</code>.</p>
-
-  <p>If a value isn't provided for a component, it won't change. For
-
-  example, <code>v.sub(4, 5)</code> subtracts 4 from <code>v.x</code>, 5 from
-  <code>v.y</code>, and 0 from <code>v.z</code>.
-
-  Calling <code>sub()</code> with no arguments, as in <code>v.sub()</code>, has
-  no effect.</p>
-
-  <p>The static version of <code>sub()</code>, as in <code>p5.Vector.sub(v2,
-  v1)</code>, returns a new
-
-  <a href="/reference/p5/p5.Vector">p5.Vector</a> object and doesn't change the
-
-  originals.</p>
+  <p><code>sub()</code>の静的バージョン（<code>p5.Vector.sub(v2, v1)</code>のように）は、
+  新しい<a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトを返し、
+  元のオブジェクトは変更しません。</p>
 line: 635
 isConstructor: false
 itemtype: method
@@ -42,31 +31,31 @@ example:
 
       background(200);
 
-      // Style the points.
+      // 点のスタイルを設定します。
       strokeWeight(5);
 
-      // Bottom right.
+      // 右下。
       let pos = createVector(75, 75);
       point(pos);
 
-      // Top right.
-      // Subtract numbers.
+      // 右上。
+      // 数値を減算します。
       pos.sub(0, 50);
       point(pos);
 
-      // Top left.
-      // Subtract a p5.Vector.
+      // 左上。
+      // p5.Vectorを減算します。
       let p2 = createVector(50, 0);
       pos.sub(p2);
       point(pos);
 
-      // Bottom left.
-      // Subtract an array.
+      // 左下。
+      // 配列を減算します。
       let arr = [0, -50];
       pos.sub(arr);
       point(pos);
 
-      describe('Four black dots arranged in a square on a gray background.');
+      describe('灰色の背景に正方形に配置された4つの黒い点。');
     }
     </code>
     </div>
@@ -78,20 +67,20 @@ example:
 
       background(200);
 
-      // Create p5.Vector objects.
+      // p5.Vectorオブジェクトを作成します。
       let p1 = createVector(75, 75);
       let p2 = createVector(50, 50);
 
-      // Subtract with modifying the original vectors.
+      // 元のベクトルを変更せずに減算します。
       let p3 = p5.Vector.sub(p1, p2);
 
-      // Draw the points.
+      // 点を描画します。
       strokeWeight(5);
       point(p1);
       point(p2);
       point(p3);
 
-      describe('Three black dots in a diagonal line from top left to bottom right.');
+      describe('左上から右下への対角線上に3つの黒い点。');
     }
     </code>
     </div>
@@ -101,7 +90,7 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('Three arrows drawn on a gray square. A red and a blue arrow extend from the top left. A purple arrow extends from the tip of the red arrow to the tip of the blue arrow.');
+      describe('灰色の正方形に描かれた3つの矢印。赤と青の矢印が左上から伸びています。紫の矢印が赤い矢印の先端から青い矢印の先端まで伸びています。');
     }
 
     function draw() {
@@ -109,20 +98,20 @@ example:
 
       let origin = createVector(0, 0);
 
-      // Draw the red arrow.
+      // 赤い矢印を描画します。
       let v1 = createVector(50, 50);
       drawArrow(origin, v1, 'red');
 
-      // Draw the blue arrow.
+      // 青い矢印を描画します。
       let v2 = createVector(20, 70);
       drawArrow(origin, v2, 'blue');
 
-      // Purple arrow.
+      // 紫の矢印。
       let v3 = p5.Vector.sub(v2, v1);
       drawArrow(v1, v3, 'purple');
     }
 
-    // Draws an arrow between two vectors.
+    // 2つのベクトル間に矢印を描画します。
     function drawArrow(base, vec, myColor) {
       push();
       stroke(myColor);
@@ -144,16 +133,16 @@ overloads:
     params:
       - name: x
         description: |
-          <p>x component of the vector to subtract.</p>
+          <p>減算するベクトルのx成分。</p>
         type: Number
       - name: 'y'
         description: |
-          <p>y component of the vector to subtract.</p>
+          <p>減算するベクトルのy成分。</p>
         type: Number
         optional: true
       - name: z
         description: |
-          <p>z component of the vector to subtract.</p>
+          <p>減算するベクトルのz成分。</p>
         type: Number
         optional: true
     chainable: 1
@@ -161,30 +150,31 @@ overloads:
     params:
       - name: value
         description: |
-          <p>the vector to subtract</p>
+          <p>減算するベクトル</p>
         type: 'p5.Vector|Number[]'
     chainable: 1
   - line: 3405
     params:
       - name: v1
         description: |
-          <p>A <a href="#/p5.Vector">p5.Vector</a> to subtract from</p>
+          <p>減算元の<a href="#/p5.Vector">p5.Vector</a></p>
         type: p5.Vector
       - name: v2
         description: |
-          <p>A <a href="#/p5.Vector">p5.Vector</a> to subtract</p>
+          <p>減算する<a href="#/p5.Vector">p5.Vector</a></p>
         type: p5.Vector
       - name: target
         description: |
-          <p>vector to receive the result.</p>
+          <p>結果を受け取るベクトル。</p>
         type: p5.Vector
         optional: true
     static: 1
     return:
-      description: The resulting <a href="#/p5.Vector">p5.Vector</a>
+      description: 結果の<a href="#/p5.Vector">p5.Vector</a>
       type: p5.Vector
 chainable: true
 ---
 
 
 # sub
+

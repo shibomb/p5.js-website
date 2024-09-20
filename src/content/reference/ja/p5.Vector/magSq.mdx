@@ -4,7 +4,7 @@ module: Math
 submodule: Vector
 file: src/math/p5.Vector.js
 description: |
-  <p>Calculates the magnitude (length) of the vector squared.</p>
+  <p>ベクトルの大きさ（長さ）の二乗を計算します。</p>
 line: 1402
 isConstructor: false
 itemtype: method
@@ -18,46 +18,45 @@ example:
 
       background(200);
 
-      // Create a p5.Vector object.
+      // p5.Vectorオブジェクトを作成します。
       let p = createVector(30, 40);
 
-      // Draw a line from the origin.
+      // 原点から線を描きます。
       line(0, 0, p.x, p.y);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER);
       textSize(16);
 
-      // Display the vector's magnitude squared.
+      // ベクトルの大きさの二乗を表示します。
       let m = p.magSq();
       text(m, p.x, p.y);
 
-      describe('A diagonal black line extends from the top left corner of a gray square. The number 2500 is written at the end of the line.');
+      describe('灰色の正方形の左上隅から対角線上に黒い線が伸びています。線の端に2500という数字が書かれています。');
     }
     </code>
     </div>
 class: p5.Vector
 return:
-  description: squared magnitude of the vector.
+  description: ベクトルの大きさの二乗。
   type: Number
 overloads:
   - line: 1402
     params: []
     return:
-      description: squared magnitude of the vector.
+      description: ベクトルの大きさの二乗。
       type: Number
   - line: 3698
     params:
       - name: vecT
         description: |
-          <p>the vector to return the squared magnitude of</p>
+          <p>大きさの二乗を返すベクトル</p>
         type: p5.Vector
     static: 1
     return:
-      description: the squared magnitude of vecT
+      description: vecTの大きさの二乗
       type: Number
 chainable: false
 ---
-
 
 # magSq

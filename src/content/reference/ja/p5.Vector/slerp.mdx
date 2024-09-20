@@ -4,35 +4,20 @@ module: Math
 submodule: Vector
 file: src/math/p5.Vector.js
 description: >
-  <p>Calculates a new heading and magnitude that are between two vectors.</p>
+  <p>2つのベクトル間の新しい方向と大きさを計算します。</p>
 
-  <p>The <code>amt</code> parameter is the amount to interpolate between the old
-  vector and
+  <p><code>amt</code>パラメータは、古いベクトルと新しいベクトルの間で補間する量です。
+  0.0は方向と大きさを古いベクトルと同じに保ち、0.5は中間に設定し、
+  1.0は方向と大きさを新しいベクトルと同じに設定します。</p>
 
-  the new vector. 0.0 keeps the heading and magnitude equal to the old
+  <p><code>slerp()</code>は<a href="/reference/p5.Vector/lerp/">lerp()</a>と異なり、
+  大きさを補間します。<code>v0.slerp(v1, 0.5)</code>を呼び出すと、<code>v0</code>の
+  大きさが元の大きさと<code>v1</code>の大きさの中間の値に設定されます。
+  <code>v0.lerp(v1, 0.5)</code>を呼び出しても、そのような保証はありません。</p>
 
-  vector's, 0.5 sets them halfway between, and 1.0 sets the heading and
-
-  magnitude equal to the new vector's.</p>
-
-  <p><code>slerp()</code> differs from <a
-  href="/reference/p5.Vector/lerp/">lerp()</a> because
-
-  it interpolates magnitude. Calling <code>v0.slerp(v1, 0.5)</code> sets
-  <code>v0</code>'s
-
-  magnitude to a value halfway between its original magnitude and
-  <code>v1</code>'s.
-
-  Calling <code>v0.lerp(v1, 0.5)</code> makes no such guarantee.</p>
-
-  <p>The static version of <code>slerp()</code>, as in <code>p5.Vector.slerp(v0,
-  v1, 0.5)</code>,
-
-  returns a new <a href="/reference/p5/p5.Vector">p5.Vector</a> object and
-  doesn't change
-
-  the original.</p>
+  <p><code>slerp()</code>の静的バージョン（<code>p5.Vector.slerp(v0, v1, 0.5)</code>など）は、
+  新しい<a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトを返し、
+  元のオブジェクトは変更しません。</p>
 line: 2667
 isConstructor: false
 itemtype: method
@@ -42,31 +27,31 @@ example:
     <div class="norender">
     <code>
     function setup() {
-      // Create a p5.Vector object.
+      // p5.Vectorオブジェクトを作成します。
       let v0 = createVector(3, 0);
 
-      // Prints "3" to the console.
+      // コンソールに "3" を出力します。
       print(v0.mag());
 
-      // Prints "0" to the console.
+      // コンソールに "0" を出力します。
       print(v0.heading());
 
-      // Create a p5.Vector object.
+      // p5.Vectorオブジェクトを作成します。
       let v1 = createVector(0, 1);
 
-      // Prints "1" to the console.
+      // コンソールに "1" を出力します。
       print(v1.mag());
 
-      // Prints "1.570..." to the console.
+      // コンソールに "1.570..." を出力します。
       print(v1.heading());
 
-      // Interpolate halfway between v0 and v1.
+      // v0とv1の中間点まで補間します。
       v0.slerp(v1, 0.5);
 
-      // Prints "2" to the console.
+      // コンソールに "2" を出力します。
       print(v0.mag());
 
-      // Prints "0.785..." to the console.
+      // コンソールに "0.785..." を出力します。
       print(v0.heading());
     }
     </code>
@@ -75,31 +60,31 @@ example:
     <div class="norender">
     <code>
     function setup() {
-      // Create a p5.Vector object.
+      // p5.Vectorオブジェクトを作成します。
       let v0 = createVector(3, 0);
 
-      // Prints "3" to the console.
+      // コンソールに "3" を出力します。
       print(v0.mag());
 
-      // Prints "0" to the console.
+      // コンソールに "0" を出力します。
       print(v0.heading());
 
-      // Create a p5.Vector object.
+      // p5.Vectorオブジェクトを作成します。
       let v1 = createVector(0, 1);
 
-      // Prints "1" to the console.
+      // コンソールに "1" を出力します。
       print(v1.mag());
 
-      // Prints "1.570..." to the console.
+      // コンソールに "1.570..." を出力します。
       print(v1.heading());
 
-      // Create a p5.Vector that's halfway between v0 and v1.
+      // v0とv1の中間にあるp5.Vectorを作成します。
       let v3 = p5.Vector.slerp(v0, v1, 0.5);
 
-      // Prints "2" to the console.
+      // コンソールに "2" を出力します。
       print(v3.mag());
 
-      // Prints "0.785..." to the console.
+      // コンソールに "0.785..." を出力します。
       print(v3.heading());
     }
     </code>
@@ -110,31 +95,31 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('Three arrows extend from the center of a gray square. A red arrow points to the right, a blue arrow points to the left, and a purple arrow points down.');
+      describe('灰色の正方形の中心から3本の矢印が伸びています。赤い矢印は右を指し、青い矢印は左を指し、紫の矢印は下を指しています。');
     }
 
     function draw() {
       background(200);
 
-      // Create p5.Vector objects.
+      // p5.Vectorオブジェクトを作成します。
       let v0 = createVector(50, 50);
       let v1 = createVector(20, 0);
       let v2 = createVector(-40, 0);
 
-      // Create a p5.Vector that's halfway between v1 and v2.
+      // v1とv2の中間にあるp5.Vectorを作成します。
       let v3 = p5.Vector.slerp(v1, v2, 0.5);
 
-      // Draw the red arrow.
+      // 赤い矢印を描画します。
       drawArrow(v0, v1, 'red');
 
-      // Draw the blue arrow.
+      // 青い矢印を描画します。
       drawArrow(v0, v2, 'blue');
 
-      // Draw the purple arrow.
+      // 紫の矢印を描画します。
       drawArrow(v0, v3, 'purple');
     }
 
-    // Draws an arrow between two vectors.
+    // 2つのベクトル間に矢印を描画します。
     function drawArrow(base, vec, myColor) {
       push();
       stroke(myColor);
@@ -159,12 +144,12 @@ overloads:
     params:
       - name: v
         description: |
-          <p><a href="#/p5.Vector">p5.Vector</a> to slerp toward.</p>
+          <p>補間先の<a href="#/p5.Vector">p5.Vector</a>。</p>
         type: p5.Vector
       - name: amt
         description: |
-          <p>amount of interpolation between 0.0 (old vector)
-                               and 1.0 (new vector). 0.5 is halfway between.</p>
+          <p>0.0（古いベクトル）と1.0（新しいベクトル）の間の補間量。
+                               0.5は中間点です。</p>
         type: Number
     return:
       description: ''
@@ -173,26 +158,27 @@ overloads:
     params:
       - name: v1
         description: |
-          <p>old vector.</p>
+          <p>古いベクトル。</p>
         type: p5.Vector
       - name: v2
         description: |
-          <p>new vector.</p>
+          <p>新しいベクトル。</p>
         type: p5.Vector
       - name: amt
         description: ''
         type: Number
       - name: target
         description: |
-          <p>vector to receive the result.</p>
+          <p>結果を受け取るベクトル。</p>
         type: p5.Vector
         optional: true
     static: 1
     return:
-      description: slerped vector between v1 and v2
+      description: v1とv2の間でslerp補間されたベクトル
       type: p5.Vector
 chainable: false
 ---
 
 
 # slerp
+

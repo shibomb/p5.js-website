@@ -4,20 +4,13 @@ module: Math
 submodule: Trigonometry
 file: src/math/trigonometry.js
 description: >
-  <p>Calculates the arc tangent of a number.</p>
+  <p>数値の逆正接（アークタンジェント）を計算します。</p>
 
-  <p><code>atan()</code> is the inverse of <a
-  href="/reference/p5/tan/">tan()</a>. It expects input
-
-  values in the range of -Infinity to Infinity. By default, <code>atan()</code>
-  returns
-
-  values in the range -π ÷ 2 (about -1.57) to π ÷ 2
-
-  (about 1.57). If the <a href="/reference/p5/angleMode/">angleMode()</a> is
-  <code>DEGREES</code>
-
-  then values are returned in the range -90 to 90.</p>
+  <p><code>atan()</code>は<a href="/reference/p5/tan/">tan()</a>の逆関数です。
+  -無限大から無限大までの範囲の入力値を想定しています。デフォルトでは、<code>atan()</code>は
+  -π ÷ 2（約-1.57）からπ ÷ 2（約1.57）の範囲の値を返します。
+  <a href="/reference/p5/angleMode/">angleMode()</a>が<code>DEGREES</code>の場合、
+  値は-90から90の範囲で返されます。</p>
 line: 142
 isConstructor: false
 itemtype: method
@@ -31,17 +24,17 @@ example:
 
       background(200);
 
-      // Calculate tan() and atan() values.
+      // tan()とatan()の値を計算します。
       let a = PI / 3;
       let t = tan(a);
       let at = atan(t);
 
-      // Display the values.
+      // 値を表示します。
       text(`${round(a, 3)}`, 35, 25);
       text(`${round(t, 3)}`, 35, 50);
       text(`${round(at, 3)}`, 35, 75);
 
-      describe('The numbers 1.047, 1.732, and 1.047 written on separate rows.');
+      describe('別々の行に書かれた数字1.047、1.732、1.047。');
     }
     </code>
     </div>
@@ -53,17 +46,17 @@ example:
 
       background(200);
 
-      // Calculate tan() and atan() values.
+      // tan()とatan()の値を計算します。
       let a = PI + PI / 3;
       let t = tan(a);
       let at = atan(t);
 
-      // Display the values.
+      // 値を表示します。
       text(`${round(a, 3)}`, 35, 25);
       text(`${round(t, 3)}`, 35, 50);
       text(`${round(at, 3)}`, 35, 75);
 
-      describe('The numbers 4.189, 1.732, and 1.047 written on separate rows.');
+      describe('別々の行に書かれた数字4.189、1.732、1.047。');
     }
     </code>
     </div>
@@ -71,13 +64,12 @@ class: p5
 params:
   - name: value
     description: |
-      <p>value whose arc tangent is to be returned.</p>
+      <p>逆正接を求める値。</p>
     type: Number
 return:
-  description: arc tangent of the given value.
+  description: 与えられた値の逆正接。
   type: Number
 chainable: false
 ---
-
 
 # atan

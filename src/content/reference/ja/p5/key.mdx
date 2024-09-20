@@ -4,27 +4,24 @@ module: Events
 submodule: Keyboard
 file: src/events/keyboard.js
 description: >
-  <p>A <code>String</code> system variable that contains the value of the last
-  key typed.</p>
+  <p><code>String</code>型のシステム変数で、最後に入力されたキーの値を含みます。</p>
 
-  <p>The key variable is helpful for checking whether an
+  <p>key変数は、
 
   <a href="https://en.wikipedia.org/wiki/ASCII#Printable_characters"
   target="_blank">ASCII</a>
 
-  key has been typed. For example, the expression <code>key === "a"</code>
-  evaluates to
+  キーが入力されたかどうかを確認するのに役立ちます。例えば、<code>key === "a"</code>という式は、
 
-  <code>true</code> if the <code>a</code> key was typed and <code>false</code>
-  if not. <code>key</code> doesn’t update
+  <code>a</code>キーが押された場合は<code>true</code>に、そうでない場合は<code>false</code>に
 
-  for special keys such as <code>LEFT_ARROW</code> and <code>ENTER</code>. Use
-  keyCode instead for
+  評価されます。<code>key</code>は<code>LEFT_ARROW</code>や<code>ENTER</code>などの特殊キーでは
 
-  special keys. The <a href="/reference/p5/keyIsDown/">keyIsDown()</a> function
-  should
+  更新されません。特殊キーにはkeyCodeを使用してください。複数の異なるキーの
 
-  be used to check for multiple different key presses at the same time.</p>
+  同時押しを確認するには、<a href="/reference/p5/keyIsDown/">keyIsDown()</a>関数を
+
+  使用する必要があります。</p>
 line: 102
 isConstructor: false
 itemtype: property
@@ -33,24 +30,24 @@ example:
 
     <div>
     <code>
-    // Click on the canvas to begin detecting key presses.
+    // キャンバスをクリックしてキー入力の検出を開始します。
 
     function setup() {
       createCanvas(100, 100);
 
       describe(
-        'A gray square. The last key pressed is displayed at the center.'
+        'グレーの正方形。最後に押されたキーが中央に表示されます。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER);
       textSize(16);
 
-      // Display the last key pressed.
+      // 最後に押されたキーを表示します。
       text(key, 50, 50);
     }
     </code>
@@ -58,7 +55,7 @@ example:
 
     <div>
     <code>
-    // Click on the canvas to begin detecting key presses.
+    // キャンバスをクリックしてキー入力の検出を開始します。
 
     let x = 50;
     let y = 50;
@@ -69,12 +66,12 @@ example:
       background(200);
 
       describe(
-        'A gray square with a black circle at its center. The circle moves when the user presses the keys "w", "a", "s", or "d". It leaves a trail as it moves.'
+        'グレーの正方形の中央に黒い円があります。ユーザーが "w"、"a"、"s"、"d" キーを押すと円が移動します。移動すると軌跡が残ります。'
       );
     }
 
     function draw() {
-      // Update x and y if a key is pressed.
+      // キーが押されたら x と y を更新します。
       if (keyIsPressed === true) {
         if (key === 'w') {
           y -= 1;
@@ -87,10 +84,10 @@ example:
         }
       }
 
-      // Style the circle.
+      // 円のスタイルを設定します。
       fill(0);
 
-      // Draw the circle at (x, y).
+      // (x, y) に円を描画します。
       circle(x, y, 5);
     }
     </code>
@@ -101,3 +98,4 @@ type: String
 
 
 # key
+

@@ -4,31 +4,21 @@ module: Math
 submodule: Vector
 file: src/math/p5.Vector.js
 description: >
-  <p>Adds to a vector's <code>x</code>, <code>y</code>, and <code>z</code>
-  components.</p>
+  <p>ベクトルの <code>x</code>、<code>y</code>、<code>z</code> 成分に加算します。</p>
 
-  <p><code>add()</code> can use separate numbers, as in <code>v.add(1, 2,
-  3)</code>,
+  <p><code>add()</code> は、<code>v.add(1, 2, 3)</code> のように個別の数値、
+  <code>v.add(v2)</code> のように別の <a href="/reference/p5/p5.Vector">p5.Vector</a> オブジェクト、
+  または <code>v.add([1, 2, 3])</code> のように数値の配列を使用できます。</p>
 
-  another <a href="/reference/p5/p5.Vector">p5.Vector</a> object, as in
-  <code>v.add(v2)</code>, or
+  <p>成分に値が提供されない場合、その成分は変更されません。例えば、
+  <code>v.add(4, 5)</code> は <code>v.x</code> に 4 を、<code>v.y</code> に 5 を加算し、
+  <code>v.z</code> には 0 を加算します。
+  引数なしで <code>add()</code> を呼び出す（<code>v.add()</code> のように）と、
+  何も効果はありません。</p>
 
-  an array of numbers, as in <code>v.add([1, 2, 3])</code>.</p>
-
-  <p>If a value isn't provided for a component, it won't change. For
-
-  example, <code>v.add(4, 5)</code> adds 4 to <code>v.x</code>, 5 to
-  <code>v.y</code>, and 0 to <code>v.z</code>.
-
-  Calling <code>add()</code> with no arguments, as in <code>v.add()</code>, has
-  no effect.</p>
-
-  <p>The static version of <code>add()</code>, as in <code>p5.Vector.add(v2,
-  v1)</code>, returns a new
-
-  <a href="/reference/p5/p5.Vector">p5.Vector</a> object and doesn't change the
-
-  originals.</p>
+  <p><code>add()</code> の静的バージョン（<code>p5.Vector.add(v2, v1)</code> のように）は、
+  新しい <a href="/reference/p5/p5.Vector">p5.Vector</a> オブジェクトを返し、
+  元のオブジェクトは変更しません。</p>
 line: 282
 isConstructor: false
 itemtype: method
@@ -42,31 +32,31 @@ example:
 
       background(200);
 
-      // Style the points.
+      // 点のスタイルを設定
       strokeWeight(5);
 
-      // Top left.
+      // 左上
       let pos = createVector(25, 25);
       point(pos);
 
-      // Top right.
-      // Add numbers.
+      // 右上
+      // 数値を加算
       pos.add(50, 0);
       point(pos);
 
-      // Bottom right.
-      // Add a p5.Vector.
+      // 右下
+      // p5.Vectorを加算
       let p2 = createVector(0, 50);
       pos.add(p2);
       point(pos);
 
-      // Bottom left.
-      // Add an array.
+      // 左下
+      // 配列を加算
       let arr = [-50, 0];
       pos.add(arr);
       point(pos);
 
-      describe('Four black dots arranged in a square on a gray background.');
+      describe('灰色の背景に正方形に配置された4つの黒い点。');
     }
     </code>
     </div>
@@ -78,23 +68,23 @@ example:
 
       background(200);
 
-      // Top left.
+      // 左上
       let p1 = createVector(25, 25);
 
-      // Center.
+      // 中央
       let p2 = createVector(50, 50);
 
-      // Bottom right.
-      // Add p1 and p2.
+      // 右下
+      // p1とp2を加算
       let p3 = p5.Vector.add(p1, p2);
 
-      // Draw the points.
+      // 点を描画
       strokeWeight(5);
       point(p1);
       point(p2);
       point(p3);
 
-      describe('Three black dots in a diagonal line from top left to bottom right.');
+      describe('左上から右下への対角線上に3つの黒い点。');
     }
     </code>
     </div>
@@ -104,7 +94,7 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('Three arrows drawn on a gray square. A red arrow extends from the top left corner to the center. A blue arrow extends from the tip of the red arrow. A purple arrow extends from the origin to the tip of the blue arrow.');
+      describe('灰色の正方形に描かれた3つの矢印。赤い矢印が左上隅から中央に伸びています。青い矢印が赤い矢印の先端から伸びています。紫の矢印が原点から青い矢印の先端まで伸びています。');
     }
 
     function draw() {
@@ -112,20 +102,20 @@ example:
 
       let origin = createVector(0, 0);
 
-      // Draw the red arrow.
+      // 赤い矢印を描画
       let v1 = createVector(50, 50);
       drawArrow(origin, v1, 'red');
 
-      // Draw the blue arrow.
+      // 青い矢印を描画
       let v2 = createVector(-30, 20);
       drawArrow(v1, v2, 'blue');
 
-      // Purple arrow.
+      // 紫の矢印
       let v3 = p5.Vector.add(v1, v2);
       drawArrow(origin, v3, 'purple');
     }
 
-    // Draws an arrow between two vectors.
+    // 2つのベクトル間に矢印を描画
     function drawArrow(base, vec, myColor) {
       push();
       stroke(myColor);
@@ -147,16 +137,16 @@ overloads:
     params:
       - name: x
         description: |
-          <p>x component of the vector to be added.</p>
+          <p>加算するベクトルのx成分。</p>
         type: Number
       - name: 'y'
         description: |
-          <p>y component of the vector to be added.</p>
+          <p>加算するベクトルのy成分。</p>
         type: Number
         optional: true
       - name: z
         description: |
-          <p>z component of the vector to be added.</p>
+          <p>加算するベクトルのz成分。</p>
         type: Number
         optional: true
     chainable: 1
@@ -164,30 +154,31 @@ overloads:
     params:
       - name: value
         description: |
-          <p>The vector to add</p>
+          <p>加算するベクトル</p>
         type: 'p5.Vector|Number[]'
     chainable: 1
   - line: 3353
     params:
       - name: v1
         description: |
-          <p>A <a href="#/p5.Vector">p5.Vector</a> to add</p>
+          <p>加算する <a href="#/p5.Vector">p5.Vector</a></p>
         type: p5.Vector
       - name: v2
         description: |
-          <p>A <a href="#/p5.Vector">p5.Vector</a> to add</p>
+          <p>加算する <a href="#/p5.Vector">p5.Vector</a></p>
         type: p5.Vector
       - name: target
         description: |
-          <p>vector to receive the result.</p>
+          <p>結果を受け取るベクトル。</p>
         type: p5.Vector
         optional: true
     static: 1
     return:
-      description: resulting <a href="#/p5.Vector">p5.Vector</a>.
+      description: 結果の <a href="#/p5.Vector">p5.Vector</a>。
       type: p5.Vector
 chainable: true
 ---
 
 
 # add
+

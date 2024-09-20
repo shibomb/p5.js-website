@@ -4,33 +4,31 @@ module: Structure
 submodule: Structure
 file: src/core/main.js
 description: >
-  <p>A function that's called once when the sketch begins running.</p>
+  <p>スケッチの実行が開始されたときに一度だけ呼び出される関数です。</p>
 
-  <p>Declaring the function <code>setup()</code> sets a code block to run once
+  <p><code>setup()</code>関数を宣言すると、スケッチの開始時に自動的に一度だけ実行される
 
-  automatically when the sketch starts running. It's used to perform
+  コードブロックを設定します。これは、キャンバスの作成や変数の初期化など、
 
-  setup tasks such as creating the canvas and initializing variables:</p>
+  セットアップタスクを実行するために使用されます：</p>
 
   <pre><code class="language-js">function setup() {
-    // Code to run once at the start of the sketch.
+    // スケッチの開始時に一度だけ実行されるコード。
   }
 
   </code></pre>
 
-  <p>Code placed in <code>setup()</code> will run once before code placed in
+  <p><code>setup()</code>内に配置されたコードは、<a href="/reference/p5/draw/">draw()</a>内に
 
-  <a href="/reference/p5/draw/">draw()</a> begins looping. If the
+  配置されたコードがループを開始する前に一度だけ実行されます。
 
-  <a href="/reference/p5/preload/">preload()</a> is declared, then
-  <code>setup()</code> will
+  <a href="/reference/p5/preload/">preload()</a>が宣言されている場合、<code>setup()</code>は
 
-  run immediately after <a href="/reference/p5/preload/">preload()</a> finishes
+  <a href="/reference/p5/preload/">preload()</a>がアセットの読み込みを
 
-  loading assets.</p>
+  完了した直後に実行されます。</p>
 
-  <p>Note: <code>setup()</code> doesn’t have to be declared, but it’s common
-  practice to do so.</p>
+  <p>注意：<code>setup()</code>を宣言する必要はありませんが、一般的にはそうすることが慣例です。</p>
 line: 87
 isConstructor: false
 itemtype: method
@@ -44,10 +42,10 @@ example:
 
       background(200);
 
-      // Draw the circle.
+      // 円を描画します。
       circle(50, 50, 40);
 
-      describe('A white circle on a gray background.');
+      describe('灰色の背景に白い円。');
     }
     </code>
     </div>
@@ -57,16 +55,16 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Paint the background once.
+      // 背景を一度だけ塗ります。
       background(200);
 
       describe(
-        'A white circle on a gray background. The circle follows the mouse as the user moves, leaving a trail.'
+        '灰色の背景に白い円。ユーザーがマウスを動かすと、円がマウスに追従し、軌跡を残します。'
       );
     }
 
     function draw() {
-      // Draw circles repeatedly.
+      // 円を繰り返し描画します。
       circle(mouseX, mouseY, 40);
     }
     </code>
@@ -83,19 +81,19 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Draw the image.
+      // 画像を描画します。
       image(img, 0, 0);
 
       describe(
-        'A white circle on a brick wall. The circle follows the mouse as the user moves, leaving a trail.'
+        'レンガの壁に白い円。ユーザーがマウスを動かすと、円がマウスに追従し、軌跡を残します。'
       );
     }
 
     function draw() {
-      // Style the circle.
+      // 円のスタイルを設定します。
       noStroke();
 
-      // Draw the circle.
+      // 円を描画します。
       circle(mouseX, mouseY, 10);
     }
     </code>
@@ -106,3 +104,4 @@ chainable: false
 
 
 # setup
+

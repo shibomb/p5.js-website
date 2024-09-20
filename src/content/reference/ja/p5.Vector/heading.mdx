@@ -4,24 +4,16 @@ module: Math
 submodule: Vector
 file: src/math/p5.Vector.js
 description: >
-  <p>Calculates the angle a 2D vector makes with the positive x-axis.</p>
+  <p>2Dベクトルが正のx軸となす角度を計算します。</p>
 
-  <p>By convention, the positive x-axis has an angle of 0. Angles increase in
+  <p>慣例により、正のx軸の角度は0です。角度は時計回りに増加します。</p>
 
-  the clockwise direction.</p>
+  <p>ベクトルが<a href="/reference/p5/createVector/">createVector()</a>で作成された場合、
+  <code>heading()</code>は現在の<a href="/reference/p5/angleMode/">angleMode()</a>の
+  単位で角度を返します。</p>
 
-  <p>If the vector was created with
-
-  <a href="/reference/p5/createVector/">createVector()</a>,
-  <code>heading()</code> returns angles
-
-  in the units of the current <a
-  href="/reference/p5/angleMode/">angleMode()</a>.</p>
-
-  <p>The static version of <code>heading()</code>, as in
-  <code>p5.Vector.heading(v)</code>, works the
-
-  same way.</p>
+  <p><code>heading()</code>の静的バージョン、つまり<code>p5.Vector.heading(v)</code>も
+  同じように動作します。</p>
 line: 2026
 isConstructor: false
 itemtype: method
@@ -31,16 +23,16 @@ example:
     <div class = "norender">
     <code>
     function setup() {
-      // Create a p5.Vector object.
+      // p5.Vectorオブジェクトを作成します。
       let v = createVector(1, 1);
 
-      // Prints "0.785..." to the console.
+      // コンソールに "0.785..." と表示されます。
       print(v.heading());
 
-      // Use degrees.
+      // 度数法を使用します。
       angleMode(DEGREES);
 
-      // Prints "45" to the console.
+      // コンソールに "45" と表示されます。
       print(v.heading());
     }
     </code>
@@ -49,16 +41,16 @@ example:
     <div class = "norender">
     <code>
     function setup() {
-      // Create a p5.Vector object.
+      // p5.Vectorオブジェクトを作成します。
       let v = createVector(1, 1);
 
-      // Prints "0.785..." to the console.
+      // コンソールに "0.785..." と表示されます。
       print(p5.Vector.heading(v));
 
-      // Use degrees.
+      // 度数法を使用します。
       angleMode(DEGREES);
 
-      // Prints "45" to the console.
+      // コンソールに "45" と表示されます。
       print(p5.Vector.heading(v));
     }
     </code>
@@ -69,7 +61,7 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('A black arrow extends from the top left of a square to its center. The text "Radians: 0.79" and "Degrees: 45" is written near the tip of the arrow.');
+      describe('黒い矢印が正方形の左上から中心に向かって伸びています。矢印の先端近くに "ラジアン: 0.79" と "度: 45" というテキストが書かれています。');
     }
 
     function draw() {
@@ -78,25 +70,25 @@ example:
       let origin = createVector(0, 0);
       let v = createVector(50, 50);
 
-      // Draw the black arrow.
+      // 黒い矢印を描画します。
       drawArrow(origin, v, 'black');
 
-      // Use radians.
+      // ラジアンを使用します。
       angleMode(RADIANS);
 
-      // Display the heading in radians.
+      // ラジアンでの向きを表示します。
       let h = round(v.heading(), 2);
-      text(`Radians: ${h}`, 20, 70);
+      text(`ラジアン: ${h}`, 20, 70);
 
-      // Use degrees.
+      // 度数法を使用します。
       angleMode(DEGREES);
 
-      // Display the heading in degrees.
+      // 度数法での向きを表示します。
       h = v.heading();
-      text(`Degrees: ${h}`, 20, 85);
+      text(`度: ${h}`, 20, 85);
     }
 
-    // Draws an arrow between two vectors.
+    // 2つのベクトル間に矢印を描画します。
     function drawArrow(base, vec, myColor) {
       push();
       stroke(myColor);
@@ -114,26 +106,27 @@ example:
     </div>
 class: p5.Vector
 return:
-  description: angle of rotation.
+  description: 回転角度。
   type: Number
 overloads:
   - line: 2026
     params: []
     return:
-      description: angle of rotation.
+      description: 回転角度。
       type: Number
   - line: 3796
     params:
       - name: v
         description: |
-          <p>the vector to find the angle of</p>
+          <p>角度を求めるベクトル</p>
         type: p5.Vector
     static: 1
     return:
-      description: the angle of rotation
+      description: 回転角度
       type: Number
 chainable: false
 ---
 
 
 # heading
+

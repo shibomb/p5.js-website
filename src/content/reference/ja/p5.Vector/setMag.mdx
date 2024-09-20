@@ -4,15 +4,13 @@ module: Math
 submodule: Vector
 file: src/math/p5.Vector.js
 description: >
-  <p>Sets a vector's magnitude to a given value.</p>
+  <p>ベクトルの大きさを指定された値に設定します。</p>
 
-  <p>The static version of <code>setMag()</code>, as in
-  <code>p5.Vector.setMag(v, 10)</code>, returns
+  <p><code>setMag()</code>の静的バージョン、例えば<code>p5.Vector.setMag(v, 10)</code>は、
 
-  a new <a href="/reference/p5/p5.Vector">p5.Vector</a> object and doesn't
-  change the
+  新しい<a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトを返し、
 
-  original.</p>
+  元のオブジェクトは変更しません。</p>
 line: 1933
 isConstructor: false
 itemtype: method
@@ -22,16 +20,16 @@ example:
     <div class="norender">
     <code>
     function setup() {
-      // Create a p5.Vector object.
+      // p5.Vectorオブジェクトを作成します。
       let v = createVector(3, 4, 0);
 
-      // Prints "5" to the console.
+      // コンソールに "5" を出力します。
       print(v.mag());
 
-      // Set its magnitude to 10.
+      // 大きさを10に設定します。
       v.setMag(10);
 
-      // Prints "p5.Vector Object : [6, 8, 0]" to the console.
+      // コンソールに "p5.Vector Object : [6, 8, 0]" を出力します。
       print(v.toString());
     }
     </code>
@@ -40,16 +38,16 @@ example:
     <div class="norender">
     <code>
     function setup() {
-      // Create a p5.Vector object.
+      // p5.Vectorオブジェクトを作成します。
       let v0 = createVector(3, 4, 0);
 
-      // Create a copy with a magnitude of 10.
+      // 大きさ10のコピーを作成します。
       let v1 = p5.Vector.setMag(v0, 10);
 
-      // Prints "5" to the console.
+      // コンソールに "5" を出力します。
       print(v0.mag());
 
-      // Prints "p5.Vector Object : [6, 8, 0]" to the console.
+      // コンソールに "p5.Vector Object : [6, 8, 0]" を出力します。
       print(v1.toString());
     }
     </code>
@@ -60,7 +58,7 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('Two arrows extend from the top left corner of a square toward its center. The red arrow reaches the center and the blue arrow only extends part of the way.');
+      describe('2本の矢印が正方形の左上隅から中心に向かって伸びています。赤い矢印は中心まで到達し、青い矢印は途中までしか伸びていません。');
     }
 
     function draw() {
@@ -69,17 +67,17 @@ example:
       let origin = createVector(0, 0);
       let v = createVector(50, 50);
 
-      // Draw the red arrow.
+      // 赤い矢印を描画します。
       drawArrow(origin, v, 'red');
 
-      // Set v's magnitude to 30.
+      // vの大きさを30に設定します。
       v.setMag(30);
 
-      // Draw the blue arrow.
+      // 青い矢印を描画します。
       drawArrow(origin, v, 'blue');
     }
 
-    // Draws an arrow between two vectors.
+    // 2つのベクトル間に矢印を描画します。
     function drawArrow(base, vec, myColor) {
       push();
       stroke(myColor);
@@ -101,29 +99,30 @@ overloads:
     params:
       - name: len
         description: |
-          <p>new length for this vector.</p>
+          <p>このベクトルの新しい長さ。</p>
         type: Number
     chainable: 1
   - line: 3766
     params:
       - name: v
         description: |
-          <p>the vector to set the magnitude of</p>
+          <p>大きさを設定するベクトル</p>
         type: p5.Vector
       - name: len
         description: ''
         type: Number
       - name: target
         description: |
-          <p>the vector to receive the result (Optional)</p>
+          <p>結果を受け取るベクトル（オプション）</p>
         type: p5.Vector
         optional: true
     static: 1
     return:
-      description: v with a magnitude set to len
+      description: 大きさがlenに設定されたv
       type: p5.Vector
 chainable: true
 ---
 
 
 # setMag
+

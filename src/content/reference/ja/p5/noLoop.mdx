@@ -4,26 +4,21 @@ module: Structure
 submodule: Structure
 file: src/core/structure.js
 description: >
-  <p>Stops the code in <a href="/reference/p5/draw/">draw()</a> from running
-  repeatedly.</p>
+  <p><a href="/reference/p5/draw/">draw()</a>内のコードが繰り返し実行されるのを停止します。</p>
 
-  <p>By default, <a href="/reference/p5/draw/">draw()</a> tries to run 60 times
-  per
+  <p>デフォルトでは、<a href="/reference/p5/draw/">draw()</a>は1秒間に60回実行されようとします。
 
-  second. Calling <code>noLoop()</code> stops <a
-  href="/reference/p5/draw/">draw()</a> from
+  <code>noLoop()</code>を呼び出すと、<a href="/reference/p5/draw/">draw()</a>の繰り返しが
 
-  repeating. The draw loop can be restarted by calling
+  停止します。描画ループは<a href="/reference/p5/loop/">loop()</a>を呼び出すことで
 
-  <a href="/reference/p5/loop/">loop()</a>. <a
-  href="/reference/p5/draw/">draw()</a> can be run
+  再開できます。<a href="/reference/p5/draw/">draw()</a>は
 
-  once by calling <a href="/reference/p5/redraw/">redraw()</a>.</p>
+  <a href="/reference/p5/redraw/">redraw()</a>を呼び出すことで1回だけ実行できます。</p>
 
-  <p>The <a href="/reference/p5/isLooping/">isLooping()</a> function can be used
-  to check
+  <p><a href="/reference/p5/isLooping/">isLooping()</a>関数を使用して、
 
-  whether a sketch is looping, as in <code>isLooping() === true</code>.</p>
+  スケッチがループしているかどうかを確認できます。例えば、<code>isLooping() === true</code>のように使用します。</p>
 line: 9
 isConstructor: false
 itemtype: method
@@ -35,20 +30,20 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Turn off the draw loop.
+      // 描画ループをオフにする
       noLoop();
 
-      describe('A white half-circle on the left edge of a gray square.');
+      describe('灰色の正方形の左端に白い半円。');
     }
 
     function draw() {
       background(200);
 
-      // Calculate the circle's x-coordinate.
+      // 円のx座標を計算する
       let x = frameCount;
 
-      // Draw the circle.
-      // Normally, the circle would move from left to right.
+      // 円を描画する
+      // 通常、円は左から右に移動するはずです
       circle(x, 50, 20);
     }
     </code>
@@ -56,30 +51,30 @@ example:
 
     <div>
     <code>
-    // Double-click to stop the draw loop.
+    // ダブルクリックで描画ループを停止する
 
     function setup() {
       createCanvas(100, 100);
 
-      // Slow the frame rate.
+      // フレームレートを遅くする
       frameRate(5);
 
-      describe('A white circle moves randomly on a gray background. It stops moving when the user double-clicks.');
+      describe('白い円が灰色の背景上をランダムに移動する。ユーザーがダブルクリックすると動きが止まる。');
     }
 
     function draw() {
       background(200);
 
-      // Calculate the circle's coordinates.
+      // 円の座標を計算する
       let x = random(0, 100);
       let y = random(0, 100);
 
-      // Draw the circle.
-      // Normally, the circle would move from left to right.
+      // 円を描画する
+      // 通常、円は左から右に移動するはずです
       circle(x, y, 20);
     }
 
-    // Stop the draw loop when the user double-clicks.
+    // ユーザーがダブルクリックしたときに描画ループを停止する
     function doubleClicked() {
       noLoop();
     }
@@ -94,8 +89,8 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create the button elements and place them
-      // beneath the canvas.
+      // ボタン要素を作成し、
+      // キャンバスの下に配置する
       startButton = createButton('▶');
       startButton.position(0, 100);
       startButton.size(50, 20);
@@ -103,27 +98,27 @@ example:
       stopButton.position(50, 100);
       stopButton.size(50, 20);
 
-      // Set functions to call when the buttons are pressed.
+      // ボタンが押されたときに呼び出す関数を設定する
       startButton.mousePressed(loop);
       stopButton.mousePressed(noLoop);
 
-      // Slow the frame rate.
+      // フレームレートを遅くする
       frameRate(5);
 
       describe(
-        'A white circle moves randomly on a gray background. Play and stop buttons are shown beneath the canvas. The circle stops or starts moving when the user presses a button.'
+        '白い円が灰色の背景上をランダムに移動する。キャンバスの下に再生と停止のボタンが表示される。ユーザーがボタンを押すと、円の動きが停止または開始する。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Calculate the circle's coordinates.
+      // 円の座標を計算する
       let x = random(0, 100);
       let y = random(0, 100);
 
-      // Draw the circle.
-      // Normally, the circle would move from left to right.
+      // 円を描画する
+      // 通常、円は左から右に移動するはずです
       circle(x, y, 20);
     }
     </code>
@@ -134,3 +129,4 @@ chainable: false
 
 
 # noLoop
+

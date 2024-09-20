@@ -4,36 +4,34 @@ module: Events
 submodule: Touch
 file: src/events/touch.js
 description: >
-  <p>An <code>Array</code> of all the current touch points on a touchscreen
-  device.</p>
+  <p>タッチスクリーンデバイス上の現在のすべてのタッチポイントを含む<code>Array</code>です。</p>
 
-  <p>The <code>touches</code> array is empty by default. When the user touches
-  their
+  <p><code>touches</code>配列はデフォルトでは空です。ユーザーが画面に触れると、
 
-  screen, a new touch point is tracked and added to the array. Touch points
+  新しいタッチポイントが追跡され、配列に追加されます。タッチポイントは
 
-  are <code>Objects</code> with the following properties:</p>
+  以下のプロパティを持つ<code>Object</code>です：</p>
 
-  <pre><code class="language-js">// Iterate over the touches array.
+  <pre><code class="language-js">// touches配列を反復処理します。
 
   for (let touch of touches) {
-    // x-coordinate relative to the top-left
-    // corner of the canvas.
+    // キャンバスの左上隅を基準とした
+    // x座標。
     console.log(touch.x);
 
-    // y-coordinate relative to the top-left
-    // corner of the canvas.
+    // キャンバスの左上隅を基準とした
+    // y座標。
     console.log(touch.y);
 
-    // x-coordinate relative to the top-left
-    // corner of the browser.
+    // ブラウザの左上隅を基準とした
+    // x座標。
     console.log(touch.winX);
 
-    // y-coordinate relative to the top-left
-    // corner of the browser.
+    // ブラウザの左上隅を基準とした
+    // y座標。
     console.log(touch.winY);
 
-    // ID number
+    // ID番号
     console.log(touch.id);
   }
 
@@ -46,21 +44,21 @@ example:
 
     <div>
     <code>
-    // On a touchscreen device, touch the canvas using one or more fingers
-    // at the same time.
+    // タッチスクリーンデバイスで、1本以上の指を同時に使って
+    // キャンバスにタッチしてください。
 
     function setup() {
       createCanvas(100, 100);
 
       describe(
-        'A gray square. White circles appear where the user touches the square.'
+        'グレーの正方形。ユーザーが正方形にタッチした場所に白い円が表示されます。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Draw a circle at each touch point.
+      // 各タッチポイントに円を描画します。
       for (let touch of touches) {
         circle(touch.x, touch.y, 40);
       }
@@ -70,21 +68,21 @@ example:
 
     <div>
     <code>
-    // On a touchscreen device, touch the canvas using one or more fingers
-    // at the same time.
+    // タッチスクリーンデバイスで、1本以上の指を同時に使って
+    // キャンバスにタッチしてください。
 
     function setup() {
       createCanvas(100, 100);
 
       describe(
-        'A gray square. Labels appear where the user touches the square, displaying the coordinates.'
+        'グレーの正方形。ユーザーが正方形にタッチした場所に座標を表示するラベルが表示されます。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Draw a label above each touch point.
+      // 各タッチポイントの上にラベルを描画します。
       for (let touch of touches) {
         text(`${touch.x}, ${touch.y}`, touch.x, touch.y - 40);
       }
@@ -97,3 +95,4 @@ type: 'Object[]'
 
 
 # touches
+

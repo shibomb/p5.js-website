@@ -4,19 +4,10 @@ module: Rendering
 submodule: ''
 file: src/webgl/p5.Framebuffer.js
 description: >
-  <p>Updates the framebuffer with the RGBA values in the
+  <p><a href="/reference/p5.Framebuffer/pixels/">pixels</a>配列のRGBA値でフレームバッファを更新します。</p>
 
-  <a href="/reference/p5.Framebuffer/pixels/">pixels</a> array.</p>
-
-  <p><code>myBuffer.updatePixels()</code> only needs to be called after changing
-  values
-
-  in the <a href="/reference/p5.Framebuffer/pixels/">myBuffer.pixels</a> array.
-  Such
-
-  changes can be made directly after calling
-
-  <a href="/reference/p5.Framebuffer/loadPixels/">myBuffer.loadPixels()</a>.</p>
+  <p><code>myBuffer.updatePixels()</code>は、<a href="/reference/p5.Framebuffer/pixels/">myBuffer.pixels</a>配列の値を変更した後にのみ呼び出す必要があります。
+  このような変更は、<a href="/reference/p5.Framebuffer/loadPixels/">myBuffer.loadPixels()</a>を呼び出した直後に行うことができます。</p>
 line: 1581
 isConstructor: false
 itemtype: method
@@ -30,17 +21,16 @@ example:
 
       background(200);
 
-      // Create a p5.Framebuffer object.
+      // p5.Framebufferオブジェクトを作成します。
       let myBuffer = createFramebuffer();
 
-      // Load the pixels array.
+      // pixels配列を読み込みます。
       myBuffer.loadPixels();
 
-      // Get the number of pixels in the
-      // top half of the framebuffer.
+      // フレームバッファの上半分のピクセル数を取得します。
       let numPixels = myBuffer.pixels.length / 2;
 
-      // Set the framebuffer's top half to pink.
+      // フレームバッファの上半分をピンク色に設定します。
       for (let i = 0; i < numPixels; i += 4) {
         myBuffer.pixels[i] = 255;
         myBuffer.pixels[i + 1] = 102;
@@ -48,13 +38,13 @@ example:
         myBuffer.pixels[i + 3] = 255;
       }
 
-      // Update the pixels array.
+      // pixels配列を更新します。
       myBuffer.updatePixels();
 
-      // Draw the p5.Framebuffer object to the canvas.
+      // p5.Framebufferオブジェクトをキャンバスに描画します。
       image(myBuffer, -50, -50);
 
-      describe('A pink rectangle above a gray rectangle.');
+      describe('灰色の長方形の上にピンク色の長方形があります。');
     }
     </code>
     </div>
@@ -64,3 +54,4 @@ chainable: false
 
 
 # updatePixels
+

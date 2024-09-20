@@ -4,26 +4,23 @@ module: Math
 submodule: Calculation
 file: src/math/calculation.js
 description: >
-  <p>Calculates a number between two numbers at a specific increment.</p>
+  <p>2つの数値の間の特定の増分で数値を計算します。</p>
 
-  <p>The <code>amt</code> parameter is the amount to interpolate between the two
-  numbers.
+  <p><code>amt</code>パラメータは、2つの数値の間を補間する量です。
 
-  0.0 is equal to the first number, 0.1 is very near the first number, 0.5 is
+  0.0は最初の数値に等しく、0.1は最初の数値に非常に近く、0.5は
 
-  half-way in between, and 1.0 is equal to the second number. The
-  <code>lerp()</code>
+  中間点で、1.0は2番目の数値に等しくなります。<code>lerp()</code>
 
-  function is convenient for creating motion along a straight path and for
+  関数は、直線的な動きを作成したり、
 
-  drawing dotted lines.</p>
+  点線を描いたりするのに便利です。</p>
 
-  <p>If the value of <code>amt</code> is less than 0 or more than 1,
-  <code>lerp()</code> will return a
+  <p><code>amt</code>の値が0未満または1より大きい場合、<code>lerp()</code>は
 
-  number outside of the original interval. For example, calling
+  元の区間外の数値を返します。例えば、
 
-  <code>lerp(0, 10, 1.5)</code> will return 15.</p>
+  <code>lerp(0, 10, 1.5)</code>を呼び出すと15が返されます。</p>
 line: 332
 isConstructor: false
 itemtype: method
@@ -37,7 +34,7 @@ example:
 
       background(200);
 
-      // Declare variables for coordinates.
+      // 座標の変数を宣言します。
       let a = 20;
       let b = 80;
       let c = lerp(a, b, 0.2);
@@ -46,18 +43,18 @@ example:
 
       strokeWeight(5);
 
-      // Draw the original points in black.
+      // 元の点を黒で描画します。
       stroke(0);
       point(a, 50);
       point(b, 50);
 
-      // Draw the lerped points in gray.
+      // 補間された点をグレーで描画します。
       stroke(100);
       point(c, 50);
       point(d, 50);
       point(e, 50);
 
-      describe('Five points in a horizontal line. The outer points are black and the inner points are gray.');
+      describe('水平線上に5つの点。外側の点は黒で、内側の点はグレーです。');
     }
     </code>
     </div>
@@ -74,21 +71,21 @@ example:
 
       background(200);
 
-      describe('A white circle at the center of a gray canvas. The circle moves to where the user clicks, then moves smoothly back to the center.');
+      describe('グレーのキャンバスの中央に白い円。ユーザーがクリックした場所に円が移動し、その後滑らかに中央に戻ります。');
     }
 
     function draw() {
       background(220);
 
-      // Move x and y toward the target.
+      // xとyを目標に向かって移動させます。
       x = lerp(x, targetX, 0.05);
       y = lerp(y, targetY, 0.05);
 
-      // Draw the circle.
+      // 円を描画します。
       circle(x, y, 20);
     }
 
-    // Set x and y when the user clicks the mouse.
+    // ユーザーがマウスをクリックしたときにxとyを設定します。
     function mouseClicked() {
       x = mouseX;
       y = mouseY;
@@ -99,21 +96,22 @@ class: p5
 params:
   - name: start
     description: |
-      <p>first value.</p>
+      <p>最初の値。</p>
     type: Number
   - name: stop
     description: |
-      <p>second value.</p>
+      <p>2番目の値。</p>
     type: Number
   - name: amt
     description: |
-      <p>number.</p>
+      <p>数値。</p>
     type: Number
 return:
-  description: lerped value.
+  description: 補間された値。
   type: Number
 chainable: false
 ---
 
 
 # lerp
+

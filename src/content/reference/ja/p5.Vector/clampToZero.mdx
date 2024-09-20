@@ -4,17 +4,15 @@ module: Math
 submodule: Vector
 file: src/math/p5.Vector.js
 description: >
-  <p>Replaces the components of a <a
-  href="/reference/p5/p5.Vector">p5.Vector</a> that are very close to zero with
-  zero.</p>
+  <p><a href="/reference/p5/p5.Vector">p5.Vector</a>のゼロに非常に近い成分をゼロに置き換えます。</p>
 
-  <p>In computers, handling numbers with decimals can give slightly imprecise
-  answers due to the way those numbers are represented.
+  <p>コンピューターでは、小数点を含む数値の処理が、それらの数値の表現方法のために
+  わずかに不正確な結果を生むことがあります。
 
-  This can make it hard to check if a number is zero, as it may be close but not
-  exactly zero.
+  これにより、数値がゼロかどうかを確認することが難しくなる場合があります。
+  なぜなら、その数値が近いけれども厳密にはゼロではないかもしれないからです。
 
-  This method rounds very close numbers to zero to make those checks easier</p>
+  このメソッドは、非常に近い数値をゼロに丸めることで、そのような確認を容易にします。</p>
 
   <p><a
   href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/EPSILON/">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/EPSILON</a></p>
@@ -23,10 +21,11 @@ isConstructor: false
 itemtype: method
 class: p5.Vector
 return:
-  description: with components very close to zero replaced with zero.
+  description: ゼロに非常に近い成分がゼロに置き換えられたベクトル。
   type: p5.Vector
 chainable: true
 ---
 
 
 # clampToZero
+

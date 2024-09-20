@@ -4,75 +4,58 @@ module: Events
 submodule: Keyboard
 file: src/events/keyboard.js
 description: >
-  <p>A function that's called once when keys with printable characters are
-  pressed.</p>
+  <p>印字可能な文字のキーが押されたときに一度呼び出される関数です。</p>
 
-  <p>Declaring the function <code>keyTyped()</code> sets a code block to run
-  once
-
-  automatically when the user presses any key with a printable character such
-
-  as <code>a</code> or 1. Modifier keys such as <code>SHIFT</code>,
-  <code>CONTROL</code>, and the arrow keys
-
-  will be ignored:</p>
+  <p><code>keyTyped()</code>関数を宣言すると、ユーザーが<code>a</code>や1のような
+  印字可能な文字のキーを押したときに自動的に一度実行されるコードブロックを
+  設定します。<code>SHIFT</code>、<code>CONTROL</code>、矢印キーなどの
+  修飾キーは無視されます：</p>
 
   <pre><code class="language-js">function keyTyped() {
-    // Code to run.
+    // 実行するコード
   }
 
   </code></pre>
 
-  <p>The <a href="/reference/p5/key/">key</a> and <a
-  href="/reference/p5/keyCode/">keyCode</a>
-
-  variables will be updated with the most recently released value when
-
-  <code>keyTyped()</code> is called by p5.js:</p>
+  <p><a href="/reference/p5/key/">key</a>変数と<a
+  href="/reference/p5/keyCode/">keyCode</a>変数は、
+  p5.jsによって<code>keyTyped()</code>が呼び出されたときに、
+  最後に離されたキーの値で更新されます：</p>
 
   <pre><code class="language-js">function keyTyped() {
-    // Check for the "c" character using key.
+    // keyを使用して "c" 文字をチェック
     if (key === 'c') {
-      // Code to run.
+      // 実行するコード
     }
 
-    // Check for "c" using keyCode.
+    // keyCodeを使用して "c" をチェック
     if (keyCode === 67) {
-      // Code to run.
+      // 実行するコード
     }
   }
 
   </code></pre>
 
-  <p>The parameter, <code>event</code>, is optional. <code>keyTyped()</code> is
-  always passed a
-
+  <p>パラメータ<code>event</code>はオプションです。<code>keyTyped()</code>には常に
+  キー押下イベントを説明するプロパティを持つ
   <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/"
   target="_blank">KeyboardEvent</a>
-
-  object with properties that describe the key press event:</p>
+  オブジェクトが渡されます：</p>
 
   <pre><code class="language-js">function keyReleased(event) {
-    // Code to run that uses the event.
+    // イベントを使用するコード
     console.log(event);
   }
 
   </code></pre>
 
-  <p>Note: Use the <a href="/reference/p5/keyPressed/">keyPressed()</a> function
-  and
+  <p>注意：<code>ALT</code>などの修飾キーに反応するには、
+  <a href="/reference/p5/keyPressed/">keyPressed()</a>関数と
+  <a href="/reference/p5/keyCode/">keyCode</a>システム変数を使用してください。</p>
 
-  <a href="/reference/p5/keyCode/">keyCode</a> system variable to respond to
-  modifier
-
-  keys such as <code>ALT</code>.</p>
-
-  <p>Browsers may have default behaviors attached to various key events. To
-
-  prevent any default behavior for this event, add <code>return false;</code> to
-  the end
-
-  of the function.</p>
+  <p>ブラウザは様々なキーイベントにデフォルトの動作を関連付けている場合があります。
+  このイベントのデフォルトの動作を防ぐには、関数の最後に<code>return false;</code>を
+  追加してください。</p>
 line: 639
 isConstructor: false
 itemtype: method
@@ -81,8 +64,8 @@ example:
 
     <div>
     <code>
-    // Click on the canvas to begin detecting key presses.
-    // Note: Pressing special keys such as SPACE have no effect.
+    // キャンバスをクリックしてキー押下の検出を開始します。
+    // 注意：SPACEなどの特殊キーを押しても効果はありません。
 
     let value = 0;
 
@@ -90,28 +73,28 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'A gray square with a white square at its center. The inner square changes color when the user presses a key.'
+        '中央に白い正方形がある灰色の正方形。ユーザーがキーを押すと内側の正方形の色が変わります。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Style the square.
+      // 正方形のスタイルを設定
       fill(value);
 
-      // Draw the square.
+      // 正方形を描画
       square(25, 25, 50);
     }
 
-    // Toggle the square's color when the user types a printable key.
+    // ユーザーが印字可能なキーを入力すると正方形の色を切り替えます。
     function keyTyped() {
       if (value === 0) {
         value = 255;
       } else {
         value = 0;
       }
-      // Uncomment to prevent any default behavior.
+      // デフォルトの動作を防ぐにはコメントを解除してください。
       // return false;
     }
     </code>
@@ -119,7 +102,7 @@ example:
 
     <div>
     <code>
-    // Click on the canvas to begin detecting key presses.
+    // キャンバスをクリックしてキー押下の検出を開始します。
 
     let value = 0;
 
@@ -127,28 +110,28 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'A gray square with a white square at its center. The inner square turns black when the user types the "b" key. It turns white when the user types the "a" key.'
+        '中央に白い正方形がある灰色の正方形。ユーザーが "b" キーを入力すると内側の正方形が黒くなります。"a" キーを入力すると白くなります。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Style the square.
+      // 正方形のスタイルを設定
       fill(value);
 
-      // Draw the square.
+      // 正方形を描画
       square(25, 25, 50);
     }
 
-    // Reassign value when the user types the 'a' or 'b' key.
+    // ユーザーが 'a' または 'b' キーを入力すると値を再割り当てします。
     function keyTyped() {
       if (key === 'a') {
         value = 255;
       } else if (key === 'b') {
         value = 0;
       }
-      // Uncomment to prevent any default behavior.
+      // デフォルトの動作を防ぐにはコメントを解除してください。
       // return false;
     }
     </code>
@@ -157,7 +140,7 @@ class: p5
 params:
   - name: event
     description: |
-      <p>optional <code>KeyboardEvent</code> callback argument.</p>
+      <p>オプションの <code>KeyboardEvent</code> コールバック引数。</p>
     type: KeyboardEvent
     optional: true
 chainable: false
@@ -165,3 +148,4 @@ chainable: false
 
 
 # keyTyped
+

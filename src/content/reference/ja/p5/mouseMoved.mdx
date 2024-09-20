@@ -4,62 +4,57 @@ module: Events
 submodule: Mouse
 file: src/events/mouse.js
 description: >
-  <p>A function that's called when the mouse moves.</p>
+  <p>マウスが動いたときに呼び出される関数です。</p>
 
-  <p>Declaring the function <code>mouseMoved()</code> sets a code block to run
+  <p><code>mouseMoved()</code>関数を宣言すると、ユーザーがマウスボタンをクリックせずにマウスを動かしたときに
 
-  automatically when the user moves the mouse without clicking any mouse
-
-  buttons:</p>
+  自動的に実行されるコードブロックを設定できます：</p>
 
   <pre><code class="language-js">function mouseMoved() {
-    // Code to run.
+    // 実行するコード
   }
 
   </code></pre>
 
-  <p>The mouse system variables, such as <a
-  href="/reference/p5/mouseX/">mouseX</a> and
+  <p><a href="/reference/p5/mouseX/">mouseX</a>や
 
-  <a href="/reference/p5/mouseY/">mouseY</a>, will be updated with their most
-  recent
+  <a href="/reference/p5/mouseY/">mouseY</a>などのマウスシステム変数は、p5.jsによって
 
-  value when <code>mouseMoved()</code> is called by p5.js:</p>
+  <code>mouseMoved()</code>が呼び出されたときに最新の値に更新されます：</p>
 
   <pre><code class="language-js">function mouseMoved() {
     if (mouseX < 50) {
-      // Code to run if the mouse is on the left.
+      // マウスが左側にある場合に実行するコード
     }
 
     if (mouseY > 50) {
-      // Code to run if the mouse is near the bottom.
+      // マウスが下部付近にある場合に実行するコード
     }
   }
 
   </code></pre>
 
-  <p>The parameter, <code>event</code>, is optional. <code>mouseMoved()</code>
-  is always passed a
+  <p>パラメータ<code>event</code>はオプションです。<code>mouseMoved()</code>には常に
 
-  <a href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/"
+  マウス移動イベントを説明するプロパティを持つ<a href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/"
   target="_blank">MouseEvent</a>
 
-  object with properties that describe the mouse move event:</p>
+  オブジェクトが渡されます：</p>
 
   <pre><code class="language-js">function mouseMoved(event) {
-    // Code to run that uses the event.
+    // イベントを使用して実行するコード
     console.log(event);
   }
 
   </code></pre>
 
-  <p>Browsers may have default behaviors attached to various mouse events. For
+  <p>ブラウザには、様々なマウスイベントにデフォルトの動作が設定されている場合があります。
 
-  example, some browsers highlight text when the user moves the mouse while
+  例えば、一部のブラウザでは、ユーザーがマウスボタンを押しながらマウスを動かすと
 
-  pressing a mouse button. To prevent any default behavior for this event,
+  テキストがハイライトされます。このイベントのデフォルトの動作を防ぐには、
 
-  add <code>return false;</code> to the end of the function.</p>
+  関数の最後に<code>return false;</code>を追加してください。</p>
 line: 882
 isConstructor: false
 itemtype: method
@@ -74,29 +69,29 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'A gray square with a black square at its center. The inner square becomes lighter as the mouse moves.'
+        '中央に黒い正方形がある灰色の正方形。マウスが動くにつれて内側の正方形が明るくなります。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Style the square.
+      // 正方形のスタイルを設定
       fill(value);
 
-      // Draw the square.
+      // 正方形を描画
       square(25, 25, 50);
     }
 
     function mouseMoved() {
-      // Update the grayscale value.
+      // グレースケール値を更新
       value += 5;
 
-      // Reset the grayscale value.
+      // グレースケール値をリセット
       if (value > 255) {
         value = 0;
       }
-      // Uncomment to prevent any default behavior.
+      // デフォルトの動作を防ぐにはコメントを解除
       // return false;
     }
     </code>
@@ -105,7 +100,7 @@ class: p5
 params:
   - name: event
     description: |
-      <p>optional <code>MouseEvent</code> argument.</p>
+      <p>オプションの<code>MouseEvent</code>引数。</p>
     type: MouseEvent
     optional: true
 chainable: false
@@ -113,3 +108,4 @@ chainable: false
 
 
 # mouseMoved
+

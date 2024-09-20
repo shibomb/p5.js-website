@@ -4,26 +4,17 @@ module: Events
 submodule: Mouse
 file: src/events/mouse.js
 description: >
-  <p>A <code>Number</code> variable that tracks the mouse's horizontal position
-  within the
+  <p><code>Number</code>型の変数で、ブラウザ内のマウスの水平位置を追跡します。</p>
 
-  browser.</p>
+  <p><code>winMouseX</code>は、ブラウザウィンドウの左上隅を基準としたマウスの位置を
+  追跡します。例えば、マウスがブラウザの左端から50ピクセルの位置にある場合、
+  <code>winMouseX</code>は50になります。</p>
 
-  <p><code>winMouseX</code> keeps track of the mouse's position relative to the
-  top-left
+  <p>タッチスクリーンデバイスでは、<code>winMouseX</code>は最新のタッチポイントの
+  x座標を保持します。</p>
 
-  corner of the browser window. For example, if the mouse is 50 pixels from
-
-  the left edge of the browser, then <code>winMouseX</code> will be 50.</p>
-
-  <p>On a touchscreen device, <code>winMouseX</code> will hold the x-coordinate
-  of the most
-
-  recent touch point.</p>
-
-  <p>Note: Use <a href="/reference/p5/mouseX/">mouseX</a> to track the mouse’s
-
-  x-coordinate within the canvas.</p>
+  <p>注意：キャンバス内のマウスのx座標を追跡するには、<a href="/reference/p5/mouseX/">mouseX</a>を
+  使用してください。</p>
 line: 469
 isConstructor: false
 itemtype: property
@@ -35,17 +26,17 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe("A gray square. The mouse's x- and y-coordinates are displayed as the user moves the mouse.");
+      describe("灰色の正方形。ユーザーがマウスを動かすと、マウスのx座標とy座標が表示されます。");
     }
 
     function draw() {
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER);
       textSize(16);
 
-      // Display the mouse's coordinates within the browser window.
+      // ブラウザウィンドウ内のマウスの座標を表示します。
       text(`x: ${winMouseX} y: ${winMouseY}`, 50, 50);
     }
     </code>
@@ -56,3 +47,4 @@ type: Number
 
 
 # winMouseX
+

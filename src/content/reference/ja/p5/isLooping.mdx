@@ -4,22 +4,20 @@ module: Structure
 submodule: Structure
 file: src/core/structure.js
 description: >
-  <p>Returns <code>true</code> if the draw loop is running and
-  <code>false</code> if not.</p>
+  <p><code>true</code>を返すのは描画ループが実行中の場合で、
+  実行中でない場合は<code>false</code>を返します。</p>
 
-  <p>By default, <a href="/reference/p5/draw/">draw()</a> tries to run 60 times
-  per
+  <p>デフォルトでは、<a href="/reference/p5/draw/">draw()</a>は1秒間に60回
 
-  second. Calling <a href="/reference/p5/noLoop/">noLoop()</a> stops
+  実行しようとします。<a href="/reference/p5/noLoop/">noLoop()</a>を呼び出すと、
 
-  <a href="/reference/p5/draw/">draw()</a> from repeating. The draw loop can be
+  <a href="/reference/p5/draw/">draw()</a>の繰り返しが停止します。描画ループは
 
-  restarted by calling <a href="/reference/p5/loop/">loop()</a>.</p>
+  <a href="/reference/p5/loop/">loop()</a>を呼び出すことで再開できます。</p>
 
-  <p>The <code>isLooping()</code> function can be used to check whether a sketch
-  is
+  <p><code>isLooping()</code>関数は、スケッチがループ中かどうかを確認するために
 
-  looping, as in <code>isLooping() === true</code>.</p>
+  使用できます。例えば、<code>isLooping() === true</code>のように使います。</p>
 line: 224
 isConstructor: false
 itemtype: method
@@ -31,17 +29,17 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('A white circle drawn against a gray background. When the user double-clicks, the circle stops or resumes following the mouse.');
+      describe('灰色の背景に白い円が描かれています。ユーザーがダブルクリックすると、円がマウスに追従するのを停止または再開します。');
     }
 
     function draw() {
       background(200);
 
-      // Draw the circle at the mouse's position.
+      // マウスの位置に円を描画します。
       circle(mouseX, mouseY, 20);
     }
 
-    // Toggle the draw loop when the user double-clicks.
+    // ユーザーがダブルクリックしたときに描画ループを切り替えます。
     function doubleClicked() {
       if (isLooping() === true) {
         noLoop();
@@ -60,3 +58,4 @@ chainable: false
 
 
 # isLooping
+

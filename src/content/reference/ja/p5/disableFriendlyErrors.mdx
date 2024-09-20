@@ -4,20 +4,19 @@ module: Structure
 submodule: Structure
 file: src/core/main.js
 description: >
-  <p>Turns off the parts of the Friendly Error System (FES) that impact
-  performance.</p>
+  <p>パフォーマンスに影響を与えるフレンドリーエラーシステム（FES）の部分をオフにします。</p>
 
-  <p>The <a
+  <p><a
   href="https://github.com/processing/p5.js/blob/main/contributor_docs/friendly_error_system.md"
-  target="_blank">FES</a>
+  target="_blank">FES</a>は、
 
-  can cause sketches to draw slowly because it does extra work behind the
+  バックグラウンドで追加の作業を行うため、スケッチの描画速度を遅くする可能性があります。
 
-  scenes. For example, the FES checks the arguments passed to functions,
+  例えば、FESは関数に渡される引数をチェックしますが、これには処理時間がかかります。
 
-  which takes time to process. Disabling the FES can significantly improve
+  FESを無効にすることで、これらのチェックをオフにし、パフォーマンスを大幅に
 
-  performance by turning off these checks.</p>
+  向上させることができます。</p>
 line: 877
 isConstructor: false
 itemtype: property
@@ -26,7 +25,7 @@ example:
 
     <div>
     <code>
-    // Disable the FES.
+    // FESを無効にする。
     p5.disableFriendlyErrors = true;
 
     function setup() {
@@ -34,13 +33,13 @@ example:
 
       background(200);
 
-      // The circle() function requires three arguments. The
-      // next line would normally display a friendly error that
-      // points this out. Instead, nothing happens and it fails
-      // silently.
+      // circle()関数は3つの引数が必要です。
+      // 通常、次の行では、これを指摘するフレンドリーエラーが
+      // 表示されるはずです。代わりに、何も起こらず、
+      // 静かに失敗します。
       circle(50, 50);
 
-      describe('A gray square.');
+      describe('灰色の正方形。');
     }
     </code>
     </div>
@@ -50,3 +49,4 @@ type: Boolean
 
 
 # disableFriendlyErrors
+

@@ -4,35 +4,21 @@ module: Math
 submodule: Noise
 file: src/math/noise.js
 description: >
-  <p>Adjusts the character of the noise produced by the
+  <p><a href="/reference/p5/noise/">noise()</a>関数によって生成されるノイズの特性を調整します。</p>
 
-  <a href="/reference/p5/noise/">noise()</a> function.</p>
+  <p>パーリンノイズの値は、複数のノイズレイヤーを重ね合わせることで作成されます。
+  これらのノイズレイヤーはオクターブと呼ばれ、音楽の倍音に似ています。
+  低いオクターブは出力信号により大きく寄与し、ノイズの全体的な強度を定義します。
+  高いオクターブはより細かい詳細を作り出します。</p>
 
-  <p>Perlin noise values are created by adding layers of noise together. The
-
-  noise layers, called octaves, are similar to harmonics in music. Lower
-
-  octaves contribute more to the output signal. They define the overall
-
-  intensity of the noise. Higher octaves create finer-grained details.</p>
-
-  <p>By default, noise values are created by combining four octaves. Each higher
-
-  octave contributes half as much (50% less) compared to its predecessor.
-
-  <code>noiseDetail()</code> changes the number of octaves and the falloff
-  amount. For
-
-  example, calling <code>noiseDetail(6, 0.25)</code> ensures that
-
-  <a href="/reference/p5/noise/">noise()</a> will use six octaves. Each higher
-  octave
-
-  will contribute 25% as much (75% less) compared to its predecessor. Falloff
-
-  values between 0 and 1 are valid. However, falloff values greater than 0.5
-
-  might result in noise values greater than 1.</p>
+  <p>デフォルトでは、ノイズ値は4つのオクターブを組み合わせて作成されます。
+  各高次オクターブは、その前のオクターブの半分（50%減）の寄与をします。
+  <code>noiseDetail()</code>は、オクターブの数と減衰量を変更します。
+  例えば、<code>noiseDetail(6, 0.25)</code>を呼び出すと、
+  <a href="/reference/p5/noise/">noise()</a>が6つのオクターブを使用することを保証します。
+  各高次オクターブは、その前のオクターブの25%（75%減）の寄与をします。
+  0から1の間の減衰値が有効です。ただし、0.5を超える減衰値を使用すると、
+  ノイズ値が1を超える可能性があります。</p>
 line: 331
 isConstructor: false
 itemtype: method
@@ -44,39 +30,39 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Set the noise level and scale.
+      // ノイズレベルとスケールを設定します。
       let noiseLevel = 255;
       let noiseScale = 0.02;
 
-      // Iterate from top to bottom.
+      // 上から下へ繰り返します。
       for (let y = 0; y < 100; y += 1) {
-        // Iterate from left to right.
+        // 左から右へ繰り返します。
         for (let x = 0; x < 50; x += 1) {
-          // Scale the input coordinates.
+          // 入力座標をスケーリングします。
           let nx = noiseScale * x;
           let ny = noiseScale * y;
 
-          // Compute the noise value with six octaves
-          // and a low falloff factor.
+          // 6つのオクターブと低い減衰係数で
+          // ノイズ値を計算します。
           noiseDetail(6, 0.25);
           let c = noiseLevel * noise(nx, ny);
 
-          // Draw the left side.
+          // 左側を描画します。
           stroke(c);
           point(x, y);
 
-          // Compute the noise value with four octaves
-          // and a high falloff factor.
+          // 4つのオクターブと高い減衰係数で
+          // ノイズ値を計算します。
           noiseDetail(4, 0.5);
           c = noiseLevel * noise(nx, ny);
 
-          // Draw the right side.
+          // 右側を描画します。
           stroke(c);
           point(x + 50, y);
         }
       }
 
-      describe('Two gray cloudy patterns. The pattern on the right is cloudier than the pattern on the left.');
+      describe('2つのグレーの雲模様。右側のパターンは左側のパターンよりも雲が多い。');
     }
     </code>
     </div>
@@ -84,14 +70,15 @@ class: p5
 params:
   - name: lod
     description: |
-      <p>number of octaves to be used by the noise.</p>
+      <p>ノイズに使用されるオクターブの数。</p>
     type: Number
   - name: falloff
     description: |
-      <p>falloff factor for each octave.</p>
+      <p>各オクターブの減衰係数。</p>
     type: Number
 chainable: false
 ---
 
 
 # noiseDetail
+

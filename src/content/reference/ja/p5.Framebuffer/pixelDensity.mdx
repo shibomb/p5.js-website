@@ -4,32 +4,29 @@ module: Rendering
 submodule: ''
 file: src/webgl/p5.Framebuffer.js
 description: >
-  <p>Sets the framebuffer's pixel density or returns its current density.</p>
+  <p>フレームバッファのピクセル密度を設定するか、現在の密度を返します。</p>
 
-  <p>Computer displays are grids of little lights called pixels. A display's
+  <p>コンピューターディスプレイは、ピクセルと呼ばれる小さな光の格子です。ディスプレイの
 
-  pixel density describes how many pixels it packs into an area. Displays
+  ピクセル密度は、ある領域にどれだけのピクセルが詰め込まれているかを表します。
 
-  with smaller pixels have a higher pixel density and create sharper
+  より小さなピクセルを持つディスプレイは、より高いピクセル密度を持ち、より鮮明な
 
-  images.</p>
+  画像を作成します。</p>
 
-  <p>The parameter, <code>density</code>, is optional. If a number is passed, as
-  in
+  <p>パラメータ<code>density</code>はオプションです。数値が渡された場合、例えば
 
-  <code>myBuffer.pixelDensity(1)</code>, it sets the framebuffer's pixel
-  density. By
+  <code>myBuffer.pixelDensity(1)</code>のように、フレームバッファのピクセル密度を
 
-  default, the framebuffer's pixel density will match that of the canvas
+  設定します。デフォルトでは、フレームバッファのピクセル密度は作成された
 
-  where it was created. All canvases default to match the display's pixel
+  キャンバスのピクセル密度と一致します。すべてのキャンバスはデフォルトで
 
-  density.</p>
+  ディスプレイのピクセル密度に合わせられます。</p>
 
-  <p>Calling <code>myBuffer.pixelDensity()</code> without an argument returns
-  its current
+  <p>引数なしで<code>myBuffer.pixelDensity()</code>を呼び出すと、現在の
 
-  pixel density.</p>
+  ピクセル密度を返します。</p>
 line: 297
 isConstructor: false
 itemtype: method
@@ -43,31 +40,31 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Framebuffer object.
+      // p5.Framebufferオブジェクトを作成します。
       myBuffer = createFramebuffer();
 
-      describe("A white circle on a gray canvas. The circle's edge become fuzzy while the user presses and holds the mouse.");
+      describe("グレーのキャンバス上の白い円。ユーザーがマウスを押し続けている間、円の縁がぼやけます。");
     }
 
     function draw() {
-      // Draw to the p5.Framebuffer object.
+      // p5.Framebufferオブジェクトに描画します。
       myBuffer.begin();
       background(200);
       circle(0, 0, 40);
       myBuffer.end();
 
-      // Display the p5.Framebuffer object.
+      // p5.Framebufferオブジェクトを表示します。
       image(myBuffer, -50, -50);
     }
 
-    // Decrease the pixel density when the user
-    // presses the mouse.
+    // ユーザーがマウスを押したときに
+    // ピクセル密度を下げます。
     function mousePressed() {
       myBuffer.pixelDensity(1);
     }
 
-    // Increase the pixel density when the user
-    // releases the mouse.
+    // ユーザーがマウスを離したときに
+    // ピクセル密度を上げます。
     function mouseReleased() {
       myBuffer.pixelDensity(2);
     }
@@ -79,7 +76,7 @@ example:
     let myBuffer;
     let myFont;
 
-    // Load a font and create a p5.Font object.
+    // フォントを読み込み、p5.Fontオブジェクトを作成します。
     function preload() {
       myFont = loadFont('/assets/inconsolata.otf');
     }
@@ -89,22 +86,22 @@ example:
 
       background(200);
 
-      // Create a p5.Framebuffer object.
+      // p5.Framebufferオブジェクトを作成します。
       myBuffer = createFramebuffer();
 
-      // Get the p5.Framebuffer object's pixel density.
+      // p5.Framebufferオブジェクトのピクセル密度を取得します。
       let d = myBuffer.pixelDensity();
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textFont(myFont);
       textSize(16);
       fill(0);
 
-      // Display the pixel density.
+      // ピクセル密度を表示します。
       text(`Density: ${d}`, 0, 0);
 
-      describe(`The text "Density: ${d}" written in black on a gray background.`);
+      describe(`グレーの背景に黒で "Density: ${d}" と書かれたテキスト。`);
     }
     </code>
     </div>
@@ -112,14 +109,15 @@ class: p5.Framebuffer
 params:
   - name: density
     description: |
-      <p>pixel density to set.</p>
+      <p>設定するピクセル密度。</p>
     type: Number
     optional: true
 return:
-  description: current pixel density.
+  description: 現在のピクセル密度。
   type: Number
 chainable: false
 ---
 
 
 # pixelDensity
+

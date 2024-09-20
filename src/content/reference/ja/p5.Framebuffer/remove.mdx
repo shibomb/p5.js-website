@@ -4,34 +4,32 @@ module: Rendering
 submodule: ''
 file: src/webgl/p5.Framebuffer.js
 description: >
-  <p>Deletes the framebuffer from GPU memory.</p>
+  <p>フレームバッファをGPUメモリから削除します。</p>
 
-  <p>Calling <code>myBuffer.remove()</code> frees the GPU memory used by the
-  framebuffer.
+  <p><code>myBuffer.remove()</code>を呼び出すと、フレームバッファが使用していたGPUメモリが解放されます。
 
-  The framebuffer also uses a bit of memory on the CPU which can be freed
+  フレームバッファはCPU上でも少量のメモリを使用しており、これは
 
-  like so:</p>
+  以下のように解放できます：</p>
 
-  <pre><code class="language-js">// Delete the framebuffer from GPU memory.
+  <pre><code class="language-js">// フレームバッファをGPUメモリから削除する。
 
   myBuffer.remove();
 
 
-  // Delete the framebuffer from CPU memory.
+  // フレームバッファをCPUメモリから削除する。
 
   myBuffer = undefined;
 
   </code></pre>
 
-  <p>Note: All variables that reference the framebuffer must be assigned
+  <p>注意：フレームバッファをCPUメモリから削除するには、フレームバッファを参照する
 
-  the value <code>undefined</code> to delete the framebuffer from CPU memory. If
-  any
+  すべての変数に<code>undefined</code>を代入する必要があります。もし
 
-  variable still refers to the framebuffer, then it won't be garbage
+  どの変数かがまだフレームバッファを参照している場合、ガベージ
 
-  collected.</p>
+  コレクションの対象にはなりません。</p>
 line: 1031
 isConstructor: false
 itemtype: method
@@ -40,30 +38,30 @@ example:
 
     <div>
     <code>
-    // Double-click to remove the p5.Framebuffer object.
+    // ダブルクリックしてp5.Framebufferオブジェクトを削除します。
 
     let myBuffer;
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create an options object.
+      // オプションオブジェクトを作成します。
       let options = { width: 60, height: 60 };
 
-      // Create a p5.Framebuffer object and
-      // configure it using options.
+      // p5.Framebufferオブジェクトを作成し、
+      // オプションを使用して設定します。
       myBuffer = createFramebuffer(options);
 
-      describe('A white circle at the center of a dark gray square disappears when the user double-clicks.');
+      describe('暗い灰色の四角形の中央にある白い円が、ユーザーがダブルクリックすると消えます。');
     }
 
     function draw() {
       background(200);
 
-      // Display the p5.Framebuffer object if
-      // it's available.
+      // p5.Framebufferオブジェクトが利用可能な場合、
+      // 表示します。
       if (myBuffer) {
-        // Draw to the p5.Framebuffer object.
+        // p5.Framebufferオブジェクトに描画します。
         myBuffer.begin();
         background(100);
         circle(0, 0, 20);
@@ -73,13 +71,13 @@ example:
       }
     }
 
-    // Remove the p5.Framebuffer object when the
-    // the user double-clicks.
+    // ユーザーがダブルクリックしたときに
+    // p5.Framebufferオブジェクトを削除します。
     function doubleClicked() {
-      // Delete the framebuffer from GPU memory.
+      // フレームバッファをGPUメモリから削除します。
       myBuffer.remove();
 
-      // Delete the framebuffer from CPU memory.
+      // フレームバッファをCPUメモリから削除します。
       myBuffer = undefined;
     }
     </code>
@@ -90,3 +88,4 @@ chainable: false
 
 
 # remove
+

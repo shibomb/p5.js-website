@@ -4,20 +4,18 @@ module: Math
 submodule: Vector
 file: src/math/p5.Vector.js
 description: >
-  <p>Calculates the angle between two vectors.</p>
+  <p>2つのベクトル間の角度を計算します。</p>
 
-  <p>The angles returned are signed, which means that
+  <p>返される角度は符号付きで、つまり
 
-  <code>v1.angleBetween(v2) === -v2.angleBetween(v1)</code>.</p>
+  <code>v1.angleBetween(v2) === -v2.angleBetween(v1)</code>となります。</p>
 
-  <p>If the vector was created with
+  <p>ベクトルが<a href="/reference/p5/createVector/">createVector()</a>で作成された場合、
+  <code>angleBetween()</code>は現在の
 
-  <a href="/reference/p5/createVector/">createVector()</a>,
-  <code>angleBetween()</code> returns
+  <a href="/reference/p5/angleMode/">angleMode()</a>の単位で
 
-  angles in the units of the current
-
-  <a href="/reference/p5/angleMode/">angleMode()</a>.</p>
+  角度を返します。</p>
 line: 2384
 isConstructor: false
 itemtype: method
@@ -27,14 +25,14 @@ example:
     <div class="norender">
     <code>
     function setup() {
-      // Create p5.Vector objects.
+      // p5.Vectorオブジェクトを作成します。
       let v0 = createVector(1, 0);
       let v1 = createVector(0, 1);
 
-      // Prints "1.570..." to the console.
+      // コンソールに "1.570..." と表示されます。
       print(v0.angleBetween(v1));
 
-      // Prints "-1.570..." to the console.
+      // コンソールに "-1.570..." と表示されます。
       print(v1.angleBetween(v0));
     }
     </code>
@@ -43,16 +41,16 @@ example:
     <div class="norender">
     <code>
     function setup() {
-      // Use degrees.
+      // 度数法を使用します。
       angleMode(DEGREES);
-      // Create p5.Vector objects.
+      // p5.Vectorオブジェクトを作成します。
       let v0 = createVector(1, 0);
       let v1 = createVector(0, 1);
 
-      // Prints "90" to the console.
+      // コンソールに "90" と表示されます。
       print(v0.angleBetween(v1));
 
-      // Prints "-90" to the console.
+      // コンソールに "-90" と表示されます。
       print(v1.angleBetween(v0));
     }
     </code>
@@ -61,14 +59,14 @@ example:
     <div class="norender">
     <code>
     function setup() {
-      // Create p5.Vector objects.
+      // p5.Vectorオブジェクトを作成します。
       let v0 = createVector(1, 0);
       let v1 = createVector(0, 1);
 
-      // Prints "1.570..." to the console.
+      // コンソールに "1.570..." と表示されます。
       print(p5.Vector.angleBetween(v0, v1));
 
-      // Prints "-1.570..." to the console.
+      // コンソールに "-1.570..." と表示されます。
       print(p5.Vector.angleBetween(v1, v0));
     }
     </code>
@@ -77,17 +75,17 @@ example:
     <div class="norender">
     <code>
     function setup() {
-      // Use degrees.
+      // 度数法を使用します。
       angleMode(DEGREES);
 
-      // Create p5.Vector objects.
+      // p5.Vectorオブジェクトを作成します。
       let v0 = createVector(1, 0);
       let v1 = createVector(0, 1);
 
-      // Prints "90" to the console.
+      // コンソールに "90" と表示されます。
       print(p5.Vector.angleBetween(v0, v1));
 
-      // Prints "-90" to the console.
+      // コンソールに "-90" と表示されます。
       print(p5.Vector.angleBetween(v1, v0));
     }
     </code>
@@ -98,38 +96,38 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('Two arrows extend from the center of a gray square. A red arrow points to the right and a blue arrow points down. The text "Radians: 1.57" and "Degrees: 90" is written above the arrows.');
+      describe('灰色の正方形の中心から2本の矢印が伸びています。赤い矢印は右を指し、青い矢印は下を指しています。矢印の上には "Radians: 1.57" と "Degrees: 90" というテキストが書かれています。');
     }
     function draw() {
       background(200);
 
-      // Create p5.Vector objects.
+      // p5.Vectorオブジェクトを作成します。
       let v0 = createVector(50, 50);
       let v1 = createVector(30, 0);
       let v2 = createVector(0, 30);
 
-      // Draw the red arrow.
+      // 赤い矢印を描画します。
       drawArrow(v0, v1, 'red');
 
-      // Draw the blue arrow.
+      // 青い矢印を描画します。
       drawArrow(v0, v2, 'blue');
 
-      // Use radians.
+      // ラジアンを使用します。
       angleMode(RADIANS);
 
-      // Display the angle in radians.
+      // ラジアンでの角度を表示します。
       let angle = round(v1.angleBetween(v2), 2);
       text(`Radians: ${angle}`, 20, 20);
 
-      // Use degrees.
+      // 度数法を使用します。
       angleMode(DEGREES);
 
-      // Display the angle in degrees.
+      // 度数法での角度を表示します。
       angle = round(v1.angleBetween(v2), 2);
       text(`Degrees: ${angle}`, 20, 35);
     }
 
-    // Draws an arrow between two vectors.
+    // 2つのベクトル間に矢印を描画します。
     function drawArrow(base, vec, myColor) {
       push();
       stroke(myColor);
@@ -147,35 +145,35 @@ example:
     </div>
 class: p5.Vector
 return:
-  description: angle between the vectors.
+  description: ベクトル間の角度。
   type: Number
 overloads:
   - line: 2384
     params:
       - name: value
         description: >
-          <p>x, y, and z components of a <a
-          href="#/p5.Vector">p5.Vector</a>.</p>
+          <p><a href="#/p5.Vector">p5.Vector</a>のx、y、zコンポーネント。</p>
         type: p5.Vector
     return:
-      description: angle between the vectors.
+      description: ベクトル間の角度。
       type: Number
   - line: 3811
     params:
       - name: v1
         description: |
-          <p>the first vector.</p>
+          <p>1つ目のベクトル。</p>
         type: p5.Vector
       - name: v2
         description: |
-          <p>the second vector.</p>
+          <p>2つ目のベクトル。</p>
         type: p5.Vector
     static: 1
     return:
-      description: angle between the two vectors.
+      description: 2つのベクトル間の角度。
       type: Number
 chainable: false
 ---
 
 
 # angleBetween
+

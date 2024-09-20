@@ -4,52 +4,49 @@ module: Math
 submodule: Vector
 file: src/math/p5.Vector.js
 description: >
-  <p>A class to describe a two or three-dimensional vector.</p>
+  <p>2次元または3次元のベクトルを表すクラスです。</p>
 
-  <p>A vector can be thought of in different ways. In one view, a vector is like
+  <p>ベクトルは異なる方法で考えることができます。一つの見方では、ベクトルは
 
-  an arrow pointing in space. Vectors have both magnitude (length) and
+  空間内で指し示す矢印のようなものです。ベクトルは大きさ（長さ）と
 
-  direction.</p>
+  方向の両方を持っています。</p>
 
-  <p><code>p5.Vector</code> objects are often used to program motion because
-  they simplify
+  <p><code>p5.Vector</code>オブジェクトは、計算を簡略化するため、しばしば動きを
 
-  the math. For example, a moving ball has a position and a velocity.
+  プログラムするのに使用されます。例えば、動く球は位置と速度を持っています。
 
-  Position describes where the ball is in space. The ball's position vector
+  位置は球が空間のどこにあるかを表します。球の位置ベクトルは
 
-  extends from the origin to the ball's center. Velocity describes the ball's
+  原点から球の中心まで伸びています。速度は球の速さと
 
-  speed and the direction it's moving. If the ball is moving straight up, its
+  動いている方向を表します。球がまっすぐ上に動いている場合、その
 
-  velocity vector points straight up. Adding the ball's velocity vector to
+  速度ベクトルはまっすぐ上を指します。球の速度ベクトルを
 
-  its position vector moves it, as in <code>pos.add(vel)</code>. Vector math
-  relies on
+  位置ベクトルに加えると、球が動きます。例えば<code>pos.add(vel)</code>のようにします。ベクトル計算は
 
-  methods inside the <code>p5.Vector</code> class.</p>
+  <code>p5.Vector</code>クラス内のメソッドに依存しています。</p>
 
-  <p>Note: <a href="/reference/p5/createVector/">createVector()</a> is the
-  recommended way
+  <p>注意：<a href="/reference/p5/createVector/">createVector()</a>は
 
-  to make an instance of this class.</p>
+  このクラスのインスタンスを作成する推奨される方法です。</p>
 line: 11
 isConstructor: true
 params:
   - name: x
     description: |
-      <p>x component of the vector.</p>
+      <p>ベクトルのx成分。</p>
     type: Number
     optional: true
   - name: 'y'
     description: |
-      <p>y component of the vector.</p>
+      <p>ベクトルのy成分。</p>
     type: Number
     optional: true
   - name: z
     description: |
-      <p>z component of the vector.</p>
+      <p>ベクトルのz成分。</p>
     type: Number
     optional: true
 example:
@@ -62,20 +59,20 @@ example:
 
       background(200);
 
-      // Create p5.Vector objects.
+      // p5.Vectorオブジェクトを作成します。
       let p1 = createVector(25, 25);
       let p2 = createVector(75, 75);
 
-      // Style the points.
+      // 点のスタイルを設定します。
       strokeWeight(5);
 
-      // Draw the first point using a p5.Vector.
+      // p5.Vectorを使用して最初の点を描画します。
       point(p1);
 
-      // Draw the second point using a p5.Vector's components.
+      // p5.Vectorの成分を使用して2番目の点を描画します。
       point(p2.x, p2.y);
 
-      describe('Two black dots on a gray square, one at the top left and the other at the bottom right.');
+      describe('灰色の正方形上に2つの黒い点があり、1つは左上、もう1つは右下にあります。');
     }
     </code>
     </div>
@@ -88,26 +85,26 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create p5.Vector objects.
+      // p5.Vectorオブジェクトを作成します。
       pos = createVector(50, 100);
       vel = createVector(0, -1);
 
-      describe('A black dot moves from bottom to top on a gray square. The dot reappears at the bottom when it reaches the top.');
+      describe('灰色の正方形上で、黒い点が下から上に移動します。点が上に達すると、下から再び現れます。');
     }
 
     function draw() {
       background(200);
 
-      // Add velocity to position.
+      // 位置に速度を加えます。
       pos.add(vel);
 
-      // If the dot reaches the top of the canvas,
-      // restart from the bottom.
+      // 点がキャンバスの上端に達したら、
+      // 下から再スタートします。
       if (pos.y < 0) {
         pos.y = 100;
       }
 
-      // Draw the dot.
+      // 点を描画します。
       strokeWeight(5);
       point(pos);
     }
@@ -116,555 +113,170 @@ example:
 methods:
   toString:
     description: >
-      <p>Returns a string representation of a vector.</p>
+      <p>ベクトルの文字列表現を返します。</p>
 
-      <p>Calling <code>toString()</code> is useful for printing vectors to the
-      console while
+      <p><code>toString()</code>を呼び出すことは、デバッグ中にコンソールに
 
-      debugging.</p>
+      ベクトルを出力するのに便利です。</p>
     path: p5.Vector/toString
   set:
     description: >
-      <p>Sets the vector's <code>x</code>, <code>y</code>, and <code>z</code>
-      components.</p>
+      <p>ベクトルの<code>x</code>、<code>y</code>、<code>z</code>成分を設定します。</p>
 
-      <p><code>set()</code> can use separate numbers, as in <code>v.set(1, 2,
-      3)</code>, a
+      <p><code>set()</code>は、<code>v.set(1, 2, 3)</code>のように個別の数値、
 
-      <a href="/reference/p5/p5.Vector">p5.Vector</a> object, as in
-      <code>v.set(v2)</code>, or an
+      <code>v.set(v2)</code>のように<a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクト、
 
-      array of numbers, as in <code>v.set([1, 2, 3])</code>.</p>
+      または<code>v.set([1, 2, 3])</code>のように数値の配列を使用できます。</p>
 
-      <p>If a value isn't provided for a component, it will be set to 0. For
+      <p>成分に値が提供されない場合、0に設定されます。例えば、
 
-      example, <code>v.set(4, 5)</code> sets <code>v.x</code> to 4,
-      <code>v.y</code> to 5, and <code>v.z</code> to 0.
+      <code>v.set(4, 5)</code>は<code>v.x</code>を4に、<code>v.y</code>を5に、<code>v.z</code>を0に設定します。
 
-      Calling <code>set()</code> with no arguments, as in <code>v.set()</code>,
-      sets all the vector's
+      引数なしで<code>set()</code>を呼び出す（<code>v.set()</code>のように）と、
 
-      components to 0.</p>
+      ベクトルのすべての成分が0に設定されます。</p>
     path: p5.Vector/set
   copy:
     description: >
-      <p>Returns a copy of the <a href="/reference/p5/p5.Vector">p5.Vector</a>
-      object.</p>
+      <p><a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトのコピーを返します。</p>
     path: p5.Vector/copy
   add:
     description: >
-      <p>Adds to a vector's <code>x</code>, <code>y</code>, and <code>z</code>
-      components.</p>
+      <p>ベクトルの<code>x</code>、<code>y</code>、<code>z</code>成分に加算します。</p>
 
-      <p><code>add()</code> can use separate numbers, as in <code>v.add(1, 2,
-      3)</code>,
+      <p><code>add()</code>は、<code>v.add(1, 2, 3)</code>のように個別の数値、
 
-      another <a href="/reference/p5/p5.Vector">p5.Vector</a> object, as in
-      <code>v.add(v2)</code>, or
+      <code>v.add(v2)</code>のように別の<a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクト、
 
-      an array of numbers, as in <code>v.add([1, 2, 3])</code>.</p>
+      または<code>v.add([1, 2, 3])</code>のように数値の配列を使用できます。</p>
 
-      <p>If a value isn't provided for a component, it won't change. For
+      <p>成分に値が提供されない場合、変更されません。例えば、
 
-      example, <code>v.add(4, 5)</code> adds 4 to <code>v.x</code>, 5 to
-      <code>v.y</code>, and 0 to <code>v.z</code>.
+      <code>v.add(4, 5)</code>は<code>v.x</code>に4を、<code>v.y</code>に5を加え、<code>v.z</code>には0を加えます。
 
-      Calling <code>add()</code> with no arguments, as in <code>v.add()</code>,
-      has no effect.</p>
+      引数なしで<code>add()</code>を呼び出す（<code>v.add()</code>のように）と、
 
-      <p>The static version of <code>add()</code>, as in <code>p5.Vector.add(v2,
-      v1)</code>, returns a new
+      何の効果もありません。</p>
 
-      <a href="/reference/p5/p5.Vector">p5.Vector</a> object and doesn't change
-      the
+      <p><code>add()</code>の静的バージョン（<code>p5.Vector.add(v2, v1)</code>のように）は、
 
-      originals.</p>
+      新しい<a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトを返し、
+
+      元のオブジェクトは変更しません。</p>
     path: p5.Vector/add
   rem:
     description: >
-      <p>Performs modulo (remainder) division with a vector's <code>x</code>,
-      <code>y</code>, and <code>z</code>
+      <p>ベクトルの<code>x</code>、<code>y</code>、<code>z</code>成分に対して
 
-      components.</p>
+      モジュロ（剰余）除算を行います。</p>
 
-      <p><code>rem()</code> can use separate numbers, as in <code>v.rem(1, 2,
-      3)</code>,
+      <p><code>rem()</code>は、<code>v.rem(1, 2, 3)</code>のように個別の数値、
 
-      another <a href="/reference/p5/p5.Vector">p5.Vector</a> object, as in
-      <code>v.rem(v2)</code>, or
+      <code>v.rem(v2)</code>のように別の<a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクト、
 
-      an array of numbers, as in <code>v.rem([1, 2, 3])</code>.</p>
+      または<code>v.rem([1, 2, 3])</code>のように数値の配列を使用できます。</p>
 
-      <p>If only one value is provided, as in <code>v.rem(2)</code>, then all
-      the components
+      <p>1つの値のみが提供された場合（<code>v.rem(2)</code>のように）、すべての成分が
 
-      will be set to their values modulo 2. If two values are provided, as in
+      その値で剰余演算されます。2つの値が提供された場合（<code>v.rem(2, 3)</code>のように）、
 
-      <code>v.rem(2, 3)</code>, then <code>v.z</code> won't change. Calling
-      <code>rem()</code> with no
+      <code>v.z</code>は変更されません。引数なしで<code>rem()</code>を呼び出す
 
-      arguments, as in <code>v.rem()</code>, has no effect.</p>
+      （<code>v.rem()</code>のように）と、何の効果もありません。</p>
 
-      <p>The static version of <code>rem()</code>, as in <code>p5.Vector.rem(v2,
-      v1)</code>, returns a
+      <p><code>rem()</code>の静的バージョン（<code>p5.Vector.rem(v2, v1)</code>のように）は、
 
-      new <a href="/reference/p5/p5.Vector">p5.Vector</a> object and doesn't
-      change the
+      新しい<a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトを返し、
 
-      originals.</p>
+      元のオブジェクトは変更しません。</p>
     path: p5.Vector/rem
   sub:
     description: >
-      <p>Subtracts from a vector's <code>x</code>, <code>y</code>, and
-      <code>z</code> components.</p>
+      <p>ベクトルの<code>x</code>、<code>y</code>、<code>z</code>成分から減算します。</p>
 
-      <p><code>sub()</code> can use separate numbers, as in <code>v.sub(1, 2,
-      3)</code>, another
+      <p><code>sub()</code>は、<code>v.sub(1, 2, 3)</code>のように個別の数値、
 
-      <a href="/reference/p5/p5.Vector">p5.Vector</a> object, as in
-      <code>v.sub(v2)</code>, or an array
+      <code>v.sub(v2)</code>のように別の<a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクト、
 
-      of numbers, as in <code>v.sub([1, 2, 3])</code>.</p>
+      または<code>v.sub([1, 2, 3])</code>のように数値の配列を使用できます。</p>
 
-      <p>If a value isn't provided for a component, it won't change. For
+      <p>成分に値が提供されない場合、変更されません。例えば、
 
-      example, <code>v.sub(4, 5)</code> subtracts 4 from <code>v.x</code>, 5
-      from <code>v.y</code>, and 0 from <code>v.z</code>.
+      <code>v.sub(4, 5)</code>は<code>v.x</code>から4を、<code>v.y</code>から5を引き、<code>v.z</code>からは0を引きます。
 
-      Calling <code>sub()</code> with no arguments, as in <code>v.sub()</code>,
-      has no effect.</p>
+      引数なしで<code>sub()</code>を呼び出す（<code>v.sub()</code>のように）と、
 
-      <p>The static version of <code>sub()</code>, as in <code>p5.Vector.sub(v2,
-      v1)</code>, returns a new
+      何の効果もありません。</p>
 
-      <a href="/reference/p5/p5.Vector">p5.Vector</a> object and doesn't change
-      the
+      <p><code>sub()</code>の静的バージョン（<code>p5.Vector.sub(v2, v1)</code>のように）は、
 
-      originals.</p>
+      新しい<a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトを返し、
+
+      元のオブジェクトは変更しません。</p>
     path: p5.Vector/sub
   mult:
     description: >
-      <p>Multiplies a vector's <code>x</code>, <code>y</code>, and
-      <code>z</code> components.</p>
+      <p>ベクトルの<code>x</code>、<code>y</code>、<code>z</code>成分を乗算します。</p>
 
-      <p><code>mult()</code> can use separate numbers, as in <code>v.mult(1, 2,
-      3)</code>, another
+      <p><code>mult()</code>は、<code>v.mult(1, 2, 3)</code>のように個別の数値、
 
-      <a href="/reference/p5/p5.Vector">p5.Vector</a> object, as in
-      <code>v.mult(v2)</code>, or an array
+      <code>v.mult(v2)</code>のように別の<a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクト、
 
-      of numbers, as in <code>v.mult([1, 2, 3])</code>.</p>
+      または<code>v.mult([1, 2, 3])</code>のように数値の配列を使用できます。</p>
 
-      <p>If only one value is provided, as in <code>v.mult(2)</code>, then all
-      the components
+      <p>1つの値のみが提供された場合（<code>v.mult(2)</code>のように）、すべての成分が
 
-      will be multiplied by 2. If a value isn't provided for a component, it
+      2倍になります。成分に値が提供されない場合、変更されません。例えば、
 
-      won't change. For example, <code>v.mult(4, 5)</code> multiplies
-      <code>v.x</code> by, <code>v.y</code> by 5,
+      <code>v.mult(4, 5)</code>は<code>v.x</code>を4倍、<code>v.y</code>を5倍し、
 
-      and <code>v.z</code> by 1. Calling <code>mult()</code> with no arguments,
-      as in <code>v.mult()</code>, has
+      <code>v.z</code>は1倍（変更なし）になります。引数なしで<code>mult()</code>を呼び出す
 
-      no effect.</p>
+      （<code>v.mult()</code>のように）と、何の効果もありません。</p>
 
-      <p>The static version of <code>mult()</code>, as in
-      <code>p5.Vector.mult(v, 2)</code>, returns a new
+      <p><code>mult()</code>の静的バージョン（<code>p5.Vector.mult(v, 2)</code>のように）は、
 
-      <a href="/reference/p5/p5.Vector">p5.Vector</a> object and doesn't change
-      the
+      新しい<a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトを返し、
 
-      originals.</p>
+      元のオブジェクトは変更しません。</p>
     path: p5.Vector/mult
   div:
     description: >
-      <p>Divides a vector's <code>x</code>, <code>y</code>, and <code>z</code>
-      components.</p>
+      <p>ベクトルの<code>x</code>、<code>y</code>、<code>z</code>成分を除算します。</p>
 
-      <p><code>div()</code> can use separate numbers, as in <code>v.div(1, 2,
-      3)</code>, another
+      <p><code>div()</code>は、<code>v.div(1, 2, 3)</code>のように個別の数値、
 
-      <a href="/reference/p5/p5.Vector">p5.Vector</a> object, as in
-      <code>v.div(v2)</code>, or an array
+      <code>v.div(v2)</code>のように別の<a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクト、
 
-      of numbers, as in <code>v.div([1, 2, 3])</code>.</p>
+      または<code>v.div([1, 2, 3])</code>のように数値の配列を使用できます。</p>
 
-      <p>If only one value is provided, as in <code>v.div(2)</code>, then all
-      the components
+      <p>1つの値のみが提供された場合（<code>v.div(2)</code>のように）、すべての成分が
 
-      will be divided by 2. If a value isn't provided for a component, it
+      2で割られます。成分に値が提供されない場合、変更されません。例えば、
 
-      won't change. For example, <code>v.div(4, 5)</code> divides
-      <code>v.x</code> by, <code>v.y</code> by 5,
+      <code>v.div(4, 5)</code>は<code>v.x</code>を4で、<code>v.y</code>を5で割り、
 
-      and <code>v.z</code> by 1. Calling <code>div()</code> with no arguments,
-      as in <code>v.div()</code>, has
+      <code>v.z</code>は1で割ります（変更なし）。引数なしで<code>div()</code>を呼び出す
 
-      no effect.</p>
+      （<code>v.div()</code>のように）と、何の効果もありません。</p>
 
-      <p>The static version of <code>div()</code>, as in <code>p5.Vector.div(v,
-      2)</code>, returns a new
+      <p><code>div()</code>の静的バージョン（<code>p5.Vector.div(v, 2)</code>のように）は、
 
-      <a href="/reference/p5/p5.Vector">p5.Vector</a> object and doesn't change
-      the
+      新しい<a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトを返し、
 
-      originals.</p>
+      元のオブジェクトは変更しません。</p>
     path: p5.Vector/div
   mag:
     description: >
-      <p>Calculates the magnitude (length) of the vector.</p>
+      <p>ベクトルの大きさ（長さ）を計算します。</p>
 
-      <p>Use <a href="/reference/p5/mag/">mag()</a> to calculate the magnitude
-      of a 2D vector
+      <p><a href="/reference/p5/mag/">mag()</a>を使用して、<code>mag(x, y)</code>のように
 
-      using components as in <code>mag(x, y)</code>.</p>
+      成分を使用して2Dベクトルの大きさを計算します。</p>
     path: p5.Vector/mag
   magSq:
     description: |
-      <p>Calculates the magnitude (length) of the vector squared.</p>
+      <p>ベクトルの大きさ（長さ）の二乗を計算します。</p>
     path: p5.Vector/magSq
-  dot:
-    description: >
-      <p>Calculates the dot product of two vectors.</p>
-
-      <p>The dot product is a number that describes the overlap between two
-      vectors.
-
-      Visually, the dot product can be thought of as the "shadow" one vector
-
-      casts on another. The dot product's magnitude is largest when two vectors
-
-      point in the same or opposite directions. Its magnitude is 0 when two
-
-      vectors form a right angle.</p>
-
-      <p>The version of <code>dot()</code> with one parameter interprets it as
-      another
-
-      <a href="/reference/p5/p5.Vector">p5.Vector</a> object.</p>
-
-      <p>The version of <code>dot()</code> with multiple parameters interprets
-      them as the
-
-      <code>x</code>, <code>y</code>, and <code>z</code> components of another
-      vector.</p>
-
-      <p>The static version of <code>dot()</code>, as in <code>p5.Vector.dot(v1,
-      v2)</code>, is the same
-
-      as calling <code>v1.dot(v2)</code>.</p>
-    path: p5.Vector/dot
-  cross:
-    description: >
-      <p>Calculates the cross product of two vectors.</p>
-
-      <p>The cross product is a vector that points straight out of the plane
-      created
-
-      by two vectors. The cross product's magnitude is the area of the
-      parallelogram
-
-      formed by the original two vectors.</p>
-
-      <p>The static version of <code>cross()</code>, as in
-      <code>p5.Vector.cross(v1, v2)</code>, is the same
-
-      as calling <code>v1.cross(v2)</code>.</p>
-    path: p5.Vector/cross
-  dist:
-    description: >
-      <p>Calculates the distance between two points represented by vectors.</p>
-
-      <p>A point's coordinates can be represented by the components of a vector
-
-      that extends from the origin to the point.</p>
-
-      <p>The static version of <code>dist()</code>, as in
-      <code>p5.Vector.dist(v1, v2)</code>, is the same
-
-      as calling <code>v1.dist(v2)</code>.</p>
-
-      <p>Use <a href="/reference/p5/dist/">dist()</a> to calculate the distance
-      between points
-
-      using coordinates as in <code>dist(x1, y1, x2, y2)</code>.</p>
-    path: p5.Vector/dist
-  normalize:
-    description: >
-      <p>Scales the components of a <a
-      href="/reference/p5/p5.Vector">p5.Vector</a> object so
-
-      that its magnitude is 1.</p>
-
-      <p>The static version of <code>normalize()</code>,  as in
-      <code>p5.Vector.normalize(v)</code>,
-
-      returns a new <a href="/reference/p5/p5.Vector">p5.Vector</a> object and
-      doesn't change
-
-      the original.</p>
-    path: p5.Vector/normalize
-  limit:
-    description: >
-      <p>Limits a vector's magnitude to a maximum value.</p>
-
-      <p>The static version of <code>limit()</code>, as in
-      <code>p5.Vector.limit(v, 5)</code>, returns a
-
-      new <a href="/reference/p5/p5.Vector">p5.Vector</a> object and doesn't
-      change the
-
-      original.</p>
-    path: p5.Vector/limit
-  setMag:
-    description: >
-      <p>Sets a vector's magnitude to a given value.</p>
-
-      <p>The static version of <code>setMag()</code>, as in
-      <code>p5.Vector.setMag(v, 10)</code>, returns
-
-      a new <a href="/reference/p5/p5.Vector">p5.Vector</a> object and doesn't
-      change the
-
-      original.</p>
-    path: p5.Vector/setMag
-  heading:
-    description: >
-      <p>Calculates the angle a 2D vector makes with the positive x-axis.</p>
-
-      <p>By convention, the positive x-axis has an angle of 0. Angles increase
-      in
-
-      the clockwise direction.</p>
-
-      <p>If the vector was created with
-
-      <a href="/reference/p5/createVector/">createVector()</a>,
-      <code>heading()</code> returns angles
-
-      in the units of the current <a
-      href="/reference/p5/angleMode/">angleMode()</a>.</p>
-
-      <p>The static version of <code>heading()</code>, as in
-      <code>p5.Vector.heading(v)</code>, works the
-
-      same way.</p>
-    path: p5.Vector/heading
-  setHeading:
-    description: >
-      <p>Rotates a 2D vector to a specific angle without changing its
-      magnitude.</p>
-
-      <p>By convention, the positive x-axis has an angle of 0. Angles increase
-      in
-
-      the clockwise direction.</p>
-
-      <p>If the vector was created with
-
-      <a href="/reference/p5/createVector/">createVector()</a>,
-      <code>setHeading()</code> uses
-
-      the units of the current <a
-      href="/reference/p5/angleMode/">angleMode()</a>.</p>
-    path: p5.Vector/setHeading
-  rotate:
-    description: >
-      <p>Rotates a 2D vector by an angle without changing its magnitude.</p>
-
-      <p>By convention, the positive x-axis has an angle of 0. Angles increase
-      in
-
-      the clockwise direction.</p>
-
-      <p>If the vector was created with
-
-      <a href="/reference/p5/createVector/">createVector()</a>,
-      <code>rotate()</code> uses
-
-      the units of the current <a
-      href="/reference/p5/angleMode/">angleMode()</a>.</p>
-
-      <p>The static version of <code>rotate()</code>, as in
-      <code>p5.Vector.rotate(v, PI)</code>,
-
-      returns a new <a href="/reference/p5/p5.Vector">p5.Vector</a> object and
-      doesn't change
-
-      the original.</p>
-    path: p5.Vector/rotate
-  angleBetween:
-    description: >
-      <p>Calculates the angle between two vectors.</p>
-
-      <p>The angles returned are signed, which means that
-
-      <code>v1.angleBetween(v2) === -v2.angleBetween(v1)</code>.</p>
-
-      <p>If the vector was created with
-
-      <a href="/reference/p5/createVector/">createVector()</a>,
-      <code>angleBetween()</code> returns
-
-      angles in the units of the current
-
-      <a href="/reference/p5/angleMode/">angleMode()</a>.</p>
-    path: p5.Vector/angleBetween
-  lerp:
-    description: >
-      <p>Calculates new <code>x</code>, <code>y</code>, and <code>z</code>
-      components that are proportionally the
-
-      same distance between two vectors.</p>
-
-      <p>The <code>amt</code> parameter is the amount to interpolate between the
-      old vector and
-
-      the new vector. 0.0 keeps all components equal to the old vector's, 0.5 is
-
-      halfway between, and 1.0 sets all components equal to the new
-      vector's.</p>
-
-      <p>The static version of <code>lerp()</code>, as in
-      <code>p5.Vector.lerp(v0, v1, 0.5)</code>,
-
-      returns a new <a href="/reference/p5/p5.Vector">p5.Vector</a> object and
-      doesn't change
-
-      the original.</p>
-    path: p5.Vector/lerp
-  slerp:
-    description: >
-      <p>Calculates a new heading and magnitude that are between two
-      vectors.</p>
-
-      <p>The <code>amt</code> parameter is the amount to interpolate between the
-      old vector and
-
-      the new vector. 0.0 keeps the heading and magnitude equal to the old
-
-      vector's, 0.5 sets them halfway between, and 1.0 sets the heading and
-
-      magnitude equal to the new vector's.</p>
-
-      <p><code>slerp()</code> differs from <a
-      href="/reference/p5.Vector/lerp/">lerp()</a> because
-
-      it interpolates magnitude. Calling <code>v0.slerp(v1, 0.5)</code> sets
-      <code>v0</code>'s
-
-      magnitude to a value halfway between its original magnitude and
-      <code>v1</code>'s.
-
-      Calling <code>v0.lerp(v1, 0.5)</code> makes no such guarantee.</p>
-
-      <p>The static version of <code>slerp()</code>, as in
-      <code>p5.Vector.slerp(v0, v1, 0.5)</code>,
-
-      returns a new <a href="/reference/p5/p5.Vector">p5.Vector</a> object and
-      doesn't change
-
-      the original.</p>
-    path: p5.Vector/slerp
-  reflect:
-    description: >
-      <p>Reflects a vector about a line in 2D or a plane in 3D.</p>
-
-      <p>The orientation of the line or plane is described by a normal vector
-      that
-
-      points away from the shape.</p>
-
-      <p>The static version of <code>reflect()</code>, as in
-      <code>p5.Vector.reflect(v, n)</code>,
-
-      returns a new <a href="/reference/p5/p5.Vector">p5.Vector</a> object and
-      doesn't change
-
-      the original.</p>
-    path: p5.Vector/reflect
-  array:
-    description: |
-      <p>Returns the vector's components as an array of numbers.</p>
-    path: p5.Vector/array
-  equals:
-    description: >
-      <p>Checks whether all the vector's components are equal to another
-      vector's.</p>
-
-      <p><code>equals()</code> returns <code>true</code> if the vector's
-      components are all the same as another
-
-      vector's and <code>false</code> if not.</p>
-
-      <p>The version of <code>equals()</code> with one parameter interprets it
-      as another
-
-      <a href="/reference/p5/p5.Vector">p5.Vector</a> object.</p>
-
-      <p>The version of <code>equals()</code> with multiple parameters
-      interprets them as the
-
-      components of another vector. Any missing parameters are assigned the
-      value
-
-      0.</p>
-
-      <p>The static version of <code>equals()</code>, as in
-      <code>p5.Vector.equals(v0, v1)</code>,
-
-      interprets both parameters as <a
-      href="/reference/p5/p5.Vector">p5.Vector</a> objects.</p>
-    path: p5.Vector/equals
-  fromAngle:
-    description: |
-      <p>Creates a new 2D vector from an angle.</p>
-    path: p5.Vector/fromAngle
-  fromAngles:
-    description: |
-      <p>Creates a new 3D vector from a pair of ISO spherical angles.</p>
-    path: p5.Vector/fromAngles
-  random2D:
-    description: |
-      <p>Creates a new 2D unit vector with a random heading.</p>
-    path: p5.Vector/random2D
-  random3D:
-    description: |
-      <p>Creates a new 3D unit vector with a random heading.</p>
-    path: p5.Vector/random3D
-  clampToZero:
-    description: >
-      <p>Replaces the components of a <a
-      href="/reference/p5/p5.Vector">p5.Vector</a> that are very close to zero
-      with zero.</p>
-
-      <p>In computers, handling numbers with decimals can give slightly
-      imprecise answers due to the way those numbers are represented.
-
-      This can make it hard to check if a number is zero, as it may be close but
-      not exactly zero.
-
-      This method rounds very close numbers to zero to make those checks
-      easier</p>
-
-      <p><a
-      href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/EPSILON/">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/EPSILON</a></p>
-    path: p5.Vector/clampToZero
-properties:
-  x:
-    description: |
-      <p>The x component of the vector</p>
-    path: p5.Vector/x
-  'y':
-    description: |
-      <p>The y component of the vector</p>
-    path: p5.Vector/y
-  z:
-    description: |
-      <p>The z component of the vector</p>
-    path: p5.Vector/z
-chainable: false
----
-
-
-# p5.Vector
+  

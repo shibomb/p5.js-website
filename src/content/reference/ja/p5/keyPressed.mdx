@@ -4,61 +4,57 @@ module: Events
 submodule: Keyboard
 file: src/events/keyboard.js
 description: >
-  <p>A function that's called once when any key is pressed.</p>
+  <p>任意のキーが押されたときに一度呼び出される関数です。</p>
 
-  <p>Declaring the function <code>keyPressed()</code> sets a code block to run
-  once
-
-  automatically when the user presses any key:</p>
+  <p><code>keyPressed()</code>関数を宣言すると、ユーザーが任意のキーを押したときに
+  自動的に一度実行されるコードブロックを設定します：</p>
 
   <pre><code class="language-js">function keyPressed() {
-    // Code to run.
+    // 実行するコード
   }
 
   </code></pre>
 
-  <p>The <a href="/reference/p5/key/">key</a> and <a
-  href="/reference/p5/keyCode/">keyCode</a>
+  <p><a href="/reference/p5/key/">key</a>変数と<a
+  href="/reference/p5/keyCode/">keyCode</a>変数は、
 
-  variables will be updated with the most recently typed value when
+  p5.jsによって<code>keyPressed()</code>が呼び出されたときに、
 
-  <code>keyPressed()</code> is called by p5.js:</p>
+  最後に入力された値で更新されます：</p>
 
   <pre><code class="language-js">function keyPressed() {
     if (key === 'c') {
-      // Code to run.
+      // 実行するコード
     }
 
     if (keyCode === ENTER) {
-      // Code to run.
+      // 実行するコード
     }
   }
 
   </code></pre>
 
-  <p>The parameter, <code>event</code>, is optional. <code>keyPressed()</code>
-  is always passed a
+  <p>パラメータ<code>event</code>はオプションです。<code>keyPressed()</code>には常に
 
   <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/"
   target="_blank">KeyboardEvent</a>
 
-  object with properties that describe the key press event:</p>
+  オブジェクトが渡され、キー押下イベントを説明するプロパティを持っています：</p>
 
   <pre><code class="language-js">function keyPressed(event) {
-    // Code to run that uses the event.
+    // イベントを使用して実行するコード
     console.log(event);
   }
 
   </code></pre>
 
-  <p>Browsers may have default behaviors attached to various key events. For
+  <p>ブラウザには、様々なキーイベントにデフォルトの動作が設定されている場合があります。
 
-  example, some browsers may jump to the bottom of a web page when the
+  例えば、一部のブラウザでは<code>SPACE</code>キーを押すとウェブページの下部にジャンプします。
 
-  <code>SPACE</code> key is pressed. To prevent any default behavior for this
-  event, add
+  このイベントのデフォルトの動作を防ぐには、関数の最後に
 
-  <code>return false;</code> to the end of the function.</p>
+  <code>return false;</code>を追加してください。</p>
 line: 284
 isConstructor: false
 itemtype: method
@@ -67,7 +63,7 @@ example:
 
     <div>
     <code>
-    // Click on the canvas to begin detecting key presses.
+    // キャンバスをクリックしてキー押下の検出を開始します。
 
     let value = 0;
 
@@ -75,28 +71,28 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'A gray square with a black square at its center. The inner square changes color when the user presses a key.'
+        '中央に黒い正方形がある灰色の正方形。ユーザーがキーを押すと内側の正方形の色が変わります。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Style the square.
+      // 正方形のスタイルを設定
       fill(value);
 
-      // Draw the square.
+      // 正方形を描画
       square(25, 25, 50);
     }
 
-    // Toggle the background color when the user presses a key.
+    // ユーザーがキーを押したときに背景色を切り替えます。
     function keyPressed() {
       if (value === 0) {
         value = 255;
       } else {
         value = 0;
       }
-      // Uncomment to prevent any default behavior.
+      // デフォルトの動作を防ぐにはコメントを解除してください。
       // return false;
     }
     </code>
@@ -104,7 +100,7 @@ example:
 
     <div>
     <code>
-    // Click on the canvas to begin detecting key presses.
+    // キャンバスをクリックしてキー押下の検出を開始します。
 
     let value = 0;
 
@@ -112,28 +108,28 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'A gray square with a white square at its center. The inner square turns black when the user presses the "b" key. It turns white when the user presses the "a" key.'
+        '中央に白い正方形がある灰色の正方形。ユーザーが"b"キーを押すと内側の正方形が黒くなります。"a"キーを押すと白くなります。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Style the square.
+      // 正方形のスタイルを設定
       fill(value);
 
-      // Draw the square.
+      // 正方形を描画
       square(25, 25, 50);
     }
 
-    // Reassign value when the user presses the 'a' or 'b' key.
+    // ユーザーが'a'または'b'キーを押したときにvalueを再割り当てします。
     function keyPressed() {
       if (key === 'a') {
         value = 255;
       } else if (key === 'b') {
         value = 0;
       }
-      // Uncomment to prevent any default behavior.
+      // デフォルトの動作を防ぐにはコメントを解除してください。
       // return false;
     }
     </code>
@@ -141,7 +137,7 @@ example:
 
     <div>
     <code>
-    // Click on the canvas to begin detecting key presses.
+    // キャンバスをクリックしてキー押下の検出を開始します。
 
     let value = 0;
 
@@ -149,28 +145,28 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'A gray square with a black square at its center. The inner square turns white when the user presses the left arrow key. It turns black when the user presses the right arrow key.'
+        '中央に黒い正方形がある灰色の正方形。ユーザーが左矢印キーを押すと内側の正方形が白くなります。右矢印キーを押すと黒くなります。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Style the square.
+      // 正方形のスタイルを設定
       fill(value);
 
-      // Draw the square.
+      // 正方形を描画
       square(25, 25, 50);
     }
 
-    // Toggle the background color when the user presses an arrow key.
+    // ユーザーが矢印キーを押したときに背景色を切り替えます。
     function keyPressed() {
       if (keyCode === LEFT_ARROW) {
         value = 255;
       } else if (keyCode === RIGHT_ARROW) {
         value = 0;
       }
-      // Uncomment to prevent any default behavior.
+      // デフォルトの動作を防ぐにはコメントを解除してください。
       // return false;
     }
     </code>
@@ -179,7 +175,7 @@ class: p5
 params:
   - name: event
     description: |
-      <p>optional <code>KeyboardEvent</code> callback argument.</p>
+      <p>オプションの<code>KeyboardEvent</code>コールバック引数。</p>
     type: KeyboardEvent
     optional: true
 chainable: false
@@ -187,3 +183,4 @@ chainable: false
 
 
 # keyPressed
+

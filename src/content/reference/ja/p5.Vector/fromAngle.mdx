@@ -4,7 +4,7 @@ module: Math
 submodule: Vector
 file: src/math/p5.Vector.js
 description: |
-  <p>Creates a new 2D vector from an angle.</p>
+  <p>角度から新しい2Dベクトルを作成します。</p>
 line: 3099
 isConstructor: false
 itemtype: method
@@ -14,10 +14,10 @@ example:
     <div class="norender">
     <code>
     function setup() {
-      // Create a p5.Vector object.
+      // p5.Vectorオブジェクトを作成します。
       let v = p5.Vector.fromAngle(0);
 
-      // Prints "p5.Vector Object : [1, 0, 0]" to the console.
+      // コンソールに "p5.Vector Object : [1, 0, 0]" と出力します。
       print(v.toString());
     }
     </code>
@@ -26,10 +26,10 @@ example:
     <div class="norender">
     <code>
     function setup() {
-      // Create a p5.Vector object.
+      // p5.Vectorオブジェクトを作成します。
       let v = p5.Vector.fromAngle(0, 30);
 
-      // Prints "p5.Vector Object : [30, 0, 0]" to the console.
+      // コンソールに "p5.Vector Object : [30, 0, 0]" と出力します。
       print(v.toString());
     }
     </code>
@@ -40,22 +40,22 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('A black arrow extends from the center of a gray square. It points to the right.');
+      describe('灰色の正方形の中心から黒い矢印が伸びています。矢印は右を指しています。');
     }
     function draw() {
       background(200);
 
-      // Create a p5.Vector to the center.
+      // 中心にp5.Vectorを作成します。
       let v0 = createVector(50, 50);
 
-      // Create a p5.Vector with an angle 0 and magnitude 30.
+      // 角度0と大きさ30のp5.Vectorを作成します。
       let v1 = p5.Vector.fromAngle(0, 30);
 
-      // Draw the black arrow.
+      // 黒い矢印を描画します。
       drawArrow(v0, v1, 'black');
     }
 
-    // Draws an arrow between two vectors.
+    // 2つのベクトル間に矢印を描画します。
     function drawArrow(base, vec, myColor) {
       push();
       stroke(myColor);
@@ -75,19 +75,17 @@ class: p5.Vector
 params:
   - name: angle
     description: >
-      <p>desired angle, in radians. Unaffected by <a
-      href="#/p5/angleMode">angleMode()</a>.</p>
+      <p>希望する角度（ラジアン単位）。<a href="#/p5/angleMode">angleMode()</a>の影響を受けません。</p>
     type: Number
   - name: length
     description: |
-      <p>length of the new vector (defaults to 1).</p>
+      <p>新しいベクトルの長さ（デフォルトは1）。</p>
     type: Number
     optional: true
 return:
-  description: new <a href="#/p5.Vector">p5.Vector</a> object.
+  description: 新しい<a href="#/p5.Vector">p5.Vector</a>オブジェクト。
   type: p5.Vector
 chainable: false
 ---
-
 
 # fromAngle

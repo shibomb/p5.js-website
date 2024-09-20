@@ -4,25 +4,16 @@ module: Math
 submodule: Vector
 file: src/math/p5.Vector.js
 description: >
-  <p>Calculates new <code>x</code>, <code>y</code>, and <code>z</code>
-  components that are proportionally the
+  <p>2つのベクトル間で比例的に同じ距離にある新しい<code>x</code>、<code>y</code>、<code>z</code>
+  成分を計算します。</p>
 
-  same distance between two vectors.</p>
+  <p><code>amt</code>パラメータは、古いベクトルと新しいベクトルの間で補間する量です。
+  0.0は全ての成分を古いベクトルと同じに保ち、0.5は中間点、
+  1.0は全ての成分を新しいベクトルと同じにします。</p>
 
-  <p>The <code>amt</code> parameter is the amount to interpolate between the old
-  vector and
-
-  the new vector. 0.0 keeps all components equal to the old vector's, 0.5 is
-
-  halfway between, and 1.0 sets all components equal to the new vector's.</p>
-
-  <p>The static version of <code>lerp()</code>, as in <code>p5.Vector.lerp(v0,
-  v1, 0.5)</code>,
-
-  returns a new <a href="/reference/p5/p5.Vector">p5.Vector</a> object and
-  doesn't change
-
-  the original.</p>
+  <p><code>lerp()</code>の静的バージョン（<code>p5.Vector.lerp(v0, v1, 0.5)</code>のような）は、
+  新しい<a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトを返し、
+  元のオブジェクトは変更しません。</p>
 line: 2538
 isConstructor: false
 itemtype: method
@@ -32,14 +23,14 @@ example:
     <div class="norender">
     <code>
     function setup() {
-      // Create a p5.Vector object.
+      // p5.Vectorオブジェクトを作成します。
       let v0 = createVector(1, 1, 1);
       let v1 = createVector(3, 3, 3);
 
-      // Interpolate.
+      // 補間します。
       v0.lerp(v1, 0.5);
 
-      // Prints "p5.Vector Object : [2, 2, 2]" to the console.
+      // コンソールに "p5.Vector Object : [2, 2, 2]" と出力します。
       print(v0.toString());
     }
     </code>
@@ -48,13 +39,13 @@ example:
     <div class="norender">
     <code>
     function setup() {
-      // Create a p5.Vector object.
+      // p5.Vectorオブジェクトを作成します。
       let v = createVector(1, 1, 1);
 
-      // Interpolate.
+      // 補間します。
       v.lerp(3, 3, 3, 0.5);
 
-      // Prints "p5.Vector Object : [2, 2, 2]" to the console.
+      // コンソールに "p5.Vector Object : [2, 2, 2]" と出力します。
       print(v.toString());
     }
     </code>
@@ -63,14 +54,14 @@ example:
     <div class="norender">
     <code>
     function setup() {
-      // Create p5.Vector objects.
+      // p5.Vectorオブジェクトを作成します。
       let v0 = createVector(1, 1, 1);
       let v1 = createVector(3, 3, 3);
 
-      // Interpolate.
+      // 補間します。
       let v2 = p5.Vector.lerp(v0, v1, 0.5);
 
-      // Prints "p5.Vector Object : [2, 2, 2]" to the console.
+      // コンソールに "p5.Vector Object : [2, 2, 2]" と出力します。
       print(v2.toString());
     }
     </code>
@@ -81,30 +72,30 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('Three arrows extend from the center of a gray square. A red arrow points to the right, a blue arrow points down, and a purple arrow points to the bottom right.');
+      describe('灰色の正方形の中心から3本の矢印が伸びています。赤い矢印は右を指し、青い矢印は下を指し、紫の矢印は右下を指しています。');
     }
     function draw() {
       background(200);
 
-      // Create p5.Vector objects.
+      // p5.Vectorオブジェクトを作成します。
       let v0 = createVector(50, 50);
       let v1 = createVector(30, 0);
       let v2 = createVector(0, 30);
 
-      // Interpolate.
+      // 補間します。
       let v3 = p5.Vector.lerp(v1, v2, 0.5);
 
-      // Draw the red arrow.
+      // 赤い矢印を描画します。
       drawArrow(v0, v1, 'red');
 
-      // Draw the blue arrow.
+      // 青い矢印を描画します。
       drawArrow(v0, v2, 'blue');
 
-      // Draw the purple arrow.
+      // 紫の矢印を描画します。
       drawArrow(v0, v3, 'purple');
     }
 
-    // Draws an arrow between two vectors.
+    // 2つのベクトル間に矢印を描画します。
     function drawArrow(base, vec, myColor) {
       push();
       stroke(myColor);
@@ -126,27 +117,27 @@ overloads:
     params:
       - name: x
         description: |
-          <p>x component.</p>
+          <p>x成分。</p>
         type: Number
       - name: 'y'
         description: |
-          <p>y component.</p>
+          <p>y成分。</p>
         type: Number
       - name: z
         description: |
-          <p>z component.</p>
+          <p>z成分。</p>
         type: Number
       - name: amt
         description: |
-          <p>amount of interpolation between 0.0 (old vector)
-                                  and 1.0 (new vector). 0.5 is halfway between.</p>
+          <p>0.0（古いベクトル）と1.0（新しいベクトル）の間の補間量。
+                                  0.5は中間点です。</p>
         type: Number
     chainable: 1
   - line: 2651
     params:
       - name: v
         description: |
-          <p><a href="#/p5.Vector">p5.Vector</a> to lerp toward.</p>
+          <p>補間先の<a href="#/p5.Vector">p5.Vector</a>。</p>
         type: p5.Vector
       - name: amt
         description: ''
@@ -165,15 +156,16 @@ overloads:
         type: Number
       - name: target
         description: |
-          <p>The vector to receive the result</p>
+          <p>結果を受け取るベクトル</p>
         type: p5.Vector
         optional: true
     static: 1
     return:
-      description: The lerped value
+      description: 補間された値
       type: p5.Vector
 chainable: true
 ---
 
 
 # lerp
+

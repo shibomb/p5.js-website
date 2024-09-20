@@ -4,8 +4,7 @@ module: Math
 submodule: Calculation
 file: src/math/calculation.js
 description: |
-  <p>Calculates the value of Euler's number e (2.71828...) raised to the power
-  of a number.</p>
+  <p>オイラー数e（2.71828...）を指定された数値で累乗した値を計算します。</p>
 line: 230
 isConstructor: false
 itemtype: method
@@ -19,23 +18,23 @@ example:
 
       background(200);
 
-      // Top-left.
+      // 左上
       let d = exp(1);
       circle(10, 10, d);
 
-      // Left-center.
+      // 左中央
       d = exp(2);
       circle(20, 20, d);
 
-      // Right-center.
+      // 右中央
       d = exp(3);
       circle(40, 40, d);
 
-      // Bottom-right.
+      // 右下
       d = exp(4);
       circle(80, 80, d);
 
-      describe('A series of circles that grow exponentially from top left to bottom right.');
+      describe('左上から右下に向かって指数関数的に大きくなる一連の円。');
     }
     </code>
     </div>
@@ -47,19 +46,19 @@ example:
 
       background(200);
 
-      describe('A series of black dots that grow exponentially from left to right.');
+      describe('左から右に向かって指数関数的に大きくなる一連の黒い点。');
     }
 
     function draw() {
-      // Invert the y-axis.
+      // y軸を反転
       scale(1, -1);
       translate(0, -100);
 
-      // Calculate the coordinates.
+      // 座標を計算
       let x = frameCount;
       let y = 0.005 * exp(x * 0.1);
 
-      // Draw a point.
+      // 点を描画
       point(x, y);
     }
     </code>
@@ -68,7 +67,7 @@ class: p5
 params:
   - name: 'n'
     description: |
-      <p>exponent to raise.</p>
+      <p>累乗する指数。</p>
     type: Number
 return:
   description: e^n
@@ -78,3 +77,4 @@ chainable: false
 
 
 # exp
+

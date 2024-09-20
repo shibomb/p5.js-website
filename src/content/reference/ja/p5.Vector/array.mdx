@@ -4,7 +4,7 @@ module: Math
 submodule: Vector
 file: src/math/p5.Vector.js
 description: |
-  <p>Returns the vector's components as an array of numbers.</p>
+  <p>ベクトルの成分を数値の配列として返します。</p>
 line: 2979
 isConstructor: false
 itemtype: method
@@ -14,36 +14,35 @@ example:
     <div class = "norender">
     <code>
     function setup() {
-      // Create a p5.Vector object.
+      // p5.Vectorオブジェクトを作成します。
       let v = createVector(20, 30);
 
-      // Prints "[20, 30, 0]" to the console.
+      // コンソールに "[20, 30, 0]" と出力します。
       print(v.array());
     }
     </code>
     </div>
 class: p5.Vector
 return:
-  description: array with the vector's components.
+  description: ベクトルの成分を含む配列。
   type: 'Number[]'
 overloads:
   - line: 2979
     params: []
     return:
-      description: array with the vector's components.
+      description: ベクトルの成分を含む配列。
       type: 'Number[]'
   - line: 3856
     params:
       - name: v
         description: |
-          <p>the vector to convert to an array</p>
+          <p>配列に変換するベクトル</p>
         type: p5.Vector
     static: 1
     return:
-      description: an Array with the 3 values
+      description: 3つの値を含む配列
       type: 'Number[]'
 chainable: false
 ---
-
 
 # array

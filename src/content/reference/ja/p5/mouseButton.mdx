@@ -4,22 +4,16 @@ module: Events
 submodule: Mouse
 file: src/events/mouse.js
 description: >
-  <p>A String system variable that contains the value of the last mouse button
+  <p>最後に押されたマウスボタンの値を含む文字列のシステム変数です。</p>
 
-  pressed.</p>
+  <p><code>mouseButton</code>変数は、最後に押されたボタンに応じて<code>LEFT</code>、
+  <code>RIGHT</code>、または<code>CENTER</code>のいずれかになります。</p>
 
-  <p>The <code>mouseButton</code> variable is either <code>LEFT</code>,
-  <code>RIGHT</code>, or <code>CENTER</code>,
-
-  depending on which button was pressed last.</p>
-
-  <p>Note: Different browsers may track <code>mouseButton</code> differently.
-  See
-
+  <p>注意：ブラウザによって<code>mouseButton</code>の追跡方法が異なる場合があります。
+  詳細については、
   <a href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/buttons/"
   target="_blank">MDN</a>
-
-  for more information.</p>
+  を参照してください。</p>
 line: 693
 isConstructor: false
 itemtype: property
@@ -32,18 +26,18 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'A gray square with black text at its center. The text changes from 0 to either "left" or "right" when the user clicks a mouse button.'
+        '中央に黒いテキストがある灰色の正方形。ユーザーがマウスボタンをクリックすると、テキストが0から「left」または「right」に変わります。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER);
       textSize(16);
 
-      // Display the mouse button.
+      // マウスボタンを表示します。
       text(mouseButton, 50, 50);
     }
     </code>
@@ -55,7 +49,7 @@ example:
       createCanvas(100, 100);
 
       describe(
-        "A gray square. Different shapes appear at its center depending on the mouse button that's clicked."
+        "灰色の正方形。クリックされたマウスボタンに応じて、中央に異なる形が表示されます。"
       );
     }
 
@@ -82,3 +76,4 @@ type: Constant
 
 
 # mouseButton
+

@@ -4,8 +4,7 @@ module: Math
 submodule: Vector
 file: src/math/p5.Vector.js
 description: >
-  <p>Returns a copy of the <a href="/reference/p5/p5.Vector">p5.Vector</a>
-  object.</p>
+  <p><a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトのコピーを返します。</p>
 line: 239
 isConstructor: false
 itemtype: method
@@ -19,42 +18,41 @@ example:
 
       background(200);
 
-      // Create a p5.Vector object.
+      // p5.Vectorオブジェクトを作成します。
       let pos = createVector(50, 50);
 
-      // Make a copy.
+      // コピーを作ります。
       let pc = pos.copy();
 
-      // Draw the point.
+      // 点を描画します。
       strokeWeight(5);
       point(pc);
 
-      describe('A black point drawn in the middle of a gray square.');
+      describe('灰色の正方形の中央に描かれた黒い点。');
     }
     </code>
     </div>
 class: p5.Vector
 return:
-  description: copy of the <a href="#/p5.Vector">p5.Vector</a> object.
+  description: <a href="#/p5.Vector">p5.Vector</a>オブジェクトのコピー。
   type: p5.Vector
 overloads:
   - line: 239
     params: []
     return:
-      description: copy of the <a href="#/p5.Vector">p5.Vector</a> object.
+      description: <a href="#/p5.Vector">p5.Vector</a>オブジェクトのコピー。
       type: p5.Vector
   - line: 3341
     params:
       - name: v
         description: |
-          <p>the <a href="#/p5.Vector">p5.Vector</a> to create a copy of</p>
+          <p>コピーを作成する<a href="#/p5.Vector">p5.Vector</a></p>
         type: p5.Vector
     static: 1
     return:
-      description: the copy of the <a href="#/p5.Vector">p5.Vector</a> object
+      description: <a href="#/p5.Vector">p5.Vector</a>オブジェクトのコピー
       type: p5.Vector
 chainable: false
 ---
-
 
 # copy

@@ -4,15 +4,13 @@ module: Math
 submodule: Vector
 file: src/math/p5.Vector.js
 description: >
-  <p>Limits a vector's magnitude to a maximum value.</p>
+  <p>ベクトルの大きさを最大値に制限します。</p>
 
-  <p>The static version of <code>limit()</code>, as in <code>p5.Vector.limit(v,
-  5)</code>, returns a
+  <p><code>limit()</code>の静的バージョン（例：<code>p5.Vector.limit(v, 5)</code>）は、
 
-  new <a href="/reference/p5/p5.Vector">p5.Vector</a> object and doesn't change
-  the
+  新しい<a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトを返し、
 
-  original.</p>
+  元のオブジェクトは変更しません。</p>
 line: 1835
 isConstructor: false
 itemtype: method
@@ -22,13 +20,13 @@ example:
     <div class="norender">
     <code>
     function setup() {
-      // Create a p5.Vector object.
+      // p5.Vectorオブジェクトを作成します。
       let v = createVector(10, 20, 2);
 
-      // Limit its magnitude.
+      // その大きさを制限します。
       v.limit(5);
 
-      // Prints "p5.Vector Object : [2.227..., 4.454..., 0.445...]" to the console.
+      // コンソールに "p5.Vector Object : [2.227..., 4.454..., 0.445...]" と出力されます。
       print(v.toString());
     }
     </code>
@@ -37,13 +35,13 @@ example:
     <div class="norender">
     <code>
     function setup() {
-      // Create a p5.Vector object.
+      // p5.Vectorオブジェクトを作成します。
       let v0 = createVector(10, 20, 2);
 
-      // Create a copy an limit its magintude.
+      // コピーを作成し、その大きさを制限します。
       let v1 = p5.Vector.limit(v0, 5);
 
-      // Prints "p5.Vector Object : [2.227..., 4.454..., 0.445...]" to the console.
+      // コンソールに "p5.Vector Object : [2.227..., 4.454..., 0.445...]" と出力されます。
       print(v1.toString());
     }
     </code>
@@ -54,32 +52,32 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe("A red and blue arrow extend from the center of a circle. Both arrows follow the mouse, but the blue arrow never crosses the circle's edge.");
+      describe("円の中心から赤と青の矢印が伸びています。両方の矢印はマウスに従いますが、青い矢印は円の縁を超えることはありません。");
     }
     function draw() {
       background(240);
 
-      // Vector to the center.
+      // 中心へのベクトル
       let v0 = createVector(50, 50);
 
-      // Vector from the center to the mouse.
+      // 中心からマウスへのベクトル
       let v1 = createVector(mouseX - 50, mouseY - 50);
 
-      // Circle's radius.
+      // 円の半径
       let r = 25;
 
-      // Draw the red arrow.
+      // 赤い矢印を描画
       drawArrow(v0, v1, 'red');
 
-      // Draw the blue arrow.
+      // 青い矢印を描画
       drawArrow(v0, v1.limit(r), 'blue');
 
-      // Draw the circle.
+      // 円を描画
       noFill();
       circle(50, 50, r * 2);
     }
 
-    // Draws an arrow between two vectors.
+    // 2つのベクトル間に矢印を描画します。
     function drawArrow(base, vec, myColor) {
       push();
       stroke(myColor);
@@ -101,29 +99,28 @@ overloads:
     params:
       - name: max
         description: |
-          <p>maximum magnitude for the vector.</p>
+          <p>ベクトルの最大の大きさ。</p>
         type: Number
     chainable: 1
   - line: 3738
     params:
       - name: v
         description: |
-          <p>the vector to limit</p>
+          <p>制限するベクトル</p>
         type: p5.Vector
       - name: max
         description: ''
         type: Number
       - name: target
         description: |
-          <p>the vector to receive the result (Optional)</p>
+          <p>結果を受け取るベクトル（オプション）</p>
         type: p5.Vector
         optional: true
     static: 1
     return:
-      description: v with a magnitude limited to max
+      description: 大きさがmaxに制限されたv
       type: p5.Vector
 chainable: true
 ---
-
 
 # limit

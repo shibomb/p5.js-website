@@ -4,43 +4,13 @@ module: Math
 submodule: Vector
 file: src/math/math.js
 description: >
-  <p>Creates a new <a href="/reference/p5/p5.Vector">p5.Vector</a> object.</p>
+  <p>新しい<a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトを作成します。</p>
 
-  <p>A vector can be thought of in different ways. In one view, a vector is like
+  <p>ベクトルは異なる方法で考えることができます。一つの見方では、ベクトルは空間内を指す矢印のようなものです。ベクトルは大きさ（長さ）と方向の両方を持ちます。この見方は動きをプログラミングする際に役立ちます。</p>
 
-  an arrow pointing in space. Vectors have both magnitude (length) and
+  <p>ベクトルの成分はその大きさと方向を決定します。例えば、<code>createVector(3, 4)</code>を呼び出すと、x成分が3、y成分が4の新しい<a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトが作成されます。原点から見ると、このベクトルの先端は右に3単位、下に4単位の位置にあります。</p>
 
-  direction. This view is helpful for programming motion.</p>
-
-  <p>A vector's components determine its magnitude and direction. For example,
-
-  calling <code>createVector(3, 4)</code> creates a new
-
-  <a href="/reference/p5/p5.Vector">p5.Vector</a> object with an x-component of
-  3 and a
-
-  y-component of 4. From the origin, this vector's tip is 3 units to the
-
-  right and 4 units down.</p>
-
-  <p><a href="/reference/p5/p5.Vector">p5.Vector</a> objects are often used to
-  program
-
-  motion because they simplify the math. For example, a moving ball has a
-
-  position and a velocity. Position describes where the ball is in space. The
-
-  ball's position vector extends from the origin to the ball's center.
-
-  Velocity describes the ball's speed and the direction it's moving. If the
-
-  ball is moving straight up, its velocity vector points straight up. Adding
-
-  the ball's velocity vector to its position vector moves it, as in
-
-  <code>pos.add(vel)</code>. Vector math relies on methods inside the
-
-  <a href="/reference/p5/p5.Vector">p5.Vector</a> class.</p>
+  <p><a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトは、計算を簡略化するため、しばしば動きのプログラミングに使用されます。例えば、動く球には位置と速度があります。位置は球が空間のどこにあるかを表します。球の位置ベクトルは原点から球の中心まで伸びています。速度は球の速さと動く方向を表します。球がまっすぐ上に動いている場合、その速度ベクトルはまっすぐ上を指します。球の速度ベクトルを位置ベクトルに加えることで、球を動かすことができます（<code>pos.add(vel)</code>のように）。ベクトル計算は<a href="/reference/p5/p5.Vector">p5.Vector</a>クラス内のメソッドに依存しています。</p>
 line: 10
 isConstructor: false
 itemtype: method
@@ -54,18 +24,18 @@ example:
 
       background(200);
 
-      // Create p5.Vector objects.
+      // p5.Vectorオブジェクトを作成します。
       let p1 = createVector(25, 25);
       let p2 = createVector(50, 50);
       let p3 = createVector(75, 75);
 
-      // Draw the dots.
+      // 点を描画します。
       strokeWeight(5);
       point(p1);
       point(p2);
       point(p3);
 
-      describe('Three black dots form a diagonal line from top left to bottom right.');
+      describe('3つの黒い点が左上から右下に対角線を形成しています。');
     }
     </code>
     </div>
@@ -78,26 +48,26 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create p5.Vector objects.
+      // p5.Vectorオブジェクトを作成します。
       pos = createVector(50, 100);
       vel = createVector(0, -1);
 
-      describe('A black dot moves from bottom to top on a gray square. The dot reappears at the bottom when it reaches the top.');
+      describe('灰色の正方形の上で、黒い点が下から上に移動します。点が上端に達すると、下端から再び現れます。');
     }
 
     function draw() {
       background(200);
 
-      // Add velocity to position.
+      // 位置に速度を加えます。
       pos.add(vel);
 
-      // If the dot reaches the top of the canvas,
-      // restart from the bottom.
+      // 点がキャンバスの上端に達したら、
+      // 下端から再スタートします。
       if (pos.y < 0) {
         pos.y = 100;
       }
 
-      // Draw the dot.
+      // 点を描画します。
       strokeWeight(5);
       point(pos);
     }
@@ -107,24 +77,25 @@ class: p5
 params:
   - name: x
     description: |
-      <p>x component of the vector.</p>
+      <p>ベクトルのx成分。</p>
     type: Number
     optional: true
   - name: 'y'
     description: |
-      <p>y component of the vector.</p>
+      <p>ベクトルのy成分。</p>
     type: Number
     optional: true
   - name: z
     description: |
-      <p>z component of the vector.</p>
+      <p>ベクトルのz成分。</p>
     type: Number
     optional: true
 return:
-  description: new <a href="#/p5.Vector">p5.Vector</a> object.
+  description: 新しい<a href="#/p5.Vector">p5.Vector</a>オブジェクト。
   type: p5.Vector
 chainable: false
 ---
 
 
 # createVector
+

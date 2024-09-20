@@ -4,18 +4,17 @@ module: Math
 submodule: Calculation
 file: src/math/calculation.js
 description: >
-  <p>Maps a number from one range to a value between 0 and 1.</p>
+  <p>ある範囲の数値を0から1の間の値にマッピングします。</p>
 
-  <p>For example, <code>norm(2, 0, 10)</code> returns 0.2. 2's position in the
-  original
+  <p>例えば、<code>norm(2, 0, 10)</code>は0.2を返します。元の範囲[0, 10]における2の位置は、
+  
+  範囲[0, 1]における0.2の位置に比例します。これは
 
-  range [0, 10] is proportional to 0.2's position in the range [0, 1]. This
+  <code>map(2, 0, 10, 0, 1)</code>を呼び出すのと同じです。</p>
 
-  is the same as calling <code>map(2, 0, 10, 0, 1)</code>.</p>
+  <p>元の範囲外の数値は0と1の間に制限されません。
 
-  <p>Numbers outside of the original range are not constrained between 0 and 1.
-
-  Out-of-range values are often intentional and useful.</p>
+  範囲外の値は多くの場合、意図的で有用です。</p>
 line: 772
 isConstructor: false
 itemtype: method
@@ -27,17 +26,17 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Use RGB color with values from 0 to 1.
+      // 0から1の値でRGBカラーを使用します。
       colorMode(RGB, 1);
 
-      describe('A square changes color from black to red as the mouse moves from left to right.');
+      describe('マウスが左から右に移動するにつれて、四角形の色が黒から赤に変化します。');
     }
 
     function draw() {
-      // Calculate the redValue.
+      // redValueを計算します。
       let redValue = norm(mouseX, 0, 100);
 
-      // Paint the background.
+      // 背景を塗ります。
       background(redValue, 0, 0);
     }
     </code>
@@ -46,21 +45,20 @@ class: p5
 params:
   - name: value
     description: |
-      <p>incoming value to be normalized.</p>
+      <p>正規化される入力値。</p>
     type: Number
   - name: start
     description: |
-      <p>lower bound of the value's current range.</p>
+      <p>値の現在の範囲の下限。</p>
     type: Number
   - name: stop
     description: |
-      <p>upper bound of the value's current range.</p>
+      <p>値の現在の範囲の上限。</p>
     type: Number
 return:
-  description: normalized number.
+  description: 正規化された数値。
   type: Number
 chainable: false
 ---
-
 
 # norm

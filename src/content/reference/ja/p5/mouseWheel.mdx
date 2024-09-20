@@ -4,77 +4,76 @@ module: Events
 submodule: Mouse
 file: src/events/mouse.js
 description: >
-  <p>A function that's called once when the mouse wheel moves.</p>
+  <p>マウスホイールが動いたときに一度呼び出される関数です。</p>
 
-  <p>Declaring the function <code>mouseWheel()</code> sets a code block to run
-
-  automatically when the user scrolls with the mouse wheel:</p>
+  <p><code>mouseWheel()</code>関数を宣言すると、ユーザーがマウスホイールでスクロールしたときに
+  
+  自動的に実行されるコードブロックを設定できます：</p>
 
   <pre><code class="language-js">function mouseWheel() {
-    // Code to run.
+    // 実行するコード
   }
 
   </code></pre>
 
-  <p>The mouse system variables, such as <a
-  href="/reference/p5/mouseX/">mouseX</a> and
+  <p><a href="/reference/p5/mouseX/">mouseX</a>や
 
-  <a href="/reference/p5/mouseY/">mouseY</a>, will be updated with their most
-  recent
+  <a href="/reference/p5/mouseY/">mouseY</a>などのマウスシステム変数は、
 
-  value when <code>mouseWheel()</code> is called by p5.js:</p>
+  p5.jsによって<code>mouseWheel()</code>が呼び出されたときに、
+
+  最新の値で更新されます：</p>
 
   <pre><code class="language-js">function mouseWheel() {
     if (mouseX < 50) {
-      // Code to run if the mouse is on the left.
+      // マウスが左側にある場合に実行するコード
     }
 
     if (mouseY > 50) {
-      // Code to run if the mouse is near the bottom.
+      // マウスが下部付近にある場合に実行するコード
     }
   }
 
   </code></pre>
 
-  <p>The parameter, <code>event</code>, is optional. <code>mouseWheel()</code>
-  is always passed a
+  <p>パラメータ<code>event</code>はオプションです。<code>mouseWheel()</code>には常に
+
+  マウススクロールイベントを説明するプロパティを持つ
 
   <a href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/"
   target="_blank">MouseEvent</a>
 
-  object with properties that describe the mouse scroll event:</p>
+  オブジェクトが渡されます：</p>
 
   <pre><code class="language-js">function mouseWheel(event) {
-    // Code to run that uses the event.
+    // イベントを使用して実行するコード
     console.log(event);
   }
 
   </code></pre>
 
-  <p>The <code>event</code> object has many properties including
-  <code>delta</code>, a <code>Number</code>
+  <p><code>event</code>オブジェクトには多くのプロパティがあり、その中には
+  <code>delta</code>という、ユーザーが
 
-  containing the distance that the user scrolled. For example,
-  <code>event.delta</code>
+  スクロールした距離を含む<code>Number</code>があります。例えば、ユーザーが上にスクロールすると、
 
-  might have the value 5 when the user scrolls up. <code>event.delta</code> is
-  positive
+  <code>event.delta</code>の値は5になるかもしれません。<code>event.delta</code>は
 
-  if the user scrolls up and negative if they scroll down. The signs are
+  ユーザーが上にスクロールすると正の値、下にスクロールすると負の値になります。
 
-  opposite on macOS with "natural" scrolling enabled.</p>
+  macOSで「ナチュラル」スクロールが有効になっている場合、符号は逆になります。</p>
 
-  <p>Browsers may have default behaviors attached to various mouse events. For
+  <p>ブラウザは様々なマウスイベントにデフォルトの動作を設定している場合があります。
 
-  example, some browsers highlight text when the user moves the mouse while
+  例えば、一部のブラウザでは、ユーザーがマウスボタンを押しながらマウスを動かすと
 
-  pressing a mouse button. To prevent any default behavior for this event,
+  テキストがハイライトされます。このイベントのデフォルトの動作を防ぐには、
 
-  add <code>return false;</code> to the end of the function.</p>
+  関数の最後に<code>return false;</code>を追加してください。</p>
 
-  <p>Note: On Safari, <code>mouseWheel()</code> may only work as expected if
+  <p>注意：Safariでは、<code>mouseWheel()</code>が期待通りに動作するためには、
 
-  <code>return false;</code> is added at the end of the function.</p>
+  関数の最後に<code>return false;</code>を追加する必要がある場合があります。</p>
 line: 1732
 isConstructor: false
 itemtype: method
@@ -89,21 +88,21 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'A gray square. A white circle at its center grows up when the user scrolls the mouse wheel.'
+        'グレーの正方形。中央の白い円は、ユーザーがマウスホイールをスクロールすると大きくなります。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Draw the circle
+      // 円を描画
       circle(circleSize, 50, 50);
     }
 
-    // Increment circleSize when the user scrolls the mouse wheel.
+    // ユーザーがマウスホイールをスクロールしたときにcircleSizeを増加させる
     function mouseWheel() {
       circleSize += 1;
-      // Uncomment to prevent any default behavior.
+      // デフォルトの動作を防ぐにはコメントを解除してください
       // return false;
     }
     </code>
@@ -117,30 +116,30 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'A gray square. An arrow at its center points up when the user scrolls up. The arrow points down when the user scrolls down.'
+        'グレーの正方形。中央の矢印は、ユーザーが上にスクロールすると上を指し、下にスクロールすると下を指します。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定
       textAlign(CENTER);
       textSize(16);
 
-      // Draw an arrow that points where
-      // the mouse last scrolled.
+      // マウスが最後にスクロールした方向を
+      // 指す矢印を描画
       text(direction, 50, 50);
     }
 
-    // Change direction when the user scrolls the mouse wheel.
+    // ユーザーがマウスホイールをスクロールしたときに方向を変更
     function mouseWheel(event) {
       if (event.delta > 0) {
         direction = '▲';
       } else {
         direction = '▼';
       }
-      // Uncomment to prevent any default behavior.
+      // デフォルトの動作を防ぐにはコメントを解除してください
       // return false;
     }
     </code>
@@ -149,7 +148,7 @@ class: p5
 params:
   - name: event
     description: |
-      <p>optional <code>WheelEvent</code> argument.</p>
+      <p>オプションの<code>WheelEvent</code>引数。</p>
     type: WheelEvent
     optional: true
 chainable: false
@@ -157,3 +156,4 @@ chainable: false
 
 
 # mouseWheel
+

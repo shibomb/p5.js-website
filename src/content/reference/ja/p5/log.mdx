@@ -4,12 +4,10 @@ module: Math
 submodule: Calculation
 file: src/math/calculation.js
 description: >
-  <p>Calculates the natural logarithm (the base-e logarithm) of a number.</p>
+  <p>数値の自然対数（底eの対数）を計算します。</p>
 
-  <p><code>log()</code> expects the <code>n</code> parameter to be a value
-  greater than 0 because
-
-  the natural logarithm is defined that way.</p>
+  <p><code>log()</code>は<code>n</code>パラメータが0より大きい値であることを期待します。
+  なぜなら、自然対数はそのように定義されているからです。</p>
 line: 423
 isConstructor: false
 itemtype: method
@@ -23,15 +21,15 @@ example:
 
       background(200);
 
-      // Top-left.
+      // 左上
       let d = log(50);
       circle(33, 33, d);
 
-      // Bottom-right.
+      // 右下
       d = log(500000000);
       circle(67, 67, d);
 
-      describe('Two white circles. The circle at the top-left is small. The circle at the bottom-right is about five times larger.');
+      describe('2つの白い円。左上の円は小さく、右下の円は約5倍大きい。');
     }
     </code>
     </div>
@@ -43,19 +41,19 @@ example:
 
       background(200);
 
-      describe('A series of black dots that get higher slowly from left to right.');
+      describe('左から右に向かってゆっくりと高くなる一連の黒い点。');
     }
 
     function draw() {
-      // Invert the y-axis.
+      // y軸を反転
       scale(1, -1);
       translate(0, -100);
 
-      // Calculate coordinates.
+      // 座標を計算
       let x = frameCount;
       let y = 15 * log(x);
 
-      // Draw a point.
+      // 点を描画
       point(x, y);
     }
     </code>
@@ -64,13 +62,14 @@ class: p5
 params:
   - name: 'n'
     description: |
-      <p>number greater than 0.</p>
+      <p>0より大きい数値。</p>
     type: Number
 return:
-  description: natural logarithm of n.
+  description: nの自然対数。
   type: Number
 chainable: false
 ---
 
 
 # log
+

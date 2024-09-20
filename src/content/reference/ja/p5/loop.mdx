@@ -4,24 +4,21 @@ module: Structure
 submodule: Structure
 file: src/core/structure.js
 description: >
-  <p>Resumes the draw loop after <a href="/reference/p5/noLoop/">noLoop()</a>
-  has been
+  <p><a href="/reference/p5/noLoop/">noLoop()</a>が呼び出された後に、
 
-  called.</p>
+  描画ループを再開します。</p>
 
-  <p>By default, <a href="/reference/p5/draw/">draw()</a> tries to run 60 times
-  per
+  <p>デフォルトでは、<a href="/reference/p5/draw/">draw()</a>は1秒間に60回実行
 
-  second. Calling <a href="/reference/p5/noLoop/">noLoop()</a> stops
+  しようとします。<a href="/reference/p5/noLoop/">noLoop()</a>を呼び出すと、
 
-  <a href="/reference/p5/draw/">draw()</a> from repeating. The draw loop can be
+  <a href="/reference/p5/draw/">draw()</a>の繰り返しが停止します。描画ループは
 
-  restarted by calling <code>loop()</code>.</p>
+  <code>loop()</code>を呼び出すことで再開できます。</p>
 
-  <p>The <a href="/reference/p5/isLooping/">isLooping()</a> function can be used
-  to check
+  <p><a href="/reference/p5/isLooping/">isLooping()</a>関数を使用して、
 
-  whether a sketch is looping, as in <code>isLooping() === true</code>.</p>
+  スケッチがループしているかどうかを確認できます。例えば、<code>isLooping() === true</code>のように使用します。</p>
 line: 127
 isConstructor: false
 itemtype: method
@@ -33,25 +30,25 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Turn off the draw loop.
+      // 描画ループをオフにします。
       noLoop();
 
       describe(
-        'A white half-circle on the left edge of a gray square. The circle starts moving to the right when the user double-clicks.'
+        '灰色の正方形の左端に白い半円があります。ユーザーがダブルクリックすると、円は右に移動し始めます。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Calculate the circle's x-coordinate.
+      // 円のx座標を計算します。
       let x = frameCount;
 
-      // Draw the circle.
+      // 円を描画します。
       circle(x, 50, 20);
     }
 
-    // Resume the draw loop when the user double-clicks.
+    // ユーザーがダブルクリックしたときに描画ループを再開します。
     function doubleClicked() {
       loop();
     }
@@ -66,8 +63,8 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create the button elements and place them
-      // beneath the canvas.
+      // ボタン要素を作成し、
+      // キャンバスの下に配置します。
       startButton = createButton('▶');
       startButton.position(0, 100);
       startButton.size(50, 20);
@@ -75,27 +72,27 @@ example:
       stopButton.position(50, 100);
       stopButton.size(50, 20);
 
-      // Set functions to call when the buttons are pressed.
+      // ボタンが押されたときに呼び出す関数を設定します。
       startButton.mousePressed(loop);
       stopButton.mousePressed(noLoop);
 
-      // Slow the frame rate.
+      // フレームレートを遅くします。
       frameRate(5);
 
       describe(
-        'A white circle moves randomly on a gray background. Play and stop buttons are shown beneath the canvas. The circle stops or starts moving when the user presses a button.'
+        '白い円が灰色の背景上をランダムに移動します。キャンバスの下に再生と停止ボタンが表示されています。ユーザーがボタンを押すと、円の動きが停止または開始します。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Calculate the circle's coordinates.
+      // 円の座標を計算します。
       let x = random(0, 100);
       let y = random(0, 100);
 
-      // Draw the circle.
-      // Normally, the circle would move from left to right.
+      // 円を描画します。
+      // 通常、円は左から右に移動します。
       circle(x, y, 20);
     }
     </code>
@@ -106,3 +103,4 @@ chainable: false
 
 
 # loop
+

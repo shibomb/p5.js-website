@@ -4,75 +4,58 @@ module: Math
 submodule: Noise
 file: src/math/noise.js
 description: >
-  <p>Returns random numbers that can be tuned to feel organic.</p>
+  <p>調整可能な有機的な感じのランダムな数値を返します。</p>
 
-  <p>Values returned by <a href="/reference/p5/random/">random()</a> and
+  <p><a href="/reference/p5/random/">random()</a>や
 
-  <a href="/reference/p5/randomGaussian/">randomGaussian()</a> can change by
-  large
+  <a href="/reference/p5/randomGaussian/">randomGaussian()</a>が返す値は、
+  関数呼び出し間で大きく変化する可能性があります。対照的に、<code>noise()</code>が
 
-  amounts between function calls. By contrast, values returned by
-  <code>noise()</code>
+  返す値は「滑らか」にすることができます。類似の入力での<code>noise()</code>の呼び出しは、
 
-  can be made "smooth". Calls to <code>noise()</code> with similar inputs will
-  produce
+  類似の出力を生成します。<code>noise()</code>はテクスチャ、動き、形状、
 
-  similar outputs. <code>noise()</code> is used to create textures, motion,
-  shapes,
+  地形などの作成に使用されます。Ken Perlinは1980年代に
 
-  terrains, and so on. Ken Perlin invented <code>noise()</code> while animating
-  the
+  オリジナルの<em>トロン</em>映画をアニメーション化する際に<code>noise()</code>を発明しました。</p>
 
-  original <em>Tron</em> film in the 1980s.</p>
+  <p><code>noise()</code>は常に0から1の間の値を返します。スケッチの実行中、
 
-  <p><code>noise()</code> always returns values between 0 and 1. It returns the
-  same value
+  与えられた入力に対して同じ値を返します。<code>noise()</code>は
 
-  for a given input while a sketch is running. <code>noise()</code> produces
-  different
+  スケッチを実行するたびに異なる結果を生成します。
 
-  results each time a sketch runs. The
+  <a href="/reference/p5/noiseSeed/">noiseSeed()</a>関数を使用して、
 
-  <a href="/reference/p5/noiseSeed/">noiseSeed()</a> function can be used to
-  generate
+  スケッチを実行するたびに同じPerlinノイズ値のシーケンスを生成することができます。</p>
 
-  the same sequence of Perlin noise values each time a sketch runs.</p>
+  <p>ノイズの特性は2つの方法で調整できます。1つ目の方法は
 
-  <p>The character of the noise can be adjusted in two ways. The first way is to
+  入力をスケーリングすることです。<code>noise()</code>は入力を座標として解釈します。
 
-  scale the inputs. <code>noise()</code> interprets inputs as coordinates. The
-  sequence
+  入力座標が近いほど、ノイズ値のシーケンスはより滑らかになります。
 
-  of noise values will be smoother when the input coordinates are closer. The
+  2つ目の方法は<a href="/reference/p5/noiseDetail/">noiseDetail()</a>
 
-  second way is to use the <a
-  href="/reference/p5/noiseDetail/">noiseDetail()</a>
+  関数を使用することです。</p>
 
-  function.</p>
+  <p>1つのパラメータを持つ<code>noise()</code>のバージョンは、1次元の
 
-  <p>The version of <code>noise()</code> with one parameter computes noise
-  values in one
+  ノイズ値を計算します。この次元は<code>noise(x)</code>のように空間として、
 
-  dimension. This dimension can be thought of as space, as in
-  <code>noise(x)</code>, or
+  または<code>noise(t)</code>のように時間として考えることができます。</p>
 
-  time, as in <code>noise(t)</code>.</p>
+  <p>2つのパラメータを持つ<code>noise()</code>のバージョンは、2次元の
 
-  <p>The version of <code>noise()</code> with two parameters computes noise
-  values in two
+  ノイズ値を計算します。これらの次元は<code>noise(x, y)</code>のように空間として、
 
-  dimensions. These dimensions can be thought of as space, as in
+  または<code>noise(x, t)</code>のように空間と時間として考えることができます。</p>
 
-  <code>noise(x, y)</code>, or space and time, as in <code>noise(x,
-  t)</code>.</p>
+  <p>3つのパラメータを持つ<code>noise()</code>のバージョンは、3次元の
 
-  <p>The version of <code>noise()</code> with three parameters computes noise
-  values in
+  ノイズ値を計算します。これらの次元は<code>noise(x, y, z)</code>のように空間として、
 
-  three dimensions. These dimensions can be thought of as space, as in
-
-  <code>noise(x, y, z)</code>, or space and time, as in <code>noise(x, y,
-  t)</code>.</p>
+  または<code>noise(x, y, t)</code>のように空間と時間として考えることができます。</p>
 line: 36
 isConstructor: false
 itemtype: method
@@ -84,17 +67,17 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('A black dot moves randomly on a gray square.');
+      describe('黒い点が灰色の正方形の上をランダムに動きます。');
     }
 
     function draw() {
       background(200);
 
-      // Calculate the coordinates.
+      // 座標を計算します。
       let x = 100 * noise(0.005 * frameCount);
       let y = 100 * noise(0.005 * frameCount + 10000);
 
-      // Draw the point.
+      // 点を描画します。
       strokeWeight(5);
       point(x, y);
     }
@@ -106,24 +89,24 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('A black dot moves randomly on a gray square.');
+      describe('黒い点が灰色の正方形の上をランダムに動きます。');
     }
 
     function draw() {
       background(200);
 
-      // Set the noise level and scale.
+      // ノイズレベルとスケールを設定します。
       let noiseLevel = 100;
       let noiseScale = 0.005;
 
-      // Scale the input coordinate.
+      // 入力座標をスケーリングします。
       let nt = noiseScale * frameCount;
 
-      // Compute the noise values.
+      // ノイズ値を計算します。
       let x = noiseLevel * noise(nt);
       let y = noiseLevel * noise(nt + 10000);
 
-      // Draw the point.
+      // 点を描画します。
       strokeWeight(5);
       point(x, y);
     }
@@ -135,22 +118,22 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('A hilly terrain drawn in gray against a black sky.');
+      describe('黒い空を背景に灰色で描かれた丘陵地形。');
     }
 
     function draw() {
-      // Set the noise level and scale.
+      // ノイズレベルとスケールを設定します。
       let noiseLevel = 100;
       let noiseScale = 0.02;
 
-      // Scale the input coordinate.
+      // 入力座標をスケーリングします。
       let x = frameCount;
       let nx = noiseScale * x;
 
-      // Compute the noise value.
+      // ノイズ値を計算します。
       let y = noiseLevel * noise(nx);
 
-      // Draw the line.
+      // 線を描画します。
       line(x, 0, x, y);
     }
     </code>
@@ -161,26 +144,26 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('A calm sea drawn in gray against a black sky.');
+      describe('黒い空を背景に灰色で描かれた穏やかな海。');
     }
 
     function draw() {
       background(200);
 
-      // Set the noise level and scale.
+      // ノイズレベルとスケールを設定します。
       let noiseLevel = 100;
       let noiseScale = 0.002;
 
-      // Iterate from left to right.
+      // 左から右へ繰り返します。
       for (let x = 0; x < 100; x += 1) {
-        // Scale the input coordinates.
+        // 入力座標をスケーリングします。
         let nx = noiseScale * x;
         let nt = noiseScale * frameCount;
 
-        // Compute the noise value.
+        // ノイズ値を計算します。
         let y = noiseLevel * noise(nx, nt);
 
-        // Draw the line.
+        // 線を描画します。
         line(x, 0, x, y);
       }
     }
@@ -194,28 +177,28 @@ example:
 
       background(200);
 
-      // Set the noise level and scale.
+      // ノイズレベルとスケールを設定します。
       let noiseLevel = 255;
       let noiseScale = 0.01;
 
-      // Iterate from top to bottom.
+      // 上から下へ繰り返します。
       for (let y = 0; y < 100; y += 1) {
-        // Iterate from left to right.
+        // 左から右へ繰り返します。
         for (let x = 0; x < 100; x += 1) {
-          // Scale the input coordinates.
+          // 入力座標をスケーリングします。
           let nx = noiseScale * x;
           let ny = noiseScale * y;
 
-          // Compute the noise value.
+          // ノイズ値を計算します。
           let c = noiseLevel * noise(nx, ny);
 
-          // Draw the point.
+          // 点を描画します。
           stroke(c);
           point(x, y);
         }
       }
 
-      describe('A gray cloudy pattern.');
+      describe('灰色の雲のようなパターン。');
     }
     </code>
     </div>
@@ -225,27 +208,27 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('A gray cloudy pattern that changes.');
+      describe('変化する灰色の雲のようなパターン。');
     }
 
     function draw() {
-      // Set the noise level and scale.
+      // ノイズレベルとスケールを設定します。
       let noiseLevel = 255;
       let noiseScale = 0.009;
 
-      // Iterate from top to bottom.
+      // 上から下へ繰り返します。
       for (let y = 0; y < 100; y += 1) {
-        // Iterate from left to right.
+        // 左から右へ繰り返します。
         for (let x = 0; x < width; x += 1) {
-          // Scale the input coordinates.
+          // 入力座標をスケーリングします。
           let nx = noiseScale * x;
           let ny = noiseScale * y;
           let nt = noiseScale * frameCount;
 
-          // Compute the noise value.
+          // ノイズ値を計算します。
           let c = noiseLevel * noise(nx, ny, nt);
 
-          // Draw the point.
+          // 点を描画します。
           stroke(c);
           point(x, y);
         }
@@ -257,23 +240,24 @@ class: p5
 params:
   - name: x
     description: |
-      <p>x-coordinate in noise space.</p>
+      <p>ノイズ空間のx座標。</p>
     type: Number
   - name: 'y'
     description: |
-      <p>y-coordinate in noise space.</p>
+      <p>ノイズ空間のy座標。</p>
     type: Number
     optional: true
   - name: z
     description: |
-      <p>z-coordinate in noise space.</p>
+      <p>ノイズ空間のz座標。</p>
     type: Number
     optional: true
 return:
-  description: Perlin noise value at specified coordinates.
+  description: 指定された座標でのPerlinノイズ値。
   type: Number
 chainable: false
 ---
 
 
 # noise
+

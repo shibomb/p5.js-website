@@ -4,8 +4,7 @@ module: Math
 submodule: Calculation
 file: src/math/calculation.js
 description: |
-  <p>Calculates the closest integer value that is less than or equal to the
-  value of a number.</p>
+  <p>数値以下の最も近い整数値を計算します。</p>
 line: 294
 isConstructor: false
 itemtype: method
@@ -17,24 +16,24 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Use RGB color with values from 0 to 1.
+      // 0から1の値でRGBカラーを使用します。
       colorMode(RGB, 1);
 
       noStroke();
 
-      // Draw the left rectangle.
+      // 左の長方形を描画します。
       let r = 0.8;
       fill(r, 0, 0);
       rect(0, 0, 50, 100);
 
-      // Round r down to 0.
+      // rを0に切り下げます。
       r = floor(r);
 
-      // Draw the right rectangle.
+      // 右の長方形を描画します。
       fill(r, 0, 0);
       rect(50, 0, 50, 100);
 
-      describe('Two rectangles. The one on the left is bright red and the one on the right is black.');
+      describe('2つの長方形。左側は明るい赤色で、右側は黒色です。');
     }
     </code>
     </div>
@@ -42,13 +41,12 @@ class: p5
 params:
   - name: 'n'
     description: |
-      <p>number to round down.</p>
+      <p>切り下げる数値。</p>
     type: Number
 return:
-  description: rounded down number.
+  description: 切り下げられた数値。
   type: Integer
 chainable: false
 ---
-
 
 # floor

@@ -4,26 +4,15 @@ module: Math
 submodule: Trigonometry
 file: src/math/trigonometry.js
 description: >
-  <p>Calculates the angle formed by a point, the origin, and the positive
+  <p>点と原点、そして正のx軸によって形成される角度を計算します。</p>
 
-  x-axis.</p>
+  <p><code>atan2()</code>は、主にジオメトリをマウスの位置に向けるために使用されます。
+  例えば、<code>atan2(mouseY, mouseX)</code>のように使います。最初のパラメータは点の
+  y座標で、2番目のパラメータはx座標です。</p>
 
-  <p><code>atan2()</code> is most often used for orienting geometry to the
-  mouse's
-
-  position, as in <code>atan2(mouseY, mouseX)</code>. The first parameter is the
-  point's
-
-  y-coordinate and the second parameter is its x-coordinate.</p>
-
-  <p>By default, <code>atan2()</code> returns values in the range
-
-  -π (about -3.14) to π (3.14). If the
-
-  <a href="/reference/p5/angleMode/">angleMode()</a> is <code>DEGREES</code>,
-  then values are
-
-  returned in the range -180 to 180.</p>
+  <p>デフォルトでは、<code>atan2()</code>は-π（約-3.14）からπ（3.14）の範囲で
+  値を返します。<a href="/reference/p5/angleMode/">angleMode()</a>が<code>DEGREES</code>に
+  設定されている場合、値は-180から180の範囲で返されます。</p>
 line: 204
 isConstructor: false
 itemtype: method
@@ -35,20 +24,19 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('A rectangle at the top-left of the canvas rotates with mouse movements.');
+      describe('キャンバスの左上にある長方形が、マウスの動きに合わせて回転します。');
     }
 
     function draw() {
       background(200);
 
-      // Calculate the angle between the mouse
-      // and the origin.
+      // マウスと原点の間の角度を計算します
       let a = atan2(mouseY, mouseX);
 
-      // Rotate.
+      // 回転させます
       rotate(a);
 
-      // Draw the shape.
+      // 図形を描画します
       rect(0, 0, 60, 10);
     }
     </code>
@@ -59,26 +47,26 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('A rectangle at the center of the canvas rotates with mouse movements.');
+      describe('キャンバスの中央にある長方形が、マウスの動きに合わせて回転します。');
     }
 
     function draw() {
       background(200);
 
-      // Translate the origin to the center.
+      // 原点を中心に移動します
       translate(50, 50);
 
-      // Get the mouse's coordinates relative to the origin.
+      // 原点に対するマウスの座標を取得します
       let x = mouseX - 50;
       let y = mouseY - 50;
 
-      // Calculate the angle between the mouse and the origin.
+      // マウスと原点の間の角度を計算します
       let a = atan2(y, x);
 
-      // Rotate.
+      // 回転させます
       rotate(a);
 
-      // Draw the shape.
+      // 図形を描画します
       rect(-30, -5, 60, 10);
     }
     </code>
@@ -87,17 +75,18 @@ class: p5
 params:
   - name: 'y'
     description: |
-      <p>y-coordinate of the point.</p>
+      <p>点のy座標。</p>
     type: Number
   - name: x
     description: |
-      <p>x-coordinate of the point.</p>
+      <p>点のx座標。</p>
     type: Number
 return:
-  description: arc tangent of the given point.
+  description: 与えられた点のアークタンジェント。
   type: Number
 chainable: false
 ---
 
 
 # atan2
+

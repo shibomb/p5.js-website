@@ -4,19 +4,13 @@ module: Math
 submodule: Noise
 file: src/math/noise.js
 description: >
-  <p>Sets the seed value for the <a href="/reference/p5/noise/">noise()</a>
-  function.</p>
+  <p><a href="/reference/p5/noise/">noise()</a>関数のシード値を設定します。</p>
 
-  <p>By default, <a href="/reference/p5/noise/">noise()</a> produces different
-  results
-
-  each time a sketch is run. Calling <code>noiseSeed()</code> with a constant
-  argument,
-
-  such as <code>noiseSeed(99)</code>, makes <a
-  href="/reference/p5/noise/">noise()</a> produce the
-
-  same results each time a sketch is run.</p>
+  <p>デフォルトでは、<a href="/reference/p5/noise/">noise()</a>は
+  スケッチを実行するたびに異なる結果を生成します。
+  <code>noiseSeed()</code>を定数引数で呼び出すと、
+  例えば<code>noiseSeed(99)</code>のように、<a href="/reference/p5/noise/">noise()</a>は
+  スケッチを実行するたびに同じ結果を生成するようになります。</p>
 line: 405
 isConstructor: false
 itemtype: method
@@ -30,24 +24,24 @@ example:
 
       background(200);
 
-      // Set the noise seed for consistent results.
+      // 一貫した結果を得るためにノイズシードを設定します。
       noiseSeed(99);
 
-      describe('A black rectangle that grows randomly, first to the right and then to the left.');
+      describe('ランダムに成長する黒い長方形。最初は右に、次に左に成長します。');
     }
 
     function draw() {
-      // Set the noise level and scale.
+      // ノイズレベルとスケールを設定します。
       let noiseLevel = 100;
       let noiseScale = 0.005;
 
-      // Scale the input coordinate.
+      // 入力座標をスケーリングします。
       let nt = noiseScale * frameCount;
 
-      // Compute the noise value.
+      // ノイズ値を計算します。
       let x = noiseLevel * noise(nt);
 
-      // Draw the line.
+      // 線を描画します。
       line(x, 0, x, height);
     }
     </code>
@@ -56,10 +50,9 @@ class: p5
 params:
   - name: seed
     description: |
-      <p>seed value.</p>
+      <p>シード値。</p>
     type: Number
 chainable: false
 ---
-
 
 # noiseSeed

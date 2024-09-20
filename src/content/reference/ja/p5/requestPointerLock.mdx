@@ -4,38 +4,23 @@ module: Events
 submodule: Mouse
 file: src/events/mouse.js
 description: >
-  <p>Locks the mouse pointer to its current position and makes it invisible.</p>
+  <p>マウスポインタを現在の位置にロックし、非表示にします。</p>
 
-  <p><code>requestPointerLock()</code> allows the mouse to move forever without
-  leaving the
+  <p><code>requestPointerLock()</code>を使用すると、マウスは画面から離れることなく
+  永遠に動き続けることができます。<code>requestPointerLock()</code>を呼び出すと、
+  <a href="/reference/p5/mouseX/">mouseX</a>、<a href="/reference/p5/mouseY/">mouseY</a>、
+  <a href="/reference/p5/pmouseX/">pmouseX</a>、<a href="/reference/p5/pmouseY/">pmouseY</a>
+  の値がロックされます。
+  <a href="/reference/p5/movedX/">movedX</a>と<a href="/reference/p5/movedY/">movedY</a>
+  は更新を続け、最後のフレームが描画されてからマウスが移動した距離を取得するのに
+  使用できます。
+  <a href="/reference/p5/exitPointerLock/">exitPointerLock()</a>を呼び出すと、
+  マウスシステム変数の更新が再開されます。</p>
 
-  screen. Calling <code>requestPointerLock()</code> locks the values of
-
-  <a href="/reference/p5/mouseX/">mouseX</a>, <a
-  href="/reference/p5/mouseY/">mouseY</a>,
-
-  <a href="/reference/p5/pmouseX/">pmouseX</a>, and <a
-  href="/reference/p5/pmouseY/">pmouseY</a>.
-
-  <a href="/reference/p5/movedX/">movedX</a> and <a
-  href="/reference/p5/movedY/">movedY</a>
-
-  continue updating and can be used to get the distance the mouse moved since
-
-  the last frame was drawn. Calling
-
-  <a href="/reference/p5/exitPointerLock/">exitPointerLock()</a> resumes
-  updating the
-
-  mouse system variables.</p>
-
-  <p>Note: Most browsers require an input, such as a click, before calling
-
-  <code>requestPointerLock()</code>. It’s recommended to call
-  <code>requestPointerLock()</code> in
-
-  an event function such as <a
-  href="/reference/p5/doubleClicked/">doubleClicked()</a>.</p>
+  <p>注意：ほとんどのブラウザでは、<code>requestPointerLock()</code>を呼び出す前に
+  クリックなどの入力が必要です。<code>requestPointerLock()</code>は
+  <a href="/reference/p5/doubleClicked/">doubleClicked()</a>のような
+  イベント関数内で呼び出すことをお勧めします。</p>
 line: 1866
 isConstructor: false
 itemtype: method
@@ -50,25 +35,25 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'A gray square with the text "Score: X" at its center. The score increases when the user moves the mouse upward. It decreases when the user moves the mouse downward.'
+        '中央に"Score: X"というテキストが表示されている灰色の正方形。ユーザーがマウスを上に動かすとスコアが増加し、下に動かすと減少します。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Update the score.
+      // スコアを更新
       score -= movedY;
 
-      // Style the text.
+      // テキストのスタイルを設定
       textAlign(CENTER);
       textSize(16);
 
-      // Display the score.
+      // スコアを表示
       text(`Score: ${score}`, 50, 50);
     }
 
-    // Lock the pointer when the user double-clicks.
+    // ユーザーがダブルクリックしたときにポインタをロック
     function doubleClicked() {
       requestPointerLock();
     }
@@ -80,3 +65,4 @@ chainable: false
 
 
 # requestPointerLock
+
