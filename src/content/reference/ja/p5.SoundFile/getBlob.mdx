@@ -3,31 +3,14 @@ title: getBlob
 module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
-description: >
-  <p>サーバーに送信するために、p5.SoundFile を Blob として取得します。</p>
-
-  <p>Blob は、ファイルのようなデータオブジェクトで、<a href="/reference/#/p5/httpDo/">http</a>
-  リクエストでサーバーにアップロードできます。このメソッドを使用して、次のような特定のオプションを指定して POST
-  リクエストを送信します:<code>multipart/form-data</code>
-  でリクエストをエンコードし、<code>FormData</code> を使用して blob をフォーム値のひとつとして添付します。</p>
-
-
-  <hr/>
-
+description: |
   <p>This method is useful for sending a SoundFile to a server. It returns the
-
   .wav-encoded audio data as a "<a target="_blank" title="Blob reference at
-
-  MDN" href="https://developer.mozilla.org/en-US/docs/Web/API/Blob">Blob</a>".
-
+  MDN" href="https://developer.mozilla.org/en-US/docs/Web/API/Blob/">Blob</a>".
   A Blob is a file-like data object that can be uploaded to a server
-
   with an <a href="/reference//p5/httpDo/">http</a> request. We'll
-
   use the <code>httpDo</code> options object to send a POST request with some
-
   specific options: we encode the request as <code>multipart/form-data</code>,
-
   and attach the blob as one of the form values using <code>FormData</code>.</p>
 line: 2882
 isConstructor: false
@@ -72,9 +55,7 @@ example:
     </code></div>
 class: p5.SoundFile
 return:
-  description: |-
-    ファイルのようなデータオブジェクト
-    A file-like data object
+  description: A file-like data object
   type: Blob
 chainable: false
 ---

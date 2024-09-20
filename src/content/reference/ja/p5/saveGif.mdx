@@ -1,69 +1,41 @@
 ---
 title: saveGif
 module: Image
-submodule: Loading & Displaying
-file: src/image/loading_displaying.js
+submodule: Image
+file: src/image/image.js
 description: >
-  <p>現在のアニメーションを gif として生成し、コンピューターにダウンロードします！。</p>
+  <p>スケッチをアニメーションGIFとして保存します。</p>
 
-  <p>duration 引数は、アニメーションから録画したい秒数を指定します。この値は、units
-  の値に応じて、生成する必要があるフレーム数に変換されます。次の段落で詳しく説明します。</p>
+  <p><code>saveGif()</code>は、指定された期間（デフォルトは5秒）、
+  スケッチの各フレームをキャプチャします。その後、フレームをGIFアニメーションに
+  結合し、ファイルとしてダウンロードします。</p>
 
-  <p>さらに2つの引数を含むオプションのオブジェクトです:delay（number）および units（string）。</p>
+  <p>最初のパラメータ<code>filename</code>はオプションです。文字列を渡すと、
+  GIFファイルの名前として使用されます。デフォルトのファイル名は'untitled.gif'です。</p>
 
-  <p><code>delay</code> は、録画を開始する前に待つ時間を指定します。</p>
+  <p>2番目のパラメータ<code>duration</code>もオプションです。数値を渡すと、
+  キャプチャする期間（秒単位）として使用されます。デフォルトは5秒です。</p>
 
-  <p><code>units</code>
-  は、'seconds'または'frames'のいずれかの文字列です。デフォルトでは'seconds'です。</p>
+  <p>3番目のパラメータ<code>options</code>もオプションです。オブジェクトを渡すと、
+  GIFのエンコーディングをカスタマイズできます。以下のプロパティがサポートされています：</p>
 
-  <p><code>units</code> は、duration と delay
-  引数の動作方法を指定します。'seconds'の場合、これらの引数は秒に対応し、3秒間のアニメーションが作成されることを意味します。'frames'の場合、引数はアニメーションのフレーム数に対応し、この数値が非常に確実な場合に限ります。</p>
+  <ul>
 
-  <p>これは、setup で呼び出すことも、以下の例のように、keyPressed や mousePressed
-  などのイベント関数内で呼び出すこともできます。</p>
+  <li><code>units</code>：'seconds'（デフォルト）または'frames'。
+  <code>duration</code>をフレーム数として解釈するかどうかを決定します。</li>
 
-  <p>/// todo ///</p>
+  <li><code>delay</code>：フレーム間の遅延（ミリ秒）。デフォルトは166.67ミリ秒（6 fps）。</li>
 
-  <p>Generates a gif from a sketch and saves it to a file.
-  <code>saveGif()</code> may be called in <a href="#/p5/setup">setup()</a> or at
-  any point while a sketch is running.</p>
+  <li><code>repeat</code>：アニメーションを繰り返す回数。-1（デフォルト）は無限ループ。</li>
 
-  <p>The first parameter, <code>fileName</code>, sets the gif's file name. The
-  second parameter, <code>duration</code>, sets the gif's duration in
-  seconds.</p>
+  <li><code>quality</code>：1（最高）から20（最低）までの画質。デフォルトは10。</li>
 
-  <p>The third parameter, <code>options</code>, is optional. If an object is
-  passed, <code>saveGif()</code> will use its properties to customize the gif.
-  <code>saveGif()</code> recognizes the properties <code>delay</code>,
-  <code>units</code>, <code>silent</code>, <code>notificationDuration</code>,
-  and <code>notificationID</code>.</p>
+  <li><code>download</code>：trueの場合、GIFを自動的にダウンロードします。デフォルトはtrue。</li>
 
+  </ul>
 
-  <hr/>
-
-  <p>Generates a gif from a sketch and saves it to a file.</p>
-
-  <p><code>saveGif()</code> may be called in <a
-  href="/reference/p5/setup/">setup()</a> or at any
-
-  point while a sketch is running.</p>
-
-  <p>The first parameter, <code>fileName</code>, sets the gif's file name.</p>
-
-  <p>The second parameter, <code>duration</code>, sets the gif's duration in
-  seconds.</p>
-
-  <p>The third parameter, <code>options</code>, is optional. If an object is
-  passed,
-
-  <code>saveGif()</code> will use its properties to customize the gif.
-  <code>saveGif()</code>
-
-  recognizes the properties <code>delay</code>, <code>units</code>,
-  <code>silent</code>,
-
-  <code>notificationDuration</code>, and <code>notificationID</code>.</p>
-line: 204
+  <p><code>saveGif()</code>は非同期関数です。GIFの生成には時間がかかる場合があります。</p>
+line: 496
 isConstructor: false
 itemtype: method
 example:
@@ -71,57 +43,24 @@ example:
 
     <div>
     <code>
-    function setup() {
-      createCanvas(100, 100);
-
-      describe('A circle drawn in the middle of a gray square. The circle changes color from black to white, then repeats.');
-    }
+    let angle = 0;
 
     function draw() {
-      background(200);
-
-      // Style the circle.
-      let c = frameCount % 255;
-      fill(c);
-
-      // Display the circle.
-      circle(50, 50, 25);
+      background(220);
+      fill(0);
+      circle(50, 50 + 20 * sin(angle), 40);
+      angle += 0.05;
     }
 
-    // Save a 5-second gif when the user presses the 's' key.
     function keyPressed() {
       if (key === 's') {
         saveGif('mySketch', 5);
       }
     }
-    </code>
-    </div>
 
-    <div>
-    <code>
     function setup() {
       createCanvas(100, 100);
-
-      describe('A circle drawn in the middle of a gray square. The circle changes color from black to white, then repeats.');
-    }
-
-    function draw() {
-      background(200);
-
-      // Style the circle.
-      let c = frameCount % 255;
-      fill(c);
-
-      // Display the circle.
-      circle(50, 50, 25);
-    }
-
-    // Save a 5-second gif when the user presses the 's' key.
-    // Wait 1 second after the key press before recording.
-    function keyPressed() {
-      if (key === 's') {
-        saveGif('mySketch', 5, { delay: 1 });
-      }
+      describe('円が上下に動くアニメーション。"s"キーを押すとGIFとして保存されます。');
     }
     </code>
     </div>
@@ -129,45 +68,20 @@ class: p5
 params:
   - name: filename
     description: |
-      <p>file name of gif. /// todo /// String: gif ファイルのファイル名</p>
-      <p>file name of gif.</p>
+      <p>保存するファイルの名前。</p>
     type: String
+    optional: true
   - name: duration
-    description: >
-      <p>duration in seconds to capture from the sketch. /// todo /// Number:
-      スケッチからキャプチャしたい秒数の長さ</p>
-
-      <p>duration in seconds to capture from the sketch.</p>
+    description: |
+      <p>キャプチャする期間（秒またはフレーム数）。</p>
     type: Number
+    optional: true
   - name: options
-    description: >
-      <p>(Optional) an object that can contain five more properties: 
-      <code>delay</code>, a Number specifying how much time to wait before
-      recording;  <code>units</code>, a String that can be either 'seconds' or
-      'frames'. By default it's 'seconds’;  <code>silent</code>, a Boolean that
-      defines presence of progress notifications. By default it’s
-      <code>false</code>;  <code>notificationDuration</code>, a Number that
-      defines how long in seconds the final notification  will live. By default
-      it's <code>0</code>, meaning the notification will never be removed; 
-      <code>notificationID</code>, a String that specifies the id of the
-      notification's DOM element. By default it’s <code>'progressBar’</code>.
-      /// todo /// Object: 5つの引数を含むことができるオプションのオブジェクトです: delay,
-      録画するまでの待ち時間を指定します。; units, 'seconds' または 'frames' の文字列です。デフォルトは 'seconds'
-      です。; silent, 進捗通知の有無を定義するブール値です。デフォルトは false です。; notificationDuration,
-      最終通知が表示される時間を秒単位で定義する数値です。デフォルト値の 0 は、通知が削除されないことを意味します。; notificationID,
-      通知先の DOM 要素 ID を指定する文字列です。デフォルトでは 'progressBar' です。</p>
-
-      <p>an object that can contain five more properties:
-                       <code>delay</code>, a Number specifying how much time to wait before recording;
-                       <code>units</code>, a String that can be either 'seconds' or 'frames'. By default it's 'seconds’;
-                       <code>silent</code>, a Boolean that defines presence of progress notifications. By default it’s <code>false</code>;
-                       <code>notificationDuration</code>, a Number that defines how long in seconds the final notification
-                       will live. By default it's <code>0</code>, meaning the notification will never be removed;
-                       <code>notificationID</code>, a String that specifies the id of the notification's DOM element. By default it’s <code>'progressBar’</code>.</p>
+    description: |
+      <p>GIFエンコーディングのオプション。</p>
     type: Object
     optional: true
 chainable: false
 ---
-
 
 # saveGif

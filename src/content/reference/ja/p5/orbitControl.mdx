@@ -4,82 +4,48 @@ module: 3D
 submodule: Interaction
 file: src/webgl/interaction.js
 description: >
-  <p>マウス、トラックパッド、またはタッチを使って、3D スケッチを操作することができます。</p>
+  <p>マウス、トラックパッド、またはタッチスクリーンを使用して、ユーザーが3Dスケッチの周りを軌道運動できるようにします。</p>
 
-  <p>左クリックしてドラッグしたり、スワイプ動作をすると、カメラの位置がスケッチの中心を中心に回転します。右クリックしてドラッグしたり、マルチスワイプをすると、カメラの位置が回転せずにパンします。また、マウスホイール（スクロール）を使ったり、ピンチイン/アウトをしたりすると、カメラをスケッチの中心から遠ざけたり近づけたりすることができます。この関数は、X軸とY軸に沿ったマウス/タッチの動きの感度を指定するパラメーターで呼び出すことができます。パラメーターを指定せずにこの関数を呼び出すことは、orbitControl(1,1)を呼び出すことと同じです。いずれかの軸の移動方向を逆にするには、感度の値に負の数を入力します。</p>
-
-
-  <hr/>
-
-  <p>Allows the user to orbit around a 3D sketch using a mouse, trackpad, or
-
-  touchscreen.</p>
-
-  <p>3D sketches are viewed through an imaginary camera. Calling
-
-  <code>orbitControl()</code> within the <a
-  href="/reference/p5/draw/">draw()</a> function allows
-
-  the user to change the camera’s position:</p>
+  <p>3Dスケッチは想像上のカメラを通して見られます。<a
+  href="/reference/p5/draw/">draw()</a>関数内で<code>orbitControl()</code>を呼び出すことで、
+  ユーザーがカメラの位置を変更できるようになります：</p>
 
   <pre><code class="language-js">function draw() {
     background(200);
 
-    // Enable orbiting with the mouse.
+    // マウスで軌道運動を有効にする。
     orbitControl();
 
-    // Rest of sketch.
+    // スケッチの残りの部分。
   }
 
   </code></pre>
 
-  <p>Left-clicking and dragging or swipe motion will rotate the camera position
+  <p>左クリックしてドラッグするか、スワイプ動作をすると、スケッチの中心を軸にカメラ位置が回転します。
+  右クリックしてドラッグするか、マルチスワイプすると、回転せずにカメラ位置がパンします。
+  マウスホイール（スクロール）を使用するか、ピンチイン/アウトすると、カメラがスケッチの中心から
+  遠ざかったり近づいたりします。</p>
 
-  about the center of the sketch. Right-clicking and dragging or multi-swipe
+  <p>最初の3つのパラメータ、<code>sensitivityX</code>、<code>sensitivityY</code>、
+  <code>sensitivityZ</code>はオプションです。これらは各軸に沿った動きに対するスケッチの
+  感度を設定する数値です。例えば、<code>orbitControl(1, 2, -1)</code>を呼び出すと、
+  x軸に沿った動きはデフォルト値のままで、y軸に沿った動きの感度を2倍にし、
+  z軸に沿った動きを反転させます。デフォルトでは、すべての感度値は1です。</p>
 
-  will pan the camera position without rotation. Using the mouse wheel
-
-  (scrolling) or pinch in/out will move the camera further or closer from the
-
-  center of the sketch.</p>
-
-  <p>The first three parameters, <code>sensitivityX</code>,
-  <code>sensitivityY</code>, and
-
-  <code>sensitivityZ</code>, are optional. They’re numbers that set the sketch’s
-
-  sensitivity to movement along each axis. For example, calling
-
-  <code>orbitControl(1, 2, -1)</code> keeps movement along the x-axis at its
-  default
-
-  value, makes the sketch twice as sensitive to movement along the y-axis,
-
-  and reverses motion along the z-axis. By default, all sensitivity values
-
-  are 1.</p>
-
-  <p>The fourth parameter, <code>options</code>, is also optional. It’s an
-  object that
-
-  changes the behavior of orbiting. For example, calling
-
-  <code>orbitControl(1, 1, 1, options)</code> keeps the default sensitivity
-  values while
-
-  changing the behaviors set with <code>options</code>. The object can have the
-
-  following properties:</p>
+  <p>4番目のパラメータ<code>options</code>もオプションです。これは軌道運動の動作を
+  変更するオブジェクトです。例えば、<code>orbitControl(1, 1, 1, options)</code>を
+  呼び出すと、デフォルトの感度値を保持しながら、<code>options</code>で設定された
+  動作を変更します。このオブジェクトは以下のプロパティを持つことができます：</p>
 
   <pre><code class="language-js">let options = {
-    // Setting this to false makes mobile interactions smoother by
-    // preventing accidental interactions with the page while orbiting.
-    // By default, it's true.
+    // これをfalseに設定すると、軌道運動中にページとの偶発的な
+    // インタラクションを防ぐことで、モバイルでのインタラクションがよりスムーズになります。
+    // デフォルトではtrueです。
     disableTouchActions: true,
 
-    // Setting this to true makes the camera always rotate in the
-    // direction the mouse/touch is moving.
-    // By default, it's false.
+    // これをtrueに設定すると、カメラが常にマウス/タッチの
+    // 動きの方向に回転するようになります。
+    // デフォルトではfalseです。
     freeRotation: false
   };
 
@@ -95,24 +61,24 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // クリックしてマウスをドラッグすると、異なる角度からシーンを見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A multicolor box on a gray background. The camera angle changes when the user interacts using a mouse, trackpad, or touchscreen.');
+      describe('グレーの背景に多色のボックス。ユーザーがマウス、トラックパッド、またはタッチスクリーンを使用して操作すると、カメラアングルが変化します。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスで軌道運動を有効にする。
       orbitControl();
 
-      // Style the box.
+      // ボックスのスタイルを設定。
       normalMaterial();
 
-      // Draw the box.
+      // ボックスを描画。
       box(30, 50);
     }
     </code>
@@ -120,25 +86,25 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // クリックしてマウスをドラッグすると、異なる角度からシーンを見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A multicolor box on a gray background. The camera angle changes when the user interacts using a mouse, trackpad, or touchscreen.');
+      describe('グレーの背景に多色のボックス。ユーザーがマウス、トラックパッド、またはタッチスクリーンを使用して操作すると、カメラアングルが変化します。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
-      // Make the interactions 3X sensitive.
+      // マウスで軌道運動を有効にする。
+      // インタラクションの感度を3倍にする。
       orbitControl(3, 3, 3);
 
-      // Style the box.
+      // ボックスのスタイルを設定。
       normalMaterial();
 
-      // Draw the box.
+      // ボックスを描画。
       box(30, 50);
     }
     </code>
@@ -146,32 +112,32 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // クリックしてマウスをドラッグすると、異なる角度からシーンを見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A multicolor box on a gray background. The camera angle changes when the user interacts using a mouse, trackpad, or touchscreen.');
+      describe('グレーの背景に多色のボックス。ユーザーがマウス、トラックパッド、またはタッチスクリーンを使用して操作すると、カメラアングルが変化します。');
     }
 
     function draw() {
       background(200);
 
-      // Create an options object.
+      // オプションオブジェクトを作成。
       let options = {
         disableTouchActions: false,
         freeRotation: true
       };
 
-      // Enable orbiting with the mouse.
-      // Prevent accidental touch actions on touchscreen devices
-      // and enable free rotation.
+      // マウスで軌道運動を有効にする。
+      // タッチスクリーンデバイスでの偶発的なタッチアクションを防ぎ、
+      // 自由回転を有効にする。
       orbitControl(1, 1, 1, options);
 
-      // Style the box.
+      // ボックスのスタイルを設定。
       normalMaterial();
 
-      // Draw the box.
+      // ボックスを描画。
       box(30, 50);
     }
     </code>
@@ -180,36 +146,24 @@ class: p5
 params:
   - name: sensitivityX
     description: |
-      <p>(オプション) X 軸に沿ったマウス移動の感度</p>
-      <p>sensitivity to movement along the x-axis. Defaults to 1.</p>
+      <p>x軸に沿った動きの感度。デフォルトは1。</p>
     type: Number
     optional: true
   - name: sensitivityY
     description: |
-      <p>(オプション) Y 軸に沿ったマウス移動の感度</p>
-      <p>sensitivity to movement along the y-axis. Defaults to 1.</p>
+      <p>y軸に沿った動きの感度。デフォルトは1。</p>
     type: Number
     optional: true
   - name: sensitivityZ
     description: |
-      <p>(オプション) Z 軸に沿ったスクロール移動の感度</p>
-      <p>sensitivity to movement along the z-axis. Defaults to 1.</p>
+      <p>z軸に沿った動きの感度。デフォルトは1。</p>
     type: Number
     optional: true
   - name: options
-    description: >
-      <p>(オプション) 追加の設定を含むオブジェクト、disableTouchActions - Boolean: デフォルト値は true
-      です。これを true
-      に設定すると、orbit中の偶然のページインタラクションが防がれるで、モバイルでのインタラクションがスムーズになります。しかし、すでにcssを通じて行っているか、デフォルトのタッチアクションが必要な場合は、これを
-      false に設定することを検討してください。 freeRotation - Boolan: デフォルト値は false
-      です。デフォルトでは、マウスまたはタッチポインターの水平方向の動きはカメラを y 軸周りに回転させ、垂直方向の動きはカメラを x
-      軸周りに回転させます。しかし、このオプションを true
-      に設定すると、カメラは常にポインターが移動している方向に回転します。ズームと移動については、 true/false
-      に関係なく挙動は同じです。</p>
-
-      <p>object with two optional properties, <code>disableTouchActions</code>
-                                 and <code>freeRotation</code>. Both are <code>Boolean</code>s. <code>disableTouchActions</code>
-                                 defaults to <code>true</code> and <code>freeRotation</code> defaults to <code>false</code>.</p>
+    description: |
+      <p>2つのオプションプロパティ<code>disableTouchActions</code>
+                                 と<code>freeRotation</code>を持つオブジェクト。両方とも<code>Boolean</code>型です。<code>disableTouchActions</code>
+                                 のデフォルトは<code>true</code>で、<code>freeRotation</code>のデフォルトは<code>false</code>です。</p>
     type: Object
     optional: true
 chainable: true
@@ -217,3 +171,4 @@ chainable: true
 
 
 # orbitControl
+

@@ -3,31 +3,14 @@ title: setVolume
 module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
-description: >
-  <p>サウンドファイルの出力ボリューム（振幅）を0.0（無音）から1.0（最大ボリューム）の間で乗算します。</p>
-
-  <p>1.0はデジタルサウンドの最大振幅です。1.0より大きい値で乗算するとデジタル歪みが発生する可能性があります。フェードイン/アウトする場合は、<code>rampTime</code>
-  パラメーターを指定してください。より複雑なフェードについては、Envelope クラスを参照してください。</p>
-
-  <p>また、オーディオシグナルで振幅を調整するために、オシレーターなどのシグナルソースを渡すこともできます。</p>
-
-
-  <hr/>
-
+description: |
   <p>Multiply the output volume (amplitude) of a sound file
-
   between 0.0 (silence) and 1.0 (full volume).
-
   1.0 is the maximum amplitude of a digital sound, so multiplying
-
   by greater than 1.0 may cause digital distortion. To
-
   fade, provide a <code>rampTime</code> parameter. For more
-
   complex fades, see the Envelope class.</p>
-
   <p>Alternately, you can pass in a signal source such as an
-
   oscillator to modulate the amplitude with an audio signal.</p>
 line: 2239
 isConstructor: false
@@ -36,19 +19,16 @@ class: p5.SoundFile
 params:
   - name: volume
     description: |
-      <p>振幅の値（0.0から1.0）またはモジュレーションシグナル/オシレーター</p>
       <p>Volume (amplitude) between 0.0
                                          and 1.0 or modulating signal/oscillator</p>
     type: Number|Object
   - name: rampTime
     description: |
-      <p> (オプション) t 秒でフェードします。</p>
       <p>Fade for t seconds</p>
     type: Number
     optional: true
   - name: timeFromNow
     description: |
-      <p> (オプション) t 秒後にこのイベントをスケジュールします。</p>
       <p>Schedule this event to happen at
                                      t seconds in the future</p>
     type: Number

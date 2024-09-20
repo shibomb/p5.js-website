@@ -3,23 +3,7 @@ title: radians
 module: Math
 submodule: Trigonometry
 file: src/math/trigonometry.js
-description: >
-  <p>角度の測定値を、対応するラジアンの値に変換します。</p>
-
-  <p>ラジアンと角度は、同じことを測定する2つの方法です。円には360度があり、円には 2 * PI ラジアンがあります。たとえば、90° = PI / 2
-  = 1.5707964。この関数は、現在の <a href="#/p5/angleMode">angleMode</a> は考慮しません。</p>
-
-  <p>/// todo ///</p>
-
-  <p>Converts an angle measurement in degrees to its corresponding value in
-  radians. Degrees and radians are two ways of measuring the same thing. There
-  are 360 degrees in a circle and 2 × π (about 6.28) radians in a circle. For
-  example, 90° = π ÷ 2 (about 1.57) radians. This function doesn't take into
-  account the current <a href="#/p5/angleMode">angleMode()</a>.</p>
-
-
-  <hr/>
-
+description: |
   <p>Converts an angle measured in degrees to its value in radians.</p>
   <p>Degrees and radians are both units for measuring angles. There are 360˚ in
   one full rotation. A full rotation is 2 × π (about 6.28) radians.</p>
@@ -54,13 +38,10 @@ class: p5
 params:
   - name: degrees
     description: |
-      <p>ラジアンに変換する度数法の値</p>
       <p>degree value to convert to radians.</p>
     type: Number
 return:
-  description: |-
-    変換された角度
-    converted angle.
+  description: converted angle.
   type: Number
 chainable: false
 ---

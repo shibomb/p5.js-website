@@ -4,34 +4,13 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>DOM に 'file' タイプの <code>&lt;input&gt;&lt;/input&gt;</code> 要素を作成します。</p>
-
-  <p>これにより、ユーザーはローカルファイルをスケッチで使用するために選択できます。</p>
-
-  <p>/// todo ///</p>
-
-  <p>Creates an <code>&lt;input&gt;&lt;/input&gt;</code> element of type
-  <code>'file'</code>. This allows users to select local files for use in a
-  sketch.</p>
-
-  <p>The first parameter, <code>callback</code>, is a function that's called
-  when the file loads. The callback function should have one parameter,
-  <code>file</code>, that's a <a href="#/p5.File">p5.File</a> object.</p>
-
-  <p>The second parameter, <code>multiple</code>, is optional. It's a boolean
-  value that allows loading multiple files if set to <code>true</code>. If
-  <code>true</code>, <code>callback</code> will be called once per file.</p>
-
-
-  <hr/>
-
   <p>Creates an <code><input></input></code> element of type
   <code>'file'</code>.</p>
 
   <p><code>createFileInput()</code> allows users to select local files for use
   in a sketch.
 
-  It returns a <a href="/reference/p5/p5.File/">p5.File</a> object.</p>
+  It returns a <a href="/reference/p5/p5.File">p5.File</a> object.</p>
 
   <p>The first parameter, <code>callback</code>, is a function that's called
   when the file
@@ -39,7 +18,7 @@ description: >
   loads. The callback function should have one parameter, <code>file</code>,
   that's a
 
-  <a href="/reference/p5/p5.File/">p5.File</a> object.</p>
+  <a href="/reference/p5/p5.File">p5.File</a> object.</p>
 
   <p>The second parameter, <code>multiple</code>, is optional. It's a boolean
   value that
@@ -138,26 +117,16 @@ example:
 class: p5
 params:
   - name: callback
-    description: >
-      <p>function to call once the file loads. /// todo /// Function:
-      ファイルが読み込まれたときのコールバック関数</p>
-
+    description: |
       <p>function to call once the file loads.</p>
     type: Function
   - name: multiple
-    description: >
-      <p>(Optional) allow multiple files to be selected. /// todo /// Boolean:
-      (オプション) 複数のファイルを選択できるようにするオプション</p>
-
+    description: |
       <p>allow multiple files to be selected.</p>
     type: Boolean
     optional: true
 return:
-  description: >-
-    p5.Element: new <a href="#/p5.Element">p5.Element</a> object. /// todo ///
-    p5.Element: 作成された DOM 要素を保持する <a href="#/p5.Element">p5.Element</a> へのポインター
-
-    new <a href="#/p5.File">p5.File</a> object.
+  description: new <a href="#/p5.File">p5.File</a> object.
   type: p5.File
 chainable: false
 ---

@@ -4,29 +4,6 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>与えられた CSS セレクタ文字列（ID、クラス、タグ名、またはそれらの組み合わせ）と一致するページ上の最初の要素を検索し、<a
-  href="#/p5.Element">p5.Element</a> として返します。</p>
-
-  <p>DOM ノード自体は.elt でアクセスできます。見つからない場合は null を返します。検索範囲としてコンテナを指定することもできます。</p>
-
-  <p>/// todo ///</p>
-
-  <p>Searches the page for the first element that matches the given <a
-  href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics#different_types_of_selectors"
-  target="_blank">CSS selector string</a>. The string can be an ID, class, tag
-  name, or a combination. <code>select()</code> returns a <a
-  href="#/p5.Element">p5.Element</a> object if it finds a match and
-  <code>null</code> otherwise.</p>
-
-  <p>The second parameter, <code>container</code>, is optional. It specifies a
-  container to search within. container can be CSS selector string, a <a
-  href="#/p5.Element">p5.Element</a> object, or an <a
-  href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement"
-  target="_blank">HTMLElement</a> object.</p>
-
-
-  <hr/>
-
   <p>Searches the page for the first element that matches the given
 
   <a
@@ -115,27 +92,16 @@ class: p5
 params:
   - name: selectors
     description: |
-      <p>検索対象の要素の CSS セレクタ文字列</p>
       <p>CSS selector string of element to search for.</p>
     type: String
   - name: container
-    description: >
-      <p>(Optional) CSS selector string, <a href="#/p5.Element">p5.Element</a>,
-      or  <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement"
-      target="_blank">HTMLElement</a> to search within. /// todo ///
-      String|p5.Element|HTMLElement: (オプション) CSS セレクタ文字列、<a
-      href="#/p5.Element">p5.Element</a>、または検索対象の HTML 要素</p>
-
+    description: |
       <p>CSS selector string, <a href="#/p5.Element">p5.Element</a>, or
                                                   <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement" target="_blank">HTMLElement</a> to search within.</p>
     type: String|p5.Element|HTMLElement
     optional: true
 return:
-  description: >-
-    <a href="#/p5.Element">p5.Element</a> containing the element. /// todo ///
-    p5.Element|null: 見つかったノードを含む <a href="#/p5.Element">p5.Element</a>
-
-    <a href="#/p5.Element">p5.Element</a> containing the element.
+  description: <a href="#/p5.Element">p5.Element</a> containing the element.
   type: p5.Element|null
 chainable: false
 ---

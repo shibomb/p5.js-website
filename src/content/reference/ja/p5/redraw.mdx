@@ -4,26 +4,6 @@ module: Structure
 submodule: Structure
 file: src/core/structure.js
 description: >
-  <p><a href="#/p5/draw">draw()</a> 内のコードを1回実行します。</p>
-
-  <p>この関数は、<a href="#/p5/mousePressed">mousePressed()</a> や <a
-  href="#/p5/keyPressed">keyPressed()</a>
-  で登録されたイベントが発生した場合など、必要に応じて表示ウィンドウを更新するプログラムに使用します。</p>
-
-  <p>プログラムの構造では、<a href="#/p5/redraw">redraw()</a> は、<a
-  href="#/p5/mousePressed">mousePressed()</a> などのイベント内で呼び出すのが理にかなっています。これは、<a
-  href="#/p5/redraw">redraw()</a> が <a href="#/p5/draw">draw()</a>
-  を即座に実行しないからです（更新が必要であることを示すフラグのみが設定されます）。</p>
-
-  <p><a href="#/p5/redraw">redraw()</a> 関数は、<a href="#/p5/draw">draw()</a>
-  内で呼び出されると正常に動作しません。アニメーションの有効/無効を切り替えるには、<a href="#/p5/loop">loop()</a> と <a
-  href="#/p5/noLoop">noLoop()</a> を使用してください。</p>
-
-  <p>さらに、メソッド呼び出しごとの再描画回数を設定できます。再描画の回数として整数をひとつだけパラメーターに追加してください。</p>
-
-
-  <hr/>
-
   <p>Runs the code in <a href="/reference/p5/draw/">draw()</a> once.</p>
 
   <p>By default, <a href="/reference/p5/draw/">draw()</a> tries to run 60 times
@@ -123,8 +103,6 @@ class: p5
 params:
   - name: 'n'
     description: >
-      <p>(オプション) n 回再描画します。デフォルト値は1です。</p>
-
       <p>number of times to run <a href="#/p5/draw">draw()</a>. Defaults to
       1.</p>
     type: Integer

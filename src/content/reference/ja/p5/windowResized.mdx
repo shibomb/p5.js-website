@@ -4,31 +4,23 @@ module: Environment
 submodule: Environment
 file: src/core/environment.js
 description: >
-  <p><a href="#/p5/windowResized">windowResized()</a>
-  関数は、ブラウザーウィンドウがリサイズされるたびに一度呼び出されます。</p>
+  <p>ブラウザウィンドウがリサイズされたときに呼び出される関数です。</p>
 
-  <p>この関数を利用してキャンバスのサイズを変更したり、新しいウィンドウサイズに合わせて他の調整を行うと良いでしょう。</p>
+  <p><code>windowResized()</code>の本体に配置されたコードは、ブラウザウィンドウのサイズが
 
-  <hr/>
+  変更されたときに実行されます。新しいウィンドウサイズに対応するために
 
-  <p>A function that's called when the browser window is resized.</p>
+  <a href="/reference/p5/resizeCanvas/">resizeCanvas()</a>を呼び出したり、
 
-  <p>Code placed in the body of <code>windowResized()</code> will run when the
+  その他の調整を行うのに適した場所です。</p>
 
-  browser window's size changes. It's a good place to call
+  <p><code>event</code>パラメータはオプションです。関数宣言に追加すると、
 
-  <a href="/reference/p5/resizeCanvas/">resizeCanvas()</a> or make other
-
-  adjustments to accommodate the new window size.</p>
-
-  <p>The <code>event</code> parameter is optional. If added to the function
-  declaration, it
-
-  can be used for debugging or other purposes.</p>
+  デバッグやその他の目的で使用できます。</p>
 line: 708
 isConstructor: false
 itemtype: method
-alt: This example does not render anything.
+alt: この例は何もレンダリングしません。
 example:
   - |-
 
@@ -37,18 +29,18 @@ example:
     function setup() {
       createCanvas(windowWidth, windowHeight);
 
-      describe('A gray canvas with a white circle at its center. The canvas takes up the entire browser window. It changes size to match the browser window.');
+      describe('中央に白い円がある灰色のキャンバス。キャンバスはブラウザウィンドウ全体を占めます。ブラウザウィンドウに合わせてサイズが変更されます。');
     }
 
     function draw() {
       background(200);
 
-      // Draw a circle at the center.
+      // 中央に円を描画します。
       circle(width / 2, height / 2, 50);
     }
 
-    // Resize the canvas when the
-    // browser's size changes.
+    // ブラウザのサイズが変更されたときに
+    // キャンバスをリサイズします。
     function windowResized() {
       resizeCanvas(windowWidth, windowHeight);
     }
@@ -57,11 +49,8 @@ example:
 class: p5
 params:
   - name: event
-    description: >
-      <p>(Optional) optional resize Event. /// todo /// UIEvent: (オプション)
-      オプションのイベントコールバック引数。</p>
-
-      <p>optional resize Event.</p>
+    description: |
+      <p>オプションのリサイズイベント。</p>
     type: UIEvent
     optional: true
 chainable: false
@@ -69,3 +58,4 @@ chainable: false
 
 
 # windowResized
+

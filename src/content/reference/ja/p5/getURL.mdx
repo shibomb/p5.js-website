@@ -4,29 +4,14 @@ module: Environment
 submodule: Environment
 file: src/core/environment.js
 description: >
-  <p>現在の URL を取得します。</p>
-
-  <p>注意: p5 エディターを使用している場合、スケッチが iframe
-  に埋め込まれているため、この関数は空のオブジェクトを返します。エディターのプレゼント URL やシェア URL
-  でスケッチを表示すると、正しく機能します。</p>
-
-  <p>/// todo ///</p>
-
-  <p>Returns the sketch's current <a
-  href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL"
-  target="_blank">URL</a> as a string.</p>
-
-
-  <hr/>
-
-  <p>Returns the sketch's current
+  <p>スケッチの現在の
 
   <a
-  href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL"
+  href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL/"
   target="_blank">URL</a>
 
-  as a <code>String</code>.</p>
-line: 1140
+  を<code>String</code>として返します。</p>
+line: 1149
 isConstructor: false
 itemtype: method
 example:
@@ -37,24 +22,23 @@ example:
     function setup() {
       background(200);
 
-      // Get the sketch's URL
-      // and display it.
+      // スケッチのURLを取得し、
+      // 表示する。
       let url = getURL();
       textWrap(CHAR);
       text(url, 0, 40, 100);
 
-      describe('The URL "https://p5js.org/reference/#/p5/getURL" written in black on a gray background.');
+      describe('灰色の背景に黒で書かれた "https://p5js.org/reference/#/p5/getURL" というURL。');
     }
     </code>
     </div>
 class: p5
 return:
-  description: |-
-    url
-    url
+  description: url
   type: String
 chainable: false
 ---
 
 
 # getURL
+

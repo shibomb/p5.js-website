@@ -4,10 +4,6 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
-  <p>エンベロープのランプが線形（デフォルト）または指数関数であるかを設定します。</p>
-  <p>振幅と周波数は対数的に認識されるため、指数関数のランプは有用です。</p>
-
-  <hr/>
   <p>Set whether the envelope ramp is linear (default) or exponential.
   Exponential ramps can be useful because we perceive amplitude
   and frequency logarithmically.</p>
@@ -18,7 +14,6 @@ class: p5.Envelope
 params:
   - name: isExp
     description: |
-      <p>true は指数関数、false は線形です</p>
       <p>true is exponential, false is linear</p>
     type: Boolean
 chainable: false

@@ -4,57 +4,36 @@ module: 3D
 submodule: Camera
 file: src/webgl/p5.Camera.js
 description: >
-  <p>パラメーターで指定されたカメラ cam0 と cam1 のビューが、パラメーター amt
-  で指定した量で組み合わされ、得られたビューがこのカメラオブジェクトに適用されます。</p>
+  <p>カメラの位置と向きを、他の2つのカメラの中間の値に設定します。</p>
 
-  <p>たとえば、cam0 がまっすぐ前を見ていて、cam1 がまっすぐ右を見ていて、amt が 0.5
-  の場合、適用されるカメラは前と右の中間を見ます。適用されるカメラがアクティブであれば、適用結果が画面に反映されます。この関数を適用するとき、関与するすべてのカメラは、まったく同じプロジェクション設定をもつ必要があります。たとえば、一方が
-  perspective, ortho, frustum の場合、残りの2つも同じく perspective, ortho, frustum
-  でなければなりません。ただし、すべてのカメラが ortho 設定を持っていれば、左、右、上、下の比率が互いに等しい場合には補間が可能です。たとえば、
-  orbitControl() で変更したときなどです。</p>
+  <p><code>myCamera.slerp()</code>は球面線形補間を使用して、2つの他のカメラの中間の
 
+  位置と向きを計算します。これは、2つの視点間をスムーズに
 
-  <hr/>
+  遷移させるのに役立ちます。</p>
 
-  <p>Sets the camera’s position and orientation to values that are in-between
+  <p>最初の2つのパラメータ、<code>cam0</code>と<code>cam1</code>は、現在のカメラの設定に
 
-  those of two other cameras.</p>
+  使用される<code>p5.Camera</code>オブジェクトです。</p>
 
-  <p><code>myCamera.slerp()</code> uses spherical linear interpolation to
-  calculate a
+  <p>3番目のパラメータ<code>amt</code>は、<code>cam0</code>と<code>cam1</code>の間で補間する
 
-  position and orientation that’s in-between two other cameras. Doing so is
+  量です。0.0はカメラの位置と向きを<code>cam0</code>と同じに保ち、
 
-  helpful for transitioning smoothly between two perspectives.</p>
+  0.5は<code>cam0</code>と<code>cam1</code>の中間に設定し、1.0は
 
-  <p>The first two parameters, <code>cam0</code> and <code>cam1</code>, are the
-  <code>p5.Camera</code> objects
+  位置と向きを<code>cam1</code>と同じに設定します。</p>
 
-  that should be used to set the current camera.</p>
+  <p>例えば、<code>myCamera.slerp(cam0, cam1, 0.1)</code>を呼び出すと、カメラの位置
 
-  <p>The third parameter, <code>amt</code>, is the amount to interpolate between
-  <code>cam0</code> and
+  と向きが<code>cam0</code>に非常に近くなります。
 
-  <code>cam1</code>. 0.0 keeps the camera’s position and orientation equal to
-  <code>cam0</code>’s,
+  <code>myCamera.slerp(cam0, cam1, 0.9)</code>を呼び出すと、カメラの位置と向きが
 
-  0.5 sets them halfway between <code>cam0</code>’s and <code>cam1</code>’s ,
-  and 1.0 sets the
+  <code>cam1</code>に非常に近くなります。</p>
 
-  position and orientation equal to <code>cam1</code>’s.</p>
-
-  <p>For example, calling <code>myCamera.slerp(cam0, cam1, 0.1)</code> sets
-  cam’s position
-
-  and orientation very close to <code>cam0</code>’s. Calling
-
-  <code>myCamera.slerp(cam0, cam1, 0.9)</code> sets cam’s position and
-  orientation very
-
-  close to <code>cam1</code>’s.</p>
-
-  <p>Note: All of the cameras must use the same projection.</p>
-line: 3252
+  <p>注意：すべてのカメラは同じ投影を使用する必要があります。</p>
+line: 3320
 isConstructor: false
 itemtype: method
 example:
@@ -69,36 +48,36 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create the main camera.
-      // Keep its default settings.
+      // メインカメラを作成します。
+      // デフォルト設定のままにします。
       cam = createCamera();
 
-      // Create the first camera.
-      // Keep its default settings.
+      // 最初のカメラを作成します。
+      // デフォルト設定のままにします。
       cam0 = createCamera();
 
-      // Create the second camera.
+      // 2番目のカメラを作成します。
       cam1 = createCamera();
 
-      // Place it at the top-right.
+      // 右上に配置します。
       cam1.setPosition(400, -400, 800);
 
-      // Point it at the origin.
+      // 原点を向くようにします。
       cam1.lookAt(0, 0, 0);
 
-      // Set the current camera to cam.
+      // 現在のカメラをcamに設定します。
       setCamera(cam);
 
-      describe('A white cube drawn against a gray background. The camera slowly oscillates between a frontal view and an aerial view.');
+      describe('灰色の背景に描かれた白い立方体。カメラがゆっくりと正面図と上空からの図の間を行き来します。');
     }
 
     function draw() {
       background(200);
 
-      // Calculate the amount to interpolate between cam0 and cam1.
+      // cam0とcam1の間で補間する量を計算します。
       let amt = 0.5 * sin(frameCount * 0.01) + 0.5;
 
-      // Update the main camera's position and orientation.
+      // メインカメラの位置と向きを更新します。
       cam.slerp(cam0, cam1, amt);
 
       box();
@@ -109,23 +88,19 @@ class: p5.Camera
 params:
   - name: cam0
     description: |
-      <p>移動元の p5.Camera</p>
-      <p>first camera.</p>
+      <p>1番目のカメラ。</p>
     type: p5.Camera
   - name: cam1
     description: |
-      <p>移動先の p5.Camera</p>
-      <p>second camera.</p>
+      <p>2番目のカメラ。</p>
     type: p5.Camera
   - name: amt
     description: >
-      <p>slerp 中の補間に使用する量</p>
-
-      <p>amount of interpolation between 0.0 (<code>cam0</code>) and 1.0
-      (<code>cam1</code>).</p>
+      <p>0.0（<code>cam0</code>）から1.0（<code>cam1</code>）の間の補間量。</p>
     type: Number
 chainable: false
 ---
 
 
 # slerp
+

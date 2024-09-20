@@ -4,74 +4,51 @@ module: Environment
 submodule: Environment
 file: src/core/environment.js
 description: >
-  <p>現在の URL パラメーターをオブジェクトとして取得します。</p>
-
-  <p>注意: p5 エディターを使用している場合、スケッチが iframe
-  に埋め込まれているため、この関数は空のオブジェクトを返します。エディターのプレゼント URL やシェア URL
-  でスケッチを表示すると、正しく機能します。</p>
-
-  <p>/// todo ///</p>
-
-  <p>Returns the current <a
-  href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL#parameters"
-  target="_blank">URL parameters</a> in an Object.</p>
-
-  <p>For example, calling <code>getURLParams()</code> in a sketch hosted at the
-  URL <code>http://p5js.org?year=2014&month=May&day=15</code> returns <code>{
-  year: 2014, month: 'May', day: 15 }</code>.</p>
-
-
-  <hr/>
-
-  <p>Returns the current
+  <p>現在の
 
   <a
   href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL#parameters"
-  target="_blank">URL parameters</a>
+  target="_blank">URLパラメータ</a>
 
-  in an <code>Object</code>.</p>
+  を<code>Object</code>として返します。</p>
 
-  <p>For example, calling <code>getURLParams()</code> in a sketch hosted at the
-  URL
+  <p>例えば、<code>http://p5js.org?year=2014&month=May&day=15</code>というURLでホストされているスケッチで<code>getURLParams()</code>を呼び出すと、
 
-  <code>http://p5js.org?year=2014&month=May&day=15</code> returns
-
-  <code>{ year: 2014, month: 'May', day: 15 }</code>.</p>
-line: 1199
+  <code>{ year: 2014, month: 'May', day: 15 }</code>が返されます。</p>
+line: 1208
 isConstructor: false
 itemtype: method
-alt: This example does not render anything.
+alt: この例は何もレンダリングしません。
 example:
   - |-
 
     <div class='norender notest'>
     <code>
-    // Imagine this sketch is hosted at the following URL:
+    // このスケッチが以下のURLでホストされていると想像してください：
     // https://p5js.org?year=2014&month=May&day=15
 
     function setup() {
       background(200);
 
-      // Get the sketch's URL
-      // parameters and display
-      // them.
+      // スケッチのURL
+      // パラメータを取得し
+      // 表示します。
       let params = getURLParams();
       text(params.day, 10, 20);
       text(params.month, 10, 40);
       text(params.year, 10, 60);
 
-      describe('The text "15", "May", and "2014" written in black on separate lines.');
+      describe('別々の行に黒で書かれた "15"、"May"、"2014" というテキスト。');
     }
     </code>
     </div>
 class: p5
 return:
-  description: |-
-    URL パラメーター
-    URL params
+  description: URLパラメータ
   type: Object
 chainable: false
 ---
 
 
 # getURLParams
+

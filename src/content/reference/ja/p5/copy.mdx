@@ -3,70 +3,30 @@ title: copy
 module: Image
 submodule: Pixels
 file: src/image/pixels.js
-description: >-
-  <p>Copies pixels from a source image to a region of the canvas. The source
-  image can be the canvas itself or a <a href="#/p5.Image">p5.Image</a> object.
-  <code>copy()</code> will scale pixels from the source region if it isn't the
-  same size as the destination region.。</p>
+description: >
+  <p>キャンバスの領域にソース画像からピクセルをコピーします。</p>
 
-  <p>/// todo ///</p>
+  <p>最初のパラメータ <code>srcImage</code> は、ブレンドする
 
-  <p>キャンバスの一部を別の領域にコピーし、srcImg パラメーターとして使用される画像のピクセル領域をキャンバスにコピーします。srcImage
-  が指定されている場合、これがソースとして使用されます。ソースと宛先の領域が同じサイズでない場合、ソースのピクセルが自動的に指定されたターゲット領域に合わせてサイズ変更されます。</p>
+  <a href="/reference/p5/p5.Image">p5.Image</a> オブジェクトです。ソース画像は
 
+  キャンバス自体または
 
-  <hr/>
+  <a href="/reference/p5/p5.Image">p5.Image</a> オブジェクトにすることができます。<code>copy()</code> は
 
-  <p>Copies pixels from a source image to a region of the canvas.</p>
+  ソース領域が目的の領域と同じサイズでない場合、ピクセルをスケーリングします。</p>
 
-  <p>The first parameter, <code>srcImage</code>, is the
+  <p>次の4つのパラメータ <code>sx</code>、<code>sy</code>、<code>sw</code>、<code>sh</code> は
 
-  <a href="/reference/p5/p5.Image/">p5.Image</a> object to blend. The source
-  image can be
+  ソース画像からコピーする領域を決定します。<code>(sx, sy)</code> は
 
-  the canvas itself or a
+  領域の左上隅です。<code>sw</code> と <code>sh</code> は領域の幅と高さです。</p>
 
-  <a href="/reference/p5/p5.Image/">p5.Image</a> object. <code>copy()</code> will
-  scale pixels from
+  <p>次の4つのパラメータ <code>dx</code>、<code>dy</code>、<code>dw</code>、<code>dh</code> は
 
-  the source region if it isn't the same size as the destination region.</p>
+  キャンバス上のコピー先の領域を決定します。<code>(dx, dy)</code> は
 
-  <p>The next four parameters, <code>sx</code>, <code>sy</code>,
-  <code>sw</code>, and <code>sh</code> determine the region
-
-  to copy from the source image. <code>(sx, sy)</code> is the top-left corner of
-  the
-
-  region. <code>sw</code> and <code>sh</code> are the region's width and
-  height.</p>
-
-  <p>The next four parameters, <code>dx</code>, <code>dy</code>,
-  <code>dw</code>, and <code>dh</code> determine the region
-
-  of the canvas to copy into. <code>(dx, dy)</code> is the top-left corner of
-  the
-
-  region. <code>dw</code> and <code>dh</code> are the region's width and
-  height.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "srcImage": "p5.Image|p5.Element: ソース画像",
-      "sx": "Integer: ソースの左上隅の X 座標",
-      "sy": "Integer: ソースの左上隅の Y 座標",
-      "sw": "Integer: ソース画像の幅",
-      "sh": "Integer: ソース画像の高さ",
-      "dx": "Integer: 宛先の左上隅の X 座標",
-      "dy": "Integer: 宛先の左上隅の Y 座標",
-      "dw": "Integer: 宛先画像の幅",
-      "dh": "Integer: 宛先画像の高さ"
-  }
-
-  </pre>
+  領域の左上隅です。<code>dw</code> と <code>dh</code> は領域の幅と高さです。</p>
 line: 288
 isConstructor: false
 itemtype: method
@@ -77,7 +37,7 @@ example:
     <code>
     let img;
 
-    // Load the image.
+    // 画像を読み込みます。
     function preload() {
       img = loadImage('/assets/rockies.jpg');
     }
@@ -85,18 +45,18 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Use the mountains as the background.
+      // 山々を背景として使用します。
       background(img);
 
-      // Copy a region of pixels to another spot.
+      // ピクセルの領域を別の場所にコピーします。
       copy(img, 7, 22, 10, 10, 35, 25, 50, 50);
 
-      // Outline the copied region.
+      // コピーした領域の輪郭を描きます。
       stroke(255);
       noFill();
       square(7, 22, 10);
 
-      describe('An image of a mountain landscape. A square region is outlined in white. A larger square contains a pixelated view of the outlined region.');
+      describe('山の風景の画像。白い輪郭の正方形領域があります。より大きな正方形には、輪郭で囲まれた領域のピクセル化されたビューが含まれています。');
     }
     </code>
     </div>
@@ -106,39 +66,39 @@ overloads:
     params:
       - name: srcImage
         description: |
-          <p>source image.</p>
+          <p>ソース画像。</p>
         type: p5.Image|p5.Element
       - name: sx
         description: |
-          <p>x-coordinate of the source's upper-left corner.</p>
+          <p>ソースの左上隅のx座標。</p>
         type: Integer
       - name: sy
         description: |
-          <p>y-coordinate of the source's upper-left corner.</p>
+          <p>ソースの左上隅のy座標。</p>
         type: Integer
       - name: sw
         description: |
-          <p>source image width.</p>
+          <p>ソース画像の幅。</p>
         type: Integer
       - name: sh
         description: |
-          <p>source image height.</p>
+          <p>ソース画像の高さ。</p>
         type: Integer
       - name: dx
         description: |
-          <p>x-coordinate of the destination's upper-left corner.</p>
+          <p>目的地の左上隅のx座標。</p>
         type: Integer
       - name: dy
         description: |
-          <p>y-coordinate of the destination's upper-left corner.</p>
+          <p>目的地の左上隅のy座標。</p>
         type: Integer
       - name: dw
         description: |
-          <p>destination image width.</p>
+          <p>目的地の画像の幅。</p>
         type: Integer
       - name: dh
         description: |
-          <p>destination image height.</p>
+          <p>目的地の画像の高さ。</p>
         type: Integer
   - line: 345
     params:
@@ -171,3 +131,4 @@ chainable: false
 
 
 # copy
+

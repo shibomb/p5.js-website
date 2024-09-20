@@ -3,56 +3,7 @@ title: createSelect
 module: DOM
 submodule: DOM
 file: src/dom/dom.js
-description: >-
-  <p>DOMに<code>&lt;select&gt;&lt;/select&gt;</code>要素のドロップダウンメニューを作成します。</p>
-
-  <p>既存の選択ボックスを選択する際に、<a
-  href="#/p5.Element">p5.Element</a>に選択関連のメソッドも割り当てます。メニューのオプションは<code>name</code>（表示テキスト）で一意です。
-  <ul> <li><code>.option(name, [value])</code>
-  を使用して、<code>name</code>（表示テキスト）および<code>value</code>を選択要素に追加するオプションを追加できます。選択要素内に<code>name</code>が既に存在する場合は、このメソッドでその値を<code>value</code>に変更します。</li>
-  <li><code>.value()</code> は現在選択されているオプションを返します。</li>
-  <li><code>.selected()</code> は現在のドロップダウン要素（<a
-  href="#/p5.Element">p5.Element</a>のインスタンス）を返します。</li>
-  <li><code>.selected(value)</code>を使用すると、指定されたオプションをページが最初に読み込まれたときにデフォルトで選択されるようにすることができます。</li>
-  <li><code>.disable()</code> はドロップダウン要素全体を無効にします。</li>
-  <li><code>.disable(value)</code> は指定されたオプションを無効にします。</li>
-  <li><code>.enable()</code> はドロップダウン要素全体が初めに無効化されている場合、ドロップダウン要素全体を有効にします。</li>
-  <li><code>.enable(value)</code> は初期オプションが無効な場合、指定したオプションを有効にします。</li>
-  </ul></p>
-
-  <p>/// todo ///</p>
-
-  <p>Creates a dropdown menu <code>&lt;select&gt;&lt;/select&gt;</code>
-  element.</p>
-
-  <p>The parameter is optional. If <code>true</code> is passed, as in <code>let
-  mySelect = createSelect(true)</code>, then the dropdown will support multiple
-  selections. If an existing <code>&lt;select&gt;&lt;/select&gt;</code> element
-  is passed, as in <code>let mySelect = createSelect(otherSelect)</code>, the
-  existing element will be wrapped in a new <a
-  href="#/p5.Element">p5.Element</a> object.</p>
-
-  <p>Dropdowns extend the <a href="#/p5.Element">p5.Element</a> class with a few
-  helpful methods for managing options: <ul> <li><code>mySelect.option(name,
-  [value])</code> adds an option to the menu. The first paremeter,
-  <code>name</code>, is a string that sets the option's name and value. The
-  second parameter, <code>value</code>, is optional. If provided, it sets the
-  value that corresponds to the key <code>name</code>. If an option with
-  <code>name</code> already exists, its value is changed to
-  <code>value</code>.</li> <li><code>mySelect.value()</code> returns the
-  currently-selected option's value.</li> <li><code>mySelect.selected()</code>
-  returns the currently-selected option.</li>
-  <li><code>mySelect.selected(option)</code> selects the given option by
-  default.</li> <li><code>mySelect.disable()</code> marks the whole dropdown
-  element as disabled.</li> <li><code>mySelect.disable(option)</code> marks a
-  given option as disabled.</li> <li><code>mySelect.enable()</code> marks the
-  whole dropdown element as enabled.</li>
-  <li><code>mySelect.enable(option)</code> marks a given option as enabled.</li>
-  </ul></p>
-
-
-  <hr/>
-
+description: >
   <p>Creates a dropdown menu <code><select></select></code> element.</p>
 
   <p>The parameter is optional. If <code>true</code> is passed, as in
@@ -65,11 +16,11 @@ description: >-
   existing
 
   element will be wrapped in a new <a
-  href="/reference/p5/p5.Element/">p5.Element</a>
+  href="/reference/p5/p5.Element">p5.Element</a>
 
   object.</p>
 
-  <p>Dropdowns extend the <a href="/reference/p5/p5.Element/">p5.Element</a>
+  <p>Dropdowns extend the <a href="/reference/p5/p5.Element">p5.Element</a>
   class with a few
 
   helpful methods for managing options:</p>
@@ -104,19 +55,7 @@ description: >-
   <li><code>mySelect.enable(option)</code> marks a given option as enabled.</li>
 
   </ul>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "multiple": "oolean: (Optional) support multiple selections. /// todo /// Boolean: (オプション) ドロップダウンが複数の選択肢をサポートする場合は true",
-      "existing": "Object: select element to wrap, either as a <a href=\"#/p5.Element\">p5.Element</a> or  a <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement\" target=\"_blank\">HTMLSelectElement</a>. /// todo /// Object: DOM の select 要素"
-  }
-
-  </pre>
-line: 1158
+line: 1159
 isConstructor: false
 itemtype: method
 example:
@@ -262,14 +201,10 @@ example:
     </div>
 class: p5
 return:
-  description: >-
-    new <a href="#/p5.Element">p5.Element</a> object. /// todo /// p5.Element:
-    作成されたノードを保持する <a href="#/p5.Element">p5.Element</a> へのポインター
-
-    new <a href="#/p5.Element">p5.Element</a> object.
+  description: new <a href="#/p5.Element">p5.Element</a> object.
   type: p5.Element
 overloads:
-  - line: 1158
+  - line: 1159
     params:
       - name: multiple
         description: |
@@ -279,7 +214,7 @@ overloads:
     return:
       description: new <a href="#/p5.Element">p5.Element</a> object.
       type: p5.Element
-  - line: 1323
+  - line: 1324
     params:
       - name: existing
         description: >

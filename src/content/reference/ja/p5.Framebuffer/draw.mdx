@@ -4,27 +4,12 @@ module: Rendering
 submodule: ''
 file: src/webgl/p5.Framebuffer.js
 description: >
-  <p>キャンバスではなくフレームバッファに描画する関数を実行します。</p>
+  <p>描画命令を含む関数を呼び出すことで、フレームバッファに描画します。</p>
 
-  <p>これは<code>framebuffer.begin()</code>を呼び出し、関数を実行し、<code>framebuffer.end()</code>を呼び出すのと同等ですが、<code>begin</code>や<code>end</code>を忘れることがないようにします。</p>
-
-
-  <hr/>
-
-  <p>Draws to the framebuffer by calling a function that contains drawing
-
-  instructions.</p>
-
-  <p>The parameter, <code>callback</code>, is a function with the drawing
-  instructions
-
-  for the framebuffer. For example, calling
-  <code>myBuffer.draw(myFunction)</code>
-
-  will call a function named <code>myFunction()</code> to draw to the
-  framebuffer.
-
-  Doing so has the same effect as the following:</p>
+  <p>パラメータ<code>callback</code>は、フレームバッファへの描画命令を含む関数です。
+  例えば、<code>myBuffer.draw(myFunction)</code>を呼び出すと、
+  <code>myFunction()</code>という名前の関数がフレームバッファに描画するために
+  呼び出されます。これは以下と同じ効果があります：</p>
 
   <pre><code class="language-js">myBuffer.begin();
 
@@ -33,7 +18,7 @@ description: >
   myBuffer.end();
 
   </code></pre>
-line: 1322
+line: 1323
 isConstructor: false
 itemtype: method
 example:
@@ -41,33 +26,33 @@ example:
 
     <div>
     <code>
-    // Click the canvas to display the framebuffer.
+    // キャンバスをクリックするとフレームバッファが表示されます。
 
     let myBuffer;
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Framebuffer object.
+      // p5.Framebufferオブジェクトを作成します。
       myBuffer = createFramebuffer();
 
-      describe('An empty gray canvas. The canvas gets darker and a rotating, multicolor torus appears while the user presses and holds the mouse.');
+      describe('空のグレーのキャンバス。ユーザーがマウスを押し続けている間、キャンバスが暗くなり、回転する多色のトーラスが表示されます。');
     }
 
     function draw() {
       background(200);
 
-      // Draw to the p5.Framebuffer object.
+      // p5.Framebufferオブジェクトに描画します。
       myBuffer.draw(bagel);
 
-      // Display the p5.Framebuffer object while
-      // the user presses the mouse.
+      // ユーザーがマウスを押している間、
+      // p5.Framebufferオブジェクトを表示します。
       if (mouseIsPressed === true) {
         image(myBuffer, -50, -50);
       }
     }
 
-    // Draw a rotating, multicolor torus.
+    // 回転する多色のトーラスを描画します。
     function bagel() {
       background(50);
       rotateY(frameCount * 0.01);
@@ -80,11 +65,11 @@ class: p5.Framebuffer
 params:
   - name: callback
     description: |
-      <p>キャンバスに描画する関数。この関数は即座に実行されますが、キャンバスではなくフレームバッファに描画されます。</p>
-      <p>function that draws to the framebuffer.</p>
+      <p>フレームバッファに描画する関数。</p>
     type: Function
 chainable: false
 ---
 
 
 # draw
+

@@ -3,77 +3,14 @@ title: updatePixels
 module: Image
 submodule: Image
 file: src/image/p5.Image.js
-description: >-
-  <p>この画像のバッキングキャンバスを[pixels]配列の内容で更新します。</p>
+description: >
+  <p><a href="/reference/p5.Image/pixels/">img.pixels</a>配列のRGBA値でキャンバスを更新します。</p>
 
-  <p></p>
+  <p><code>img.updatePixels()</code>は、<a href="/reference/p5.Image/pixels/">img.pixels</a>配列の値を変更した後にのみ呼び出す必要があります。このような変更は、<a href="/reference/p5.Image/loadPixels/">img.loadPixels()</a>を呼び出した直後、または<a href="/reference/p5.Image/set/">img.set()</a>を呼び出すことで行うことができます。</p>
 
-  <p>この画像がアニメーション GIF の場合、ピクセルは現在表示されているフレームで更新されます。</p>
+  <p>オプションのパラメータ<code>x</code>、<code>y</code>、<code>width</code>、<code>height</code>は、更新する画像のサブセクションを定義します。これを行うことで、場合によってはパフォーマンスが向上する可能性があります。</p>
 
-  <p>/// todo ///</p>
-
-  <p>Updates the canvas with the RGBA values in the <a
-  href="#/p5.Image/pixels">img.pixels</a> array.</p>
-
-  <p><code>img.updatePixels()</code> only needs to be called after changing
-  values in the <a href="#/p5.Image/pixels">img.pixels</a> array. Such changes
-  can be made directly after calling <a
-  href="#/p5.Image/loadPixels">img.loadPixels()</a> or by calling <a
-  href="#/p5.Image/set">img.set()</a>.</p>
-
-  <p>The optional parameters <code>x</code>, <code>y</code>, <code>width</code>,
-  and <code>height</code> define a subsection of the <a
-  href="#/p5.Image">p5.Image</a> object to update. Doing so can improve
-  performance in some cases.</p>
-
-  <p>If the <a href="#/p5.Image">p5.Image</a> object was loaded from a GIF, then
-  calling <code>img.updatePixels()</code> will update the pixels in current
-  frame.</p>
-
-
-  <hr/>
-
-  <p>Updates the canvas with the RGBA values in the
-
-  <a href="/reference/p5.Image/pixels/">img.pixels</a> array.</p>
-
-  <p><code>img.updatePixels()</code> only needs to be called after changing
-  values in
-
-  the <a href="/reference/p5.Image/pixels/">img.pixels</a> array. Such changes
-  can be
-
-  made directly after calling
-
-  <a href="/reference/p5.Image/loadPixels/">img.loadPixels()</a> or by calling
-
-  <a href="/reference/p5.Image/set/">img.set()</a>.</p>
-
-  <p>The optional parameters <code>x</code>, <code>y</code>, <code>width</code>,
-  and <code>height</code> define a
-
-  subsection of the image to update. Doing so can improve performance in
-
-  some cases.</p>
-
-  <p>If the image was loaded from a GIF, then calling
-  <code>img.updatePixels()</code>
-
-  will update the pixels in current frame.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "x": "Integer: x-coordinate of the upper-left corner  of the subsection to update. /// todo /// Integer: アンダーラインキャンバスのターゲット更新領域の x オフセット",
-      "y": "Integer: y-coordinate of the upper-left corner  of the subsection to update. /// todo /// Integer: アンダーラインキャンバスのターゲット更新領域の y オフセット",
-      "w": "Integer: width of the subsection to update. /// todo /// Integer: アンダーラインキャンバスのターゲット更新領域の幅",
-      "h": "Integer: height of the subsection to update. /// todo /// Integer: アンダーラインキャンバスのターゲット更新領域の高さ"
-  }
-
-  </pre>
+  <p>画像がGIFからロードされた場合、<code>img.updatePixels()</code>を呼び出すと、現在のフレームのピクセルが更新されます。</p>
 line: 462
 isConstructor: false
 itemtype: method
@@ -87,26 +24,26 @@ example:
 
       background(200);
 
-      // Create a p5.Image object.
+      // p5.Imageオブジェクトを作成します。
       let img = createImage(66, 66);
 
-      // Load the image's pixels.
+      // 画像のピクセルをロードします。
       img.loadPixels();
 
-      // Set the pixels to black.
+      // ピクセルを黒に設定します。
       for (let x = 0; x < img.width; x += 1) {
         for (let y = 0; y < img.height; y += 1) {
           img.set(x, y, 0);
         }
       }
 
-      // Update the image.
+      // 画像を更新します。
       img.updatePixels();
 
-      // Display the image.
+      // 画像を表示します。
       image(img, 17, 17);
 
-      describe('A black square drawn in the middle of a gray square.');
+      describe('灰色の正方形の中央に描かれた黒い正方形。');
     }
     </code>
     </div>
@@ -118,31 +55,31 @@ example:
 
       background(200);
 
-      // Create a p5.Image object.
+      // p5.Imageオブジェクトを作成します。
       let img = createImage(66, 66);
 
-      // Load the image's pixels.
+      // 画像のピクセルをロードします。
       img.loadPixels();
 
-      // Set the pixels to black.
+      // ピクセルを黒に設定します。
       for (let i = 0; i < img.pixels.length; i += 4) {
-        // Red.
+        // 赤。
         img.pixels[i] = 0;
-        // Green.
+        // 緑。
         img.pixels[i + 1] = 0;
-        // Blue.
+        // 青。
         img.pixels[i + 2] = 0;
-        // Alpha.
+        // アルファ。
         img.pixels[i + 3] = 255;
       }
 
-      // Update the image.
+      // 画像を更新します。
       img.updatePixels();
 
-      // Display the image.
+      // 画像を表示します。
       image(img, 17, 17);
 
-      describe('A black square drawn in the middle of a gray square.');
+      describe('灰色の正方形の中央に描かれた黒い正方形。');
     }
     </code>
     </div>
@@ -152,21 +89,19 @@ overloads:
     params:
       - name: x
         description: |
-          <p>x-coordinate of the upper-left corner
-                             of the subsection to update.</p>
+          <p>更新するサブセクションの左上隅のx座標。</p>
         type: Integer
       - name: 'y'
         description: |
-          <p>y-coordinate of the upper-left corner
-                             of the subsection to update.</p>
+          <p>更新するサブセクションの左上隅のy座標。</p>
         type: Integer
       - name: w
         description: |
-          <p>width of the subsection to update.</p>
+          <p>更新するサブセクションの幅。</p>
         type: Integer
       - name: h
         description: |
-          <p>height of the subsection to update.</p>
+          <p>更新するサブセクションの高さ。</p>
         type: Integer
   - line: 555
     params: []

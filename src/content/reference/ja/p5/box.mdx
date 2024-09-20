@@ -4,62 +4,34 @@ module: Shape
 submodule: 3D Primitives
 file: src/webgl/3d_primitives.js
 description: >
-  <p>指定された幅、高さ、奥行きで箱を描画します。</p>
+  <p>ボックス（直方体）を描画します。</p>
 
-  <p></p>
+  <p>ボックスは6つの面を持つ3D形状です。各面は4つの隣接する面と90˚の角度を成します。</p>
 
+  <p>最初のパラメータ、<code>width</code>はオプションです。<code>Number</code>が渡されると、
 
-  <hr/>
+  <code>box(20)</code>のように、ボックスの幅と高さを設定します。デフォルトでは、
+  <code>width</code>は50です。</p>
 
-  <p>Draws a box (rectangular prism).</p>
+  <p>2番目のパラメータ、<code>height</code>もオプションです。<code>Number</code>が渡されると、
 
-  <p>A box is a 3D shape with six faces. Each face makes a 90˚ with four
+  <code>box(20, 30)</code>のように、ボックスの高さを設定します。デフォルトでは、
+  <code>height</code>はボックスの<code>width</code>に設定されます。</p>
 
-  neighboring faces.</p>
+  <p>3番目のパラメータ、<code>depth</code>もオプションです。<code>Number</code>が渡されると、
 
-  <p>The first parameter, <code>width</code>, is optional. If a
-  <code>Number</code> is passed, as in
+  <code>box(20, 30, 40)</code>のように、ボックスの奥行きを設定します。デフォルトでは、
+  <code>depth</code>はボックスの<code>height</code>に設定されます。</p>
 
-  <code>box(20)</code>, it sets the box’s width and height. By default,
-  <code>width</code> is 50.</p>
+  <p>4番目のパラメータ、<code>detailX</code>もオプションです。<code>Number</code>が渡されると、
 
-  <p>The second parameter, <code>height</code>, is also optional. If a
-  <code>Number</code> is passed,
+  <code>box(20, 30, 40, 5)</code>のように、x軸に沿った三角形の細分化の数を設定します。すべての3D形状は、三角形を接続してその表面を形成します。デフォルトでは、<code>detailX</code>は1です。</p>
 
-  as in <code>box(20, 30)</code>, it sets the box’s height. By default,
-  <code>height</code> is set
+  <p>5番目のパラメータ、<code>detailY</code>もオプションです。<code>Number</code>が渡されると、
 
-  to the box’s <code>width</code>.</p>
+  <code>box(20, 30, 40, 5, 7)</code>のように、y軸に沿った三角形の細分化の数を設定します。すべての3D形状は、三角形を接続してその表面を形成します。デフォルトでは、<code>detailY</code>は1です。</p>
 
-  <p>The third parameter, <code>depth</code>, is also optional. If a
-  <code>Number</code> is passed, as
-
-  in <code>box(20, 30, 40)</code>, it sets the box’s depth. By default,
-  <code>depth</code> is set
-
-  to the box’s <code>height</code>.</p>
-
-  <p>The fourth parameter, <code>detailX</code>, is also optional. If a
-  <code>Number</code> is passed,
-
-  as in <code>box(20, 30, 40, 5)</code>, it sets the number of triangle
-  subdivisions to
-
-  use along the x-axis. All 3D shapes are made by connecting triangles to
-
-  form their surfaces. By default, <code>detailX</code> is 1.</p>
-
-  <p>The fifth parameter, <code>detailY</code>, is also optional. If a number is
-  passed, as
-
-  in <code>box(20, 30, 40, 5, 7)</code>, it sets the number of triangle
-  subdivisions to
-
-  use along the y-axis. All 3D shapes are made by connecting triangles to
-
-  form their surfaces. By default, <code>detailY</code> is 1.</p>
-
-  <p>Note: <code>box()</code> can only be used in WebGL mode.</p>
+  <p>注意: <code>box()</code>はWebGLモードでのみ使用できます。</p>
 line: 1009
 isConstructor: false
 itemtype: method
@@ -68,21 +40,21 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、シーンを異なる角度から見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white box on a gray background.');
+      describe('灰色の背景に白いボックス。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでのオービットを有効にします。
       orbitControl();
 
-      // Draw the box.
+      // ボックスを描画します。
       box();
     }
     </code>
@@ -90,22 +62,22 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、シーンを異なる角度から見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white box on a gray background.');
+      describe('灰色の背景に白いボックス。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでのオービットを有効にします。
       orbitControl();
 
-      // Draw the box.
-      // Set its width and height to 30.
+      // ボックスを描画します。
+      // 幅と高さを30に設定します。
       box(30);
     }
     </code>
@@ -113,22 +85,22 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、シーンを異なる角度から見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white box on a gray background.');
+      describe('灰色の背景に白いボックス。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでのオービットを有効にします。
       orbitControl();
 
-      // Draw the box.
-      // Set its width to 30 and height to 50.
+      // ボックスを描画します。
+      // 幅を30、高さを50に設定します。
       box(30, 50);
     }
     </code>
@@ -136,22 +108,22 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、シーンを異なる角度から見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white box on a gray background.');
+      describe('灰色の背景に白いボックス。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでのオービットを有効にします。
       orbitControl();
 
-      // Draw the box.
-      // Set its width to 30, height to 50, and depth to 10.
+      // ボックスを描画します。
+      // 幅を30、高さを50、奥行きを10に設定します。
       box(30, 50, 10);
     }
     </code>
@@ -160,32 +132,27 @@ class: p5
 params:
   - name: width
     description: |
-      <p>(オプション) 箱の幅</p>
-      <p>width of the box.</p>
+      <p>ボックスの幅。</p>
     type: Number
     optional: true
   - name: height
     description: |
-      <p>(オプション) 箱の高さ</p>
-      <p>height of the box.</p>
+      <p>ボックスの高さ。</p>
     type: Number
     optional: true
   - name: depth
     description: |
-      <p>(オプション) 箱の奥行き</p>
-      <p>depth of the box.</p>
+      <p>ボックスの奥行き。</p>
     type: Number
     optional: true
   - name: detailX
     description: |
-      <p>(オプション) x 次元の三角形の細分割数</p>
-      <p>number of triangle subdivisions along the x-axis.</p>
+      <p>x軸に沿った三角形の細分化の数。</p>
     type: Integer
     optional: true
   - name: detailY
     description: |
-      <p>(オプション) y 次元の三角形の細分割数</p>
-      <p>number of triangle subdivisions along the y-axis.</p>
+      <p>y軸に沿った三角形の細分化の数。</p>
     type: Integer
     optional: true
 chainable: true

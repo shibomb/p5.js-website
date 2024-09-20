@@ -3,113 +3,41 @@ title: specularColor
 module: 3D
 submodule: Lights
 file: src/webgl/light.js
-description: >-
-  <p>非環境光（つまり、<a href="#/p5/ambientLight">ambientLight()</a>
-  を除くすべての光）のスペキュラハイライトの色を設定します。</p>
+description: >
+  <p>ライトの鏡面反射色を設定します。</p>
 
-  <p></p>
+  <p><code>specularColor()</code>は、表面から特定の方向に反射するライトに影響します。
+  これらのライトには
+  <a href="/reference/p5/directionalLight/">directionalLight()</a>、
+  <a href="/reference/p5/pointLight/">pointLight()</a>、
+  <a href="/reference/p5/spotLight/">spotLight()</a>が含まれます。
+  この関数は、<a href="/reference/p5/specularMaterial/">specularMaterial()</a>でスタイリングされた
+  <a href="/reference/p5/p5.Geometry">p5.Geometry</a>オブジェクトにハイライトを作成するのに役立ちます。
+  ジオメトリが<a href="/reference/p5/specularMaterial/">specularMaterial()</a>を使用していない場合、
+  <code>specularColor()</code>は効果がありません。</p>
 
-  <p>specularColor() は、コード内でそれ以降に作成される光にのみ影響します。</p>
+  <p>注意：<code>specularColor()</code>は、<a href="/reference/p5/ambientLight/">ambientLight()</a>や
+  <a href="/reference/p5/imageLight/">imageLight()</a>など、
+  あらゆる方向に反射するライトには影響しません。</p>
 
-  <p>この関数は、<a href="#/p5/specularMaterial">specularMaterial()</a>
-  と組み合わせて使用されます。ジオメトリが specularMaterial() を使用しない場合、この関数は効果がありません。</p>
+  <p><code>specularColor()</code>を呼び出すには、オプションのパラメータを使用して
+  鏡面反射ハイライトの色を設定する3つの方法があります。</p>
 
-  <p>デフォルトの色は白（255, 255, 255）で、specularColor() が明示的に呼び出されない場合に使用されます。</p>
+  <p>最初の方法は、<code>gray</code>と<code>alpha</code>という2つのオプションパラメータを持つ
+  <code>specularColor()</code>の呼び出しです。
+  <code>specularColor(50)</code>や<code>specularColor(50, 80)</code>のように、
+  0から255の間のグレースケールと透明度の値を渡して、鏡面反射ハイライトの色を設定できます。</p>
 
-  <p>注: specularColor は、Processing 関数の <a
-  href="https://processing.org/reference/lightSpecular_.html">lightSpecular</a>
-  と同等です。</p>
+  <p>2つ目の方法は、<code>color</code>という1つのオプションパラメータを持つ
+  <code>specularColor()</code>の呼び出しです。
+  <a href="/reference/p5/p5.Color">p5.Color</a>オブジェクト、色の値の配列、
+  またはCSS色文字列を渡して、鏡面反射ハイライトの色を設定できます。</p>
 
-
-  <hr/>
-
-  <p>Sets the specular color for lights.</p>
-
-  <p><code>specularColor()</code> affects lights that bounce off a surface in a
-  preferred
-
-  direction. These lights include
-
-  <a href="/reference/p5/directionalLight/">directionalLight()</a>,
-
-  <a href="/reference/p5/pointLight/">pointLight()</a>, and
-
-  <a href="/reference/p5/spotLight/">spotLight()</a>. The function helps to
-  create
-
-  highlights on <a href="/reference/p5/p5.Geometry">p5.Geometry</a> objects that
-  are
-
-  styled with <a href="/reference/p5/specularMaterial/">specularMaterial()</a>.
-  If a
-
-  geometry does not use
-
-  <a href="/reference/p5/specularMaterial/">specularMaterial()</a>, then
-
-  <code>specularColor()</code> will have no effect.</p>
-
-  <p>Note: <code>specularColor()</code> doesn’t affect lights that bounce in all
-
-  directions, including <a href="/reference/p5/ambientLight/">ambientLight()</a>
-  and
-
-  <a href="/reference/p5/imageLight/">imageLight()</a>.</p>
-
-  <p>There are three ways to call <code>specularColor()</code> with optional
-  parameters to
-
-  set the specular highlight color.</p>
-
-  <p>The first way to call <code>specularColor()</code> has two optional
-  parameters, <code>gray</code>
-
-  and <code>alpha</code>. Grayscale and alpha values between 0 and 255, as in
-
-  <code>specularColor(50)</code> or <code>specularColor(50, 80)</code>, can be
-  passed to set the
-
-  specular highlight color.</p>
-
-  <p>The second way to call <code>specularColor()</code> has one optional
-  parameter,
-
-  <code>color</code>. A <a href="/reference/p5/p5.Color">p5.Color</a> object, an
-  array of color
-
-  values, or a CSS color string can be passed to set the specular highlight
-
-  color.</p>
-
-  <p>The third way to call <code>specularColor()</code> has four optional
-  parameters, <code>v1</code>,
-
-  <code>v2</code>, <code>v3</code>, and <code>alpha</code>. RGBA, HSBA, or HSLA
-  values, as in
-
-  <code>specularColor(255, 0, 0, 80)</code>, can be passed to set the specular
-  highlight
-
-  color. Color values will be interpreted using the current
-
-  <a href="/reference/p5/colorMode/">colorMode()</a>.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "v1": "Number: 現在のカラーレンジに対する赤または色相の値",
-      "v2": "Number: 現在のカラーレンジに対する緑または彩度の値",
-      "v3": "Number: 現在のカラーレンジに対する青または明度の値",
-      "gray": "Number: 白と黒の間の値を指定する数",
-      "value": "String: CSS 文字列としての色",
-      "values": "Number[]: 赤、緑、青の成分を含む配列としての色",
-      "color": "p5.Color: <a href=\"#/p5.Color\">p5.Color</a> としての色"
-  }
-
-  </pre>
+  <p>3つ目の方法は、<code>v1</code>、<code>v2</code>、<code>v3</code>、<code>alpha</code>という
+  4つのオプションパラメータを持つ<code>specularColor()</code>の呼び出しです。
+  <code>specularColor(255, 0, 0, 80)</code>のように、RGBA、HSBA、またはHSLAの値を渡して、
+  鏡面反射ハイライトの色を設定できます。色の値は、現在の
+  <a href="/reference/p5/colorMode/">colorMode()</a>を使用して解釈されます。</p>
 line: 205
 isConstructor: false
 itemtype: method
@@ -118,22 +46,22 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // クリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white sphere drawn on a gray background.');
+      describe('灰色の背景に描かれた白い球体。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // No specular color.
-      // Draw the sphere.
+      // 鏡面反射色なし。
+      // 球体を描画します。
       sphere(30);
     }
     </code>
@@ -141,39 +69,39 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
-    // Double-click the canvas to add a point light.
+    // クリックしてドラッグすると、異なる角度からシーンを見ることができます。
+    // キャンバスをダブルクリックすると、ポイントライトが追加されます。
 
     let isLit = false;
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A sphere drawn on a gray background. A spotlight starts shining when the user double-clicks.');
+      describe('灰色の背景に描かれた球体。ユーザーがダブルクリックすると、スポットライトが輝き始めます。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Style the sphere.
+      // 球体のスタイルを設定します。
       noStroke();
       specularColor(100);
       specularMaterial(255, 255, 255);
 
-      // Control the light.
+      // ライトを制御します。
       if (isLit === true) {
-        // Add a white point light from the top-right.
+        // 右上から白いポイントライトを追加します。
         pointLight(255, 255, 255, 30, -20, 40);
       }
 
-      // Draw the sphere.
+      // 球体を描画します。
       sphere(30);
     }
 
-    // Turn on the point light when the user double-clicks.
+    // ユーザーがダブルクリックしたときにポイントライトをオンにします。
     function doubleClicked() {
       isLit = true;
     }
@@ -182,35 +110,35 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // クリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A black sphere drawn on a gray background. An area on the surface of the sphere is highlighted in blue.');
+      describe('灰色の背景に描かれた黒い球体。球体の表面の一部が青くハイライトされています。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Add a specular highlight.
-      // Use a p5.Color object.
+      // 鏡面反射ハイライトを追加します。
+      // p5.Colorオブジェクトを使用します。
       let c = color('dodgerblue');
       specularColor(c);
 
-      // Add a white point light from the top-right.
+      // 右上から白いポイントライトを追加します。
       pointLight(255, 255, 255, 30, -20, 40);
 
-      // Style the sphere.
+      // 球体のスタイルを設定します。
       noStroke();
 
-      // Add a white specular material.
+      // 白い鏡面反射マテリアルを追加します。
       specularMaterial(255, 255, 255);
 
-      // Draw the sphere.
+      // 球体を描画します。
       sphere(30);
     }
     </code>
@@ -218,34 +146,34 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // クリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A black sphere drawn on a gray background. An area on the surface of the sphere is highlighted in blue.');
+      describe('灰色の背景に描かれた黒い球体。球体の表面の一部が青くハイライトされています。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Add a specular highlight.
-      // Use a CSS color string.
+      // 鏡面反射ハイライトを追加します。
+      // CSS色文字列を使用します。
       specularColor('#1E90FF');
 
-      // Add a white point light from the top-right.
+      // 右上から白いポイントライトを追加します。
       pointLight(255, 255, 255, 30, -20, 40);
 
-      // Style the sphere.
+      // 球体のスタイルを設定します。
       noStroke();
 
-      // Add a white specular material.
+      // 白い鏡面反射マテリアルを追加します。
       specularMaterial(255, 255, 255);
 
-      // Draw the sphere.
+      // 球体を描画します。
       sphere(30);
     }
     </code>
@@ -253,34 +181,34 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // クリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A black sphere drawn on a gray background. An area on the surface of the sphere is highlighted in blue.');
+      describe('灰色の背景に描かれた黒い球体。球体の表面の一部が青くハイライトされています。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Add a specular highlight.
-      // Use RGB values.
+      // 鏡面反射ハイライトを追加します。
+      // RGB値を使用します。
       specularColor(30, 144, 255);
 
-      // Add a white point light from the top-right.
+      // 右上から白いポイントライトを追加します。
       pointLight(255, 255, 255, 30, -20, 40);
 
-      // Style the sphere.
+      // 球体のスタイルを設定します。
       noStroke();
 
-      // Add a white specular material.
+      // 白い鏡面反射マテリアルを追加します。
       specularMaterial(255, 255, 255);
 
-      // Draw the sphere.
+      // 球体を描画します。
       sphere(30);
     }
     </code>
@@ -291,47 +219,46 @@ overloads:
     params:
       - name: v1
         description: |
-          <p>red or hue value in the current
-                                     <a href="#/p5/colorMode">colorMode()</a>.</p>
+          <p>現在の<a href="#/p5/colorMode">colorMode()</a>での
+          赤または色相の値。</p>
         type: Number
       - name: v2
         description: |
-          <p>green or saturation value in the current
-                                     <a href="#/p5/colorMode">colorMode()</a>.</p>
+          <p>現在の<a href="#/p5/colorMode">colorMode()</a>での
+          緑または彩度の値。</p>
         type: Number
       - name: v3
         description: |
-          <p>blue, brightness, or lightness value in the current
-                                     <a href="#/p5/colorMode">colorMode()</a>.</p>
+          <p>現在の<a href="#/p5/colorMode">colorMode()</a>での
+          青、明度、または輝度の値。</p>
         type: Number
     chainable: 1
   - line: 423
     params:
       - name: gray
         description: |
-          <p>grayscale value between 0 and 255.</p>
+          <p>0から255の間のグレースケール値。</p>
         type: Number
     chainable: 1
   - line: 429
     params:
       - name: value
         description: |
-          <p>color as a CSS string.</p>
+          <p>CSS文字列としての色。</p>
         type: String
     chainable: 1
   - line: 435
     params:
       - name: values
         description: |
-          <p>color as an array of RGBA, HSBA, or HSLA
-                                          values.</p>
+          <p>RGBA、HSBA、またはHSLA値の配列としての色。</p>
         type: 'Number[]'
     chainable: 1
   - line: 442
     params:
       - name: color
         description: |
-          <p>color as a <a href="#/p5.Color">p5.Color</a> object.</p>
+          <p><a href="#/p5.Color">p5.Color</a>オブジェクトとしての色。</p>
         type: p5.Color
     chainable: 1
 chainable: true
@@ -339,3 +266,4 @@ chainable: true
 
 
 # specularColor
+

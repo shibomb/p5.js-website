@@ -3,160 +3,63 @@ title: createFramebuffer
 module: Rendering
 submodule: Rendering
 file: src/core/rendering.js
-description: >-
-  <p>新しい <a href="#/p5.Framebuffer">p5.Framebuffer</a> を作成し返します。</p>
+description: >
+  <p>新しい<a href="/reference/p5/p5.Framebuffer">p5.Framebuffer</a>オブジェクトを作成します。</p>
 
-  <p>これは高性能な WebGL オブジェクトで、これに描画したり、テクスチャとして使用することができます。</p>
+  <p><a href="/reference/p5/p5.Framebuffer">p5.Framebuffer</a>オブジェクトは、
+  WebGLモードでテクスチャとして使用できる別の描画
+  サーフェスです。これらは<a href="/reference/p5/p5.Graphics">p5.Graphics</a>オブジェクトに
+  似ていますが、テクスチャとして使用した場合、
+  一般的にはるかに高速に動作します。</p>
 
-  <p>オプションには以下のものがあります: <ul> <li><code>format</code>:
-  テクスチャのデータフォーマット。<code>UNSIGNED_BYTE</code>、<code>FLOAT</code>、<code>HALF_FLOAT</code>
-  のいずれか。デフォルトは <code>UNSIGNED_BYTE</code> です。</li> <li><code>channels</code>:
-  保存する色チャンネル。<code>RGB</code> または
-  <code>RGBA</code>。デフォルトでは、メインキャンバスのチャンネルを一致させます（<code>setAttributes</code>
-  で無効化しない限り、アルファが含まれます）。</li> <li><code>depth</code>:
-  デプスバッファを含めるかどうかのブール値。デフォルトは true です。</li> <li><code>depthFormat</code>:
-  デプス情報のデータフォーマット。<code>UNSIGNED_INT</code> または
-  <code>FLOAT</code>。デフォルトは利用可能な場合は <code>FLOAT</code>、それ以外の場合は
-  <code>UNSIGNED_INT</code> です。</li> <li><code>antialias</code>:
-  ブール値または数値で、エッジが滑らかになるようにレンダリングするかどうか、またはその場合、使用するサンプルの数。メインキャンバスが滑らかに描画されるかどうかにもとづきますが、デフォルトでは2つのサンプルを使用します。アンチエイリアシングは
-  WebGL 2 が利用可能な場合のみサポートされます。</li> <li><code>width</code>:
-  テクスチャの幅。デフォルトはメインキャンバスと一致します。</li> <li><code>height</code>:
-  テクスチャの高さ。デフォルトはメインキャンバスと一致します。</li> <li><code>density</code>:
-  テクスチャのピクセル密度。デフォルトはメインキャンバスのピクセル密度と一致します。</li>
-  <li><code>textureFiltering</code>:
-  <code>LINEAR</code>（色テクスチャから値を読み取る際に近くのピクセルが補間されます）か
-  <code>NEAREST</code>（補間なし）。通常、テクスチャを画像として使用する場合は <code>LINEAR</code>
-  を、テクスチャをデータとして読み取る場合は <code>NEAREST</code> を使用します。デフォルトは <code>LINEAR</code>
-  です。</li> </ul></p>
-
-  <p><code>width</code>、<code>height</code>、<code>density</code>
-  が指定されている場合、フレームバッファはそのサイズを手動で変更されるまで保持されます。それ以外の場合は、自動サイズが設定され、メインキャンバスのサイズや密度が変更されたときにそれに合わせて更新されます。</p>
-
-  <p>/// todo ///</p>
-
-  <p>Creates and returns a new <a href="#/p5.Framebuffer">p5.Framebuffer</a>, a
-  high-performance WebGL object that you can draw to and then use as a
-  texture.</p>
-
-  <p>Options can include: <ul> <li><code>format</code>: The data format of the
-  texture, either <code>UNSIGNED_BYTE</code>, <code>FLOAT</code>, or
-  <code>HALF_FLOAT</code>. The default is <code>UNSIGNED_BYTE</code>.</li>
-  <li><code>channels</code>: What color channels to store, either
-  <code>RGB</code> or <code>RGBA</code>. The default is to match the channels in
-  the main canvas (with alpha unless disabled with
-  <code>setAttributes</code>.)</li> <li><code>depth</code>: A boolean, whether
-  or not to include a depth buffer. Defaults to true.</li>
-  <li><code>depthFormat</code>: The data format for depth information, either
-  <code>UNSIGNED_INT</code> or <code>FLOAT</code>. The default is
-  <code>FLOAT</code> if available, or <code>UNSIGNED_INT</code> otherwise.</li>
-  <li><code>stencil</code>: A boolean, whether or not to include a stencil
-  buffer, which can be used for masking. This may only be used if also using a
-  depth buffer. Defaults to the value of <code>depth</code>, which is true if
-  not provided.</li> <li><code>antialias</code>: Boolean or Number, whether or
-  not to render with antialiased edges, and if so, optionally the number of
-  samples to use. Defaults to whether or not the main canvas is antialiased,
-  using a default of 2 samples if so. Antialiasing is only supported when WebGL
-  2 is available.</li> <li><code>width</code>: The width of the texture.
-  Defaults to matching the main canvas.</li> <li><code>height</code>: The height
-  of the texture. Defaults to matching the main canvas.</li>
-  <li><code>density</code>: The pixel density of the texture. Defaults to the
-  pixel density of the main canvas.</li> <li><code>textureFiltering</code>:
-  Either <code>LINEAR</code> (nearby pixels will be interpolated when reading
-  values from the color texture) or <code>NEAREST</code> (no interpolation.)
-  Generally, use <code>LINEAR</code> when using the texture as an image, and use
-  <code>NEAREST</code> if reading the texture as data. Defaults to
-  <code>LINEAR</code>.</li> </ul></p>
-
-  <p>If <code>width</code>, <code>height</code>, or <code>density</code> are
-  specified, then the framebuffer will keep that size until manually changed.
-  Otherwise, it will be autosized, and it will update to match the main canvas's
-  size and density when the main canvas changes.</p>
-
-
-  <hr/>
-
-  <p>Creates and a new <a href="/reference/p5/p5.Framebuffer/">p5.Framebuffer</a>
-  object.</p>
-
-  <p><a href="/reference/p5/p5.Framebuffer/">p5.Framebuffer</a> objects are
-  separate drawing
-
-  surfaces that can be used as textures in WebGL mode. They're similar to
-
-  <a href="/reference/p5/p5.Graphics/">p5.Graphics</a> objects and generally run
-  much
-
-  faster when used as textures.</p>
-
-  <p>The parameter, <code>options</code>, is optional. An object can be passed
-  to configure
-
-  the <a href="/reference/p5/p5.Framebuffer/">p5.Framebuffer</a> object. The
-  available
-
-  properties are:</p>
+  <p>パラメータ<code>options</code>はオプションです。<a href="/reference/p5/p5.Framebuffer">p5.Framebuffer</a>
+  オブジェクトを設定するためにオブジェクトを渡すことができます。
+  利用可能なプロパティは以下の通りです：</p>
 
   <ul>
 
-  <li><code>format</code>: data format of the texture, either
-  <code>UNSIGNED_BYTE</code>, <code>FLOAT</code>, or <code>HALF_FLOAT</code>.
-  Default is <code>UNSIGNED_BYTE</code>.</li>
+  <li><code>format</code>: テクスチャのデータ形式で、<code>UNSIGNED_BYTE</code>、<code>FLOAT</code>、
+  または<code>HALF_FLOAT</code>のいずれかです。デフォルトは<code>UNSIGNED_BYTE</code>です。</li>
 
-  <li><code>channels</code>: whether to store <code>RGB</code> or
-  <code>RGBA</code> color channels. Default is to match the main canvas which is
-  <code>RGBA</code>.</li>
+  <li><code>channels</code>: <code>RGB</code>または<code>RGBA</code>のカラーチャンネルを
+  保存するかどうか。デフォルトはメインキャンバスに合わせて<code>RGBA</code>です。</li>
 
-  <li><code>depth</code>: whether to include a depth buffer. Default is
-  <code>true</code>.</li>
+  <li><code>depth</code>: 深度バッファを含めるかどうか。デフォルトは<code>true</code>です。</li>
 
-  <li><code>depthFormat</code>: data format of depth information, either
-  <code>UNSIGNED_INT</code> or <code>FLOAT</code>. Default is
-  <code>FLOAT</code>.</li>
+  <li><code>depthFormat</code>: 深度情報のデータ形式で、<code>UNSIGNED_INT</code>または
+  <code>FLOAT</code>のいずれかです。デフォルトは<code>FLOAT</code>です。</li>
 
-  <li><code>stencil</code>: whether to include a stencil buffer for masking.
-  <code>depth</code> must be <code>true</code> for this feature to work.
-  Defaults to the value of <code>depth</code> which is <code>true</code>.</li>
+  <li><code>stencil</code>: マスキング用のステンシルバッファを含めるかどうか。
+  この機能を使用するには<code>depth</code>が<code>true</code>である必要があります。
+  デフォルトは<code>depth</code>の値で、<code>true</code>です。</li>
 
-  <li><code>antialias</code>: whether to perform anti-aliasing. If set to
-  <code>true</code>, as in <code>{ antialias: true }</code>, 2 samples will be
-  used by default. The number of samples can also be set, as in <code>{
-  antialias: 4 }</code>. Default is to match <a
-  href="/reference/p5/setAttributes/">setAttributes()</a> which is
-  <code>false</code> (<code>true</code> in Safari).</li>
+  <li><code>antialias</code>: アンチエイリアシングを実行するかどうか。<code>{ antialias: true }</code>
+  のように<code>true</code>に設定すると、デフォルトで2サンプルが使用されます。
+  サンプル数も<code>{ antialias: 4 }</code>のように設定できます。デフォルトは
+  <a href="/reference/p5/setAttributes/">setAttributes()</a>に合わせて
+  <code>false</code>です（Safariでは<code>true</code>）。</li>
 
-  <li><code>width</code>: width of the <a
-  href="/reference/p5/p5.Framebuffer/">p5.Framebuffer</a> object. Default is to
-  always match the main canvas width.</li>
+  <li><code>width</code>: <a href="/reference/p5/p5.Framebuffer">p5.Framebuffer</a>
+  オブジェクトの幅。デフォルトは常にメインキャンバスの幅に合わせます。</li>
 
-  <li><code>height</code>: height of the <a
-  href="/reference/p5/p5.Framebuffer/">p5.Framebuffer</a> object. Default is to
-  always match the main canvas height.</li>
+  <li><code>height</code>: <a href="/reference/p5/p5.Framebuffer">p5.Framebuffer</a>
+  オブジェクトの高さ。デフォルトは常にメインキャンバスの高さに合わせます。</li>
 
-  <li><code>density</code>: pixel density of the <a
-  href="/reference/p5/p5.Framebuffer/">p5.Framebuffer</a> object. Default is to
-  always match the main canvas pixel density.</li>
+  <li><code>density</code>: <a href="/reference/p5/p5.Framebuffer">p5.Framebuffer</a>
+  オブジェクトのピクセル密度。デフォルトは常にメインキャンバスのピクセル密度に合わせます。</li>
 
-  <li><code>textureFiltering</code>: how to read values from the <a
-  href="/reference/p5/p5.Framebuffer/">p5.Framebuffer</a> object. Either
-  <code>LINEAR</code> (nearby pixels will be interpolated) or
-  <code>NEAREST</code> (no interpolation). Generally, use <code>LINEAR</code>
-  when using the texture as an image and <code>NEAREST</code> if reading the
-  texture as data. Default is <code>LINEAR</code>.</li>
+  <li><code>textureFiltering</code>: <a href="/reference/p5/p5.Framebuffer">p5.Framebuffer</a>
+  オブジェクトから値を読み取る方法。<code>LINEAR</code>（近くのピクセルが補間される）または
+  <code>NEAREST</code>（補間なし）のいずれかです。一般的に、テクスチャを画像として使用する場合は
+  <code>LINEAR</code>を、テクスチャをデータとして読み取る場合は<code>NEAREST</code>を使用します。
+  デフォルトは<code>LINEAR</code>です。</li>
 
   </ul>
 
-  <p>If the <code>width</code>, <code>height</code>, or <code>density</code>
-  attributes are set, they won't automatically match the main canvas and must be
-  changed manually.</p>
+  <p><code>width</code>、<code>height</code>、または<code>density</code>属性が設定されている場合、
+  自動的にメインキャンバスに合わせられることはなく、手動で変更する必要があります。</p>
 
-  <p>Note: <code>createFramebuffer()</code> can only be used in WebGL mode.</p>
-
-
-  <pre>
-
-  todo: return not found in ja-legacy.
-
-  </pre>
+  <p>注意：<code>createFramebuffer()</code>はWebGLモードでのみ使用できます。</p>
 line: 495
 isConstructor: false
 itemtype: method
@@ -170,42 +73,42 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Framebuffer object.
+      // p5.Framebufferオブジェクトを作成します。
       myBuffer = createFramebuffer();
 
-      describe('A grid of white toruses rotating against a dark gray background.');
+      describe('暗い灰色の背景に対して回転する白いトーラスのグリッド。');
     }
 
     function draw() {
       background(50);
 
-      // Start drawing to the p5.Framebuffer object.
+      // p5.Framebufferオブジェクトへの描画を開始します。
       myBuffer.begin();
 
-      // Clear the drawing surface.
+      // 描画面をクリアします。
       clear();
 
-      // Turn on the lights.
+      // ライトをオンにします。
       lights();
 
-      // Rotate the coordinate system.
+      // 座標系を回転させます。
       rotateX(frameCount * 0.01);
       rotateY(frameCount * 0.01);
 
-      // Style the torus.
+      // トーラスのスタイルを設定します。
       noStroke();
 
-      // Draw the torus.
+      // トーラスを描画します。
       torus(20);
 
-      // Stop drawing to the p5.Framebuffer object.
+      // p5.Framebufferオブジェクトへの描画を終了します。
       myBuffer.end();
 
-      // Iterate from left to right.
+      // 左から右へ繰り返します。
       for (let x = -50; x < 50; x += 25) {
-        // Iterate from top to bottom.
+        // 上から下へ繰り返します。
         for (let y = -50; y < 50; y += 25) {
-          // Draw the p5.Framebuffer object to the canvas.
+          // p5.Framebufferオブジェクトをキャンバスに描画します。
           image(myBuffer, x, y, 25, 25);
         }
       }
@@ -220,46 +123,46 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create an options object.
+      // オプションオブジェクトを作成します。
       let options = { width: 25, height: 25 };
 
-      // Create a p5.Framebuffer object.
-      // Use options for configuration.
+      // p5.Framebufferオブジェクトを作成します。
+      // 設定にオプションを使用します。
       myBuffer = createFramebuffer(options);
 
-      describe('A grid of white toruses rotating against a dark gray background.');
+      describe('暗い灰色の背景に対して回転する白いトーラスのグリッド。');
     }
 
     function draw() {
       background(50);
 
-      // Start drawing to the p5.Framebuffer object.
+      // p5.Framebufferオブジェクトへの描画を開始します。
       myBuffer.begin();
 
-      // Clear the drawing surface.
+      // 描画面をクリアします。
       clear();
 
-      // Turn on the lights.
+      // ライトをオンにします。
       lights();
 
-      // Rotate the coordinate system.
+      // 座標系を回転させます。
       rotateX(frameCount * 0.01);
       rotateY(frameCount * 0.01);
 
-      // Style the torus.
+      // トーラスのスタイルを設定します。
       noStroke();
 
-      // Draw the torus.
+      // トーラスを描画します。
       torus(5, 2.5);
 
-      // Stop drawing to the p5.Framebuffer object.
+      // p5.Framebufferオブジェクトへの描画を終了します。
       myBuffer.end();
 
-      // Iterate from left to right.
+      // 左から右へ繰り返します。
       for (let x = -50; x < 50; x += 25) {
-        // Iterate from top to bottom.
+        // 上から下へ繰り返します。
         for (let y = -50; y < 50; y += 25) {
-          // Draw the p5.Framebuffer object to the canvas.
+          // p5.Framebufferオブジェクトをキャンバスに描画します。
           image(myBuffer, x, y);
         }
       }
@@ -270,15 +173,15 @@ class: p5
 params:
   - name: options
     description: |
-      <p>(オプション) 設定を含むオプションのオブジェクト</p>
-      <p>configuration options.</p>
+      <p>設定オプション。</p>
     type: Object
     optional: true
 return:
-  description: new framebuffer.
+  description: 新しいフレームバッファ。
   type: p5.Framebuffer
 chainable: false
 ---
 
 
 # createFramebuffer
+

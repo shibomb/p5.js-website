@@ -4,31 +4,16 @@ module: Shape
 submodule: 3D Primitives
 file: src/webgl/p5.Geometry.js
 description: >
-  <p>すべての頂点を-100から100の範囲内に中心に配置するように修正します。</p>
+  <p>ジオメトリの頂点を変換して、原点を中心とする100×100×100のボックス内にぴったりと収まるようにします。</p>
 
-  <p></p>
+  <p><code>myGeometry.normalize()</code>を呼び出すと、ジオメトリの頂点が変換され、
+  原点<code>(0, 0, 0)</code>を中心に配置されます。その後、頂点がスケーリングされ、
+  100×100×100のボックスを埋めるようになります。結果として、小さなジオメトリは
+  大きくなり、大きなジオメトリは小さくなります。</p>
 
-
-  <hr/>
-
-  <p>Transforms the geometry's vertices to fit snugly within a 100×100×100 box
-
-  centered at the origin.</p>
-
-  <p>Calling <code>myGeometry.normalize()</code> translates the geometry's
-  vertices so that
-
-  they're centered at the origin <code>(0, 0, 0)</code>. Then it scales the
-  vertices so
-
-  that they fill a 100×100×100 box. As a result, small geometries will grow
-
-  and large geometries will shrink.</p>
-
-  <p>Note: <code>myGeometry.normalize()</code> only works when called in the
-
-  <a href="/reference/p5/setup/">setup()</a> function.</p>
-line: 2000
+  <p>注意：<code>myGeometry.normalize()</code>は
+  <a href="/reference/p5/setup/">setup()</a>関数内で呼び出された場合にのみ機能します。</p>
+line: 2222
 isConstructor: false
 itemtype: method
 example:
@@ -41,31 +26,31 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a very small torus.
+      // 非常に小さなトーラスを作成します。
       beginGeometry();
       torus(1, 0.25);
       myGeometry = endGeometry();
 
-      // Normalize the torus so its vertices fill
-      // the range [-100, 100].
+      // トーラスを正規化して、その頂点が
+      // [-100, 100]の範囲を埋めるようにします。
       myGeometry.normalize();
 
-      describe('A white torus rotates slowly against a dark gray background.');
+      describe('白いトーラスが暗い灰色の背景に対してゆっくりと回転します。');
     }
 
     function draw() {
       background(50);
 
-      // Turn on the lights.
+      // ライトをオンにします。
       lights();
 
-      // Rotate around the y-axis.
+      // y軸を中心に回転します。
       rotateY(frameCount * 0.01);
 
-      // Style the torus.
+      // トーラスのスタイルを設定します。
       noStroke();
 
-      // Draw the torus.
+      // トーラスを描画します。
       model(myGeometry);
     }
     </code>
@@ -76,3 +61,4 @@ chainable: true
 
 
 # normalize
+

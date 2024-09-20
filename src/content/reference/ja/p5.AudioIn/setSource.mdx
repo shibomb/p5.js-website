@@ -3,18 +3,7 @@ title: setSource
 module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
-description: >
-  <p>入力ソースを設定します。</p>
-
-  <p>getSources() が返す配列内の位置を表す数値を受け入れます。これは、<a
-  href="https://developer.mozilla.org/
-  en-US/docs/Web/API/MediaDevices/enumerateDevices"
-  target="_blank">navigator.mediaDevices.enumerateDevices()</a>
-  をサポートしているブラウザーでのみ利用可能です。</p>
-
-
-  <hr/>
-
+description: |
   <p>Set the input source. Accepts a number representing a
   position in the array returned by getSources().
   This is only available in browsers that support
@@ -49,7 +38,6 @@ class: p5.AudioIn
 params:
   - name: num
     description: |
-      <p>配列内の入力ソースの位置</p>
       <p>position of input source in the array</p>
     type: Number
 chainable: false

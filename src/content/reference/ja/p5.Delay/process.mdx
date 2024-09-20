@@ -4,10 +4,6 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
-  <p>設定した遅延パラメーターに応じてオーディオ信号に遅延を追加します。</p>
-  <p></p>
-
-  <hr/>
   <p>Add delay to an audio signal according to a set
   of delay parameters.</p>
 line: 8049
@@ -17,12 +13,10 @@ class: p5.Delay
 params:
   - name: Signal
     description: |
-      <p>オーディオを出力するオブジェクト</p>
       <p>An object that outputs audio</p>
     type: Object
   - name: delayTime
     description: |
-      <p>(オプション) 遅延/エコーの時間（秒）。一部のブラウザーは delayTime を1秒に制限しています。</p>
       <p>Time (in seconds) of the delay/echo.
                                    Some browsers limit delayTime to
                                    1 second.</p>
@@ -30,7 +24,6 @@ params:
     optional: true
   - name: feedback
     description: |
-      <p>(オプション) ループ内で遅延を自己に送信し、各繰り返しでボリュームが低下します。</p>
       <p>sends the delay back through itself
                                    in a loop that decreases in volume
                                    each time.</p>
@@ -38,7 +31,6 @@ params:
     optional: true
   - name: lowPass
     description: |
-      <p>(オプション) カットオフ周波数。lowPass 以下の周波数のみが遅延の一部になります。</p>
       <p>Cutoff frequency. Only frequencies
                                    below the lowPass will be part of the
                                    delay.</p>

@@ -4,14 +4,6 @@ module: Data
 submodule: String Functions
 file: src/utilities/string_functions.js
 description: >
-  <p>文字列の配列をひとつの文字列に結合し、separator パラメーターで使用される文字でそれぞれ区切ります。</p>
-
-  <p>整数や浮動小数点数の配列を結合するには、まず <a href="#/p5/nf">nf()</a> や nfs()
-  を使って文字列に変換する必要があります。</p>
-
-
-  <hr/>
-
   <p>Combines an array of strings into one string.</p>
 
   <p>The first parameter, <code>list</code>, is the array of strings to
@@ -59,18 +51,14 @@ class: p5
 params:
   - name: list
     description: |
-      <p>結合される文字列の配列</p>
       <p>array of strings to combine.</p>
     type: Array
   - name: separator
     description: |
-      <p>各アイテムの間に配置される文字列</p>
       <p>character(s) to place between strings when they're combined.</p>
     type: String
 return:
-  description: |-
-    結合された文字列
-    combined string.
+  description: combined string.
   type: String
 chainable: false
 ---

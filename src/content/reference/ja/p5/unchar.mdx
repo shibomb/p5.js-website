@@ -3,14 +3,7 @@ title: unchar
 module: Data
 submodule: Conversion
 file: src/utilities/conversion.js
-description: >-
-  <p>1文字の文字列を対応する整数表現に変換します。</p>
-
-  <p>1文字の文字列の値の配列が渡された場合、同じ長さの整数の配列が返されます。</p>
-
-
-  <hr/>
-
+description: >
   <p>Converts a single-character <code>String</code> to a
   <code>Number</code>.</p>
 
@@ -24,18 +17,6 @@ description: >-
   <code>unchar('A')</code>, returns the number 65. If an array is passed, as in
 
   <code>unchar(['A', 'B', 'C'])</code>, an array of integers is returned.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "n": "String: 解析する値",
-      "ns": "Array: 解析する値"
-  }
-
-  </pre>
 line: 731
 isConstructor: false
 itemtype: method
@@ -102,9 +83,7 @@ example:
     </div>
 class: p5
 return:
-  description: |-
-    値の整数表現
-    converted number.
+  description: converted number.
   type: Number
 overloads:
   - line: 731

@@ -3,25 +3,9 @@ title: getTargetFrameRate
 module: Environment
 submodule: Environment
 file: src/core/environment.js
-description: >
-  <p>_targetFrameRate 変数を返します。</p>
-
-  <p>デフォルトの_targetFrameRate は60に設定されています。これは、frameRate()
-  を呼び出して希望する値に設定することで変更できます。getTargetFrameRate() を呼び出した場合は、設定された値が返されます。</p>
-
-  <p>/// todo ///</p>
-
-  <p>Returns the target frame rate. The value is either the system frame rate or
-  the last value passed to <a href="#/p5/frameRate">frameRate()</a>.</p>
-
-
-  <hr/>
-
-  <p>Returns the target frame rate.</p>
-
-  <p>The value is either the system frame rate or the last value passed to
-
-  <a href="/reference/p5/frameRate/">frameRate()</a>.</p>
+description: |
+  <p>目標フレームレートを返します。</p>
+  <p>この値は、システムのフレームレートか、<a href="/reference/p5/frameRate/">frameRate()</a>に最後に渡された値のいずれかです。</p>
 line: 447
 isConstructor: false
 itemtype: method
@@ -33,17 +17,17 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('The number 20 written in black on a gray background.');
+      describe('灰色の背景に黒で書かれた数字20。');
     }
 
     function draw() {
       background(200);
 
-      // Set the frame rate to 20.
+      // フレームレートを20に設定する。
       frameRate(20);
 
-      // Get the target frame rate and
-      // display it.
+      // 目標フレームレートを取得し、
+      // 表示する。
       let fps = getTargetFrameRate();
       text(fps, 43, 54);
     }
@@ -51,12 +35,10 @@ example:
     </div>
 class: p5
 return:
-  description: |-
-    _targetFrameRate
-    _targetFrameRate
+  description: _targetFrameRate
   type: Number
 chainable: false
 ---
 
-
 # getTargetFrameRate
+

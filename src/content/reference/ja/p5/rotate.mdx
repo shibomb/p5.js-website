@@ -4,77 +4,48 @@ module: Transform
 submodule: Transform
 file: src/core/transform.js
 description: >
-  <p>指定された角度パラメーターで図形を回転させます。</p>
+  <p>座標系を回転させます。</p>
 
-  <p>この関数は <a href="#/p5/angleMode">angleMode</a> を考慮しているため、角度は RADIANS または
-  DEGREES で入力できます。</p>
+  <p>デフォルトでは、正のx軸は右を向き、正のy軸は下を向いています。<code>rotate()</code>関数は
 
-  <p>オブジェクトは常に原点に対する相対位置を中心に回転し、正の数値はオブジェクトを時計回りに回転させます。変換はその後のすべての操作に適用され、関数への後続の呼び出しは効果を累積します。たとえば、rotate(HALF_PI)を呼び出した後に
-  rotate(HALF_PI)を呼び出すことは、rotate(PI)と同じです。すべての変換は、<a href="#/p5/draw">draw()</a>
-  が再度始まるとリセットされます。</p>
+  原点を中心に座標系を回転させることで、この向きを変更します。
 
-  <p>技術的には、<a href="#/p5/rotate">rotate()</a> は現在の変換行列に回転行列を乗算します。この関数は、<a
-  href="#/p5/push">push()</a> および <a href="#/p5/pop">pop()</a> でさらに制御できます。</p>
+  <code>rotate()</code>が呼び出された後に描画されるものはすべて回転して表示されます。</p>
 
+  <p>最初のパラメータ<code>angle</code>は回転量です。例えば、
 
-  <hr/>
+  <code>rotate(1)</code>を呼び出すと、座標系が時計回りに1ラジアン（約57度）回転します。
 
-  <p>Rotates the coordinate system.</p>
+  <code>rotate()</code>は現在の<a href="/reference/p5/angleMode/">angleMode()</a>を使用して
 
-  <p>By default, the positive x-axis points to the right and the positive y-axis
+  角度値を解釈します。</p>
 
-  points downward. The <code>rotate()</code> function changes this orientation
-  by
+  <p>2番目のパラメータ<code>axis</code>はオプションです。WebGLモードで3D回転の向きを
 
-  rotating the coordinate system about the origin. Everything drawn after
+  指定するために使用されます。<a href="/reference/p5/p5.Vector">p5.Vector</a>が渡された場合、
 
-  <code>rotate()</code> is called will appear to be rotated.</p>
+  例えば<code>rotate(QUARTER_PI, myVector)</code>のように、座標系は
 
-  <p>The first parameter, <code>angle</code>, is the amount to rotate. For
-  example, calling
+  <code>myVector</code>を軸として<code>QUARTER_PI</code>ラジアン回転します。ベクトル成分の
 
-  <code>rotate(1)</code> rotates the coordinate system clockwise 1 radian which
-  is
+  配列が渡された場合、例えば<code>rotate(QUARTER_PI, [1, 0, 0])</code>のように、座標系は
 
-  nearly 57˚. <code>rotate()</code> interprets angle values using the current
+  <code>[1, 0, 0]</code>の成分を持つベクトルを軸として<code>QUARTER_PI</code>ラジアン
 
-  <a href="/reference/p5/angleMode/">angleMode()</a>.</p>
+  回転します。</p>
 
-  <p>The second parameter, <code>axis</code>, is optional. It's used to orient
-  3D rotations
+  <p>デフォルトでは、変換は累積されます。例えば、<code>rotate(1)</code>を2回呼び出すことは、
 
-  in WebGL mode. If a <a href="/reference/p5/p5.Vector">p5.Vector</a> is passed,
-  as in
+  <code>rotate(2)</code>を1回呼び出すのと同じ効果があります。
 
-  <code>rotate(QUARTER_PI, myVector)</code>, then the coordinate system will
-  rotate
+  <a href="/reference/p5/push/">push()</a>関数と<a href="/reference/p5/pop/">pop()</a>関数を
 
-  <code>QUARTER_PI</code> radians about <code>myVector</code>. If an array of
-  vector components is
+  使用して、個別の描画グループ内で変換を分離することができます。</p>
 
-  passed, as in <code>rotate(QUARTER_PI, [1, 0, 0])</code>, then the coordinate
-  system
+  <p>注意：変換はdrawループの開始時にリセットされます。<a href="/reference/p5/draw/">draw()</a>関数内で
 
-  will rotate <code>QUARTER_PI</code> radians about a vector with the components
+  <code>rotate(1)</code>を呼び出しても、図形は回転し続けません。</p>
 
-  <code>[1, 0, 0]</code>.</p>
-
-  <p>By default, transformations accumulate. For example, calling
-  <code>rotate(1)</code>
-
-  twice has the same effect as calling <code>rotate(2)</code> once. The
-
-  <a href="/reference/p5/push/">push()</a> and <a
-  href="/reference/p5/pop/">pop()</a> functions
-
-  can be used to isolate transformations within distinct drawing groups.</p>
-
-  <p>Note: Transformations are reset at the beginning of the draw loop. Calling
-
-  <code>rotate(1)</code> inside the <a href="/reference/p5/draw/">draw()</a>
-  function won't cause
-
-  shapes to spin.</p>
 line: 289
 isConstructor: false
 itemtype: method
@@ -87,17 +58,17 @@ example:
       createCanvas(100, 100);
 
       describe(
-        "A white rectangle on a gray background. The rectangle's long axis runs from top-left to bottom-right."
+        "灰色の背景に白い長方形。長方形の長軸は左上から右下に走っています。"
       );
     }
 
     function draw() {
       background(200);
 
-      // Rotate the coordinate system 1/8 turn.
+      // 座標系を1/8回転させる
       rotate(QUARTER_PI);
 
-      // Draw a rectangle at coordinates (50, 0).
+      // 座標(50, 0)に長方形を描画
       rect(50, 0, 40, 20);
     }
     </code>
@@ -109,20 +80,20 @@ example:
       createCanvas(100, 100);
 
       describe(
-        "A white rectangle on a gray background. The rectangle's long axis runs from top-left to bottom-right."
+        "灰色の背景に白い長方形。長方形の長軸は左上から右下に走っています。"
       );
     }
 
     function draw() {
       background(200);
 
-      // Rotate the coordinate system 1/16 turn.
+      // 座標系を1/16回転させる
       rotate(QUARTER_PI / 2);
 
-      // Rotate the coordinate system another 1/16 turn.
+      // 座標系をさらに1/16回転させる
       rotate(QUARTER_PI / 2);
 
-      // Draw a rectangle at coordinates (50, 0).
+      // 座標(50, 0)に長方形を描画
       rect(50, 0, 40, 20);
     }
     </code>
@@ -133,21 +104,21 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Use degrees.
+      // 度数法を使用
       angleMode(DEGREES);
 
       describe(
-        "A white rectangle on a gray background. The rectangle's long axis runs from top-left to bottom-right."
+        "灰色の背景に白い長方形。長方形の長軸は左上から右下に走っています。"
       );
     }
 
     function draw() {
       background(200);
 
-      // Rotate the coordinate system 1/8 turn.
+      // 座標系を1/8回転させる
       rotate(45);
 
-      // Draw a rectangle at coordinates (50, 0).
+      // 座標(50, 0)に長方形を描画
       rect(50, 0, 40, 20);
     }
     </code>
@@ -159,18 +130,18 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'A white rectangle on a gray background. The rectangle rotates slowly about the top-left corner. It disappears and reappears periodically.'
+        '灰色の背景に白い長方形。長方形は左上隅を中心にゆっくりと回転します。定期的に消えたり現れたりします。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Rotate the coordinate system a little more each frame.
+      // フレームごとに座標系をわずかに回転させる
       let angle = frameCount * 0.01;
       rotate(angle);
 
-      // Draw a rectangle at coordinates (50, 0).
+      // 座標(50, 0)に長方形を描画
       rect(50, 0, 40, 20);
     }
     </code>
@@ -181,18 +152,17 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe("A cube on a gray background. The cube's front face points to the top-right.");
+      describe("灰色の背景に立方体。立方体の正面は右上を向いています。");
     }
 
     function draw() {
       background(200);
 
-      // Rotate the coordinate system 1/8 turn about
-      // the axis [1, 1, 0].
+      // 座標系を軸[1, 1, 0]を中心に1/8回転させる
       let axis = createVector(1, 1, 0);
       rotate(QUARTER_PI, axis);
 
-      // Draw a box.
+      // 立方体を描画
       box();
     }
     </code>
@@ -203,18 +173,17 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe("A cube on a gray background. The cube's front face points to the top-right.");
+      describe("灰色の背景に立方体。立方体の正面は右上を向いています。");
     }
 
     function draw() {
       background(200);
 
-      // Rotate the coordinate system 1/8 turn about
-      // the axis [1, 1, 0].
+      // 座標系を軸[1, 1, 0]を中心に1/8回転させる
       let axis = [1, 1, 0];
       rotate(QUARTER_PI, axis);
 
-      // Draw a box.
+      // 立方体を描画
       box();
     }
     </code>
@@ -223,15 +192,11 @@ class: p5
 params:
   - name: angle
     description: >
-      <p>現在の angleMode に応じて、ラジアンまたは度で指定された回転角</p>
-
-      <p>angle of rotation in the current <a
-      href="#/p5/angleMode">angleMode()</a>.</p>
+      <p>現在の<a href="#/p5/angleMode">angleMode()</a>での回転角度。</p>
     type: Number
   - name: axis
     description: |
-      <p>(オプション) (3D の場合) 回転する軸</p>
-      <p>axis to rotate about in 3D.</p>
+      <p>3Dでの回転軸。</p>
     type: 'p5.Vector|Number[]'
     optional: true
 chainable: true
@@ -239,3 +204,4 @@ chainable: true
 
 
 # rotate
+

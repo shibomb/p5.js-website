@@ -4,23 +4,10 @@ module: Shape
 submodule: Attributes
 file: src/core/shape/attributes.js
 description: >
-  <p>線、点、形状の周りの枠線に使用されるストロークの幅を設定します。</p>
+  <p>点、線、および図形の輪郭に使用されるストロークの幅を設定します。</p>
 
-  <p>すべての幅はピクセル単位で設定されます。</p>
-
-  <p>以前に適用された変換やスケーリングが<code>strokeWeight()</code>に影響を及ぼすことに注意してください。</p>
-
-
-  <hr/>
-
-  <p>Sets the width of the stroke used for points, lines, and the outlines of
-
-  shapes.</p>
-
-  <p>Note: <code>strokeWeight()</code> is affected by transformations,
-  especially calls to
-
-  <a href="/reference/p5/scale/">scale()</a>.</p>
+  <p>注意：<code>strokeWeight()</code>は変換の影響を受けます。特に
+  <a href="/reference/p5/scale/">scale()</a>の呼び出しの影響を受けます。</p>
 line: 540
 isConstructor: false
 itemtype: method
@@ -34,18 +21,18 @@ example:
 
       background(200);
 
-      // Top.
+      // 上部
       line(20, 20, 80, 20);
 
-      // Middle.
+      // 中央
       strokeWeight(4);
       line(20, 40, 80, 40);
 
-      // Bottom.
+      // 下部
       strokeWeight(10);
       line(20, 70, 80, 70);
 
-      describe('Three horizontal black lines. The top line is thin, the middle is medium, and the bottom is thick.');
+      describe('3本の水平な黒い線。上の線は細く、中央は中程度、下は太い。');
     }
     </code>
     </div>
@@ -57,16 +44,16 @@ example:
 
       background(200);
 
-      // Top.
+      // 上部
       line(20, 20, 80, 20);
 
-      // Scale by a factor of 5.
+      // 5倍にスケーリング
       scale(5);
 
-      // Bottom. Coordinates are adjusted for scaling.
+      // 下部。座標はスケーリングに合わせて調整されています。
       line(4, 8, 16, 8);
 
-      describe('Two horizontal black lines. The top line is thin and the bottom is five times thicker than the top.');
+      describe('2本の水平な黒い線。上の線は細く、下の線は上の線の5倍の太さ。');
     }
     </code>
     </div>
@@ -74,8 +61,7 @@ class: p5
 params:
   - name: weight
     description: |
-      <p>ストロークの幅（ピクセル単位）</p>
-      <p>the weight of the stroke (in pixels).</p>
+      <p>ストロークの太さ（ピクセル単位）。</p>
     type: Number
 chainable: true
 ---

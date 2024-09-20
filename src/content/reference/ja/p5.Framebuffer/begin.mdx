@@ -4,30 +4,20 @@ module: Rendering
 submodule: ''
 file: src/webgl/p5.Framebuffer.js
 description: >
-  <p>このフレームバッファに描画を開始します。</p>
+  <p>フレームバッファへの図形の描画を開始します。</p>
 
-  <p>その後の描画関数はフレームバッファのテクスチャに描画され、すぐには可視化されません。描画関数を再びキャンバスに直接行うようにし、フレームバッファのテクスチャの内容を読み取るためには、<a
-  href="#/p5.Framebuffer/end">end()</a> を呼び出します。</p>
-
-
-  <hr/>
-
-  <p>Begins drawing shapes to the framebuffer.</p>
-
-  <p><code>myBuffer.begin()</code> and <a
+  <p><code>myBuffer.begin()</code>と<a
   href="/reference/p5.Framebuffer/end/">myBuffer.end()</a>
 
-  allow shapes to be drawn to the framebuffer. <code>myBuffer.begin()</code>
-  begins
+  を使用すると、フレームバッファに図形を描画できます。<code>myBuffer.begin()</code>は
 
-  drawing to the framebuffer and
+  フレームバッファへの描画を開始し、
 
-  <a href="/reference/p5.Framebuffer/end/">myBuffer.end()</a> stops drawing to
-  the
+  <a href="/reference/p5.Framebuffer/end/">myBuffer.end()</a>は
 
-  framebuffer. Changes won't be visible until the framebuffer is displayed
+  フレームバッファへの描画を停止します。変更は、フレームバッファが
 
-  as an image or texture.</p>
+  画像やテクスチャとして表示されるまで見えません。</p>
 line: 1118
 isConstructor: false
 itemtype: method
@@ -41,16 +31,16 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Framebuffer object.
+      // p5.Framebufferオブジェクトを作成します。
       myBuffer = createFramebuffer();
 
-      describe('An empty gray canvas. The canvas gets darker and a rotating, multicolor torus appears while the user presses and holds the mouse.');
+      describe('空のグレーのキャンバス。ユーザーがマウスを押し続けている間、キャンバスが暗くなり、回転する多色のトーラスが表示されます。');
     }
 
     function draw() {
       background(200);
 
-      // Start drawing to the p5.Framebuffer object.
+      // p5.Framebufferオブジェクトへの描画を開始します。
       myBuffer.begin();
 
       background(50);
@@ -58,11 +48,11 @@ example:
       normalMaterial();
       torus(30);
 
-      // Stop drawing to the p5.Framebuffer object.
+      // p5.Framebufferオブジェクトへの描画を停止します。
       myBuffer.end();
 
-      // Display the p5.Framebuffer object while
-      // the user presses the mouse.
+      // ユーザーがマウスを押している間、
+      // p5.Framebufferオブジェクトを表示します。
       if (mouseIsPressed === true) {
         image(myBuffer, -50, -50);
       }
@@ -75,3 +65,4 @@ chainable: false
 
 
 # begin
+

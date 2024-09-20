@@ -4,14 +4,6 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: >
-  <p>p5.SoundFile の再生ヘッドの現在位置を秒単位で返します。</p>
-
-  <p>時間は通常のバッファの方向に相対的であり、<code>reverseBuffer</code> が呼び出された場合、currentTime
-  は逆方向にカウントされます。</p>
-
-
-  <hr/>
-
   <p>Return the current position of the p5.SoundFile playhead, in seconds.
 
   Time is relative to the normal buffer direction, so if
@@ -23,9 +15,7 @@ isConstructor: false
 itemtype: method
 class: p5.SoundFile
 return:
-  description: |-
-    サウンドファイルの currentTime（秒単位）を返します。
-    currentTime of the soundFile in seconds.
+  description: currentTime of the soundFile in seconds.
   type: Number
 chainable: false
 ---

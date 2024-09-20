@@ -4,36 +4,15 @@ module: Math
 submodule: Trigonometry
 file: src/math/trigonometry.js
 description: >
-  <p><a href="#/p5/cos">cos()</a> の逆関数で、値の逆余弦を返します。</p>
+  <p>数値のアークコサインを計算します。</p>
 
-  <p>この関数は、-1から1の範囲の値を想定しており、<a href="#/p5/angleMode">angleMode()</a> が RADIANS
-  の場合は0からPI(3.1415927)の範囲の値が、DEGREES の場合は0から180の範囲の値が返されます。</p>
+  <p><code>acos()</code>は<a href="/reference/p5/cos/">cos()</a>の逆関数です。-1から1の範囲の
 
-  <p>/// todo ///</p>
+  引数を期待します。デフォルトでは、<code>acos()</code>は0からπ（約3.14）の範囲の値を
 
-  <p>The inverse of <a href="#/p5/cos">cos()</a>, returns the arc cosine of a
-  value. This function expects arguments in the range -1 to 1. By default,
-  <code>acos()</code> returns values in the range 0 to π (about 3.14). If the <a
-  href="#/p5/angleMode">angleMode()</a> is <code>DEGREES</code>, then values are
-  returned in the range 0 to 180.</p>
+  返します。<a href="/reference/p5/angleMode/">angleMode()</a>が<code>DEGREES</code>の場合、
 
-
-  <hr/>
-
-  <p>Calculates the arc cosine of a number.</p>
-
-  <p><code>acos()</code> is the inverse of <a
-  href="/reference/p5/cos/">cos()</a>. It expects
-
-  arguments in the range -1 to 1. By default, <code>acos()</code> returns values
-  in the
-
-  range 0 to π (about 3.14). If the
-
-  <a href="/reference/p5/angleMode/">angleMode()</a> is <code>DEGREES</code>,
-  then values are
-
-  returned in the range 0 to 180.</p>
+  値は0から180の範囲で返されます。</p>
 line: 18
 isConstructor: false
 itemtype: method
@@ -47,17 +26,17 @@ example:
 
       background(200);
 
-      // Calculate cos() and acos() values.
+      // cos()とacos()の値を計算します。
       let a = PI;
       let c = cos(a);
       let ac = acos(c);
 
-      // Display the values.
+      // 値を表示します。
       text(`${round(a, 3)}`, 35, 25);
       text(`${round(c, 3)}`, 35, 50);
       text(`${round(ac, 3)}`, 35, 75);
 
-      describe('The numbers 3.142, -1, and 3.142 written on separate rows.');
+      describe('3.142、-1、3.142の数字が別々の行に書かれています。');
     }
     </code>
     </div>
@@ -69,17 +48,17 @@ example:
 
       background(200);
 
-      // Calculate cos() and acos() values.
+      // cos()とacos()の値を計算します。
       let a = PI + QUARTER_PI;
       let c = cos(a);
       let ac = acos(c);
 
-      // Display the values.
+      // 値を表示します。
       text(`${round(a, 3)}`, 35, 25);
       text(`${round(c, 3)}`, 35, 50);
       text(`${round(ac, 3)}`, 35, 75);
 
-      describe('The numbers 3.927, -0.707, and 2.356 written on separate rows.');
+      describe('3.927、-0.707、2.356の数字が別々の行に書かれています。');
     }
     </code>
     </div>
@@ -87,13 +66,10 @@ class: p5
 params:
   - name: value
     description: |
-      <p>逆余弦を返す値</p>
-      <p>value whose arc cosine is to be returned.</p>
+      <p>アークコサインを返す値。</p>
     type: Number
 return:
-  description: |-
-    与えられた値の逆余弦
-    arc cosine of the given value.
+  description: 与えられた値のアークコサイン。
   type: Number
 chainable: false
 ---

@@ -4,16 +4,6 @@ module: Events
 submodule: Touch
 file: src/events/touch.js
 description: >
-  <p><a href="#/p5/touchMoved">touchMoved()</a> 関数は、タッチムーブが登録されるたびに呼び出されます。</p>
-
-  <p>もし <a href="#/p5/touchMoved">touchMoved()</a> 関数が定義されていない場合、代わりに定義されている <a
-  href="#/p5/mouseDragged">mouseDragged()</a>
-  関数が呼び出されます。ブラウザーは、さまざまなタッチイベントに対して異なるデフォルトの動作を持っている場合があります。このイベントのデフォルトの動作を防ぐには、メソッドの最後に「return
-  false」を追加してください。</p>
-
-
-  <hr/>
-
   <p>A function that's called when the user touches the screen and moves.</p>
 
   <p>Declaring the function <code>touchMoved()</code> sets a code block to run
@@ -195,7 +185,6 @@ class: p5
 params:
   - name: event
     description: |
-      <p>(オプション) オプションの TouchEvent コールバック引数。</p>
       <p>optional TouchEvent argument.</p>
     type: TouchEvent
     optional: true

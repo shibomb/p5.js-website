@@ -4,17 +4,11 @@ module: 3D
 submodule: Camera
 file: src/webgl/p5.Camera.js
 description: >
-  <p>スケッチの中心を表す y 座標。</p>
+  <p>カメラが見ている場所のy座標。</p>
 
+  <p>デフォルトでは、カメラは「ワールド」空間の原点<code>(0, 0, 0)</code>を見ているため、
 
-  <hr/>
-
-  <p>The y-coordinate of the place where the camera looks.</p>
-
-  <p>By default, the camera looks at the origin <code>(0, 0, 0)</code> in
-  "world" space, so
-
-  <code>myCamera.centerY</code> is 0.</p>
+  <code>myCamera.centerY</code>は0となります。</p>
 line: 1299
 isConstructor: false
 itemtype: property
@@ -26,7 +20,7 @@ example:
     let cam;
     let font;
 
-    // Load a font and create a p5.Font object.
+    // フォントを読み込み、p5.Fontオブジェクトを作成します。
     function preload() {
       font = loadFont('/assets/inconsolata.otf');
     }
@@ -34,36 +28,36 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Camera object.
+      // p5.Cameraオブジェクトを作成します。
       cam = createCamera();
 
-      // Place the camera at the top-center.
+      // カメラを上部中央に配置します。
       cam.setPosition(0, -400, 800);
 
-      // Point the camera at (10, 20, -30).
+      // カメラを(10, 20, -30)に向けます。
       cam.lookAt(10, 20, -30);
 
       describe(
-        'A white cube on a gray background. The text "centerY: 20" is written in black beneath it.'
+        'グレーの背景に白い立方体。その下に黒字で "centerY: 20" と書かれています。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Style the box.
+      // ボックスのスタイルを設定します。
       fill(255);
 
-      // Draw the box.
+      // ボックスを描画します。
       box();
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER);
       textSize(16);
       textFont(font);
       fill(0);
 
-      // Display the value of centerY, rounded to the nearest integer.
+      // centerYの値を最も近い整数に丸めて表示します。
       text(`centerY: ${round(cam.centerY)}`, 0, 55);
     }
     </code>
@@ -74,7 +68,7 @@ example:
     let cam;
     let font;
 
-    // Load a font and create a p5.Font object.
+    // フォントを読み込み、p5.Fontオブジェクトを作成します。
     function preload() {
       font = loadFont('/assets/inconsolata.otf');
     }
@@ -82,42 +76,42 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Camera object.
+      // p5.Cameraオブジェクトを作成します。
       cam = createCamera();
 
-      // Place the camera at the top-right.
+      // カメラを右上に配置します。
       cam.setPosition(100, -400, 800);
 
-      // Point the camera at (10, 20, -30).
+      // カメラを(10, 20, -30)に向けます。
       cam.lookAt(10, 20, -30);
 
       describe(
-        'A white cube on a gray background. The cube appears to move up and down as the camera shifts its focus. The text "centerY: Y" is written in black beneath the cube. Y oscillates between -5 and 45.'
+        'グレーの背景に白い立方体。カメラの焦点が移動するにつれて、立方体が上下に動くように見えます。立方体の下に黒字で "centerY: Y" と書かれています。Yは-5から45の間で振動します。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Style the box.
+      // ボックスのスタイルを設定します。
       fill(255);
 
-      // Draw the box.
+      // ボックスを描画します。
       box();
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER);
       textSize(16);
       textFont(font);
       fill(0);
 
-      // Calculate the new y-coordinate.
+      // 新しいy座標を計算します。
       let y = 25 * sin(frameCount * 0.01) + 20;
 
-      // Point the camera.
+      // カメラを向けます。
       cam.lookAt(10, y, -30);
 
-      // Display the value of centerY, rounded to the nearest integer.
+      // centerYの値を最も近い整数に丸めて表示します。
       text(`centerY: ${round(cam.centerY)}`, 0, 55);
     }
     </code>
@@ -128,3 +122,4 @@ type: Number
 
 
 # centerY
+

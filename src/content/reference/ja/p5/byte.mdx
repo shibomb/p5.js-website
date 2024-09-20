@@ -3,14 +3,7 @@ title: byte
 module: Data
 submodule: Conversion
 file: src/utilities/conversion.js
-description: >-
-  <p>数値、数値の文字列表現、またはブール値をそのバイト表現に変換します。</p>
-
-  <p>バイトは-128から127までの整数のみになるため、この範囲外の値が変換されると、対応するバイト表現にラップされます。数値、文字列、ブール値の配列が渡された場合、同じ長さのバイトの配列が返されます。</p>
-
-
-  <hr/>
-
+description: >
   <p>Converts a <code>Boolean</code>, <code>String</code>, or
   <code>Number</code> to its byte value.</p>
 
@@ -41,18 +34,6 @@ description: >-
   <code>byte('giraffe')</code>,
 
   then the value <code>NaN</code> (not a number) will be returned.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "n": "String|Boolean|Number: 解析する値",
-      "ns": "Array: 解析する値"
-  }
-
-  </pre>
 line: 468
 isConstructor: false
 itemtype: method
@@ -168,9 +149,7 @@ example:
     </div>
 class: p5
 return:
-  description: |-
-    値のバイト表現
-    converted byte value.
+  description: converted byte value.
   type: Number
 overloads:
   - line: 468

@@ -4,23 +4,14 @@ module: Color
 submodule: Setting
 file: src/color/setting.js
 description: >
-  <p>ジオメトリの塗りつぶしを無効にします。</p>
+  <p>図形の塗りつぶし色の設定を無効にします。</p>
 
-  <p>もし <a href="#/p5/noStroke">noStroke()</a> と <a
-  href="#/p5/noFill">noFill()</a> の両方が呼び出された場合、画面には何も描かれません。</p>
+  <p><code>noFill()</code>を呼び出すことは、塗りつぶしを完全に透明にすることと同じです。
 
+  <code>fill(0, 0)</code>のようになります。<a
+  href="/reference/p5/noStroke/">noStroke()</a>と
 
-  <hr/>
-
-  <p>Disables setting the fill color for shapes.</p>
-
-  <p>Calling <code>noFill()</code> is the same as making the fill completely
-  transparent,
-
-  as in <code>fill(0, 0)</code>. If both <a
-  href="/reference/p5/noStroke/">noStroke()</a> and
-
-  <code>noFill()</code> are called, nothing will be drawn to the screen.</p>
+  <code>noFill()</code>の両方が呼び出された場合、画面には何も描画されません。</p>
 line: 1219
 isConstructor: false
 itemtype: method
@@ -34,14 +25,14 @@ example:
 
       background(200);
 
-      // Draw the top square.
+      // 上の正方形を描画します。
       square(32, 10, 35);
 
-      // Draw the bottom square.
+      // 下の正方形を描画します。
       noFill();
       square(32, 55, 35);
 
-      describe('A white square on above an empty square. Both squares have black outlines.');
+      describe('黒い輪郭線を持つ白い正方形の上に、空の正方形があります。');
     }
     </code>
     </div>
@@ -51,21 +42,21 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A purple cube wireframe spinning on a black canvas.');
+      describe('黒いキャンバス上で回転する紫色の立方体のワイヤーフレーム。');
     }
 
     function draw() {
       background(0);
 
-      // Style the box.
+      // 立方体のスタイルを設定します。
       noFill();
       stroke(100, 100, 240);
 
-      // Rotate the coordinates.
+      // 座標を回転させます。
       rotateX(frameCount * 0.01);
       rotateY(frameCount * 0.01);
 
-      // Draw the box.
+      // 立方体を描画します。
       box(45);
     }
     </code>
@@ -76,3 +67,4 @@ chainable: true
 
 
 # noFill
+

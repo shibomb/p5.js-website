@@ -3,68 +3,27 @@ title: quad
 module: Shape
 submodule: 2D Primitives
 file: src/core/shape/2d_primitives.js
-description: >-
-  <p>キャンバスに四角形を描きます。</p>
+description: >
+  <p>四辺形（四角形）を描画します。</p>
 
-  <p>四角形は四辺形、つまり4辺の多角形です。四角形の例には、長方形、正方形、ひし形、台形があります。最初のパラメーターのペア（<code>x1</code>、<code>y1</code>）は四角形の最初の点を設定します。その後のパラメーターのペアは、次の3つの点の座標を設定します。パラメーターは、形状を時計回りまたは反時計周りに進む必要があります。</p>
+  <p>四辺形には、長方形、正方形、菱形、台形などがあります。最初の一対のパラメータ
 
-  <p><code>quad()</code>の12パラメーターのバージョンでは、四角形を3D空間に描くことができます。これを行うには、<a
-  href="#/p5/createCanvas">createCanvas()</a>に<code>WEBGL</code>引数を追加する必要があります。</p>
+  <code>(x1, y1)</code> は四辺形の最初の点を設定します。次の
 
+  三対のパラメータは、次の三つの点の座標を設定します
 
-  <hr/>
+  <code>(x2, y2)</code>、<code>(x3, y3)</code>、および <code>(x4, y4)</code>。
 
-  <p>Draws a quadrilateral (four-sided shape).</p>
+  点は時計回りまたは反時計回りの順序で追加する必要があります。</p>
 
-  <p>Quadrilaterals include rectangles, squares, rhombuses, and trapezoids. The
+  <p>12個のパラメータを持つ <code>quad()</code> のバージョンでは、四辺形を3D空間に描画できます。
 
-  first pair of parameters <code>(x1, y1)</code> sets the quad's first point.
-  The next
+  これを行うには、<a href="/reference/p5/createCanvas/">createCanvas()</a> に <code>WEBGL</code> 引数を追加する必要があります。</p>
 
-  three pairs of parameters set the coordinates for its next three points
+  <p>13番目と14番目のパラメータはオプションです。WebGLモードでは、x方向と
 
-  <code>(x2, y2)</code>, <code>(x3, y3)</code>, and <code>(x4, y4)</code>.
-  Points should be added in either
-
-  clockwise or counter-clockwise order.</p>
-
-  <p>The version of <code>quad()</code> with twelve parameters allows the quad
-  to be drawn
-
-  in 3D space. Doing so requires adding the <code>WEBGL</code> argument to
-
-  <a href="/reference/p5/createCanvas/">createCanvas()</a>.</p>
-
-  <p>The thirteenth and fourteenth parameters are optional. In WebGL mode, they
-
-  set the number of segments used to draw the quadrilateral in the x- and
-
-  y-directions. They're both 2 by default.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "x1": "Number: 最初の点の x 座標",
-      "y1": "Number: 最初の点の y 座標",
-      "x2": "Number: 2番目の点の x 座標",
-      "y2": "Number: 2番目の点の y 座標",
-      "x3": "Number: 3番目の点の x 座標",
-      "y3": "Number: 3番目の点の y 座標",
-      "x4": "Number: 4番目の点の x 座標",
-      "y4": "Number: 4番目の点の y 座標",
-      "detailX": "Integer: (オプション) x 方向のセグメントの数",
-      "detailY": "Integer: (オプション) y 方向のセグメントの数",
-      "z1": "Number: 最初の点の z 座標",
-      "z2": "Number: 2番目の点の z 座標",
-      "z3": "Number: 3番目の点の z 座標",
-      "z4": "Number: 4番目の点の z 座標"
-  }
-
-  </pre>
-line: 923
+  y方向に四辺形を描画するために使用されるセグメントの数を設定します。デフォルトでは両方とも2です。</p>
+line: 922
 isConstructor: false
 itemtype: method
 example:
@@ -79,7 +38,7 @@ example:
 
       quad(20, 20, 80, 20, 80, 80, 20, 80);
 
-      describe('A white square with a black outline drawn on a gray canvas.');
+      describe('灰色のキャンバスに黒い輪郭の白い正方形が描かれています。');
     }
     </code>
     </div>
@@ -93,7 +52,7 @@ example:
 
       quad(20, 30, 80, 30, 80, 70, 20, 70);
 
-      describe('A white rectangle with a black outline drawn on a gray canvas.');
+      describe('灰色のキャンバスに黒い輪郭の白い長方形が描かれています。');
     }
     </code>
     </div>
@@ -107,7 +66,7 @@ example:
 
       quad(50, 62, 86, 50, 50, 38, 14, 50);
 
-      describe('A white rhombus with a black outline drawn on a gray canvas.');
+      describe('灰色のキャンバスに黒い輪郭の白い菱形が描かれています。');
     }
     </code>
     </div>
@@ -121,7 +80,7 @@ example:
 
       quad(20, 50, 80, 30, 80, 70, 20, 70);
 
-      describe('A white trapezoid with a black outline drawn on a gray canvas.');
+      describe('灰色のキャンバスに黒い輪郭の白い台形が描かれています。');
     }
     </code>
     </div>
@@ -135,7 +94,7 @@ example:
 
       quad(-30, -30, 30, -30, 30, 30, -30, 30);
 
-      describe('A white square with a black outline drawn on a gray canvas.');
+      describe('灰色のキャンバスに黒い輪郭の白い正方形が描かれています。');
     }
     </code>
     </div>
@@ -145,68 +104,68 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A wavy white surface spins around on gray canvas.');
+      describe('灰色のキャンバスに白い波状の表面が回転しています。');
     }
 
     function draw() {
       background(200);
 
-      // Rotate around the y-axis.
+      // y軸を中心に回転します。
       rotateY(frameCount * 0.01);
 
-      // Draw the quad.
+      // 四辺形を描きます。
       quad(-30, -30, 0, 30, -30, 0, 30, 30, 20, -30, 30, -20);
     }
     </code>
     </div>
 class: p5
 overloads:
-  - line: 923
+  - line: 922
     params:
       - name: x1
         description: |
-          <p>the x-coordinate of the first point.</p>
+          <p>最初の点のx座標。</p>
         type: Number
       - name: y1
         description: |
-          <p>the y-coordinate of the first point.</p>
+          <p>最初の点のy座標。</p>
         type: Number
       - name: x2
         description: |
-          <p>the x-coordinate of the second point.</p>
+          <p>2番目の点のx座標。</p>
         type: Number
       - name: y2
         description: |
-          <p>the y-coordinate of the second point.</p>
+          <p>2番目の点のy座標。</p>
         type: Number
       - name: x3
         description: |
-          <p>the x-coordinate of the third point.</p>
+          <p>3番目の点のx座標。</p>
         type: Number
       - name: y3
         description: |
-          <p>the y-coordinate of the third point.</p>
+          <p>3番目の点のy座標。</p>
         type: Number
       - name: x4
         description: |
-          <p>the x-coordinate of the fourth point.</p>
+          <p>4番目の点のx座標。</p>
         type: Number
       - name: y4
         description: |
-          <p>the y-coordinate of the fourth point.</p>
+          <p>4番目の点のy座標。</p>
         type: Number
       - name: detailX
         description: |
-          <p>number of segments in the x-direction.</p>
+          <p>x方向のセグメント数。</p>
         type: Integer
         optional: true
       - name: detailY
         description: |
-          <p>number of segments in the y-direction.</p>
+          <p>y方向のセグメント数。</p>
         type: Integer
         optional: true
     chainable: 1
-  - line: 1043
+  - line: 1042
     params:
       - name: x1
         description: ''
@@ -216,7 +175,7 @@ overloads:
         type: Number
       - name: z1
         description: |
-          <p>the z-coordinate of the first point.</p>
+          <p>最初の点のz座標。</p>
         type: Number
       - name: x2
         description: ''
@@ -226,7 +185,7 @@ overloads:
         type: Number
       - name: z2
         description: |
-          <p>the z-coordinate of the second point.</p>
+          <p>2番目の点のz座標。</p>
         type: Number
       - name: x3
         description: ''
@@ -236,7 +195,7 @@ overloads:
         type: Number
       - name: z3
         description: |
-          <p>the z-coordinate of the third point.</p>
+          <p>3番目の点のz座標。</p>
         type: Number
       - name: x4
         description: ''
@@ -246,7 +205,7 @@ overloads:
         type: Number
       - name: z4
         description: |
-          <p>the z-coordinate of the fourth point.</p>
+          <p>4番目の点のz座標。</p>
         type: Number
       - name: detailX
         description: ''

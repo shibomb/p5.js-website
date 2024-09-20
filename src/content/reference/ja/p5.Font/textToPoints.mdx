@@ -3,102 +3,26 @@ title: textToPoints
 module: Typography
 submodule: Loading & Displaying
 file: src/typography/p5.Font.js
-description: >-
-  <p>指定されたテキストのパスにしたがって点の配列を計算します。</p>
+description: >
+  <p>テキスト文字列のアウトラインを点の配列として返します。</p>
 
-  <p></p>
+  <p>各点は、<code>x</code>座標、<code>y</code>座標、および文字のインデックスを含むオブジェクトです。</p>
 
-  <p>/// todo ///</p>
+  <p>返される点の数は、<code>sampleFactor</code>パラメータによって制御されます。
+  値が小さいほど、より多くの点が返されます。</p>
 
-  <p>Returns an array of points outlining a string of text written using this <a
-  href="#/p5.Font">p5.Font</a>.</p>
+  <p>オプションのオブジェクトパラメータには、以下のプロパティを含めることができます：</p>
 
-  <p>The first parameter, <code>str</code>, is a string of text. The second and
-  third parameters, <code>x</code> and <code>y</code>, are the text's position.
-  By default, they set the coordinates of the bounding box's bottom-left corner.
-  See <a href="#/p5/textAlign">textAlign()</a> for more ways to align text.</p>
+  <ul>
 
-  <p>The fourth parameter, <code>fontSize</code>, is optional. It sets the
-  text's font size. By default, <code>font.textToPoints()</code> will use the
-  current <a href="#/p5/textSize">textSize()</a>.</p>
+  <li><code>sampleFactor</code>：カーブのサンプリング密度を設定します。デフォルトは0.1です。</li>
 
-  <p>The fifth parameter, <code>options</code>, is also optional.
-  <code>font.textToPoints()</code> expects an object with the following
-  properties:</p>
+  <li><code>simplifyThreshold</code>：単純化のしきい値（0-1）を設定します。デフォルトは0です。</li>
 
-  <p><code>sampleFactor</code> is the ratio of the text's path length to the
-  number of samples. It defaults to 0.1. Higher values produce more points along
-  the path and are more precise.</p>
+  </ul>
 
-  <p><code>simplifyThreshold</code> removes collinear points if it's set to a
-  number other than 0. The value represents the threshold angle to use when
-  determining whether two edges are collinear.</p>
-
-
-  <hr/>
-
-  <p>Returns an array of points outlining a string of text written using the
-
-  font.</p>
-
-  <p>Each point object in the array has three properties that describe the
-
-  point's location and orientation, called its path angle. For example,
-
-  <code>{ x: 10, y: 20, alpha: 450 }</code>.</p>
-
-  <p>The first parameter, <code>str</code>, is a string of text. The second and
-  third
-
-  parameters, <code>x</code> and <code>y</code>, are the text's position. By
-  default, they set the
-
-  coordinates of the bounding box's bottom-left corner. See
-
-  <a href="/reference/p5/textAlign/">textAlign()</a> for more ways to align
-  text.</p>
-
-  <p>The fourth parameter, <code>fontSize</code>, is optional. It sets the
-  text's font
-
-  size. By default, <code>font.textToPoints()</code> will use the current
-
-  <a href="/reference/p5/textSize/">textSize()</a>.</p>
-
-  <p>The fifth parameter, <code>options</code>, is also optional.
-  <code>font.textToPoints()</code>
-
-  expects an object with the following properties:</p>
-
-  <p><code>sampleFactor</code> is the ratio of the text's path length to the
-  number of
-
-  samples. It defaults to 0.1. Higher values produce more points along the
-
-  path and are more precise.</p>
-
-  <p><code>simplifyThreshold</code> removes collinear points if it's set to a
-  number other
-
-  than 0. The value represents the threshold angle to use when determining
-
-  whether two edges are collinear.</p>
-
-
-  <pre>
-
-  todo: param str not found in ja-legacy:
-
-  {
-      "txt": "String: テキストの行",
-      "x": "Number: テキストの x 座標",
-      "y": "Number: テキストの y 座標",
-      "fontSize": "Number: (Optional) font size. Defaults to the current  <a href=\"#/p5/textSize\">textSize()</a>. /// todo /// Number: 使用するフォントサイズ (オプション) ",
-      "options": "Object: (Optional) object with sampleFactor and simplifyThreshold  properties. /// todo /// オブジェクト: (オプション) サンプルファクター - パスの長さとサンプル数の比率（デフォルト=.1）; 大きい値はより多くの点を生成し、より正確です simplifyThreshold - 非ゼロの値に設定する場合、共線性のあるポイントはポリゴンから削除されます。2つのエッジが共線であるかどうかを判断するときに使用する閾値角度を表します"
-  }
-
-  </pre>
-line: 279
+  <p>テキストのアウトラインを描画したり、テキストに基づいてアニメーションを作成したりするのに便利です。</p>
+line: 261
 isConstructor: false
 itemtype: method
 example:
@@ -106,26 +30,32 @@ example:
 
     <div>
     <code>
-    let font;
+    let myFont;
+    let points;
 
     function preload() {
-      font = loadFont('/assets/inconsolata.otf');
+      myFont = loadFont('/assets/inconsolata.otf');
     }
 
     function setup() {
       createCanvas(100, 100);
-
       background(200);
 
-      // Get the point array.
-      let points = font.textToPoints('p5*js', 6, 60, 35, { sampleFactor:  0.5 });
+      points = myFont.textToPoints('p5', 10, 60, 50, {
+        sampleFactor: 0.1,
+        simplifyThreshold: 0,
+      });
 
-      // Draw a dot at each point.
-      for (let p of points) {
-        point(p.x, p.y);
+      noFill();
+      stroke(0);
+      beginShape();
+      for (let i = 0; i < points.length; i++) {
+        let p = points[i];
+        vertex(p.x, p.y);
       }
+      endShape();
 
-      describe('A set of black dots outlining the text "p5*js" on a gray background.');
+      describe('灰色の背景に「p5」という文字のアウトラインが黒い点で描かれています。');
     }
     </code>
     </div>
@@ -133,48 +63,29 @@ class: p5.Font
 params:
   - name: str
     description: |
-      <p>string of text.</p>
+      <p>点に変換するテキスト文字列。</p>
     type: String
   - name: x
     description: |
-      <p>テキストの x 座標</p>
-      <p>x-coordinate of the text.</p>
+      <p>テキストのx位置。</p>
     type: Number
   - name: 'y'
     description: |
-      <p>テキストの y 座標</p>
-      <p>y-coordinate of the text.</p>
+      <p>テキストのy位置。</p>
     type: Number
   - name: fontSize
-    description: >
-      <p>(Optional) font size. Defaults to the current  <a
-      href="#/p5/textSize">textSize()</a>. /// todo /// Number: 使用するフォントサイズ
-      (オプション) </p>
-
-      <p>font size. Defaults to the current
-                                  <a href="#/p5/textSize">textSize()</a>.</p>
+    description: |
+      <p>テキストのフォントサイズ。</p>
     type: Number
-    optional: true
   - name: options
-    description: >
-      <p>(Optional) object with sampleFactor and simplifyThreshold  properties.
-      /// todo /// オブジェクト: (オプション) サンプルファクター - パスの長さとサンプル数の比率（デフォルト=.1）;
-      大きい値はより多くの点を生成し、より正確です simplifyThreshold -
-      非ゼロの値に設定する場合、共線性のあるポイントはポリゴンから削除されます。2つのエッジが共線であるかどうかを判断するときに使用する閾値角度を表します</p>
-
-      <p>object with sampleFactor and simplifyThreshold
-                                  properties.</p>
+    description: |
+      <p>追加のオプションを含むオブジェクト。</p>
     type: Object
     optional: true
 return:
-  description: >-
-    array of point objects, each with x, y, and alpha (path angle) properties.
-    /// todo /// Array:  x、y、alpha（パスの角度）をもつ各ポイントの配列
-
-    array of point objects, each with x, y, and alpha (path angle) properties.
+  description: テキストのアウトラインを表す点の配列。
   type: Array
 chainable: false
 ---
-
 
 # textToPoints

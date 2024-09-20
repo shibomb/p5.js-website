@@ -4,10 +4,6 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
-  <p>MonoSynth のボリュームを設定します。</p>
-  <p></p>
-
-  <hr/>
   <p>MonoSynth amp</p>
 line: 11544
 isConstructor: false
@@ -16,19 +12,15 @@ class: p5.MonoSynth
 params:
   - name: vol
     description: |
-      <p>設定するボリューム</p>
       <p>desired volume</p>
     type: Number
   - name: rampTime
     description: |
-      <p>(オプション) 新しいボリュームに到達するまでの時間</p>
       <p>Time to reach new volume</p>
     type: Number
     optional: true
 return:
-  description: |-
-    新しいボリューム値
-    new volume value
+  description: new volume value
   type: Number
 chainable: false
 ---

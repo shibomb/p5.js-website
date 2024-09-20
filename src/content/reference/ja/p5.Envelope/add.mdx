@@ -4,10 +4,6 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
-  <p>p5.Oscillator の出力振幅に値を追加し、Oscillator を返します。</p>
-  <p>このメソッドを再度呼び出すと、最初の add() が新しい値で上書きされます。</p>
-
-  <hr/>
   <p>Add a value to the p5.Oscillator's output amplitude,
   and return the oscillator. Calling this method
   again will override the initial add() with new values.</p>
@@ -18,12 +14,10 @@ class: p5.Envelope
 params:
   - name: number
     description: |
-      <p>追加する定数</p>
       <p>Constant number to add</p>
     type: Number
 return:
   description: |-
-    スケーリングされた出力をもつ Envelope を返します。
     Envelope Returns this envelope
                                        with scaled output
   type: p5.Envelope

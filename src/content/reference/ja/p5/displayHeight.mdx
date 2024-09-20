@@ -4,53 +4,32 @@ module: Environment
 submodule: Environment
 file: src/core/environment.js
 description: >
-  <p>デフォルトの <a href="#/p5/pixelDensity">pixelDensity</a>
-  にしたがって画面表示の高さを保存するシステム変数です。</p>
+  <p><code>Number</code>型の変数で、画面ディスプレイの高さを格納します。</p>
 
-  <p>これは、任意の表示サイズでフルスクリーンプログラムを実行するために使用されます。実際の画面サイズを返すには、これに pixelDensity
-  を掛けます。</p>
+  <p><code>displayHeight</code>はフルスクリーンプログラムの実行に便利です。その値は
 
-  <p>/// todo ///</p>
+  現在の<a href="/reference/p5/pixelDensity/">pixelDensity()</a>に依存します。</p>
 
-  <p>A numeric variable that stores the height of the screen display. Its value
-  depends on the current <a href="#/p5/pixelDensity">pixelDensity()</a>.
-  <code>displayHeight</code> is useful for running full-screen programs.</p>
+  <p>注意：実際の画面の高さは
 
-  <p>Note: The actual screen height can be computed as <code>displayHeight *
-  pixelDensity()</code>.</p>
-
-
-  <hr/>
-
-  <p>A <code>Number</code> variable that stores the height of the screen
-  display.</p>
-
-  <p><code>displayHeight</code> is useful for running full-screen programs. Its
-  value
-
-  depends on the current <a
-  href="/reference/p5/pixelDensity/">pixelDensity()</a>.</p>
-
-  <p>Note: The actual screen height can be computed as
-
-  <code>displayHeight * pixelDensity()</code>.</p>
+  <code>displayHeight * pixelDensity()</code>として計算できます。</p>
 line: 621
 isConstructor: false
 itemtype: property
-alt: This example does not render anything.
+alt: この例は何も描画しません。
 example:
   - |-
 
     <div class="norender">
     <code>
     function setup() {
-      // Set the canvas' width and height
-      // using the display's dimensions.
+      // キャンバスの幅と高さを
+      // ディスプレイの寸法を使用して設定します。
       createCanvas(displayWidth, displayHeight);
 
       background(200);
 
-      describe('A gray canvas that is the same size as the display.');
+      describe('ディスプレイと同じサイズのグレーのキャンバス。');
     }
     </code>
     </div>
@@ -60,3 +39,4 @@ type: Number
 
 
 # displayHeight
+

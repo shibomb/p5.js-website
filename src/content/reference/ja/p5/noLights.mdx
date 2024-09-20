@@ -4,35 +4,21 @@ module: 3D
 submodule: Lights
 file: src/webgl/light.js
 description: >
-  <p>スケッチ内のすべての光を取り除きます。</p>
+  <p>スケッチからすべてのライトを削除します。</p>
 
-  <p></p>
+  <p><code>noLights()</code>を呼び出すと、
 
-  <p>その後のジオメトリは、新しい光が照明関数(<a href="#/p5/lights">lights()</a>、<a
-  href="#/p5/ambientLight">ambientLight()</a>、<a
-  href="#/p5/directionalLight">directionalLight()</a>、<a
-  href="#/p5/pointLight">pointLight()</a>、<a
-  href="#/p5/spotLight">spotLight()</a> など)で作成されるまで、照明なしでレンダリングされます。</p>
+  <a href="/reference/p5/lights/">lights()</a>、
 
+  <a href="/reference/p5/ambientLight/">ambientLight()</a>、
 
-  <hr/>
+  <a href="/reference/p5/directionalLight/">directionalLight()</a>、
 
-  <p>Removes all lights from the sketch.</p>
+  <a href="/reference/p5/pointLight/">pointLight()</a>、または
 
-  <p>Calling <code>noLights()</code> removes any lights created with
+  <a href="/reference/p5/spotLight/">spotLight()</a>で作成されたすべてのライトが削除されます。
 
-  <a href="/reference/p5/lights/">lights()</a>,
-
-  <a href="/reference/p5/ambientLight/">ambientLight()</a>,
-
-  <a href="/reference/p5/directionalLight/">directionalLight()</a>,
-
-  <a href="/reference/p5/pointLight/">pointLight()</a>, or
-
-  <a href="/reference/p5/spotLight/">spotLight()</a>. These functions may be
-  called
-
-  after <code>noLights()</code> to create a new lighting scheme.</p>
+  これらの関数は<code>noLights()</code>の後に呼び出して、新しい照明スキームを作成することができます。</p>
 line: 1686
 isConstructor: false
 itemtype: method
@@ -41,39 +27,39 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // クリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('Two spheres drawn against a gray background. The top sphere is white and the bottom sphere is red.');
+      describe('灰色の背景に描かれた2つの球体。上の球体は白で、下の球体は赤です。');
     }
 
     function draw() {
       background(50);
 
-      // Enable orbiting with the mouse.
+      // マウスで軌道制御を有効にします。
       orbitControl();
 
-      // Turn on the lights.
+      // ライトをオンにします。
       lights();
 
-      // Style the spheres.
+      // 球体のスタイルを設定します。
       noStroke();
 
-      // Draw the top sphere.
+      // 上の球体を描画します。
       push();
       translate(0, -25, 0);
       sphere(20);
       pop();
 
-      // Turn off the lights.
+      // ライトをオフにします。
       noLights();
 
-      // Add a red directional light that points into the screen.
+      // 画面内を指す赤い指向性ライトを追加します。
       directionalLight(255, 0, 0, 0, 0, -1);
 
-      // Draw the bottom sphere.
+      // 下の球体を描画します。
       push();
       translate(0, 25, 0);
       sphere(20);
@@ -87,3 +73,4 @@ chainable: true
 
 
 # noLights
+

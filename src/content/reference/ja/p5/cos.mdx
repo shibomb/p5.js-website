@@ -4,21 +4,6 @@ module: Math
 submodule: Trigonometry
 file: src/math/trigonometry.js
 description: >
-  <p>角度の余弦を計算します。</p>
-
-  <p>この関数は、現在の <a href="#/p5/angleMode">angleMode</a>
-  を考慮しています。値は、-1から1の範囲で返されます。</p>
-
-  <p>/// todo ///</p>
-
-  <p>Calculates the cosine of an angle. <code>cos()</code> is useful for many
-  geometric tasks in creative coding. The values returned oscillate between -1
-  and 1 as the input angle increases. <code>cos()</code> takes into account the
-  current <a href="#/p5/angleMode">angleMode</a>.</p>
-
-
-  <hr/>
-
   <p>Calculates the cosine of an angle.</p>
 
   <p><code>cos()</code> is useful for many geometric tasks in creative coding.
@@ -102,13 +87,10 @@ class: p5
 params:
   - name: angle
     description: |
-      <p>角度</p>
       <p>the angle.</p>
     type: Number
 return:
-  description: |-
-    角度の余弦
-    cosine of the angle.
+  description: cosine of the angle.
   type: Number
 chainable: false
 ---

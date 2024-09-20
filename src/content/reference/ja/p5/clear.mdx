@@ -4,43 +4,17 @@ module: Color
 submodule: Setting
 file: src/color/setting.js
 description: >
-  <p>キャンバス上のピクセルをクリアします。</p>
+  <p>キャンバスをクリアします。
+  この関数は、キャンバス上のピクセルデータを
 
-  <p>この関数はすべてのピクセルを100%透明にします。<code>clear()</code>を呼び出しても、<a
-  href="#/p5/createGraphics">createGraphics()</a>、<a
-  href="#/p5/createVideo">createVideo()</a>、<a
-  href="#/p5/createImg">createImg()</a>などの<code>createX()</code>関数によって作成されたオブジェクトはクリアされません。これらのオブジェクトはclear()を呼び出した後も変更されず、再描画することができます。</p>
+  クリアします。</p>
 
-  <p>WebGL モードでは、この関数を使って画面を特定の色にクリアすることもできます。4つの数値パラメーターを正規化された RGBA
-  カラー値として解釈します。また、深度バッファもクリアします。もし WebGL
-  レンダラを使用していなければ、これらのパラメーターは影響を及ぼしません。</p>
+  <p>デフォルトでは、<code>clear()</code>はキャンバスを完全に透明にします。</p>
 
+  <p>オプションのパラメータを使用して、キャンバスを特定の色や透明度にクリアすることができます。
 
-  <hr/>
-
-  <p>Clears the pixels on the canvas.</p>
-
-  <p><code>clear()</code> makes every pixel 100% transparent. Calling
-  <code>clear()</code> doesn't
-
-  clear objects created by <code>createX()</code> functions such as
-
-  <a href="/reference/p5/createGraphics/">createGraphics()</a>,
-
-  <a href="/reference/p5/createVideo/">createVideo()</a>, and
-
-  <a href="/reference/p5/createImg/">createImg()</a>. These objects will remain
-
-  unchanged after calling <code>clear()</code> and can be redrawn.</p>
-
-  <p>In WebGL mode, this function can clear the screen to a specific color. It
-
-  interprets four numeric parameters as normalized RGBA color values. It also
-
-  clears the depth buffer. If you are not using the WebGL renderer, these
-
-  parameters will have no effect.</p>
-line: 655
+  パラメータは<a href="/reference/p5/background">background()</a>と同じ方法で解釈されます。</p>
+line: '1037'
 isConstructor: false
 itemtype: method
 example:
@@ -50,74 +24,67 @@ example:
     <code>
     function setup() {
       createCanvas(100, 100);
-
-      background(200);
-
-      describe('A gray square. White circles are drawn as the user moves the mouse. The circles disappear when the user presses the mouse.');
     }
 
     function draw() {
-      circle(mouseX, mouseY, 20);
-    }
+      background(220);
+      ellipse(50, 50, 20);
 
-    function mousePressed() {
-      clear();
-      background(200);
+      // 1秒ごとにキャンバスをクリア
+      if (frameCount % 60 === 0) {
+        clear();
+      }
+
+      describe('灰色の背景に黒い円が描かれ、1秒ごとに消えます。');
     }
     </code>
     </div>
 
     <div>
     <code>
-    let pg;
-
     function setup() {
       createCanvas(100, 100);
-      background(200);
-
-      pg = createGraphics(60, 60);
-      pg.background(200);
-      pg.noStroke();
-      pg.circle(pg.width / 2, pg.height / 2, 15);
-      image(pg, 20, 20);
-
-      describe('A white circle drawn on a gray square. The square gets smaller when the mouse is pressed.');
     }
 
-    function mousePressed() {
-      clear();
-      image(pg, 20, 20);
+    function draw() {
+      background(220);
+      ellipse(50, 50, 20);
+
+      // 1秒ごとにキャンバスを半透明の赤でクリア
+      if (frameCount % 60 === 0) {
+        clear(255, 0, 0, 100);
+      }
+
+      describe('灰色の背景に黒い円が描かれ、1秒ごとに半透明の赤で覆われます。');
     }
     </code>
     </div>
 class: p5
-params:
-  - name: r
-    description: |
-      <p>正規化された赤の値。</p>
-      <p>normalized red value.</p>
-    type: Number
-    optional: true
-  - name: g
-    description: |
-      <p>正規化された緑の値。</p>
-      <p>normalized green value.</p>
-    type: Number
-    optional: true
-  - name: b
-    description: |
-      <p>正規化された青の値。</p>
-      <p>normalized blue value.</p>
-    type: Number
-    optional: true
-  - name: a
-    description: |
-      <p>正規化されたアルファの値。</p>
-      <p>normalized alpha value.</p>
-    type: Number
-    optional: true
+overloads:
+  - line: '1037'
+    params:
+      - name: r
+        description: |
+          <p>赤の値</p>
+        type: Number
+        optional: true
+      - name: g
+        description: |
+          <p>緑の値</p>
+        type: Number
+        optional: true
+      - name: b
+        description: |
+          <p>青の値</p>
+        type: Number
+        optional: true
+      - name: a
+        description: |
+          <p>アルファ値</p>
+        type: Number
+        optional: true
+    chainable: 1
 chainable: true
 ---
-
 
 # clear

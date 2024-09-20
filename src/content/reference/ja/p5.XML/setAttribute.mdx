@@ -4,13 +4,6 @@ module: IO
 submodule: Input
 file: src/io/p5.XML.js
 description: >
-  <p>要素の属性の内容を設定します。</p>
-
-  <p>最初のパラメーターは属性名を指定し、2番目のパラメーターは新しい内容を指定します。</p>
-
-
-  <hr/>
-
   <p>Sets an attribute to a given value.</p>
 
   <p>The first parameter, <code>name</code>, is a string with the name of the
@@ -75,12 +68,10 @@ class: p5.XML
 params:
   - name: name
     description: |
-      <p>属性のフルネーム</p>
       <p>name of the attribute to be set.</p>
     type: String
   - name: value
     description: |
-      <p>属性の値</p>
       <p>attribute's new value.</p>
     type: Number|String|Boolean
 chainable: false

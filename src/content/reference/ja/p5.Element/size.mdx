@@ -3,14 +3,7 @@ title: size
 module: DOM
 submodule: DOM
 file: src/dom/dom.js
-description: >-
-  <p>要素の幅と高さを設定します。</p>
-
-  <p>AUTO
-  を使用して、一度にひとつの次元だけを調整することもできます。引数が与えられない場合、オブジェクトで要素の幅と高さを返します。画像など、読み込む必要のある要素の場合は、要素の読み込みが完了した後に関数を呼び出すことをお勧めします。</p>
-
-  <hr/>
-
+description: >
   <p>Sets the element's width and height.</p>
 
   <p>Calling <code>myElement.size()</code> without an argument returns the
@@ -46,19 +39,7 @@ description: >-
   <p>Note: In the case of elements that need to load data, such as images, wait
 
   to call <code>myElement.size()</code> until after the data loads.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "w": "Number|Constant: 要素の幅で、AUTO または数値",
-      "h": "Number|Constant: (オプション) 要素の高さで、AUTO または数値"
-  }
-
-  </pre>
-line: 3543
+line: 3544
 isConstructor: false
 itemtype: method
 example:
@@ -151,17 +132,15 @@ example:
     </div>
 class: p5.Element
 return:
-  description: |-
-    オブジェクト内の要素の幅と高さ
-    width and height of the element in an object.
+  description: width and height of the element in an object.
   type: Object
 overloads:
-  - line: 3543
+  - line: 3544
     params: []
     return:
       description: width and height of the element in an object.
       type: Object
-  - line: 3657
+  - line: 3658
     params:
       - name: w
         description: |

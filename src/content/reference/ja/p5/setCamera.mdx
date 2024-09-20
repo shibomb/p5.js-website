@@ -4,21 +4,12 @@ module: 3D
 submodule: Camera
 file: src/webgl/p5.Camera.js
 description: >
-  <p>3D スケッチの現在の(アクティブな)カメラを設定します。</p>
+  <p>3Dスケッチの現在の（アクティブな）カメラを設定します。</p>
 
-  <p>複数のカメラ間を切り替えることができます。</p>
+  <p><code>setCamera()</code>は、<a href="/reference/p5/createCamera/">createCamera()</a>で作成された
+  複数のカメラ間で切り替えることができます。</p>
 
-
-  <hr/>
-
-  <p>Sets the current (active) camera of a 3D sketch.</p>
-
-  <p><code>setCamera()</code> allows for switching between multiple cameras
-  created with
-
-  <a href="/reference/p5/createCamera/">createCamera()</a>.</p>
-
-  <p>Note: <code>setCamera()</code> can only be used in WebGL mode.</p>
+  <p>注意：<code>setCamera()</code>はWebGLモードでのみ使用できます。</p>
 line: 3887
 isConstructor: false
 itemtype: method
@@ -27,7 +18,7 @@ example:
 
     <div>
     <code>
-    // Double-click to toggle between cameras.
+    // ダブルクリックでカメラを切り替えます。
 
     let cam1;
     let cam2;
@@ -36,31 +27,31 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create the first camera.
-      // Keep its default settings.
+      // 最初のカメラを作成します。
+      // デフォルト設定のままにします。
       cam1 = createCamera();
 
-      // Create the second camera.
-      // Place it at the top-left.
-      // Point it at the origin.
+      // 2番目のカメラを作成します。
+      // 左上に配置します。
+      // 原点を向くようにします。
       cam2 = createCamera();
       cam2.setPosition(400, -400, 800);
       cam2.lookAt(0, 0, 0);
 
-      // Set the current camera to cam1.
+      // 現在のカメラをcam1に設定します。
       setCamera(cam1);
 
-      describe('A white cube on a gray background. The camera toggles between frontal and aerial views when the user double-clicks.');
+      describe('グレーの背景に白い立方体。ユーザーがダブルクリックすると、カメラが正面図と俯瞰図の間で切り替わります。');
     }
 
     function draw() {
       background(200);
 
-      // Draw the box.
+      // 箱を描画します。
       box();
     }
 
-    // Toggle the current camera when the user double-clicks.
+    // ユーザーがダブルクリックしたときに現在のカメラを切り替えます。
     function doubleClicked() {
       if (usingCam1 === true) {
         setCamera(cam2);
@@ -76,11 +67,11 @@ class: p5
 params:
   - name: cam
     description: |
-      <p>p5.Camera オブジェクト</p>
-      <p>camera that should be made active.</p>
+      <p>アクティブにすべきカメラ。</p>
     type: p5.Camera
 chainable: false
 ---
 
 
 # setCamera
+

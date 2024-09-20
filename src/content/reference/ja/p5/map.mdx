@@ -4,25 +4,6 @@ module: Math
 submodule: Calculation
 file: src/math/calculation.js
 description: >
-  <p>ある範囲の数値を別の範囲に再マップします。</p>
-
-  <p></p>
-
-  <p>最初の例では、数値25が、0から100の範囲の値から、ウィンドウの左端(0)から右端(width)までの範囲の値に変換されます。</p>
-
-  <p>/// todo ///</p>
-
-  <p>Re-maps a number from one range to another.</p>
-
-  <p>For example, calling <code>map(2, 0, 10, 0, 100)</code> returns 20. The
-  first three arguments set the original value to 2 and the original range from
-  0 to 10. The last two arguments set the target range from 0 to 100. 20's
-  position in the target range [0, 100] is proportional to 2's position in the
-  original range [0, 10].</p>
-
-
-  <hr/>
-
   <p>Re-maps a number from one range to another.</p>
 
   <p>For example, calling <code>map(2, 0, 10, 0, 100)</code> returns 20. The
@@ -102,39 +83,31 @@ class: p5
 params:
   - name: value
     description: |
-      <p>変換される入力値</p>
       <p>the value to be remapped.</p>
     type: Number
   - name: start1
     description: |
-      <p>値の現在の範囲の下限</p>
       <p>lower bound of the value's current range.</p>
     type: Number
   - name: stop1
     description: |
-      <p>値の現在の範囲の上限</p>
       <p>upper bound of the value's current range.</p>
     type: Number
   - name: start2
     description: |
-      <p>値の目標範囲の下限</p>
       <p>lower bound of the value's target range.</p>
     type: Number
   - name: stop2
     description: |
-      <p>値の目標範囲の上限</p>
       <p>upper bound of the value's target range.</p>
     type: Number
   - name: withinBounds
     description: |
-      <p>(オプション) 値を新しくマップされた範囲に制約します。</p>
       <p>constrain the value to the newly mapped range.</p>
     type: Boolean
     optional: true
 return:
-  description: |-
-    再マップされた数値
-    remapped number.
+  description: remapped number.
   type: Number
 chainable: false
 ---

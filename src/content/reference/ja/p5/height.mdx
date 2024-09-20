@@ -4,40 +4,18 @@ module: Environment
 submodule: Environment
 file: src/core/environment.js
 description: >
-  <p>描画キャンバスの高さを保存するシステム変数です。</p>
+  <p>キャンバスの高さをピクセル単位で格納する<code>Number</code>変数です。</p>
 
-  <p><a href="#/p5/createCanvas">createCanvas()</a>
-  関数の2番目のパラメーターによってこの値が設定されます。たとえば、関数呼び出し createCanvas(320, 240)は、height
-  変数の値を240に設定します。<a href="#/p5/createCanvas">createCanvas()</a>
-  がプログラム内で使用されていない場合、height の値はデフォルトで100になります。</p>
+  <p><code>height</code>のデフォルト値は100です。
 
-  <p>/// todo ///</p>
+  <a href="/reference/p5/createCanvas/">createCanvas()</a>または
 
-  <p>A numeric variable that stores the height of the drawing canvas. Its
-  default value is 100.</p>
+  <a href="/reference/p5/resizeCanvas/">resizeCanvas()</a>を呼び出すと
 
-  <p>Calling <a href="#/p5/createCanvas">createCanvas()</a> or <a
-  href="#/p5/resizeCanvas">resizeCanvas()</a> changes the value of
-  <code>height</code>. Calling <a href="#/p5/noCanvas">noCanvas()</a> sets its
-  value to 0.</p>
+  <code>height</code>の値が変更されます。<a href="/reference/p5/noCanvas/">noCanvas()</a>を呼び出すと
 
-
-  <hr/>
-
-  <p>A <code>Number</code> variable that stores the height of the canvas in
-  pixels.</p>
-
-  <p><code>height</code>'s default value is 100. Calling
-
-  <a href="/reference/p5/createCanvas/">createCanvas()</a> or
-
-  <a href="/reference/p5/resizeCanvas/">resizeCanvas()</a> changes the value of
-
-  <code>height</code>. Calling <a href="/reference/p5/noCanvas/">noCanvas()</a>
-  sets its value to
-
-  0.</p>
-line: 872
+  その値が0に設定されます。</p>
+line: 881
 isConstructor: false
 itemtype: property
 example:
@@ -48,10 +26,10 @@ example:
     function setup() {
       background(200);
 
-      // Display the canvas' height.
+      // キャンバスの高さを表示します。
       text(height, 42, 54);
 
-      describe('The number 100 written in black on a gray square.');
+      describe('灰色の正方形の上に黒で書かれた数字100。');
     }
     </code>
     </div>
@@ -63,10 +41,10 @@ example:
 
       background(200);
 
-      // Display the canvas' height.
+      // キャンバスの高さを表示します。
       text(height, 42, 27);
 
-      describe('The number 50 written in black on a gray rectangle.');
+      describe('灰色の長方形の上に黒で書かれた数字50。');
     }
     </code>
     </div>
@@ -78,15 +56,14 @@ example:
 
       background(200);
 
-      // Display the canvas' height.
+      // キャンバスの高さを表示します。
       text(height, 42, 54);
 
-      describe('The number 100 written in black on a gray square. When the mouse is pressed, the square becomes a rectangle and the number becomes 50.');
+      describe('灰色の正方形の上に黒で書かれた数字100。マウスが押されると、正方形が長方形になり、数字が50になります。');
     }
 
-    // If the mouse is pressed, reisze
-    // the canvas and display its new
-    // height.
+    // マウスが押された場合、キャンバスのサイズを
+    // 変更し、新しい高さを表示します。
     function mousePressed() {
       if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
         resizeCanvas(100, 50);
@@ -102,3 +79,4 @@ type: Number
 
 
 # height
+

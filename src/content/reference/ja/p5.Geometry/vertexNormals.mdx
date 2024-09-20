@@ -4,22 +4,21 @@ module: Shape
 submodule: 3D Primitives
 file: src/webgl/p5.Geometry.js
 description: >
-  <p>An array with the vectors that are normal to the geometry's vertices.</p>
+  <p>ジオメトリの頂点に対して法線となるベクトルの配列。</p>
 
-  <p>A face's orientation is defined by its <em>normal vector</em> which points
-  out
+  <p>面の向きは、その<em>法線ベクトル</em>によって定義されます。法線ベクトルは
 
-  of the face and is normal (perpendicular) to the surface. Calling
+  面から外側に向かって指し、表面に対して垂直（法線）です。
 
-  <code>myGeometry.computeNormals()</code> first calculates each face's normal
+  <code>myGeometry.computeNormals()</code>を呼び出すと、まず各面の法線
 
-  vector. Then it calculates the normal vector for each vertex by
+  ベクトルを計算します。次に、各頂点の周囲の面の法線ベクトルを
 
-  averaging the normal vectors of the faces surrounding the vertex. The
+  平均化することで、各頂点の法線ベクトルを計算します。
 
-  vertex normals are stored as <a href="/reference/p5/p5.Vector/">p5.Vector</a>
+  頂点法線は<code>myGeometry.vertexNormals</code>配列に
 
-  objects in the <code>myGeometry.vertexNormals</code> array.</p>
+  <a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトとして格納されます。</p>
 line: 375
 isConstructor: false
 itemtype: property
@@ -28,60 +27,60 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     let myGeometry;
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Geometry object.
+      // p5.Geometryオブジェクトを作成します。
       beginGeometry();
       torus(30, 15, 10, 8);
       myGeometry = endGeometry();
 
-      // Compute the vertex normals.
+      // 頂点法線を計算します。
       myGeometry.computeNormals();
 
       describe(
-        'A white torus rotates against a dark gray background. Red lines extend outward from its vertices.'
+        '白いトーラスが暗灰色の背景に対して回転します。赤い線がその頂点から外側に伸びています。'
       );
     }
 
     function draw() {
       background(50);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Turn on the lights.
+      // ライトをオンにします。
       lights();
 
-      // Rotate the coordinate system.
+      // 座標系を回転させます。
       rotateY(frameCount * 0.01);
 
-      // Style the p5.Geometry object.
+      // p5.Geometryオブジェクトのスタイルを設定します。
       stroke(0);
 
-      // Display the p5.Geometry object.
+      // p5.Geometryオブジェクトを表示します。
       model(myGeometry);
 
-      // Style the normal vectors.
+      // 法線ベクトルのスタイルを設定します。
       stroke(255, 0, 0);
 
-      // Iterate over the vertices and vertexNormals arrays.
+      // verticesとvertexNormals配列をイテレートします。
       for (let i = 0; i < myGeometry.vertices.length; i += 1) {
 
-        // Get the vertex p5.Vector object.
+        // 頂点のp5.Vectorオブジェクトを取得します。
         let v = myGeometry.vertices[i];
 
-        // Get the vertex normal p5.Vector object.
+        // 頂点法線のp5.Vectorオブジェクトを取得します。
         let n = myGeometry.vertexNormals[i];
 
-        // Calculate a point along the vertex normal.
+        // 頂点法線に沿った点を計算します。
         let p = p5.Vector.mult(n, 8);
 
-        // Draw the vertex normal as a red line.
+        // 頂点法線を赤い線として描画します。
         push();
         translate(v);
         line(0, 0, 0, p.x, p.y, p.z);
@@ -93,48 +92,48 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     let myGeometry;
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Geometry object.
+      // p5.Geometryオブジェクトを作成します。
       myGeometry = new p5.Geometry();
 
-      // Create p5.Vector objects to position the vertices.
+      // 頂点の位置を決めるp5.Vectorオブジェクトを作成します。
       let v0 = createVector(-40, 0, 0);
       let v1 = createVector(0, -40, 0);
       let v2 = createVector(0, 40, 0);
       let v3 = createVector(40, 0, 0);
 
-      // Add the vertices to the p5.Geometry object's vertices array.
+      // 頂点をp5.Geometryオブジェクトのvertices配列に追加します。
       myGeometry.vertices.push(v0, v1, v2, v3);
 
-      // Compute the faces array.
+      // faces配列を計算します。
       myGeometry.computeFaces();
 
-      // Compute the surface normals.
+      // 表面法線を計算します。
       myGeometry.computeNormals();
 
-      describe('A red square drawn on a gray background.');
+      describe('灰色の背景に描かれた赤い四角形。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Add a white point light.
+      // 白い点光源を追加します。
       pointLight(255, 255, 255, 0, 0, 10);
 
-      // Style the p5.Geometry object.
+      // p5.Geometryオブジェクトのスタイルを設定します。
       noStroke();
       fill(255, 0, 0);
 
-      // Display the p5.Geometry object.
+      // p5.Geometryオブジェクトを表示します。
       model(myGeometry);
     }
     </code>
@@ -144,3 +143,4 @@ class: p5.Geometry
 
 
 # vertexNormals
+

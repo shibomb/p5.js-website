@@ -4,30 +4,16 @@ module: Color
 submodule: Creating & Reading
 file: src/color/p5.Color.js
 description: >
-  <p>色を文字列としてフォーマットして返します。</p>
+  <p>色を<code>String</code>としてフォーマットして返します。</p>
 
-  <p>これはデバッグに役立つことがあります。また、p5.js を他のライブラリと一緒に使用する場合にも役立ちます。</p>
+  <p><code>myColor.toString()</code>を呼び出すことは、
+  <code>print(myColor.toString())</code>のようにデバッグに役立ちます。
+  また、p5.jsを他のライブラリと一緒に使用する際にも便利です。</p>
 
-
-  <hr/>
-
-  <p>Returns the color formatted as a <code>String</code>.</p>
-
-  <p>Calling <code>myColor.toString()</code> can be useful for debugging, as in
-
-  <code>print(myColor.toString())</code>. It's also helpful for using p5.js with
-  other
-
-  libraries.</p>
-
-  <p>The parameter, <code>format</code>, is optional. If a format string is
-  passed, as in
-
-  <code>myColor.toString('#rrggbb')</code>, it will determine how the color
-  string is
-
-  formatted. By default, color strings are formatted as <code>'rgba(r, g, b,
-  a)'</code>.</p>
+  <p>パラメータ<code>format</code>はオプションです。フォーマット文字列が渡された場合
+  （<code>myColor.toString('#rrggbb')</code>のように）、
+  色文字列のフォーマット方法が決定されます。デフォルトでは、色文字列は
+  <code>'rgba(r, g, b, a)'</code>としてフォーマットされます。</p>
 line: 362
 isConstructor: false
 itemtype: method
@@ -35,32 +21,22 @@ class: p5.Color
 params:
   - name: format
     description: >
-      <p>(オプション) カラー文字列の書式設定方法。空白にすると、rgba(r、g、b、a)として文字列をフォーマットします。 '#rgb'、
-      '#rgba'、 '#rrggbb'、および'#rrggbbaa'は16進数のカラーコードとしてフォーマットされます。 'rgb'、
-      'hsb'、および'hsl'は、指定されたカラーモードでフォーマットされたカラーを返します。 'rgba'、
-      'hsba'、および'hsla'は、上記と同じですがアルファチャネルが含まれます。 'rgb%'、 'hsb%'、 'hsl%'、 'rgba%'、
-      'hsba%'、および'hsla%'はパーセントとしてフォーマットされます。</p>
+      <p>色文字列のフォーマット方法。
 
-      <p>how the color string will be formatted.
+      空のままにすると、文字列はrgba(r, g, b, a)としてフォーマットされます。
 
-      Leaving this empty formats the string as rgba(r, g, b, a).
+      '#rgb' '#rgba' '#rrggbb' '#rrggbbaa'は16進数のカラーコードとしてフォーマットします。
 
-      '#rgb' '#rgba' '#rrggbb' and '#rrggbbaa' format as hexadecimal color
-      codes.
+      'rgb' 'hsb' 'hsl'は指定された色モードでフォーマットされた色を返します。
 
-      'rgb' 'hsb' and 'hsl' return the color formatted in the specified color
-      mode.
+      'rgba' 'hsba' 'hsla'は上記と同じですが、アルファチャンネルが含まれます。
 
-      'rgba' 'hsba' and 'hsla' are the same as above but with alpha channels.
-
-      'rgb%' 'hsb%' 'hsl%' 'rgba%' 'hsba%' and 'hsla%' format as
-      percentages.</p>
+      'rgb%' 'hsb%' 'hsl%' 'rgba%' 'hsba%' 'hsla%'はパーセンテージとしてフォーマットします。</p>
     type: String
     optional: true
 return:
   description: |-
-    フォーマットされた文字列
-    the formatted string.
+    フォーマットされた文字列。
 
     <div>
     <code>
@@ -69,17 +45,17 @@ return:
 
       background(200);
 
-      // Create a p5.Color object.
+      // p5.Colorオブジェクトを作成します。
       let myColor = color('darkorchid');
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER);
       textSize(16);
 
-      // Display the text.
+      // テキストを表示します。
       text(myColor.toString('#rrggbb'), 50, 50);
 
-      describe('The text "#9932cc" written in purple on a gray background.');
+      describe('灰色の背景に紫色で書かれた "#9932cc" というテキスト。');
     }
     </code>
     </div>

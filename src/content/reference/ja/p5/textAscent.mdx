@@ -4,13 +4,8 @@ module: Typography
 submodule: Attributes
 file: src/typography/attributes.js
 description: |
-  <p>現在のフォントの上昇を、現在のサイズで返します。</p>
-  <p>上昇は、ベースラインから最も高い文字までの距離（ピクセル単位）を表します。</p>
-
-  <hr/>
-  <p>Calculates the ascent of the current font at its current size.</p>
-  <p>The ascent represents the distance, in pixels, of the tallest character
-  above the baseline.</p>
+  <p>現在のフォントの現在のサイズでのアセントを計算します。</p>
+  <p>アセントは、ベースラインより上の最も高い文字の距離をピクセル単位で表します。</p>
 line: 337
 isConstructor: false
 itemtype: method
@@ -30,45 +25,42 @@ example:
 
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textFont(font);
 
-      // Different for each font.
+      // フォントごとに異なります。
       let fontScale = 0.8;
 
       let baseY = 75;
       strokeWeight(0.5);
 
-      // Draw small text.
+      // 小さいテキストを描画します。
       textSize(24);
       text('dp', 0, baseY);
 
-      // Draw baseline and ascent.
+      // ベースラインとアセントを描画します。
       let a = textAscent() * fontScale;
       line(0, baseY, 23, baseY);
       line(23, baseY - a, 23, baseY);
 
-      // Draw large text.
+      // 大きいテキストを描画します。
       textSize(48);
       text('dp', 45, baseY);
 
-      // Draw baseline and ascent.
+      // ベースラインとアセントを描画します。
       a = textAscent() * fontScale;
       line(45, baseY, 91, baseY);
       line(91, baseY - a, 91, baseY);
 
-      describe('The letters "dp" written twice in different sizes. Each version has a horizontal baseline. A vertical line extends upward from each baseline to the top of the "d".');
+      describe('異なるサイズで2回書かれた文字"dp"。各バージョンには水平のベースラインがあります。各ベースラインから"d"の上部まで垂直線が伸びています。');
     }
     </code>
     </div>
 class: p5
 return:
-  description: |-
-    ascent measured in units of pixels. /// todo /// 
-    ascent measured in units of pixels.
+  description: ピクセル単位で測定されたアセント。
   type: Number
 chainable: false
 ---
-
 
 # textAscent

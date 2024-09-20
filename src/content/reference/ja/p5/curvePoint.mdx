@@ -4,49 +4,23 @@ module: Shape
 submodule: Curves
 file: src/core/shape/curves.js
 description: >
-  <p>点 a、b、c、d の位置 t における曲線を評価します。</p>
+  <p>補間を使用してスプライン曲線に沿った座標を計算します。</p>
 
-  <p>パラメーター t は0から1の間で変化し、a と d は曲線のコントロールポイント、b と c は曲線の始点と終点です。これは x 座標で1回、y
-  座標で2回行われ、t における曲線の位置を取得できます。</p>
+  <p><code>curvePoint()</code>はアンカーポイントとコントロールポイントを使用して、
+  スプライン曲線に沿った座標を計算します。これは<a href="/reference/p5/curve/">curve()</a>
+  関数と同じ順序でポイントを期待します。<code>curvePoint()</code>は一度に1つの軸に対して
+  機能します。アンカーポイントとコントロールポイントのx座標を渡すと、曲線上の点の
+  x座標を計算します。アンカーポイントとコントロールポイントのy座標を渡すと、
+  曲線上の点のy座標を計算します。</p>
 
+  <p>最初のパラメータ<code>a</code>は、最初のコントロールポイントの座標です。</p>
 
-  <hr/>
+  <p>2番目と3番目のパラメータ<code>b</code>と<code>c</code>は、アンカーポイントの座標です。</p>
 
-  <p>Calculates coordinates along a spline curve using interpolation.</p>
+  <p>4番目のパラメータ<code>d</code>は、最後のコントロールポイントの座標です。</p>
 
-  <p><code>curvePoint()</code> calculates coordinates along a spline curve using
-  the
-
-  anchor and control points. It expects points in the same order as the
-
-  <a href="/reference/p5/curve/">curve()</a> function. <code>curvePoint()</code>
-  works one axis
-
-  at a time. Passing the anchor and control points' x-coordinates will
-
-  calculate the x-coordinate of a point on the curve. Passing the anchor and
-
-  control points' y-coordinates will calculate the y-coordinate of a point on
-
-  the curve.</p>
-
-  <p>The first parameter, <code>a</code>, is the coordinate of the first control
-  point.</p>
-
-  <p>The second and third parameters, <code>b</code> and <code>c</code>, are the
-  coordinates of the
-
-  anchor points.</p>
-
-  <p>The fourth parameter, <code>d</code>, is the coordinate of the last control
-  point.</p>
-
-  <p>The fifth parameter, <code>t</code>, is the amount to interpolate along the
-  curve. 0
-
-  is the first anchor point, 1 is the second anchor point, and 0.5 is halfway
-
-  between them.</p>
+  <p>5番目のパラメータ<code>t</code>は、曲線に沿って補間する量です。0は最初の
+  アンカーポイント、1は2番目のアンカーポイント、0.5はその中間点です。</p>
 line: 930
 isConstructor: false
 itemtype: method
@@ -60,7 +34,7 @@ example:
 
       background(200);
 
-      // Set the coordinates for the curve's anchor and control points.
+      // 曲線のアンカーポイントとコントロールポイントの座標を設定します。
       let x1 = 5;
       let y1 = 26;
       let x2 = 73;
@@ -70,29 +44,29 @@ example:
       let x4 = 15;
       let y4 = 65;
 
-      // Draw the curve.
+      // 曲線を描画します。
       noFill();
       curve(x1, y1, x2, y2, x3, y3, x4, y4);
 
-      // Draw circles along the curve's path.
+      // 曲線のパスに沿って円を描画します。
       fill(255);
 
-      // Top.
+      // 上部
       let x = curvePoint(x1, x2, x3, x4, 0);
       let y = curvePoint(y1, y2, y3, y4, 0);
       circle(x, y, 5);
 
-      // Center.
+      // 中央
       x = curvePoint(x1, x2, x3, x4, 0.5);
       y = curvePoint(y1, y2, y3, y4, 0.5);
       circle(x, y, 5);
 
-      // Bottom.
+      // 下部
       x = curvePoint(x1, x2, x3, x4, 1);
       y = curvePoint(y1, y2, y3, y4, 1);
       circle(x, y, 5);
 
-      describe('A black curve on a gray square. The endpoints and center of the curve are marked with white circles.');
+      describe('灰色の正方形上の黒い曲線。曲線の端点と中心が白い円で示されています。');
     }
     </code>
     </div>
@@ -102,13 +76,13 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('A black curve on a gray square. A white circle moves back and forth along the curve.');
+      describe('灰色の正方形上の黒い曲線。白い円が曲線に沿って前後に動きます。');
     }
 
     function draw() {
       background(200);
 
-      // Set the coordinates for the curve's anchor and control points.
+      // 曲線のアンカーポイントとコントロールポイントの座標を設定します。
       let x1 = 5;
       let y1 = 26;
       let x2 = 73;
@@ -118,16 +92,16 @@ example:
       let x4 = 15;
       let y4 = 65;
 
-      // Draw the curve.
+      // 曲線を描画します。
       noFill();
       curve(x1, y1, x2, y2, x3, y3, x4, y4);
 
-      // Calculate the circle's coordinates.
+      // 円の座標を計算します。
       let t = 0.5 * sin(frameCount * 0.01) + 0.5;
       let x = curvePoint(x1, x2, x3, x4, t);
       let y = curvePoint(y1, y2, y3, y4, t);
 
-      // Draw the circle.
+      // 円を描画します。
       fill(255);
       circle(x, y, 5);
     }
@@ -137,36 +111,30 @@ class: p5
 params:
   - name: a
     description: |
-      <p>曲線の最初のコントロールポイントの座標</p>
-      <p>coordinate of first anchor point.</p>
+      <p>最初のアンカーポイントの座標。</p>
     type: Number
   - name: b
     description: |
-      <p>最初の点の座標</p>
-      <p>coordinate of first control point.</p>
+      <p>最初のコントロールポイントの座標。</p>
     type: Number
   - name: c
     description: |
-      <p>2番目の点の座標</p>
-      <p>coordinate of second control point.</p>
+      <p>2番目のコントロールポイントの座標。</p>
     type: Number
   - name: d
     description: |
-      <p>曲線の2番目のコントロールポイントの座標</p>
-      <p>coordinate of second anchor point.</p>
+      <p>2番目のアンカーポイントの座標。</p>
     type: Number
   - name: t
     description: |
-      <p>0から1までの値</p>
-      <p>amount to interpolate between 0 and 1.</p>
+      <p>0から1の間で補間する量。</p>
     type: Number
 return:
-  description: |-
-    <a href="#/p5/curve">曲線</a> 上の位置 t の値
-    coordinate of a point on the curve.
+  description: 曲線上の点の座標。
   type: Number
 chainable: false
 ---
 
 
 # curvePoint
+

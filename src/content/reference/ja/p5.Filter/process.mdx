@@ -4,10 +4,6 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
-  <p>一連のフィルタパラメーターにもとづいてオーディオ信号をフィルタリングします。</p>
-  <p></p>
-
-  <hr/>
   <p>Filter an audio signal according to a set
   of filter parameters.</p>
 line: 6742
@@ -17,18 +13,15 @@ class: p5.Filter
 params:
   - name: Signal
     description: |
-      <p>オーディオを出力するオブジェクト</p>
       <p>An object that outputs audio</p>
     type: Object
   - name: freq
     description: |
-      <p>(オプション) 10から22050Hz までの周波数</p>
       <p>Frequency in Hz, from 10 to 22050</p>
     type: Number
     optional: true
   - name: res
     description: |
-      <p>(オプション) 0.001から1000までのフィルタ周波数のレゾナンス/幅</p>
       <p>Resonance/Width of the filter frequency
                             from 0.001 to 1000</p>
     type: Number

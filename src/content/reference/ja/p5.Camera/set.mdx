@@ -4,23 +4,12 @@ module: 3D
 submodule: Camera
 file: src/webgl/p5.Camera.js
 description: >
-  <p>パラメーターで指定された元のカメラのビューとプロジェクションに関する情報を、このカメラオブジェクトにコピーします。</p>
+  <p>別のカメラをコピーして、カメラの位置、向き、投影を設定します。</p>
 
-  <p>このカメラオブジェクトがアクティブであれば、それが画面に反映されます。</p>
-
-
-  <hr/>
-
-  <p>Sets the camera’s position, orientation, and projection by copying another
-
-  camera.</p>
-
-  <p>The parameter, <code>cam</code>, is the <code>p5.Camera</code> object to
-  copy. For example, calling
-
-  <code>cam2.set(cam1)</code> will set <code>cam2</code> using
-  <code>cam1</code>’s configuration.</p>
-line: 3174
+  <p>パラメータ<code>cam</code>は、コピーする<code>p5.Camera</code>オブジェクトです。
+  例えば、<code>cam2.set(cam1)</code>を呼び出すと、<code>cam1</code>の設定を使用して
+  <code>cam2</code>を設定します。</p>
+line: 3243
 isConstructor: false
 itemtype: method
 example:
@@ -28,7 +17,7 @@ example:
 
     <div>
     <code>
-    // Double-click to "reset" the camera zoom.
+    // ダブルクリックでカメラのズームを「リセット」します。
 
     let cam1;
     let cam2;
@@ -36,37 +25,37 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create the first camera.
+      // 最初のカメラを作成します。
       cam1 = createCamera();
 
-      // Place the camera at the top-right.
+      // カメラを右上に配置します。
       cam1.setPosition(400, -400, 800);
 
-      // Point it at the origin.
+      // 原点を向くようにします。
       cam1.lookAt(0, 0, 0);
 
-      // Create the second camera.
+      // 2番目のカメラを作成します。
       cam2 = createCamera();
 
-      // Copy cam1's configuration.
+      // cam1の設定をコピーします。
       cam2.set(cam1);
 
       describe(
-        'A white cube drawn against a gray background. The camera slowly moves forward. The camera resets when the user double-clicks.'
+        '灰色の背景に白い立方体が描かれています。カメラがゆっくりと前進します。ユーザーがダブルクリックするとカメラがリセットされます。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Update cam2's position.
+      // cam2の位置を更新します。
       cam2.move(0, 0, -1);
 
-      // Draw the box.
+      // 箱を描画します。
       box();
     }
 
-    // "Reset" the camera when the user double-clicks.
+    // ユーザーがダブルクリックしたときにカメラを「リセット」します。
     function doubleClicked() {
       cam2.set(cam1);
     }
@@ -74,11 +63,11 @@ class: p5.Camera
 params:
   - name: cam
     description: |
-      <p>元のカメラ</p>
-      <p>camera to copy.</p>
+      <p>コピーするカメラ。</p>
     type: p5.Camera
 chainable: false
 ---
 
 
 # set
+

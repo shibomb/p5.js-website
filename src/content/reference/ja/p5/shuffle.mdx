@@ -4,14 +4,6 @@ module: Data
 submodule: Array Functions
 file: src/utilities/array_functions.js
 description: >
-  <p>配列の要素の順序をランダム化します。</p>
-
-  <p><a href='http://Bost.Ocks.org/mike/shuffle/'
-  target=_blank>フィッシャーイェーツシャッフルアルゴリズム</a> を実装します。</p>
-
-
-  <hr/>
-
   <p>Shuffles the elements of an array.</p>
 
   <p>The first parameter, <code>array</code>, is the array to be shuffled. For
@@ -119,21 +111,16 @@ class: p5
 params:
   - name: array
     description: |
-      <p>シャッフルする配列</p>
       <p>array to shuffle.</p>
     type: Array
   - name: bool
     description: >
-      <p>(オプション) 渡された配列を変更</p>
-
       <p>if <code>true</code>, shuffle the original array in place. Defaults to
       <code>false</code>.</p>
     type: Boolean
     optional: true
 return:
-  description: |-
-    シャッフルされた配列
-    shuffled array.
+  description: shuffled array.
   type: Array
 chainable: false
 ---

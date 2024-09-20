@@ -4,170 +4,98 @@ module: 3D
 submodule: Material
 file: src/webgl/material.js
 description: >
-  <p>テクスチャマッピングの座標空間を設定します。</p>
+  <p>カスタムシェイプにテクスチャを適用する際に使用される座標系を変更します。</p>
 
-  <p>デフォルトモードは IMAGE で、画像の実際の座標を指します。NORMAL は、0から1の範囲の正規化された値の空間を指します。</p>
+  <p><a href="/reference/p5/texture/">texture()</a>が機能するためには、シェイプの表面上の点を
+  画像内のピクセルにマッピングする方法が必要です。<a href="/reference/p5/rect/">rect()</a>や
+  <a href="/reference/p5/box/">box()</a>などの組み込みシェイプには、すでに頂点に基づいた
+  テクスチャマッピングがあります。<a href="/reference/p5/vertex/">vertex()</a>で作成された
+  カスタムシェイプには、uvコーディネートとして渡されるテクスチャマッピングが必要です。</p>
 
-  <p>IMAGE では、画像が100 × 200ピクセルの場合、画像をクワッド全体のサイズにマッピングするには、点(0,0) (100, 0)
-  (100,200) (0,200)が必要です。NORMAL では、同じマッピングが(0,0) (1,0) (1,1) (0,1)になります。</p>
-
-
-  <hr/>
-
-  <p>Changes the coordinate system used for textures when they’re applied to
-
-  custom shapes.</p>
-
-  <p>In order for <a href="/reference/p5/texture/">texture()</a> to work, a
-  shape needs a
-
-  way to map the points on its surface to the pixels in an image. Built-in
-
-  shapes such as <a href="/reference/p5/rect/">rect()</a> and
-
-  <a href="/reference/p5/box/">box()</a> already have these texture mappings
-  based on
-
-  their vertices. Custom shapes created with
-
-  <a href="/reference/p5/vertex/">vertex()</a> require texture mappings to be
-  passed as
-
-  uv coordinates.</p>
-
-  <p>Each call to <a href="/reference/p5/vertex/">vertex()</a> must include 5
-  arguments,
-
-  as in <code>vertex(x, y, z, u, v)</code>, to map the vertex at coordinates
-  <code>(x, y, z)</code>
-
-  to the pixel at coordinates <code>(u, v)</code> within an image. For example,
-  the
-
-  corners of a rectangular image are mapped to the corners of a rectangle by
-  default:</p>
+  <p><a href="/reference/p5/vertex/">vertex()</a>の各呼び出しには、
+  <code>vertex(x, y, z, u, v)</code>のように5つの引数が必要です。これは、座標
+  <code>(x, y, z)</code>の頂点を画像内の座標<code>(u, v)</code>のピクセルにマッピングします。
+  例えば、長方形の画像の角は、デフォルトで長方形の角にマッピングされます：</p>
 
   <code>
-
-  // Apply the image as a texture.
-
+  // 画像をテクスチャとして適用する
   texture(img);
 
-
-  <p>// Draw the rectangle.
-
+  <p>// 長方形を描画する
   rect(0, 0, 30, 50);
-
   </p></code>
 
-  <p>If the image in the code snippet above has dimensions of 300 x 500 pixels,
-
-  the same result could be achieved as follows:</p>
+  <p>上のコードスニペットの画像が300 x 500ピクセルの寸法を持つ場合、
+  同じ結果を次のように達成できます：</p>
 
   <code>
-
-  // Apply the image as a texture.
-
+  // 画像をテクスチャとして適用する
   texture(img);
 
-
-  <p>// Draw the rectangle.
-
+  <p>// 長方形を描画する
   beginShape();</p>
 
-  <p>// Top-left.
-
+  <p>// 左上
   // u: 0, v: 0
-
   vertex(0, 0, 0, 0, 0);</p>
 
-  <p>// Top-right.
-
+  <p>// 右上
   // u: 300, v: 0
-
   vertex(30, 0, 0, 300, 0);</p>
 
-  <p>// Bottom-right.
-
+  <p>// 右下
   // u: 300, v: 500
-
   vertex(30, 50, 0, 300, 500);</p>
 
-  <p>// Bottom-left.
-
+  <p>// 左下
   // u: 0, v: 500
-
   vertex(0, 50, 0, 0, 500);</p>
 
   <p>endShape();
-
   </p></code>
 
-  <p><code>textureMode()</code> changes the coordinate system for uv
-  coordinates.</p>
+  <p><code>textureMode()</code>はuvコーディネートの座標系を変更します。</p>
 
-  <p>The parameter, <code>mode</code>, accepts two possible constants. If
-  <code>NORMAL</code> is
-
-  passed, as in <code>textureMode(NORMAL)</code>, then the texture’s uv
-  coordinates can
-
-  be provided in the range 0 to 1 instead of the image’s dimensions. This can
-
-  be helpful for using the same code for multiple images of different sizes.
-
-  For example, the code snippet above could be rewritten as follows:</p>
+  <p>パラメータ<code>mode</code>は、2つの可能な定数を受け入れます。<code>NORMAL</code>が
+  渡された場合（<code>textureMode(NORMAL)</code>のように）、テクスチャのuvコーディネートは
+  画像の寸法の代わりに0から1の範囲で提供できます。これは、異なるサイズの複数の画像に
+  同じコードを使用する場合に役立ちます。例えば、上のコードスニペットは
+  次のように書き直すことができます：</p>
 
   <code>
-
-  // Set the texture mode to use normalized coordinates.
-
+  // 正規化された座標を使用するようにテクスチャモードを設定する
   textureMode(NORMAL);
 
-
-  <p>// Apply the image as a texture.
-
+  <p>// 画像をテクスチャとして適用する
   texture(img);</p>
 
-  <p>// Draw the rectangle.
-
+  <p>// 長方形を描画する
   beginShape();</p>
 
-  <p>// Top-left.
-
+  <p>// 左上
   // u: 0, v: 0
-
   vertex(0, 0, 0, 0, 0);</p>
 
-  <p>// Top-right.
-
+  <p>// 右上
   // u: 1, v: 0
-
   vertex(30, 0, 0, 1, 0);</p>
 
-  <p>// Bottom-right.
-
+  <p>// 右下
   // u: 1, v: 1
-
   vertex(30, 50, 0, 1, 1);</p>
 
-  <p>// Bottom-left.
-
+  <p>// 左下
   // u: 0, v: 1
-
   vertex(0, 50, 0, 0, 1);</p>
 
   <p>endShape();
-
   </p></code>
 
-  <p>By default, <code>mode</code> is <code>IMAGE</code>, which scales uv
-  coordinates to the
+  <p>デフォルトでは、<code>mode</code>は<code>IMAGE</code>で、uvコーディネートを画像の
+  寸法にスケーリングします。<code>textureMode(IMAGE)</code>を呼び出すと、デフォルトが
+  適用されます。</p>
 
-  dimensions of the image. Calling <code>textureMode(IMAGE)</code> applies the
-  default.</p>
-
-  <p>Note: <code>textureMode()</code> can only be used in WebGL mode.</p>
+  <p>注意：<code>textureMode()</code>はWebGLモードでのみ使用できます。</p>
 line: 1048
 isConstructor: false
 itemtype: method
@@ -178,7 +106,7 @@ example:
     <code>
     let img;
 
-    // Load an image and create a p5.Image object.
+    // 画像を読み込み、p5.Imageオブジェクトを作成する
     function preload() {
       img = loadImage('/assets/laDefense.jpg');
     }
@@ -186,17 +114,17 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('An image of a ceiling against a black background.');
+      describe('黒い背景に対して天井の画像。');
     }
 
     function draw() {
       background(0);
 
-      // Apply the image as a texture.
+      // 画像をテクスチャとして適用する
       texture(img);
 
-      // Draw the custom shape.
-      // Use the image's width and height as uv coordinates.
+      // カスタムシェイプを描画する
+      // 画像の幅と高さをuvコーディネートとして使用する
       beginShape();
       vertex(-30, -30, 0, 0);
       vertex(30, -30, img.width, 0);
@@ -211,7 +139,7 @@ example:
     <code>
     let img;
 
-    // Load an image and create a p5.Image object.
+    // 画像を読み込み、p5.Imageオブジェクトを作成する
     function preload() {
       img = loadImage('/assets/laDefense.jpg');
     }
@@ -219,20 +147,20 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('An image of a ceiling against a black background.');
+      describe('黒い背景に対して天井の画像。');
     }
 
     function draw() {
       background(0);
 
-      // Set the texture mode.
+      // テクスチャモードを設定する
       textureMode(NORMAL);
 
-      // Apply the image as a texture.
+      // 画像をテクスチャとして適用する
       texture(img);
 
-      // Draw the custom shape.
-      // Use normalized uv coordinates.
+      // カスタムシェイプを描画する
+      // 正規化されたuvコーディネートを使用する
       beginShape();
       vertex(-30, -30, 0, 0);
       vertex(30, -30, 1, 0);
@@ -246,11 +174,11 @@ class: p5
 params:
   - name: mode
     description: |
-      <p>IMAGE、NORMAL のいずれか</p>
-      <p>either IMAGE or NORMAL.</p>
+      <p>IMAGEまたはNORMAL。</p>
     type: Constant
 chainable: false
 ---
 
 
 # textureMode
+

@@ -4,13 +4,6 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: >
-  <p>複数のループを同期させます。</p>
-
-  <p>2つ以上のループを同期して開始する場合、またはすでに再生されているループと同期してループを開始する場合に、このメソッドを使用します。このメソッドは、暗黙的なループを明示的なマスターループと同期してスケジュールします。すなわち、loopToStart.syncedStart(loopToSyncWith)。</p>
-
-
-  <hr/>
-
   <p>Synchronize loops. Use this method to start two or more loops in
   synchronization
 
@@ -27,12 +20,10 @@ class: p5.SoundLoop
 params:
   - name: otherLoop
     description: |
-      <p>同期させる p5.SoundLoop オブジェクト</p>
       <p>a p5.SoundLoop to sync with</p>
     type: Object
   - name: timeFromNow
     description: |
-      <p>(オプション) timeFromNow 秒後にループを同期して開始します</p>
       <p>Start the loops in sync after timeFromNow seconds</p>
     type: Number
     optional: true

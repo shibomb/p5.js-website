@@ -3,16 +3,7 @@ title: logAverages
 module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
-description: >
-  <p>指定された <a href="https://en.wikipedia.org/wiki/Octave_band" target="_blank">
-  オクターブ帯域</a> セットのスペクトルの平均振幅値の配列を返します。</p>
-
-  <p> <em>注意:logAverages() の前に analyze() を呼び出す必要があります。analyze() は FFT
-  に周波数データの分析を行うように指示し、logAverages() はその結果を使用して周波数データをグループ化して平均値を算出します。</em></p>
-
-
-  <hr/>
-
+description: |
   <p>Returns an array of average amplitude values of the spectrum, for a given
   set of <a href="https://en.wikipedia.org/wiki/Octave_band/" target="_blank">
   Octave Bands</a>
@@ -26,13 +17,10 @@ class: p5.FFT
 params:
   - name: octaveBands
     description: |
-      <p>グループ化するオクターブバンドのオブジェクトの配列</p>
       <p>Array of Octave Bands objects for grouping</p>
     type: Array
 return:
-  description: |-
-    logAverages 各グループの平均振幅値の配列
-    logAverages    Array of average amplitude values for each group
+  description: logAverages    Array of average amplitude values for each group
   type: Array
 chainable: false
 ---

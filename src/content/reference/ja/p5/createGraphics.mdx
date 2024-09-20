@@ -3,102 +3,40 @@ title: createGraphics
 module: Rendering
 submodule: Rendering
 file: src/core/rendering.js
-description: >-
-  <p>新しい p5.Graphics オブジェクトを作成して返します。</p>
+description: >
+  <p><a href="/reference/p5/p5.Graphics">p5.Graphics</a>オブジェクトを作成します。</p>
 
-  <p>オフスクリーンのグラフィックスバッファに描画する必要がある場合は、このクラスを使用します。2つのパラメーターは、ピクセル単位の幅と高さを定義します。</p>
+  <p><code>createGraphics()</code>はオフスクリーンの描画キャンバス（グラフィックス
+  バッファ）を作成し、<a href="/reference/p5/p5.Graphics">p5.Graphics</a>
+  オブジェクトとして返します。別のグラフィックスバッファに描画することは、
+  パフォーマンスの向上やコードの整理に役立ちます。</p>
 
-  <p>WebGL p5.Graphics は、ブラウザーが WebGL2 をサポートしている場合、WebGL2 コンテキストを使用します。</p>
+  <p>最初の2つのパラメータ、<code>width</code>と<code>height</code>はオプションです。これらは
+  <a href="/reference/p5/p5.Graphics">p5.Graphics</a>オブジェクトの
+  寸法を設定します。例えば、<code>createGraphics(900, 500)</code>を呼び出すと、
+  900×500ピクセルのグラフィックスバッファが作成されます。</p>
 
-  <p>レンダラーの <a href="#/p5/webglVersion">pg.webglVersion</a>
-  プロパティを確認して使用しているバージョンを確認するか、<a href="#/p5/setAttributes">pg.setAttributes({
-  version: 1 })</a> を呼び出して WebGL1 コンテキストを作成します。</p>
-
-  <p>オプションとして、セレクター（例:
-  document.getElementById('')）を使用して既存のキャンバスを渡すことができます。デフォルトではこのキャンバスは非表示（オフスクリーンバッファ）になりますが、表示するには、要素のスタイルを
-  display:block; に設定します。</p>
-
-
-  <hr/>
-
-  <p>Creates a <a href="/reference/p5/p5.Graphics/">p5.Graphics</a> object.</p>
-
-  <p><code>createGraphics()</code> creates an offscreen drawing canvas (graphics
-  buffer)
-
-  and returns it as a <a href="/reference/p5/p5.Graphics/">p5.Graphics</a>
-  object. Drawing
-
-  to a separate graphics buffer can be helpful for performance and for
-
-  organizing code.</p>
-
-  <p>The first two parameters, <code>width</code> and <code>height</code>, are
-  optional. They set the
-
-  dimensions of the <a href="/reference/p5/p5.Graphics/">p5.Graphics</a> object.
-  For
-
-  example, calling <code>createGraphics(900, 500)</code> creates a graphics
-  buffer
-
-  that's 900×500 pixels.</p>
-
-  <p>The third parameter is also optional. If either of the constants
-  <code>P2D</code> or
-
-  <code>WEBGL</code> is passed, as in <code>createGraphics(900, 500,
-  WEBGL)</code>, then it will set
-
-  the <a href="/reference/p5/p5.Graphics/">p5.Graphics</a> object's rendering
-  mode. If an
-
-  existing
-
+  <p>3番目のパラメータもオプションです。<code>P2D</code>または
+  <code>WEBGL</code>のいずれかの定数が渡された場合（例：<code>createGraphics(900, 500,
+  WEBGL)</code>）、<a href="/reference/p5/p5.Graphics">p5.Graphics</a>オブジェクトの
+  レンダリングモードが設定されます。既存の
   <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/"
   target="_blank">HTMLCanvasElement</a>
+  が渡された場合（例：<code>createGraphics(900, 500, myCanvas)</code>）、
+  それがグラフィックスバッファによって使用されます。</p>
 
-  is passed, as in <code>createGraphics(900, 500, myCanvas)</code>, then it will
-  be used
-
-  by the graphics buffer.</p>
-
-  <p>The fourth parameter is also optional. If an existing
-
+  <p>4番目のパラメータもオプションです。既存の
   <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/"
   target="_blank">HTMLCanvasElement</a>
+  が渡された場合（例：<code>createGraphics(900, 500, WEBGL, myCanvas)</code>）、
+  それがグラフィックスバッファによって使用されます。</p>
 
-  is passed, as in <code>createGraphics(900, 500, WEBGL, myCanvas)</code>, then
-  it will be
-
-  used by the graphics buffer.</p>
-
-  <p>Note: In WebGL mode, the <a
-  href="/reference/p5/p5.Graphics/">p5.Graphics</a> object
-
-  will use a WebGL2 context if it's supported by the browser. Check the
-
-  <a href="/reference/p5/webglVersion/">webglVersion</a> system variable to
-  check what
-
-  version is being used, or call <code>setAttributes({ version: 1 })</code> to
-  create a
-
-  WebGL1 context.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "w": "Number: オフスクリーングラフィックバッファの幅",
-      "h": "Number: オフスクリーングラフィックバッファの高さ",
-      "renderer": "Constant: (オプション) P2D または WEBGL。未定義の場合は P2D がデフォルトです。",
-      "canvas": "HTMLCanvasElement: (オプション) 既存の HTML Canvas 要素"
-  }
-
-  </pre>
+  <p>注意：WebGLモードでは、<a
+  href="/reference/p5/p5.Graphics">p5.Graphics</a>オブジェクト
+  は、ブラウザがサポートしている場合、WebGL2コンテキストを使用します。
+  <a href="/reference/p5/webglVersion/">webglVersion</a>システム変数をチェックして、
+  どのバージョンが使用されているかを確認するか、<code>setAttributes({ version: 1 })</code>を
+  呼び出してWebGL1コンテキストを作成してください。</p>
 line: 370
 isConstructor: false
 itemtype: method
@@ -107,7 +45,7 @@ example:
 
     <div>
     <code>
-    //  Double-click to draw the contents of the graphics buffer.
+    //  ダブルクリックしてグラフィックスバッファの内容を描画します。
 
     let pg;
 
@@ -116,17 +54,17 @@ example:
 
       background(200);
 
-      // Create the p5.Graphics object.
+      // p5.Graphicsオブジェクトを作成します。
       pg = createGraphics(50, 50);
 
-      // Draw to the graphics buffer.
+      // グラフィックスバッファに描画します。
       pg.background(100);
       pg.circle(pg.width / 2, pg.height / 2, 20);
 
-      describe('A gray square. A smaller, darker square with a white circle at its center appears when the user double-clicks.');
+      describe('グレーの正方形。ユーザーがダブルクリックすると、中央に白い円がある小さくて暗い正方形が表示されます。');
     }
 
-    // Display the graphics buffer when the user double-clicks.
+    // ユーザーがダブルクリックしたときにグラフィックスバッファを表示します。
     function doubleClicked() {
       if (mouseX > 0 && mouseX < 100 && mouseY > 0 && mouseY < 100) {
         image(pg, 25, 25);
@@ -137,7 +75,7 @@ example:
 
     <div>
     <code>
-    //  Double-click to draw the contents of the graphics buffer.
+    //  ダブルクリックしてグラフィックスバッファの内容を描画します。
 
     let pg;
 
@@ -146,10 +84,10 @@ example:
 
       background(200);
 
-      // Create the p5.Graphics object in WebGL mode.
+      // WebGLモードでp5.Graphicsオブジェクトを作成します。
       pg = createGraphics(50, 50, WEBGL);
 
-      // Draw to the graphics buffer.
+      // グラフィックスバッファに描画します。
       pg.background(100);
       pg.lights();
       pg.noStroke();
@@ -157,10 +95,10 @@ example:
       pg.rotateY(QUARTER_PI);
       pg.torus(15, 5);
 
-      describe('A gray square. A smaller, darker square with a white torus at its center appears when the user double-clicks.');
+      describe('グレーの正方形。ユーザーがダブルクリックすると、中央に白いトーラスがある小さくて暗い正方形が表示されます。');
     }
 
-    // Display the graphics buffer when the user double-clicks.
+    // ユーザーがダブルクリックしたときにグラフィックスバッファを表示します。
     function doubleClicked() {
       if (mouseX > 0 && mouseX < 100 && mouseY > 0 && mouseY < 100) {
         image(pg, 25, 25);
@@ -170,34 +108,32 @@ example:
     </div>
 class: p5
 return:
-  description: |-
-    オフスクリーングラフィックバッファ
-    new graphics buffer.
+  description: 新しいグラフィックスバッファ。
   type: p5.Graphics
 overloads:
   - line: 370
     params:
       - name: width
         description: |
-          <p>width of the graphics buffer.</p>
+          <p>グラフィックスバッファの幅。</p>
         type: Number
       - name: height
         description: |
-          <p>height of the graphics buffer.</p>
+          <p>グラフィックスバッファの高さ。</p>
         type: Number
       - name: renderer
         description: |
-          <p>either P2D or WEBGL. Defaults to P2D.</p>
+          <p>P2DまたはWEBGL。デフォルトはP2D。</p>
         type: Constant
         optional: true
       - name: canvas
         description: |
-          <p>existing canvas element that should be
-                                               used for the graphics buffer..</p>
+          <p>グラフィックスバッファに使用される既存の
+                                               キャンバス要素。</p>
         type: HTMLCanvasElement
         optional: true
     return:
-      description: new graphics buffer.
+      description: 新しいグラフィックスバッファ。
       type: p5.Graphics
   - line: 475
     params:
@@ -219,3 +155,4 @@ chainable: false
 
 
 # createGraphics
+

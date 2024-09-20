@@ -4,64 +4,30 @@ module: 3D
 submodule: Material
 file: src/webgl/p5.Shader.js
 description: >
-  <p><a href="#/p5.Shader">p5.Shader</a> オブジェクトの uniform を設定するために使用します。</p>
+  <p>シェーダーのuniform（グローバル）変数を設定します。</p>
 
-  <p></p>
+  <p>シェーダープログラムはコンピューターのグラフィックス処理ユニット（GPU）上で実行されます。
 
-  <p>uniform は、GPU で実行されるシェーダープログラムにスケッチ（CPU 上で実行される）から値を提供する方法として使用されます。</p>
+  シェーダーは、それらを実行するスケッチとは完全に分離されたコンピューターのメモリー部分に存在します。
 
-  <p>/// todo ///</p>
+  Uniformはシェーダープログラム内のグローバル変数です。これらは、CPU上で実行されているスケッチから
 
-  <p>Used to set the uniforms of a <a href="#/p5.Shader">p5.Shader</a>
-  object.</p>
+  GPU上で実行されているシェーダープログラムに値を渡す方法を提供します。</p>
 
-  <p>Uniforms are used as a way to provide shader programs (which run on the
-  GPU) with values from a sketch (which runs on the CPU).</p>
+  <p>最初のパラメータ<code>uniformName</code>は、uniformの名前を示す文字列です。
 
-  <p>Here are some examples of uniforms you can make: <ul> <li>booleans<ul>
-  <li>Example: <code>setUniform('x', true)</code> becomes <code>uniform float
-  x</code> with the value <code>1.0</code></li> </ul> </li> <li>numbers<ul>
-  <li>Example: <code>setUniform('x', -2)</code> becomes <code>uniform float
-  x</code> with the value <code>-2.0</code></li> </ul> </li> <li>arrays of
-  numbers<ul> <li>Example: <code>setUniform('x', [0, 0.5, 1])</code> becomes
-  <code>uniform vec3 x</code> with the value <code>vec3(0.0, 0.5,
-  1.0)</code></li> </ul> </li> <li>a p5.Image, p5.Graphics, p5.MediaElement, or
-  p5.Texture<ul> <li>Example: <code>setUniform('x', img)</code> becomes
-  <code>uniform sampler2D x</code></li> </ul> </li> </ul></p>
+  上記のシェーダーの場合、<code>uniformName</code>は<code>'r'</code>となります。</p>
 
+  <p>2番目のパラメータ<code>data</code>は、uniformを設定するために使用される値です。
 
-  <hr/>
+  例えば、<code>myShader.setUniform('r', 0.5)</code>を呼び出すと、
 
-  <p>Sets the shader’s uniform (global) variables.</p>
+  上記のシェーダーの<code>r</code> uniformが<code>0.5</code>に設定されます。dataは
 
-  <p>Shader programs run on the computer’s graphics processing unit (GPU).
+  uniformの型と一致する必要があります。数値、文字列、ブール値、配列、そして多くの種類の
 
-  They live in part of the computer’s memory that’s completely separate
-
-  from the sketch that runs them. Uniforms are global variables within a
-
-  shader program. They provide a way to pass values from a sketch running
-
-  on the CPU to a shader program running on the GPU.</p>
-
-  <p>The first parameter, <code>uniformName</code>, is a string with the
-  uniform’s name.
-
-  For the shader above, <code>uniformName</code> would be <code>'r'</code>.</p>
-
-  <p>The second parameter, <code>data</code>, is the value that should be used
-  to set the
-
-  uniform. For example, calling <code>myShader.setUniform('r', 0.5)</code> would
-  set
-
-  the <code>r</code> uniform in the shader above to <code>0.5</code>. data
-  should match the
-
-  uniform’s type. Numbers, strings, booleans, arrays, and many types of
-
-  images can all be passed to a shader with <code>setUniform()</code>.</p>
-line: 622
+  画像を<code>setUniform()</code>を使用してシェーダーに渡すことができます。</p>
+line: 624
 isConstructor: false
 itemtype: method
 example:
@@ -69,10 +35,10 @@ example:
 
     <div>
     <code>
-    // Note: A "uniform" is a global variable within a shader program.
+    // 注意：「uniform」はシェーダープログラム内のグローバル変数です。
 
-    // Create a string with the vertex shader program.
-    // The vertex shader is called for each vertex.
+    // 頂点シェーダープログラムを含む文字列を作成します。
+    // 頂点シェーダーは各頂点に対して呼び出されます。
     let vertSrc = `
     precision highp float;
     uniform mat4 uModelViewMatrix;
@@ -89,8 +55,8 @@ example:
     }
     `;
 
-    // Create a string with the fragment shader program.
-    // The fragment shader is called for each pixel.
+    // フラグメントシェーダープログラムを含む文字列を作成します。
+    // フラグメントシェーダーは各ピクセルに対して呼び出されます。
     let fragSrc = `
     precision mediump float;
 
@@ -104,32 +70,32 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Shader object.
+      // p5.Shaderオブジェクトを作成します。
       let myShader = createShader(vertSrc, fragSrc);
 
-      // Apply the p5.Shader object.
+      // p5.Shaderオブジェクトを適用します。
       shader(myShader);
 
-      // Set the r uniform to 0.5.
+      // r uniformを0.5に設定します。
       myShader.setUniform('r', 0.5);
 
-      // Style the drawing surface.
+      // 描画面のスタイルを設定します。
       noStroke();
 
-      // Add a plane as a drawing surface for the shader.
+      // シェーダーの描画面として平面を追加します。
       plane(100, 100);
 
-      describe('A cyan square.');
+      describe('シアン色の正方形。');
     }
     </code>
     </div>
 
     <div>
     <code>
-    // Note: A "uniform" is a global variable within a shader program.
+    // 注意：「uniform」はシェーダープログラム内のグローバル変数です。
 
-    // Create a string with the vertex shader program.
-    // The vertex shader is called for each vertex.
+    // 頂点シェーダープログラムを含む文字列を作成します。
+    // 頂点シェーダーは各頂点に対して呼び出されます。
     let vertSrc = `
     precision highp float;
     uniform mat4 uModelViewMatrix;
@@ -146,8 +112,8 @@ example:
     }
     `;
 
-    // Create a string with the fragment shader program.
-    // The fragment shader is called for each pixel.
+    // フラグメントシェーダープログラムを含む文字列を作成します。
+    // フラグメントシェーダーは各ピクセルに対して呼び出されます。
     let fragSrc = `
     precision mediump float;
 
@@ -163,26 +129,26 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Shader object.
+      // p5.Shaderオブジェクトを作成します。
       myShader = createShader(vertSrc, fragSrc);
 
-      // Compile and apply the p5.Shader object.
+      // p5.Shaderオブジェクトをコンパイルして適用します。
       shader(myShader);
 
-      describe('A square oscillates color between cyan and white.');
+      describe('正方形の色がシアンと白の間で振動します。');
     }
 
     function draw() {
       background(200);
 
-      // Style the drawing surface.
+      // 描画面のスタイルを設定します。
       noStroke();
 
-      // Update the r uniform.
+      // r uniformを更新します。
       let nextR = 0.5 * (sin(frameCount * 0.01) + 1);
       myShader.setUniform('r', nextR);
 
-      // Add a plane as a drawing surface.
+      // 描画面として平面を追加します。
       plane(100, 100);
     }
     </code>
@@ -190,10 +156,10 @@ example:
 
     <div>
     <code>
-    // Note: A "uniform" is a global variable within a shader program.
+    // 注意：「uniform」はシェーダープログラム内のグローバル変数です。
 
-    // Create a string with the vertex shader program.
-    // The vertex shader is called for each vertex.
+    // 頂点シェーダープログラムを含む文字列を作成します。
+    // 頂点シェーダーは各頂点に対して呼び出されます。
     let vertSrc = `
     precision highp float;
     uniform mat4 uModelViewMatrix;
@@ -210,8 +176,8 @@ example:
     }
     `;
 
-    // Create a string with the fragment shader program.
-    // The fragment shader is called for each pixel.
+    // フラグメントシェーダープログラムを含む文字列を作成します。
+    // フラグメントシェーダーは各ピクセルに対して呼び出されます。
     let fragSrc = `
     precision highp float;
     uniform vec2 p;
@@ -247,30 +213,29 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Shader object.
+      // p5.Shaderオブジェクトを作成します。
       mandelbrot = createShader(vertSrc, fragSrc);
 
-      // Compile and apply the p5.Shader object.
+      // p5.Shaderオブジェクトをコンパイルして適用します。
       shader(mandelbrot);
 
-      // Set the shader uniform p to an array.
-      // p is the center point of the Mandelbrot image.
+      // シェーダーのuniform pを配列に設定します。
+      // pはマンデルブロ集合画像の中心点です。
       mandelbrot.setUniform('p', [-0.74364388703, 0.13182590421]);
 
-      describe('A fractal image zooms in and out of focus.');
+      describe('フラクタル画像がズームインとズームアウトを繰り返します。');
     }
 
     function draw() {
-      // Set the shader uniform r to a value that oscillates
-      // between 0 and 0.005.
-      // r is the size of the image in Mandelbrot-space.
+      // シェーダーのuniform rを0から0.005の間で振動する値に設定します。
+      // rはマンデルブロ空間における画像のサイズです。
       let radius = 0.005 * (sin(frameCount * 0.01) + 1);
       mandelbrot.setUniform('r', radius);
 
-      // Style the drawing surface.
+      // 描画面のスタイルを設定します。
       noStroke();
 
-      // Add a plane as a drawing surface.
+      // 描画面として平面を追加します。
       plane(100, 100);
     }
     </code>
@@ -279,19 +244,16 @@ class: p5.Shader
 params:
   - name: uniformName
     description: |
-      <p>uniform の名前。頂点シェーダーおよびフラグメントシェーダーで使用される名前と対応する必要があります。</p>
-      <p>name of the uniform. Must match the name
-                                  used in the vertex and fragment shaders.</p>
+      <p>uniformの名前。頂点シェーダーとフラグメントシェーダーで
+                                  使用されている名前と一致する必要があります。</p>
     type: String
   - name: data
-    description: >
-      <p>uniform
-      に関連付けるデータ。データ型は、真偽値（true/false）、数値、数値の配列、または画像（p5.Image、p5.Graphics、p5.MediaElement、p5.Texture）のいずれかです。</p>
-
-      <p>value to assign to the uniform. Must match the uniform’s data type.</p>
+    description: |
+      <p>uniformに割り当てる値。uniformのデータ型と一致する必要があります。</p>
     type: 'Boolean|Number|Number[]|p5.Image|p5.Graphics|p5.MediaElement|p5.Texture'
 chainable: true
 ---
 
 
 # setUniform
+

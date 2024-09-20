@@ -4,44 +4,21 @@ module: Transform
 submodule: Transform
 file: src/core/transform.js
 description: >
-  <p>指定された角度パラメーターで X 軸を中心に図形を回転させます。</p>
+  <p>WebGLモードでx軸周りに座標系を回転させます。</p>
 
-  <p>角度は RADIANS または DEGREES で入力できます。</p>
+  <p>パラメータ<code>angle</code>は回転量です。例えば、
+  <code>rotateX(1)</code>を呼び出すと、座標系をx軸周りに1ラジアン回転させます。
+  <code>rotateX()</code>は現在の<a href="/reference/p5/angleMode/">angleMode()</a>
+  を使用して角度値を解釈します。</p>
 
-  <p>オブジェクトは常に原点に対する相対位置を中心に回転し、正の数値はオブジェクトを時計回りに回転させます。すべての変換は、<a
-  href="#/p5/draw">draw()</a> が再度始まるとリセットされます。</p>
+  <p>デフォルトでは、変換は累積されます。例えば、<code>rotateX(1)</code>を
+  2回呼び出すことは、<code>rotateX(2)</code>を1回呼び出すのと同じ効果があります。
+  <a href="/reference/p5/push/">push()</a>関数と<a href="/reference/p5/pop/">pop()</a>関数
+  を使用して、個別の描画グループ内で変換を分離することができます。</p>
 
+  <p>注意：変換はdrawループの開始時にリセットされます。<a href="/reference/p5/draw/">draw()</a>関数内で
+  <code>rotateX(1)</code>を呼び出しても、図形は回転し続けません。</p>
 
-  <hr/>
-
-  <p>Rotates the coordinate system about the x-axis in WebGL mode.</p>
-
-  <p>The parameter, <code>angle</code>, is the amount to rotate. For example,
-  calling
-
-  <code>rotateX(1)</code> rotates the coordinate system about the x-axis by 1
-  radian.
-
-  <code>rotateX()</code> interprets angle values using the current
-
-  <a href="/reference/p5/angleMode/">angleMode()</a>.</p>
-
-  <p>By default, transformations accumulate. For example, calling
-  <code>rotateX(1)</code>
-
-  twice has the same effect as calling <code>rotateX(2)</code> once. The
-
-  <a href="/reference/p5/push/">push()</a> and <a
-  href="/reference/p5/pop/">pop()</a> functions
-
-  can be used to isolate transformations within distinct drawing groups.</p>
-
-  <p>Note: Transformations are reset at the beginning of the draw loop. Calling
-
-  <code>rotateX(1)</code> inside the <a href="/reference/p5/draw/">draw()</a>
-  function won't cause
-
-  shapes to spin.</p>
 line: 470
 isConstructor: false
 itemtype: method
@@ -50,24 +27,24 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // クリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white cube on a gray background.');
+      describe('灰色の背景に白い立方体。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Rotate the coordinate system 1/8 turn.
+      // 座標系を1/8回転させます。
       rotateX(QUARTER_PI);
 
-      // Draw a box.
+      // ボックスを描画します。
       box();
     }
     </code>
@@ -75,27 +52,27 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // クリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white cube on a gray background.');
+      describe('灰色の背景に白い立方体。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Rotate the coordinate system 1/16 turn.
+      // 座標系を1/16回転させます。
       rotateX(QUARTER_PI / 2);
 
-      // Rotate the coordinate system 1/16 turn.
+      // 座標系をさらに1/16回転させます。
       rotateX(QUARTER_PI / 2);
 
-      // Draw a box.
+      // ボックスを描画します。
       box();
     }
     </code>
@@ -103,27 +80,27 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // クリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Use degrees.
+      // 度数法を使用します。
       angleMode(DEGREES);
 
-      describe('A white cube on a gray background.');
+      describe('灰色の背景に白い立方体。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Rotate the coordinate system 1/8 turn.
+      // 座標系を1/8回転させます。
       rotateX(45);
 
-      // Draw a box.
+      // ボックスを描画します。
       box();
     }
     </code>
@@ -131,25 +108,25 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // クリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white cube rotates slowly against a gray background.');
+      describe('灰色の背景に対してゆっくりと回転する白い立方体。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Rotate the coordinate system a little more each frame.
+      // フレームごとに座標系を少しずつ回転させます。
       let angle = frameCount * 0.01;
       rotateX(angle);
 
-      // Draw a box.
+      // ボックスを描画します。
       box();
     }
     </code>
@@ -158,13 +135,11 @@ class: p5
 params:
   - name: angle
     description: >
-      <p>現在の angleMode に応じて、ラジアンまたは度で指定された回転角</p>
-
-      <p>angle of rotation in the current <a
-      href="#/p5/angleMode">angleMode()</a>.</p>
+      <p>現在の<a href="#/p5/angleMode">angleMode()</a>での回転角度。</p>
     type: Number
 chainable: true
 ---
 
 
 # rotateX
+

@@ -4,59 +4,39 @@ module: 3D
 submodule: Material
 file: src/webgl/material.js
 description: >
-  <p>提供された頂点シェーダーとフラグメントシェーダーのコードから新しい <a href="#/p5.Shader">p5.Shader</a>
-  オブジェクトを作成します。</p>
+  <p>新しい<a href="/reference/p5/p5.Shader">p5.Shader</a>オブジェクトを作成します。</p>
 
-  <p></p>
+  <p>シェーダーはグラフィックス処理ユニット（GPU）上で実行されるプログラムです。多くの
 
-  <p>注意:シェーダーは WebGL モードでのみ使用できます。</p>
-
-  <p>Shaders can alter the positioning of shapes drawn with them. To ensure
-  consistency in rendering, it's recommended to use the vertex shader shown in
-  the example below. /// todo ///  add 1 line</p>
-
-
-  <hr/>
-
-  <p>Creates a new <a href="/reference/p5/p5.Shader/">p5.Shader</a> object.</p>
-
-  <p>Shaders are programs that run on the graphics processing unit (GPU). They
-
-  can process many pixels at the same time, making them fast for many
-
-  graphics tasks. They’re written in a language called
+  ピクセルを同時に処理できるため、多くのグラフィックスタスクに対して高速です。
 
   <a
   href="https://developer.mozilla.org/en-US/docs/Games/Techniques/3D_on_the_web/GLSL_Shaders/"
-  target="_blank">GLSL</a>
+  target="_blank">GLSL</a>と呼ばれる言語で書かれ、
 
-  and run along with the rest of the code in a sketch.</p>
+  スケッチの他のコードと一緒に実行されます。</p>
 
-  <p>Once the <a href="/reference/p5/p5.Shader/">p5.Shader</a> object is created,
-  it can be
+  <p><a href="/reference/p5/p5.Shader">p5.Shader</a>オブジェクトが作成されると、
 
-  used with the <a href="/reference/p5/shader/">shader()</a> function, as in
+  <a href="/reference/p5/shader/">shader()</a>関数で使用できます。例えば、
 
-  <code>shader(myShader)</code>. A shader program consists of two parts, a
-  vertex shader
+  <code>shader(myShader)</code>のようにします。シェーダープログラムは2つの部分、頂点
 
-  and a fragment shader. The vertex shader affects where 3D geometry is drawn
+  シェーダーとフラグメントシェーダーで構成されます。頂点シェーダーは3Dジオメトリが
 
-  on the screen and the fragment shader affects color.</p>
+  画面上のどこに描画されるかに影響し、フラグメントシェーダーは色に影響します。</p>
 
-  <p>The first parameter, <code>vertSrc</code>, sets the vertex shader. It’s a
-  string that
+  <p>最初のパラメータ<code>vertSrc</code>は頂点シェーダーを設定します。これはGLSLで
 
-  contains the vertex shader program written in GLSL.</p>
+  書かれた頂点シェーダープログラムを含む文字列です。</p>
 
-  <p>The second parameter, <code>fragSrc</code>, sets the fragment shader. It’s
-  a string
+  <p>2番目のパラメータ<code>fragSrc</code>はフラグメントシェーダーを設定します。これは
 
-  that contains the fragment shader program written in GLSL.</p>
+  GLSLで書かれたフラグメントシェーダープログラムを含む文字列です。</p>
 
-  <p>Note: Only filter shaders can be used in 2D mode. All shaders can be used
+  <p>注意：2Dモードではフィルターシェーダーのみが使用できます。WebGLモードでは
 
-  in WebGL mode.</p>
+  すべてのシェーダーが使用できます。</p>
 line: 173
 isConstructor: false
 itemtype: method
@@ -65,10 +45,10 @@ example:
 
     <div modernizr='webgl'>
     <code>
-    // Note: A "uniform" is a global variable within a shader program.
+    // 注意：「uniform」はシェーダープログラム内のグローバル変数です。
 
-    // Create a string with the vertex shader program.
-    // The vertex shader is called for each vertex.
+    // 頂点シェーダープログラムを含む文字列を作成します。
+    // 頂点シェーダーは各頂点に対して呼び出されます。
     let vertSrc = `
     precision highp float;
     uniform mat4 uModelViewMatrix;
@@ -84,13 +64,13 @@ example:
     }
     `;
 
-    // Create a string with the fragment shader program.
-    // The fragment shader is called for each pixel.
+    // フラグメントシェーダープログラムを含む文字列を作成します。
+    // フラグメントシェーダーは各ピクセルに対して呼び出されます。
     let fragSrc = `
     precision highp float;
 
     void main() {
-      // Set each pixel's RGBA value to yellow.
+      // 各ピクセルのRGBA値を黄色に設定します。
       gl_FragColor = vec4(1.0, 1.0, 0.0, 1.0);
     }
     `;
@@ -98,29 +78,29 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Shader object.
+      // p5.Shaderオブジェクトを作成します。
       let shaderProgram = createShader(vertSrc, fragSrc);
 
-      // Compile and apply the p5.Shader object.
+      // p5.Shaderオブジェクトをコンパイルして適用します。
       shader(shaderProgram);
 
-      // Style the drawing surface.
+      // 描画面のスタイルを設定します。
       noStroke();
 
-      // Add a plane as a drawing surface.
+      // 描画面としてプレーンを追加します。
       plane(100, 100);
 
-      describe('A yellow square.');
+      describe('黄色の正方形。');
     }
     </code>
     </div>
 
     <div>
     <code>
-    // Note: A "uniform" is a global variable within a shader program.
+    // 注意：「uniform」はシェーダープログラム内のグローバル変数です。
 
-    // Create a string with the vertex shader program.
-    // The vertex shader is called for each vertex.
+    // 頂点シェーダープログラムを含む文字列を作成します。
+    // 頂点シェーダーは各頂点に対して呼び出されます。
     let vertSrc = `
     precision highp float;
     uniform mat4 uModelViewMatrix;
@@ -136,8 +116,8 @@ example:
     }
     `;
 
-    // Create a string with the fragment shader program.
-    // The fragment shader is called for each pixel.
+    // フラグメントシェーダープログラムを含む文字列を作成します。
+    // フラグメントシェーダーは各ピクセルに対して呼び出されます。
     let fragSrc = `
     precision highp float;
     uniform vec2 p;
@@ -170,37 +150,37 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Shader object.
+      // p5.Shaderオブジェクトを作成します。
       let mandelbrot = createShader(vertSrc, fragSrc);
 
-      // Compile and apply the p5.Shader object.
+      // p5.Shaderオブジェクトをコンパイルして適用します。
       shader(mandelbrot);
 
-      // Set the shader uniform p to an array.
-      // p is the center point of the Mandelbrot image.
+      // シェーダーのuniform pを配列に設定します。
+      // pはマンデルブロ集合画像の中心点です。
       mandelbrot.setUniform('p', [-0.74364388703, 0.13182590421]);
 
-      // Set the shader uniform r to 0.005.
-      // r is the size of the image in Mandelbrot-space.
+      // シェーダーのuniform rを0.005に設定します。
+      // rはマンデルブロ空間での画像のサイズです。
       mandelbrot.setUniform('r', 0.005);
 
-      // Style the drawing surface.
+      // 描画面のスタイルを設定します。
       noStroke();
 
-      // Add a plane as a drawing surface.
+      // 描画面としてプレーンを追加します。
       plane(100, 100);
 
-      describe('A black fractal image on a magenta background.');
+      describe('マゼンタ背景に黒のフラクタル画像。');
     }
     </code>
     </div>
 
     <div>
     <code>
-    // Note: A "uniform" is a global variable within a shader program.
+    // 注意：「uniform」はシェーダープログラム内のグローバル変数です。
 
-    // Create a string with the vertex shader program.
-    // The vertex shader is called for each vertex.
+    // 頂点シェーダープログラムを含む文字列を作成します。
+    // 頂点シェーダーは各頂点に対して呼び出されます。
     let vertSrc = `
     precision highp float;
     uniform mat4 uModelViewMatrix;
@@ -217,8 +197,8 @@ example:
     }
     `;
 
-    // Create a string with the fragment shader program.
-    // The fragment shader is called for each pixel.
+    // フラグメントシェーダープログラムを含む文字列を作成します。
+    // フラグメントシェーダーは各ピクセルに対して呼び出されます。
     let fragSrc = `
     precision highp float;
     uniform vec2 p;
@@ -254,30 +234,30 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Shader object.
+      // p5.Shaderオブジェクトを作成します。
       mandelbrot = createShader(vertSrc, fragSrc);
 
-      // Apply the p5.Shader object.
+      // p5.Shaderオブジェクトを適用します。
       shader(mandelbrot);
 
-      // Set the shader uniform p to an array.
-      // p is the center point of the Mandelbrot image.
+      // シェーダーのuniform pを配列に設定します。
+      // pはマンデルブロ集合画像の中心点です。
       mandelbrot.setUniform('p', [-0.74364388703, 0.13182590421]);
 
-      describe('A fractal image zooms in and out of focus.');
+      describe('フラクタル画像がフォーカスイン・アウトします。');
     }
 
     function draw() {
-      // Set the shader uniform r to a value that oscillates
-      // between 0 and 0.005.
-      // r is the size of the image in Mandelbrot-space.
+      // シェーダーのuniform rを0から0.005の間で
+      // 振動する値に設定します。
+      // rはマンデルブロ空間での画像のサイズです。
       let radius = 0.005 * (sin(frameCount * 0.01) + 1);
       mandelbrot.setUniform('r', radius);
 
-      // Style the drawing surface.
+      // 描画面のスタイルを設定します。
       noStroke();
 
-      // Add a plane as a drawing surface.
+      // 描画面としてプレーンを追加します。
       plane(100, 100);
     }
     </code>
@@ -286,22 +266,20 @@ class: p5
 params:
   - name: vertSrc
     description: |
-      <p>頂点シェーダーのソースコード</p>
-      <p>source code for the vertex shader.</p>
+      <p>頂点シェーダーのソースコード。</p>
     type: String
   - name: fragSrc
     description: |
-      <p>フラグメントシェーダーのソースコード</p>
-      <p>source code for the fragment shader.</p>
+      <p>フラグメントシェーダーのソースコード。</p>
     type: String
 return:
   description: |-
-    提供された頂点シェーダーとフラグメントシェーダーから作成されたシェーダーオブジェクト。
-    new shader object created from the
-    vertex and fragment shaders.
+    頂点シェーダーとフラグメントシェーダーから
+    作成された新しいシェーダーオブジェクト。
   type: p5.Shader
 chainable: false
 ---
 
 
 # createShader
+

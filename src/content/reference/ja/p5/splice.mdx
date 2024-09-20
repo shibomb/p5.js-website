@@ -3,14 +3,7 @@ title: splice
 module: Data
 submodule: Array Functions
 file: src/utilities/array_functions.js
-description: >
-  <p>既存の配列に値または値の配列を挿入します。</p>
-
-  <p>第一パラメーターは変更される初期配列を指定し、第二パラメーターは挿入されるデータを定義します。第三パラメーターは、データを挿入する配列の位置を指定するインデックス値です。（配列のインデックス番号は0から始まることを覚えておいてください。つまり、最初の位置は0、2番目の位置は1、という具合です。）</p>
-
-
-  <hr/>
-
+description: |
   <p>Inserts a value or an array of values into an existing array. The first
   parameter specifies the initial array to be modified, and the second
   parameter defines the data to be inserted. The third parameter is an index
@@ -38,23 +31,18 @@ class: p5
 params:
   - name: list
     description: |
-      <p>スプライスする配列</p>
       <p>Array to splice into</p>
     type: Array
   - name: value
     description: |
-      <p>スプライスされる値</p>
       <p>value to be spliced in</p>
     type: Any
   - name: position
     description: |
-      <p>データを挿入する配列内の位置</p>
       <p>in the array from which to insert data</p>
     type: Integer
 return:
-  description: |-
-    リスト
-    the list
+  description: the list
   type: Array
 chainable: false
 ---

@@ -3,15 +3,7 @@ title: boolean
 module: Data
 submodule: Conversion
 file: src/utilities/conversion.js
-description: >-
-  <p>数値または文字列をそのブール表現に変換します。</p>
-
-  <p>数値の場合、ゼロ以外の値（正または負）は true と評価され、ゼロは false と評価されます。文字列の場合、値「true」は true
-  と評価され、それ以外の値は false と評価されます。数値または文字列の配列が渡されると、同じ長さのブール配列が返されます。</p>
-
-
-  <hr/>
-
+description: >
   <p>Converts a <code>String</code> or <code>Number</code> to a
   <code>Boolean</code>.</p>
 
@@ -34,17 +26,6 @@ description: >-
   values will
 
   be returned.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "n": "String|Boolean|Number|Array: 解析する値"
-  }
-
-  </pre>
 line: 341
 isConstructor: false
 itemtype: method
@@ -145,9 +126,7 @@ example:
     </div>
 class: p5
 return:
-  description: |-
-    値のブール表現
-    converted Boolean value.
+  description: converted Boolean value.
   type: Boolean
 overloads:
   - line: 341

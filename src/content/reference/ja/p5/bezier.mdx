@@ -3,70 +3,18 @@ title: bezier
 module: Shape
 submodule: Curves
 file: src/core/shape/curves.js
-description: >-
-  <p>画面上にキュビックベジェ曲線を描画します。</p>
+description: >
+  <p>ベジェ曲線を描画します。</p>
 
-  <p>これらの曲線は、一連のアンカーポイントとコントロールポイントで定義されます。最初の2つのパラメーターは最初のアンカーポイントを指定し、最後の2つのパラメーターは他のアンカーポイントを指定します。これらのアンカーポイントは曲線の最初と最後のポイントになります。中間のパラメーターは曲線の形状を定義する2つのコントロールポイントを指定します。大まかにいうと、コントロールポイントは曲線を自分の方向に「引っ張ります」。</p>
+  <p>ベジェ曲線は、緩やかに傾斜する形状や曲線を形成することができます。2つのアンカーポイントと2つの制御点によって定義されます。ベジェ曲線は、<a href="/reference/p5/curve/">curve()</a>関数で作成されるスプライン曲線よりも多くの制御を提供します。</p>
 
-  <p>ベジェ曲線は、フランスの自動車技師 Pierre Bezier
-  によって開発され、ゆるやかに傾斜した曲線を定義するためにコンピューターグラフィックスで一般的に使用されます。<a
-  href="#/p5/curve">curve()</a> も参照してください。</p>
+  <p>最初の2つのパラメータ、<code>x1</code>と<code>y1</code>は、最初のアンカーポイントを設定します。最初のアンカーポイントは曲線の開始点です。</p>
 
+  <p>次の4つのパラメータ、<code>x2</code>、<code>y2</code>、<code>x3</code>、<code>y3</code>は、2つの制御点を設定します。制御点は曲線を自身に向かって「引っ張る」効果があります。</p>
 
-  <hr/>
+  <p>7番目と8番目のパラメータ、<code>x4</code>と<code>y4</code>は、最後のアンカーポイントを設定します。最後のアンカーポイントは曲線の終点です。</p>
 
-  <p>Draws a Bézier curve.</p>
-
-  <p>Bézier curves can form shapes and curves that slope gently. They're defined
-
-  by two anchor points and two control points. Bézier curves provide more
-
-  control than the spline curves created with the
-
-  <a href="/reference/p5/curve/">curve()</a> function.</p>
-
-  <p>The first two parameters, <code>x1</code> and <code>y1</code>, set the
-  first anchor point. The
-
-  first anchor point is where the curve starts.</p>
-
-  <p>The next four parameters, <code>x2</code>, <code>y2</code>,
-  <code>x3</code>, and <code>y3</code>, set the two control
-
-  points. The control points "pull" the curve towards them.</p>
-
-  <p>The seventh and eighth parameters, <code>x4</code> and <code>y4</code>, set
-  the last anchor
-
-  point. The last anchor point is where the curve ends.</p>
-
-  <p>Bézier curves can also be drawn in 3D using WebGL mode. The 3D version of
-
-  <code>bezier()</code> has twelve arguments because each point has x-, y-,
-
-  and z-coordinates.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "x1": "Number: 最初のアンカーポイントの x 座標",
-      "y1": "Number: 最初のアンカーポイントの y 座標",
-      "x2": "Number: 最初のコントロールポイントの x 座標",
-      "y2": "Number: 最初のコントロールポイントの y 座標",
-      "x3": "Number: 2番目のコントロールポイントの x 座標",
-      "y3": "Number: 2番目のコントロールポイントの y 座標",
-      "x4": "Number: 2番目のアンカーポイントの x 座標",
-      "y4": "Number: 2番目のアンカーポイントの y 座標",
-      "z1": "Number: 最初のアンカーポイントの z 座標",
-      "z2": "Number: 最初のコントロールポイントの z 座標",
-      "z3": "Number: 2番目のコントロールポイントの z 座標",
-      "z4": "Number: 2番目のアンカーポイントの z 座標"
-  }
-
-  </pre>
+  <p>ベジェ曲線はWebGLモードを使用して3Dでも描画できます。3Dバージョンの<code>bezier()</code>は、各点がx、y、z座標を持つため、12個の引数を持ちます。</p>
 line: 13
 isConstructor: false
 itemtype: method
@@ -80,30 +28,30 @@ example:
 
       background(200);
 
-      // Draw the anchor points in black.
+      // アンカーポイントを黒で描画します。
       stroke(0);
       strokeWeight(5);
       point(85, 20);
       point(15, 80);
 
-      // Draw the control points in red.
+      // 制御点を赤で描画します。
       stroke(255, 0, 0);
       point(10, 10);
       point(90, 90);
 
-      // Draw a black bezier curve.
+      // 黒のベジェ曲線を描画します。
       noFill();
       stroke(0);
       strokeWeight(1);
       bezier(85, 20, 10, 10, 90, 90, 15, 80);
 
-      // Draw red lines from the anchor points to the control points.
+      // アンカーポイントから制御点への赤い線を描画します。
       stroke(255, 0, 0);
       line(85, 20, 10, 10);
       line(15, 80, 90, 90);
 
       describe(
-        'A gray square with three curves. A black s-curve has two straight, red lines that extend from its ends. The endpoints of all the curves are marked with dots.'
+        '3つの曲線がある灰色の正方形。黒のS字曲線の端から2本の赤い直線が伸びています。すべての曲線の端点は点で示されています。'
       );
     }
     </code>
@@ -111,8 +59,8 @@ example:
 
     <div>
     <code>
-    // Click the mouse near the red dot in the top-left corner
-    // and drag to change the curve's shape.
+    // 左上隅の赤い点の近くでマウスをクリックし、
+    // ドラッグして曲線の形を変更します。
 
     let x2 = 10;
     let y2 = 10;
@@ -122,49 +70,49 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'A gray square with three curves. A black s-curve has two straight, red lines that extend from its ends. The endpoints of all the curves are marked with dots.'
+        '3つの曲線がある灰色の正方形。黒のS字曲線の端から2本の赤い直線が伸びています。すべての曲線の端点は点で示されています。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Draw the anchor points in black.
+      // アンカーポイントを黒で描画します。
       stroke(0);
       strokeWeight(5);
       point(85, 20);
       point(15, 80);
 
-      // Draw the control points in red.
+      // 制御点を赤で描画します。
       stroke(255, 0, 0);
       point(x2, y2);
       point(90, 90);
 
-      // Draw a black bezier curve.
+      // 黒のベジェ曲線を描画します。
       noFill();
       stroke(0);
       strokeWeight(1);
       bezier(85, 20, x2, y2, 90, 90, 15, 80);
 
-      // Draw red lines from the anchor points to the control points.
+      // アンカーポイントから制御点への赤い線を描画します。
       stroke(255, 0, 0);
       line(85, 20, x2, y2);
       line(15, 80, 90, 90);
     }
 
-    // Start changing the first control point if the user clicks near it.
+    // ユーザーが最初の制御点の近くをクリックした場合、変更を開始します。
     function mousePressed() {
       if (dist(mouseX, mouseY, x2, y2) < 20) {
         isChanging = true;
       }
     }
 
-    // Stop changing the first control point when the user releases the mouse.
+    // ユーザーがマウスを離したときに、最初の制御点の変更を停止します。
     function mouseReleased() {
       isChanging = false;
     }
 
-    // Update the first control point while the user drags the mouse.
+    // ユーザーがマウスをドラッグしている間、最初の制御点を更新します。
     function mouseDragged() {
       if (isChanging === true) {
         x2 = mouseX;
@@ -181,14 +129,14 @@ example:
 
       background('skyblue');
 
-      // Draw the red balloon.
+      // 赤い風船を描画します。
       fill('red');
       bezier(50, 60, 5, 15, 95, 15, 50, 60);
 
-      // Draw the balloon string.
+      // 風船の紐を描画します。
       line(50, 60, 50, 80);
 
-      describe('A red balloon in a blue sky.');
+      describe('青空の中の赤い風船。');
     }
     </code>
     </div>
@@ -198,20 +146,20 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A red balloon in a blue sky. The balloon rotates slowly, revealing that it is flat.');
+      describe('青空の中の赤い風船。風船はゆっくりと回転し、平面であることが分かります。');
     }
 
     function draw() {
       background('skyblue');
 
-      // Rotate around the y-axis.
+      // y軸を中心に回転します。
       rotateY(frameCount * 0.01);
 
-      // Draw the red balloon.
+      // 赤い風船を描画します。
       fill('red');
       bezier(0, 0, 0, -45, -45, 0, 45, -45, 0, 0, 0, 0);
 
-      // Draw the balloon string.
+      // 風船の紐を描画します。
       line(0, 0, 0, 0, 20, 0);
     }
     </code>
@@ -222,35 +170,35 @@ overloads:
     params:
       - name: x1
         description: |
-          <p>x-coordinate of the first anchor point.</p>
+          <p>最初のアンカーポイントのx座標。</p>
         type: Number
       - name: y1
         description: |
-          <p>y-coordinate of the first anchor point.</p>
+          <p>最初のアンカーポイントのy座標。</p>
         type: Number
       - name: x2
         description: |
-          <p>x-coordinate of the first control point.</p>
+          <p>最初の制御点のx座標。</p>
         type: Number
       - name: y2
         description: |
-          <p>y-coordinate of the first control point.</p>
+          <p>最初の制御点のy座標。</p>
         type: Number
       - name: x3
         description: |
-          <p>x-coordinate of the second control point.</p>
+          <p>2番目の制御点のx座標。</p>
         type: Number
       - name: y3
         description: |
-          <p>y-coordinate of the second control point.</p>
+          <p>2番目の制御点のy座標。</p>
         type: Number
       - name: x4
         description: |
-          <p>x-coordinate of the second anchor point.</p>
+          <p>2番目のアンカーポイントのx座標。</p>
         type: Number
       - name: y4
         description: |
-          <p>y-coordinate of the second anchor point.</p>
+          <p>2番目のアンカーポイントのy座標。</p>
         type: Number
     chainable: 1
   - line: 191
@@ -263,7 +211,7 @@ overloads:
         type: Number
       - name: z1
         description: |
-          <p>z-coordinate of the first anchor point.</p>
+          <p>最初のアンカーポイントのz座標。</p>
         type: Number
       - name: x2
         description: ''
@@ -273,7 +221,7 @@ overloads:
         type: Number
       - name: z2
         description: |
-          <p>z-coordinate of the first control point.</p>
+          <p>最初の制御点のz座標。</p>
         type: Number
       - name: x3
         description: ''
@@ -283,7 +231,7 @@ overloads:
         type: Number
       - name: z3
         description: |
-          <p>z-coordinate of the second control point.</p>
+          <p>2番目の制御点のz座標。</p>
         type: Number
       - name: x4
         description: ''
@@ -293,7 +241,7 @@ overloads:
         type: Number
       - name: z4
         description: |
-          <p>z-coordinate of the second anchor point.</p>
+          <p>2番目のアンカーポイントのz座標。</p>
         type: Number
     chainable: 1
 chainable: true

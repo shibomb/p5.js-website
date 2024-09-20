@@ -4,10 +4,6 @@ module: IO
 submodule: Input
 file: src/io/files.js
 description: |
-  <p>このメソッドは、最大64MB のファイルをフェッチするのに適しています。</p>
-  <p></p>
-
-  <hr/>
   <p>This method is suitable for fetching files up to size of 64MB.</p>
 line: 986
 isConstructor: false
@@ -33,27 +29,22 @@ class: p5
 params:
   - name: file
     description: |
-      <p>ロードするファイル名または URL</p>
       <p>name of the file or URL to load</p>
     type: String
   - name: callback
     description: |
-      <p>(オプション) <a href="#/p5/loadBytes">loadBytes()</a> 完了後に実行される関数</p>
       <p>function to be executed after <a href="#/p5/loadBytes">loadBytes()</a>
                                          completes</p>
     type: Function
     optional: true
   - name: errorCallback
     description: |
-      <p>(オプション) エラーがあった場合に実行される関数</p>
       <p>function to be executed if there
                                          is an error</p>
     type: Function
     optional: true
 return:
-  description: |-
-    ロードされたバッファをもつ 'bytes' プロパティをもつオブジェクト
-    an object whose 'bytes' property will be the loaded buffer
+  description: an object whose 'bytes' property will be the loaded buffer
   type: Object
 chainable: false
 ---

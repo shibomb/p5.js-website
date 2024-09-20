@@ -4,11 +4,7 @@ module: Transform
 submodule: Transform
 file: src/core/transform.js
 description: |
-  <p>現在の行列を単位行列に置き換えます。</p>
-  <p></p>
-
-  <hr/>
-  <p>Clears all transformations applied to the coordinate system.</p>
+  <p>座標系に適用されたすべての変換をクリアします。</p>
 line: 246
 isConstructor: false
 itemtype: method
@@ -21,25 +17,25 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'Two circles drawn on a gray background. A blue circle is at the top-left and a red circle is at the bottom-right.'
+        'グレーの背景に2つの円が描かれています。青い円が左上に、赤い円が右下にあります。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Translate the origin to the center.
+      // 原点を中心に移動します。
       translate(50, 50);
 
-      // Draw a blue circle at the coordinates (25, 25).
+      // 座標(25, 25)に青い円を描きます。
       fill('blue');
       circle(25, 25, 20);
 
-      // Clear all transformations.
-      // The origin is now at the top-left corner.
+      // すべての変換をクリアします。
+      // 原点は今、左上の角にあります。
       resetMatrix();
 
-      // Draw a red circle at the coordinates (25, 25).
+      // 座標(25, 25)に赤い円を描きます。
       fill('red');
       circle(25, 25, 20);
     }
@@ -51,3 +47,4 @@ chainable: true
 
 
 # resetMatrix
+

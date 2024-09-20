@@ -3,14 +3,7 @@ title: unhex
 module: Data
 submodule: Conversion
 file: src/utilities/conversion.js
-description: >-
-  <p>16進数表記の文字列表現を、それに相当する整数値に変換します。</p>
-
-  <p>16進数表記の文字列の配列が渡された場合、同じ長さの整数の配列が返されます。</p>
-
-
-  <hr/>
-
+description: >
   <p>Converts a <code>String</code> with a hexadecimal value to a 
   <code>Number</code>.</p>
 
@@ -30,18 +23,6 @@ description: >-
   <code>unhex('FF')</code>, returns the number 255. If an array is passed, as in
 
   <code>unhex(['00', '80', 'FF'])</code>, an array of numbers is returned.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "n": "String: 解析する値",
-      "ns": "Array: 解析する値"
-  }
-
-  </pre>
 line: 956
 isConstructor: false
 itemtype: method
@@ -109,9 +90,7 @@ example:
     </div>
 class: p5
 return:
-  description: |-
-    16進数の値の整数表現
-    converted number.
+  description: converted number.
   type: Number
 overloads:
   - line: 956

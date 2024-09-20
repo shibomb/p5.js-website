@@ -3,20 +3,7 @@ title: toggleImpulse
 module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
-description: >
-  <p><code>.addImpulse()</code> を使用して、複数のインパルスを p5.Convolver
-  に追加した場合は、このメソッドを使用して <code>.impulses</code> 配列内の項目を切り替えることができます。</p>
-
-  <p>使用するインパルスを識別するためにパラメーターを受け取ります。インパルスは、元のファイル名（文字列）または
-  <code>.impulses</code> 配列内の位置（番号）で識別できます。<br/> .impulses
-  配列内のオブジェクトに直接アクセスできます。各オブジェクトには2つの属性があります。ひとつは <a
-  href="http://webaudio.github.io/web-audio-api/#the-audiobuffer-interface">Web
-  オーディオの AudioBuffer</a> 型の <code>.audioBuffer</code> で、もうひとつは、元のファイル名に対応する文字列の
-  <code>.name</code> です。</p>
-
-
-  <hr/>
-
+description: |
   <p>If you have used <code>.addImpulse()</code> to add multiple impulses
   to a p5.Convolver, then you can use this method to toggle between
   the items in the <code>.impulses</code> Array. Accepts a parameter
@@ -36,7 +23,6 @@ class: p5.Convolver
 params:
   - name: id
     description: |
-      <p>インパルスを元のファイル名（文字列）または <code>.impulses</code> 配列内の位置（数値）で識別します。</p>
       <p>Identify the impulse by its original filename
                                 (String), or by its position in the
                                 <code>.impulses</code> Array (Number).</p>

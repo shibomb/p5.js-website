@@ -3,40 +3,14 @@ title: mult
 module: Math
 submodule: Vector
 file: src/math/p5.Vector.js
-description: >-
-  <p>ベクトルをスカラーで乗算し、ベクトルの <code>x</code>、<code>y</code>、<code>z</code>
-  成分を乗算するか、2つの独立したベクトルの <code>x</code>、<code>y</code>、<code>z</code>
-  成分を乗算します。</p>
-
-  <p>ベクトルをスカラーで乗算する場合、ベクトルの <code>x</code>、<code>y</code>、<code>z</code>
-  成分はすべてスカラーで乗算されます。ベクトルを別のベクトルで乗算する場合、2つのベクトルの
-  <code>x</code>、<code>y</code>、<code>z</code> 成分を互いに乗算します（たとえば、2つのベクトル
-  <code>a</code> と <code>b</code> の場合:<code>a.x * b.x</code>、<code>a.y *
-  b.y</code>、<code>a.z * b.z</code>）。このメソッドの静的バージョンは新しい <a
-  href="#/p5.Vector">p5.Vector</a>
-  を作成し、非静的バージョンはベクトルに直接作用します。また、この関数に引数を配列として提供することもできます。詳細については、例を参照してください。</p>
-
-  <p>/// todo ///</p>
-
-  <p>Multiplies a vector's <code>x</code>, <code>y</code>, and <code>z</code>
-  components by the same number, separate numbers, the components of another <a
-  href="#/p5.Vector">p5.Vector</a> object, or an array of numbers. Calling
-  <code>mult()</code> with no arguments has no effect.</p>
-
-  <p>The static version of <code>mult()</code>, as in <code>p5.Vector.mult(v,
-  2)</code>, returns a new <a href="#/p5.Vector">p5.Vector</a> object and
-  doesn't change the originals.</p>
-
-
-  <hr/>
-
+description: >
   <p>Multiplies a vector's <code>x</code>, <code>y</code>, and <code>z</code>
   components.</p>
 
   <p><code>mult()</code> can use separate numbers, as in <code>v.mult(1, 2,
   3)</code>, another
 
-  <a href="/reference/p5/p5.Vector/">p5.Vector</a> object, as in
+  <a href="/reference/p5/p5.Vector">p5.Vector</a> object, as in
   <code>v.mult(v2)</code>, or an array
 
   of numbers, as in <code>v.mult([1, 2, 3])</code>.</p>
@@ -57,28 +31,9 @@ description: >-
   <p>The static version of <code>mult()</code>, as in <code>p5.Vector.mult(v,
   2)</code>, returns a new
 
-  <a href="/reference/p5/p5.Vector/">p5.Vector</a> object and doesn't change the
+  <a href="/reference/p5/p5.Vector">p5.Vector</a> object and doesn't change the
 
   originals.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "n": "Number: ベクトルと乗算する数値",
-      "x": "Number: ベクトルの x 成分と乗算する数値",
-      "y": "Number: ベクトルの y 成分と乗算する数値",
-      "z": "Number: (オプション) ベクトルの z 成分と乗算する数値",
-      "arr": "Number[]: ベクトルの成分に乗算する配列",
-      "v": "p5.Vector: 元のベクトルの成分と乗算するベクトル",
-      "target": "p5.Vector: (オプション) 結果を受け取るベクトル",
-      "v0": "p5.Vector",
-      "v1": "p5.Vector"
-  }
-
-  </pre>
 line: 785
 isConstructor: false
 itemtype: method

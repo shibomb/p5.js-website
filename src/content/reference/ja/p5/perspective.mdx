@@ -4,122 +4,74 @@ module: 3D
 submodule: Camera
 file: src/webgl/p5.Camera.js
 description: >
-  <p>3D スケッチの現在のカメラに対して透視投影を設定します。</p>
+  <p>3Dスケッチにおいて、現在のカメラに遠近法投影を設定します。</p>
 
-  <p>この投影は、縮尺を通じて奥行きを表現します。カメラに近いオブジェクトは実際のサイズで表示され、カメラから離れたオブジェクトは小さく表示されます。</p>
+  <p>遠近法投影では、カメラから遠い形状は近い形状よりも小さく見えます。この技術は
 
-  <p>この関数のパラメーターは、垂直視野角、アスペクト比（通常は幅/高さ）、および、近距離および遠距離クリッピング平面を通じて、視錐台（カメラによってオブジェクトが見られる切り取られたピラミッド）を定義します。</p>
+  フォアショートニングと呼ばれ、リアルな3Dシーンを作成します。WebGLモードでは
 
-  <p>If no parameters are given, the default values are used as: <ul>
-  <li><code>fov</code> : The default field of view for the camera is such that
-  the full height of renderer is visible when it is positioned at a default
-  distance of 800 units from the camera.</li> <li><code>aspect</code> : The
-  default aspect ratio is the ratio of renderer's width to renderer's
-  height.</li> <li><code>near</code> : The default value for the near clipping
-  plane is 80, which is 0.1 times the default distance from the camera to its
-  subject.</li> <li><code>far</code> : The default value for the far clipping
-  plane is 8000, which is 10 times the default distance from the camera to its
-  subject.</li> </ul></p>
+  デフォルトで適用されます。</p>
 
-  <p>If you prefer a fixed field of view, follow these steps: <ol> <li>Choose
-  your desired field of view angle (<code>fovy</code>). This is how wide the
-  camera can see.</li> <li>To ensure that you can see the entire width across
-  horizontally and height across vertically, place the camera a distance of
-  <code>(height / 2) / tan(fovy / 2)</code> back from its subject.</li> <li>Call
-  perspective with the chosen field of view, canvas aspect ratio, and near/far
-  values: <code>perspective(fovy, width / height, cameraDistance / 10,
-  cameraDistance * 10);</code></li> </ol></p>
+  <p><code>perspective()</code>は、カメラの視錐台を変更することでカメラの遠近法を変更します。
 
-  <p>/// todo /// change 1 line to 2 lines</p>
+  視錐台は、カメラから見える空間の体積です。
 
-  <p>パラメーターが指定されていない場合、デフォルトで次のようになります: perspective(PI/3, width/height, eyeZ/10,
-  eyeZ*10)。ここで、eyeZ は((height/2) / tan(PI/6))と等しいです。</p>
+  その形状は、上部が切り取られたピラミッドです。カメラはピラミッドの
 
+  上部があるべき場所に配置され、視錐台の上面（近面）と底面（遠面）の間の
 
-  <hr/>
+  すべてを見ることができます。</p>
 
-  <p>Sets a perspective projection for the current camera in a 3D sketch.</p>
+  <p>最初のパラメータ<code>fovy</code>は、カメラの垂直視野角です。これは
 
-  <p>In a perspective projection, shapes that are further from the camera appear
+  カメラがどれだけ高く、または狭く見えるかを表す角度です。
 
-  smaller than shapes that are near the camera. This technique, called
+  例えば、<code>perspective(0.5)</code>を呼び出すと、カメラの垂直視野角が
 
-  foreshortening, creates realistic 3D scenes. It’s applied by default in
+  0.5ラジアンに設定されます。デフォルトでは、<code>fovy</code>はスケッチの
 
-  WebGL mode.</p>
+  高さとカメラのデフォルトのz座標（800）に基づいて計算されます。デフォルトの
 
-  <p><code>perspective()</code> changes the camera’s perspective by changing its
-  viewing
+  <code>fovy</code>の計算式は<code>2 * atan(height / 2 / 800)</code>です。</p>
 
-  frustum. The frustum is the volume of space that’s visible to the camera.
+  <p>2番目のパラメータ<code>aspect</code>は、カメラのアスペクト比です。これは
 
-  Its shape is a pyramid with its top cut off. The camera is placed where
+  上面の幅と高さの比率を表す数値です。
 
-  the top of the pyramid should be and views everything between the frustum’s
+  例えば、<code>perspective(0.5, 1.5)</code>を呼び出すと、カメラの視野角が
 
-  top (near) plane and its bottom (far) plane.</p>
+  0.5ラジアンに、アスペクト比が1.5に設定され、正方形のキャンバスでは
 
-  <p>The first parameter, <code>fovy</code>, is the camera’s vertical field of
-  view. It’s
+  形状がより細く見えるようになります。デフォルトでは、アスペクト比は<code>width /
+  height</code>に設定されます。</p>
 
-  an angle that describes how tall or narrow a view the camera has. For
+  <p>3番目のパラメータ<code>near</code>は、カメラから近面までの距離です。
 
-  example, calling <code>perspective(0.5)</code> sets the camera’s vertical
-  field of
+  例えば、<code>perspective(0.5, 1.5, 100)</code>を呼び出すと、カメラの
 
-  view to 0.5 radians. By default, <code>fovy</code> is calculated based on the
-  sketch’s
+  視野角が0.5ラジアン、アスペクト比が1.5に設定され、近面がカメラから
 
-  height and the camera’s default z-coordinate, which is 800. The formula for
+  100ピクセルの位置に配置されます。カメラから100ピクセル未満の距離に描画された
 
-  the default <code>fovy</code> is <code>2 * atan(height / 2 / 800)</code>.</p>
+  形状は表示されません。デフォルトでは、nearは<code>0.1 * 800</code>に設定されます。
 
-  <p>The second parameter, <code>aspect</code>, is the camera’s aspect ratio.
-  It’s a number
+  これは、カメラと原点の間のデフォルトの距離の1/10です。</p>
 
-  that describes the ratio of the top plane’s width to its height. For
+  <p>4番目のパラメータ<code>far</code>は、カメラから遠面までの距離です。
 
-  example, calling <code>perspective(0.5, 1.5)</code> sets the camera’s field of
-  view to
+  例えば、<code>perspective(0.5, 1.5, 100, 10000)</code>を呼び出すと、
 
-  0.5 radians and aspect ratio to 1.5, which would make shapes appear thinner
+  カメラの視野角が0.5ラジアン、アスペクト比が1.5に設定され、近面が
 
-  on a square canvas. By default, aspect is set to <code>width /
-  height</code>.</p>
+  カメラから100ピクセルの位置に、遠面がカメラから10,000
 
-  <p>The third parameter, <code>near</code>, is the distance from the camera to
-  the near
+  ピクセルの位置に配置されます。カメラから10,000ピクセル以上離れた場所に描画された
 
-  plane. For example, calling <code>perspective(0.5, 1.5, 100)</code> sets the
-  camera’s
+  形状は表示されません。デフォルトでは、farは<code>10 * 800</code>に設定されます。
 
-  field of view to 0.5 radians, its aspect ratio to 1.5, and places the near
+  これは、カメラと原点の間のデフォルトの距離の10倍です。</p>
 
-  plane 100 pixels from the camera. Any shapes drawn less than 100 pixels
-
-  from the camera won’t be visible. By default, near is set to <code>0.1 *
-  800</code>,
-
-  which is 1/10th the default distance between the camera and the origin.</p>
-
-  <p>The fourth parameter, <code>far</code>, is the distance from the camera to
-  the far
-
-  plane. For example, calling <code>perspective(0.5, 1.5, 100, 10000)</code>
-  sets the
-
-  camera’s field of view to 0.5 radians, its aspect ratio to 1.5, places the
-
-  near plane 100 pixels from the camera, and places the far plane 10,000
-
-  pixels from the camera. Any shapes drawn more than 10,000 pixels from the
-
-  camera won’t be visible. By default, far is set to <code>10 * 800</code>,
-  which is 10
-
-  times the default distance between the camera and the origin.</p>
-
-  <p>Note: <code>perspective()</code> can only be used in WebGL mode.</p>
+  <p>注意：<code>perspective()</code>はWebGLモードでのみ使用できます。</p>
 line: 148
 isConstructor: false
 itemtype: method
@@ -128,33 +80,33 @@ example:
 
     <div>
     <code>
-    // Double-click to squeeze the box.
+    // ダブルクリックでボックスを圧縮します。
 
     let isSqueezed = false;
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white rectangular prism on a gray background. The box appears to become thinner when the user double-clicks.');
+      describe('灰色の背景に白い直方体。ユーザーがダブルクリックすると、ボックスが細くなるように見えます。');
     }
 
     function draw() {
       background(200);
 
-      // Place the camera at the top-right.
+      // カメラを右上に配置します。
       camera(400, -400, 800);
 
       if (isSqueezed === true) {
-        // Set fovy to 0.2.
-        // Set aspect to 1.5.
+        // fovyを0.2に設定します。
+        // アスペクト比を1.5に設定します。
         perspective(0.2, 1.5);
       }
 
-      // Draw the box.
+      // ボックスを描画します。
       box();
     }
 
-    // Change the camera's perspective when the user double-clicks.
+    // ユーザーがダブルクリックしたときにカメラの遠近法を変更します。
     function doubleClicked() {
       isSqueezed = true;
     }
@@ -166,28 +118,28 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white rectangular prism on a gray background. The prism moves away from the camera until it disappears.');
+      describe('灰色の背景に白い直方体。直方体はカメラから離れていき、最終的に消えます。');
     }
 
     function draw() {
       background(200);
 
-      // Place the camera at the top-right.
+      // カメラを右上に配置します。
       camera(400, -400, 800);
 
-      // Set fovy to 0.2.
-      // Set aspect to 1.5.
-      // Set near to 600.
-      // Set far to 1200.
+      // fovyを0.2に設定します。
+      // アスペクト比を1.5に設定します。
+      // nearを600に設定します。
+      // farを1200に設定します。
       perspective(0.2, 1.5, 600, 1200);
 
-      // Move the origin away from the camera.
+      // 原点をカメラから遠ざけます。
       let x = -frameCount;
       let y = frameCount;
       let z = -2 * frameCount;
       translate(x, y, z);
 
-      // Draw the box.
+      // ボックスを描画します。
       box();
     }
     </code>
@@ -195,33 +147,27 @@ example:
 class: p5
 params:
   - name: fovy
-    description: >
-      <p>(オプション) カメラの視錐台の垂直視野角、ビューの下から上まで、<a href="#/p5/angleMode">angleMode</a>
-      の単位で</p>
-
-      <p>camera frustum vertical field of view. Defaults to
-                                <code>2 * atan(height / 2 / 800)</code>.</p>
+    description: |
+      <p>カメラの視錐台の垂直視野角。デフォルトは
+                                <code>2 * atan(height / 2 / 800)</code>です。</p>
     type: Number
     optional: true
   - name: aspect
     description: |
-      <p>(オプション) カメラの視錐台のアスペクト比</p>
-      <p>camera frustum aspect ratio. Defaults to
-                                <code>width / height</code>.</p>
+      <p>カメラの視錐台のアスペクト比。デフォルトは
+                                <code>width / height</code>です。</p>
     type: Number
     optional: true
   - name: near
     description: |
-      <p>(オプション) 視錐台の近距離平面の長さ</p>
-      <p>distance from the camera to the near clipping plane.
-                                Defaults to <code>0.1 * 800</code>.</p>
+      <p>カメラから近クリッピング平面までの距離。
+                                デフォルトは<code>0.1 * 800</code>です。</p>
     type: Number
     optional: true
   - name: far
     description: |
-      <p>(オプション) 視錐台の遠距離平面の長さ</p>
-      <p>distance from the camera to the far clipping plane.
-                                Defaults to <code>10 * 800</code>.</p>
+      <p>カメラから遠クリッピング平面までの距離。
+                                デフォルトは<code>10 * 800</code>です。</p>
     type: Number
     optional: true
 chainable: true
@@ -229,3 +175,4 @@ chainable: true
 
 
 # perspective
+

@@ -4,26 +4,12 @@ module: Color
 submodule: Setting
 file: src/color/setting.js
 description: >
-  <p><a href="#/p5/erase">erase()</a> で開始された消去を終了します。</p>
+  <p>消去モードを終了します。</p>
 
-  <p><a href="#/p5/fill">fill()</a>、<a href="#/p5/stroke">stroke()</a>、および <a
-  href="#/p5/blendMode">blendMode()</a> の設定は、<a href="#/p5/erase">erase()</a>
-  を呼び出す前の状態に戻ります。</p>
+  <p><code>noErase()</code>は<code>erase()</code>の効果を停止し、
 
-
-  <hr/>
-
-  <p>Ends erasing that was started with <a
-  href="/reference/p5/erase/">erase()</a>.</p>
-
-  <p>The <a href="/reference/p5/fill/">fill()</a>, <a
-  href="/reference/p5/stroke/">stroke()</a>, and
-
-  <a href="/reference/p5/blendMode/">blendMode()</a> settings will return to
-  what they
-
-  were prior to calling <a href="/reference/p5/erase/">erase()</a>.</p>
-line: 1678
+  通常の描画モードに戻します。</p>
+line: '1437'
 isConstructor: false
 itemtype: method
 example:
@@ -33,29 +19,33 @@ example:
     <code>
     function setup() {
       createCanvas(100, 100);
-
       background(235, 145, 15);
-
-      // Draw the left rectangle.
       noStroke();
-      fill(30, 45, 220);
-      rect(30, 10, 10, 80);
+    }
 
-      // Erase a circle.
+    function draw() {
+      background(235, 145, 15);
+      circle(33, 50, 60);
+
+      // 円を部分的に消去
       erase();
-      circle(50, 50, 60);
+      circle(67, 50, 60);
       noErase();
 
-      // Draw the right rectangle.
-      rect(70, 10, 10, 80);
+      // 通常の描画モードに戻る
+      fill(0);
+      circle(50, 75, 20);
 
-      describe('An orange canvas with two tall blue rectangles. A circular hole in the center erases the rectangle on the left but not the one on the right.');
+      describe('オレンジ色の背景に3つの円。中央の円は部分的に消去され、下の円は黒で塗りつぶされています。');
     }
     </code>
     </div>
 class: p5
+overloads:
+  - line: '1437'
+    params: []
+    chainable: 1
 chainable: true
 ---
-
 
 # noErase

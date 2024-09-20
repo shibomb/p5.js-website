@@ -4,51 +4,30 @@ module: 3D
 submodule: Camera
 file: src/webgl/p5.Camera.js
 description: >
-  <p>A class to describe a camera for viewing a 3D sketch.</p>
+  <p>3Dスケッチを表示するためのカメラを記述するクラスです。</p>
 
-  <p>Each <code>p5.Camera</code> object represents a camera that views a section
-  of 3D
+  <p>各<code>p5.Camera</code>オブジェクトは、3D空間の一部を表示するカメラを表します。
+  カメラの位置、向き、投影に関する情報を保存します。</p>
 
-  space. It stores information about the camera’s position, orientation, and
+  <p>WebGLモードでは、デフォルトカメラは<code>p5.Camera</code>オブジェクトで、
+  <a href="/reference/p5/camera/">camera()</a>、
+  <a href="/reference/p5/perspective/">perspective()</a>、
+  <a href="/reference/p5/ortho/">ortho()</a>、
+  <a href="/reference/p5/frustum/">frustum()</a>関数で制御できます。追加のカメラは
+  <a href="/reference/p5/createCamera/">createCamera()</a>で作成し、
+  <a href="/reference/p5/setCamera/">setCamera()</a>で有効化できます。</p>
 
-  projection.</p>
-
-  <p>In WebGL mode, the default camera is a <code>p5.Camera</code> object that
-  can be
-
-  controlled with the <a href="/reference/p5/camera/">camera()</a>,
-
-  <a href="/reference/p5/perspective/">perspective()</a>,
-
-  <a href="/reference/p5/ortho/">ortho()</a>, and
-
-  <a href="/reference/p5/frustum/">frustum()</a> functions. Additional cameras
-  can be
-
-  created with <a href="/reference/p5/createCamera/">createCamera()</a> and
-  activated
-
-  with <a href="/reference/p5/setCamera/">setCamera()</a>.</p>
-
-  <p>Note: <code>p5.Camera</code>’s methods operate in two coordinate
-  systems:</p>
+  <p>注意：<code>p5.Camera</code>のメソッドは2つの座標系で動作します：</p>
 
   <ul>
 
-  <li>The “world” coordinate system describes positions in terms of their
+  <li>「ワールド」座標系は、x軸、y軸、z軸に沿った原点との関係で位置を記述します。
+  例えば、<code>myCamera.setPosition()</code>を呼び出すと、「ワールド」座標を
+  使用して3D空間にカメラを配置します。</li>
 
-  relationship to the origin along the x-, y-, and z-axes. For example,
-
-  calling <code>myCamera.setPosition()</code> places the camera in 3D space
-  using
-
-  "world" coordinates.</li>
-
-  <li>The "local" coordinate system describes positions from the camera's point
-
-  of view: left-right, up-down, and forward-backward. For example, calling
-
-  <code>myCamera.move()</code> moves the camera along its own axes.</li>
+  <li>「ローカル」座標系は、カメラの視点から位置を記述します：左右、上下、前後。
+  例えば、<code>myCamera.move()</code>を呼び出すと、カメラを自身の軸に沿って
+  移動させます。</li>
 
   </ul>
 line: 723
@@ -56,3 +35,4 @@ line: 723
 
 
 # p5.Camera
+

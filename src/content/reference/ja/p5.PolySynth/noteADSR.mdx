@@ -4,15 +4,6 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: >
-  <p>トリガーされた特定の音符に対してエンベロープを設定します。</p>
-
-  <p>このメソッドを使用すると、希望する音を再生するのに使用される AudioVoice
-  のエンベロープが変更されます。変更されたエンベロープが他の音符に使用されることとなるのを防ぐために、noteRelease
-  が呼び出される前にエンベロープをリセットする必要があります。</p>
-
-
-  <hr/>
-
   <p>noteADSR sets the envelope for a specific note that has just been
   triggered.
 
@@ -29,32 +20,23 @@ class: p5.PolySynth
 params:
   - name: note
     description: |
-      <p>(オプション) ADSR を設定する MIDI ノート。</p>
       <p>Midi note on which ADSR should be set.</p>
     type: Number
     optional: true
   - name: attackTime
     description: |
-      <p>(オプション) エンベロープが Attack Level に到達するまでの時間（秒単位）。</p>
       <p>Time (in seconds before envelope
                                     reaches Attack Level</p>
     type: Number
     optional: true
   - name: decayTime
     description: |
-      <p>(オプション) エンベロープが Decay / Sustain Level に到達するまでの時間（秒単位）。</p>
       <p>Time (in seconds) before envelope
                                     reaches Decay/Sustain Level</p>
     type: Number
     optional: true
   - name: susRatio
-    description: >
-      <p>(オプション) 0から1のスケールで、attackLevel と releaseLevel の比率。1.0は attackLevel
-      を、0.0は releaseLevel を表します。susRatio は、decayLevel
-      とエンベロープのサステイン部分が維持されるレベルを決定します。たとえば、attackLevel が0.4で releaseLevel
-      が0で、susRatio が0.5の場合、decayLevel は0.2になります。attackLevel が setRange
-      を使用して1.0に増加すると、decayLevel は比例的に増加して0.5になります。</p>
-
+    description: |
       <p>Ratio between attackLevel and releaseLevel, on a scale from 0 to 1,
                                     where 1.0 = attackLevel, 0.0 = releaseLevel.
                                     The susRatio determines the decayLevel and the level at which the
@@ -67,7 +49,6 @@ params:
     optional: true
   - name: releaseTime
     description: |
-      <p>(オプション) 今から数秒後の時間（デフォルトは0秒）</p>
       <p>Time in seconds from now (defaults to 0)</p>
     type: Number
     optional: true

@@ -4,13 +4,6 @@ module: IO
 submodule: Output
 file: src/io/files.js
 description: >
-  <p>配列または JSON オブジェクトの内容を.json ファイルに書き込みます。</p>
-
-  <p>ファイルの保存プロセスと保存されたファイルの場所は、ウェブブラウザー間で異なります。</p>
-
-
-  <hr/>
-
   <p>Saves an <code>Object</code> or <code>Array</code> to a JSON file.</p>
 
   <p>JavaScript Object Notation
@@ -155,19 +148,14 @@ class: p5
 params:
   - name: json
     description: |
-      <p>Array|Object</p>
       <p>data to save.</p>
     type: Array|Object
   - name: filename
     description: |
-      <p>String</p>
       <p>name of the file to be saved.</p>
     type: String
   - name: optimize
-    description: >
-      <p>(オプション) true の場合、ファイルサイズを最適化するために、出力ファイルから改行とスペースを削除します
-      (読みやすさは向上しません)。</p>
-
+    description: |
       <p>whether to trim unneeded whitespace. Defaults
                                    to <code>true</code>.</p>
     type: Boolean

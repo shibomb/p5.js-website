@@ -4,10 +4,6 @@ module: IO
 submodule: Table
 file: src/io/p5.Table.js
 description: |
-  <p>テーブルのすべてのデータを取得し、オブジェクトとして返します。</p>
-  <p>列名が渡された場合、各行のオブジェクトはその属性をタイトルとして保存します。</p>
-
-  <hr/>
   <p>Retrieves all table data and returns as an object. If a column name is
   passed in, each row object will be stored with that attribute as its
   title.</p>
@@ -49,14 +45,12 @@ class: p5.Table
 params:
   - name: headerColumn
     description: |
-      <p>(オプション) 各行オブジェクトのタイトルとして使用する列の名前 (オプション) </p>
       <p>Name of the column which should be used to
                                    title each row object (optional)</p>
     type: String
     optional: true
 return:
-  description: |
-    Object:
+  description: ''
   type: Object
 chainable: false
 ---

@@ -4,50 +4,24 @@ module: Shape
 submodule: 2D Primitives
 file: src/core/shape/2d_primitives.js
 description: >
-  <p>キャンバスに弧を描きます。</p>
+  <p>弧を描画します。</p>
 
-  <p>弧は<code>x</code>、<code>y</code>、<code>w</code>、<code>h</code>パラメーターで定義された楕円（オーバル）の外側に沿って描かれます。<code>start</code>および<code>stop</code>パラメーターを使用して、弧を描く角度（ラジアン単位）を指定します。弧は常に<code>start</code>から<code>stop</code>まで時計回りに描かれます。弧の楕円の原点は、<a
-  href="#/p5/ellipseMode">ellipseMode()</a>関数で変更することができます。</p>
+  <p>弧は、<code>x</code>、<code>y</code>、<code>w</code>、<code>h</code>パラメータで定義される楕円の一部です。
+  <code>x</code>と<code>y</code>は弧の中心の位置を設定します。<code>w</code>と<code>h</code>は弧の幅と高さを設定します。
+  詳細については<a href="/reference/p5/ellipse/">ellipse()</a>と
+  <a href="/reference/p5/ellipseMode/">ellipseMode()</a>を参照してください。</p>
 
-  <p>オプションの<code>mode</code>パラメーターは、弧の塗りつぶしスタイルを決定します。塗りつぶしモードは半円（<code>OPEN</code>）、閉じた半円（<code>CHORD</code>）、または閉じたパイセグメント（<code>PIE</code>）です。</p>
+  <p>5番目と6番目のパラメータ、<code>start</code>と<code>stop</code>は、
+  弧を描画する角度の範囲を設定します。弧は常に<code>start</code>から<code>stop</code>まで
+  時計回りに描画されます。角度は常にラジアンで指定します。</p>
 
+  <p>7番目のパラメータ<code>mode</code>はオプションです。これは弧の塗りつぶしスタイルを
+  決定します。塗りつぶしモードには、半円（<code>OPEN</code>）、閉じた半円
+  （<code>CHORD</code>）、または閉じたパイの切片（<code>PIE</code>）があります。</p>
 
-  <hr/>
-
-  <p>Draws an arc.</p>
-
-  <p>An arc is a section of an ellipse defined by the <code>x</code>,
-  <code>y</code>, <code>w</code>, and
-
-  <code>h</code> parameters. <code>x</code> and <code>y</code> set the location
-  of the arc's center. <code>w</code> and
-
-  <code>h</code> set the arc's width and height. See
-
-  <a href="/reference/p5/ellipse/">ellipse()</a> and
-
-  <a href="/reference/p5/ellipseMode/">ellipseMode()</a> for more details.</p>
-
-  <p>The fifth and sixth parameters, <code>start</code> and <code>stop</code>,
-  set the angles
-
-  between which to draw the arc. Arcs are always drawn clockwise from
-
-  <code>start</code> to <code>stop</code>. Angles are always given in
-  radians.</p>
-
-  <p>The seventh parameter, <code>mode</code>, is optional. It determines the
-  arc's fill
-
-  style. The fill modes are a semi-circle (<code>OPEN</code>), a closed
-  semi-circle
-
-  (<code>CHORD</code>), or a closed pie segment (<code>PIE</code>).</p>
-
-  <p>The eighth parameter, <code>detail</code>, is also optional. It determines
-  how many
-
-  vertices are used to draw the arc in WebGL mode. The default value is 25.</p>
+  <p>8番目のパラメータ<code>detail</code>もオプションです。これはWebGLモードで
+  弧を描画するために使用される頂点の数を決定します。デフォルト値は25です。
+  50を超える詳細度では輪郭線は描画されません。</p>
 line: 102
 isConstructor: false
 itemtype: method
@@ -63,7 +37,7 @@ example:
 
       arc(50, 50, 80, 80, 0, PI + HALF_PI);
 
-      describe('A white circle on a gray canvas. The top-right quarter of the circle is missing.');
+      describe('灰色のキャンバスに白い円。円の右上4分の1が欠けている。');
     }
     </code>
     </div>
@@ -78,7 +52,7 @@ example:
 
       arc(50, 50, 80, 40, 0, PI + HALF_PI);
 
-      describe('A white ellipse on a gray canvas. The top-right quarter of the ellipse is missing.');
+      describe('灰色のキャンバスに白い楕円。楕円の右上4分の1が欠けている。');
     }
     </code>
     </div>
@@ -91,22 +65,22 @@ example:
 
       background(200);
 
-      // Bottom-right.
+      // 右下
       arc(50, 55, 50, 50, 0, HALF_PI);
 
       noFill();
 
-      // Bottom-left.
+      // 左下
       arc(50, 55, 60, 60, HALF_PI, PI);
 
-      // Top-left.
+      // 左上
       arc(50, 55, 70, 70, PI, PI + QUARTER_PI);
 
-      // Top-right.
+      // 右上
       arc(50, 55, 80, 80, PI + QUARTER_PI, TWO_PI);
 
       describe(
-        'A shattered outline of an circle with a quarter of a white circle at the bottom-right.'
+        '右下に白い4分の1円があり、残りの部分は破線で描かれた円の輪郭。'
       );
     }
     </code>
@@ -119,10 +93,10 @@ example:
 
       background(200);
 
-      // Default fill mode.
+      // デフォルトの塗りつぶしモード
       arc(50, 50, 80, 80, 0, PI + QUARTER_PI);
 
-      describe('A white circle with the top-right third missing. The bottom is outlined in black.');
+      describe('右上3分の1が欠けた白い円。底部は黒い輪郭線で描かれている。');
     }
     </code>
     </div>
@@ -134,11 +108,11 @@ example:
 
       background(200);
 
-      // OPEN fill mode.
+      // OPEN塗りつぶしモード
       arc(50, 50, 80, 80, 0, PI + QUARTER_PI, OPEN);
 
       describe(
-        'A white circle missing a section from the top-right. The bottom is outlined in black.'
+        '右上から一部が欠けた白い円。底部は黒い輪郭線で描かれている。'
       );
     }
     </code>
@@ -151,10 +125,10 @@ example:
 
       background(200);
 
-      // CHORD fill mode.
+      // CHORD塗りつぶしモード
       arc(50, 50, 80, 80, 0, PI + QUARTER_PI, CHORD);
 
-      describe('A white circle with a black outline missing a section from the top-right.');
+      describe('右上から一部が欠けた、黒い輪郭線のある白い円。');
     }
     </code>
     </div>
@@ -166,10 +140,10 @@ example:
 
       background(200);
 
-      // PIE fill mode.
+      // PIE塗りつぶしモード
       arc(50, 50, 80, 80, 0, PI + QUARTER_PI, PIE);
 
-      describe('A white circle with a black outline. The top-right third is missing.');
+      describe('黒い輪郭線のある白い円。右上3分の1が欠けている。');
     }
     </code>
     </div>
@@ -181,10 +155,10 @@ example:
 
       background(200);
 
-      // PIE fill mode.
+      // PIE塗りつぶしモード
       arc(0, 0, 80, 80, 0, PI + QUARTER_PI, PIE);
 
-      describe('A white circle with a black outline. The top-right third is missing.');
+      describe('黒い輪郭線のある白い円。右上3分の1が欠けている。');
     }
     </code>
     </div>
@@ -196,10 +170,10 @@ example:
 
       background(200);
 
-      // PIE fill mode with 5 vertices.
+      // 5つの頂点を持つPIE塗りつぶしモード
       arc(0, 0, 80, 80, 0, PI + QUARTER_PI, PIE, 5);
 
-      describe('A white circle with a black outline. The top-right third is missing.');
+      describe('黒い輪郭線のある白い円。右上3分の1が欠けている。');
     }
     </code>
     </div>
@@ -209,22 +183,22 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('A yellow circle on a black background. The circle opens and closes its mouth.');
+      describe('黒い背景に黄色い円。円が口を開閉する。');
     }
 
     function draw() {
       background(0);
 
-      // Style the arc.
+      // 弧のスタイルを設定
       noStroke();
       fill(255, 255, 0);
 
-      // Update start and stop angles.
+      // 開始角度と終了角度を更新
       let biteSize = PI / 16;
       let startAngle = biteSize * sin(frameCount * 0.1) + biteSize;
       let endAngle = TWO_PI - startAngle;
 
-      // Draw the arc.
+      // 弧を描画
       arc(50, 50, 80, 80, startAngle, endAngle, PIE);
     }
     </code>
@@ -233,50 +207,39 @@ class: p5
 params:
   - name: x
     description: |
-      <p>円弧の楕円の x 座標</p>
-      <p>x-coordinate of the arc's ellipse.</p>
+      <p>弧の楕円のx座標。</p>
     type: Number
   - name: 'y'
     description: |
-      <p>円弧の楕円の y 座標</p>
-      <p>y-coordinate of the arc's ellipse.</p>
+      <p>弧の楕円のy座標。</p>
     type: Number
   - name: w
     description: |
-      <p>デフォルトでの円弧の楕円の幅</p>
-      <p>width of the arc's ellipse by default.</p>
+      <p>デフォルトでの弧の楕円の幅。</p>
     type: Number
   - name: h
     description: |
-      <p>デフォルトでの円弧の楕円の高さ</p>
-      <p>height of the arc's ellipse by default.</p>
+      <p>デフォルトでの弧の楕円の高さ。</p>
     type: Number
   - name: start
     description: |
-      <p>円弧を開始する角度（ラジアンで指定）</p>
-      <p>angle to start the arc, specified in radians.</p>
+      <p>弧の開始角度（ラジアンで指定）。</p>
     type: Number
   - name: stop
     description: |
-      <p>円弧を終了する角度（ラジアンで指定）</p>
-      <p>angle to stop the arc, specified in radians.</p>
+      <p>弧の終了角度（ラジアンで指定）。</p>
     type: Number
   - name: mode
     description: |
-      <p>(オプション) 円弧の描画方法を決定するオプションパラメーター。CHORD、PIE、OPEN のいずれか。</p>
-      <p>optional parameter to determine the way of drawing
-                              the arc. either CHORD, PIE, or OPEN.</p>
+      <p>弧の描画方法を決定するオプションのパラメータ。
+                              CHORD、PIE、またはOPENのいずれか。</p>
     type: Constant
     optional: true
   - name: detail
-    description: >
-      <p>(オプション) WebGL
-      モード専用のオプションパラメーター。これは、円弧の周囲を構成する頂点の数を指定するためのものです。デフォルト値は25です。細かさが50を超える場合にはストロークを描画しません。</p>
-
-      <p>optional parameter for WebGL mode only. This is to
-                              specify the number of vertices that makes up the
-                              perimeter of the arc. Default value is 25. Won't
-                              draw a stroke for a detail of more than 50.</p>
+    description: |
+      <p>WebGLモードのみのオプションパラメータ。弧の周囲を
+                              構成する頂点の数を指定します。デフォルト値は25です。
+                              50を超える詳細度では輪郭線は描画されません。</p>
     type: Integer
     optional: true
 chainable: true

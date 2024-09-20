@@ -4,33 +4,14 @@ module: Image
 submodule: Image
 file: src/image/p5.Image.js
 description: >
-  <p>アニメーション GIF のフレーム間の遅延時間を変更します。</p>
+  <p>アニメーションGIFのフレーム間の遅延時間を変更します。</p>
 
-  <p>2番目のオプションパラメーターを指定することで、特定のフレームの遅延時間を変更できます。インデックスが指定されていない場合、すべてのフレームに新しい遅延時間が適用されます。</p>
+  <p>引数 <code>d</code> は、フレーム間の遅延時間をミリ秒単位で指定します。</p>
 
-  <p>/// todo ///</p>
+  <p>引数 <code>index</code> は、遅延時間を変更するフレームのインデックスを指定します。
 
-  <p>Changes the delay between frames in an animated GIF.</p>
-
-  <p>The second parameter, <code>index</code>, is optional. If provided, only
-  the frame at <code>index</code> will have its delay modified. All other frames
-  will keep their default delay.</p>
-
-
-  <hr/>
-
-  <p>Changes the delay between frames in an animated GIF.</p>
-
-  <p>The first parameter, <code>delay</code>, is the length of the delay in
-  milliseconds.</p>
-
-  <p>The second parameter, <code>index</code>, is optional. If provided, only
-  the frame
-
-  at <code>index</code> will have its delay modified. All other frames will keep
-
-  their default delay.</p>
-line: 1952
+  省略した場合、すべてのフレームの遅延時間が変更されます。</p>
+line: 1641
 isConstructor: false
 itemtype: method
 example:
@@ -38,82 +19,63 @@ example:
 
     <div>
     <code>
-    let gifFast;
-    let gifSlow;
+    let gifAnimation;
 
-    // Load the images.
+    // アニメーションGIFを読み込みます。
     function preload() {
-      gifFast = loadImage('/assets/arnott-wallace-eye-loop-forever.gif');
-      gifSlow = loadImage('/assets/arnott-wallace-eye-loop-forever.gif');
+      gifAnimation = loadImage('/assets/arnott-wallace-wink-loop-once.gif');
     }
 
     function setup() {
       createCanvas(100, 100);
-
       background(200);
 
-      // Resize the images.
-      gifFast.resize(50, 50);
-      gifSlow.resize(50, 50);
+      // アニメーションGIFを表示します。
+      image(gifAnimation, 0, 0);
 
-      // Set the delay lengths.
-      gifFast.delay(10);
-      gifSlow.delay(100);
+      // すべてのフレームの遅延時間を1000ミリ秒に設定します。
+      gifAnimation.delay(1000);
 
-      describe('Two animated eyes looking around. The eye on the left moves faster than the eye on the right.');
-    }
-
-    function draw() {
-      // Display the images.
-      image(gifFast, 0, 0);
-      image(gifSlow, 50, 0);
+      describe('ゆっくりとまばたきする目のアニメーションGIF。');
     }
     </code>
     </div>
 
     <div>
     <code>
-    let gif;
+    let gifAnimation;
 
-    // Load the image.
+    // アニメーションGIFを読み込みます。
     function preload() {
-      gif = loadImage('/assets/arnott-wallace-eye-loop-forever.gif');
+      gifAnimation = loadImage('/assets/arnott-wallace-wink-loop-once.gif');
     }
 
     function setup() {
       createCanvas(100, 100);
+      background(200);
 
-      // Set the delay of frame 67.
-      gif.delay(3000, 67);
+      // アニメーションGIFを表示します。
+      image(gifAnimation, 0, 0);
 
-      describe('An animated eye looking around. It pauses for three seconds while it looks down.');
-    }
+      // 最初のフレームの遅延時間を3000ミリ秒に設定します。
+      gifAnimation.delay(3000, 0);
 
-    function draw() {
-      // Display the image.
-      image(gif, 0, 0);
+      describe('ゆっくりとまばたきする目のアニメーションGIF。最初のフレームが長く表示されます。');
     }
     </code>
     </div>
 class: p5.Image
 params:
   - name: d
-    description: >
-      <p>delay in milliseconds between switching frames. /// todo /// Number: 
-      フレームを切り替える間の遅延時間（ミリ秒単位）</p>
-
-      <p>delay in milliseconds between switching frames.</p>
+    description:
+      <p>遅延時間（ミリ秒）</p>
     type: Number
   - name: index
-    description: >
-      <p>(Optional) index of the frame that will have its delay modified. ///
-      todo /// Number:  (オプション) 新しい遅延時間が適用されるフレームのインデックス {オプション}</p>
-
-      <p>index of the frame that will have its delay modified.</p>
-    type: Number
+    description: |
+      <p>遅延時間を変更するフレームのインデックス（オプション）</p>
+    type: Integer
     optional: true
 chainable: false
 ---
-
 
 # delay

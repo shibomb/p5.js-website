@@ -3,50 +3,56 @@ title: pixelDensity
 module: Image
 submodule: Image
 file: src/image/p5.Image.js
-description: >
-  <p>Gets or sets the pixel density for high pixel density displays. By default,
-  the density will be set to 1.。</p>
-
-  <p>Call this method with no arguments to get the default density, or pass in a
-  number to set the density. If a non-positive number is provided, it defaults
-  to 1.</p>
-
-  <p>/// todo ///</p>
-
-
-  <hr/>
-
-  <p>Gets or sets the pixel density for high pixel density displays.</p>
-
-  <p>By default, the density will be set to 1.</p>
-
-  <p>Call this method with no arguments to get the default density, or pass
-
-  in a number to set the density. If a non-positive number is provided,
-
-  it defaults to 1.</p>
-line: 299
-isConstructor: false
-itemtype: method
-class: p5.Image
+description: |
+  <p>画像のピクセル密度を設定または取得します。</p>
+  <p>引数なしで呼び出すと、現在のピクセル密度を返します。</p>
+  <p>引数を指定して呼び出すと、画像のピクセル密度を設定します。
+  デフォルトのピクセル密度は1です。</p>
+line: 1806
 params:
   - name: density
     description: |
-      <p>(Optional) A scaling factor for the number of pixels per side</p>
-      <p>A scaling factor for the number of pixels per
-      side</p>
+      <p>新しいピクセル密度。</p>
     type: Number
     optional: true
-return:
-  description: >-
-    The current density if called without arguments, or the instance for
-    chaining if setting density.
+itemtype: method
+example:
+  - |-
 
-    The current density if called without arguments, or the instance for
-    chaining if setting density.
+    <div>
+    <code>
+    let img;
+
+    function preload() {
+      img = loadImage('/assets/rockies.jpg');
+    }
+
+    function setup() {
+      createCanvas(100, 100);
+
+      // 画像のピクセル密度を2に設定します。
+      img.pixelDensity(2);
+
+      // 画像を表示します。
+      image(img, 0, 0, width, height);
+
+      // ピクセル密度を表示します。
+      let density = img.pixelDensity();
+      textAlign(CENTER, CENTER);
+      textSize(16);
+      fill(255);
+      text('Density: ' + density, width / 2, height / 2);
+
+      describe('山の風景の画像。中央に "Density: 2" というテキストが表示されています。');
+    }
+    </code>
+    </div>
+class: p5.Image
+return:
+  description: |
+    <p>現在のピクセル密度。</p>
   type: Number
 chainable: false
 ---
-
 
 # pixelDensity

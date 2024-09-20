@@ -4,67 +4,43 @@ module: Shape
 submodule: Attributes
 file: src/core/shape/attributes.js
 description: >
-  <p>楕円、円、弧が描かれる位置を変更します。</p>
+  <p>楕円、円、弧の描画方法を変更します。</p>
 
-  <p>デフォルトでは、最初の2つのパラメーターは形の中心のxおよびy座標です。次のパラメーターはその幅と高さです。<code>ellipseMode(CENTER)</code>を呼び出すのと同等です。</p>
+  <p>デフォルトでは、<a href="/reference/p5/ellipse/">ellipse()</a>、<a
+  href="/reference/p5/circle/">circle()</a>、
 
-  <p><code>ellipseMode(RADIUS)</code>もまた、最初の2つのパラメーターを使用して形の中心のxおよびy座標を設定します。次のパラメーターは形状の幅と高さの半分です。<code>ellipse(0,
-  0, 10, 15)</code>を呼び出すと、幅が 20、高さが 30 の形状が描かれます。</p>
+  <a href="/reference/p5/arc/">arc()</a>の最初の2つのパラメータは、
 
-  <p><code>ellipseMode(CORNER)</code>は、最初の2つのパラメーターを形状の左上隅とします。次のパラメーターはその幅と高さです。</p>
+  図形の中心のx座標とy座標です。次のパラメータは
 
-  <p><code>ellipseMode(CORNERS)</code>は、最初の2つのパラメーターを楕円のバウンディングボックスの一角の位置とします。3番目と4番目のパラメーターは逆の角の位置です。</p>
+  図形の幅と高さを設定します。これは
 
-  <p><code>ellipseMode()</code>に渡される引数は、<code>CENTER</code>、<code>RADIUS</code>、<code>CORNER</code>、および<code>CORNERS</code>という定数がこのように定義されているため、すべて大文字で書く必要があります。
-  JavaScript は大文字と小文字を区別する言語です。</p>
+  <code>ellipseMode(CENTER)</code>を呼び出すのと同じです。</p>
 
+  <p><code>ellipseMode(RADIUS)</code>も最初の2つのパラメータを使用して
 
-  <hr/>
+  図形の中心のx座標とy座標を設定します。次のパラメータは
 
-  <p>Changes where ellipses, circles, and arcs are drawn.</p>
+  図形の幅と高さの半分です。<code>ellipse(0, 0, 10, 15)</code>を呼び出すと、
 
-  <p>By default, the first two parameters of
+  幅20、高さ30の図形が描画されます。</p>
 
-  <a href="/reference/p5/ellipse/">ellipse()</a>, <a
-  href="/reference/p5/circle/">circle()</a>,
+  <p><code>ellipseMode(CORNER)</code>は最初の2つのパラメータを
 
-  and <a href="/reference/p5/arc/">arc()</a>
+  図形の左上隅として使用します。次のパラメータはその幅と高さです。</p>
 
-  are the x- and y-coordinates of the shape's center. The next parameters set
+  <p><code>ellipseMode(CORNERS)</code>は最初の2つのパラメータを
 
-  the shape's width and height. This is the same as calling
+  楕円の境界ボックスの一つの角の位置として使用します。次のパラメータは
 
-  <code>ellipseMode(CENTER)</code>.</p>
+  反対側の角の位置です。</p>
 
-  <p><code>ellipseMode(RADIUS)</code> also uses the first two parameters to set
-  the x- and
+  <p><code>ellipseMode()</code>に渡される引数は、すべて大文字で書く必要があります。
 
-  y-coordinates of the shape's center. The next parameters are half of the
+  なぜなら、<code>CENTER</code>、<code>RADIUS</code>、<code>CORNER</code>、
+  <code>CORNERS</code>の定数がこのように
 
-  shapes's width and height. Calling <code>ellipse(0, 0, 10, 15)</code> draws a
-  shape
-
-  with a width of 20 and height of 30.</p>
-
-  <p><code>ellipseMode(CORNER)</code> uses the first two parameters as the
-  upper-left
-
-  corner of the shape. The next parameters are its width and height.</p>
-
-  <p><code>ellipseMode(CORNERS)</code> uses the first two parameters as the
-  location of one
-
-  corner of the ellipse's bounding box. The next parameters are the location
-
-  of the opposite corner.</p>
-
-  <p>The argument passed to <code>ellipseMode()</code> must be written in ALL
-  CAPS because
-
-  the constants <code>CENTER</code>, <code>RADIUS</code>, <code>CORNER</code>,
-  and <code>CORNERS</code> are defined this
-
-  way. JavaScript is a case-sensitive language.</p>
+  定義されているからです。JavaScriptは大文字と小文字を区別する言語です。</p>
 line: 12
 isConstructor: false
 itemtype: method
@@ -78,17 +54,17 @@ example:
 
       background(200);
 
-      // White ellipse.
+      // 白い楕円
       ellipseMode(RADIUS);
       fill(255);
       ellipse(50, 50, 30, 30);
 
-      // Gray ellipse.
+      // グレーの楕円
       ellipseMode(CENTER);
       fill(100);
       ellipse(50, 50, 30, 30);
 
-      describe('A white circle with a gray circle at its center. Both circles have black outlines.');
+      describe('中心にグレーの円がある白い円。両方の円には黒い輪郭があります。');
     }
     </code>
     </div>
@@ -100,17 +76,17 @@ example:
 
       background(200);
 
-      // White ellipse.
+      // 白い楕円
       ellipseMode(CORNER);
       fill(255);
       ellipse(25, 25, 50, 50);
 
-      // Gray ellipse.
+      // グレーの楕円
       ellipseMode(CORNERS);
       fill(100);
       ellipse(25, 25, 50, 50);
 
-      describe('A white circle with a gray circle at its top-left corner. Both circles have black outlines.');
+      describe('左上隅にグレーの円がある白い円。両方の円には黒い輪郭があります。');
     }
     </code>
     </div>
@@ -118,8 +94,7 @@ class: p5
 params:
   - name: mode
     description: |
-      <p>CENTER、RADIUS、CORNER、CORNERS のいずれか</p>
-      <p>either CENTER, RADIUS, CORNER, or CORNERS</p>
+      <p>CENTER、RADIUS、CORNER、またはCORNERSのいずれか</p>
     type: Constant
 chainable: true
 ---

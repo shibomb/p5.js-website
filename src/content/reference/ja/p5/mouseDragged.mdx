@@ -4,17 +4,6 @@ module: Events
 submodule: Mouse
 file: src/events/mouse.js
 description: >
-  <p><a href="#/p5/mouseDragged">mouseDragged()</a>
-  関数は、マウスが移動し、マウスボタンが押されるたびに1回呼び出されます。</p>
-
-  <p> <a href="#/p5/mouseDragged">mouseDragged()</a> 関数が定義されていない場合、代わりに <a
-  href="#/p5/touchMoved">touchMoved()</a>
-  関数が呼び出されます（定義されている場合）。ブラウザーには、さまざまなマウスイベントに対して異なるデフォルトの動作が付随している場合があります。このイベントのデフォルトの動作を防ぐには、関数の最後に「return
-  false」を追加してください。</p>
-
-
-  <hr/>
-
   <p>A function that's called when the mouse moves while a button is
   pressed.</p>
 
@@ -128,7 +117,6 @@ class: p5
 params:
   - name: event
     description: |
-      <p>(オプション) オプションの MouseEvent コールバック引数。</p>
       <p>optional <code>MouseEvent</code> argument.</p>
     type: MouseEvent
     optional: true

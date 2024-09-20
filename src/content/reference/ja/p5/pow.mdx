@@ -3,23 +3,7 @@ title: pow
 module: Math
 submodule: Calculation
 file: src/math/calculation.js
-description: >
-  <p>指数表現を容易にします。</p>
-
-  <p><a href="#/p5/pow">pow()</a>
-  関数は、数値を自分自身（またはその逆数）と大量にかける効率的な方法です。たとえば、pow(3, 5)は式 3 × 3 × 3 × 3 × 3
-  と等価であり、pow(3, -5)は 1 / 3 × 3 × 3 × 3 × 3 と等価です。Math.pow() にマップされます。</p>
-
-  <p>/// todo ///</p>
-
-  <p>Calculates exponential expressions such as 2^3.</p>
-
-  <p>For example, <code>pow(2, 3)</code> is equivalent to the expression 2 × 2 ×
-  2. <code>pow(2, -3)</code> is equivalent to 1 ÷ (2 × 2 × 2).</p>
-
-
-  <hr/>
-
+description: |
   <p>Calculates exponential expressions such as <var>2<sup>3</sup></var>.</p>
   <p>For example, <code>pow(2, 3)</code> evaluates the expression
   2 × 2 × 2. <code>pow(2, -3)</code> evaluates 1 ÷
@@ -64,18 +48,14 @@ class: p5
 params:
   - name: 'n'
     description: |
-      <p>指数表現の底</p>
       <p>base of the exponential expression.</p>
     type: Number
   - name: e
     description: |
-      <p>底を上げるべき指数</p>
       <p>power by which to raise the base.</p>
     type: Number
 return:
-  description: |-
-    n^e
-    n^e.
+  description: n^e.
   type: Number
 chainable: false
 ---

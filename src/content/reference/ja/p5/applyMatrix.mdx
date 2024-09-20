@@ -3,141 +3,85 @@ title: applyMatrix
 module: Transform
 submodule: Transform
 file: src/core/transform.js
-description: >-
-  <p>現在の行列に、パラメーターで指定された行列を乗算します。</p>
+description: >
+  <p>座標系に変換行列を適用します。</p>
 
-  <p>これは、translate, scale, shear, rotate を一度に実行できる強力な操作です。変換行列については、<a
-  href="https://en.wikipedia.org/wiki/Transformation_matrix">Wikipedia</a>
-  で詳しく学ぶことができます。</p>
+  <p><a href="/reference/p5/translate/">translate()</a>、
 
-  <p>ここでの引数の命名は、<a href=
-  "https://html.spec.whatwg.org/multipage/canvas.html#dom-context-2d-transform">
-  WHATWG 仕様</a> の命名にしたがっており、以下の形式の変換行列に対応しています:<blockquote></p>
-
-  <p><img style="max-width: 150px" src="assets/transformation-matrix.png"
-  alt="applyMatrix が呼び出されたときに使用される変換行列"/> </blockquote></p>
-
-  <p><img style="max-width: 300px" src="assets/transformation-matrix-4-4.png"
-  alt="applyMatrix が4 x 4行列で呼び出されたときに使用される変換行列"/></p>
-
-
-  <hr/>
-
-  <p>Applies a transformation matrix to the coordinate system.</p>
-
-  <p>Transformations such as
-
-  <a href="/reference/p5/translate/">translate()</a>,
-
-  <a href="/reference/p5/rotate/">rotate()</a>, and
+  <a href="/reference/p5/rotate/">rotate()</a>、
 
   <a href="/reference/p5/scale/">scale()</a>
 
-  use matrix-vector multiplication behind the scenes. A table of numbers,
+  などの変換は、内部で行列-ベクトル乗算を使用しています。数値の表である
 
-  called a matrix, encodes each transformation. The values in the matrix
+  行列が各変換をエンコードします。行列の値は
 
-  then multiply each point on the canvas, which is represented by a vector.</p>
+  ベクトルで表されるキャンバス上の各点に乗算されます。</p>
 
-  <p><code>applyMatrix()</code> allows for many transformations to be applied at
-  once. See
+  <p><code>applyMatrix()</code>を使用すると、多くの変換を一度に適用できます。詳細については、
 
   <a href="https://en.wikipedia.org/wiki/Transformation_matrix/"
   target="_blank">Wikipedia</a>
 
-  and <a
+  と<a
   href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Matrix_math_for_the_web/"
   target="_blank">MDN</a>
 
-  for more details about transformations.</p>
+  を参照してください。</p>
 
-  <p>There are two ways to call <code>applyMatrix()</code> in two and three
-  dimensions.</p>
+  <p><code>applyMatrix()</code>を呼び出す方法は、2次元と3次元で2つあります。</p>
 
-  <p>In 2D mode, the parameters <code>a</code>, <code>b</code>, <code>c</code>,
-  <code>d</code>, <code>e</code>, and <code>f</code>, correspond to
+  <p>2Dモードでは、パラメータ<code>a</code>、<code>b</code>、<code>c</code>、
+  <code>d</code>、<code>e</code>、<code>f</code>が
 
-  elements in the following transformation matrix:</p>
+  以下の変換行列の要素に対応します：</p>
 
   <blockquote>
 
   <p><img style="max-width: 150px" src="/assets/transformation-matrix.png"
-  alt="The transformation matrix used when applyMatrix is called in 2D
-  mode."/></p>
+  alt="2DモードでapplyMatrixが呼び出されたときに使用される変換行列。"/></p>
 
   </blockquote>
 
-  <p>The numbers can be passed individually, as in
+  <p>数値は個別に渡すことができます。例：
 
-  <code>applyMatrix(2, 0, 0, 0, 2, 0)</code>. They can also be passed in an
-  array, as in
+  <code>applyMatrix(2, 0, 0, 0, 2, 0)</code>。また、配列として渡すこともできます。例：
 
-  <code>applyMatrix([2, 0, 0, 0, 2, 0])</code>.</p>
+  <code>applyMatrix([2, 0, 0, 0, 2, 0])</code>。</p>
 
-  <p>In 3D mode, the parameters <code>a</code>, <code>b</code>, <code>c</code>,
-  <code>d</code>, <code>e</code>, <code>f</code>, <code>g</code>,
-  <code>h</code>, <code>i</code>,
+  <p>3Dモードでは、パラメータ<code>a</code>、<code>b</code>、<code>c</code>、
+  <code>d</code>、<code>e</code>、<code>f</code>、<code>g</code>、
+  <code>h</code>、<code>i</code>、
 
-  <code>j</code>, <code>k</code>, <code>l</code>, <code>m</code>,
-  <code>n</code>, <code>o</code>, and <code>p</code> correspond to elements in
-  the
+  <code>j</code>、<code>k</code>、<code>l</code>、<code>m</code>、
+  <code>n</code>、<code>o</code>、<code>p</code>が
 
-  following transformation matrix:</p>
+  以下の変換行列の要素に対応します：</p>
 
   <p><img style="max-width: 300px" src="/assets/transformation-matrix-4-4.png"
-  alt="The transformation matrix used when applyMatrix is called in 3D
-  mode."/></p>
+  alt="3DモードでapplyMatrixが呼び出されたときに使用される変換行列。"/></p>
 
-  <p>The numbers can be passed individually, as in
+  <p>数値は個別に渡すことができます。例：
 
-  <code>applyMatrix(2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1)</code>. They
-  can
+  <code>applyMatrix(2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1)</code>。
 
-  also be passed in an array, as in
+  また、配列として渡すこともできます。例：
 
   <code>applyMatrix([2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0,
-  1])</code>.</p>
+  1])</code>。</p>
 
-  <p>By default, transformations accumulate. The
+  <p>デフォルトでは、変換は累積されます。
 
-  <a href="/reference/p5/push/">push()</a> and <a
-  href="/reference/p5/pop/">pop()</a> functions
+  <a href="/reference/p5/push/">push()</a>と<a
+  href="/reference/p5/pop/">pop()</a>関数を使用して、
 
-  can be used to isolate transformations within distinct drawing groups.</p>
+  異なる描画グループ内で変換を分離できます。</p>
 
-  <p>Note: Transformations are reset at the beginning of the draw loop. Calling
+  <p>注意：変換はdrawループの開始時にリセットされます。
 
-  <code>applyMatrix()</code> inside the <a href="/reference/p5/draw/">draw()</a>
-  function won't
+  <code>applyMatrix()</code>を<a href="/reference/p5/draw/">draw()</a>関数内で呼び出しても、
 
-  cause shapes to transform continuously.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "arr": "Array: 数値の配列 - 6または16の長さである必要があります（2 x 3または4 x 4行列値）",
-      "a": "Number: 乗算される2 x 3または4 x 4行列を定義する数値",
-      "b": "Number: 乗算される2 x 3または4 x 4行列を定義する数値",
-      "c": "Number: 乗算される2 x 3または4 x 4行列を定義する数値",
-      "d": "Number: 乗算される2 x 3または4 x 4行列を定義する数値",
-      "e": "Number: 乗算される2 x 3または4 x 4行列を定義する数値",
-      "f": "Number: 乗算される2 x 3または4 x 4行列を定義する数値",
-      "g": "Number: 乗算される4 x 4行列を定義する数値",
-      "h": "Number: 乗算される4 x 4行列を定義する数値",
-      "i": "Number: 乗算される4 x 4行列を定義する数値",
-      "j": "Number: 乗算される4 x 4行列を定義する数値",
-      "k": "Number: 乗算される4 x 4行列を定義する数値",
-      "l": "Number: 乗算される4 x 4行列を定義する数値",
-      "m": "Number: 乗算される4 x 4行列を定義する数値",
-      "n": "Number: 乗算される4 x 4行列を定義する数値",
-      "o": "Number: 乗算される4 x 4行列を定義する数値",
-      "p": "Number: 乗算される4 x 4行列を定義する数値"
-  }
-
-  </pre>
+  形状が連続的に変換されることはありません。</p>
 line: 11
 isConstructor: false
 itemtype: method
@@ -149,16 +93,16 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('A white circle on a gray background.');
+      describe('灰色の背景に白い円。');
     }
 
     function draw() {
       background(200);
 
-      // Translate the origin to the center.
+      // 原点を中心に移動する
       applyMatrix(1, 0, 0, 1, 50, 50);
 
-      // Draw the circle at coordinates (0, 0).
+      // 座標(0, 0)に円を描く
       circle(0, 0, 40);
     }
     </code>
@@ -169,17 +113,17 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('A white circle on a gray background.');
+      describe('灰色の背景に白い円。');
     }
 
     function draw() {
       background(200);
 
-      // Translate the origin to the center.
+      // 原点を中心に移動する
       let m = [1, 0, 0, 1, 50, 50];
       applyMatrix(m);
 
-      // Draw the circle at coordinates (0, 0).
+      // 座標(0, 0)に円を描く
       circle(0, 0, 40);
     }
     </code>
@@ -190,19 +134,19 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe("A white rectangle on a gray background. The rectangle's long axis runs from top-left to bottom-right.");
+      describe("灰色の背景に白い長方形。長方形の長軸は左上から右下に走っています。");
     }
 
     function draw() {
       background(200);
 
-      // Rotate the coordinate system 1/8 turn.
+      // 座標系を1/8回転させる
       let angle = QUARTER_PI;
       let ca = cos(angle);
       let sa = sin(angle);
       applyMatrix(ca, sa, -sa, ca, 0, 0);
 
-      // Draw a rectangle at coordinates (50, 0).
+      // 座標(50, 0)に長方形を描く
       rect(50, 0, 40, 20);
     }
     </code>
@@ -214,21 +158,21 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'Two white squares on a gray background. The larger square appears at the top-center. The smaller square appears at the top-left.'
+        '灰色の背景に2つの白い正方形。大きい正方形は上部中央に、小さい正方形は左上に表示されます。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Draw a square at (30, 20).
+      // (30, 20)に正方形を描く
       square(30, 20, 40);
 
-      // Scale the coordinate system by a factor of 0.5.
+      // 座標系を0.5倍にスケーリングする
       applyMatrix(0.5, 0, 0, 0.5, 0, 0);
 
-      // Draw a square at (30, 20).
-      // It appears at (15, 10) after scaling.
+      // (30, 20)に正方形を描く
+      // スケーリング後は(15, 10)に表示される
       square(30, 20, 40);
     }
     </code>
@@ -239,20 +183,20 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('A white quadrilateral on a gray background.');
+      describe('灰色の背景に白い四角形。');
     }
 
     function draw() {
       background(200);
 
-      // Calculate the shear factor.
+      // せん断係数を計算する
       let angle = QUARTER_PI;
       let shearFactor = 1 / tan(HALF_PI - angle);
 
-      // Shear the coordinate system along the x-axis.
+      // x軸に沿って座標系をせん断する
       applyMatrix(1, 0, shearFactor, 1, 0, 0);
 
-      // Draw the square.
+      // 正方形を描く
       square(0, 0, 50);
     }
     </code>
@@ -260,27 +204,27 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // クリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white cube rotates slowly against a gray background.');
+      describe('灰色の背景に対してゆっくりと回転する白い立方体。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にする
       orbitControl();
 
-      // Rotate the coordinate system a little more each frame.
+      // 座標系を少しずつ回転させる
       let angle = frameCount * 0.01;
       let ca = cos(angle);
       let sa = sin(angle);
       applyMatrix(ca, 0, sa, 0, 0, 1, 0, 0, -sa, 0, ca, 0, 0, 0, 0, 1);
 
-      // Draw a box.
+      // 箱を描く
       box();
     }
     </code>
@@ -291,35 +235,34 @@ overloads:
     params:
       - name: arr
         description: >
-          <p>an array containing the elements of the transformation matrix. Its
-          length should be either 6 (2D) or 16 (3D).</p>
+          <p>変換行列の要素を含む配列。長さは2D用の6または3D用の16である必要があります。</p>
         type: Array
     chainable: 1
   - line: 206
     params:
       - name: a
         description: |
-          <p>an element of the transformation matrix.</p>
+          <p>変換行列の要素。</p>
         type: Number
       - name: b
         description: |
-          <p>an element of the transformation matrix.</p>
+          <p>変換行列の要素。</p>
         type: Number
       - name: c
         description: |
-          <p>an element of the transformation matrix.</p>
+          <p>変換行列の要素。</p>
         type: Number
       - name: d
         description: |
-          <p>an element of the transformation matrix.</p>
+          <p>変換行列の要素。</p>
         type: Number
       - name: e
         description: |
-          <p>an element of the transformation matrix.</p>
+          <p>変換行列の要素。</p>
         type: Number
       - name: f
         description: |
-          <p>an element of the transformation matrix.</p>
+          <p>変換行列の要素。</p>
         type: Number
     chainable: 1
   - line: 216
@@ -344,43 +287,43 @@ overloads:
         type: Number
       - name: g
         description: |
-          <p>an element of the transformation matrix.</p>
+          <p>変換行列の要素。</p>
         type: Number
       - name: h
         description: |
-          <p>an element of the transformation matrix.</p>
+          <p>変換行列の要素。</p>
         type: Number
       - name: i
         description: |
-          <p>an element of the transformation matrix.</p>
+          <p>変換行列の要素。</p>
         type: Number
       - name: j
         description: |
-          <p>an element of the transformation matrix.</p>
+          <p>変換行列の要素。</p>
         type: Number
       - name: k
         description: |
-          <p>an element of the transformation matrix.</p>
+          <p>変換行列の要素。</p>
         type: Number
       - name: l
         description: |
-          <p>an element of the transformation matrix.</p>
+          <p>変換行列の要素。</p>
         type: Number
       - name: m
         description: |
-          <p>an element of the transformation matrix.</p>
+          <p>変換行列の要素。</p>
         type: Number
       - name: 'n'
         description: |
-          <p>an element of the transformation matrix.</p>
+          <p>変換行列の要素。</p>
         type: Number
       - name: o
         description: |
-          <p>an element of the transformation matrix.</p>
+          <p>変換行列の要素。</p>
         type: Number
       - name: p
         description: |
-          <p>an element of the transformation matrix.</p>
+          <p>変換行列の要素。</p>
         type: Number
     chainable: 1
 chainable: true

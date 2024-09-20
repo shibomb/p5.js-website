@@ -3,19 +3,10 @@ title: resetShader
 module: 3D
 submodule: Material
 file: src/webgl/material.js
-description: >
+description: |
   <p>デフォルトのシェーダーを復元します。</p>
-
-  <p>resetShader() の後に実行されるコードは、<a href="#/p5/shader">shader()</a>
-  で設定されたシェーダーには影響されません。</p>
-
-
-  <hr/>
-
-  <p>Restores the default shaders.</p>
-  <p><code>resetShader()</code> deactivates any shaders previously applied by
-  <a href="/reference/p5/shader/">shader()</a>.</p>
-  <p>Note: Shaders can only be used in WebGL mode.</p>
+  <p><code>resetShader()</code>は、<a href="/reference/p5/shader/">shader()</a>によって以前に適用されたシェーダーを無効にします。</p>
+  <p>注意：シェーダーはWebGLモードでのみ使用できます。</p>
 line: 773
 isConstructor: false
 itemtype: method
@@ -24,8 +15,8 @@ example:
 
     <div>
     <code>
-    // Create a string with the vertex shader program.
-    // The vertex shader is called for each vertex.
+    // 頂点シェーダープログラムを含む文字列を作成します。
+    // 頂点シェーダーは各頂点に対して呼び出されます。
     let vertSrc = `
     attribute vec3 aPosition;
     attribute vec2 aTexCoord;
@@ -40,8 +31,8 @@ example:
     }
     `;
 
-    // Create a string with the fragment shader program.
-    // The fragment shader is called for each pixel.
+    // フラグメントシェーダープログラムを含む文字列を作成します。
+    // フラグメントシェーダーは各ピクセルに対して呼び出されます。
     let fragSrc = `
     precision mediump float;
     varying vec2 vTexCoord;
@@ -58,19 +49,19 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Shader object.
+      // p5.Shaderオブジェクトを作成します。
       myShader = createShader(vertSrc, fragSrc);
 
       describe(
-        'Two rotating cubes on a gray background. The left one has a blue-purple gradient on each face. The right one is red.'
+        '灰色の背景に2つの回転する立方体。左側の立方体は各面に青紫のグラデーションがあり、右側の立方体は赤色です。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Draw a box using the p5.Shader.
-      // shader() sets the active shader to myShader.
+      // p5.Shaderを使用して立方体を描画します。
+      // shader()はアクティブなシェーダーをmyShaderに設定します。
       shader(myShader);
       push();
       translate(-25, 0, 0);
@@ -79,8 +70,8 @@ example:
       box(width / 4);
       pop();
 
-      // Draw a box using the default fill shader.
-      // resetShader() restores the default fill shader.
+      // デフォルトのfillシェーダーを使用して立方体を描画します。
+      // resetShader()はデフォルトのfillシェーダーを復元します。
       resetShader();
       fill(255, 0, 0);
       push();
@@ -98,3 +89,4 @@ chainable: true
 
 
 # resetShader
+

@@ -4,16 +4,6 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: >
-  <p>最初の2つの値を使用して指数関数的に値を増加または減少させる。</p>
-
-  <p><code><a href="#/p5.Envelope/setADSR">setADSR(attackTime,
-  decayTime)</a></code> から時間定数を取得します。現在の値よりも高い場合は attackTime を、低い場合は decayTime
-  を使用します。簡単な指数関数的なランプに対して <a
-  href="https://en.wikipedia.org/wiki/RC_time_constant">RC 時間定数</a> が使用されます。</p>
-
-
-  <hr/>
-
   <p>Exponentially ramp to a value using the first two
 
   values from <code><a
@@ -73,22 +63,18 @@ class: p5.Envelope
 params:
   - name: unit
     description: |
-      <p>p5.sound オブジェクトまたは Web Audio Param オブジェクト</p>
       <p>p5.sound Object or Web Audio Param</p>
     type: Object
   - name: secondsFromNow
     description: |
-      <p>ランプを開始する時間（現在時刻からの経過秒数）</p>
       <p>When to trigger the ramp</p>
     type: Number
   - name: v
     description: |
-      <p>目標値</p>
       <p>Target value</p>
     type: Number
   - name: v2
     description: |
-      <p>(オプション) 2番目の目標値</p>
       <p>Second target value</p>
     type: Number
     optional: true

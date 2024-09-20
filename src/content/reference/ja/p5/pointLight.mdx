@@ -3,120 +3,64 @@ title: pointLight
 module: 3D
 submodule: Lights
 file: src/webgl/light.js
-description: >-
-  <p>指定された色と位置で点光源を作成します。</p>
+description: >
+  <p>全方向に光を放つ点光源を作成します。</p>
 
-  <p></p>
+  <p>点光源は、あらゆる方向に光を放つ電球のようなものです。異なる位置に配置することで、
 
-  <p>点光源は、単一の点からすべての方向に光を放射します。光は特定の点（位置）から放射されるため、オブジェクトに対して遠くまたは近くに配置すると効果が異なります。</p>
+  さまざまな照明効果を得ることができます。一度に最大5つの点光源を
 
-  <p>一度にアクティブにできる点光源は <strong>5</strong> つまでです。</p>
+  アクティブにすることができます。</p>
 
-  <p>注: ループプログラム内でライトを持続させるためには、draw() 内でライトを呼び出す必要があります（直接または間接的に）。setup()
-  に配置すると、ループの最初の通過でのみ効果があります。</p>
+  <p><code>pointLight()</code>を呼び出す方法には、光の色と位置を設定するパラメータを
 
+  使用する4つの方法があります。</p>
 
-  <hr/>
+  <p><code>pointLight()</code>を呼び出す最初の方法は、6つのパラメータを使用します。最初の3つの
 
-  <p>Creates a light that shines from a point in all directions.</p>
+  パラメータ、<code>v1</code>、<code>v2</code>、<code>v3</code>は、現在の
 
-  <p>Point lights are like light bulbs that shine in all directions. They can be
+  <a href="/reference/p5/colorMode/">colorMode()</a>を使用して光の色を設定します。残りの3つのパラメータ、
 
-  placed at different positions to achieve different lighting effects. A
+  <code>x</code>、<code>y</code>、<code>z</code>は、光の位置を設定します。例えば、
 
-  maximum of 5 point lights can be active at once.</p>
+  <code>pointLight(255, 0, 0, 50, 0, 0)</code>は、座標<code>(50, 0, 0)</code>から
 
-  <p>There are four ways to call <code>pointLight()</code> with parameters to
-  set the
+  赤色<code>(255, 0, 0)</code>の光を放つ点光源を作成します。</p>
 
-  light’s color and position.</p>
+  <p><code>pointLight()</code>を呼び出す2番目の方法は、4つのパラメータを使用します。最初の3つの
 
-  <p>The first way to call <code>pointLight()</code> has six parameters. The
-  first three
+  パラメータ、<code>v1</code>、<code>v2</code>、<code>v3</code>は、現在の
 
-  parameters, <code>v1</code>, <code>v2</code>, and <code>v3</code>, set the
-  light’s color using the current
+  <a href="/reference/p5/colorMode/">colorMode()</a>を使用して光の色を設定します。最後のパラメータ、position は
 
-  <a href="/reference/p5/colorMode/">colorMode()</a>. The last three parameters,
-  <code>x</code>,
+  <a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトを使用して光の位置を設定します。
 
-  <code>y</code>, and <code>z</code>, set the light’s position. For example,
+  例えば、<code>pointLight(255, 0, 0, lightPos)</code>は、<code>lightPos</code>ベクトルで
 
-  <code>pointLight(255, 0, 0, 50, 0, 0)</code> creates a red <code>(255, 0,
-  0)</code> light that
+  設定された位置から赤色<code>(255, 0, 0)</code>の光を放つ点光源を作成します。</p>
 
-  shines from the coordinates <code>(50, 0, 0)</code>.</p>
+  <p><code>pointLight()</code>を呼び出す3番目の方法は、4つのパラメータを使用します。最初の
 
-  <p>The second way to call <code>pointLight()</code> has four parameters. The
-  first three
+  パラメータ、<code>color</code>は、<a href="/reference/p5/p5.Color">p5.Color</a>オブジェクトまたは
 
-  parameters, <code>v1</code>, <code>v2</code>, and <code>v3</code>, set the
-  light’s color using the current
+  色値の配列を使用して光の色を設定します。残りの3つのパラメータ、<code>x</code>、<code>y</code>、<code>z</code>は、
 
-  <a href="/reference/p5/colorMode/">colorMode()</a>. The last parameter,
-  position sets
+  光の位置を設定します。例えば、<code>directionalLight(myColor, 50, 0, 0)</code>は、
 
-  the light’s position using a <a href="/reference/p5/p5.Vector/">p5.Vector</a>
-  object.
+  座標<code>(50, 0, 0)</code>から<code>myColor</code>の色値で光を放つ点光源を作成します。</p>
 
-  For example, <code>pointLight(255, 0, 0, lightPos)</code> creates a red
-  <code>(255, 0, 0)</code>
+  <p><code>pointLight()</code>を呼び出す4番目の方法は、2つのパラメータを使用します。最初の
 
-  light that shines from the position set by the <code>lightPos</code>
-  vector.</p>
+  パラメータ、<code>color</code>は、<a href="/reference/p5/p5.Color">p5.Color</a>オブジェクトまたは
 
-  <p>The third way to call <code>pointLight()</code> has four parameters. The
-  first
+  色値の配列を使用して光の色を設定します。2番目のパラメータ、<code>position</code>は、
 
-  parameter, <code>color</code>, sets the light’s color using a
+  <a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトを使用して光の位置を設定します。
 
-  <a href="/reference/p5/p5.Color/">p5.Color</a> object or an array of color
-  values. The
+  例えば、<code>directionalLight(myColor, lightPos)</code>は、<code>lightPos</code>ベクトルで
 
-  last three parameters, <code>x</code>, <code>y</code>, and <code>z</code>, set
-  the light’s position. For
-
-  example, <code>directionalLight(myColor, 50, 0, 0)</code> creates a light that
-  shines
-
-  from the coordinates <code>(50, 0, 0)</code> with the color value of
-  <code>myColor</code>.</p>
-
-  <p>The fourth way to call <code>pointLight()</code> has two parameters. The
-  first
-
-  parameter, <code>color</code>, sets the light’s color using a
-
-  <a href="/reference/p5/p5.Color/">p5.Color</a> object or an array of color
-  values. The
-
-  second parameter, <code>position</code>, sets the light’s position using a
-
-  <a href="/reference/p5/p5.Vector/">p5.Vector</a> object. For example,
-
-  <code>directionalLight(myColor, lightPos)</code> creates a light that shines
-  from the
-
-  position set by the <code>lightPos</code> vector with the color value of
-  <code>myColor</code>.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "v1": "Number: 現在のカラーレンジに対する赤または色相の値",
-      "v2": "Number: 現在のカラーレンジに対する緑または彩度の値",
-      "v3": "Number: 現在のカラーレンジに対する青または明度の値",
-      "x": "Number: 位置の x 成分",
-      "y": "Number: 位置の y 成分",
-      "z": "Number: 位置の z 成分",
-      "position": "p5.Vector: <a href=\"#/p5.Vector\">p5.Vector</a> としての光の位置",
-      "color": "p5.Color|Number[]|String: <a href=\"#/p5.Color\">p5.Color</a>、配列、または CSS 文字列としての色"
-  }
-
-  </pre>
+  設定された位置から<code>myColor</code>の色値で光を放つ点光源を作成します。</p>
 line: 682
 isConstructor: false
 itemtype: method
@@ -126,38 +70,38 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
-    // Double-click to turn on the point light.
+    // マウスをクリックしてドラッグすると、異なる角度からシーンを見ることができます。
+    // ダブルクリックすると点光源がオンになります。
 
     let isLit = false;
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A sphere drawn on a gray background. A red light starts shining from above when the user double-clicks.');
+      describe('灰色の背景に描かれた球体。ユーザーがダブルクリックすると、上から赤い光が当たり始めます。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスで軌道制御を有効にします。
       orbitControl();
 
-      // Control the light.
+      // 光を制御します。
       if (isLit === true) {
-        // Add a red point light from above.
-        // Use RGB values and XYZ coordinates.
+        // 上から赤い点光源を追加します。
+        // RGB値とXYZ座標を使用します。
         pointLight(255, 0, 0, 0, -150, 0);
       }
 
-      // Style the sphere.
+      // 球体のスタイルを設定します。
       noStroke();
 
-      // Draw the sphere.
+      // 球体を描画します。
       sphere(30);
     }
 
-    // Turn on the point light when the user double-clicks.
+    // ユーザーがダブルクリックすると点光源をオンにします。
     function doubleClicked() {
       isLit = true;
     }
@@ -166,29 +110,29 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A sphere drawn on a gray background. The top of the sphere appears bright red. The color gets darker toward the bottom.');
+      describe('灰色の背景に描かれた球体。球体の上部は明るい赤色に見えます。色は底部に向かって暗くなります。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスで軌道制御を有効にします。
       orbitControl();
 
-      // Add a red point light from above.
-      // Use a p5.Color object and XYZ directions.
+      // 上から赤い点光源を追加します。
+      // p5.ColorオブジェクトとXYZ方向を使用します。
       let c = color(255, 0, 0);
       pointLight(c, 0, -150, 0);
 
-      // Style the sphere.
+      // 球体のスタイルを設定します。
       noStroke();
 
-      // Draw the sphere.
+      // 球体を描画します。
       sphere(30);
     }
     </code>
@@ -196,30 +140,30 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A sphere drawn on a gray background. The top of the sphere appears bright red. The color gets darker toward the bottom.');
+      describe('灰色の背景に描かれた球体。球体の上部は明るい赤色に見えます。色は底部に向かって暗くなります。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスで軌道制御を有効にします。
       orbitControl();
 
-      // Add a red point light from above.
-      // Use a p5.Color object and a p5.Vector object.
+      // 上から赤い点光源を追加します。
+      // p5.Colorオブジェクトとp5.Vectorオブジェクトを使用します。
       let c = color(255, 0, 0);
       let lightPos = createVector(0, -150, 0);
       pointLight(c, lightPos);
 
-      // Style the sphere.
+      // 球体のスタイルを設定します。
       noStroke();
 
-      // Draw the sphere.
+      // 球体を描画します。
       sphere(30);
     }
     </code>
@@ -227,48 +171,48 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('Four spheres arranged in a square and drawn on a gray background. The spheres appear bright red toward the center of the square. The color gets darker toward the corners of the square.');
+      describe('灰色の背景に正方形に配置された4つの球体。球体は正方形の中心に向かって明るい赤色に見えます。色は正方形の角に向かって暗くなります。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスで軌道制御を有効にします。
       orbitControl();
 
-      // Add a red point light that points to the center of the scene.
-      // Use a p5.Color object and a p5.Vector object.
+      // シーンの中心を指す赤い点光源を追加します。
+      // p5.Colorオブジェクトとp5.Vectorオブジェクトを使用します。
       let c = color(255, 0, 0);
       let lightPos = createVector(0, 0, 65);
       pointLight(c, lightPos);
 
-      // Style the spheres.
+      // 球体のスタイルを設定します。
       noStroke();
 
-      // Draw a sphere up and to the left.
+      // 左上に球体を描画します。
       push();
       translate(-25, -25, 25);
       sphere(10);
       pop();
 
-      // Draw a box up and to the right.
+      // 右上に球体を描画します。
       push();
       translate(25, -25, 25);
       sphere(10);
       pop();
 
-      // Draw a sphere down and to the left.
+      // 左下に球体を描画します。
       push();
       translate(-25, 25, 25);
       sphere(10);
       pop();
 
-      // Draw a box down and to the right.
+      // 右下に球体を描画します。
       push();
       translate(25, 25, 25);
       sphere(10);
@@ -282,30 +226,30 @@ overloads:
     params:
       - name: v1
         description: |
-          <p>red or hue value in the current
-                                 <a href="#/p5/colorMode">colorMode()</a>.</p>
+          <p>現在の<a href="#/p5/colorMode">colorMode()</a>での
+                                 赤または色相の値。</p>
         type: Number
       - name: v2
         description: |
-          <p>green or saturation value in the current
-                                 <a href="#/p5/colorMode">colorMode()</a>.</p>
+          <p>現在の<a href="#/p5/colorMode">colorMode()</a>での
+                                 緑または彩度の値。</p>
         type: Number
       - name: v3
         description: |
-          <p>blue, brightness, or lightness value in the current
-                                 <a href="#/p5/colorMode">colorMode()</a>.</p>
+          <p>現在の<a href="#/p5/colorMode">colorMode()</a>での
+                                 青、明度、または輝度の値。</p>
         type: Number
       - name: x
         description: |
-          <p>x-coordinate of the light.</p>
+          <p>光のx座標。</p>
         type: Number
       - name: 'y'
         description: |
-          <p>y-coordinate of the light.</p>
+          <p>光のy座標。</p>
         type: Number
       - name: z
         description: |
-          <p>z-coordinate of the light.</p>
+          <p>光のz座標。</p>
         type: Number
     chainable: 1
   - line: 889
@@ -321,16 +265,16 @@ overloads:
         type: Number
       - name: position
         description: |
-          <p>position of the light as a
-                                        <a href="#/p5.Vector">p5.Vector</a> object.</p>
+          <p><a href="#/p5.Vector">p5.Vector</a>オブジェクトとしての
+                                        光の位置。</p>
         type: p5.Vector
     chainable: 1
   - line: 899
     params:
       - name: color
         description: |
-          <p>color as a <a href="#/p5.Color">p5.Color</a> object,
-                                                   an array of color values, or a CSS string.</p>
+          <p><a href="#/p5.Color">p5.Color</a>オブジェクト、
+                                                   色値の配列、またはCSS文字列としての色。</p>
         type: 'p5.Color|Number[]|String'
       - name: x
         description: ''
@@ -356,3 +300,4 @@ chainable: true
 
 
 # pointLight
+

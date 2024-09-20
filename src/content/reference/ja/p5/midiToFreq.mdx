@@ -3,21 +3,10 @@ title: midiToFreq
 module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
-description: >
-  <p>指定された MIDI ノート値の周波数値を返します。</p>
-
-  <p>General MIDI では、ノートを整数で扱います。中央ドは60、C#は61、D
-  は62などです。オシレーターで音階を生成するのに役立ちます。</p>
-
-
-  <hr/>
-
+description: |
   <p>Returns the frequency value of a MIDI note value.
-
   General MIDI treats notes as integers where middle C
-
   is 60, C# is 61, D is 62 etc. Useful for generating
-
   musical frequencies with oscillators.</p>
 line: 841
 isConstructor: false
@@ -62,13 +51,10 @@ class: p5
 params:
   - name: midiNote
     description: |
-      <p>MIDI ノート番号</p>
       <p>The number of a MIDI note</p>
     type: Number
 return:
-  description: |-
-    指定された MIDI ノートの周波数値
-    Frequency value of the given MIDI note
+  description: Frequency value of the given MIDI note
   type: Number
 chainable: false
 ---

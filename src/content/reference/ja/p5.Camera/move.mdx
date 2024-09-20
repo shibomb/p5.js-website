@@ -4,26 +4,14 @@ module: 3D
 submodule: Camera
 file: src/webgl/p5.Camera.js
 description: >
-  <p>現在のカメラの向きを保ったまま、ローカル座標系でカメラを移動させます。</p>
+  <p>カメラの向きを変えずに、その「ローカル」軸に沿って移動させます。</p>
 
-  <p></p>
+  <p>パラメータ<code>x</code>、<code>y</code>、<code>z</code>は、カメラが移動すべき距離です。
 
+  例えば、<code>myCamera.move(10, 20, 30)</code>を呼び出すと、カメラは「ローカル」
 
-  <hr/>
-
-  <p>Moves the camera along its "local" axes without changing its
-  orientation.</p>
-
-  <p>The parameters, <code>x</code>, <code>y</code>, and <code>z</code>, are the
-  distances the camera should
-
-  move. For example, calling <code>myCamera.move(10, 20, 30)</code> moves the
-  camera 10
-
-  pixels to the right, 20 pixels down, and 30 pixels backward in its "local"
-
-  space.</p>
-line: 2923
+  空間で右に10ピクセル、下に20ピクセル、後ろに30ピクセル移動します。</p>
+line: 2992
 isConstructor: false
 itemtype: method
 example:
@@ -31,36 +19,36 @@ example:
 
     <div>
     <code>
-    // Click the canvas to begin detecting key presses.
+    // キャンバスをクリックしてキー押下の検出を開始します。
 
     let cam;
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create the first camera.
-      // Keep its default settings.
+      // 最初のカメラを作成します。
+      // デフォルト設定のままにします。
       cam = createCamera();
 
-      // Place the camera at the top-right.
+      // カメラを右上に配置します。
       cam.setPosition(400, -400, 800);
 
-      // Point it at the origin.
+      // 原点を向くようにします。
       cam.lookAt(0, 0, 0);
 
       describe(
-        'A white cube drawn against a gray background. The cube appears to move when the user presses certain keys.'
+        'グレーの背景に白い立方体が描かれています。ユーザーが特定のキーを押すと、立方体が動いているように見えます。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Move the camera along its "local" axes
-      // when the user presses certain keys.
+      // ユーザーが特定のキーを押したときに
+      // カメラを「ローカル」軸に沿って移動させます。
       if (keyIsPressed === true) {
 
-        // Move horizontally.
+        // 水平方向に移動。
         if (keyCode === LEFT_ARROW) {
           cam.move(-1, 0, 0);
         }
@@ -68,7 +56,7 @@ example:
           cam.move(1, 0, 0);
         }
 
-        // Move vertically.
+        // 垂直方向に移動。
         if (keyCode === UP_ARROW) {
           cam.move(0, -1, 0);
         }
@@ -76,7 +64,7 @@ example:
           cam.move(0, 1, 0);
         }
 
-        // Move in/out of the screen.
+        // 画面の奥行き方向に移動。
         if (key === 'i') {
           cam.move(0, 0, -1);
         }
@@ -85,7 +73,7 @@ example:
         }
       }
 
-      // Draw the box.
+      // 箱を描画します。
       box();
     }
     </code>
@@ -94,21 +82,19 @@ class: p5.Camera
 params:
   - name: x
     description: |
-      <p>カメラの左右軸に沿って移動する量</p>
-      <p>distance to move along the camera’s "local" x-axis.</p>
+      <p>カメラの「ローカル」x軸に沿って移動する距離。</p>
     type: Number
   - name: 'y'
     description: |
-      <p>カメラの上下軸に沿って移動する量</p>
-      <p>distance to move along the camera’s "local" y-axis.</p>
+      <p>カメラの「ローカル」y軸に沿って移動する距離。</p>
     type: Number
   - name: z
     description: |
-      <p>カメラの前後軸に沿って移動する量</p>
-      <p>distance to move along the camera’s "local" z-axis.</p>
+      <p>カメラの「ローカル」z軸に沿って移動する距離。</p>
     type: Number
 chainable: false
 ---
 
 
 # move
+

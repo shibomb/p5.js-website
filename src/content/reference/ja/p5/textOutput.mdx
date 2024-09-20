@@ -4,78 +4,51 @@ module: Environment
 submodule: Environment
 file: src/accessibility/outputs.js
 description: >
-  <p><code class="language-javascript">textOutput()</code>
-  は、キャンバス上に存在する形状を説明するスクリーンリーダー対応の出力を作成します。</p>
+  <p>キャンバス上の図形のスクリーンリーダーでアクセス可能な説明を作成します。</p>
 
-  <p>キャンバスの一般的な説明には、キャンバスのサイズ、キャンバスの色、キャンバス内の要素の数（例:「あなたの出力は、400 x
-  400ピクセルのラベンダーブルーのキャンバスで、以下の4つの形状が含まれています:」）が含まれます。この説明の後に、各形状の色、位置、面積が説明された形状のリストが続きます（例:「キャンバスの1%を覆う左上のオレンジ色の楕円」）。各要素を選択すると詳細が表示され、要素のテーブルも提供されます。このテーブルでは、形状、色、位置、座標、面積が説明されています（例:「オレンジ色の楕円
-  位置 = 左上 面積 = 2」）。</p>
+  <p><code>textOutput()</code>は、一般的な説明、図形のリスト、および
 
-  <p><code class="language-javascript">textOutput()</code> および <code
-  class="language-javascript">textOutput(FALLBACK)</code> は、<a
-  href="https://developer.mozilla.org/ja/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility"
-  target="_blank">キャンバス要素内のサブ DOM</a> でスクリーンリーダーにアクセス可能な出力を利用可能にします。<code
-  class="language-javascript">textOutput(LABEL)</code> は、キャンバスに隣接する出力が含まれる追加の
-  div を作成しますが、これはコーディング時にキャンバスのサブ DOM 外に出力を表示したい非スクリーンリーダーユーザーにとって便利です。ただし、LABEL
-  を使用すると、スクリーンリーダーユーザーにとって不要な冗長性が生じます。スケッチの開発プロセスの一部としてのみ LABEL
-  を使用し、公開またはスクリーンリーダーユーザーと共有する前に削除することをお勧めします。</p>
+  図形の表をウェブページに追加します。一般的な説明には、
 
-  <hr/>
+  キャンバスのサイズ、キャンバスの色、図形の数が含まれます。例えば、
 
-  <p>Creates a screen reader-accessible description of shapes on the canvas.</p>
+  <code>出力は、100 x 100ピクセルの、グレーのキャンバスで、以下の2つの図形を含んでいます：</code>。</p>
 
-  <p><code>textOutput()</code> adds a general description, list of shapes, and
+  <p>図形のリストが一般的な説明に続きます。リストは各図形の
 
-  table of shapes to the web page. The general description includes the
+  色、位置、面積を説明します。例えば、
 
-  canvas size, canvas color, and number of shapes. For example,
+  <code>キャンバスの3%を占める中央の赤い円</code>。各図形を
 
-  <code>Your output is a, 100 by 100 pixels, gray canvas containing the
-  following 2 shapes:</code>.</p>
+  選択してさらに詳細を得ることができます。</p>
 
-  <p>A list of shapes follows the general description. The list describes the
+  <p><code>textOutput()</code>は図形の表をリストとして使用します。表は
 
-  color, location, and area of each shape. For example,
+  図形、色、位置、座標、面積を説明します。例えば、
 
-  <code>a red circle at middle covering 3% of the canvas</code>. Each shape can
-  be
+  <code>赤い円 位置 = 中央 面積 = 3%</code>。これは
 
-  selected to get more details.</p>
+  <a href="/reference/p5/gridOutput/">gridOutput()</a>とは異なり、gridOutputは表をグリッドとして使用します。</p>
 
-  <p><code>textOutput()</code> uses its table of shapes as a list. The table
-  describes the
+  <p><code>display</code>パラメータはオプションです。これは説明の
 
-  shape, color, location, coordinates and area. For example,
+  表示方法を決定します。<code>LABEL</code>が渡された場合、例えば<code>textOutput(LABEL)</code>のように、
 
-  <code>red circle location = middle area = 3%</code>. This is different from
+  説明はキャンバスの隣のdiv要素に表示されます。<code>LABEL</code>を使用すると
 
-  <a href="/reference/p5/gridOutput/">gridOutput()</a>, which uses its table as
-  a grid.</p>
+  スクリーンリーダーにとって役に立たない重複が作成されます。<code>LABEL</code>は開発中にのみ
 
-  <p>The <code>display</code> parameter is optional. It determines how the
-  description is
+  使用してください。<code>FALLBACK</code>が渡された場合、例えば<code>textOutput(FALLBACK)</code>のように、
 
-  displayed. If <code>LABEL</code> is passed, as in
-  <code>textOutput(LABEL)</code>, the description
+  説明はスクリーンリーダーにのみ表示されます。これがデフォルトの
 
-  will be visible in a div element next to the canvas. Using <code>LABEL</code>
-  creates
+  モードです。</p>
 
-  unhelpful duplicates for screen readers. Only use <code>LABEL</code> during
+  <p>
 
-  development. If <code>FALLBACK</code> is passed, as in
-  <code>textOutput(FALLBACK)</code>, the
+  <a href="/learn/accessible-labels.html">アクセシブルなキャンバスの説明を書く</a>
 
-  description will only be visible to screen readers. This is the default
-
-  mode.</p>
-
-  <p>Read
-
-  <a href="/learn/accessible-labels.html">Writing accessible canvas
-  descriptions</a>
-
-  to learn more about making sketches accessible.</p>
+  を読んで、スケッチをアクセシブルにする方法についてさらに学んでください。</p>
 line: 10
 isConstructor: false
 itemtype: method
@@ -85,18 +58,18 @@ example:
     <div>
     <code>
     function setup() {
-      // Add the text description.
+      // テキストの説明を追加する。
       textOutput();
 
-      // Draw a couple of shapes.
+      // いくつかの図形を描画する。
       background(200);
       fill(255, 0, 0);
       circle(20, 20, 20);
       fill(0, 0, 255);
       square(50, 50, 50);
 
-      // Add a general description of the canvas.
-      describe('A red circle and a blue square on a gray background.');
+      // キャンバスの一般的な説明を追加する。
+      describe('灰色の背景に赤い円と青い四角形。');
     }
     </code>
     </div>
@@ -104,19 +77,19 @@ example:
     <div>
     <code>
     function setup() {
-      // Add the text description and
-      // display it for debugging.
+      // テキストの説明を追加し、
+      // デバッグ用に表示する。
       textOutput(LABEL);
 
-      // Draw a couple of shapes.
+      // いくつかの図形を描画する。
       background(200);
       fill(255, 0, 0);
       circle(20, 20, 20);
       fill(0, 0, 255);
       square(50, 50, 50);
 
-      // Add a general description of the canvas.
-      describe('A red circle and a blue square on a gray background.');
+      // キャンバスの一般的な説明を追加する。
+      describe('灰色の背景に赤い円と青い四角形。');
     }
     </code>
     </div>
@@ -124,10 +97,10 @@ example:
     <div>
     <code>
     function draw() {
-      // Add the text description.
+      // テキストの説明を追加する。
       textOutput();
 
-      // Draw a moving circle.
+      // 動く円を描画する。
       background(200);
       let x = frameCount * 0.1;
       fill(255, 0, 0);
@@ -135,8 +108,8 @@ example:
       fill(0, 0, 255);
       square(50, 50, 50);
 
-      // Add a general description of the canvas.
-      describe('A red circle moves from left to right above a blue square.');
+      // キャンバスの一般的な説明を追加する。
+      describe('赤い円が青い四角形の上を左から右に移動する。');
     }
     </code>
     </div>
@@ -144,11 +117,11 @@ example:
     <div>
     <code>
     function draw() {
-      // Add the text description and
-      // display it for debugging.
+      // テキストの説明を追加し、
+      // デバッグ用に表示する。
       textOutput(LABEL);
 
-      // Draw a moving circle.
+      // 動く円を描画する。
       background(200);
       let x = frameCount * 0.1;
       fill(255, 0, 0);
@@ -156,8 +129,8 @@ example:
       fill(0, 0, 255);
       square(50, 50, 50);
 
-      // Add a general description of the canvas.
-      describe('A red circle moves from left to right above a blue square.');
+      // キャンバスの一般的な説明を追加する。
+      describe('赤い円が青い四角形の上を左から右に移動する。');
     }
     </code>
     </div>
@@ -165,8 +138,7 @@ class: p5
 params:
   - name: display
     description: |
-      <p>(オプション) FALLBACK または LABEL のいずれか</p>
-      <p>either FALLBACK or LABEL.</p>
+      <p>FALLBACKまたはLABEL。</p>
     type: Constant
     optional: true
 chainable: false
@@ -174,3 +146,4 @@ chainable: false
 
 
 # textOutput
+

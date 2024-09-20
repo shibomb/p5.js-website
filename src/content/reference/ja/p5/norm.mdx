@@ -4,25 +4,6 @@ module: Math
 submodule: Calculation
 file: src/math/calculation.js
 description: >
-  <p>別の範囲の数値を0から1の範囲に正規化します。</p>
-
-  <p>map(value, low, high, 0,
-  1)と同一です。範囲外の数値は、範囲外の値が意図的で有用であることがよくあるため、0および1にクランプされません。(例を参照してください。)</p>
-
-  <p>/// todo ///</p>
-
-  <p>Maps a number from one range to a value between 0 and 1.</p>
-
-  <p>For example, <code>norm(2, 0, 10)</code> returns 0.2. 2's position in the
-  original range [0, 10] is proportional to 0.2's position in the range [0, 1].
-  This is equivalent to calling <code>map(2, 0, 10, 0, 1)</code>.</p>
-
-  <p>Numbers outside of the original range are not constrained between 0 and 1.
-  Out-of-range values are often intentional and useful.</p>
-
-
-  <hr/>
-
   <p>Maps a number from one range to a value between 0 and 1.</p>
 
   <p>For example, <code>norm(2, 0, 10)</code> returns 0.2. 2's position in the
@@ -65,23 +46,18 @@ class: p5
 params:
   - name: value
     description: |
-      <p>正規化されるべき入力値</p>
       <p>incoming value to be normalized.</p>
     type: Number
   - name: start
     description: |
-      <p>値の現在の範囲の下限</p>
       <p>lower bound of the value's current range.</p>
     type: Number
   - name: stop
     description: |
-      <p>値の現在の範囲の上限</p>
       <p>upper bound of the value's current range.</p>
     type: Number
 return:
-  description: |-
-    正規化された数値
-    normalized number.
+  description: normalized number.
   type: Number
 chainable: false
 ---

@@ -4,10 +4,6 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
-  <p>フィルターの出力ボリュームを設定します。</p>
-  <p></p>
-
-  <hr/>
   <p>Set the output volume of the filter.</p>
 line: 6478
 isConstructor: false
@@ -16,19 +12,16 @@ class: p5.Effect
 params:
   - name: vol
     description: |
-      <p>(オプション) 0から1.0の振幅</p>
       <p>amplitude between 0 and 1.0</p>
     type: Number
     optional: true
   - name: rampTime
     description: |
-      <p>(オプション) rampTime まで続くフェードを作成します</p>
       <p>create a fade that lasts until rampTime</p>
     type: Number
     optional: true
   - name: tFromNow
     description: |
-      <p>(オプション) このイベントが tFromNow 秒後に発生するようにスケジュールします</p>
       <p>schedule this event to happen in tFromNow seconds</p>
     type: Number
     optional: true

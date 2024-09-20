@@ -4,25 +4,9 @@ module: Environment
 submodule: Environment
 file: src/core/environment.js
 description: >
-  <p>ウィンドウが p5.js プログラムで「フォーカス」されているかどうかを確認します。</p>
+  <p>ブラウザがフォーカスされている場合は<code>true</code>、そうでない場合は<code>false</code>となる<code>Boolean</code>変数です。</p>
 
-  <p>フォーカスされている場合、スケッチがマウスやキーボードの入力を受け付けます。この変数はウィンドウがフォーカスされている場合は「true」で、フォーカスされていない場合は「false」です。</p>
-
-  <p>/// todo ///</p>
-
-  <p>Tracks whether the browser window is focused and can receive user input.
-  <code>focused</code> is <code>true</code> if the window if focused and
-  <code>false</code> if not.</p>
-
-
-  <hr/>
-
-  <p>A <code>Boolean</code> variable that's <code>true</code> if the browser is
-  focused and <code>false</code> if
-
-  not.</p>
-
-  <p>Note: The browser window can only receive input if it's focused.</p>
+  <p>注意：ブラウザウィンドウは、フォーカスされている場合にのみ入力を受け付けることができます。</p>
 line: 174
 isConstructor: false
 itemtype: property
@@ -31,19 +15,19 @@ example:
 
     <div>
     <code>
-    // Open this example in two separate browser
-    // windows placed side-by-side to demonstrate.
+    // この例を2つの別々のブラウザウィンドウで
+    // 並べて開いて確認してください。
 
     function setup() {
       createCanvas(100, 100);
 
-      describe('A square changes color from green to red when the browser window is out of focus.');
+      describe('ブラウザウィンドウがフォーカスを失うと、四角形の色が緑から赤に変わります。');
     }
 
     function draw() {
-      // Change the background color
-      // when the browser window
-      // goes in/out of focus.
+      // ブラウザウィンドウが
+      // フォーカスを得たり失ったりすると
+      // 背景色を変更します。
       if (focused === true) {
         background(0, 255, 0);
       } else {
@@ -58,3 +42,4 @@ type: Boolean
 
 
 # focused
+

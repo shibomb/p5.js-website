@@ -4,10 +4,6 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
-  <p><code>onPeak</code> は2つの引数を受け取ります。</p>
-  <p>ピークが検出されたときに呼び出される関数と、0.0から1.0の間のピークの値がコールバックに渡されます。</p>
-
-  <hr/>
   <p>onPeak accepts two arguments: a function to call when
   a peak is detected. The value of the peak,
   between 0.0 and 1.0, is passed to the callback.</p>
@@ -70,14 +66,12 @@ class: p5.PeakDetect
 params:
   - name: callback
     description: |
-      <p>ピークが検出されたときに呼び出される関数の名前</p>
       <p>Name of a function that will
                                   be called when a peak is
                                   detected.</p>
     type: Function
   - name: val
     description: |
-      <p>(オプション) ピークが検出されたときに関数に渡されるオプションの値</p>
       <p>Optional value to pass
                                   into the function when
                                   a peak is detected.</p>

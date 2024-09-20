@@ -4,13 +4,6 @@ module: IO
 submodule: Output
 file: src/io/files.js
 description: >
-  <p>文字列の配列をテキストファイルに書き込みます。</p>
-
-  <p>ひとつの文字列ごとに1行。ファイルの保存プロセスと保存されたファイルの場所は、ウェブブラウザー間で異なります。</p>
-
-
-  <hr/>
-
   <p>Saves an <code>Array</code> of <code>String</code>s to a file, one per
   line.</p>
 
@@ -165,23 +158,19 @@ class: p5
 params:
   - name: list
     description: |
-      <p>書き込むための文字列配列</p>
       <p>data to save.</p>
     type: 'String[]'
   - name: filename
     description: |
-      <p>出力用のファイル名</p>
       <p>name of file to be saved.</p>
     type: String
   - name: extension
     description: |
-      <p>(オプション) ファイル名の拡張子</p>
       <p>format to use for the file.</p>
     type: String
     optional: true
   - name: isCRLF
     description: |
-      <p>(オプション) true の場合、改行を CRLF に変更</p>
       <p>whether to add <code>\r\n</code> to the end of each
                                   string. Defaults to <code>false</code>.</p>
     type: Boolean

@@ -4,26 +4,16 @@ module: Color
 submodule: Setting
 file: src/color/setting.js
 description: >
-  <p>ストローク（輪郭）の描画を無効にします。</p>
+  <p>図形の輪郭を無効にします。</p>
 
-  <p><a href="#/p5/noStroke">noStroke()</a> と <a href="#/p5/noFill">noFill()</a>
-  の両方が呼び出されると、画面には何も描画されません。</p>
+  <p><code>noStroke()</code>を呼び出すと、その後に描画されるすべての図形が
 
+  輪郭なしで描画されます。輪郭を再び有効にするには、<code>stroke()</code>を使用します。</p>
 
-  <hr/>
+  <p>この関数は、<code>fill()</code>と組み合わせて使用すると、
 
-  <p>Disables drawing points, lines, and the outlines of shapes.</p>
-
-  <p>Calling <code>noStroke()</code> is the same as making the stroke completely
-  transparent,
-
-  as in <code>stroke(0, 0)</code>. If both <code>noStroke()</code> and
-
-  <a href="/reference/p5/noFill/">noFill()</a> are called, nothing will be drawn
-  to the
-
-  screen.</p>
-line: 1279
+  塗りつぶしのみの図形を作成できます。</p>
+line: '1637'
 isConstructor: false
 itemtype: method
 example:
@@ -33,44 +23,42 @@ example:
     <code>
     function setup() {
       createCanvas(100, 100);
-
       background(200);
 
+      // 輪郭なしの正方形
       noStroke();
+      fill(0, 0, 255);
       square(20, 20, 60);
 
-      describe('A white square with no outline.');
+      describe('青く塗りつぶされた正方形（輪郭なし）');
     }
     </code>
     </div>
 
-    <div modernizr='webgl'>
+    <div>
     <code>
     function setup() {
-      createCanvas(100, 100, WEBGL);
+      createCanvas(100, 100);
+      background(200);
 
-      describe('A pink cube with no edge outlines spinning on a black canvas.');
-    }
+      // 輪郭ありの円
+      stroke(255, 0, 0);
+      circle(33, 50, 40);
 
-    function draw() {
-      background(0);
-
-      // Style the box.
+      // 輪郭なしの円
       noStroke();
-      fill(240, 150, 150);
+      circle(67, 50, 40);
 
-      // Rotate the coordinates.
-      rotateX(frameCount * 0.01);
-      rotateY(frameCount * 0.01);
-
-      // Draw the box.
-      box(45);
+      describe('赤い輪郭の円と、輪郭のない黒く塗りつぶされた円');
     }
     </code>
     </div>
 class: p5
+overloads:
+  - line: '1637'
+    params: []
+    chainable: 1
 chainable: true
 ---
-
 
 # noStroke

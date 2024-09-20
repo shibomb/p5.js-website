@@ -4,22 +4,19 @@ module: Image
 submodule: Image
 file: src/image/p5.Image.js
 description: >
-  <p>A class to describe an image.</p>
+  <p>画像を表現するクラスです。</p>
 
-  <p>Images are rectangular grids of pixels that can be displayed and
-  modified.</p>
+  <p>画像はピクセルの長方形のグリッドで、表示や修正が可能です。</p>
 
-  <p>Existing images can be loaded by calling
+  <p>既存の画像は<a href="/reference/p5/loadImage/">loadImage()</a>を呼び出すことで
 
-  <a href="/reference/p5/loadImage/">loadImage()</a>. Blank images can be
-  created by
+  読み込むことができます。空の画像は<a href="/reference/p5/createImage/">createImage()</a>を
 
-  calling <a href="/reference/p5/createImage/">createImage()</a>.
-  <code>p5.Image</code> objects
+  呼び出すことで作成できます。<code>p5.Image</code>オブジェクトには、
 
-  have methods for common tasks such as applying filters and modifying
+  フィルターの適用やピクセル値の変更など、一般的なタスクのための
 
-  pixel values.</p>
+  メソッドがあります。</p>
 line: 21
 isConstructor: true
 params:
@@ -36,7 +33,7 @@ example:
     <code>
     let img;
 
-    // Load the image.
+    // 画像を読み込みます。
     function preload() {
       img = loadImage('/assets/bricks.jpg');
     }
@@ -44,10 +41,10 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Display the image.
+      // 画像を表示します。
       image(img, 0, 0);
 
-      describe('An image of a brick wall.');
+      describe('レンガの壁の画像。');
     }
     </code>
     </div>
@@ -56,7 +53,7 @@ example:
     <code>
     let img;
 
-    // Load the image.
+    // 画像を読み込みます。
     function preload() {
       img = loadImage('/assets/bricks.jpg');
     }
@@ -64,13 +61,13 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Apply the GRAY filter.
+      // GRAYフィルターを適用します。
       img.filter(GRAY);
 
-      // Display the image.
+      // 画像を表示します。
       image(img, 0, 0);
 
-      describe('A grayscale image of a brick wall.');
+      describe('レンガの壁のグレースケール画像。');
     }
     </code>
     </div>
@@ -82,432 +79,384 @@ example:
 
       background(200);
 
-      // Create a p5.Image object.
+      // p5.Imageオブジェクトを作成します。
       let img = createImage(66, 66);
 
-      // Load the image's pixels.
+      // 画像のピクセルを読み込みます。
       img.loadPixels();
 
-      // Set the pixels to black.
+      // ピクセルを黒に設定します。
       for (let x = 0; x < img.width; x += 1) {
         for (let y = 0; y < img.height; y += 1) {
           img.set(x, y, 0);
         }
       }
 
-      // Update the image.
+      // 画像を更新します。
       img.updatePixels();
 
-      // Display the image.
+      // 画像を表示します。
       image(img, 17, 17);
 
-      describe('A black square drawn in the middle of a gray square.');
+      describe('灰色の正方形の中央に描かれた黒い正方形。');
     }
     </code>
     </div>
 methods:
   pixelDensity:
     description: |
-      <p>Gets or sets the pixel density for high pixel density displays.</p>
-      <p>By default, the density will be set to 1.</p>
-      <p>Call this method with no arguments to get the default density, or pass
-      in a number to set the density. If a non-positive number is provided,
-      it defaults to 1.</p>
+      <p>高ピクセル密度ディスプレイ用のピクセル密度を取得または設定します。</p>
+      <p>デフォルトでは、密度は1に設定されます。</p>
+      <p>引数なしでこのメソッドを呼び出すとデフォルトの密度を取得し、数値を渡すと
+      密度を設定します。0以下の数値が提供された場合、デフォルトで1になります。</p>
     path: p5.Image/pixelDensity
   loadPixels:
     description: >
-      <p>Loads the current value of each pixel in the image into the
-      <code>img.pixels</code>
+      <p>画像内の各ピクセルの現在の値を<code>img.pixels</code>配列に
 
-      array.</p>
+      読み込みます。</p>
 
-      <p><code>img.loadPixels()</code> must be called before reading or
-      modifying pixel
+      <p><code>img.loadPixels()</code>は、ピクセル値の読み取りや
 
-      values.</p>
+      変更の前に呼び出す必要があります。</p>
     path: p5.Image/loadPixels
   updatePixels:
     description: >
-      <p>Updates the canvas with the RGBA values in the
+      <p><a href="/reference/p5.Image/pixels/">img.pixels</a>配列のRGBA値で
 
-      <a href="/reference/p5.Image/pixels/">img.pixels</a> array.</p>
+      キャンバスを更新します。</p>
 
-      <p><code>img.updatePixels()</code> only needs to be called after changing
-      values in
+      <p><code>img.updatePixels()</code>は、<a
+      href="/reference/p5.Image/pixels/">img.pixels</a>
 
-      the <a href="/reference/p5.Image/pixels/">img.pixels</a> array. Such
-      changes can be
+      配列の値を変更した後にのみ呼び出す必要があります。このような変更は、
 
-      made directly after calling
+      <a href="/reference/p5.Image/loadPixels/">img.loadPixels()</a>を呼び出した直後か、
 
-      <a href="/reference/p5.Image/loadPixels/">img.loadPixels()</a> or by
-      calling
+      <a href="/reference/p5.Image/set/">img.set()</a>を呼び出すことで
 
-      <a href="/reference/p5.Image/set/">img.set()</a>.</p>
+      行うことができます。</p>
 
-      <p>The optional parameters <code>x</code>, <code>y</code>,
-      <code>width</code>, and <code>height</code> define a
+      <p>オプションのパラメータ<code>x</code>、<code>y</code>、<code>width</code>、<code>height</code>は、
 
-      subsection of the image to update. Doing so can improve performance in
+      更新する画像のサブセクションを定義します。これを行うことで、
 
-      some cases.</p>
+      場合によってはパフォーマンスが向上する可能性があります。</p>
 
-      <p>If the image was loaded from a GIF, then calling
-      <code>img.updatePixels()</code>
+      <p>画像がGIFから読み込まれた場合、<code>img.updatePixels()</code>を呼び出すと
 
-      will update the pixels in current frame.</p>
+      現在のフレームのピクセルが更新されます。</p>
     path: p5.Image/updatePixels
   get:
     description: >
-      <p>Gets a pixel or a region of pixels from the image.</p>
+      <p>画像からピクセルまたはピクセル領域を取得します。</p>
 
-      <p><code>img.get()</code> is easy to use but it's not as fast as
+      <p><code>img.get()</code>は使いやすいですが、
 
-      <a href="/reference/p5.Image/pixels/">img.pixels</a>. Use
+      <a href="/reference/p5.Image/pixels/">img.pixels</a>ほど高速ではありません。
 
-      <a href="/reference/p5.Image/pixels/">img.pixels</a> to read many pixel
-      values.</p>
+      多くのピクセル値を読み取るには<a
+      href="/reference/p5.Image/pixels/">img.pixels</a>を使用してください。</p>
 
-      <p>The version of <code>img.get()</code> with no parameters returns the
-      entire image.</p>
+      <p>パラメータなしの<code>img.get()</code>バージョンは、画像全体を返します。</p>
 
-      <p>The version of <code>img.get()</code> with two parameters, as in
-      <code>img.get(10, 20)</code>,
+      <p>2つのパラメータを持つ<code>img.get()</code>バージョン（例：<code>img.get(10,
+      20)</code>）は、
 
-      interprets them as coordinates. It returns an array with the
+      それらを座標として解釈します。指定されたポイントのピクセルの
 
-      <code>[R, G, B, A]</code> values of the pixel at the given point.</p>
+      <code>[R, G, B, A]</code>値を含む配列を返します。</p>
 
-      <p>The version of <code>img.get()</code> with four parameters, as in
+      <p>4つのパラメータを持つ<code>img.get()</code>バージョン（例：
 
-      <code>img,get(10, 20, 50, 90)</code>, interprets them as
+      <code>img,get(10, 20, 50, 90)</code>）は、それらを座標と寸法として解釈します。
 
-      coordinates and dimensions. The first two parameters are the coordinates
+      最初の2つのパラメータはサブセクションの左上隅の座標です。
 
-      of the upper-left corner of the subsection. The last two parameters are
+      最後の2つのパラメータはサブセクションの幅と高さです。
 
-      the width and height of the subsection. It returns a subsection of the
+      新しい<a href="/reference/p5/p5.Image">p5.Image</a>オブジェクトでキャンバスの
 
-      canvas in a new <a href="/reference/p5/p5.Image">p5.Image</a> object.</p>
+      サブセクションを返します。</p>
 
-      <p>Use <code>img.get()</code> instead of <a
-      href="/reference/p5/get/">get()</a> to work directly
+      <p>画像を直接操作するには、<a href="/reference/p5/get/">get()</a>の代わりに
 
-      with images.</p>
+      <code>img.get()</code>を使用してください。</p>
     path: p5.Image/get
   set:
     description: >
-      <p>Sets the color of one or more pixels within an image.</p>
+      <p>画像内の1つ以上のピクセルの色を設定します。</p>
 
-      <p><code>img.set()</code> is easy to use but it's not as fast as
+      <p><code>img.set()</code>は使いやすいですが、
 
-      <a href="/reference/p5.Image/pixels/">img.pixels</a>. Use
+      <a href="/reference/p5.Image/pixels/">img.pixels</a>ほど高速ではありません。
 
-      <a href="/reference/p5.Image/pixels/">img.pixels</a> to set many pixel
-      values.</p>
+      多くのピクセル値を設定するには<a
+      href="/reference/p5.Image/pixels/">img.pixels</a>を使用してください。</p>
 
-      <p><code>img.set()</code> interprets the first two parameters as x- and
-      y-coordinates. It
+      <p><code>img.set()</code>は最初の2つのパラメータをx座標とy座標として解釈します。
 
-      interprets the last parameter as a grayscale value, a <code>[R, G, B,
-      A]</code> pixel
+      最後のパラメータはグレースケール値、<code>[R, G, B, A]</code>ピクセル配列、
 
-      array, a <a href="/reference/p5/p5.Color">p5.Color</a> object, or another
+      <a href="/reference/p5/p5.Color">p5.Color</a>オブジェクト、または別の
 
-      <a href="/reference/p5/p5.Image">p5.Image</a> object.</p>
+      <a href="/reference/p5/p5.Image">p5.Image</a>オブジェクトとして解釈されます。</p>
 
-      <p><a href="/reference/p5.Image/updatePixels/">img.updatePixels()</a> must
-      be called
+      <p>変更を反映させるには、<code>img.set()</code>の使用後に
 
-      after using <code>img.set()</code> for changes to appear.</p>
+      <a href="/reference/p5.Image/updatePixels/">img.updatePixels()</a>を
+
+      呼び出す必要があります。</p>
     path: p5.Image/set
   resize:
     description: >
-      <p>Resizes the image to a given width and height.</p>
+      <p>画像を指定された幅と高さにリサイズします。</p>
 
-      <p>The image's original aspect ratio can be kept by passing 0 for either
+      <p>画像の元のアスペクト比は、<code>width</code>または<code>height</code>のいずれかに0を
 
-      <code>width</code> or <code>height</code>. For example, calling
-      <code>img.resize(50, 0)</code> on an image
+      渡すことで保持できます。例えば、500 × 300ピクセルの画像に対して
 
-      that was 500 × 300 pixels will resize it to 50 × 30 pixels.</p>
+      <code>img.resize(50, 0)</code>を呼び出すと、50 × 30ピクセルにリサイズされます。</p>
     path: p5.Image/resize
   copy:
     description: >
-      <p>Copies pixels from a source image to this image.</p>
+      <p>ソース画像からこの画像にピクセルをコピーします。</p>
 
-      <p>The first parameter, <code>srcImage</code>, is an optional
+      <p>最初のパラメータ<code>srcImage</code>は、コピーするオプションの
 
-      <a href="/reference/p5/p5.Image">p5.Image</a> object to copy. If a source
-      image isn't
+      <a href="/reference/p5/p5.Image">p5.Image</a>オブジェクトです。ソース画像が
 
-      passed, then <code>img.copy()</code> can copy a region of this image to
-      another
+      渡されない場合、<code>img.copy()</code>はこの画像の一部を別の
 
-      region.</p>
+      領域にコピーすることができます。</p>
 
-      <p>The next four parameters, <code>sx</code>, <code>sy</code>,
-      <code>sw</code>, and <code>sh</code> determine the region
+      <p>次の4つのパラメータ<code>sx</code>、<code>sy</code>、<code>sw</code>、<code>sh</code>は、
 
-      to copy from the source image. <code>(sx, sy)</code> is the top-left
-      corner of the
+      ソース画像からコピーする領域を決定します。<code>(sx, sy)</code>は
 
-      region. <code>sw</code> and <code>sh</code> are the region's width and
-      height.</p>
+      領域の左上隅です。<code>sw</code>と<code>sh</code>は領域の幅と高さです。</p>
 
-      <p>The next four parameters, <code>dx</code>, <code>dy</code>,
-      <code>dw</code>, and <code>dh</code> determine the region
+      <p>次の4つのパラメータ<code>dx</code>、<code>dy</code>、<code>dw</code>、<code>dh</code>は、
 
-      of this image to copy into. <code>(dx, dy)</code> is the top-left corner
-      of the
+      この画像にコピーする領域を決定します。<code>(dx, dy)</code>は
 
-      region. <code>dw</code> and <code>dh</code> are the region's width and
-      height.</p>
+      領域の左上隅です。<code>dw</code>と<code>dh</code>は領域の幅と高さです。</p>
 
-      <p>Calling <code>img.copy()</code> will scale pixels from the source
-      region if it isn't
+      <p><code>img.copy()</code>を呼び出すと、ソース領域が目的の領域と
 
-      the same size as the destination region.</p>
+      同じサイズでない場合、ピクセルがスケーリングされます。</p>
     path: p5.Image/copy
   mask:
     description: >
-      <p>Masks part of the image with another.</p>
+      <p>画像の一部を別の画像でマスクします。</p>
 
-      <p><code>img.mask()</code> uses another <a
-      href="/reference/p5/p5.Image">p5.Image</a> object's
+      <p><code>img.mask()</code>は、別の<a
+      href="/reference/p5/p5.Image">p5.Image</a>オブジェクトの
 
-      alpha channel as the alpha channel for this image. Masks are cumulative
+      アルファチャンネルをこの画像のアルファチャンネルとして使用します。マスクは
 
-      and can't be removed once applied. If the mask has a different
+      累積的であり、一度適用されると削除できません。マスクがこの画像と
 
-      pixel density from this image, the mask will be scaled.</p>
+      異なるピクセル密度を持つ場合、マスクはスケーリングされます。</p>
     path: p5.Image/mask
   filter:
     description: >
-      <p>Applies an image filter to the image.</p>
+      <p>画像にイメージフィルターを適用します。</p>
 
-      <p>The preset options are:</p>
+      <p>プリセットのオプションは以下の通りです：</p>
 
       <p><code>INVERT</code>
 
-      Inverts the colors in the image. No parameter is used.</p>
+      画像の色を反転させます。パラメータは使用されません。</p>
 
       <p><code>GRAY</code>
 
-      Converts the image to grayscale. No parameter is used.</p>
+      画像をグレースケールに変換します。パラメータは使用されません。</p>
 
       <p><code>THRESHOLD</code>
 
-      Converts the image to black and white. Pixels with a grayscale value
+      画像を白黒に変換します。指定されたしきい値より上のグレースケール値を持つ
 
-      above a given threshold are converted to white. The rest are converted to
+      ピクセルは白に変換されます。残りは黒に変換されます。しきい値は
 
-      black. The threshold must be between 0.0 (black) and 1.0 (white). If no
+      0.0（黒）から1.0（白）の間でなければなりません。値が指定されない場合、
 
-      value is specified, 0.5 is used.</p>
+      0.5が使用されます。</p>
 
       <p><code>OPAQUE</code>
 
-      Sets the alpha channel to be entirely opaque. No parameter is used.</p>
+      アルファチャンネルを完全に不透明に設定します。パラメータは使用されません。</p>
 
       <p><code>POSTERIZE</code>
 
-      Limits the number of colors in the image. Each color channel is limited to
+      画像の色数を制限します。各色チャンネルは指定された色数に
 
-      the number of colors specified. Values between 2 and 255 are valid, but
+      制限されます。2から255の間の値が有効ですが、
 
-      results are most noticeable with lower values. The default value is 4.</p>
+      低い値ほど結果が顕著になります。デフォルト値は4です。</p>
 
       <p><code>BLUR</code>
 
-      Blurs the image. The level of blurring is specified by a blur radius.
-      Larger
+      画像をぼかします。ぼかしのレベルはぼかし半径によって指定されます。
 
-      values increase the blur. The default value is 4. A gaussian blur is used
+      値が大きいほどぼかしが強くなります。デフォルト値は4です。<code>P2D</code>モードでは
 
-      in <code>P2D</code> mode. A box blur is used in <code>WEBGL</code>
-      mode.</p>
+      ガウシアンぼかしが使用されます。<code>WEBGL</code>モードではボックスぼかしが
+
+      使用されます。</p>
 
       <p><code>ERODE</code>
 
-      Reduces the light areas. No parameter is used.</p>
+      明るい領域を縮小します。パラメータは使用されません。</p>
 
       <p><code>DILATE</code>
 
-      Increases the light areas. No parameter is used.</p>
+      明るい領域を拡大します。パラメータは使用されません。</p>
     path: p5.Image/filter
   blend:
     description: >
-      <p>Copies a region of pixels from another image into this one.</p>
+      <p>別の画像からこの画像にピクセル領域をコピーしてブレンドします。</p>
 
-      <p>The first parameter, <code>srcImage</code>, is the
+      <p>最初のパラメータ<code>srcImage</code>は、ブレンドする
 
-      <a href="/reference/p5/p5.Image">p5.Image</a> object to blend.</p>
+      <a href="/reference/p5/p5.Image">p5.Image</a>オブジェクトです。</p>
 
-      <p>The next four parameters, <code>sx</code>, <code>sy</code>,
-      <code>sw</code>, and <code>sh</code> determine the region
+      <p>次の4つのパラメータ<code>sx</code>、<code>sy</code>、<code>sw</code>、<code>sh</code>は、
 
-      to blend from the source image. <code>(sx, sy)</code> is the top-left
-      corner of the
+      ソース画像からブレンドする領域を決定します。<code>(sx, sy)</code>は
 
-      region. <code>sw</code> and <code>sh</code> are the regions width and
-      height.</p>
+      領域の左上隅です。<code>sw</code>と<code>sh</code>は領域の幅と高さです。</p>
 
-      <p>The next four parameters, <code>dx</code>, <code>dy</code>,
-      <code>dw</code>, and <code>dh</code> determine the region
+      <p>次の4つのパラメータ<code>dx</code>、<code>dy</code>、<code>dw</code>、<code>dh</code>は、
 
-      of the canvas to blend into. <code>(dx, dy)</code> is the top-left corner
-      of the
+      キャンバスにブレンドする領域を決定します。<code>(dx, dy)</code>は
 
-      region. <code>dw</code> and <code>dh</code> are the regions width and
-      height.</p>
+      領域の左上隅です。<code>dw</code>と<code>dh</code>は領域の幅と高さです。</p>
 
-      <p>The tenth parameter, <code>blendMode</code>, sets the effect used to
-      blend the images'
+      <p>10番目のパラメータ<code>blendMode</code>は、画像の色をブレンドするために
 
-      colors. The options are <code>BLEND</code>, <code>DARKEST</code>,
-      <code>LIGHTEST</code>, <code>DIFFERENCE</code>,
+      使用するエフェクトを設定します。オプションは<code>BLEND</code>、<code>DARKEST</code>、
+      <code>LIGHTEST</code>、<code>DIFFERENCE</code>、
 
-      <code>MULTIPLY</code>, <code>EXCLUSION</code>, <code>SCREEN</code>,
-      <code>REPLACE</code>, <code>OVERLAY</code>, <code>HARD_LIGHT</code>,
+      <code>MULTIPLY</code>、<code>EXCLUSION</code>、<code>SCREEN</code>、<code>REPLACE</code>、<code>OVERLAY</code>、<code>HARD_LIGHT</code>、
 
-      <code>SOFT_LIGHT</code>, <code>DODGE</code>, <code>BURN</code>,
-      <code>ADD</code>, or <code>NORMAL</code>.</p>
+      <code>SOFT_LIGHT</code>、<code>DODGE</code>、<code>BURN</code>、<code>ADD</code>、または<code>NORMAL</code>です。</p>
     path: p5.Image/blend
   save:
     description: >
-      <p>Saves the image to a file.</p>
+      <p>画像をファイルに保存します。</p>
 
-      <p>By default, <code>img.save()</code> saves the image as a PNG image
-      called
+      <p>デフォルトでは、<code>img.save()</code>は画像を<code>untitled.png</code>という
 
-      <code>untitled.png</code>.</p>
+      名前のPNG画像として保存します。</p>
 
-      <p>The first parameter, <code>filename</code>, is optional. It's a string
-      that sets the
+      <p>最初のパラメータ<code>filename</code>はオプションです。ファイルの名前を
 
-      file's name. If a file extension is included, as in
+      設定する文字列です。ファイル拡張子が含まれている場合（例：
 
-      <code>img.save('drawing.png')</code>, then the image will be saved using
-      that
+      <code>img.save('drawing.png')</code>）、画像はその形式で保存されます。</p>
 
-      format.</p>
+      <p>2番目のパラメータ<code>extension</code>もオプションです。ファイルの形式を
 
-      <p>The second parameter, <code>extension</code>, is also optional. It sets
-      the files format.
-
-      Either <code>'png'</code> or <code>'jpg'</code> can be used. For example,
+      設定します。<code>'png'</code>または<code>'jpg'</code>のいずれかを使用できます。例えば、
       <code>img.save('drawing', 'jpg')</code>
 
-      saves the canvas to a file called <code>drawing.jpg</code>.</p>
+      はキャンバスを<code>drawing.jpg</code>というファイルに保存します。</p>
 
-      <p>Note: The browser will either save the file immediately or prompt the
-      user
+      <p>注意：ブラウザはファイルを即座に保存するか、ユーザーにダイアログ
 
-      with a dialogue window.</p>
+      ウィンドウでプロンプトを表示します。</p>
 
-      <p>The image will only be downloaded as an animated GIF if it was loaded
+      <p>画像は、GIFファイルから読み込まれた場合にのみ、アニメーションGIFとして
 
-      from a GIF file. See <a href="/reference/p5/saveGif/">saveGif()</a> to
-      create new
+      ダウンロードされます。新しいGIFを作成するには<a href="/reference/p5/saveGif/">saveGif()</a>を
 
-      GIFs.</p>
+      参照してください。</p>
     path: p5.Image/save
   reset:
     description: |
-      <p>Restarts an animated GIF at its first frame.</p>
+      <p>アニメーションGIFを最初のフレームに戻します。</p>
     path: p5.Image/reset
   getCurrentFrame:
     description: |
-      <p>Gets the index of the current frame in an animated GIF.</p>
+      <p>アニメーションGIFの現在のフレームのインデックスを取得します。</p>
     path: p5.Image/getCurrentFrame
   setFrame:
     description: |
-      <p>Sets the current frame in an animated GIF.</p>
+      <p>アニメーションGIFの現在のフレームを設定します。</p>
     path: p5.Image/setFrame
   numFrames:
     description: |
-      <p>Returns the number of frames in an animated GIF.</p>
+      <p>アニメーションGIFのフレーム数を返します。</p>
     path: p5.Image/numFrames
   play:
     description: |
-      <p>Plays an animated GIF that was paused with
-      <a href="/reference/p5.Image/pause/">img.pause()</a>.</p>
+      <p><a href="/reference/p5.Image/pause/">img.pause()</a>で一時停止された
+      アニメーションGIFを再生します。</p>
     path: p5.Image/play
   pause:
     description: |
-      <p>Pauses an animated GIF.</p>
-      <p>The GIF can be resumed by calling
-      <a href="/reference/p5.Image/play/">img.play()</a>.</p>
+      <p>アニメーションGIFを一時停止します。</p>
+      <p>GIFは<a href="/reference/p5.Image/play/">img.play()</a>を呼び出すことで
+      再開できます。</p>
     path: p5.Image/pause
   delay:
     description: >
-      <p>Changes the delay between frames in an animated GIF.</p>
+      <p>アニメーションGIFのフレーム間の遅延を変更します。</p>
 
-      <p>The first parameter, <code>delay</code>, is the length of the delay in
-      milliseconds.</p>
+      <p>最初のパラメータ<code>delay</code>は、遅延の長さをミリ秒単位で指定します。</p>
 
-      <p>The second parameter, <code>index</code>, is optional. If provided,
-      only the frame
+      <p>2番目のパラメータ<code>index</code>はオプションです。提供された場合、
 
-      at <code>index</code> will have its delay modified. All other frames will
-      keep
+      <code>index</code>のフレームの遅延のみが変更されます。他のすべてのフレームは
 
-      their default delay.</p>
+      デフォルトの遅延を保持します。</p>
     path: p5.Image/delay
 properties:
   width:
     description: |
-      <p>The image's width in pixels.</p>
+      <p>画像の幅（ピクセル単位）。</p>
     path: p5.Image/width
   height:
     description: |
-      <p>The image's height in pixels.</p>
+      <p>画像の高さ（ピクセル単位）。</p>
     path: p5.Image/height
   pixels:
     description: >
-      <p>An array containing the color of each pixel in the image.</p>
+      <p>画像内の各ピクセルの色を含む配列。</p>
 
-      <p>Colors are stored as numbers representing red, green, blue, and alpha
+      <p>色は赤、緑、青、アルファ（RGBA）値を表す数値として
 
-      (RGBA) values. <code>img.pixels</code> is a one-dimensional array for
-      performance
+      保存されます。<code>img.pixels</code>はパフォーマンス上の理由から
 
-      reasons.</p>
+      1次元配列です。</p>
 
-      <p>Each pixel occupies four elements in the pixels array, one for each
+      <p>各ピクセルはピクセル配列内で4つの要素を占め、それぞれが
 
-      RGBA value. For example, the pixel at coordinates (0, 0) stores its
+      RGBA値に対応します。例えば、座標(0, 0)のピクセルは
 
-      RGBA values at <code>img.pixels[0]</code>, <code>img.pixels[1]</code>,
-      <code>img.pixels[2]</code>,
+      <code>img.pixels[0]</code>、<code>img.pixels[1]</code>、<code>img.pixels[2]</code>、
 
-      and <code>img.pixels[3]</code>, respectively. The next pixel at
-      coordinates (1, 0)
+      <code>img.pixels[3]</code>にそれぞれRGBA値を格納します。次の座標(1, 0)の
 
-      stores its RGBA values at <code>img.pixels[4]</code>,
-      <code>img.pixels[5]</code>,
+      ピクセルは<code>img.pixels[4]</code>、<code>img.pixels[5]</code>、
 
-      <code>img.pixels[6]</code>, and <code>img.pixels[7]</code>. And so on. The
-      <code>img.pixels</code> array
+      <code>img.pixels[6]</code>、<code>img.pixels[7]</code>にRGBA値を格納します。以下同様です。
+      100×100の<a href="/reference/p5/p5.Image">p5.Image</a>オブジェクトの<code>img.pixels</code>配列は
 
-      for a 100×100 <a href="/reference/p5/p5.Image">p5.Image</a> object has
+      100 × 100 × 4 = 40,000個の要素を持ちます。</p>
 
-      100 × 100 × 4 = 40,000 elements.</p>
+      <p>画像内のピクセルのRGBA値にアクセスするには、以下の例に示すように
 
-      <p>Accessing the RGBA values for a pixel in the image requires a little
-
-      math as shown in the examples below. The
+      少し計算が必要です。<code>img.pixels</code>配列にアクセスする前に
 
       <a href="/reference/p5.Image/loadPixels/">img.loadPixels()</a>
 
-      method must be called before accessing the <code>img.pixels</code> array.
-      The
+      メソッドを呼び出す必要があります。変更を加えた後は
 
-      <a href="/reference/p5.Image/updatePixels/">img.updatePixels()</a> method
-      must be
+      <a href="/reference/p5.Image/updatePixels/">img.updatePixels()</a>メソッドを
 
-      called after any changes are made.</p>
+      呼び出す必要があります。</p>
     path: p5.Image/pixels
 chainable: false
 ---

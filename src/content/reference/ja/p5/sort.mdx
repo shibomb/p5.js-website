@@ -3,16 +3,7 @@ title: sort
 module: Data
 submodule: Array Functions
 file: src/utilities/array_functions.js
-description: >
-  <p>数字の配列を最小から最大まで並べ替えるか、単語の配列をアルファベット順に並べます。</p>
-
-  <p>元の配列は変更されず、並べ替えられた配列が返されます。count
-  パラメーターは、並べ替える要素の数を示します。たとえば、配列に12個の要素があり、count
-  が5に設定されている場合、配列の最初の5つの要素のみが並べ替えられます。</p>
-
-
-  <hr/>
-
+description: |
   <p>Sorts an array of numbers from smallest to largest, or puts an array of
   words in alphabetical order. The original array is not modified; a
   re-ordered array is returned. The count parameter states the number of
@@ -48,19 +39,15 @@ class: p5
 params:
   - name: list
     description: |
-      <p>並べ替える配列</p>
       <p>Array to sort</p>
     type: Array
   - name: count
     description: |
-      <p>(オプション) 0から始まる並べ替える要素の数</p>
       <p>number of elements to sort, starting from 0</p>
     type: Integer
     optional: true
 return:
-  description: |-
-    ソートされたリスト
-    the sorted list
+  description: the sorted list
   type: Array
 chainable: false
 ---

@@ -4,51 +4,17 @@ module: Shape
 submodule: 3D Primitives
 file: src/webgl/3d_primitives.js
 description: >
-  <p>指定された半径の球を描画します。</p>
+  <p>球を描きます。</p>
 
-  <p></p>
+  <p>球は、三角形の面が接続して丸い表面を形成する3D形状です。面が少ない球はクリスタルのように見えます。面が多い球は滑らかな表面を持ち、ボールのように見えます。</p>
 
-  <p>DetailX および detailY は、球の x 次元および y
-  次元の細分割数を決定します。細分割が多いほど、球は滑らかに見えます。推奨される最大値は24です。24より大きい値を使用すると、警告が表示されるか、ブラウザーが遅くなる可能性があります。</p>
+  <p>最初のパラメータ<code>radius</code>はオプションです。<code>Number</code>が渡されると、<code>sphere(20)</code>のように球の半径を設定します。デフォルトでは、<code>radius</code>は50です。</p>
 
+  <p>2番目のパラメータ<code>detailX</code>もオプションです。<code>Number</code>が渡されると、<code>sphere(20, 5)</code>のようにx軸に沿った三角形の細分化の数を設定します。すべての3D形状は、三角形を接続してその表面を形成します。デフォルトでは、<code>detailX</code>は24です。</p>
 
-  <hr/>
+  <p>3番目のパラメータ<code>detailY</code>もオプションです。<code>Number</code>が渡されると、<code>sphere(20, 5, 2)</code>のようにy軸に沿った三角形の細分化の数を設定します。すべての3D形状は、三角形を接続してその表面を形成します。デフォルトでは、<code>detailY</code>は16です。</p>
 
-  <p>Draws a sphere.</p>
-
-  <p>A sphere is a 3D shape with triangular faces that connect to form a round
-
-  surface. Spheres with few faces look like crystals. Spheres with many faces
-
-  have smooth surfaces and look like balls.</p>
-
-  <p>The first parameter, <code>radius</code>, is optional. If a
-  <code>Number</code> is passed, as in
-
-  <code>sphere(20)</code>, it sets the radius of the sphere. By default,
-  <code>radius</code> is 50.</p>
-
-  <p>The second parameter, <code>detailX</code>, is also optional. If a
-  <code>Number</code> is passed,
-
-  as in <code>sphere(20, 5)</code>, it sets the number of triangle subdivisions
-  to use
-
-  along the x-axis. All 3D shapes are made by connecting triangles to form
-
-  their surfaces. By default, <code>detailX</code> is 24.</p>
-
-  <p>The third parameter, <code>detailY</code>, is also optional. If a
-  <code>Number</code> is passed,
-
-  as in <code>sphere(20, 5, 2)</code>, it sets the number of triangle
-  subdivisions to
-
-  use along the y-axis. All 3D shapes are made by connecting triangles to
-
-  form their surfaces. By default, <code>detailY</code> is 16.</p>
-
-  <p>Note: <code>sphere()</code> can only be used in WebGL mode.</p>
+  <p>注意: <code>sphere()</code>はWebGLモードでのみ使用できます。</p>
 line: 1227
 isConstructor: false
 itemtype: method
@@ -57,21 +23,21 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、シーンを異なる角度から見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white sphere on a gray background.');
+      describe('灰色の背景に白い球があります。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Draw the sphere.
+      // 球を描きます。
       sphere();
     }
     </code>
@@ -79,22 +45,22 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、シーンを異なる角度から見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white sphere on a gray background.');
+      describe('灰色の背景に白い球があります。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Draw the sphere.
-      // Set its radius to 30.
+      // 球を描きます。
+      // 半径を30に設定します。
       sphere(30);
     }
     </code>
@@ -102,23 +68,23 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、シーンを異なる角度から見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white sphere on a gray background.');
+      describe('灰色の背景に白い球があります。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Draw the sphere.
-      // Set its radius to 30.
-      // Set its detailX to 6.
+      // 球を描きます。
+      // 半径を30に設定します。
+      // detailXを6に設定します。
       sphere(30, 6);
     }
     </code>
@@ -126,24 +92,24 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、シーンを異なる角度から見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white sphere on a gray background.');
+      describe('灰色の背景に白い球があります。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Draw the sphere.
-      // Set its radius to 30.
-      // Set its detailX to 24.
-      // Set its detailY to 4.
+      // 球を描きます。
+      // 半径を30に設定します。
+      // detailXを24に設定します。
+      // detailYを4に設定します。
       sphere(30, 24, 4);
     }
     </code>
@@ -152,20 +118,17 @@ class: p5
 params:
   - name: radius
     description: |
-      <p>(オプション) 円の半径</p>
-      <p>radius of the sphere. Defaults to 50.</p>
+      <p>球の半径。デフォルトは50。</p>
     type: Number
     optional: true
   - name: detailX
     description: |
-      <p>(オプション) x 次元の細分割数</p>
-      <p>number of triangle subdivisions along the x-axis. Defaults to 24.</p>
+      <p>x軸に沿った三角形の細分化の数。デフォルトは24。</p>
     type: Integer
     optional: true
   - name: detailY
     description: |
-      <p>(オプション) y 次元の細分割数</p>
-      <p>number of triangle subdivisions along the y-axis. Defaults to 16.</p>
+      <p>y軸に沿った三角形の細分化の数。デフォルトは16。</p>
     type: Integer
     optional: true
 chainable: true

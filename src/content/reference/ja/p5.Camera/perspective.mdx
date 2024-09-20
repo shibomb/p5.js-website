@@ -3,133 +3,76 @@ title: perspective
 module: 3D
 submodule: Camera
 file: src/webgl/p5.Camera.js
-description: >-
-  <p>透視投影を設定します。</p>
+description: >
+  <p>カメラにパースペクティブ投影を設定します。</p>
 
-  <p>グローバルな <a href="#/p5/perspective">perspective()</a>
-  と同じパラメーターを受け取ります。この関数の詳細については、そちらで説明されています。</p>
+  <p>パースペクティブ投影では、カメラから遠い形状は近い形状よりも小さく見えます。
 
+  この技術は遠近法と呼ばれ、リアルな3Dシーンを作成します。これはデフォルトで新しい
 
-  <hr/>
+  <code>p5.Camera</code>オブジェクトに適用されます。</p>
 
-  <p>Sets a perspective projection for the camera.</p>
+  <p><code>myCamera.perspective()</code>は、カメラの視錐台を変更することで
 
-  <p>In a perspective projection, shapes that are further from the camera appear
+  カメラのパースペクティブを変更します。視錐台はカメラから見える空間の体積です。
 
-  smaller than shapes that are near the camera. This technique, called
+  視錐台の形状は、上部が切り取られたピラミッドです。カメラは
 
-  foreshortening, creates realistic 3D scenes. It’s applied by default in new
+  ピラミッドの上部があるべき場所に配置され、ピラミッドの底面に向けて
 
-  <code>p5.Camera</code> objects.</p>
+  向けられます。視錐台内のすべてが見えます。</p>
 
-  <p><code>myCamera.perspective()</code> changes the camera’s perspective by
-  changing its
+  <p>最初のパラメータ<code>fovy</code>は、カメラの垂直視野角です。
 
-  viewing frustum. The frustum is the volume of space that’s visible to the
+  これは、カメラがどれだけ高く、または狭く見えるかを表す角度です。
 
-  camera. The frustum’s shape is a pyramid with its top cut off. The camera
+  例えば、<code>myCamera.perspective(0.5)</code>を呼び出すと、カメラの垂直
 
-  is placed where the top of the pyramid should be and points towards the
+  視野角を0.5ラジアンに設定します。デフォルトでは、<code>fovy</code>はスケッチの
 
-  base of the pyramid. It views everything within the frustum.</p>
+  高さとカメラのデフォルトのz座標（800）に基づいて計算されます。
 
-  <p>The first parameter, <code>fovy</code>, is the camera’s vertical field of
-  view. It’s
+  デフォルトの<code>fovy</code>の計算式は<code>2 * atan(height / 2 / 800)</code>です。</p>
 
-  an angle that describes how tall or narrow a view the camera has. For
+  <p>2番目のパラメータ<code>aspect</code>は、カメラのアスペクト比です。
 
-  example, calling <code>myCamera.perspective(0.5)</code> sets the camera’s
-  vertical
+  これは上面の幅と高さの比率を表す数値です。
 
-  field of view to 0.5 radians. By default, <code>fovy</code> is calculated
-  based on the
+  例えば、<code>myCamera.perspective(0.5, 1.5)</code>を呼び出すと、カメラの
 
-  sketch’s height and the camera’s default z-coordinate, which is 800. The
+  視野角を0.5ラジアン、アスペクト比を1.5に設定し、正方形のキャンバスで
 
-  formula for the default <code>fovy</code> is <code>2 * atan(height / 2 /
-  800)</code>.</p>
+  形状がより細く見えるようになります。デフォルトでは、<code>aspect</code>は
 
-  <p>The second parameter, <code>aspect</code>, is the camera’s aspect ratio.
-  It’s a number
+  <code>width / height</code>に設定されます。</p>
 
-  that describes the ratio of the top plane’s width to its height. For
+  <p>3番目のパラメータ<code>near</code>は、カメラからニアクリッピング面までの
 
-  example, calling <code>myCamera.perspective(0.5, 1.5)</code> sets the camera’s
-  field
+  距離です。例えば、<code>myCamera.perspective(0.5, 1.5, 100)</code>を呼び出すと、
 
-  of view to 0.5 radians and aspect ratio to 1.5, which would make shapes
+  カメラの視野角を0.5ラジアン、アスペクト比を1.5に設定し、
 
-  appear thinner on a square canvas. By default, <code>aspect</code> is set to
+  ニアクリッピング面をカメラから100ピクセルの位置に配置します。カメラから
 
-  <code>width / height</code>.</p>
+  100ピクセル未満の距離に描画された形状は表示されません。デフォルトでは、<code>near</code>は
 
-  <p>The third parameter, <code>near</code>, is the distance from the camera to
-  the near
+  <code>0.1 * 800</code>に設定されており、これはカメラと原点の間のデフォルト距離の
 
-  plane. For example, calling <code>myCamera.perspective(0.5, 1.5, 100)</code>
-  sets the
+  1/10です。</p>
 
-  camera’s field of view to 0.5 radians, its aspect ratio to 1.5, and places
+  <p>4番目のパラメータ<code>far</code>は、カメラからファークリッピング面までの
 
-  the near plane 100 pixels from the camera. Any shapes drawn less than 100
+  距離です。例えば、<code>myCamera.perspective(0.5, 1.5, 100, 10000)</code>
 
-  pixels from the camera won’t be visible. By default, <code>near</code> is set
-  to
+  を呼び出すと、カメラの視野角を0.5ラジアン、アスペクト比を1.5に設定し、
 
-  <code>0.1 * 800</code>, which is 1/10th the default distance between the
-  camera and
+  ニアクリッピング面をカメラから100ピクセルの位置に、ファークリッピング面を
 
-  the origin.</p>
+  カメラから10,000ピクセルの位置に配置します。カメラから10,000ピクセル以上
 
-  <p>The fourth parameter, <code>far</code>, is the distance from the camera to
-  the far
+  離れた場所に描画された形状は表示されません。デフォルトでは、<code>far</code>は<code>10 * 800</code>に
 
-  plane. For example, calling <code>myCamera.perspective(0.5, 1.5, 100,
-  10000)</code>
-
-  sets the camera’s field of view to 0.5 radians, its aspect ratio to 1.5,
-
-  places the near plane 100 pixels from the camera, and places the far plane
-
-  10,000 pixels from the camera. Any shapes drawn more than 10,000 pixels
-
-  from the camera won’t be visible. By default, <code>far</code> is set to
-  <code>10 * 800</code>,
-
-  which is 10 times the default distance between the camera and the origin.</p>
-
-
-  <pre>
-
-  todo: param fovy not found in ja-legacy:
-
-  undefined
-
-  </pre>
-
-  <pre>
-
-  todo: param aspect not found in ja-legacy:
-
-  undefined
-
-  </pre>
-
-  <pre>
-
-  todo: param near not found in ja-legacy:
-
-  undefined
-
-  </pre>
-
-  <pre>
-
-  todo: param far not found in ja-legacy:
-
-  undefined
-
-  </pre>
+  設定されており、これはカメラと原点の間のデフォルト距離の10倍です。</p>
 line: 1862
 isConstructor: false
 itemtype: method
@@ -138,7 +81,7 @@ example:
 
     <div>
     <code>
-    // Double-click to toggle between cameras.
+    // ダブルクリックでカメラを切り替えます。
 
     let cam1;
     let cam2;
@@ -147,36 +90,36 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create the first camera.
-      // Keep its default settings.
+      // 最初のカメラを作成します。
+      // デフォルト設定のままにします。
       cam1 = createCamera();
 
-      // Create the second camera.
+      // 2番目のカメラを作成します。
       cam2 = createCamera();
 
-      // Place it at the top-right.
+      // 右上に配置します。
       cam2.camera(400, -400, 800);
 
-      // Set its fovy to 0.2.
-      // Set its aspect to 1.5.
-      // Set its near to 600.
-      // Set its far to 1200.
+      // fovyを0.2に設定します。
+      // アスペクト比を1.5に設定します。
+      // nearを600に設定します。
+      // farを1200に設定します。
       cam2.perspective(0.2, 1.5, 600, 1200);
 
-      // Set the current camera to cam1.
+      // 現在のカメラをcam1に設定します。
       setCamera(cam1);
 
-      describe('A white cube on a gray background. The camera toggles between a frontal view and a skewed aerial view when the user double-clicks.');
+      describe('灰色の背景に白い立方体。ユーザーがダブルクリックすると、カメラが正面図と斜め上からの図の間で切り替わります。');
     }
 
     function draw() {
       background(200);
 
-      // Draw the box.
+      // 箱を描画します。
       box();
     }
 
-    // Toggle the current camera when the user double-clicks.
+    // ユーザーがダブルクリックしたときに現在のカメラを切り替えます。
     function doubleClicked() {
       if (isDefaultCamera === true) {
         setCamera(cam2);
@@ -191,7 +134,7 @@ example:
 
     <div>
     <code>
-    // Double-click to toggle between cameras.
+    // ダブルクリックでカメラを切り替えます。
 
     let cam1;
     let cam2;
@@ -200,40 +143,40 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create the first camera.
-      // Keep its default settings.
+      // 最初のカメラを作成します。
+      // デフォルト設定のままにします。
       cam1 = createCamera();
 
-      // Create the second camera.
+      // 2番目のカメラを作成します。
       cam2 = createCamera();
 
-      // Place it at the top-right.
+      // 右上に配置します。
       cam2.camera(400, -400, 800);
 
-      // Set its fovy to 0.2.
-      // Set its aspect to 1.5.
-      // Set its near to 600.
-      // Set its far to 1200.
+      // fovyを0.2に設定します。
+      // アスペクト比を1.5に設定します。
+      // nearを600に設定します。
+      // farを1200に設定します。
       cam2.perspective(0.2, 1.5, 600, 1200);
 
-      // Set the current camera to cam1.
+      // 現在のカメラをcam1に設定します。
       setCamera(cam1);
 
-      describe('A white cube moves left and right on a gray background. The camera toggles between a frontal and a skewed aerial view when the user double-clicks.');
+      describe('灰色の背景で白い立方体が左右に動きます。ユーザーがダブルクリックすると、カメラが正面図と斜め上からの図の間で切り替わります。');
     }
 
     function draw() {
       background(200);
 
-      // Translate the origin left and right.
+      // 原点を左右に移動させます。
       let x = 100 * sin(frameCount * 0.01);
       translate(x, 0, 0);
 
-      // Draw the box.
+      // 箱を描画します。
       box();
     }
 
-    // Toggle the current camera when the user double-clicks.
+    // ユーザーがダブルクリックしたときに現在のカメラを切り替えます。
     function doubleClicked() {
       if (isDefaultCamera === true) {
         setCamera(cam2);
@@ -249,26 +192,26 @@ class: p5.Camera
 params:
   - name: fovy
     description: |
-      <p>camera frustum vertical field of view. Defaults to
-                                <code>2 * atan(height / 2 / 800)</code>.</p>
+      <p>カメラの視錐台の垂直視野角。デフォルトは
+                                <code>2 * atan(height / 2 / 800)</code>です。</p>
     type: Number
     optional: true
   - name: aspect
     description: |
-      <p>camera frustum aspect ratio. Defaults to
-                                <code>width / height</code>.</p>
+      <p>カメラの視錐台のアスペクト比。デフォルトは
+                                <code>width / height</code>です。</p>
     type: Number
     optional: true
   - name: near
     description: |
-      <p>distance from the camera to the near clipping plane.
-                                Defaults to <code>0.1 * 800</code>.</p>
+      <p>カメラからニアクリッピング面までの距離。
+                                デフォルトは<code>0.1 * 800</code>です。</p>
     type: Number
     optional: true
   - name: far
     description: |
-      <p>distance from the camera to the far clipping plane.
-                                Defaults to <code>10 * 800</code>.</p>
+      <p>カメラからファークリッピング面までの距離。
+                                デフォルトは<code>10 * 800</code>です。</p>
     type: Number
     optional: true
 chainable: false
@@ -276,3 +219,4 @@ chainable: false
 
 
 # perspective
+

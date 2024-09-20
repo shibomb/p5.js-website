@@ -4,43 +4,15 @@ module: Shape
 submodule: 3D Primitives
 file: src/webgl/3d_primitives.js
 description: >
-  <p>Begins adding shapes to a new
+  <p>新しい<a href="/reference/p5/p5.Geometry">p5.Geometry</a>オブジェクトに形状を追加し始めます。</p>
 
-  <a href="/reference/p5/p5.Geometry/">p5.Geometry</a> object.</p>
+  <p><code>beginGeometry()</code>と<a href="/reference/p5/endGeometry/">endGeometry()</a>関数は、球などの単純な形状から複雑な3D形状を作成するのに役立ちます。<code>beginGeometry()</code>はカスタム<a href="/reference/p5/p5.Geometry">p5.Geometry</a>オブジェクトに形状を追加し始め、<a href="/reference/p5/endGeometry/">endGeometry()</a>はそれを停止します。</p>
 
-  <p>The <code>beginGeometry()</code> and <a
-  href="/reference/p5/endGeometry/">endGeometry()</a>
+  <p><code>beginGeometry()</code>と<a href="/reference/p5/endGeometry/">endGeometry()</a>はスケッチのパフォーマンスを向上させるのに役立ちます。例えば、スケッチが実行されている間に複雑な3D形状が変化しない場合、それは<code>beginGeometry()</code>と<a href="/reference/p5/endGeometry/">endGeometry()</a>で作成できます。<a href="/reference/p5/p5.Geometry">p5.Geometry</a>オブジェクトを一度作成し、それを描画する方が、個々の部分を繰り返し描画するよりも高速に実行されます。</p>
 
-  functions help with creating complex 3D shapes from simpler ones such as
+  <p>3D形状を構築する別の方法については、<a href="/reference/p5/buildGeometry/">buildGeometry()</a>を参照してください。</p>
 
-  <a href="/reference/p5/sphere/">sphere()</a>. <code>beginGeometry()</code>
-  begins adding shapes
-
-  to a custom <a href="/reference/p5/p5.Geometry/">p5.Geometry</a> object and
-
-  <a href="/reference/p5/endGeometry/">endGeometry()</a> stops adding them.</p>
-
-  <p><code>beginGeometry()</code> and <a
-  href="/reference/p5/endGeometry/">endGeometry()</a> can help
-
-  to make sketches more performant. For example, if a complex 3D shape
-
-  doesn’t change while a sketch runs, then it can be created with
-
-  <code>beginGeometry()</code> and <a
-  href="/reference/p5/endGeometry/">endGeometry()</a>.
-
-  Creating a <a href="/reference/p5/p5.Geometry/">p5.Geometry</a> object once and
-  then
-
-  drawing it will run faster than repeatedly drawing the individual pieces.</p>
-
-  <p>See <a href="/reference/p5/buildGeometry/">buildGeometry()</a> for another
-  way to
-
-  build 3D shapes.</p>
-
-  <p>Note: <code>beginGeometry()</code> can only be used in WebGL mode.</p>
+  <p>注意: <code>beginGeometry()</code>はWebGLモードでのみ使用できます。</p>
 line: 13
 isConstructor: false
 itemtype: method
@@ -49,38 +21,38 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // クリックしてドラッグすると、シーンを異なる角度から見ることができます。
 
     let shape;
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Start building the p5.Geometry object.
+      // p5.Geometryオブジェクトの作成を開始します。
       beginGeometry();
 
-      // Add a cone.
+      // コーンを追加します。
       cone();
 
-      // Stop building the p5.Geometry object.
+      // p5.Geometryオブジェクトの作成を停止します。
       shape = endGeometry();
 
-      describe('A white cone drawn on a gray background.');
+      describe('灰色の背景に白いコーンが描かれています。');
     }
 
     function draw() {
       background(50);
 
-      // Enable orbiting with the mouse.
+      // マウスでのオービットを有効にします。
       orbitControl();
 
-      // Turn on the lights.
+      // ライトをオンにします。
       lights();
 
-      // Style the p5.Geometry object.
+      // p5.Geometryオブジェクトのスタイルを設定します。
       noStroke();
 
-      // Draw the p5.Geometry object.
+      // p5.Geometryオブジェクトを描画します。
       model(shape);
     }
     </code>
@@ -88,40 +60,40 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // クリックしてドラッグすると、シーンを異なる角度から見ることができます。
 
     let shape;
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create the p5.Geometry object.
+      // p5.Geometryオブジェクトを作成します。
       createArrow();
 
-      describe('A white arrow drawn on a gray background.');
+      describe('灰色の背景に白い矢印が描かれています。');
     }
 
     function draw() {
       background(50);
 
-      // Enable orbiting with the mouse.
+      // マウスでのオービットを有効にします。
       orbitControl();
 
-      // Turn on the lights.
+      // ライトをオンにします。
       lights();
 
-      // Style the p5.Geometry object.
+      // p5.Geometryオブジェクトのスタイルを設定します。
       noStroke();
 
-      // Draw the p5.Geometry object.
+      // p5.Geometryオブジェクトを描画します。
       model(shape);
     }
 
     function createArrow() {
-      // Start building the p5.Geometry object.
+      // p5.Geometryオブジェクトの作成を開始します。
       beginGeometry();
 
-      // Add shapes.
+      // 形状を追加します。
       push();
       rotateX(PI);
       cone(10);
@@ -129,7 +101,7 @@ example:
       cylinder(3, 20);
       pop();
 
-      // Stop building the p5.Geometry object.
+      // p5.Geometryオブジェクトの作成を停止します。
       shape = endGeometry();
     }
     </code>
@@ -137,7 +109,7 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // クリックしてドラッグすると、シーンを異なる角度から見ることができます。
 
     let blueArrow;
     let redArrow;
@@ -145,43 +117,43 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create the arrows.
+      // 矢印を作成します。
       redArrow = createArrow('red');
       blueArrow = createArrow('blue');
 
-      describe('A red arrow and a blue arrow drawn on a gray background. The blue arrow rotates slowly.');
+      describe('灰色の背景に赤い矢印と青い矢印が描かれています。青い矢印はゆっくりと回転します。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでのオービットを有効にします。
       orbitControl();
 
-      // Turn on the lights.
+      // ライトをオンにします。
       lights();
 
-      // Style the arrows.
+      // 矢印のスタイルを設定します。
       noStroke();
 
-      // Draw the red arrow.
+      // 赤い矢印を描画します。
       model(redArrow);
 
-      // Translate and rotate the coordinate system.
+      // 座標系を移動および回転します。
       translate(30, 0, 0);
       rotateZ(frameCount * 0.01);
 
-      // Draw the blue arrow.
+      // 青い矢印を描画します。
       model(blueArrow);
     }
 
     function createArrow(fillColor) {
-      // Start building the p5.Geometry object.
+      // p5.Geometryオブジェクトの作成を開始します。
       beginGeometry();
 
       fill(fillColor);
 
-      // Add shapes to the p5.Geometry object.
+      // p5.Geometryオブジェクトに形状を追加します。
       push();
       rotateX(PI);
       cone(10);
@@ -189,7 +161,7 @@ example:
       cylinder(3, 20);
       pop();
 
-      // Stop building the p5.Geometry object.
+      // p5.Geometryオブジェクトの作成を停止します。
       let shape = endGeometry();
 
       return shape;
@@ -199,7 +171,7 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // クリックしてドラッグすると、シーンを異なる角度から見ることができます。
 
     let button;
     let particles;
@@ -207,63 +179,63 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a button to reset the particle system.
-      button = createButton('Reset');
+      // パーティクルシステムをリセットするボタンを作成します。
+      button = createButton('リセット');
 
-      // Call resetModel() when the user presses the button.
+      // ユーザーがボタンを押したときにresetModel()を呼び出します。
       button.mousePressed(resetModel);
 
-      // Add the original set of particles.
+      // 元のパーティクルセットを追加します。
       resetModel();
     }
 
     function draw() {
       background(50);
 
-      // Enable orbiting with the mouse.
+      // マウスでのオービットを有効にします。
       orbitControl();
 
-      // Turn on the lights.
+      // ライトをオンにします。
       lights();
 
-      // Style the particles.
+      // パーティクルのスタイルを設定します。
       noStroke();
 
-      // Draw the particles.
+      // パーティクルを描画します。
       model(particles);
     }
 
     function resetModel() {
-      // If the p5.Geometry object has already been created,
-      // free those resources.
+      // すでにp5.Geometryオブジェクトが作成されている場合、
+      // そのリソースを解放します。
       if (particles) {
         freeGeometry(particles);
       }
 
-      // Create a new p5.Geometry object with random spheres.
+      // ランダムな球体で新しいp5.Geometryオブジェクトを作成します。
       particles = createParticles();
     }
 
     function createParticles() {
-      // Start building the p5.Geometry object.
+      // p5.Geometryオブジェクトの作成を開始します。
       beginGeometry();
 
-      // Add shapes.
+      // 形状を追加します。
       for (let i = 0; i < 60; i += 1) {
-        // Calculate random coordinates.
+        // ランダムな座標を計算します。
         let x = randomGaussian(0, 20);
         let y = randomGaussian(0, 20);
         let z = randomGaussian(0, 20);
 
         push();
-        // Translate to the particle's coordinates.
+        // パーティクルの座標に移動します。
         translate(x, y, z);
-        // Draw the particle.
+        // パーティクルを描画します。
         sphere(5);
         pop();
       }
 
-      // Stop building the p5.Geometry object.
+      // p5.Geometryオブジェクトの作成を停止します。
       let shape = endGeometry();
 
       return shape;

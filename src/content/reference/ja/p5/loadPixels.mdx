@@ -3,25 +3,9 @@ title: loadPixels
 module: Image
 submodule: Pixels
 file: src/image/pixels.js
-description: >
-  <p>Loads the current value of each pixel on the canvas into the <a
-  href="#/p5/pixels">pixels</a> array. This function must be called before
-  reading from or writing to <a href="#/p5/pixels">pixels</a>.。</p>
-
-  <p>/// todo ///</p>
-
-  <p>表示ウィンドウのピクセルデータを <a href="#/p5/pixels">pixels[]</a> 配列にロードします。この関数は、<a
-  href="#/p5/pixels">pixels[]</a> から読み取るか、書き込む前に必ず呼び出す必要があります。 <a
-  href="#/p5/set">set()</a> で行われた変更、または <a href="#/p5/pixels">pixels[]</a>
-  への直接の操作だけが発生することに注意してください。</p>
-
-
-  <hr/>
-
-  <p>Loads the current value of each pixel on the canvas into the
-  <a href="/reference/p5/pixels/">pixels</a> array.</p>
-  <p><code>loadPixels()</code> must be called before reading from or writing to
-  <a href="/reference/p5/pixels/">pixels</a>.</p>
+description: |
+  <p>キャンバス上の各ピクセルの現在の値を<a href="/reference/p5/pixels/">pixels</a>配列に読み込みます。</p>
+  <p><a href="/reference/p5/pixels/">pixels</a>から読み取りまたは書き込みを行う前に、<code>loadPixels()</code>を呼び出す必要があります。</p>
 line: 946
 isConstructor: false
 itemtype: method
@@ -32,7 +16,7 @@ example:
     <code>
     let img;
 
-    // Load the image.
+    // 画像を読み込む
     function preload() {
       img = loadImage('/assets/rockies.jpg');
     }
@@ -40,27 +24,27 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Display the image.
+      // 画像を表示する
       image(img, 0, 0, 100, 100);
 
-      // Get the pixel density.
+      // ピクセル密度を取得する
       let d = pixelDensity();
 
-      // Calculate the halfway index in the pixels array.
+      // pixels配列の半分のインデックスを計算する
       let halfImage = 4 * (d * width) * (d * height / 2);
 
-      // Load the pixels array.
+      // pixels配列を読み込む
       loadPixels();
 
-      // Copy the top half of the canvas to the bottom.
+      // キャンバスの上半分を下半分にコピーする
       for (let i = 0; i < halfImage; i += 1) {
         pixels[i + halfImage] = pixels[i];
       }
 
-      // Update the canvas.
+      // キャンバスを更新する
       updatePixels();
 
-      describe('Two identical images of mountain landscapes, one on top of the other.');
+      describe('2つの同一の山岳風景画像が、上下に重なっている。');
     }
     </code>
     </div>
@@ -70,3 +54,4 @@ chainable: false
 
 
 # loadPixels
+

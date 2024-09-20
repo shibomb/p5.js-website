@@ -4,38 +4,13 @@ module: Environment
 submodule: Environment
 file: src/core/environment.js
 description: >
-  <p><a href="#/p5/print">print()</a> 関数を使用するとブラウザーのコンソールエリアに出力することができます。</p>
+  <p>ウェブブラウザのコンソールにテキストを表示します。</p>
 
-  <p>この関数は、プログラムが生成しているデータを確認するのに役立ちます。この関数を使用すると、関数が呼び出されるたびに新しい行でテキストが作成されます。個々の要素はクォート（""）で区切り、加算演算子（+）で結合できます。</p>
+  <p><code>print()</code>は、デバッグ中に値を表示するのに役立ちます。
+  <code>print()</code>を呼び出すたびに、新しい行のテキストが作成されます。</p>
 
-  <p>引数なしで print() を呼び出すと、window.print()
-  関数が呼び出され、ブラウザーの印刷ダイアログが開きます。コンソールに空行を出力するには、print('\n')と記述します。</p>
-
-  <p>/// todo ///</p>
-
-  <p>Displays text in the web browser's console.</p>
-
-  <p><code>print()</code> is helpful for printing values while debugging. Each
-  call to <code>print()</code> creates a new line of text.</p>
-
-  <p>Note: Call <code>print('\n')</code> to print a blank line. Calling
-  <code>print()</code> without an argument opens the browser's dialog for
-  printing documents.</p>
-
-
-  <hr/>
-
-  <p>Displays text in the web browser's console.</p>
-
-  <p><code>print()</code> is helpful for printing values while debugging. Each
-  call to
-
-  <code>print()</code> creates a new line of text.</p>
-
-  <p>Note: Call <code>print('\n')</code> to print a blank line. Calling
-  <code>print()</code> without
-
-  an argument opens the browser's dialog for printing documents.</p>
+  <p>注意：空白行を表示するには<code>print('\n')</code>を呼び出します。
+  引数なしで<code>print()</code>を呼び出すと、ブラウザの文書印刷ダイアログが開きます。</p>
 line: 21
 isConstructor: false
 itemtype: method
@@ -45,7 +20,7 @@ example:
     <div>
     <code class="norender">
     function setup() {
-      // Prints "hello, world" to the console.
+      // コンソールに "hello, world" と表示します。
       print('hello, world');
     }
     </code>
@@ -55,7 +30,7 @@ example:
     <code class="norender">
     function setup() {
       let name = 'ada';
-      // Prints "hello, ada" to the console.
+      // コンソールに "hello, ada" と表示します。
       print(`hello, ${name}`);
     }
     </code>
@@ -63,14 +38,12 @@ example:
 class: p5
 params:
   - name: contents
-    description: >
-      <p>content to print to the console. /// todo /// Any: 印刷する
-      Number、String、Object、Boolean、Array の任意の組み合わせ</p>
-
-      <p>content to print to the console.</p>
+    description: |
+      <p>コンソールに表示する内容。</p>
     type: Any
 chainable: false
 ---
 
 
 # print
+

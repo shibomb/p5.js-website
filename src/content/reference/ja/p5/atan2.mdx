@@ -4,29 +4,6 @@ module: Math
 submodule: Trigonometry
 file: src/math/trigonometry.js
 description: >
-  <p>指定した点から座標原点までの角度を、正の x 軸から測定したラジアン単位で計算します。</p>
-
-  <p>値は、<a href="#/p5/angleMode">angleMode()</a> が RADIANS の場合は PI から-PI
-  の範囲の浮動小数点で返され、DEGREES の場合は180から-180の範囲で返されます。<a href="#/p5/">atan2()</a>
-  関数は、ジオメトリをカーソルの位置に合わせて向きを決定するために最もよく使用されます。</p>
-
-  <p>注: 点の y 座標が最初のパラメーターで、x 座標が2番目のパラメーターです。これは、正接を計算する構造によるものです。</p>
-
-  <p>/// todo ///</p>
-
-  <p>Calculates the angle formed by a specified point, the origin, and the
-  positive x-axis. By default, <code>atan2()</code> returns values in the range
-  -π (about -3.14) to π (3.14). If the <a href="#/p5/angleMode">angleMode()</a>
-  is <code>DEGREES</code>, then values are returned in the range -180 to 180.
-  The <code>atan2()</code> function is most often used for orienting geometry to
-  the mouse's position.</p>
-
-  <p>Note: The y-coordinate of the point is the first parameter and the
-  x-coordinate is the second parameter.</p>
-
-
-  <hr/>
-
   <p>Calculates the angle formed by a point, the origin, and the positive
 
   x-axis.</p>
@@ -110,18 +87,14 @@ class: p5
 params:
   - name: 'y'
     description: |
-      <p>点の y 座標</p>
       <p>y-coordinate of the point.</p>
     type: Number
   - name: x
     description: |
-      <p>点の x 座標</p>
       <p>x-coordinate of the point.</p>
     type: Number
 return:
-  description: |-
-    与えられた点の逆正接
-    arc tangent of the given point.
+  description: arc tangent of the given point.
   type: Number
 chainable: false
 ---

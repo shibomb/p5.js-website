@@ -4,10 +4,6 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
-  <p>フィルタの周波数を設定します。</p>
-  <p>周波数は10から22050Hz の範囲で設定できます（人間の聴覚範囲の範囲ですが、実際には多くの人がより狭い範囲で聞くことができます）。</p>
-
-  <hr/>
   <p>Set the filter frequency, in Hz, from 10 to 22050 (the range of
   human hearing, although in reality most people hear in a narrower
   range).</p>
@@ -18,20 +14,16 @@ class: p5.Filter
 params:
   - name: freq
     description: |
-      <p>フィルタ周波数</p>
       <p>Filter Frequency</p>
     type: Number
   - name: timeFromNow
     description: |
-      <p>(オプション) このイベントを何秒後に予定するか</p>
       <p>schedule this event to happen
                                     seconds from now</p>
     type: Number
     optional: true
 return:
-  description: |-
-    現在の周波数値を返します
-    value  Returns the current frequency value
+  description: value  Returns the current frequency value
   type: Number
 chainable: false
 ---

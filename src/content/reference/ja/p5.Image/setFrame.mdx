@@ -4,15 +4,18 @@ module: Image
 submodule: Image
 file: src/image/p5.Image.js
 description: |
-  <p>アニメーション GIF で現在表示されているフレームのインデックスを設定します。</p>
-  <p></p>
-  <p>/// todo ///</p>
-  <p>Sets the current frame in an animated GIF.</p>
-
-  <hr/>
-  <p>Sets the current frame in an animated GIF.</p>
-line: 1758
-isConstructor: false
+  <p>アニメーションGIFの現在のフレームを設定します。</p>
+  <p>この関数は、アニメーションGIFの特定のフレームを表示します。
+  フレーム番号は0から始まります。つまり、最初のフレームは0、
+  2番目のフレームは1、というようになります。</p>
+  <p>指定されたフレーム番号が有効な範囲外の場合、
+  関数は何も行わず、現在のフレームは変更されません。</p>
+line: 1590
+params:
+  - name: index
+    description: |
+      <p>表示するフレームのインデックス。</p>
+    type: Number
 itemtype: method
 example:
   - |-
@@ -20,50 +23,38 @@ example:
     <div>
     <code>
     let gif;
-    let frameSlider;
+    let frameIndex = 0;
 
-    // Load the image.
     function preload() {
       gif = loadImage('/assets/arnott-wallace-eye-loop-forever.gif');
     }
 
     function setup() {
       createCanvas(100, 100);
-
-      // Get the index of the last frame.
-      let maxFrame = gif.numFrames() - 1;
-
-      // Create a slider to control which frame is drawn.
-      frameSlider = createSlider(0, maxFrame);
-      frameSlider.position(10, 80);
-      frameSlider.size(80);
-
-      describe('A cartoon eye looks around when a slider is moved.');
     }
 
     function draw() {
-      // Get the slider's value.
-      let index = frameSlider.value();
+      background(255);
 
-      // Set the GIF's frame.
-      gif.setFrame(index);
-
-      // Display the image.
+      // 現在のフレームを表示します。
+      gif.setFrame(frameIndex);
       image(gif, 0, 0);
+
+      // フレーム番号を表示します。
+      textAlign(CENTER);
+      textSize(16);
+      text('Frame: ' + frameIndex, 50, 90);
+
+      describe('アニメーションGIF。クリックすると次のフレームに進みます。');
+    }
+
+    // キャンバスをクリックすると次のフレームに進みます。
+    function mousePressed() {
+      frameIndex = (frameIndex + 1) % gif.numFrames();
     }
     </code>
     </div>
 class: p5.Image
-params:
-  - name: index
-    description: >
-      <p>index of the frame to display. /// todo /// Number: 
-      表示するフレームのインデックス</p>
-
-      <p>index of the frame to display.</p>
-    type: Number
-chainable: false
 ---
-
 
 # setFrame

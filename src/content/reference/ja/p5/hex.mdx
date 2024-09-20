@@ -3,14 +3,7 @@ title: hex
 module: Data
 submodule: Conversion
 file: src/utilities/conversion.js
-description: >-
-  <p>数値をそれに相当する16進数表記の文字列に変換します。</p>
-
-  <p>2つ目のパラメーターが渡された場合、16進数表記で生成する文字数を設定するために使用されます。配列が渡された場合、同じ長さの16進数表記の文字列の配列が返されます。</p>
-
-
-  <hr/>
-
+description: >
   <p>Converts a <code>Number</code> to a <code>String</code> with its
   hexadecimal value.</p>
 
@@ -40,19 +33,6 @@ description: >-
 
   example, calling <code>hex(20, 2)</code> returns the string
   <code>'14'</code>.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "n": "Number: 解析する値",
-      "digits": "Number (オプション)",
-      "ns": "Number[]: 解析する値の配列"
-  }
-
-  </pre>
 line: 818
 isConstructor: false
 itemtype: method
@@ -146,9 +126,7 @@ example:
     </div>
 class: p5
 return:
-  description: |-
-    値の16進数の文字列表現
-    converted hexadecimal value.
+  description: converted hexadecimal value.
   type: String
 overloads:
   - line: 818

@@ -3,32 +3,7 @@ title: dot
 module: Math
 submodule: Vector
 file: src/math/p5.Vector.js
-description: >-
-  <p>2つのベクトルの内積を計算します。</p>
-
-  <p>2つの独立したベクトルの内積を計算するバージョンは、静的メソッドです。より詳細なコンテキストについては、例を参照してください。</p>
-
-  <p>/// todo ///</p>
-
-  <p>Returns the dot product of two vectors. The dot product is a number that
-  describes the overlap between two vectors. Visually, the dot product can be
-  thought of as the "shadow" one vector casts on another. The dot product's
-  magnitude is largest when two vectors point in the same or opposite
-  directions. Its magnitude is 0 when two vectors form a right angle.</p>
-
-  <p>The version of <code>dot()</code> with one parameter interprets it as
-  another <a href="#/p5.Vector">p5.Vector</a> object.</p>
-
-  <p>The version of <code>dot()</code> with multiple parameters interprets them
-  as the <code>x</code>, <code>y</code>, and <code>z</code> components of
-  another vector.</p>
-
-  <p>The static version of <code>dot()</code>, as in <code>p5.Vector.dot(v1,
-  v2)</code>, is the same as calling <code>v1.dot(v2)</code>.</p>
-
-
-  <hr/>
-
+description: >
   <p>Calculates the dot product of two vectors.</p>
 
   <p>The dot product is a number that describes the overlap between two vectors.
@@ -44,7 +19,7 @@ description: >-
   <p>The version of <code>dot()</code> with one parameter interprets it as
   another
 
-  <a href="/reference/p5/p5.Vector/">p5.Vector</a> object.</p>
+  <a href="/reference/p5/p5.Vector">p5.Vector</a> object.</p>
 
   <p>The version of <code>dot()</code> with multiple parameters interprets them
   as the
@@ -56,22 +31,6 @@ description: >-
   v2)</code>, is the same
 
   as calling <code>v1.dot(v2)</code>.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "x": "Number: ベクトルの x 成分",
-      "y": "Number: (オプション) ベクトルの y 成分",
-      "z": "Number: (オプション) ベクトルの z 成分",
-      "v": "p5.Vector: <a href=\"#/p5.Vector\">p5.Vector</a> to be dotted. /// todo /// p5.Vector: ベクトルの value 成分または <a href=\"#/p5.Vector\">p5.Vector</a>",
-      "v1": "p5.Vector: 最初の <a href=\"#/p5.Vector\">p5.Vector</a>",
-      "v2": "p5.Vector: 2番目の <a href=\"#/p5.Vector\">p5.Vector</a>"
-  }
-
-  </pre>
 line: 1441
 isConstructor: false
 itemtype: method
@@ -155,9 +114,7 @@ example:
     </div>
 class: p5.Vector
 return:
-  description: |-
-    内積
-    dot product.
+  description: dot product.
   type: Number
 overloads:
   - line: 1441

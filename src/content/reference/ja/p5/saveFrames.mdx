@@ -4,100 +4,50 @@ module: Image
 submodule: Image
 file: src/image/image.js
 description: >
-  <p>映画を作成するために使用できるフレームのシーケンスをキャプチャします。</p>
+  <p>キャンバスから一連のフレームをキャプチャし、画像として保存できるようにします。</p>
 
-  <p>コールバックを受け入れます。たとえば、フレームをサーバーに送信して保存したり、映画に変換したりする場合があります。コールバックが提供されない場合、ブラウザーは作成されたばかりのすべての画像をダウンロードしようとする保存ダイアログをポップアップします。コールバックが提供された場合、画像データはデフォルトでは保存されず、代わりにコールバック関数の引数としてオブジェクトの配列として渡されます。配列のサイズは、フレームの合計数に等しくなります。</p>
+  <p><code>saveFrames()</code>はフレームオブジェクトの配列を作成します。各フレームは
 
-  <p>引数 <code>duration</code> と <code>framerate</code>
-  は、それぞれ15以下、および22以下に制約されています。これは、1秒あたり22フレームで最大15秒分のフレームをダウンロードできることを意味し、フレームの合計数は330になります。これは、十分な大きさのキャンバスが簡単にコンピューターのメモリーを埋め尽くし、プログラムやブラウザーをクラッシュさせる可能性があるため、メモリーの問題を避けるために行われています。</p>
+  ファイルタイプ、ファイル名、および文字列としての画像データを持つオブジェクトとして保存されます。
 
-  <p>より長いアニメーションをエクスポートするには、<a
-  href="https://github.com/spite/ccapture.js/">ccapture.js</a>
-  のようなライブラリを検討してみてください。</p>
-
-  <p>/// todo ///</p>
-
-  <p>Captures a sequence of frames from the canvas that can be used to create a
-  movie. Frames are downloaded as individual image files by default.</p>
-
-  <p>The first parameter, <code>filename</code>, sets the prefix for the file
-  names. For example, setting the prefix to <code>'frame'</code> would generate
-  the image files <code>frame0.png</code>, <code>frame1.png</code>, and so on.
-  The second parameter, <code>extension</code>, sets the file type to either
-  <code>'png'</code> or <code>'jpg'</code>.</p>
-
-  <p>The third parameter, <code>duration</code>, sets the duration to record in
-  seconds. The maximum duration is 15 seconds. The fourth parameter,
-  <code>framerate</code>, sets the number of frames to record per second. The
-  maximum frame rate value is 22. Limits are placed on <code>duration</code> and
-  <code>framerate</code> to avoid using too much memory. Recording large
-  canvases can easily crash sketches or even web browsers.</p>
-
-  <p>The fifth parameter, <code>callback</code>, is optional. If a function is
-  passed, image files won't be saved by default. The callback function can be
-  used to process an array containing the data for each captured frame. The
-  array of image data contains a sequence of objects with three properties for
-  each frame: <code>imageData</code>, <code>filename</code>, and
-  <code>extension</code>.</p>
-
-
-  <hr/>
-
-  <p>Captures a sequence of frames from the canvas that can be saved as
-  images.</p>
-
-  <p><code>saveFrames()</code> creates an array of frame objects. Each frame is
-  stored as
-
-  an object with its file type, file name, and image data as a string. For
-
-  example, the first saved frame might have the following properties:</p>
+  例えば、最初に保存されたフレームは以下のようなプロパティを持つかもしれません：</p>
 
   <p><code>{ ext: 'png', filenmame: 'frame0', imageData:
-  'data:image/octet-stream;base64, abc123' }</code>.</p>
+  'data:image/octet-stream;base64, abc123' }</code>。</p>
 
-  <p>The first parameter, <code>filename</code>, sets the prefix for the file
-  names. For
+  <p>最初のパラメータ<code>filename</code>は、ファイル名のプレフィックスを設定します。
 
-  example, setting the prefix to <code>'frame'</code> would generate the image
-  files
+  例えば、プレフィックスを<code>'frame'</code>に設定すると、
 
-  <code>frame0.png</code>, <code>frame1.png</code>, and so on.</p>
+  <code>frame0.png</code>、<code>frame1.png</code>などの画像ファイルが生成されます。</p>
 
-  <p>The second parameter, <code>extension</code>, sets the file type to either
-  <code>'png'</code> or
+  <p>2番目のパラメータ<code>extension</code>は、ファイルタイプを<code>'png'</code>または
 
-  <code>'jpg'</code>.</p>
+  <code>'jpg'</code>に設定します。</p>
 
-  <p>The third parameter, <code>duration</code>, sets the duration to record in
-  seconds.
+  <p>3番目のパラメータ<code>duration</code>は、記録する時間を秒単位で設定します。
 
-  The maximum duration is 15 seconds.</p>
+  最大時間は15秒です。</p>
 
-  <p>The fourth parameter, <code>framerate</code>, sets the number of frames to
-  record per
+  <p>4番目のパラメータ<code>framerate</code>は、1秒あたりに記録するフレーム数を設定します。
 
-  second. The maximum frame rate value is 22. Limits are placed on
-  <code>duration</code>
+  最大フレームレート値は22です。<code>duration</code>
 
-  and <code>framerate</code> to avoid using too much memory. Recording large
-  canvases
+  と<code>framerate</code>には制限が設けられており、これは過度のメモリ使用を避けるためです。大きなキャンバスを
 
-  can easily crash sketches or even web browsers.</p>
+  記録すると、スケッチやWebブラウザがクラッシュする可能性があります。</p>
 
-  <p>The fifth parameter, <code>callback</code>, is optional. If a function is
-  passed,
+  <p>5番目のパラメータ<code>callback</code>はオプションです。関数が渡された場合、
 
-  image files won't be saved by default. The callback function can be used
+  デフォルトでは画像ファイルは保存されません。コールバック関数は
 
-  to process an array containing the data for each captured frame. The array
+  キャプチャされた各フレームのデータを含む配列を処理するために使用できます。画像データの配列には、
 
-  of image data contains a sequence of objects with three properties for each
+  各フレームに対して3つのプロパティ（<code>imageData</code>、<code>filename</code>、
 
-  frame: <code>imageData</code>, <code>filename</code>, and
-  <code>extension</code>.</p>
+  <code>extension</code>）を持つオブジェクトのシーケンスが含まれています。</p>
 
-  <p>Note: Frames are downloaded as individual image files by default.</p>
+  <p>注意：フレームはデフォルトで個別の画像ファイルとしてダウンロードされます。</p>
 line: 561
 isConstructor: false
 itemtype: method
@@ -111,7 +61,7 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('A square repeatedly changes color from blue to pink.');
+      describe('正方形が青からピンクへ繰り返し色が変化します。');
     }
 
 
@@ -123,7 +73,7 @@ example:
     }
 
 
-    // Save the frames when the user presses the 's' key.
+    // ユーザーが's'キーを押したときにフレームを保存します。
 
     function keyPressed() {
       if (key === 's') {
@@ -143,7 +93,7 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('A square repeatedly changes color from blue to pink.');
+      describe('正方形が青からピンクへ繰り返し色が変化します。');
     }
 
 
@@ -155,15 +105,14 @@ example:
     }
 
 
-    // Print 5 frames when the user presses the mouse.
+    // ユーザーがマウスを押したときに5フレームを出力します。
 
     function mousePressed() {
       saveFrames('frame', 'png', 1, 5, printFrames);
     }
 
 
-    // Prints an array of objects containing raw image data, filenames, and
-    extensions.
+    // 生の画像データ、ファイル名、拡張子を含むオブジェクトの配列を出力します。
 
     function printFrames(frames) {
       for (let frame of frames) {
@@ -178,50 +127,27 @@ class: p5
 params:
   - name: filename
     description: |
-      <p>prefix of file name. /// todo /// String</p>
-      <p>prefix of file name.</p>
+      <p>ファイル名のプレフィックス。</p>
     type: String
   - name: extension
-    description: >
-      <p>file extension, either 'jpg' or 'png'. /// todo /// String:
-      'jpg'または'png'</p>
-
-      <p>file extension, either 'jpg' or 'png'.</p>
+    description: |
+      <p>ファイル拡張子、'jpg'または'png'。</p>
     type: String
   - name: duration
     description: >
-      <p>duration in seconds to record. This parameter will be constrained to be
-      less or equal to 15. /// todo /// Number:
-      フレームを保存するための秒単位の期間。このパラメーターは15以下に制約されます。</p>
-
-      <p>duration in seconds to record. This parameter will be constrained to be
-      less or equal to 15.</p>
+      <p>記録する時間（秒）。このパラメータは15以下に制限されます。</p>
     type: Number
   - name: framerate
     description: >
-      <p>number of frames to save per second. This parameter will be constrained
-      to be less or equal to 22. /// todo /// Number:
-      フレームを保存するフレームレート。このパラメーターは22以下に制約されます。</p>
-
-      <p>number of frames to save per second. This parameter will be constrained
-      to be less or equal to 22.</p>
+      <p>1秒あたりに保存するフレーム数。このパラメータは22以下に制限されます。</p>
     type: Number
   - name: callback
-    description: >
-      <p>(Optional) callback function that will be executed  to handle the image
-      data. This function  should accept an array as argument. The  array will
-      contain the specified number of  frames of objects. Each object has three 
-      properties: <code>imageData</code>, <code>filename</code>, and
-      <code>extension</code>. /// todo /// Function(Array): (オプション)
-      画像データを処理するために実行されるコールバック関数。この関数は引数として配列を受け入れる必要があります。配列には、指定された数のフレームオブジェクトが含まれます。各オブジェクトには3つのプロパティがあります:imageData
-      - image/octet-stream、filename、および extension。</p>
-
-      <p>callback function that will be executed
-                                       to handle the image data. This function
-                                       should accept an array as argument. The
-                                       array will contain the specified number of
-                                       frames of objects. Each object has three
-                                       properties: <code>imageData</code>, <code>filename</code>, and <code>extension</code>.</p>
+    description: |
+      <p>画像データを処理するために実行されるコールバック関数。
+                                       この関数は引数として配列を受け取る必要があります。
+                                       配列には指定された数のフレームオブジェクトが含まれます。
+                                       各オブジェクトには3つのプロパティがあります：
+                                       <code>imageData</code>、<code>filename</code>、<code>extension</code>。</p>
     type: Function(Array)
     optional: true
 chainable: false
@@ -229,3 +155,4 @@ chainable: false
 
 
 # saveFrames
+

@@ -4,21 +4,21 @@ module: Shape
 submodule: 3D Primitives
 file: src/webgl/p5.Geometry.js
 description: >
-  <p>An array with the geometry's vertices.</p>
+  <p>ジオメトリの頂点を含む配列。</p>
 
-  <p>The geometry's vertices are stored as
+  <p>ジオメトリの頂点は
 
-  <a href="/reference/p5/p5.Vector/">p5.Vector</a> objects in the
+  <a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトとして
   <code>myGeometry.vertices</code>
 
-  array. The geometry's first vertex is the
+  配列に格納されています。ジオメトリの最初の頂点は
 
-  <a href="/reference/p5/p5.Vector/">p5.Vector</a> object at
-  <code>myGeometry.vertices[0]</code>,
+  <a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトで
+  <code>myGeometry.vertices[0]</code>、
 
-  its second vertex is <code>myGeometry.vertices[1]</code>, its third vertex is
+  2番目の頂点は<code>myGeometry.vertices[1]</code>、3番目の頂点は
 
-  <code>myGeometry.vertices[2]</code>, and so on.</p>
+  <code>myGeometry.vertices[2]</code>、というように続きます。</p>
 line: 252
 isConstructor: false
 itemtype: property
@@ -27,34 +27,34 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // クリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     let myGeometry;
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Geometry object.
+      // p5.Geometryオブジェクトを作成します。
       myGeometry = new p5.Geometry();
 
-      // Create p5.Vector objects to position the vertices.
+      // 頂点の位置を決めるp5.Vectorオブジェクトを作成します。
       let v0 = createVector(-40, 0, 0);
       let v1 = createVector(0, -40, 0);
       let v2 = createVector(40, 0, 0);
 
-      // Add the vertices to the p5.Geometry object's vertices array.
+      // p5.Geometryオブジェクトのvertices配列に頂点を追加します。
       myGeometry.vertices.push(v0, v1, v2);
 
-      describe('A white triangle drawn on a gray background.');
+      describe('灰色の背景に描かれた白い三角形。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Draw the p5.Geometry object.
+      // p5.Geometryオブジェクトを描画します。
       model(myGeometry);
     }
     </code>
@@ -62,47 +62,47 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // クリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     let myGeometry;
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Geometry object.
+      // p5.Geometryオブジェクトを作成します。
       beginGeometry();
       torus(30, 15, 10, 8);
       myGeometry = endGeometry();
 
-      describe('A white torus rotates slowly against a dark gray background. Red spheres mark its vertices.');
+      describe('暗い灰色の背景に対してゆっくりと回転する白いトーラス。赤い球体がその頂点を示しています。');
     }
 
     function draw() {
       background(50);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Turn on the lights.
+      // ライトをオンにします。
       lights();
 
-      // Rotate the coordinate system.
+      // 座標系を回転させます。
       rotateY(frameCount * 0.01);
 
-      // Style the p5.Geometry object.
+      // p5.Geometryオブジェクトのスタイルを設定します。
       fill(255);
       stroke(0);
 
-      // Display the p5.Geometry object.
+      // p5.Geometryオブジェクトを表示します。
       model(myGeometry);
 
-      // Style the vertices.
+      // 頂点のスタイルを設定します。
       fill(255, 0, 0);
       noStroke();
 
-      // Iterate over the vertices array.
+      // vertices配列をイテレートします。
       for (let v of myGeometry.vertices) {
-        // Draw a sphere to mark the vertex.
+        // 頂点を示す球体を描画します。
         push();
         translate(v);
         sphere(2.5);

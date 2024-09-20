@@ -4,10 +4,6 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
-  <p>指定された周波数に最も近い MIDI ノート値を返します。</p>
-  <p></p>
-
-  <hr/>
   <p>Returns the closest MIDI note value for
   a given frequency.</p>
 line: 825
@@ -17,14 +13,11 @@ class: p5
 params:
   - name: frequency
     description: |
-      <p>周波数。たとえば、中央ドの上の「A」は440Hzです。</p>
       <p>A freqeuncy, for example, the "A"
                                  above Middle C is 440Hz</p>
     type: Number
 return:
-  description: |-
-    MIDI ノート値
-    MIDI note value
+  description: MIDI note value
   type: Number
 chainable: false
 ---

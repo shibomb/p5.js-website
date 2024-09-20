@@ -3,72 +3,30 @@ title: curve
 module: Shape
 submodule: Curves
 file: src/core/shape/curves.js
-description: >-
-  <p>2点間を曲線で結びます。</p>
+description: >
+  <p>Catmull-Romスプラインを使用して曲線を描画します。</p>
 
-  <p>曲線は、中間の4つのパラメーターで指定された2点の間に描画されます。最初の2つのパラメーターはコントロールポイントであり、曲線が描かれない場合でも、曲線がこの点から生じているように見えます。最後の2つのパラメーターも同様に、他のコントロールポイントを指定します。
-  <br /><br /> 長い曲線は、<a href="#/p5/curve">curve()</a> 関数を連結して使用するか、<a
-  href="#/p5/curveVertex">curveVertex()</a> を使用して作成できます。さらに <a
-  href="#/p5/curveTightness">curveTightness()</a> 関数を使用すると、曲線のビジュアル品質を制御できます。<a
-  href="#/p5/curve">curve()</a> 関数は Catmull-Rom スプラインの実装です。</p>
+  <p>スプライン曲線は、緩やかに傾斜する形状や曲線を形成できます。これらは
 
+  一連の点に取り付けられたケーブルのようなものです。スプラインは2つの
 
-  <hr/>
+  アンカーポイントと2つの制御点によって定義されます。</p>
 
-  <p>Draws a curve using a Catmull-Rom spline.</p>
+  <p>最初の2つのパラメータ、<code>x1</code>と<code>y1</code>は、最初の制御点を設定します。この
 
-  <p>Spline curves can form shapes and curves that slope gently. They’re like
+  点は描画されず、曲線の開始点と考えることができます。</p>
 
-  cables that are attached to a set of points. Splines are defined by two
+  <p>次の4つのパラメータ、<code>x2</code>、<code>y2</code>、<code>x3</code>、<code>y3</code>は、2つのアンカー
 
-  anchor points and two control points.</p>
+  ポイントを設定します。アンカーポイントは、曲線の可視部分の開始点と終了点です。</p>
 
-  <p>The first two parameters, <code>x1</code> and <code>y1</code>, set the
-  first control point. This
+  <p>7番目と8番目のパラメータ、<code>x4</code>と<code>y4</code>は、最後の制御点を設定します。
 
-  point isn’t drawn and can be thought of as the curve’s starting point.</p>
+  この点は描画されず、曲線の終了点と考えることができます。</p>
 
-  <p>The next four parameters, <code>x2</code>, <code>y2</code>,
-  <code>x3</code>, and <code>y3</code>, set the two anchor
+  <p>スプライン曲線は、WebGLモードを使用して3Dでも描画できます。3Dバージョンの
 
-  points. The anchor points are the start and end points of the curve’s
-
-  visible segment.</p>
-
-  <p>The seventh and eighth parameters, <code>x4</code> and <code>y4</code>, set
-  the last control
-
-  point. This point isn’t drawn and can be thought of as the curve’s ending
-
-  point.</p>
-
-  <p>Spline curves can also be drawn in 3D using WebGL mode. The 3D version of
-
-  <code>curve()</code> has twelve arguments because each point has x-, y-, and
-
-  z-coordinates.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "x1": "Number: 最初のコントロールポイントの x 座標",
-      "y1": "Number: 最初のコントロールポイントの y 座標",
-      "x2": "Number: 最初の点の x 座標",
-      "y2": "Number: 最初の点の y 座標",
-      "x3": "Number: 2番目の点の x 座標",
-      "y3": "Number: 2番目の点の y 座標",
-      "x4": "Number: 最後のコントロールポイントの x 座標",
-      "y4": "Number: 最後のコントロールポイントの y 座標",
-      "z1": "Number: 最初のコントロールポイントの z 座標",
-      "z2": "Number: 最初の点の z 座標",
-      "z3": "Number: 2番目の点の z 座標",
-      "z4": "Number: 最後のコントロールポイントの z 座標"
-  }
-
-  </pre>
+  <code>curve()</code>は12個の引数を持ちます。各点がx、y、z座標を持つためです。</p>
 line: 570
 isConstructor: false
 itemtype: method
@@ -82,30 +40,30 @@ example:
 
       background(200);
 
-      // Draw a black spline curve.
+      // 黒いスプライン曲線を描画します。
       noFill();
       strokeWeight(1);
       stroke(0);
       curve(5, 26, 73, 24, 73, 61, 15, 65);
 
-      // Draw red spline curves from the anchor points to the control points.
+      // アンカーポイントから制御点への赤いスプライン曲線を描画します。
       stroke(255, 0, 0);
       curve(5, 26, 5, 26, 73, 24, 73, 61);
       curve(73, 24, 73, 61, 15, 65, 15, 65);
 
-      // Draw the anchor points in black.
+      // アンカーポイントを黒で描画します。
       strokeWeight(5);
       stroke(0);
       point(73, 24);
       point(73, 61);
 
-      // Draw the control points in red.
+      // 制御点を赤で描画します。
       stroke(255, 0, 0);
       point(5, 26);
       point(15, 65);
 
       describe(
-        'A gray square with a curve drawn in three segments. The curve is a sideways U shape with red segments on top and bottom, and a black segment on the right. The endpoints of all the segments are marked with dots.'
+        '3つのセグメントで描かれた曲線のある灰色の正方形。曲線は横向きのU字形で、上下に赤いセグメント、右側に黒いセグメントがあります。すべてのセグメントの端点は点で表示されています。'
       );
     }
     </code>
@@ -121,49 +79,49 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'A gray square with a curve drawn in three segments. The curve is a sideways U shape with red segments on top and bottom, and a black segment on the right. The endpoints of all the segments are marked with dots.'
+        '3つのセグメントで描かれた曲線のある灰色の正方形。曲線は横向きのU字形で、上下に赤いセグメント、右側に黒いセグメントがあります。すべてのセグメントの端点は点で表示されています。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Draw a black spline curve.
+      // 黒いスプライン曲線を描画します。
       noFill();
       strokeWeight(1);
       stroke(0);
       curve(x1, y1, 73, 24, 73, 61, 15, 65);
 
-      // Draw red spline curves from the anchor points to the control points.
+      // アンカーポイントから制御点への赤いスプライン曲線を描画します。
       stroke(255, 0, 0);
       curve(x1, y1, x1, y1, 73, 24, 73, 61);
       curve(73, 24, 73, 61, 15, 65, 15, 65);
 
-      // Draw the anchor points in black.
+      // アンカーポイントを黒で描画します。
       strokeWeight(5);
       stroke(0);
       point(73, 24);
       point(73, 61);
 
-      // Draw the control points in red.
+      // 制御点を赤で描画します。
       stroke(255, 0, 0);
       point(x1, y1);
       point(15, 65);
     }
 
-    // Start changing the first control point if the user clicks near it.
+    // ユーザーが最初の制御点の近くをクリックした場合、変更を開始します。
     function mousePressed() {
       if (dist(mouseX, mouseY, x1, y1) < 20) {
         isChanging = true;
       }
     }
 
-    // Stop changing the first control point when the user releases the mouse.
+    // ユーザーがマウスを離したときに、最初の制御点の変更を停止します。
     function mouseReleased() {
       isChanging = false;
     }
 
-    // Update the first control point while the user drags the mouse.
+    // ユーザーがマウスをドラッグしている間、最初の制御点を更新します。
     function mouseDragged() {
       if (isChanging === true) {
         x1 = mouseX;
@@ -180,14 +138,14 @@ example:
 
       background('skyblue');
 
-      // Draw the red balloon.
+      // 赤い風船を描画します。
       fill('red');
       curve(-150, 275, 50, 60, 50, 60, 250, 275);
 
-      // Draw the balloon string.
+      // 風船の紐を描画します。
       line(50, 60, 50, 80);
 
-      describe('A red balloon in a blue sky.');
+      describe('青い空に浮かぶ赤い風船。');
     }
     </code>
     </div>
@@ -197,20 +155,20 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A red balloon in a blue sky.');
+      describe('青い空に浮かぶ赤い風船。');
     }
 
     function draw() {
       background('skyblue');
 
-      // Rotate around the y-axis.
+      // y軸を中心に回転します。
       rotateY(frameCount * 0.01);
 
-      // Draw the red balloon.
+      // 赤い風船を描画します。
       fill('red');
       curve(-200, 225, 0, 0, 10, 0, 0, 10, 0, 200, 225, 0);
 
-      // Draw the balloon string.
+      // 風船の紐を描画します。
       line(0, 10, 0, 0, 30, 0);
     }
     </code>
@@ -221,35 +179,35 @@ overloads:
     params:
       - name: x1
         description: |
-          <p>x-coordinate of the first control point.</p>
+          <p>最初の制御点のx座標。</p>
         type: Number
       - name: y1
         description: |
-          <p>y-coordinate of the first control point.</p>
+          <p>最初の制御点のy座標。</p>
         type: Number
       - name: x2
         description: |
-          <p>x-coordinate of the first anchor point.</p>
+          <p>最初のアンカーポイントのx座標。</p>
         type: Number
       - name: y2
         description: |
-          <p>y-coordinate of the first anchor point.</p>
+          <p>最初のアンカーポイントのy座標。</p>
         type: Number
       - name: x3
         description: |
-          <p>x-coordinate of the second anchor point.</p>
+          <p>2番目のアンカーポイントのx座標。</p>
         type: Number
       - name: y3
         description: |
-          <p>y-coordinate of the second anchor point.</p>
+          <p>2番目のアンカーポイントのy座標。</p>
         type: Number
       - name: x4
         description: |
-          <p>x-coordinate of the second control point.</p>
+          <p>2番目の制御点のx座標。</p>
         type: Number
       - name: y4
         description: |
-          <p>y-coordinate of the second control point.</p>
+          <p>2番目の制御点のy座標。</p>
         type: Number
     chainable: 1
   - line: 746
@@ -262,7 +220,7 @@ overloads:
         type: Number
       - name: z1
         description: |
-          <p>z-coordinate of the first control point.</p>
+          <p>最初の制御点のz座標。</p>
         type: Number
       - name: x2
         description: ''
@@ -272,7 +230,7 @@ overloads:
         type: Number
       - name: z2
         description: |
-          <p>z-coordinate of the first anchor point.</p>
+          <p>最初のアンカーポイントのz座標。</p>
         type: Number
       - name: x3
         description: ''
@@ -282,7 +240,7 @@ overloads:
         type: Number
       - name: z3
         description: |
-          <p>z-coordinate of the second anchor point.</p>
+          <p>2番目のアンカーポイントのz座標。</p>
         type: Number
       - name: x4
         description: ''
@@ -292,7 +250,7 @@ overloads:
         type: Number
       - name: z4
         description: |
-          <p>z-coordinate of the second control point.</p>
+          <p>2番目の制御点のz座標。</p>
         type: Number
     chainable: 1
 chainable: true

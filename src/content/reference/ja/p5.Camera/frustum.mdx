@@ -3,119 +3,57 @@ title: frustum
 module: 3D
 submodule: Camera
 file: src/webgl/p5.Camera.js
-description: >-
-  <p>カメラの視錐台を設定します。</p>
+description: >
+  <p>カメラのフラスタムを設定します。</p>
 
-  <p>グローバルな <a href="#/p5/frustum">frustum()</a>
-  と同じパラメーターを受け取ります。この関数の詳細については、そちらで説明されています。</p>
+  <p>フラスタム投影では、カメラから遠い形状は
 
+  カメラに近い形状よりも小さく表示されます。この技術は
 
-  <hr/>
+  遠近法と呼ばれ、リアルな3Dシーンを作成します。</p>
 
-  <p>Sets the camera's frustum.</p>
+  <p><code>myCamera.frustum()</code>は、カメラの
 
-  <p>In a frustum projection, shapes that are further from the camera appear
+  視錐台を変更することで、カメラの視点を変更します。フラスタムは
 
-  smaller than shapes that are near the camera. This technique, called
+  カメラから見える空間の体積です。フラスタムの形状は、上部が切り取られた
 
-  foreshortening, creates realistic 3D scenes.</p>
+  ピラミッドです。カメラは
 
-  <p><code>myCamera.frustum()</code> changes the camera’s perspective by
-  changing its
+  ピラミッドの上部があるべき位置に配置され、ピラミッドの
 
-  viewing frustum. The frustum is the volume of space that’s visible to the
+  底面に向けて向けられます。フラスタム内のすべてを表示します。</p>
 
-  camera. The frustum’s shape is a pyramid with its top cut off. The camera
+  <p>最初の4つのパラメータ、<code>left</code>、<code>right</code>、
+  <code>bottom</code>、<code>top</code>は、
 
-  is placed where the top of the pyramid should be and points towards the
+  フラスタムの側面、底面、上面の座標を設定します。例えば、
 
-  base of the pyramid. It views everything within the frustum.</p>
+  <code>myCamera.frustum(-100, 100, 200, -200)</code>を呼び出すと、幅200
 
-  <p>The first four parameters, <code>left</code>, <code>right</code>,
-  <code>bottom</code>, and <code>top</code>, set the
+  ピクセル、高さ400ピクセルのフラスタムが作成されます。デフォルトでは、これらの座標は
 
-  coordinates of the frustum’s sides, bottom, and top. For example, calling
-
-  <code>myCamera.frustum(-100, 100, 200, -200)</code> creates a frustum that’s
-  200
-
-  pixels wide and 400 pixels tall. By default, these coordinates are set
-
-  based on the sketch’s width and height, as in
+  スケッチの幅と高さに基づいて設定されます。例えば、
 
   <code>myCamera.frustum(-width / 20, width / 20, height / 20, -height /
-  20)</code>.</p>
+  20)</code>のようになります。</p>
 
-  <p>The last two parameters, <code>near</code> and <code>far</code>, set the
-  distance of the
+  <p>最後の2つのパラメータ、<code>near</code>と<code>far</code>は、
 
-  frustum’s near and far plane from the camera. For example, calling
+  フラスタムのニアプレーンとファープレーンのカメラからの距離を設定します。例えば、
 
-  <code>myCamera.frustum(-100, 100, 200, -200, 50, 1000)</code> creates a
-  frustum that’s
+  <code>myCamera.frustum(-100, 100, 200, -200, 50, 1000)</code>を呼び出すと、
 
-  200 pixels wide, 400 pixels tall, starts 50 pixels from the camera, and ends
+  幅200ピクセル、高さ400ピクセル、カメラから50ピクセルの位置から始まり、
 
-  1,000 pixels from the camera. By default, near is set to <code>0.1 *
-  800</code>, which
+  カメラから1,000ピクセルの位置で終わるフラスタムが作成されます。デフォルトでは、nearは<code>0.1 *
+  800</code>に設定されており、
 
-  is 1/10th the default distance between the camera and the origin.
-  <code>far</code> is
+  これはカメラと原点の間のデフォルト距離の1/10です。
+  <code>far</code>は
 
-  set to <code>10 * 800</code>, which is 10 times the default distance between
-  the
-
-  camera and the origin.</p>
-
-
-  <pre>
-
-  todo: param left not found in ja-legacy:
-
-  undefined
-
-  </pre>
-
-  <pre>
-
-  todo: param right not found in ja-legacy:
-
-  undefined
-
-  </pre>
-
-  <pre>
-
-  todo: param bottom not found in ja-legacy:
-
-  undefined
-
-  </pre>
-
-  <pre>
-
-  todo: param top not found in ja-legacy:
-
-  undefined
-
-  </pre>
-
-  <pre>
-
-  todo: param near not found in ja-legacy:
-
-  undefined
-
-  </pre>
-
-  <pre>
-
-  todo: param far not found in ja-legacy:
-
-  undefined
-
-  </pre>
-line: 2282
+  <code>10 * 800</code>に設定されており、これはカメラと原点の間のデフォルト距離の10倍です。</p>
+line: 2273
 isConstructor: false
 itemtype: method
 example:
@@ -123,7 +61,7 @@ example:
 
     <div>
     <code>
-    // Double-click to toggle between cameras.
+    // ダブルクリックでカメラを切り替えます。
 
     let cam1;
     let cam2;
@@ -132,46 +70,46 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create the first camera.
-      // Keep its default settings.
+      // 最初のカメラを作成します。
+      // デフォルト設定のままにします。
       cam1 = createCamera();
 
-      // Create the second camera.
+      // 2番目のカメラを作成します。
       cam2 = createCamera();
 
-      // Adjust the frustum.
-      // Center it.
-      // Set its width and height to 20 pixels.
-      // Place its near plane 300 pixels from the camera.
-      // Place its far plane 350 pixels from the camera.
+      // フラスタムを調整します。
+      // 中心に配置します。
+      // 幅と高さを20ピクセルに設定します。
+      // ニアプレーンをカメラから300ピクセルの位置に配置します。
+      // ファープレーンをカメラから350ピクセルの位置に配置します。
       cam2.frustum(-10, 10, -10, 10, 300, 350);
 
-      // Set the current camera to cam1.
+      // 現在のカメラをcam1に設定します。
       setCamera(cam1);
 
       describe(
-        'A row of white cubes against a gray background. The camera zooms in on one cube when the user double-clicks.'
+        '灰色の背景に白い立方体の列。ユーザーがダブルクリックすると、カメラが1つの立方体にズームインします。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Translate the origin toward the camera.
+      // 原点をカメラに向かって移動します。
       translate(-10, 10, 600);
 
-      // Rotate the coordinate system.
+      // 座標系を回転させます。
       rotateY(-0.1);
       rotateX(-0.1);
 
-      // Draw the row of boxes.
+      // 立方体の列を描画します。
       for (let i = 0; i < 6; i += 1) {
         translate(0, 0, -40);
         box(10);
       }
     }
 
-    // Toggle the current camera when the user double-clicks.
+    // ユーザーがダブルクリックしたときに現在のカメラを切り替えます。
     function doubleClicked() {
       if (isDefaultCamera === true) {
         setCamera(cam2);
@@ -187,38 +125,38 @@ class: p5.Camera
 params:
   - name: left
     description: >
-      <p>x-coordinate of the frustum’s left plane. Defaults to <code>-width /
-      20</code>.</p>
+      <p>フラスタムの左平面のx座標。デフォルトは<code>-width /
+      20</code>です。</p>
     type: Number
     optional: true
   - name: right
     description: >
-      <p>x-coordinate of the frustum’s right plane. Defaults to <code>width /
-      20</code>.</p>
+      <p>フラスタムの右平面のx座標。デフォルトは<code>width /
+      20</code>です。</p>
     type: Number
     optional: true
   - name: bottom
     description: >
-      <p>y-coordinate of the frustum’s bottom plane. Defaults to <code>height /
-      20</code>.</p>
+      <p>フラスタムの底面のy座標。デフォルトは<code>height /
+      20</code>です。</p>
     type: Number
     optional: true
   - name: top
     description: >
-      <p>y-coordinate of the frustum’s top plane. Defaults to <code>-height /
-      20</code>.</p>
+      <p>フラスタムの上面のy座標。デフォルトは<code>-height /
+      20</code>です。</p>
     type: Number
     optional: true
   - name: near
     description: >
-      <p>z-coordinate of the frustum’s near plane. Defaults to <code>0.1 *
-      800</code>.</p>
+      <p>フラスタムのニアプレーンのz座標。デフォルトは<code>0.1 *
+      800</code>です。</p>
     type: Number
     optional: true
   - name: far
     description: >
-      <p>z-coordinate of the frustum’s far plane. Defaults to <code>10 *
-      800</code>.</p>
+      <p>フラスタムのファープレーンのz座標。デフォルトは<code>10 *
+      800</code>です。</p>
     type: Number
     optional: true
 chainable: false
@@ -226,3 +164,4 @@ chainable: false
 
 
 # frustum
+

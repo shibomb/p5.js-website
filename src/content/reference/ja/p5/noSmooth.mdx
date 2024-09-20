@@ -4,34 +4,17 @@ module: Shape
 submodule: Attributes
 file: src/core/shape/attributes.js
 description: >
-  <p>すべてのジオメトリをジャギー（エイリアス）エッジで描きます。</p>
+  <p>特定の機能をギザギザ（エイリアス）のある縁で描画します。</p>
 
-  <p></p>
+  <p><a href="/reference/p5/smooth/">smooth()</a>はデフォルトで有効です。2Dモードでは、
 
-  <p><a href="#/p5/smooth">smooth()</a>は 2D
-  モードでデフォルトで有効です。ジオメトリ、画像、およびフォントのスムージングを無効にするためには<a
-  href="#/p5/noSmooth">noSmooth()</a>を呼び出す必要があります。</p>
+  <code>noSmooth()</code>は画像を拡大する際にぼかしを避けるのに役立ちます。
 
-  <p>WebGL モードでは、<a
-  href="#/p5/noSmooth">noSmooth()</a>がデフォルトで有効です。スムーズ（アンチエイリアス）エッジを描くためには<a
-  href="#/p5/smooth">smooth()</a>を呼び出す必要があります。</p>
+  これらの関数は図形やフォントには影響しません。</p>
 
+  <p>WebGLモードでは、<code>noSmooth()</code>はすべての図形をギザギザ
 
-  <hr/>
-
-  <p>Draws certain features with jagged (aliased) edges.</p>
-
-  <p><a href="/reference/p5/smooth/">smooth()</a> is active by default. In 2D
-  mode,
-
-  <code>noSmooth()</code> is helpful for scaling up images without blurring. The
-
-  functions don't affect shapes or fonts.</p>
-
-  <p>In WebGL mode, <code>noSmooth()</code> causes all shapes to be drawn with
-  jagged
-
-  (aliased) edges. The functions don't affect images or fonts.</p>
+  （エイリアス）のある縁で描画します。これらの関数は画像やフォントには影響しません。</p>
 line: 100
 isConstructor: false
 itemtype: method
@@ -42,7 +25,7 @@ example:
     <code>
     let heart;
 
-    // Load a pixelated heart image from an image data string.
+    // ピクセル化されたハート画像を画像データ文字列からロードします。
     function preload() {
       heart = loadImage('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAAXNSR0IArs4c6QAAAEZJREFUGFd9jcsNACAIQ9tB2MeR3YdBMBBq8CIXPi2vBICIiOwkOedatllqWO6Y8yOWoyuNf1GZwgmf+RRG2YXr+xVFmA8HZ9Mx/KGPMtcAAAAASUVORK5CYII=');
     }
@@ -52,12 +35,12 @@ example:
 
       background(50);
 
-      // Antialiased hearts.
+      // アンチエイリアス処理されたハート
       image(heart, 10, 10);
       image(heart, 20, 10, 16, 16);
       image(heart, 40, 10, 32, 32);
 
-      // Aliased hearts.
+      // エイリアス処理されたハート
       noSmooth();
       image(heart, 10, 60);
       image(heart, 20, 60, 16, 16);
@@ -75,7 +58,7 @@ example:
 
       circle(0, 0, 80);
 
-      describe('A white circle on a gray background.');
+      describe('灰色の背景に白い円。');
     }
     </code>
     </div>
@@ -85,14 +68,14 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Disable smoothing.
+      // スムージングを無効化
       noSmooth();
 
       background(200);
 
       circle(0, 0, 80);
 
-      describe('A pixelated white circle on a gray background.');
+      describe('灰色の背景にピクセル化された白い円。');
     }
     </code>
     </div>

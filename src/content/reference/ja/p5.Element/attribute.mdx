@@ -3,13 +3,7 @@ title: attribute
 module: DOM
 submodule: DOM
 file: src/dom/dom.js
-description: >-
-  <p>指定された要素に新しい属性を追加するか、既存の属性の値を変更します。</p>
-
-  <p>値が指定されていない場合、指定された属性の値を返すか、属性が設定されていない場合は null を返します。</p>
-
-  <hr/>
-
+description: >
   <p>Adds an
 
   <a
@@ -44,19 +38,7 @@ description: >-
   horizontal
 
   alignment to <code>center</code>.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "attr": "String: 設定する属性",
-      "value": "String: 属性に割り当てる値"
-  }
-
-  </pre>
-line: 3256
+line: 3257
 isConstructor: false
 itemtype: method
 example:
@@ -95,17 +77,15 @@ example:
     </div>
 class: p5.Element
 return:
-  description: |-
-    属性の値
-    value of the attribute.
+  description: value of the attribute.
   type: String
 overloads:
-  - line: 3256
+  - line: 3257
     params: []
     return:
       description: value of the attribute.
       type: String
-  - line: 3311
+  - line: 3312
     params:
       - name: attr
         description: |

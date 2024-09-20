@@ -4,28 +4,13 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>.<a href="#/p5.Element/input">input()</a> 関数は、要素でユーザー入力が検出されると呼び出されます。</p>
-
-  <p>input
-  イベントは、入力要素でのキーストロークや、スライダー要素の変更を検出するためによく使われます。これを使って、要素固有のイベントリスナーをアタッチできます。</p>
-
-  <p>/// todo ///</p>
-
-  <p><code>myElement.input()</code> sets a function to call when input is
-  detected within the <a href="#/p5.Element">p5.Element</a> object. It's often
-  used to with text inputs and sliders. Calling
-  <code>myElement.input(false)</code> disables the function.</p>
-
-
-  <hr/>
-
   <p>Calls a function when the element receives input.</p>
 
   <p><code>myElement.input()</code> is often used to with text inputs and
   sliders. Calling
 
   <code>myElement.input(false)</code> disables the function.</p>
-line: 404
+line: 405
 isConstructor: false
 itemtype: method
 example:
@@ -88,12 +73,7 @@ example:
 class: p5
 params:
   - name: fxn
-    description: >
-      <p>function to call when input is detected within  the element. 
-      <code>false</code> disables the function. /// todo /// Function|Boolean:
-      要素内でユーザー入力が検出されると発火する関数。 <code>false</code>
-      が代わりに渡されると、以前に発火していた関数はもう発火しなくなります。</p>
-
+    description: |
       <p>function to call when input is detected within
                                      the element.
                                      <code>false</code> disables the function.</p>

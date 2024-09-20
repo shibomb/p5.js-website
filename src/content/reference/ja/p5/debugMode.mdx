@@ -3,153 +3,82 @@ title: debugMode
 module: 3D
 submodule: Interaction
 file: src/webgl/interaction.js
-description: >-
-  <p>debugMode() は、3D 空間を視覚化するのに役立ちます。</p>
+description: >
+  <p>3Dスケッチの方向を明確にするためのグリッドと軸アイコンを追加します。</p>
 
-  <p>グリッドを追加してスケッチ内の「地面」の位置を示し、+X、+Y、+Z
-  方向を示す軸アイコンを表示します。この関数は、デフォルトのグリッドと軸アイコンを作成するために引数なしで呼び出すことができますし、例にしたがってグリッドおよび/または軸アイコンのサイズと位置をカスタマイズするために呼び出すことができます。グリッドは、最も最近設定されたストロークの色と太さで描画されます。これらのパラメーターを指定するには、draw()
-  ループの直前に stroke() および strokeWeight() を追加してください。</p>
+  <p><code>debugMode()</code>は、スケッチの「地面」がどこにあるかを示すグリッドを追加します。
 
-  <p>デフォルトでは、グリッドはスケッチの原点(0,0,0)を中心に XZ
-  平面に沿って走り、軸アイコンは原点からオフセットされます。グリッドと軸アイコンの両方が、現在のキャンバスサイズに応じてサイズが調整されます。グリッドがデフォルトのカメラビューに平行して走るため、グリッドを完全に表示できるように
-  debugMode と orbitControl を一緒に使用することがよく役立ちます。</p>
+  デフォルトでは、グリッドはスケッチの原点<code>(0, 0, 0)</code>を通り、
 
+  XZ平面に沿って走ります。<code>debugMode()</code>はまた、正のx軸、y軸、z軸に沿って
 
-  <hr/>
+  指す軸アイコンも追加します。<code>debugMode()</code>を呼び出すと、デフォルトのサイズと
 
-  <p>Adds a grid and an axes icon to clarify orientation in 3D sketches.</p>
+  位置でグリッドと軸アイコンが表示されます。</p>
 
-  <p><code>debugMode()</code> adds a grid that shows where the “ground” is in a
-  sketch. By
+  <p><code>debugMode()</code>を呼び出す方法には、デバッグ環境をカスタマイズするための
 
-  default, the grid will run through the origin <code>(0, 0, 0)</code> of the
-  sketch
+  オプションパラメータを持つ4つの方法があります。</p>
 
-  along the XZ plane. <code>debugMode()</code> also adds an axes icon that
-  points along
+  <p>最初の<code>debugMode()</code>の呼び出し方は、1つのパラメータ<code>mode</code>を持ちます。
 
-  the positive x-, y-, and z-axes. Calling <code>debugMode()</code> displays the
-  grid
+  システム定数<code>GRID</code>が渡された場合、例えば<code>debugMode(GRID)</code>のように、
 
-  and axes icon with their default size and position.</p>
+  グリッドが表示され、軸アイコンは非表示になります。定数<code>AXES</code>が
 
-  <p>There are four ways to call <code>debugMode()</code> with optional
-  parameters to
+  渡された場合、例えば<code>debugMode(AXES)</code>のように、軸アイコンが表示され、
 
-  customize the debugging environment.</p>
+  グリッドは非表示になります。</p>
 
-  <p>The first way to call <code>debugMode()</code> has one parameter,
-  <code>mode</code>. If the
+  <p>2つ目の<code>debugMode()</code>の呼び出し方は、6つのパラメータを持ちます。最初の
 
-  system constant <code>GRID</code> is passed, as in
-  <code>debugMode(GRID)</code>, then the grid
+  パラメータ<code>mode</code>は、表示する<code>GRID</code>または<code>AXES</code>を選択します。
 
-  will be displayed and the axes icon will be hidden. If the constant
-  <code>AXES</code>
+  次の5つのパラメータ、<code>gridSize</code>、<code>gridDivisions</code>、<code>xOff</code>、<code>yOff</code>、
 
-  is passed, as in <code>debugMode(AXES)</code>, then the axes icon will be
-  displayed
+  <code>zOff</code>はオプションです。これらは、グリッドの外観（<code>gridSize</code>と
 
-  and the grid will be hidden.</p>
+  <code>gridDivisions</code>）と軸アイコンの配置（<code>xOff</code>、<code>yOff</code>、<code>zOff</code>）を
 
-  <p>The second way to call <code>debugMode()</code> has six parameters. The
-  first
+  設定する数値です。例えば、<code>debugMode(20, 5, 10, 10, 10)</code>を呼び出すと、
 
-  parameter, <code>mode</code>, selects either <code>GRID</code> or
-  <code>AXES</code> to be displayed. The
+  <code>gridSize</code>を20ピクセルに、<code>gridDivisions</code>の数を5に設定し、
 
-  next five parameters, <code>gridSize</code>, <code>gridDivisions</code>,
-  <code>xOff</code>, <code>yOff</code>, and
+  x軸、y軸、z軸に沿って軸アイコンを10ピクセルずつオフセットします。</p>
 
-  <code>zOff</code> are optional. They’re numbers that set the appearance of the
-  grid
+  <p>3つ目の<code>debugMode()</code>の呼び出し方は、5つのパラメータを持ちます。最初の
 
-  (<code>gridSize</code> and <code>gridDivisions</code>) and the placement of
-  the axes icon
+  パラメータ<code>mode</code>は、表示する<code>GRID</code>または<code>AXES</code>を選択します。
 
-  (<code>xOff</code>, <code>yOff</code>, and <code>zOff</code>). For example,
-  calling
+  次の4つのパラメータ、<code>axesSize</code>、<code>xOff</code>、<code>yOff</code>、<code>zOff</code>はオプションです。
 
-  <code>debugMode(20, 5, 10, 10, 10)</code> sets the <code>gridSize</code> to 20
-  pixels, the number
+  これらは、軸アイコンのサイズ（<code>axesSize</code>）とその配置（<code>xOff</code>、<code>yOff</code>、
 
-  of <code>gridDivisions</code> to 5, and offsets the axes icon by 10 pixels
-  along the
+  <code>zOff</code>）を設定する数値です。</p>
 
-  x-, y-, and z-axes.</p>
+  <p>4つ目の<code>debugMode()</code>の呼び出し方は、9つのオプションパラメータを持ちます。
 
-  <p>The third way to call <code>debugMode()</code> has five parameters. The
-  first
+  最初の5つのパラメータ、<code>gridSize</code>、<code>gridDivisions</code>、<code>gridXOff</code>、<code>gridYOff</code>、
 
-  parameter, <code>mode</code>, selects either <code>GRID</code> or
-  <code>AXES</code> to be displayed. The
+  <code>gridZOff</code>は、グリッドの外観を設定する数値です。例えば、
 
-  next four parameters, <code>axesSize</code>, <code>xOff</code>,
-  <code>yOff</code>, and <code>zOff</code> are optional.
+  <code>debugMode(100, 5, 0, 0, 0)</code>を呼び出すと、<code>gridSize</code>を100に、
 
-  They’re numbers that set the appearance of the size of the axes icon
+  <code>gridDivisions</code>の数を5に設定し、すべてのオフセットを0に設定して
 
-  (<code>axesSize</code>) and its placement (<code>xOff</code>,
-  <code>yOff</code>, and <code>zOff</code>).</p>
+  グリッドを原点に中心を置きます。次の4つのパラメータ、<code>axesSize</code>、
 
-  <p>The fourth way to call <code>debugMode()</code> has nine optional
-  parameters. The
+  <code>xOff</code>、<code>yOff</code>、<code>zOff</code>は、軸アイコンのサイズ（<code>axesSize</code>）と
 
-  first five parameters, <code>gridSize</code>, <code>gridDivisions</code>,
-  <code>gridXOff</code>, <code>gridYOff</code>,
+  その配置（<code>axesXOff</code>、<code>axesYOff</code>、<code>axesZOff</code>）を設定する数値です。
 
-  and <code>gridZOff</code> are numbers that set the appearance of the grid. For
+  例えば、<code>debugMode(100, 5, 0, 0, 0, 50, 10, 10, 10)</code>を呼び出すと、
 
-  example, calling <code>debugMode(100, 5, 0, 0, 0)</code> sets the
-  <code>gridSize</code> to 100,
+  <code>gridSize</code>を100に、<code>gridDivisions</code>の数を5に設定し、すべてのオフセットを0に
 
-  the number of <code>gridDivisions</code> to 5, and sets all the offsets to 0
-  so that
+  設定してグリッドを原点に中心を置きます。そして、<code>axesSize</code>を50に設定し、
 
-  the grid is centered at the origin. The next four parameters,
-  <code>axesSize</code>,
-
-  <code>xOff</code>, <code>yOff</code>, and <code>zOff</code> are numbers that
-  set the appearance of the size
-
-  of the axes icon (<code>axesSize</code>) and its placement
-  (<code>axesXOff</code>, <code>axesYOff</code>,
-
-  and <code>axesZOff</code>). For example, calling
-
-  <code>debugMode(100, 5, 0, 0, 0, 50, 10, 10, 10)</code> sets the
-  <code>gridSize</code> to 100,
-
-  the number of <code>gridDivisions</code> to 5, and sets all the offsets to 0
-  so that
-
-  the grid is centered at the origin. It then sets the <code>axesSize</code> to
-  50 and
-
-  offsets the icon 10 pixels along each axis.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "mode": "Constant: GRID または AXES",
-      "gridSize": "Number: (オプション) グリッドの一辺のサイズ",
-      "gridDivisions": "Number: (オプション) グリッドの分割数",
-      "xOff": "Number: (オプション) 原点 (0,0,0) からの X 軸オフセット",
-      "yOff": "Number: (オプション) 原点 (0,0,0) からの Y 軸オフセット",
-      "zOff": "Number: (オプション) 原点 (0,0,0) からの Z 軸オフセット",
-      "axesSize": "Number: (オプション) 軸アイコンのサイズ",
-      "gridXOff": "Number (オプション) ",
-      "gridYOff": "Number (オプション) ",
-      "gridZOff": "Number (オプション) ",
-      "axesXOff": "Number (オプション) ",
-      "axesYOff": "Number (オプション) ",
-      "axesZOff": "Number (オプション) "
-  }
-
-  </pre>
+  各軸に沿って10ピクセルずつアイコンをオフセットします。</p>
 line: 471
 isConstructor: false
 itemtype: method
@@ -158,27 +87,27 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // クリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Enable debug mode.
+      // デバッグモードを有効にする
       debugMode();
 
-      describe('A multicolor box on a gray background. A grid and axes icon are displayed near the box.');
+      describe('グレーの背景に多色のボックス。ボックスの近くにグリッドと軸アイコンが表示されています。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスで軌道制御を有効にする
       orbitControl();
 
-      // Style the box.
+      // ボックスのスタイルを設定
       normalMaterial();
 
-      // Draw the box.
+      // ボックスを描画
       box(20, 40);
     }
     </code>
@@ -186,28 +115,28 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // クリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Enable debug mode.
-      // Only display the axes icon.
+      // デバッグモードを有効にする
+      // 軸アイコンのみを表示
       debugMode(AXES);
 
-      describe('A multicolor box on a gray background. A grid and axes icon are displayed near the box.');
+      describe('グレーの背景に多色のボックス。ボックスの近くにグリッドと軸アイコンが表示されています。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスで軌道制御を有効にする
       orbitControl();
 
-      // Style the box.
+      // ボックスのスタイルを設定
       normalMaterial();
 
-      // Draw the box.
+      // ボックスを描画
       box(20, 40);
     }
     </code>
@@ -215,31 +144,31 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // クリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Enable debug mode.
-      // Only display the grid and customize it:
-      // - size: 50
-      // - divisions: 10
-      // - offsets: 0, 20, 0
+      // デバッグモードを有効にする
+      // グリッドのみを表示し、カスタマイズする：
+      // - サイズ: 50
+      // - 分割数: 10
+      // - オフセット: 0, 20, 0
       debugMode(GRID, 50, 10, 0, 20, 0);
 
-      describe('A multicolor box on a gray background. A grid is displayed below the box.');
+      describe('グレーの背景に多色のボックス。ボックスの下にグリッドが表示されています。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスで軌道制御を有効にする
       orbitControl();
 
-      // Style the box.
+      // ボックスのスタイルを設定
       normalMaterial();
 
-      // Draw the box.
+      // ボックスを描画
       box(20, 40);
     }
     </code>
@@ -247,37 +176,37 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // クリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Enable debug mode.
-      // Display the grid and axes icon and customize them:
-      // Grid
+      // デバッグモードを有効にする
+      // グリッドと軸アイコンを表示し、カスタマイズする：
+      // グリッド
+      // --------
+      // - サイズ: 50
+      // - 分割数: 10
+      // - オフセット: 0, 20, 0
+      // 軸
       // ----
-      // - size: 50
-      // - divisions: 10
-      // - offsets: 0, 20, 0
-      // Axes
-      // ----
-      // - size: 50
-      // - offsets: 0, 0, 0
+      // - サイズ: 50
+      // - オフセット: 0, 0, 0
       debugMode(50, 10, 0, 20, 0, 50, 0, 0, 0);
 
-      describe('A multicolor box on a gray background. A grid is displayed below the box. An axes icon is displayed at the center of the box.');
+      describe('グレーの背景に多色のボックス。ボックスの下にグリッドが表示されています。軸アイコンがボックスの中心に表示されています。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスで軌道制御を有効にする
       orbitControl();
 
-      // Style the box.
+      // ボックスのスタイルを設定
       normalMaterial();
 
-      // Draw the box.
+      // ボックスを描画
       box(20, 40);
     }
     </code>
@@ -290,7 +219,7 @@ overloads:
     params:
       - name: mode
         description: |
-          <p>either GRID or AXES</p>
+          <p>GRIDまたはAXES</p>
         type: Constant
   - line: 655
     params:
@@ -299,27 +228,27 @@ overloads:
         type: Constant
       - name: gridSize
         description: |
-          <p>side length of the grid.</p>
+          <p>グリッドの一辺の長さ。</p>
         type: Number
         optional: true
       - name: gridDivisions
         description: |
-          <p>number of divisions in the grid.</p>
+          <p>グリッドの分割数。</p>
         type: Number
         optional: true
       - name: xOff
         description: |
-          <p>offset from origin along the x-axis.</p>
+          <p>x軸に沿った原点からのオフセット。</p>
         type: Number
         optional: true
       - name: yOff
         description: |
-          <p>offset from origin along the y-axis.</p>
+          <p>y軸に沿った原点からのオフセット。</p>
         type: Number
         optional: true
       - name: zOff
         description: |
-          <p>offset from origin along the z-axis.</p>
+          <p>z軸に沿った原点からのオフセット。</p>
         type: Number
         optional: true
   - line: 665
@@ -329,7 +258,7 @@ overloads:
         type: Constant
       - name: axesSize
         description: |
-          <p>length of axes icon markers.</p>
+          <p>軸アイコンマーカーの長さ。</p>
         type: Number
         optional: true
       - name: xOff
@@ -356,17 +285,17 @@ overloads:
         optional: true
       - name: gridXOff
         description: |
-          <p>grid offset from the origin along the x-axis.</p>
+          <p>x軸に沿った原点からのグリッドのオフセット。</p>
         type: Number
         optional: true
       - name: gridYOff
         description: |
-          <p>grid offset from the origin along the y-axis.</p>
+          <p>y軸に沿った原点からのグリッドのオフセット。</p>
         type: Number
         optional: true
       - name: gridZOff
         description: |
-          <p>grid offset from the origin along the z-axis.</p>
+          <p>z軸に沿った原点からのグリッドのオフセット。</p>
         type: Number
         optional: true
       - name: axesSize
@@ -375,17 +304,17 @@ overloads:
         optional: true
       - name: axesXOff
         description: |
-          <p>axes icon offset from the origin along the x-axis.</p>
+          <p>x軸に沿った原点からの軸アイコンのオフセット。</p>
         type: Number
         optional: true
       - name: axesYOff
         description: |
-          <p>axes icon offset from the origin along the y-axis.</p>
+          <p>y軸に沿った原点からの軸アイコンのオフセット。</p>
         type: Number
         optional: true
       - name: axesZOff
         description: |
-          <p>axes icon offset from the origin along the z-axis.</p>
+          <p>z軸に沿った原点からの軸アイコンのオフセット。</p>
         type: Number
         optional: true
 chainable: false
@@ -393,3 +322,4 @@ chainable: false
 
 
 # debugMode
+

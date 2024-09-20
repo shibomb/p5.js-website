@@ -4,29 +4,18 @@ module: Shape
 submodule: 2D Primitives
 file: src/core/shape/2d_primitives.js
 description: >
-  <p>キャンバスに円を描きます。</p>
+  <p>円を描画します。</p>
 
-  <p>円は丸い形です。円の端のすべての点は、その中心から同じ距離にあります。デフォルトでは、最初の2つのパラメーターは円の中心の位置を設定します。3つ目のパラメーターは形状の幅と高さ（直径）を設定します。<a
-  href="#/p5/ellipseMode">ellipseMode()</a>関数で原点を変更することができます。</p>
+  <p>円は<code>x</code>、<code>y</code>、<code>d</code>パラメータで定義される丸い形状です。
 
+  <code>x</code>と<code>y</code>は円の中心の位置を設定します。
+  <code>d</code>は円の幅と高さ（直径）を設定します。
 
-  <hr/>
+  円の縁上のすべての点は、中心から同じ距離<code>0.5 * d</code>にあります。
 
-  <p>Draws a circle.</p>
+  <code>0.5 * d</code>（直径の半分）が円の半径です。
 
-  <p>A circle is a round shape defined by the <code>x</code>, <code>y</code>,
-  and <code>d</code> parameters.
-
-  <code>x</code> and <code>y</code> set the location of its center.
-  <code>d</code> sets its width and height (diameter).
-
-  Every point on the circle's edge is the same distance, <code>0.5 * d</code>,
-  from its center.
-
-  <code>0.5 * d</code> (half the diameter) is the circle's radius.
-
-  See <a href="/reference/p5/ellipseMode/">ellipseMode()</a> for other ways to
-  set its position.</p>
+  位置を設定する他の方法については、<a href="/reference/p5/ellipseMode/">ellipseMode()</a>を参照してください。</p>
 line: 490
 isConstructor: false
 itemtype: method
@@ -42,7 +31,7 @@ example:
 
       circle(50, 50, 25);
 
-      describe('A white circle with black outline in the middle of a gray canvas.');
+      describe('灰色のキャンバスの中央に黒い輪郭の白い円。');
     }
     </code>
     </div>
@@ -57,7 +46,7 @@ example:
 
       circle(0, 0, 25);
 
-      describe('A white circle with black outline in the middle of a gray canvas.');
+      describe('灰色のキャンバスの中央に黒い輪郭の白い円。');
     }
     </code>
     </div>
@@ -65,18 +54,15 @@ class: p5
 params:
   - name: x
     description: |
-      <p>円の中心の x 座標</p>
-      <p>x-coordinate of the center of the circle.</p>
+      <p>円の中心のx座標。</p>
     type: Number
   - name: 'y'
     description: |
-      <p>円の中心の y 座標</p>
-      <p>y-coordinate of the center of the circle.</p>
+      <p>円の中心のy座標。</p>
     type: Number
   - name: d
     description: |
       <p>円の直径。</p>
-      <p>diameter of the circle.</p>
     type: Number
 chainable: true
 ---

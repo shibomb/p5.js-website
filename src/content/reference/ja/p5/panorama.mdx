@@ -4,18 +4,13 @@ module: 3D
 submodule: Lights
 file: src/webgl/light.js
 description: >
-  <p>Creates an immersive 3D background.</p>
+  <p>没入型の3D背景を作成します。</p>
 
-  <p><code>panorama()</code> transforms images containing 360˚ content, such as
-  maps or
-
-  HDRIs, into immersive 3D backgrounds that surround a sketch. Exploring the
-
-  space requires changing the camera's perspective with functions such as
-
-  <a href="/reference/p5/orbitControl/">orbitControl()</a> or
-
-  <a href="/reference/p5/camera/">camera()</a>.</p>
+  <p><code>panorama()</code>は、地図やHDRIなどの360˚コンテンツを含む画像を、
+  スケッチを取り囲む没入型の3D背景に変換します。空間を探索するには、
+  <a href="/reference/p5/orbitControl/">orbitControl()</a>や
+  <a href="/reference/p5/camera/">camera()</a>などの関数を使用して
+  カメラの視点を変更する必要があります。</p>
 line: 1020
 isConstructor: false
 itemtype: method
@@ -24,11 +19,11 @@ example:
 
     <div class="notest">
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     let img;
 
-    // Load an image and create a p5.Image object.
+    // 画像を読み込み、p5.Imageオブジェクトを作成します。
     function preload() {
       img = loadImage('/assets/outdoor_spheremap.jpg');
     }
@@ -36,26 +31,26 @@ example:
     function setup() {
       createCanvas(100 ,100 ,WEBGL);
 
-      describe('A sphere floating above a landscape. The surface of the sphere reflects the landscape. The full landscape is viewable in 3D as the user drags the mouse.');
+      describe('風景の上に浮かぶ球体。球体の表面には風景が反射しています。ユーザーがマウスをドラッグすると、完全な風景を3Dで見ることができます。');
     }
 
     function draw() {
-      // Add the panorama.
+      // パノラマを追加します。
       panorama(img);
 
-      // Enable orbiting with the mouse.
+      // マウスで軌道制御を有効にします。
       orbitControl();
 
-      // Use the image as a light source.
+      // 画像を光源として使用します。
       imageLight(img);
 
-      // Style the sphere.
+      // 球体のスタイルを設定します。
       noStroke();
       specularMaterial(50);
       shininess(200);
       metalness(100);
 
-      // Draw the sphere.
+      // 球体を描画します。
       sphere(30);
     }
     </code>
@@ -64,10 +59,11 @@ class: p5
 params:
   - name: img
     description: |
-      <p>360˚ image to use as the background.</p>
+      <p>背景として使用する360˚画像。</p>
     type: p5.Image
 chainable: false
 ---
 
 
 # panorama
+

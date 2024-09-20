@@ -4,31 +4,6 @@ module: IO
 submodule: Output
 file: src/core/main.js
 description: >
-  <p><code>p5()</code>
-  コンストラクターを使用すると、「グローバルモード」の代わりに「インスタンスモード」を有効にすることができます。</p>
-
-  <p>これは高度な話題です。以下に簡単な説明と例を示します。詳細については、<a target="blank"
-  href="https://www.youtube.com/watch?v=Su792jEauZg&feature=youtu.be">Dan
-  Shiffman's Coding Train ビデオチュートリアル</a> または <a target="blank"
-  href="https://github.com/processing/p5.js/wiki/p5.js-overview#instantiation--namespace">チュートリアルページ</a>
-  を参照してください。</p>
-
-  <p>デフォルトでは、すべての p5.js 関数はグローバル名前空間（つまり、window
-  オブジェクトにバインド）にあります。これは、<code>ellipse()</code>、<code>fill()</code>
-  などの関数を単純に呼び出すことができます。ただし、他の JS
-  ライブラリと混ぜて使っている場合（同期的または非同期的に）、または独自の長いプログラムを書いている場合、これは不便になるかもしれません。現在、p5.js
-  では、この問題を回避するための「インスタンスモード」という方法をサポートしています。インスタンスモードでは、すべての p5
-  関数が単一の変数にバインドされ、グローバル名前空間を汚染しません。</p>
-
-  <p>オプションで、キャンバスやその他の要素に追加するデフォルトのコンテナを、2番目の引数で指定できます。html 内の要素の ID、または html
-  ノード自体を指定できます。</p>
-
-  <p>このようにインスタンスを作成することで、各々が独自のセットアップ変数でラップされるため、ひとつの Web ページに複数の p5
-  スケッチをもつことができることに注意してください。もちろん、グローバルモードで複数のスケッチをもつために、iframes を使うこともできます。</p>
-
-
-  <hr/>
-
   <p>This is the p5 instance constructor.</p>
 
   <p>A p5 instance holds all the properties and methods related to

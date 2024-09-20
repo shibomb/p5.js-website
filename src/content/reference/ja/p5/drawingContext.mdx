@@ -4,34 +4,13 @@ module: Rendering
 submodule: Rendering
 file: src/core/rendering.js
 description: >
-  <p>p5.js API にはグラフィックを作成するための多くの機能がありますが、p5 では公開されていないネイティブの HTML5 Canvas
-  機能があります。</p>
+  <p>スケッチの<code><canvas></code>要素に直接アクセスできるシステム変数です。</p>
 
-  <p>ただし、変数 <code>drawingContext</code> を使用して直接呼び出すことができます。これは
-  <code>canvas.getContext('2d');</code> または
-  <code>canvas.getContext('webgl');</code> を呼び出すのと同等です。可能な描画関数については、ネイティブキャンバス
-  API の <a
-  href="https://developer.mozilla.org/ja/docs/Web/API/CanvasRenderingContext2D">リファレンス</a>
-  を参照してください。</p>
-
-
-  <hr/>
-
-  <p>A system variable that provides direct access to the sketch's
-
-  <code><canvas></code> element.</p>
-
-  <p>The <code><canvas></code> element provides many specialized features that
-  aren't
-
-  included in the p5.js library. The <code>drawingContext</code> system variable
-
-  provides access to these features by exposing the sketch's
-
+  <p><code><canvas></code>要素は、p5.jsライブラリに含まれていない多くの特殊機能を提供します。
+  <code>drawingContext</code>システム変数は、スケッチの
   <a
   href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/">CanvasRenderingContext2D</a>
-
-  object.</p>
+  オブジェクトを公開することで、これらの機能へのアクセスを提供します。</p>
 line: 1196
 isConstructor: false
 itemtype: property
@@ -45,16 +24,16 @@ example:
 
       background(200);
 
-      // Style the circle using shadows.
+      // 影を使って円のスタイルを設定します。
       drawingContext.shadowOffsetX = 5;
       drawingContext.shadowOffsetY = -5;
       drawingContext.shadowBlur = 10;
       drawingContext.shadowColor = 'black';
 
-      // Draw the circle.
+      // 円を描画します。
       circle(50, 50, 40);
 
-      describe("A white circle on a gray background. The circle's edges are shadowy.");
+      describe("灰色の背景に白い円。円の縁は影がついています。");
     }
     </code>
     </div>
@@ -66,7 +45,7 @@ example:
 
       background('skyblue');
 
-      // Style the circle using a color gradient.
+      // カラーグラデーションを使って円のスタイルを設定します。
       let myGradient = drawingContext.createRadialGradient(50, 50, 3, 50, 50, 40);
       myGradient.addColorStop(0, 'yellow');
       myGradient.addColorStop(0.6, 'orangered');
@@ -74,10 +53,10 @@ example:
       drawingContext.fillStyle = myGradient;
       drawingContext.strokeStyle = 'rgba(0, 0, 0, 0)';
 
-      // Draw the circle.
+      // 円を描画します。
       circle(50, 50, 40);
 
-      describe('A fiery sun drawn on a light blue background.');
+      describe('薄い青色の背景に描かれた炎のような太陽。');
     }
     </code>
     </div>
@@ -86,3 +65,4 @@ class: p5
 
 
 # drawingContext
+

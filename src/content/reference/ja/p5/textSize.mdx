@@ -3,35 +3,11 @@ title: textSize
 module: Typography
 submodule: Attributes
 file: src/typography/attributes.js
-description: >-
-  <p>現在のフォントサイズを設定/取得します。</p>
-
-  <p>このサイズは、以降の <a href="#/p5/text">text()</a>
-  関数の呼び出しで使用されます。フォントサイズはピクセル単位で測定されます。</p>
-
-
-  <hr/>
-
-  <p>Sets the font size when
-
-  <a href="/reference/p5/text/">text()</a> is called.</p>
-
-  <p>Note: Font size is measured in pixels.</p>
-
-  <p>Calling <code>textSize()</code> without an arugment returns the current
-  size.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "size": "Number: 文字のサイズ（ピクセル単位）"
-  }
-
-  </pre>
-line: 151
+description: |
+  <p>現在のフォントのサイズをピクセル単位で設定します。</p>
+  <p>このサイズは、text() 関数で描画されるすべてのテキストに使用されます。
+  フォントサイズは、ベースラインから文字の最上部までの距離として測定されます。</p>
+line: 506
 isConstructor: false
 itemtype: method
 example:
@@ -39,43 +15,23 @@ example:
 
     <div>
     <code>
-    function setup() {
-      createCanvas(100, 100);
-
-      background(200);
-
-      // Top.
-      textSize(12);
-      text('Font Size 12', 10, 30);
-
-      // Middle.
-      textSize(14);
-      text('Font Size 14', 10, 60);
-
-      // Bottom.
-      textSize(16);
-      text('Font Size 16', 10, 90);
-
-      describe('The text "Font Size 12" drawn small, "Font Size 14" drawn medium, and "Font Size 16" drawn large.');
-    }
+    background(200);
+    textSize(12);
+    text('Font Size 12', 10, 30);
+    textSize(14);
+    text('Font Size 14', 10, 60);
+    textSize(16);
+    text('Font Size 16', 10, 90);
+    describe('3行のテキストが表示されています。各行のフォントサイズが徐々に大きくなっています。');
     </code>
     </div>
 class: p5
-overloads:
-  - line: 151
-    params:
-      - name: size
-        description: |
-          <p>size of the letters in units of pixels.</p>
-        type: Number
-    chainable: 1
-  - line: 188
-    params: []
-    return:
-      description: ''
-      type: Number
+params:
+  - name: size
+    description: |
+      <p>テキストのサイズ（ピクセル単位）</p>
+    type: Number
 chainable: true
 ---
-
 
 # textSize

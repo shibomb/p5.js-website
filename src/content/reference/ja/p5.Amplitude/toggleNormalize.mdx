@@ -3,25 +3,14 @@ title: toggleNormalize
 module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
-description: >
-  <p>Amplitude.process() の結果を正規化するかどうかを切り替えます。</p>
-
-  <p>正規化を行う場合、Amplitude は処理した中で最も大きな音の読み取り値と1.0の最大振幅の差を見つけます。Amplitude
-  は、この差をすべての値に加算して、常に0.0〜1.0 の範囲で信頼できる結果を生成します。ただし、より大きなボリュームの瞬間が発生すると、Normalize
-  がすべての値に追加する量が変化します。真偽値パラメーター (true または false)
-  を受け取ります。デフォルトでは、正規化はオフになっています。</p>
-
-
-  <hr/>
-
-  <p>Determines whether the results of Amplitude.process() will be
-  Normalized. To normalize, Amplitude finds the difference the
-  loudest reading it has processed and the maximum amplitude of
-  1.0. Amplitude adds this difference to all values to produce
-  results that will reliably map between 0.0 and 1.0. However,
-  if a louder moment occurs, the amount that Normalize adds to
-  all the values will change. Accepts an optional boolean parameter
-  (true or false). Normalizing is off by default.</p>
+description: |
+  <p>Amplitude.process()の結果を正規化するかどうかを決定します。
+  正規化するために、Amplitudeは処理した中で最も大きな値と
+  最大振幅1.0との差を見つけます。Amplitudeはこの差をすべての値に
+  加えて、確実に0.0から1.0の間にマッピングされる結果を生成します。
+  ただし、より大きな音が発生した場合、正規化によって全ての値に
+  加えられる量が変化します。オプションでブール値のパラメータ
+  （trueまたはfalse）を受け付けます。デフォルトでは正規化はオフです。</p>
 line: 3264
 isConstructor: false
 itemtype: method
@@ -29,8 +18,7 @@ class: p5.Amplitude
 params:
   - name: boolean
     description: |
-      <p>(オプション) 正規化を true(1)または false(0)に設定します。</p>
-      <p>set normalize to true (1) or false (0)</p>
+      <p>正規化をtrue（1）またはfalse（0）に設定します</p>
     type: Boolean
     optional: true
 chainable: false

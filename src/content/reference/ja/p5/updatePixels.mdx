@@ -4,31 +4,9 @@ module: Image
 submodule: Pixels
 file: src/image/pixels.js
 description: >
-  <p>画面に <a href="#/p5/pixels">pixels[]</a> 配列のデータを更新します。</p>
+  <p><a href="/reference/p5/pixels/">pixels</a>配列内のRGBA値でキャンバスを更新します。</p>
 
-  <p><a href="#/p5/loadPixels">loadPixels()</a>
-  と併用して使用してください。配列からピクセルを読み取るだけであれば、<a
-  href="#/p5/updatePixels">updatePixels()</a> を呼び出す必要はありません。更新は変更を適用する場合にのみ必要です。
-  <a href="#/p5/updatePixels">updatePixels()</a> は、pixels 配列が操作されるたび、または <a
-  href="#/p5/set">set()</a> が呼び出されるたびに呼び出されるべきであり、<a href="#/p5/set">set()</a>
-  で行われた変更や <a href="#/p5/pixels">pixels[]</a> への直接の変更のみが発生します。</p>
-
-  <hr/>
-
-  <p>Updates the canvas with the RGBA values in the
-
-  <a href="/reference/p5/pixels/">pixels</a> array.</p>
-
-  <p><code>updatePixels()</code> only needs to be called after changing values
-  in the
-
-  <a href="/reference/p5/pixels/">pixels</a> array. Such changes can be made
-  directly
-
-  after calling <a href="/reference/p5/loadPixels/">loadPixels()</a> or by
-  calling
-
-  <a href="/reference/p5/set/">set()</a>.</p>
+  <p><code>updatePixels()</code>は、<a href="/reference/p5/pixels/">pixels</a>配列の値を変更した後にのみ呼び出す必要があります。このような変更は、<a href="/reference/p5/loadPixels/">loadPixels()</a>を呼び出した直後、または<a href="/reference/p5/set/">set()</a>を呼び出すことで行うことができます。</p>
 line: 1118
 isConstructor: false
 itemtype: method
@@ -39,7 +17,7 @@ example:
     <code>
     let img;
 
-    // Load the image.
+    // 画像を読み込む
     function preload() {
       img = loadImage('/assets/rockies.jpg');
     }
@@ -47,27 +25,27 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Display the image.
+      // 画像を表示
       image(img, 0, 0, 100, 100);
 
-      // Get the pixel density.
+      // ピクセル密度を取得
       let d = pixelDensity();
 
-      // Calculate the halfway index in the pixels array.
+      // pixels配列の半分のインデックスを計算
       let halfImage = 4 * (d * width) * (d * height / 2);
 
-      // Load the pixels array.
+      // pixels配列を読み込む
       loadPixels();
 
-      // Copy the top half of the canvas to the bottom.
+      // キャンバスの上半分を下半分にコピー
       for (let i = 0; i < halfImage; i += 1) {
         pixels[i + halfImage] = pixels[i];
       }
 
-      // Update the canvas.
+      // キャンバスを更新
       updatePixels();
 
-      describe('Two identical images of mountain landscapes, one on top of the other.');
+      describe('2つの同一の山岳風景画像が、上下に重なっている。');
     }
     </code>
     </div>
@@ -75,32 +53,25 @@ class: p5
 params:
   - name: x
     description: |
-      <p>(オプション) 更新する領域の左上の x 座標</p>
-      <p>x-coordinate of the upper-left corner of region
-                              to update.</p>
+      <p>更新する領域の左上隅のx座標。</p>
     type: Number
     optional: true
   - name: 'y'
     description: |
-      <p>(オプション) 更新する領域の左上の y 座標</p>
-      <p>y-coordinate of the upper-left corner of region
-                              to update.</p>
+      <p>更新する領域の左上隅のy座標。</p>
     type: Number
     optional: true
   - name: w
     description: |
-      <p>(オプション) 更新する領域の幅</p>
-      <p>width of region to update.</p>
+      <p>更新する領域の幅。</p>
     type: Number
     optional: true
   - name: h
     description: |
-      <p>(オプション) 更新する領域の高さ</p>
-      <p>height of region to update.</p>
+      <p>更新する領域の高さ。</p>
     type: Number
     optional: true
 chainable: false
 ---
-
 
 # updatePixels

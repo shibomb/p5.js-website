@@ -3,14 +3,7 @@ title: nfc
 module: Data
 submodule: String Functions
 file: src/utilities/string_functions.js
-description: >-
-  <p>数値を文字列にフォーマットし、1000の単位を示す適切なカンマを配置するユーティリティ関数。</p>
-
-  <p>整数用のバージョンと整数の配列用のバージョンの2つがあります。right パラメーターの値は常に正の整数である必要があります。</p>
-
-
-  <hr/>
-
+description: >
   <p>Converts a <code>Number</code> into a <code>String</code> with commas to
   mark units of 1,000.</p>
 
@@ -48,19 +41,6 @@ description: >-
 
   <code>nfc(12345.67, 3)</code> returns the string
   <code>'12,345.670'</code>.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "num": "Number|String: フォーマットする数値",
-      "right": "Integer|String: (オプション) 小数点の右の桁数",
-      "nums": "Array: フォーマットする数値"
-  }
-
-  </pre>
 line: 315
 isConstructor: false
 itemtype: method
@@ -132,9 +112,7 @@ example:
     </div>
 class: p5
 return:
-  description: |-
-    フォーマットされた文字列
-    formatted string.
+  description: formatted string.
   type: String
 overloads:
   - line: 315

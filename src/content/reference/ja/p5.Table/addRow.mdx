@@ -4,20 +4,8 @@ module: IO
 submodule: Table
 file: src/io/p5.Table.js
 description: >
-  <p><a href="#/p5.Table">p5.Table</a> オブジェクトに新しいデータ行を追加するには、<a
-  href="#/p5/addRow">addRow()</a> を使用します。</p>
-
-  <p>デフォルトでは、空の行が作成されます。通常、新しい行の参照を TableRow オブジェクトに格納し（上記の newRow を参照）、その後 <a
-  href="#/p5/set">set()</a> を使用して個々の値を設定します。</p>
-
-  <p>パラメーターとして <a href="#/p5.TableRow">p5.TableRow</a>
-  オブジェクトが含まれている場合、その行は複製され、テーブルに追加されます。</p>
-
-
-  <hr/>
-
-  <p>Use <a href="/reference/p5/addRow/">addRow()</a> to add a new row of data to
-  a <a href="/reference/p5/p5.Table/">p5.Table</a> object. By default,
+  <p>Use <a href="/reference/p5/addRow/">addRow()</a> to add a new row of data
+  to a <a href="/reference/p5/p5.Table">p5.Table</a> object. By default,
 
   an empty row is created. Typically, you would store a reference to
 
@@ -26,7 +14,7 @@ description: >
   and then set individual values using <a
   href="/reference/p5/set/">set()</a>.</p>
 
-  <p>If a <a href="/reference/p5/p5.TableRow/">p5.TableRow</a> object is included
+  <p>If a <a href="/reference/p5/p5.TableRow">p5.TableRow</a> object is included
   as a parameter, then that row is
 
   duplicated and added to the table.</p>
@@ -74,14 +62,11 @@ class: p5.Table
 params:
   - name: row
     description: |
-      <p>(オプション) テーブルに追加する行</p>
       <p>row to be added to the table</p>
     type: p5.TableRow
     optional: true
 return:
-  description: |-
-    追加された行
-    the row that was added
+  description: the row that was added
   type: p5.TableRow
 chainable: false
 ---

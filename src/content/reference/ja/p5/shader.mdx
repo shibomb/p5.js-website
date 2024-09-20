@@ -4,94 +4,65 @@ module: 3D
 submodule: Material
 file: src/webgl/material.js
 description: >
-  <p>次に描画される図形に使用される <a href="#/p5.Shader">p5.Shader</a> オブジェクトを設定します。</p>
+  <p>描画時に適用する<a href="/reference/p5/p5.Shader">p5.Shader</a>オブジェクトを設定します。</p>
 
-  <p></p>
-
-  <p>Shaders can alter the positioning of shapes drawn with them. To ensure
-  consistency in rendering, it's recommended to use the vertex shader in the <a
-  href="#/p5/createShader">createShader example</a>. /// todo /// add 1 line</p>
-
-  <p>カスタムシェーダーは、<a href="#/p5/createShader">createShader()</a> および <a
-  href="#/p5/loadShader">loadShader()</a> 関数を使用して作成できます。</p>
-
-  <p>デフォルトのシェーダーを復元するには、<a href="#/p5/resetShader">resetShader()</a>
-  を使用してください。</p>
-
-  <p>注意:シェーダーは WebGL モードでのみ使用できます。</p>
-
-
-  <hr/>
-
-  <p>Sets the <a href="/reference/p5/p5.Shader/">p5.Shader</a> object to apply
-  while drawing.</p>
-
-  <p>Shaders are programs that run on the graphics processing unit (GPU). They
-
-  can process many pixels or vertices at the same time, making them fast for
-
-  many graphics tasks. They’re written in a language called
+  <p>シェーダーはグラフィックス処理ユニット（GPU）上で実行されるプログラムです。多くのピクセルや頂点を同時に処理できるため、多くのグラフィックスタスクに対して高速です。シェーダーは
 
   <a
   href="https://developer.mozilla.org/en-US/docs/Games/Techniques/3D_on_the_web/GLSL_Shaders/"
   target="_blank">GLSL</a>
 
-  and run along with the rest of the code in a sketch.
+  という言語で書かれ、スケッチの他のコードと一緒に実行されます。
 
-  <a href="/reference/p5/p5.Shader">p5.Shader</a> objects can be created using
-  the
+  <a href="/reference/p5/p5.Shader">p5.Shader</a>オブジェクトは
 
-  <a href="/reference/p5/createShader/">createShader()</a> and
+  <a href="/reference/p5/createShader/">createShader()</a>および
 
-  <a href="/reference/p5/loadShader/">loadShader()</a> functions.</p>
+  <a href="/reference/p5/loadShader/">loadShader()</a>関数を使用して作成できます。</p>
 
-  <p>The parameter, <code>s</code>, is the <a
-  href="/reference/p5/p5.Shader">p5.Shader</a> object to
+  <p>パラメータ<code>s</code>は、適用する<a
+  href="/reference/p5/p5.Shader">p5.Shader</a>オブジェクトです。
 
-  apply. For example, calling <code>shader(myShader)</code> applies
-  <code>myShader</code> to
+  例えば、<code>shader(myShader)</code>を呼び出すと、<code>myShader</code>がキャンバス上の
 
-  process each pixel on the canvas. The shader will be used for:</p>
+  各ピクセルを処理するために適用されます。シェーダーは以下の場合に使用されます：</p>
 
   <ul>
 
-  <li>Fills when a texture is enabled if it includes a uniform
-  <code>sampler2D</code>.</li>
+  <li>uniform <code>sampler2D</code>を含む場合、テクスチャが有効な時の塗りつぶし。</li>
 
-  <li>Fills when lights are enabled if it includes the attribute
-  <code>aNormal</code>, or if it has any of the following uniforms:
-  <code>uUseLighting</code>, <code>uAmbientLightCount</code>,
-  <code>uDirectionalLightCount</code>, <code>uPointLightCount</code>,
-  <code>uAmbientColor</code>, <code>uDirectionalDiffuseColors</code>,
-  <code>uDirectionalSpecularColors</code>, <code>uPointLightLocation</code>,
-  <code>uPointLightDiffuseColors</code>, <code>uPointLightSpecularColors</code>,
-  <code>uLightingDirection</code>, or <code>uSpecular</code>.</li>
+  <li>attribute <code>aNormal</code>を含む場合、またはuniform <code>uUseLighting</code>、<code>uAmbientLightCount</code>、
+  <code>uDirectionalLightCount</code>、<code>uPointLightCount</code>、
+  <code>uAmbientColor</code>、<code>uDirectionalDiffuseColors</code>、
+  <code>uDirectionalSpecularColors</code>、<code>uPointLightLocation</code>、
+  <code>uPointLightDiffuseColors</code>、<code>uPointLightSpecularColors</code>、
+  <code>uLightingDirection</code>、または<code>uSpecular</code>のいずれかを含む場合、ライトが有効な時の塗りつぶし。</li>
 
-  <li>Fills whenever there are no lights or textures.</li>
+  <li>ライトやテクスチャがない場合の塗りつぶし。</li>
 
-  <li>Strokes if it includes the uniform <code>uStrokeWeight</code>.</li>
+  <li>uniform <code>uStrokeWeight</code>を含む場合のストローク。</li>
 
   </ul>
 
-  <p>The source code from a <a href="/reference/p5/p5.Shader/">p5.Shader</a>
-  object's
+  <p><a href="/reference/p5/p5.Shader">p5.Shader</a>オブジェクトの
 
-  fragment and vertex shaders will be compiled the first time it's passed to
+  フラグメントシェーダーと頂点シェーダーのソースコードは、初めて
 
-  <code>shader()</code>. See
+  <code>shader()</code>に渡されたときにコンパイルされます。
+
+  シェーダーのコンパイルについての詳細は
 
   <a
-  href="https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/compileShader"
+  href="https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/compileShader/"
   target="_blank">MDN</a>
 
-  for more information about compiling shaders.</p>
+  を参照してください。</p>
 
-  <p>Calling <a href="/reference/p5/resetShader/">resetShader()</a> restores a
-  sketch’s
+  <p><a href="/reference/p5/resetShader/">resetShader()</a>を呼び出すと、スケッチの
 
-  default shaders.</p>
+  デフォルトシェーダーが復元されます。</p>
 
-  <p>Note: Shaders can only be used in WebGL mode.</p>
+  <p>注意：シェーダーはWebGLモードでのみ使用できます。</p>
 line: 571
 isConstructor: false
 itemtype: method
@@ -100,10 +71,10 @@ example:
 
     <div modernizr='webgl'>
     <code>
-    // Note: A "uniform" is a global variable within a shader program.
+    // 注意：「uniform」はシェーダープログラム内のグローバル変数です。
 
-    // Create a string with the vertex shader program.
-    // The vertex shader is called for each vertex.
+    // 頂点シェーダープログラムを含む文字列を作成します。
+    // 頂点シェーダーは各頂点に対して呼び出されます。
     let vertSrc = `
     precision highp float;
     uniform mat4 uModelViewMatrix;
@@ -120,13 +91,13 @@ example:
     }
     `;
 
-    // Create a string with the fragment shader program.
-    // The fragment shader is called for each pixel.
+    // フラグメントシェーダープログラムを含む文字列を作成します。
+    // フラグメントシェーダーは各ピクセルに対して呼び出されます。
     let fragSrc = `
     precision highp float;
 
     void main() {
-      // Set each pixel's RGBA value to yellow.
+      // 各ピクセルのRGBA値を黄色に設定します。
       gl_FragColor = vec4(1.0, 1.0, 0.0, 1.0);
     }
     `;
@@ -134,30 +105,30 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Shader object.
+      // p5.Shaderオブジェクトを作成します。
       let shaderProgram = createShader(vertSrc, fragSrc);
 
-      // Apply the p5.Shader object.
+      // p5.Shaderオブジェクトを適用します。
       shader(shaderProgram);
 
-      // Style the drawing surface.
+      // 描画面のスタイルを設定します。
       noStroke();
 
-      // Add a plane as a drawing surface.
+      // 描画面として平面を追加します。
       plane(100, 100);
 
-      describe('A yellow square.');
+      describe('黄色の正方形。');
     }
     </code>
     </div>
 
     <div>
     <code>
-    // Note: A "uniform" is a global variable within a shader program.
+    // 注意：「uniform」はシェーダープログラム内のグローバル変数です。
 
     let mandelbrot;
 
-    // Load the shader and create a p5.Shader object.
+    // シェーダーを読み込み、p5.Shaderオブジェクトを作成します。
     function preload() {
       mandelbrot = loadShader('/assets/shader.vert', '/assets/shader.frag');
     }
@@ -165,20 +136,20 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Use the p5.Shader object.
+      // p5.Shaderオブジェクトを使用します。
       shader(mandelbrot);
 
-      // Set the shader uniform p to an array.
+      // シェーダーのuniform pを配列に設定します。
       mandelbrot.setUniform('p', [-0.74364388703, 0.13182590421]);
 
-      describe('A fractal image zooms in and out of focus.');
+      describe('フラクタル画像がズームインとズームアウトを繰り返します。');
     }
 
     function draw() {
-      // Set the shader uniform r to a value that oscillates between 0 and 2.
+      // シェーダーのuniform rを0から2の間で振動する値に設定します。
       mandelbrot.setUniform('r', sin(frameCount * 0.01) + 1);
 
-      // Add a quad as a display surface for the shader.
+      // シェーダーの表示面として四角形を追加します。
       quad(-1, -1, 1, -1, 1, 1, -1, 1);
     }
     </code>
@@ -186,13 +157,13 @@ example:
 
     <div>
     <code>
-    // Note: A "uniform" is a global variable within a shader program.
+    // 注意：「uniform」はシェーダープログラム内のグローバル変数です。
 
     let redGreen;
     let orangeBlue;
     let showRedGreen = false;
 
-    // Load the shader and create two separate p5.Shader objects.
+    // シェーダーを読み込み、2つの別々のp5.Shaderオブジェクトを作成します。
     function preload() {
       redGreen = loadShader('/assets/shader.vert', '/assets/shader-gradient.frag');
       orangeBlue = loadShader('/assets/shader.vert', '/assets/shader-gradient.frag');
@@ -201,29 +172,29 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Initialize the redGreen shader.
+      // redGreenシェーダーを初期化します。
       shader(redGreen);
 
-      // Set the redGreen shader's center and background color.
+      // redGreenシェーダーの中心色と背景色を設定します。
       redGreen.setUniform('colorCenter', [1.0, 0.0, 0.0]);
       redGreen.setUniform('colorBackground', [0.0, 1.0, 0.0]);
 
-      // Initialize the orangeBlue shader.
+      // orangeBlueシェーダーを初期化します。
       shader(orangeBlue);
 
-      // Set the orangeBlue shader's center and background color.
+      // orangeBlueシェーダーの中心色と背景色を設定します。
       orangeBlue.setUniform('colorCenter', [1.0, 0.5, 0.0]);
       orangeBlue.setUniform('colorBackground', [0.226, 0.0, 0.615]);
 
       describe(
-        'The scene toggles between two circular gradients when the user double-clicks. An orange and blue gradient vertically, and red and green gradient moves horizontally.'
+        'ユーザーがダブルクリックすると、2つの円形グラデーションが切り替わります。オレンジと青のグラデーションが垂直に、赤と緑のグラデーションが水平に動きます。'
       );
     }
 
     function draw() {
-      // Update the offset values for each shader.
-      // Move orangeBlue vertically.
-      // Move redGreen horizontally.
+      // 各シェーダーのオフセット値を更新します。
+      // orangeBlueを垂直に動かします。
+      // redGreenを水平に動かします。
       orangeBlue.setUniform('offset', [0, sin(frameCount * 0.01) + 1]);
       redGreen.setUniform('offset', [sin(frameCount * 0.01), 1]);
 
@@ -233,14 +204,14 @@ example:
         shader(orangeBlue);
       }
 
-      // Style the drawing surface.
+      // 描画面のスタイルを設定します。
       noStroke();
 
-      // Add a quad as a drawing surface.
+      // 描画面として四角形を追加します。
       quad(-1, -1, 1, -1, 1, 1, -1, 1);
     }
 
-    // Toggle between shaders when the user double-clicks.
+    // ユーザーがダブルクリックしたときにシェーダーを切り替えます。
     function doubleClicked() {
       showRedGreen = !showRedGreen;
     }
@@ -250,12 +221,11 @@ class: p5
 params:
   - name: s
     description: |
-      <p>図形の描画に使用する <a href="#/p5.Shader">p5.Shader</a> オブジェクト。</p>
-      <p><a href="#/p5.Shader">p5.Shader</a> object
-                           to apply.</p>
+      <p>適用する<a href="#/p5.Shader">p5.Shader</a>オブジェクト。</p>
     type: p5.Shader
 chainable: true
 ---
 
 
 # shader
+

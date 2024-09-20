@@ -4,10 +4,6 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
-  <p>現在の attack を取得するか、時間ランプを使用して値を設定します。</p>
-  <p></p>
-
-  <hr/>
   <p>Get current attack or set value w/ time ramp</p>
 line: 10152
 isConstructor: false
@@ -16,14 +12,12 @@ class: p5.Compressor
 params:
   - name: attack
     description: |
-      <p>(オプション) ゲインを10 dB 減少させる時間（秒単位）、デフォルトは.003、範囲は0-1</p>
       <p>Attack is the amount of time (in seconds) to reduce the gain by 10dB,
                                default = .003, range 0 - 1</p>
     type: Number
     optional: true
   - name: time
     description: |
-      <p>(オプション) 値の変更をスケジュールするための時間値を指定します。</p>
       <p>Assign time value to schedule the change in value</p>
     type: Number
     optional: true

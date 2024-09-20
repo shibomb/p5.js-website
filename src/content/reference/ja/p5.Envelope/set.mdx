@@ -4,10 +4,6 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
-  <p>一連の時間/値ペアでエンベロープをリセットします。</p>
-  <p></p>
-
-  <hr/>
   <p>Reset the envelope with a series of time/value pairs.</p>
 line: 4833
 isConstructor: false
@@ -52,35 +48,29 @@ class: p5.Envelope
 params:
   - name: attackTime
     description: |
-      <p>攻撃レベルに到達するまでの時間（秒単位）</p>
       <p>Time (in seconds) before level
                                      reaches attackLevel</p>
     type: Number
   - name: attackLevel
     description: |
-      <p>0.0から1.0の範囲内の通常の振幅</p>
       <p>Typically an amplitude between
                                      0.0 and 1.0</p>
     type: Number
   - name: decayTime
     description: |
-      <p>時間</p>
       <p>Time</p>
     type: Number
   - name: decayLevel
     description: |
-      <p>振幅（標準的な ADSR エンベロープの場合、decayLevel = sustainLevel）</p>
       <p>Amplitude (In a standard ADSR envelope,
                                      decayLevel = sustainLevel)</p>
     type: Number
   - name: releaseTime
     description: |
-      <p>リリース時間（秒単位）</p>
       <p>Release Time (in seconds)</p>
     type: Number
   - name: releaseLevel
     description: |
-      <p>振幅</p>
       <p>Amplitude</p>
     type: Number
 chainable: false

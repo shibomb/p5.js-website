@@ -4,32 +4,17 @@ module: Shape
 submodule: 3D Models
 file: src/webgl/loading.js
 description: >
-  <p>3D モデルを画面にレンダリングします。</p>
+  <p><a href="/reference/p5/p5.Geometry">p5.Geometry</a>オブジェクトをキャンバスに描画します。</p>
 
-  <p></p>
+  <p>パラメータ<code>model</code>は、描画する<a href="/reference/p5/p5.Geometry">p5.Geometry</a>オブジェクトです。
 
+  <a href="/reference/p5/p5.Geometry">p5.Geometry</a>オブジェクトは、<a href="/reference/p5/buildGeometry/">buildGeometry()</a>や
 
-  <hr/>
+  <a href="/reference/p5/beginGeometry/">beginGeometry()</a>と<a href="/reference/p5/endGeometry/">endGeometry()</a>で作成できます。また、
 
-  <p>Draws a <a href="/reference/p5/p5.Geometry/">p5.Geometry</a> object to the
-  canvas.</p>
+  <a href="/reference/p5/loadGeometry/">loadGeometry()</a>でファイルから読み込むこともできます。</p>
 
-  <p>The parameter, <code>model</code>, is the
-
-  <a href="/reference/p5/p5.Geometry">p5.Geometry</a> object to draw.
-
-  <a href="/reference/p5/p5.Geometry">p5.Geometry</a> objects can be built with
-
-  <a href="/reference/p5/buildGeometry/">buildGeometry()</a>, or
-
-  <a href="/reference/p5/beginGeometry/">beginGeometry()</a> and
-
-  <a href="/reference/p5/endGeometry/">endGeometry()</a>. They can also be
-  loaded from
-
-  a file with <a href="/reference/p5/loadGeometry/">loadGeometry()</a>.</p>
-
-  <p>Note: <code>model()</code> can only be used in WebGL mode.</p>
+  <p>注意: <code>model()</code>はWebGLモードでのみ使用できます。</p>
 line: 986
 isConstructor: false
 itemtype: method
@@ -38,30 +23,30 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、シーンを異なる角度から見ることができます。
 
     let shape;
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create the p5.Geometry object.
+      // p5.Geometryオブジェクトを作成します。
       shape = buildGeometry(createShape);
 
-      describe('A white cone drawn on a gray background.');
+      describe('灰色の背景に描かれた白い円錐。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでのオービットを有効にします。
       orbitControl();
 
-      // Draw the p5.Geometry object.
+      // p5.Geometryオブジェクトを描画します。
       model(shape);
     }
 
-    // Create p5.Geometry object from a single cone.
+    // 単一の円錐からp5.Geometryオブジェクトを作成します。
     function createShape() {
       cone();
     }
@@ -70,44 +55,44 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、シーンを異なる角度から見ることができます。
 
     let shape;
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create the p5.Geometry object.
+      // p5.Geometryオブジェクトを作成します。
       shape = buildGeometry(createArrow);
 
-      describe('Two white arrows drawn on a gray background. The arrow on the right rotates slowly.');
+      describe('灰色の背景に描かれた2つの白い矢印。右側の矢印はゆっくりと回転します。');
     }
 
     function draw() {
       background(50);
 
-      // Enable orbiting with the mouse.
+      // マウスでのオービットを有効にします。
       orbitControl();
 
-      // Turn on the lights.
+      // ライトをオンにします。
       lights();
 
-      // Style the arrows.
+      // 矢印のスタイルを設定します。
       noStroke();
 
-      // Draw the p5.Geometry object.
+      // p5.Geometryオブジェクトを描画します。
       model(shape);
 
-      // Translate and rotate the coordinate system.
+      // 座標系を移動および回転させます。
       translate(30, 0, 0);
       rotateZ(frameCount * 0.01);
 
-      // Draw the p5.Geometry object again.
+      // p5.Geometryオブジェクトを再度描画します。
       model(shape);
     }
 
     function createArrow() {
-      // Add shapes to the p5.Geometry object.
+      // p5.Geometryオブジェクトに形状を追加します。
       push();
       rotateX(PI);
       cone(10);
@@ -120,11 +105,11 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、シーンを異なる角度から見ることができます。
 
     let shape;
 
-    // Load the file and create a p5.Geometry object.
+    // ファイルを読み込み、p5.Geometryオブジェクトを作成します。
     function preload() {
       shape = loadModel('/assets/octahedron.obj');
     }
@@ -132,16 +117,16 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white octahedron drawn against a gray background.');
+      describe('灰色の背景に描かれた白い八面体。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでのオービットを有効にします。
       orbitControl();
 
-      // Draw the shape.
+      // 形状を描画します。
       model(shape);
     }
     </code>
@@ -150,8 +135,7 @@ class: p5
 params:
   - name: model
     description: |
-      <p>レンダリングされるロード済みの 3D モデル</p>
-      <p>3D shape to be drawn.</p>
+      <p>描画する3D形状。</p>
     type: p5.Geometry
 chainable: false
 ---

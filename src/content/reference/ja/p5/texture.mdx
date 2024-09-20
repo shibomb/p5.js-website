@@ -4,57 +4,42 @@ module: 3D
 submodule: Material
 file: src/webgl/material.js
 description: >
-  <p>これ以降に描画される図形に使用されるテクスチャを設定します。</p>
+  <p>形状に適用されるテクスチャを設定します。</p>
 
-  <p></p>
+  <p>テクスチャは形状を包む皮のようなものです。<code>texture()</code>は
 
-  <p>テクスチャは、3D ジオメトリを覆う「皮膚」のようなものです。現在サポートされているテクスチャは画像、ビデオ、オフスクリーンレンダリングです。</p>
+  <a href="/reference/p5/square/">square()</a>や
 
-  <p><a href="#/p5/beginShape">beginShape()</a> で作成されたジオメトリにテクスチャを適用するには、<a
-  href="#/p5/vertex">vertex()</a> で uv 座標を指定する必要があります。</p>
+  <a href="/reference/p5/sphere/">sphere()</a>などの組み込み形状や、
 
-  <p>なお、texture() は WebGL モードでのみ使用できます。</p>
+  <a href="/reference/p5/buildGeometry/">buildGeometry()</a>などの関数で
 
-  <p>この <a href="/examples/3d-materials.html">例</a> でさらに多くのマテリアルを見ることができます。</p>
+  作成されたカスタム形状で動作します。
 
+  <a href="/reference/p5/beginShape/">beginShape()</a>で作成されたジオメトリに
 
-  <hr/>
+  テクスチャを適用するには、各
 
-  <p>Sets the texture that will be used on shapes.</p>
+  <a href="/reference/p5/vertex/">vertex()</a>呼び出しにuvコーディネートを
 
-  <p>A texture is like a skin that wraps around a shape. <code>texture()</code>
-  works with
+  渡す必要があります。</p>
 
-  built-in shapes, such as <a href="/reference/p5/square/">square()</a> and
+  <p>パラメータ<code>tex</code>は適用するテクスチャです。
+  <code>texture()</code>は画像、動画、
 
-  <a href="/reference/p5/sphere/">sphere()</a>, and custom shapes created with
+  <a href="/reference/p5/p5.Graphics">p5.Graphics</a>や
 
-  functions such as <a href="/reference/p5/buildGeometry/">buildGeometry()</a>.
-  To
+  <a href="/reference/p5/p5.Framebuffer">p5.Framebuffer</a>オブジェクトなどの
 
-  texture a geometry created with <a
-  href="/reference/p5/beginShape/">beginShape()</a>,
+  オフスクリーンレンダラーを含む様々なソースを使用できます。</p>
 
-  uv coordinates must be passed to each
+  <p><a href="/reference/p5/beginShape/">beginShape()</a>で作成されたジオメトリに
 
-  <a href="/reference/p5/vertex/">vertex()</a> call.</p>
+  テクスチャを適用するには、<a href="/reference/p5/vertex/">vertex()</a>で
 
-  <p>The parameter, <code>tex</code>, is the texture to apply.
-  <code>texture()</code> can use a range
+  uvコーディネートを指定する必要があります。</p>
 
-  of sources including images, videos, and offscreen renderers such as
-
-  <a href="/reference/p5/p5.Graphics">p5.Graphics</a> and
-
-  <a href="/reference/p5/p5.Framebuffer">p5.Framebuffer</a> objects.</p>
-
-  <p>To texture a geometry created with <a
-  href="/reference/p5/beginShape/">beginShape()</a>,
-
-  you will need to specify uv coordinates in <a
-  href="/reference/p5/vertex/">vertex()</a>.</p>
-
-  <p>Note: <code>texture()</code> can only be used in WebGL mode.</p>
+  <p>注意：<code>texture()</code>はWebGLモードでのみ使用できます。</p>
 line: 861
 isConstructor: false
 itemtype: method
@@ -65,7 +50,7 @@ example:
     <code>
     let img;
 
-    // Load an image and create a p5.Image object.
+    // 画像を読み込み、p5.Imageオブジェクトを作成します。
     function preload() {
       img = loadImage('/assets/laDefense.jpg');
     }
@@ -73,21 +58,21 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A spinning cube with an image of a ceiling on each face.');
+      describe('各面に天井の画像が貼られた回転する立方体。');
     }
 
     function draw() {
       background(0);
 
-      // Rotate around the x-, y-, and z-axes.
+      // x軸、y軸、z軸周りに回転させます。
       rotateZ(frameCount * 0.01);
       rotateX(frameCount * 0.01);
       rotateY(frameCount * 0.01);
 
-      // Apply the image as a texture.
+      // 画像をテクスチャとして適用します。
       texture(img);
 
-      // Draw the box.
+      // 箱を描画します。
       box(50);
     }
     </code>
@@ -100,28 +85,28 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Graphics object.
+      // p5.Graphicsオブジェクトを作成します。
       pg = createGraphics(100, 100);
 
-      // Draw a circle to the p5.Graphics object.
+      // p5.Graphicsオブジェクトに円を描画します。
       pg.background(200);
       pg.circle(50, 50, 30);
 
-      describe('A spinning cube with circle at the center of each face.');
+      describe('各面の中央に円がある回転する立方体。');
     }
 
     function draw() {
       background(0);
 
-      // Rotate around the x-, y-, and z-axes.
+      // x軸、y軸、z軸周りに回転させます。
       rotateZ(frameCount * 0.01);
       rotateX(frameCount * 0.01);
       rotateY(frameCount * 0.01);
 
-      // Apply the p5.Graphics object as a texture.
+      // p5.Graphicsオブジェクトをテクスチャとして適用します。
       texture(pg);
 
-      // Draw the box.
+      // 箱を描画します。
       box(50);
     }
     </code>
@@ -131,7 +116,7 @@ example:
     <code>
     let vid;
 
-    // Load a video and create a p5.MediaElement object.
+    // 動画を読み込み、p5.MediaElementオブジェクトを作成します。
     function preload() {
       vid = createVideo('/assets/fingers.mov');
     }
@@ -139,25 +124,25 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Hide the video.
+      // 動画を非表示にします。
       vid.hide();
 
-      // Set the video to loop.
+      // 動画をループ再生に設定します。
       vid.loop();
 
-      describe('A rectangle with video as texture');
+      describe('テクスチャとして動画が適用された長方形');
     }
 
     function draw() {
       background(0);
 
-      // Rotate around the y-axis.
+      // y軸周りに回転させます。
       rotateY(frameCount * 0.01);
 
-      // Apply the video as a texture.
+      // 動画をテクスチャとして適用します。
       texture(vid);
 
-      // Draw the rectangle.
+      // 長方形を描画します。
       rect(-40, -40, 80, 80);
     }
     </code>
@@ -167,7 +152,7 @@ example:
     <code>
     let vid;
 
-    // Load a video and create a p5.MediaElement object.
+    // 動画を読み込み、p5.MediaElementオブジェクトを作成します。
     function preload() {
       vid = createVideo('/assets/fingers.mov');
     }
@@ -175,28 +160,28 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Hide the video.
+      // 動画を非表示にします。
       vid.hide();
 
-      // Set the video to loop.
+      // 動画をループ再生に設定します。
       vid.loop();
 
-      describe('A rectangle with video as texture');
+      describe('テクスチャとして動画が適用された長方形');
     }
 
     function draw() {
       background(0);
 
-      // Rotate around the y-axis.
+      // y軸周りに回転させます。
       rotateY(frameCount * 0.01);
 
-      // Set the texture mode.
+      // テクスチャモードを設定します。
       textureMode(NORMAL);
 
-      // Apply the video as a texture.
+      // 動画をテクスチャとして適用します。
       texture(vid);
 
-      // Draw a custom shape using uv coordinates.
+      // uvコーディネートを使用してカスタム形状を描画します。
       beginShape();
       vertex(-40, -40, 0, 0);
       vertex(40, -40, 1, 0);
@@ -210,8 +195,7 @@ class: p5
 params:
   - name: tex
     description: |
-      <p>テクスチャとして使用する画像</p>
-      <p>media to use as the texture.</p>
+      <p>テクスチャとして使用するメディア。</p>
     type: >-
       p5.Image|p5.MediaElement|p5.Graphics|p5.Texture|p5.Framebuffer|p5.FramebufferTexture
 chainable: true
@@ -219,3 +203,4 @@ chainable: true
 
 
 # texture
+

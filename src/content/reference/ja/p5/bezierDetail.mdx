@@ -4,32 +4,13 @@ module: Shape
 submodule: Curves
 file: src/core/shape/curves.js
 description: >
-  <p>ベジェ曲線の表示に使用される解像度を設定します。</p>
+  <p>WebGLモードでベジエ曲線を描画する際に使用するセグメント数を設定します。</p>
 
-  <p>デフォルト値は20です。</p>
+  <p>WebGLモードでは、滑らかな形状は多くの平らなセグメントを使用して描画されます。平らなセグメントを増やすことで、形状がより滑らかに見えます。</p>
 
-  <p>なお、この関数は WebGL レンダラーを使用する場合にのみ有用であり、デフォルトのキャンバスレンダラーはこの情報を使用しません。</p>
+  <p>パラメータ<code>detail</code>は、ベジエ曲線を描画する際に使用するセグメント数です。例えば、<code>bezierDetail(5)</code>を呼び出すと、<a href="/reference/p5/bezier/">bezier()</a>関数で曲線を描画する際に5つのセグメントを使用します。デフォルトでは、<code>detail</code>は20です。</p>
 
-
-  <hr/>
-
-  <p>Sets the number of segments used to draw Bézier curves in WebGL mode.</p>
-
-  <p>In WebGL mode, smooth shapes are drawn using many flat segments. Adding
-
-  more flat segments makes shapes appear smoother.</p>
-
-  <p>The parameter, <code>detail</code>, is the number of segments to use while
-  drawing a
-
-  Bézier curve. For example, calling <code>bezierDetail(5)</code> will use 5
-  segments to
-
-  draw curves with the <a href="/reference/p5/bezier/">bezier()</a> function. By
-
-  default,<code>detail</code> is 20.</p>
-
-  <p>Note: <code>bezierDetail()</code> has no effect in 2D mode.</p>
+  <p>注意：<code>bezierDetail()</code>は2Dモードでは効果がありません。</p>
 line: 221
 isConstructor: false
 itemtype: method
@@ -38,37 +19,37 @@ example:
 
     <div>
     <code>
-    // Draw the original curve.
+    // オリジナルの曲線を描画する
 
     function setup() {
       createCanvas(100, 100);
 
       background(200);
 
-      // Draw the anchor points in black.
+      // アンカーポイントを黒で描画
       stroke(0);
       strokeWeight(5);
       point(85, 20);
       point(15, 80);
 
-      // Draw the control points in red.
+      // コントロールポイントを赤で描画
       stroke(255, 0, 0);
       point(10, 10);
       point(90, 90);
 
-      // Draw a black bezier curve.
+      // 黒のベジエ曲線を描画
       noFill();
       stroke(0);
       strokeWeight(1);
       bezier(85, 20, 10, 10, 90, 90, 15, 80);
 
-      // Draw red lines from the anchor points to the control points.
+      // アンカーポイントからコントロールポイントへの赤い線を描画
       stroke(255, 0, 0);
       line(85, 20, 10, 10);
       line(15, 80, 90, 90);
 
       describe(
-        'A gray square with three curves. A black s-curve has two straight, red lines that extend from its ends. The endpoints of all the curves are marked with dots.'
+        '3つの曲線がある灰色の正方形。黒のS字曲線の端から2本の赤い直線が伸びている。すべての曲線の端点は点で示されている。'
       );
     }
     </code>
@@ -76,40 +57,40 @@ example:
 
     <div>
     <code>
-    // Draw the curve with less detail.
+    // より少ない詳細度で曲線を描画する
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
       background(200);
 
-      // Set the curveDetail() to 5.
+      // curveDetail()を5に設定
       bezierDetail(5);
 
-      // Draw the anchor points in black.
+      // アンカーポイントを黒で描画
       stroke(0);
       strokeWeight(5);
       point(35, -30, 0);
       point(-35, 30, 0);
 
-      // Draw the control points in red.
+      // コントロールポイントを赤で描画
       stroke(255, 0, 0);
       point(-40, -40, 0);
       point(40, 40, 0);
 
-      // Draw a black bezier curve.
+      // 黒のベジエ曲線を描画
       noFill();
       stroke(0);
       strokeWeight(1);
       bezier(35, -30, 0, -40, -40, 0, 40, 40, 0, -35, 30, 0);
 
-      // Draw red lines from the anchor points to the control points.
+      // アンカーポイントからコントロールポイントへの赤い線を描画
       stroke(255, 0, 0);
       line(35, -30, -40, -40);
       line(-35, 30, 40, 40);
 
       describe(
-        'A gray square with three curves. A black s-curve is drawn with jagged segments. Two straight, red lines that extend from its ends. The endpoints of all the curves are marked with dots.'
+        '3つの曲線がある灰色の正方形。黒のS字曲線がギザギザのセグメントで描かれている。端から2本の赤い直線が伸びている。すべての曲線の端点は点で示されている。'
       );
     }
     </code>
@@ -118,8 +99,7 @@ class: p5
 params:
   - name: detail
     description: |
-      <p>曲線の解像度</p>
-      <p>number of segments to use. Defaults to 20.</p>
+      <p>使用するセグメント数。デフォルトは20。</p>
     type: Number
 chainable: true
 ---

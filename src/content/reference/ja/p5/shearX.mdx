@@ -4,57 +4,37 @@ module: Transform
 submodule: Transform
 file: src/core/transform.js
 description: >
-  <p>angle パラメーターで指定された量に応じて、図形を x 軸周りにシアします。</p>
+  <p>x軸をシアー変換して、図形が傾いて見えるようにします。</p>
 
-  <p>角度は現在の angleMode
-  で指定する必要があります。オブジェクトは常に原点に対する相対位置を中心にシアされ、正の数値はオブジェクトを時計回りにシアします。</p>
+  <p>デフォルトでは、x軸とy軸は垂直です。<code>shearX()</code>関数は
 
-  <p>変換は、それ以降に発生するすべてのことに適用され、関数への後続の呼び出しは効果を蓄積します。たとえば、shearX(PI / 2)を呼び出した後に
-  shearX(PI / 2)を呼び出すと、shearX(PI)と同じになります。<a href="#/p5/shearX">shearX()</a> が
-  <a href="#/p5/draw">draw()</a> 内で呼び出された場合、ループが再度始まるときに変換がリセットされます。</p>
+  座標系を変換し、x座標が変換される一方で
 
-  <p>技術的には、<a href="#/p5/shearX">shearX()</a> は現在の変換行列に回転行列を乗算します。この関数は、<a
-  href="#/p5/push">push()</a> および <a href="#/p5/pop">pop()</a> 関数でさらに制御できます。</p>
+  y座標は固定されます。</p>
 
+  <p>最初のパラメータ<code>angle</code>は、シアー変換の量です。例えば、
 
-  <hr/>
+  <code>shearX(1)</code>を呼び出すと、すべてのx座標が
 
-  <p>Shears the x-axis so that shapes appear skewed.</p>
+  <code>x = x + y * tan(angle)</code>という式で変換されます。<code>shearX()</code>は角度の値を
 
-  <p>By default, the x- and y-axes are perpendicular. The <code>shearX()</code>
-  function
+  現在の<a href="/reference/p5/angleMode/">angleMode()</a>を使用して解釈します。</p>
 
-  transforms the coordinate system so that x-coordinates are translated while
+  <p>デフォルトでは、変換は累積されます。例えば、
 
-  y-coordinates are fixed.</p>
+  <code>shearX(1)</code>を2回呼び出すことは、<code>shearX(2)</code>を1回呼び出すのと
 
-  <p>The first parameter, <code>angle</code>, is the amount to shear. For
-  example, calling
+  同じ効果があります。<a href="/reference/p5/push/">push()</a>関数と
 
-  <code>shearX(1)</code> transforms all x-coordinates using the formula
+  <a href="/reference/p5/pop/">pop()</a>関数を使用して、
 
-  <code>x = x + y * tan(angle)</code>. <code>shearX()</code> interprets angle
-  values using the
+  変換を個別の描画グループ内に分離することができます。</p>
 
-  current <a href="/reference/p5/angleMode/">angleMode()</a>.</p>
+  <p>注意：変換はdrawループの開始時にリセットされます。
 
-  <p>By default, transformations accumulate. For example, calling
+  <code>shearX(1)</code>を<a href="/reference/p5/draw/">draw()</a>関数内で呼び出しても、
 
-  <code>shearX(1)</code> twice has the same effect as calling
-  <code>shearX(2)</code> once. The
-
-  <a href="/reference/p5/push/">push()</a> and
-
-  <a href="/reference/p5/pop/">pop()</a> functions can be used to isolate
-
-  transformations within distinct drawing groups.</p>
-
-  <p>Note: Transformations are reset at the beginning of the draw loop. Calling
-
-  <code>shearX(1)</code> inside the <a href="/reference/p5/draw/">draw()</a>
-  function won't
-
-  cause shapes to shear continuously.</p>
+  図形が連続的にシアー変換されることはありません。</p>
 line: 1069
 isConstructor: false
 itemtype: method
@@ -66,16 +46,16 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('A white quadrilateral on a gray background.');
+      describe('灰色の背景に白い四角形。');
     }
 
     function draw() {
       background(200);
 
-      // Shear the coordinate system along the x-axis.
+      // x軸に沿って座標系をシアー変換する
       shearX(QUARTER_PI);
 
-      // Draw the square.
+      // 正方形を描画する
       square(0, 0, 50);
     }
     </code>
@@ -86,19 +66,19 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Use degrees.
+      // 度数法を使用する
       angleMode(DEGREES);
 
-      describe('A white quadrilateral on a gray background.');
+      describe('灰色の背景に白い四角形。');
     }
 
     function draw() {
       background(200);
 
-      // Shear the coordinate system along the x-axis.
+      // x軸に沿って座標系をシアー変換する
       shearX(45);
 
-      // Draw the square.
+      // 正方形を描画する
       square(0, 0, 50);
     }
     </code>
@@ -107,13 +87,11 @@ class: p5
 params:
   - name: angle
     description: >
-      <p>角度は、現在の angleMode に応じて、ラジアンまたは度で指定します</p>
-
-      <p>angle to shear by in the current <a
-      href="#/p5/angleMode">angleMode()</a>.</p>
+      <p>現在の<a href="#/p5/angleMode">angleMode()</a>でのシアー変換する角度。</p>
     type: Number
 chainable: true
 ---
 
 
 # shearX
+

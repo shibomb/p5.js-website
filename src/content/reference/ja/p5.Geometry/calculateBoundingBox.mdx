@@ -4,51 +4,49 @@ module: Shape
 submodule: 3D Primitives
 file: src/webgl/p5.Geometry.js
 description: >
-  <p>Calculates the position and size of the smallest box that contains the
-  geometry.</p>
+  <p>ジオメトリを含む最小のボックスの位置とサイズを計算します。</p>
 
-  <p>A bounding box is the smallest rectangular prism that contains the entire
+  <p>バウンディングボックスは、ジオメトリ全体を含む最小の直方体です。各軸に沿った
 
-  geometry. It's defined by the box's minimum and maximum coordinates along
+  ボックスの最小座標と最大座標、およびサイズ（長さ）とオフセット（中心）によって
 
-  each axis, as well as the size (length) and offset (center).</p>
+  定義されます。</p>
 
-  <p>Calling <code>myGeometry.calculateBoundingBox()</code> returns an object
-  with four
+  <p><code>myGeometry.calculateBoundingBox()</code>を呼び出すと、バウンディングボックスを
 
-  properties that describe the bounding box:</p>
+  記述する4つのプロパティを持つオブジェクトが返されます：</p>
 
-  <pre><code class="language-js">// Get myGeometry's bounding box.
+  <pre><code class="language-js">// myGeometryのバウンディングボックスを取得します。
 
   let bbox = myGeometry.calculateBoundingBox();
 
 
-  // Print the bounding box to the console.
+  // バウンディングボックスをコンソールに出力します。
 
   console.log(bbox);
 
 
   // {
 
-  //  // The minimum coordinate along each axis.
+  //  // 各軸に沿った最小座標。
 
   //  min: { x: -1, y: -2, z: -3 },
 
   //
 
-  //  // The maximum coordinate along each axis.
+  //  // 各軸に沿った最大座標。
 
   //  max: { x: 1, y: 2, z: 3},
 
   //
 
-  //  // The size (length) along each axis.
+  //  // 各軸に沿ったサイズ（長さ）。
 
   //  size: { x: 2, y: 4, z: 6},
 
   //
 
-  //  // The offset (center) along each axis.
+  //  // 各軸に沿ったオフセット（中心）。
 
   //  offset: { x: 0, y: 0, z: 0}
 
@@ -63,60 +61,60 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // クリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     let particles;
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a new p5.Geometry object with random spheres.
+      // ランダムな球体を持つ新しいp5.Geometryオブジェクトを作成します。
       particles = buildGeometry(createParticles);
 
-      describe('Ten white spheres placed randomly against a gray background. A box encloses the spheres.');
+      describe('灰色の背景に対してランダムに配置された10個の白い球体。球体を囲むボックスがあります。');
     }
 
     function draw() {
       background(50);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Turn on the lights.
+      // ライトをオンにします。
       lights();
 
-      // Style the particles.
+      // パーティクルのスタイルを設定します。
       noStroke();
       fill(255);
 
-      // Draw the particles.
+      // パーティクルを描画します。
       model(particles);
 
-      // Calculate the bounding box.
+      // バウンディングボックスを計算します。
       let bbox = particles.calculateBoundingBox();
 
-      // Translate to the bounding box's center.
+      // バウンディングボックスの中心に移動します。
       translate(bbox.offset.x, bbox.offset.y, bbox.offset.z);
 
-      // Style the bounding box.
+      // バウンディングボックスのスタイルを設定します。
       stroke(255);
       noFill();
 
-      // Draw the bounding box.
+      // バウンディングボックスを描画します。
       box(bbox.size.x, bbox.size.y, bbox.size.z);
     }
 
     function createParticles() {
       for (let i = 0; i < 10; i += 1) {
-        // Calculate random coordinates.
+        // ランダムな座標を計算します。
         let x = randomGaussian(0, 15);
         let y = randomGaussian(0, 15);
         let z = randomGaussian(0, 15);
 
         push();
-        // Translate to the particle's coordinates.
+        // パーティクルの座標に移動します。
         translate(x, y, z);
-        // Draw the particle.
+        // パーティクルを描画します。
         sphere(3);
         pop();
       }
@@ -125,10 +123,11 @@ example:
     </div>
 class: p5.Geometry
 return:
-  description: bounding box of the geometry.
+  description: ジオメトリのバウンディングボックス。
   type: Object
 chainable: false
 ---
 
 
 # calculateBoundingBox
+

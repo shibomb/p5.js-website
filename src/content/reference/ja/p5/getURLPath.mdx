@@ -4,47 +4,20 @@ module: Environment
 submodule: Environment
 file: src/core/environment.js
 description: >
-  <p>現在の URL パスを配列として取得します。</p>
-
-  <p>注意: p5 エディターを使用している場合、スケッチが iframe
-  に埋め込まれているため、この関数は空のオブジェクトを返します。エディターのプレゼント URL やシェア URL
-  でスケッチを表示すると、正しく機能します。</p>
-
-  <p>/// todo ///</p>
-
-  <p>Returns the current <a
-  href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL#path_to_resource"
-  target="_blank">URL</a> path as an array of strings.</p>
-
-  <p>For example, consider a sketch hosted at the URL
-  <code>https://example.com/sketchbook</code>. Calling <code>getURLPath()</code>
-  returns <code>['sketchbook']</code>. For a sketch hosted at the URL
-  <code>https://example.com/sketchbook/monday</code>, <code>getURLPath()</code>
-  returns <code>['sketchbook', 'monday']</code>.</p>
-
-
-  <hr/>
-
-  <p>Returns the current
+  <p>現在の
 
   <a
   href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL#path_to_resource"
   target="_blank">URL</a>
 
-  path as an <code>Array</code> of <code>String</code>s.</p>
+  パスを<code>String</code>の<code>Array</code>として返します。</p>
 
-  <p>For example, consider a sketch hosted at the URL
+  <p>例えば、<code>https://example.com/sketchbook</code>というURLでホストされているスケッチを考えてみましょう。<code>getURLPath()</code>を呼び出すと
 
-  <code>https://example.com/sketchbook</code>. Calling <code>getURLPath()</code>
-  returns
+  <code>['sketchbook']</code>が返されます。<code>https://example.com/sketchbook/monday</code>というURLでホストされているスケッチの場合、<code>getURLPath()</code>は
 
-  <code>['sketchbook']</code>. For a sketch hosted at the URL
-
-  <code>https://example.com/sketchbook/monday</code>, <code>getURLPath()</code>
-  returns
-
-  <code>['sketchbook', 'monday']</code>.</p>
-line: 1166
+  <code>['sketchbook', 'monday']</code>を返します。</p>
+line: 1175
 isConstructor: false
 itemtype: method
 example:
@@ -55,24 +28,22 @@ example:
     function setup() {
       background(200);
 
-      // Get the sketch's URL path
-      // and display the first
-      // part.
+      // スケッチのURLパスを取得し、
+      // 最初の部分を表示します。
       let path = getURLPath();
       text(path[0], 25, 54);
 
-      describe('The word "reference" written in black on a gray background.');
+      describe('灰色の背景に黒で "reference" という単語が書かれています。');
     }
     </code>
     </div>
 class: p5
 return:
-  description: |-
-    パス要素
-    path components.
+  description: パスコンポーネント。
   type: 'String[]'
 chainable: false
 ---
 
 
 # getURLPath
+

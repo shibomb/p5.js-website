@@ -4,34 +4,10 @@ module: Environment
 submodule: Environment
 file: src/core/environment.js
 description: >
-  <p>システム変数 <a href="#/p5/frameCount">frameCount</a>
-  は、プログラムが開始されてから表示されたフレームの数を格納します。</p>
+  <p>スケッチが開始されてから描画されたフレーム数を追跡する<code>Number</code>変数です。</p>
 
-  <p>この変数の値は <a href="#/p5/setup">setup()</a> 内では0で、<a
-  href="#/p5/draw">draw()</a> の最初の反復後に1以上になります。</p>
-
-  <p>/// todo ///</p>
-
-  <p>Tracks the number of frames drawn since the sketch started.</p>
-
-  <p><code>frameCount</code>'s value is 0 inside <a
-  href="#/p5/setup">setup()</a>. It increments by 1 each time the code in <a
-  href="#/p5/draw">draw()</a> finishes executing.</p>
-
-
-  <hr/>
-
-  <p>A <code>Number</code> variable that tracks the number of frames drawn since
-  the sketch
-
-  started.</p>
-
-  <p><code>frameCount</code>'s value is 0 inside <a
-  href="/reference/p5/setup/">setup()</a>. It
-
-  increments by 1 each time the code in <a href="/reference/p5/draw/">draw()</a>
-
-  finishes executing.</p>
+  <p><code>frameCount</code>の値は<a href="/reference/p5/setup/">setup()</a>内では0です。
+  <a href="/reference/p5/draw/">draw()</a>内のコードの実行が終わるたびに1ずつ増加します。</p>
 line: 69
 isConstructor: false
 itemtype: property
@@ -45,13 +21,12 @@ example:
 
       background(200);
 
-      // Display the value of
-      // frameCount.
+      // frameCountの値を表示します。
       textSize(30);
       textAlign(CENTER, CENTER);
       text(frameCount, 50, 50);
 
-      describe('The number 0 written in black in the middle of a gray square.');
+      describe('灰色の正方形の中央に黒で書かれた数字0。');
     }
     </code>
     </div>
@@ -61,20 +36,19 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Set the frameRate to 30.
+      // フレームレートを30に設定します。
       frameRate(30);
 
       textSize(30);
       textAlign(CENTER, CENTER);
 
-      describe('A number written in black in the middle of a gray square. Its value increases rapidly.');
+      describe('灰色の正方形の中央に黒で書かれた数字。その値が急速に増加します。');
     }
 
     function draw() {
       background(200);
 
-      // Display the value of
-      // frameCount.
+      // frameCountの値を表示します。
       text(frameCount, 50, 50);
     }
     </code>
@@ -85,3 +59,4 @@ type: Integer
 
 
 # frameCount
+

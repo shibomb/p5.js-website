@@ -4,35 +4,17 @@ module: 3D
 submodule: Material
 file: src/webgl/material.js
 description: >
-  <p><a href="#/p5/specularMaterial">specularMaterial()</a>
-  の光沢度（「光沢」）を設定します。</p>
+  <p><a href="/reference/p5/specularMaterial/">specularMaterial()</a>の光沢（「艶」）の量を設定します。</p>
 
-  <p></p>
+  <p>光沢のある材質は、光沢のない材質よりも反射光を集中させます。
+  <code>shininess()</code>は、
+  <a href="/reference/p5/directionalLight/">directionalLight()</a>、
+  <a href="/reference/p5/pointLight/">pointLight()</a>、
+  <a href="/reference/p5/spotLight/">spotLight()</a>を含む光源の反射方法に影響します。</p>
 
-  <p>デフォルト値および最小値は1です。</p>
+  <p>パラメータ<code>shine</code>は、光沢の量を設定する数値です。
+  <code>shine</code>は1より大きくなければなりません。デフォルト値は1です。</p>
 
-
-  <hr/>
-
-  <p>Sets the amount of gloss ("shininess") of a
-
-  <a href="/reference/p5/specularMaterial/">specularMaterial()</a>.</p>
-
-  <p>Shiny materials focus reflected light more than dull materials.
-
-  <code>shininess()</code> affects the way materials reflect light sources
-  including
-
-  <a href="/reference/p5/directionalLight/">directionalLight()</a>,
-
-  <a href="/reference/p5/pointLight/">pointLight()</a>,
-
-  and <a href="/reference/p5/spotLight/">spotLight()</a>.</p>
-
-  <p>The parameter, <code>shine</code>, is a number that sets the amount of
-  shininess.
-
-  <code>shine</code> must be greater than 1, which is its default value.</p>
 line: 2143
 isConstructor: false
 itemtype: method
@@ -45,35 +27,35 @@ example:
       createCanvas(100, 100, WEBGL);
 
       describe(
-        'Two red spheres drawn on a gray background. White light reflects from their surfaces as the mouse moves. The right sphere is shinier than the left sphere.'
+        '灰色の背景に2つの赤い球体が描かれています。マウスが動くと、表面に白い光が反射します。右の球体は左の球体よりも光沢があります。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Turn on a red ambient light.
+      // 赤いアンビエントライトをオンにする
       ambientLight(255, 0, 0);
 
-      // Get the mouse's coordinates.
+      // マウスの座標を取得
       let mx = mouseX - 50;
       let my = mouseY - 50;
 
-      // Turn on a white point light that follows the mouse.
+      // マウスに追従する白いポイントライトをオンにする
       pointLight(255, 255, 255, mx, my, 50);
 
-      // Style the sphere.
+      // 球体のスタイルを設定
       noStroke();
 
-      // Add a specular material with a grayscale value.
+      // グレースケール値でスペキュラーマテリアルを追加
       specularMaterial(255);
 
-      // Draw the left sphere with low shininess.
+      // 低い光沢の左の球体を描画
       translate(-25, 0, 0);
       shininess(10);
       sphere(20);
 
-      // Draw the right sphere with high shininess.
+      // 高い光沢の右の球体を描画
       translate(50, 0, 0);
       shininess(100);
       sphere(20);
@@ -84,11 +66,9 @@ class: p5
 params:
   - name: shine
     description: |
-      <p>光沢度</p>
-      <p>amount of shine.</p>
+      <p>光沢の量。</p>
     type: Number
 chainable: true
 ---
-
 
 # shininess

@@ -3,25 +3,7 @@ title: volume
 module: DOM
 submodule: DOM
 file: src/dom/dom.js
-description: >-
-  <p>この HTML5 メディア要素のボリュームを設定します。</p>
-
-  <p>引数が与えられていない場合、現在のボリュームを返します。</p>
-
-  <p>/// todo ///</p>
-
-  <p>Manages the audio/video volume.</p>
-
-  <p>Calling <code>media.volume()</code> without an argument returns the current
-  volume as a number in the range 0 (off) to 1 (maximum).</p>
-
-  <p>The parameter, <code>val</code>, is optional. It's a number that sets the
-  volume from 0 (off) to 1 (maximum). For example, calling
-  <code>media.volume(0.5)</code> sets the volume to half of its maximum.</p>
-
-
-  <hr/>
-
+description: >
   <p>Sets the audio/video volume.</p>
 
   <p>Calling <code>media.volume()</code> without an argument returns the current
@@ -36,18 +18,7 @@ description: >-
   <code>media.volume(0.5)</code>
 
   sets the volume to half of its maximum.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "val": "Number: 0.0から1.0の間のボリューム"
-  }
-
-  </pre>
-line: 4604
+line: 4605
 isConstructor: false
 itemtype: method
 example:
@@ -95,17 +66,15 @@ example:
     </div>
 class: p5.MediaElement
 return:
-  description: |-
-    現在のボリューム
-    current volume.
+  description: current volume.
   type: Number
 overloads:
-  - line: 4604
+  - line: 4605
     params: []
     return:
       description: current volume.
       type: Number
-  - line: 4659
+  - line: 4660
     params:
       - name: val
         description: |

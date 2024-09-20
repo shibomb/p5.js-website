@@ -3,18 +3,10 @@ title: style
 module: DOM
 submodule: DOM
 file: src/dom/dom.js
-description: >-
-  <p>与えられたスタイル（CSS）プロパティ（第1引数）を、与えられた値（第2引数）で要素に設定します。</p>
-
-  <p>単一の引数が与えられた場合、.style() は指定されたプロパティの値を返します。ただし、単一の引数が CSS
-  構文（'text-align:center'）で与えられた場合、.style() は適切に CSS を設定します。</p>
-
-
-  <hr/>
-
+description: >
   <p>Applies a style to the element by adding a
 
-  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax"
+  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax/"
   target="_blank">CSS declaration</a>.</p>
 
   <p>The first parameter, <code>property</code>, is a string. If the name of a
@@ -39,22 +31,10 @@ description: >-
 
   <code>myElement.style('color', 'deeppink')</code>, or a
 
-  <a href="/reference/p5/p5.Color/">p5.Color</a> object, as in
+  <a href="/reference/p5/p5.Color">p5.Color</a> object, as in
 
   <code>myElement.style('color', myColor)</code>.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "property": "String: 設定するスタイルプロパティ",
-      "value": "String|p5.Color: プロパティに割り当てる値"
-  }
-
-  </pre>
-line: 3099
+line: 3100
 isConstructor: false
 itemtype: method
 example:
@@ -139,12 +119,10 @@ example:
     </div>
 class: p5.Element
 return:
-  description: |-
-    プロパティの値
-    value of the property.
+  description: value of the property.
   type: String
 overloads:
-  - line: 3099
+  - line: 3100
     params:
       - name: property
         description: |
@@ -153,7 +131,7 @@ overloads:
     return:
       description: value of the property.
       type: String
-  - line: 3199
+  - line: 3200
     params:
       - name: property
         description: ''

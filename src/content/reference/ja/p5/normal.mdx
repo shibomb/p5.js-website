@@ -3,115 +3,50 @@ title: normal
 module: Shape
 submodule: Vertex
 file: src/core/shape/vertex.js
-description: >-
-  <p>以降で <a href="#/p5/vertex">vertex()</a> で描画される頂点に使用する 3D 頂点法線を設定します。</p>
+description: >
+  <p>カスタム3D形状の頂点の法線ベクトルを設定します。</p>
 
-  <p>法線は、一般的に形状の表面にほぼ垂直なベクトルであり、その表面の部分からどれだけの光が反射されるかを制御します。</p>
+  <p><a href="/reference/p5/beginShape/">beginShape()</a>と
 
+  <a href="/reference/p5/endShape/">endShape()</a>で作成される3D形状は、
 
-  <hr/>
+  頂点と呼ばれる一連の点を接続して作られます。
 
-  <p>Sets the normal vector for vertices in a custom 3D shape.</p>
+  <a href="/reference/p5/vertex/">vertex()</a>で追加される各頂点には、
 
-  <p>3D shapes created with <a href="/reference/p5/beginShape/">beginShape()</a>
-  and
+  その頂点から離れる方向を指す法線ベクトルがあります。法線ベクトルは、
 
-  <a href="/reference/p5/endShape/">endShape()</a> are made by connecting sets
-  of
+  形状に光がどのように反射するかを制御します。</p>
 
-  points called vertices. Each vertex added with
+  <p><code>normal()</code>は、法線ベクトルのコンポーネントを定義するために
 
-  <a href="/reference/p5/vertex/">vertex()</a> has a normal vector that points
-  away
+  異なるパラメータを持つ2つの方法で呼び出すことができます。</p>
 
-  from it. The normal vector controls how light reflects off the shape.</p>
+  <p><code>normal()</code>を呼び出す最初の方法は、3つのパラメータ<code>x</code>、<code>y</code>、<code>z</code>を持ちます。
 
-  <p><code>normal()</code> can be called two ways with different parameters to
-  define the
+  <code>normal(1, 2, 3)</code>のように数値が渡された場合、それらは法線ベクトルの
 
-  normal vector's components.</p>
+  x、y、z成分を設定します。</p>
 
-  <p>The first way to call <code>normal()</code> has three parameters,
-  <code>x</code>, <code>y</code>, and <code>z</code>.
+  <p><code>normal()</code>を呼び出す2番目の方法は、1つのパラメータ<code>vector</code>を持ちます。
 
-  If <code>Number</code>s are passed, as in <code>normal(1, 2, 3)</code>, they
-  set the x-, y-, and
+  <code>normal(myVector)</code>のように<a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトが
 
-  z-components of the normal vector.</p>
+  渡された場合、そのコンポーネントが法線ベクトルの設定に使用されます。</p>
 
-  <p>The second way to call <code>normal()</code> has one parameter,
-  <code>vector</code>. If a
+  <p><code>normal()</code>は、<a href="/reference/p5/vertex/">vertex()</a>でカスタム形状に
 
-  <a href="/reference/p5/p5.Vector">p5.Vector</a> object is passed, as in
+  追加される頂点の法線ベクトルを変更します。<code>normal()</code>は
 
-  <code>normal(myVector)</code>, its components will be used to set the normal
-  vector.</p>
+  <a href="/reference/p5/beginShape/">beginShape()</a>と
 
-  <p><code>normal()</code> changes the normal vector of vertices added to a
-  custom shape
+  <a href="/reference/p5/endShape/">endShape()</a>の間で、
 
-  with <a href="/reference/p5/vertex/">vertex()</a>. <code>normal()</code> must
-  be called between
+  <a href="/reference/p5/vertex/">vertex()</a>と同様に呼び出す必要があります。
 
-  the <a href="/reference/p5/beginShape/">beginShape()</a> and
+  <code>normal()</code>を呼び出すことで設定される法線ベクトルは、
 
-  <a href="/reference/p5/endShape/">endShape()</a> functions, just like
-
-  <a href="/reference/p5/vertex/">vertex()</a>. The normal vector set by calling
-
-  <code>normal()</code> will affect all following vertices until
-  <code>normal()</code> is called
-
-  again:</p>
-
-  <code>
-
-  beginShape();
-
-
-  <p>// Set the vertex normal.
-
-  normal(-0.4, -0.4, 0.8);</p>
-
-  <p>// Add a vertex.
-
-  vertex(-30, -30, 0);</p>
-
-  <p>// Set the vertex normal.
-
-  normal(0, 0, 1);</p>
-
-  <p>// Add vertices.
-
-  vertex(30, -30, 0);
-
-  vertex(30, 30, 0);</p>
-
-  <p>// Set the vertex normal.
-
-  normal(0.4, -0.4, 0.8);</p>
-
-  <p>// Add a vertex.
-
-  vertex(-30, 30, 0);</p>
-
-  <p>endShape();
-
-  </p></code>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "vector": "Vector: 頂点法線を表す p5.Vector。",
-      "x": "Number: 頂点法線の x 成分。",
-      "y": "Number: 頂点法線の y 成分。",
-      "z": "Number: 頂点法線の z 成分。"
-  }
-
-  </pre>
+  <code>normal()</code>が再び呼び出されるまで、それ以降のすべての頂点に影響します。</p>
 line: 2066
 isConstructor: false
 itemtype: method
@@ -120,105 +55,29 @@ example:
 
     <div>
     <code>
-    // Click the and drag the mouse to view the scene from a different angle.
-
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe(
-        'A colorful square on a black background. The square changes color and rotates when the user drags the mouse. Parts of its surface reflect light in different directions.'
-      );
+      describe('灰色の背景に白い三角形が描かれています。三角形の各頂点の法線は異なる方向を向いています。');
     }
 
     function draw() {
-      background(0);
+      background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Style the shape.
+      // 形状のスタイルを設定します。
       normalMaterial();
       noStroke();
 
-      // Draw the shape.
-      beginShape();
-      vertex(-30, -30, 0);
-      vertex(30, -30, 0);
-      vertex(30, 30, 0);
-      vertex(-30, 30, 0);
-      endShape();
-    }
-    </code>
-    </div>
-
-    <div>
-    <code>
-    // Click the and drag the mouse to view the scene from a different angle.
-
-    function setup() {
-      createCanvas(100, 100, WEBGL);
-
-      describe(
-        'A colorful square on a black background. The square changes color and rotates when the user drags the mouse. Parts of its surface reflect light in different directions.'
-      );
-    }
-
-    function draw() {
-      background(0);
-
-      // Enable orbiting with the mouse.
-      orbitControl();
-
-      // Style the shape.
-      normalMaterial();
-      noStroke();
-
-      // Draw the shape.
-      // Use normal() to set vertex normals.
-      beginShape();
-      normal(-0.4, -0.4, 0.8);
-      vertex(-30, -30, 0);
-
-      normal(0, 0, 1);
-      vertex(30, -30, 0);
-      vertex(30, 30, 0);
-
-      normal(0.4, -0.4, 0.8);
-      vertex(-30, 30, 0);
-      endShape();
-    }
-    </code>
-    </div>
-
-    <div class='notest'>
-    <code>
-    // Click the and drag the mouse to view the scene from a different angle.
-
-    function setup() {
-      createCanvas(100, 100, WEBGL);
-
-      describe(
-        'A colorful square on a black background. The square changes color and rotates when the user drags the mouse. Parts of its surface reflect light in different directions.'
-      );
-    }
-
-    function draw() {
-      background(0);
-
-      // Enable orbiting with the mouse.
-      orbitControl();
-
-      // Style the shape.
-      normalMaterial();
-      noStroke();
-
-      // Create p5.Vector objects.
+      // p5.Vectorオブジェクトを作成します。
       let n1 = createVector(-0.4, -0.4, 0.8);
       let n2 = createVector(0, 0, 1);
       let n3 = createVector(0.4, -0.4, 0.8);
 
-      // Draw the shape.
-      // Use normal() to set vertex normals.
+      // 形状を描画します。
+      // normal()を使用して頂点の法線を設定します。
       beginShape();
       normal(n1);
       vertex(-30, -30, 0);
@@ -239,22 +98,22 @@ overloads:
     params:
       - name: vector
         description: |
-          <p>vertex normal as a <a href="#/p5.Vector">p5.Vector</a> object.</p>
+          <p>頂点の法線を<a href="#/p5.Vector">p5.Vector</a>オブジェクトとして指定します。</p>
         type: p5.Vector
     chainable: 1
   - line: 2241
     params:
       - name: x
         description: |
-          <p>x-component of the vertex normal.</p>
+          <p>頂点の法線のx成分。</p>
         type: Number
       - name: 'y'
         description: |
-          <p>y-component of the vertex normal.</p>
+          <p>頂点の法線のy成分。</p>
         type: Number
       - name: z
         description: |
-          <p>z-component of the vertex normal.</p>
+          <p>頂点の法線のz成分。</p>
         type: Number
     chainable: 1
 chainable: true

@@ -4,26 +4,14 @@ module: 3D
 submodule: Camera
 file: src/webgl/p5.Camera.js
 description: >
-  <p>現在のカメラの向きを保ったまま、ワールド空間内のカメラの位置を設定します。</p>
+  <p>カメラの向きを変えずに、「ワールド」空間内でのカメラの位置を設定します。</p>
 
-  <p></p>
+  <p>パラメータ<code>x</code>、<code>y</code>、<code>z</code>は、カメラを配置する座標です。
 
+  例えば、<code>myCamera.setPosition(10, 20, 30)</code>を呼び出すと、
 
-  <hr/>
-
-  <p>Sets the camera’s position in "world" space without changing its
-
-  orientation.</p>
-
-  <p>The parameters, <code>x</code>, <code>y</code>, and <code>z</code>, are the
-  coordinates where the camera
-
-  should be placed. For example, calling <code>myCamera.setPosition(10, 20,
-  30)</code>
-
-  places the camera at coordinates <code>(10, 20, 30)</code> in "world"
-  space.</p>
-line: 3020
+  カメラは「ワールド」空間の座標<code>(10, 20, 30)</code>に配置されます。</p>
+line: 3089
 isConstructor: false
 itemtype: method
 example:
@@ -31,7 +19,7 @@ example:
 
     <div>
     <code>
-    // Double-click to toggle between cameras.
+    // ダブルクリックでカメラを切り替えます。
 
     let cam1;
     let cam2;
@@ -40,42 +28,42 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create the first camera.
-      // Keep its default settings.
+      // 最初のカメラを作成します。
+      // デフォルト設定のままにします。
       cam1 = createCamera();
 
-      // Create the second camera.
+      // 2番目のカメラを作成します。
       cam2 = createCamera();
 
-      // Place it closer to the origin.
+      // 原点に近づけて配置します。
       cam2.setPosition(0, 0, 600);
 
-      // Set the current camera to cam1.
+      // 現在のカメラをcam1に設定します。
       setCamera(cam1);
 
       describe(
-        'A row of white cubes against a gray background. The camera toggles the amount of zoom when the user double-clicks.'
+        '灰色の背景に白い立方体の列。ユーザーがダブルクリックするとカメラのズーム量が切り替わります。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Translate the origin toward the camera.
+      // 原点をカメラに向かって移動します。
       translate(-10, 10, 500);
 
-      // Rotate the coordinate system.
+      // 座標系を回転させます。
       rotateY(-0.1);
       rotateX(-0.1);
 
-      // Draw the row of boxes.
+      // 立方体の列を描画します。
       for (let i = 0; i < 6; i += 1) {
         translate(0, 0, -30);
         box(10);
       }
     }
 
-    // Toggle the current camera when the user double-clicks.
+    // ユーザーがダブルクリックしたときに現在のカメラを切り替えます。
     function doubleClicked() {
       if (isDefaultCamera === true) {
         setCamera(cam2);
@@ -90,7 +78,7 @@ example:
 
     <div>
     <code>
-    // Double-click to toggle between cameras.
+    // ダブルクリックでカメラを切り替えます。
 
     let cam1;
     let cam2;
@@ -99,46 +87,46 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create the first camera.
-      // Keep its default settings.
+      // 最初のカメラを作成します。
+      // デフォルト設定のままにします。
       cam1 = createCamera();
 
-      // Create the second camera.
+      // 2番目のカメラを作成します。
       cam2 = createCamera();
 
-      // Place it closer to the origin.
+      // 原点に近づけて配置します。
       cam2.setPosition(0, 0, 600);
 
-      // Set the current camera to cam1.
+      // 現在のカメラをcam1に設定します。
       setCamera(cam1);
 
       describe(
-        'A row of white cubes against a gray background. The camera toggles between a static view and a view that zooms in and out when the user double-clicks.'
+        '灰色の背景に白い立方体の列。ユーザーがダブルクリックすると、カメラが静的なビューとズームイン・アウトするビューの間で切り替わります。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Update cam2's z-coordinate.
+      // cam2のz座標を更新します。
       let z = 100 * sin(frameCount * 0.01) + 700;
       cam2.setPosition(0, 0, z);
 
-      // Translate the origin toward the camera.
+      // 原点をカメラに向かって移動します。
       translate(-10, 10, 500);
 
-      // Rotate the coordinate system.
+      // 座標系を回転させます。
       rotateY(-0.1);
       rotateX(-0.1);
 
-      // Draw the row of boxes.
+      // 立方体の列を描画します。
       for (let i = 0; i < 6; i += 1) {
         translate(0, 0, -30);
         box(10);
       }
     }
 
-    // Toggle the current camera when the user double-clicks.
+    // ユーザーがダブルクリックしたときに現在のカメラを切り替えます。
     function doubleClicked() {
       if (isDefaultCamera === true) {
         setCamera(cam2);
@@ -154,21 +142,19 @@ class: p5.Camera
 params:
   - name: x
     description: |
-      <p>ワールド空間内の点の x 座標</p>
-      <p>x-coordinate in "world" space.</p>
+      <p>「ワールド」空間のx座標。</p>
     type: Number
   - name: 'y'
     description: |
-      <p>ワールド空間内の点の y 座標</p>
-      <p>y-coordinate in "world" space.</p>
+      <p>「ワールド」空間のy座標。</p>
     type: Number
   - name: z
     description: |
-      <p>ワールド空間内の点の z 座標</p>
-      <p>z-coordinate in "world" space.</p>
+      <p>「ワールド」空間のz座標。</p>
     type: Number
 chainable: false
 ---
 
 
 # setPosition
+

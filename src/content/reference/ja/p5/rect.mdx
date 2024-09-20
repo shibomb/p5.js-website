@@ -3,71 +3,15 @@ title: rect
 module: Shape
 submodule: 2D Primitives
 file: src/core/shape/2d_primitives.js
-description: >-
-  <p>キャンバスに長方形を描画します。</p>
+description: >
+  <p>四角形を描きます。</p>
 
-  <p>長方形は、すべての角度が90度の四辺形です。デフォルトでは、最初の2つのパラメーターは矩形の左上角の位置を設定します。3番目と4番目は形状の幅と高さをそれぞれ設定します。これらのパラメーターの解釈方法は、<a
-  href="#/p5/rectMode">rectMode()</a>関数で変更可能です。</p>
+  <p>四角形は、<code>x</code>、<code>y</code>、<code>w</code>、および<code>h</code>のパラメーターで定義される四辺形です。<code>x</code>と<code>y</code>はその左上隅の位置を設定します。<code>w</code>はその幅を設定し、<code>h</code>はその高さを設定します。四角形のすべての角度は90˚です。四角形を定義する他の方法については、<a href="/reference/p5/rectMode/">rectMode()</a>を参照してください。</p>
 
-  <p>5つのパラメーターをもつ<code>rect()</code>のバージョンは、角丸の矩形を作成します。5番目のパラメーターは、すべての角の半径値として使用されます。</p>
+  <p>5つのパラメーターを持つ<code>rect()</code>のバージョンは、角が丸い四角形を作成します。5番目のパラメーターは、すべての角の半径を設定します。</p>
 
-  <p>8つのパラメーターをもつ<code>rect()</code>のバージョンも、角丸の矩形を作成します。8つのパラメーターを使用する場合、後半4つは、それぞれの角での弧の半径を個別に設定します。半径は矩形の左上の角から始まり、時計回りに移動します。これらのパラメーターが省略された場合、最後に指定した角の半径の値に設定されます。</p>
-
-
-  <hr/>
-
-  <p>Draws a rectangle.</p>
-
-  <p>A rectangle is a four-sided shape defined by the <code>x</code>,
-  <code>y</code>, <code>w</code>, and <code>h</code>
-
-  parameters. <code>x</code> and <code>y</code> set the location of its top-left
-  corner. <code>w</code> sets
-
-  its width and <code>h</code> sets its height. Every angle in the rectangle
-  measures
-
-  90˚. See <a href="/reference/p5/rectMode/">rectMode()</a> for other ways to
-  define
-
-  rectangles.</p>
-
-  <p>The version of <code>rect()</code> with five parameters creates a rounded
-  rectangle. The
-
-  fifth parameter sets the radius for all four corners.</p>
-
-  <p>The version of <code>rect()</code> with eight parameters also creates a
-  rounded
-
-  rectangle. Each of the last four parameters set the radius of a corner. The
-
-  radii start with the top-left corner and move clockwise around the
-
-  rectangle. If any of these parameters are omitted, they are set to the
-
-  value of the last radius that was set.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "x": "Number: 長方形の x 座標",
-      "y": "Number: 長方形の y 座標",
-      "w": "Number: 長方形の幅",
-      "h": "Number: (オプション) 長方形の高さ",
-      "tl": "Number: (オプション) 左上の角の半径",
-      "tr": "Number: (オプション) 右上の角の半径",
-      "br": "Number: (オプション) 右下の角の半径",
-      "bl": "Number: (オプション) 左下の角の半径",
-      "detailX": "Integer: (オプション) x 方向のセグメント数（WebGL モード用）",
-      "detailY": "Integer: (オプション) y 方向のセグメント数（WebGL モード用）"
-  }
-
-  </pre>
-line: 1086
+  <p>8つのパラメーターを持つ<code>rect()</code>のバージョンも、角が丸い四角形を作成します。最後の4つのパラメーターはそれぞれの角の半径を設定します。半径は左上の角から始まり、時計回りに四角形を回ります。これらのパラメーターのいずれかが省略された場合、それらは最後に設定された半径の値に設定されます。</p>
+line: 1085
 isConstructor: false
 itemtype: method
 example:
@@ -82,7 +26,7 @@ example:
 
       rect(30, 20, 55, 55);
 
-      describe('A white square with a black outline on a gray canvas.');
+      describe('灰色のキャンバスに黒い輪郭の白い正方形。');
     }
     </code>
     </div>
@@ -96,7 +40,7 @@ example:
 
       rect(30, 20, 55, 40);
 
-      describe('A white rectangle with a black outline on a gray canvas.');
+      describe('灰色のキャンバスに黒い輪郭の白い長方形。');
     }
     </code>
     </div>
@@ -108,10 +52,10 @@ example:
 
       background(200);
 
-      // Give all corners a radius of 20.
+      // すべての角に半径20を与える。
       rect(30, 20, 55, 50, 20);
 
-      describe('A white rectangle with a black outline and round edges on a gray canvas.');
+      describe('灰色のキャンバスに黒い輪郭と丸い角を持つ白い長方形。');
     }
     </code>
     </div>
@@ -123,10 +67,10 @@ example:
 
       background(200);
 
-      // Give each corner a unique radius.
+      // 各角にユニークな半径を与える。
       rect(30, 20, 55, 50, 20, 15, 10, 5);
 
-      describe('A white rectangle with a black outline and round edges of different radii.');
+      describe('異なる半径の丸い角を持つ黒い輪郭の白い長方形。');
     }
     </code>
     </div>
@@ -140,7 +84,7 @@ example:
 
       rect(-20, -30, 55, 55);
 
-      describe('A white square with a black outline on a gray canvas.');
+      describe('灰色のキャンバスに黒い輪郭の白い正方形。');
     }
     </code>
     </div>
@@ -150,63 +94,63 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white square spins around on gray canvas.');
+      describe('灰色のキャンバスに白い正方形が回転する。');
     }
 
     function draw() {
       background(200);
 
-      // Rotate around the y-axis.
+      // y軸を中心に回転する。
       rotateY(frameCount * 0.01);
 
-      // Draw the rectangle.
+      // 四角形を描く。
       rect(-20, -30, 55, 55);
     }
     </code>
     </div>
 class: p5
 overloads:
-  - line: 1086
+  - line: 1085
     params:
       - name: x
         description: |
-          <p>x-coordinate of the rectangle.</p>
+          <p>四角形のx座標。</p>
         type: Number
       - name: 'y'
         description: |
-          <p>y-coordinate of the rectangle.</p>
+          <p>四角形のy座標。</p>
         type: Number
       - name: w
         description: |
-          <p>width of the rectangle.</p>
+          <p>四角形の幅。</p>
         type: Number
       - name: h
         description: |
-          <p>height of the rectangle.</p>
+          <p>四角形の高さ。</p>
         type: Number
         optional: true
       - name: tl
         description: |
-          <p>optional radius of top-left corner.</p>
+          <p>左上の角のオプションの半径。</p>
         type: Number
         optional: true
       - name: tr
         description: |
-          <p>optional radius of top-right corner.</p>
+          <p>右上の角のオプションの半径。</p>
         type: Number
         optional: true
       - name: br
         description: |
-          <p>optional radius of bottom-right corner.</p>
+          <p>右下の角のオプションの半径。</p>
         type: Number
         optional: true
       - name: bl
         description: |
-          <p>optional radius of bottom-left corner.</p>
+          <p>左下の角のオプションの半径。</p>
         type: Number
         optional: true
     chainable: 1
-  - line: 1209
+  - line: 1208
     params:
       - name: x
         description: ''
@@ -222,12 +166,12 @@ overloads:
         type: Number
       - name: detailX
         description: |
-          <p>number of segments in the x-direction (for WebGL mode).</p>
+          <p>（WebGLモード用）x方向のセグメント数。</p>
         type: Integer
         optional: true
       - name: detailY
         description: |
-          <p>number of segments in the y-direction (for WebGL mode).</p>
+          <p>（WebGLモード用）y方向のセグメント数。</p>
         type: Integer
         optional: true
     chainable: 1

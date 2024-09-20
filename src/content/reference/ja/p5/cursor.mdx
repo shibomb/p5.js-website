@@ -4,68 +4,34 @@ module: Environment
 submodule: Environment
 file: src/core/environment.js
 description: >
-  <p>カーソルを事前定義された記号や画像に設定するか、すでに非表示の場合は表示するようにします。</p>
+  <p>カーソルの外観を変更します。</p>
 
-  <p>カーソルとして画像を設定する場合、推奨されるサイズは16×16または32×32ピクセルです。パラメーター x と y
-  の値は、画像の寸法よりも小さくする必要があります。</p>
+  <p>最初のパラメータ<code>type</code>は、表示するカーソルの種類を設定します。
 
-  <p>/// todo ///</p>
+  組み込みのオプションには<code>ARROW</code>、<code>CROSS</code>、
+  <code>HAND</code>、<code>MOVE</code>、<code>TEXT</code>、
+  <code>WAIT</code>があります。
 
-  <p>Changes the cursor's appearance.</p>
+  <code>cursor()</code>は、文字列として渡される標準的なCSSカーソルプロパティも
 
-  <p>The first parameter, <code>type</code>, sets the type of cursor to display.
-  The built-in options are <code>ARROW</code>, <code>CROSS</code>,
-  <code>HAND</code>, <code>MOVE</code>, <code>TEXT</code>, and
-  <code>WAIT</code>. <code>cursor()</code> also recognizes standard CSS cursor
-  properties passed as strings: <code>'help'</code>, <code>'wait'</code>,
-  <code>'crosshair'</code>, <code>'not-allowed'</code>, <code>'zoom-in'</code>,
-  and <code>'grab'</code>. If the path to an image is passed, as in
-  <code>cursor('assets/target.png')</code>, then the image will be used as the
-  cursor. Images must be in .cur, .gif, .jpg, .jpeg, or .png format.</p>
+  認識します：<code>'help'</code>、<code>'wait'</code>、<code>'crosshair'</code>、
+  <code>'not-allowed'</code>、<code>'zoom-in'</code>、
 
-  <p>The parameters <code>x</code> and <code>y</code> are optional. If an image
-  is used for the cursor, <code>x</code> and <code>y</code> set the location
-  pointed to within the image. They are both 0 by default, so the cursor points
-  to the image's top-left corner. <code>x</code> and <code>y</code> must be less
-  than the image's width and height, respectively.</p>
+  <code>'grab'</code>などです。画像へのパスが渡された場合、例えば
 
+  <code>cursor('/assets/target.png')</code>のように、その画像がカーソルとして使用されます。
 
-  <hr/>
+  画像は.cur、.gif、.jpg、.jpeg、または.png形式である必要があり、<a
+  href="https://developer.mozilla.org/en-US/docs/Web/CSS/cursor#icon_size_limits">最大で32×32ピクセルの大きさ</a>でなければなりません。</p>
 
-  <p>Changes the cursor's appearance.</p>
+  <p>パラメータ<code>x</code>と<code>y</code>はオプションです。画像がカーソルとして
 
-  <p>The first parameter, <code>type</code>, sets the type of cursor to display.
-  The
+  使用される場合、<code>x</code>と<code>y</code>は画像内で指し示す位置を設定します。
 
-  built-in options are <code>ARROW</code>, <code>CROSS</code>,
-  <code>HAND</code>, <code>MOVE</code>, <code>TEXT</code>, and
-  <code>WAIT</code>.
-
-  <code>cursor()</code> also recognizes standard CSS cursor properties passed as
-
-  strings: <code>'help'</code>, <code>'wait'</code>, <code>'crosshair'</code>,
-  <code>'not-allowed'</code>, <code>'zoom-in'</code>,
-
-  and <code>'grab'</code>. If the path to an image is passed, as in
-
-  <code>cursor('/assets/target.png')</code>, then the image will be used as the
-  cursor.
-
-  Images must be in .cur, .gif, .jpg, .jpeg, or .png format and should be <a
-  href="https://developer.mozilla.org/en-US/docs/Web/CSS/cursor#icon_size_limits">at
-  most 32 by 32 pixels large.</a></p>
-
-  <p>The parameters <code>x</code> and <code>y</code> are optional. If an image
-  is used for the
-
-  cursor, <code>x</code> and <code>y</code> set the location pointed to within
-  the image. They are
-
-  both 0 by default, so the cursor points to the image's top-left corner.
+  デフォルトではどちらも0で、カーソルは画像の左上隅を指します。
   <code>x</code>
 
-  and <code>y</code> must be less than the image's width and height,
-  respectively.</p>
+  と<code>y</code>は、それぞれ画像の幅と高さより小さくなければなりません。</p>
 line: 209
 isConstructor: false
 itemtype: method
@@ -77,13 +43,13 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('A gray square. The cursor appears as crosshairs.');
+      describe('灰色の正方形。カーソルは十字線として表示されます。');
     }
 
     function draw() {
       background(200);
 
-      // Set the cursor to crosshairs: +
+      // カーソルを十字線に設定: +
       cursor(CROSS);
     }
     </code>
@@ -94,17 +60,17 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('A gray square divided into quadrants. The cursor image changes when the mouse moves to each quadrant.');
+      describe('4つの区画に分かれた灰色の正方形。マウスが各区画に移動すると、カーソルの画像が変化します。');
     }
 
     function draw() {
       background(200);
 
-      // Divide the canvas into quadrants.
+      // キャンバスを4つの区画に分割。
       line(50, 0, 50, 100);
       line(0, 50, 100, 50);
 
-      // Change cursor based on mouse position.
+      // マウスの位置に基づいてカーソルを変更。
       if (mouseX < 50 && mouseY < 50) {
         cursor(CROSS);
       } else if (mouseX > 50 && mouseY < 50) {
@@ -123,14 +89,14 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('An image of three purple curves follows the mouse. The image shifts when the mouse is pressed.');
+      describe('3つの紫色の曲線の画像がマウスに従います。マウスが押されると画像がシフトします。');
     }
 
     function draw() {
       background(200);
 
-      // Change the cursor's active spot
-      // when the mouse is pressed.
+      // マウスが押されたときに
+      // カーソルのアクティブスポットを変更。
       if (mouseIsPressed === true) {
         cursor('https://avatars0.githubusercontent.com/u/1617169?s=16', 8, 8);
       } else {
@@ -142,32 +108,19 @@ example:
 class: p5
 params:
   - name: type
-    description: >
-      <p>Built-in: either ARROW, CROSS, HAND, MOVE, TEXT, or WAIT.  Native CSS
-      properties: 'grab', 'progress', and so on.  Path to cursor image. /// todo
-      /// String|Constant: 組み込み: ARROW, CROSS, HAND, MOVE, TEXT, WAIT  ネイティブ CSS
-      プロパティ: 'grab', 'progress', 'cell'など  外部: カーソル画像のパス（許可されるファイル拡張子: .cur,
-      .gif, .jpg, .jpeg, .png）  ネイティブ CSS カーソルと url の詳細については、次のリンクを参照してください: <a
-      href="https://developer.mozilla.org/ja/docs/Web/CSS/cursor">https://developer.mozilla.org/ja/docs/Web/CSS/cursor</a></p>
-
-      <p>Built-in: either ARROW, CROSS, HAND, MOVE, TEXT, or WAIT.
-                                    Native CSS properties: 'grab', 'progress', and so on.
-                                    Path to cursor image.</p>
+    description: |
+      <p>組み込み：ARROW、CROSS、HAND、MOVE、TEXT、WAITのいずれか。
+                                    ネイティブCSSプロパティ：'grab'、'progress'など。
+                                    カーソル画像へのパス。</p>
     type: String|Constant
   - name: x
-    description: >
-      <p>(Optional) horizontal active spot of the cursor. /// todo /// Number:
-      (オプション) カーソルの水平方向のアクティブスポット（32未満にする必要があります）</p>
-
-      <p>horizontal active spot of the cursor.</p>
+    description: |
+      <p>カーソルの水平方向のアクティブスポット。</p>
     type: Number
     optional: true
   - name: 'y'
-    description: >
-      <p>(Optional) vertical active spot of the cursor. /// todo /// Number:
-      (オプション) カーソルの垂直方向のアクティブスポット（32未満にする必要があります）</p>
-
-      <p>vertical active spot of the cursor.</p>
+    description: |
+      <p>カーソルの垂直方向のアクティブスポット。</p>
     type: Number
     optional: true
 chainable: false
@@ -175,3 +128,4 @@ chainable: false
 
 
 # cursor
+

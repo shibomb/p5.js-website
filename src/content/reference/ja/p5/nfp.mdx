@@ -3,15 +3,7 @@ title: nfp
 module: Data
 submodule: String Functions
 file: src/utilities/string_functions.js
-description: >-
-  <p>数値を文字列にフォーマットするユーティリティ関数。</p>
-
-  <p><a href="#/p5/nf">nf()</a> と似ていますが、正の数の前に「+」を付け、負の数の前に「-」を付けます。float
-  用のバージョンと int 用のバージョンの2つがあります。left と right パラメーターの値は常に正の整数である必要があります。</p>
-
-
-  <hr/>
-
+description: >
   <p>Converts a <code>Number</code> into a <code>String</code> with a plus or
   minus sign.</p>
 
@@ -68,20 +60,6 @@ description: >-
 
   calling <code>nfp(123.45, 4, 3)</code> returns the string
   <code>'+0123.450'</code>.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "num": "Number: フォーマットする数値",
-      "left": "Integer: (オプション) 小数点の左の桁数",
-      "right": "Integer: (オプション) 小数点の右の桁数",
-      "nums": "Number[]: フォーマットする数値"
-  }
-
-  </pre>
 line: 440
 isConstructor: false
 itemtype: method
@@ -159,9 +137,7 @@ example:
     </div>
 class: p5
 return:
-  description: |-
-    フォーマットされた文字列
-    formatted string.
+  description: formatted string.
   type: String
 overloads:
   - line: 440

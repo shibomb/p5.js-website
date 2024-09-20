@@ -4,10 +4,6 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
-  <p>p5.Convolver を作成します。</p>
-  <p>インパルス応答を生成するために使用される音声ファイルへのパスを受け入れます。</p>
-
-  <hr/>
   <p>Create a p5.Convolver. Accepts a path to a soundfile
   that will be used to generate an impulse response.</p>
 line: 8885
@@ -53,12 +49,10 @@ class: p5
 params:
   - name: path
     description: |
-      <p>音声ファイルへのパス</p>
       <p>path to a sound file</p>
     type: String
   - name: callback
     description: |
-      <p>(オプション) 読み込みが成功した場合に呼び出す関数。オブジェクトは、コールバック関数に引数として渡されます。</p>
       <p>function to call if loading is successful.
                                     The object will be passed in as the argument
                                     to the callback function.</p>
@@ -66,15 +60,13 @@ params:
     optional: true
   - name: errorCallback
     description: |
-      <p>(オプション) 読み込みに失敗した場合に呼び出す関数。カスタムエラーがコールバック関数の引数として渡されます。</p>
       <p>function to call if loading is not successful.
                                     A custom error will be passed in as the argument
                                     to the callback function.</p>
     type: Function
     optional: true
 return:
-  description: |
-    p5.Convolver:
+  description: ''
   type: p5.Convolver
 chainable: false
 ---

@@ -3,103 +3,87 @@ title: loadPixels
 module: Image
 submodule: Image
 file: src/image/p5.Image.js
-description: >
-  <p>この画像のピクセルデータを[pixels]属性にロードします。</p>
+description: |
+  <p>画像のピクセルデータを読み込みます。
+  この関数は、<a href="#/p5.Image/pixels">pixels</a>
+  配列を使用する前に呼び出す必要があります。デフォルトでは、この関数は
+  画像全体のピクセルを読み込みます。オプションのパラメータを使用して、
+  画像の特定の領域のピクセルを読み込むことができます。</p>
 
-  <p></p>
-
-  <p>/// todo ///</p>
-
-  <p>Loads the current value of each pixel in the <a
-  href="#/p5.Image">p5.Image</a> object into the <code>img.pixels</code> array.
-  This method must be called before reading or modifying pixel values.</p>
-
-
-  <hr/>
-
-  <p>Loads the current value of each pixel in the image into the
-  <code>img.pixels</code>
-
-  array.</p>
-
-  <p><code>img.loadPixels()</code> must be called before reading or modifying
-  pixel
-
-  values.</p>
-line: 381
-isConstructor: false
+  <p>画像のピクセルを変更した後は、<a href="#/p5.Image/updatePixels">updatePixels()</a>
+  を呼び出して変更を適用する必要があります。</p>
+line: 1037
+params:
+  - name: x
+    description: |
+      <p>読み込む領域の左上隅のx座標。</p>
+    type: Number
+    optional: true
+  - name: y
+    description: |
+      <p>読み込む領域の左上隅のy座標。</p>
+    type: Number
+    optional: true
+  - name: w
+    description: |
+      <p>読み込む領域の幅。</p>
+    type: Number
+    optional: true
+  - name: h
+    description: |
+      <p>読み込む領域の高さ。</p>
+    type: Number
+    optional: true
 itemtype: method
 example:
   - |-
 
     <div>
     <code>
+    let img;
+
+    // 画像を読み込みます。
+    function preload() {
+      img = loadImage('/assets/rockies.jpg');
+    }
+
     function setup() {
       createCanvas(100, 100);
 
-      background(200);
+      // 画像を表示します。
+      image(img, 0, 0, width, height);
 
-      // Create a p5.Image object.
-      let img = createImage(66, 66);
-
-      // Load the image's pixels.
+      // ピクセルデータを読み込みます。
       img.loadPixels();
 
-      // Set the pixels to black.
-      for (let x = 0; x < img.width; x += 1) {
-        for (let y = 0; y < img.height; y += 1) {
-          img.set(x, y, 0);
+      // 画像の中央にある10x10ピクセルの正方形を赤色に変更します。
+      let x = img.width / 2 - 5;
+      let y = img.height / 2 - 5;
+      for (let i = y; i < y + 10; i += 1) {
+        for (let j = x; j < x + 10; j += 1) {
+          let index = 4 * (i * img.width + j);
+          img.pixels[index] = 255;
+          img.pixels[index + 1] = 0;
+          img.pixels[index + 2] = 0;
+          img.pixels[index + 3] = 255;
         }
       }
 
-      // Update the image.
+      // ピクセルの変更を適用します。
       img.updatePixels();
 
-      // Display the image.
-      image(img, 17, 17);
+      // 更新された画像を表示します。
+      image(img, 0, 0, width, height);
 
-      describe('A black square drawn in the middle of a gray square.');
-    }
-    </code>
-    </div>
-
-    <div>
-    <code>
-    function setup() {
-      createCanvas(100, 100);
-
-      background(200);
-
-      // Create a p5.Image object.
-      let img = createImage(66, 66);
-
-      // Load the image's pixels.
-      img.loadPixels();
-
-      for (let i = 0; i < img.pixels.length; i += 4) {
-        // Red.
-        img.pixels[i] = 0;
-        // Green.
-        img.pixels[i + 1] = 0;
-        // Blue.
-        img.pixels[i + 2] = 0;
-        // Alpha.
-        img.pixels[i + 3] = 255;
-      }
-
-      // Update the image.
-      img.updatePixels();
-
-      // Display the image.
-      image(img, 17, 17);
-
-      describe('A black square drawn in the middle of a gray square.');
+      describe('山の風景の画像。中央に小さな赤い正方形があります。');
     }
     </code>
     </div>
 class: p5.Image
-chainable: false
+return:
+  description: ''
+  type: p5.Image
+chainable: true
 ---
-
 
 # loadPixels

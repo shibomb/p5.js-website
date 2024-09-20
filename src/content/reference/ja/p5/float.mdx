@@ -3,18 +3,7 @@ title: float
 module: Data
 submodule: Conversion
 file: src/utilities/conversion.js
-description: >-
-  <p>文字列を浮動小数点表現に変換します。</p>
-
-  <p>文字列の内容は数値に似ていなければならず、そうでない場合は
-  NaN（数値ではない）が返されます。たとえば、float("1234.56")は1234.56に評価されますが、float("キリン")は NaN
-  が返されます。</p>
-
-  <p>値の配列が渡された場合、同じ長さの浮動小数点の配列が返されます。</p>
-
-
-  <hr/>
-
+description: >
   <p>Converts a <code>String</code> to a floating point (decimal)
   <code>Number</code>.</p>
 
@@ -38,17 +27,6 @@ description: >-
   <code>float('giraffe')</code>,
 
   then the value <code>NaN</code> (not a number) will be returned.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "str": "String: 解析する浮動小数点の文字列"
-  }
-
-  </pre>
 line: 10
 isConstructor: false
 itemtype: method
@@ -107,9 +85,7 @@ example:
     </div>
 class: p5
 return:
-  description: |-
-    文字列の浮動小数点表現
-    converted number.
+  description: converted number.
   type: Number
 overloads:
   - line: 10

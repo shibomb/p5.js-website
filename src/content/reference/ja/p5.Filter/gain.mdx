@@ -3,15 +3,7 @@ title: gain
 module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
-description: >
-  <p>Biquad フィルターのゲイン属性を制御します。</p>
-
-  <p>これは p5.Effect から継承される.amp() とは異なります。.amp()
-  は出力ゲインノードを介してボリュームを制御し、p5.Filter.gain() は Biquad フィルターノードのゲインパラメーターを制御します。</p>
-
-
-  <hr/>
-
+description: |
   <p>Controls the gain attribute of a Biquad Filter.
   This is distinctly different from .amp() which is inherited from p5.Effect
   .amp() controls the volume via the output gain node
@@ -22,13 +14,10 @@ itemtype: method
 class: p5.Filter
 params:
   - name: gain
-    description: |
-      <p>Number</p>
+    description: ''
     type: Number
 return:
-  description: |-
-    現在のまたは更新されたゲイン値を返します
-    Returns the current or updated gain value
+  description: Returns the current or updated gain value
   type: Number
 chainable: false
 ---

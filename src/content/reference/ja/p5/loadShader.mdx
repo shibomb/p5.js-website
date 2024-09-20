@@ -3,115 +3,62 @@ title: loadShader
 module: 3D
 submodule: Material
 file: src/webgl/material.js
-description: >-
-  <p>提供された頂点シェーダーとフラグメントシェーダーファイルから新しい <a href="#/p5.Shader">p5.Shader</a>
-  オブジェクトを作成します。</p>
+description: >
+  <p>頂点シェーダーとフラグメントシェーダーを読み込んで
 
-  <p></p>
+  <a href="/reference/p5/p5.Shader">p5.Shader</a> オブジェクトを作成します。</p>
 
-  <p>シェーダーファイルはバックグラウンドで非同期にロードされるため、このメソッドは <a
-  href="#/p5/preload">preload()</a> で使用する必要があります。</p>
+  <p>シェーダーはグラフィックス処理ユニット（GPU）上で実行されるプログラムです。多くの
 
-  <p>Shaders can alter the positioning of shapes drawn with them. To ensure
-  consistency in rendering, it's recommended to use the vertex shader in the <a
-  href="#/p5/createShader">createShader example</a>. /// todo /// add 1 line</p>
-
-  <p>注意:シェーダーは WebGL モードでのみ使用できます。</p>
-
-
-  <hr/>
-
-  <p>Loads vertex and fragment shaders to create a
-
-  <a href="/reference/p5/p5.Shader">p5.Shader</a> object.</p>
-
-  <p>Shaders are programs that run on the graphics processing unit (GPU). They
-
-  can process many pixels at the same time, making them fast for many
-
-  graphics tasks. They’re written in a language called
+  ピクセルを同時に処理できるため、多くのグラフィックスタスクに対して高速です。
 
   <a
   href="https://developer.mozilla.org/en-US/docs/Games/Techniques/3D_on_the_web/GLSL_Shaders/"
-  target="_blank">GLSL</a>
+  target="_blank">GLSL</a>と呼ばれる言語で書かれ、
 
-  and run along with the rest of the code in a sketch.</p>
+  スケッチの他のコードと一緒に実行されます。</p>
 
-  <p>Once the <a href="/reference/p5/p5.Shader">p5.Shader</a> object is created,
-  it can be
+  <p><a href="/reference/p5/p5.Shader">p5.Shader</a> オブジェクトが作成されると、
 
-  used with the <a href="/reference/p5/shader/">shader()</a> function, as in
+  <a href="/reference/p5/shader/">shader()</a> 関数で使用できます。例えば、
 
-  <code>shader(myShader)</code>. A shader program consists of two files, a
-  vertex shader
+  <code>shader(myShader)</code> のようにします。シェーダープログラムは2つのファイル、
 
-  and a fragment shader. The vertex shader affects where 3D geometry is drawn
+  頂点シェーダーとフラグメントシェーダーで構成されます。頂点シェーダーは3Dジオメトリが
 
-  on the screen and the fragment shader affects color.</p>
+  画面上のどこに描画されるかに影響し、フラグメントシェーダーは色に影響します。</p>
 
-  <p><code>loadShader()</code> loads the vertex and fragment shaders from their
-  <code>.vert</code> and
+  <p><code>loadShader()</code> は <code>.vert</code> と <code>.frag</code> ファイルから
 
-  <code>.frag</code> files. For example, calling
+  頂点シェーダーとフラグメントシェーダーを読み込みます。例えば、
 
-  <code>loadShader('/assets/shader.vert', '/assets/shader.frag')</code> loads
-  both
+  <code>loadShader('/assets/shader.vert', '/assets/shader.frag')</code> を呼び出すと、
 
-  required shaders and returns a <a href="/reference/p5/p5.Shader/">p5.Shader</a>
-  object.</p>
+  必要な両方のシェーダーを読み込み、<a href="/reference/p5/p5.Shader">p5.Shader</a> オブジェクトを返します。</p>
 
-  <p>The third parameter, <code>successCallback</code>, is optional. If a
-  function is
+  <p>3番目のパラメータ <code>successCallback</code> はオプションです。関数が
 
-  passed, it will be called once the shader has loaded. The callback function
+  渡された場合、シェーダーが読み込まれた後に呼び出されます。コールバック関数は
 
-  can use the new <a href="/reference/p5/p5.Shader/">p5.Shader</a> object as its
+  新しい <a href="/reference/p5/p5.Shader">p5.Shader</a> オブジェクトをパラメータとして
 
-  parameter.</p>
+  使用できます。</p>
 
-  <p>The fourth parameter, <code>failureCallback</code>, is also optional. If a
-  function is
+  <p>4番目のパラメータ <code>failureCallback</code> もオプションです。関数が
 
-  passed, it will be called if the shader fails to load. The callback
+  渡された場合、シェーダーの読み込みに失敗した場合に呼び出されます。コールバック
 
-  function can use the event error as its parameter.</p>
+  関数はイベントエラーをパラメータとして使用できます。</p>
 
-  <p>Shaders can take time to load. Calling <code>loadShader()</code> in
+  <p>シェーダーの読み込みには時間がかかる場合があります。<code>loadShader()</code> を
 
-  <a href="/reference/p5/preload/">preload()</a> ensures shaders load before
-  they're
+  <a href="/reference/p5/preload/">preload()</a> で呼び出すことで、
 
-  used in <a href="/reference/p5/setup/">setup()</a> or <a
-  href="/reference/p5/draw/">draw()</a>.</p>
+  <a href="/reference/p5/setup/">setup()</a> や <a href="/reference/p5/draw/">draw()</a> で使用される前に
 
-  <p>Note: Shaders can only be used in WebGL mode.</p>
+  シェーダーが確実に読み込まれるようになります。</p>
 
-
-  <pre>
-
-  todo: param successCallback not found in ja-legacy:
-
-  {
-      "vertFilename": "String: 頂点シェーダーソースコードが含まれるファイルへのパス",
-      "fragFilename": "String: フラグメントシェーダーソースコードが含まれるファイルへのパス",
-      "callback": "Function: (オプション) loadShader が完了した後に実行されるコールバック。成功時には、p5.Shader オブジェクトが最初の引数として渡されます。",
-      "errorCallback": "Function: (オプション) loadShader 内でエラーが発生した場合に実行されるコールバック。エラー発生時には、エラーが最初の引数として渡されます。"
-  }
-
-  </pre>
-
-  <pre>
-
-  todo: param failureCallback not found in ja-legacy:
-
-  {
-      "vertFilename": "String: 頂点シェーダーソースコードが含まれるファイルへのパス",
-      "fragFilename": "String: フラグメントシェーダーソースコードが含まれるファイルへのパス",
-      "callback": "Function: (オプション) loadShader が完了した後に実行されるコールバック。成功時には、p5.Shader オブジェクトが最初の引数として渡されます。",
-      "errorCallback": "Function: (オプション) loadShader 内でエラーが発生した場合に実行されるコールバック。エラー発生時には、エラーが最初の引数として渡されます。"
-  }
-
-  </pre>
+  <p>注意：シェーダーはWebGLモードでのみ使用できます。</p>
 line: 12
 isConstructor: false
 itemtype: method
@@ -120,11 +67,11 @@ example:
 
     <div modernizr='webgl'>
     <code>
-    // Note: A "uniform" is a global variable within a shader program.
+    // 注意：「uniform」はシェーダープログラム内のグローバル変数です。
 
     let mandelbrot;
 
-    // Load the shader and create a p5.Shader object.
+    // シェーダーを読み込み、p5.Shaderオブジェクトを作成します。
     function preload() {
       mandelbrot = loadShader('/assets/shader.vert', '/assets/shader.frag');
     }
@@ -132,30 +79,30 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Compile and apply the p5.Shader object.
+      // p5.Shaderオブジェクトをコンパイルして適用します。
       shader(mandelbrot);
 
-      // Set the shader uniform p to an array.
+      // シェーダーのuniform変数pを配列に設定します。
       mandelbrot.setUniform('p', [-0.74364388703, 0.13182590421]);
 
-      // Set the shader uniform r to the value 1.5.
+      // シェーダーのuniform変数rを1.5に設定します。
       mandelbrot.setUniform('r', 1.5);
 
-      // Add a quad as a display surface for the shader.
+      // シェーダーの表示面として四角形を追加します。
       quad(-1, -1, 1, -1, 1, 1, -1, 1);
 
-      describe('A black fractal image on a magenta background.');
+      describe('マゼンタの背景に黒のフラクタル画像。');
     }
     </code>
     </div>
 
     <div>
     <code>
-    // Note: A "uniform" is a global variable within a shader program.
+    // 注意：「uniform」はシェーダープログラム内のグローバル変数です。
 
     let mandelbrot;
 
-    // Load the shader and create a p5.Shader object.
+    // シェーダーを読み込み、p5.Shaderオブジェクトを作成します。
     function preload() {
       mandelbrot = loadShader('/assets/shader.vert', '/assets/shader.frag');
     }
@@ -163,20 +110,20 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Use the p5.Shader object.
+      // p5.Shaderオブジェクトを使用します。
       shader(mandelbrot);
 
-      // Set the shader uniform p to an array.
+      // シェーダーのuniform変数pを配列に設定します。
       mandelbrot.setUniform('p', [-0.74364388703, 0.13182590421]);
 
-      describe('A fractal image zooms in and out of focus.');
+      describe('フラクタル画像がズームインとズームアウトを繰り返します。');
     }
 
     function draw() {
-      // Set the shader uniform r to a value that oscillates between 0 and 2.
+      // シェーダーのuniform変数rを0から2の間で振動する値に設定します。
       mandelbrot.setUniform('r', sin(frameCount * 0.01) + 1);
 
-      // Add a quad as a display surface for the shader.
+      // シェーダーの表示面として四角形を追加します。
       quad(-1, -1, 1, -1, 1, 1, -1, 1);
     }
     </code>
@@ -185,33 +132,30 @@ class: p5
 params:
   - name: vertFilename
     description: |
-      <p>頂点シェーダーソースコードが含まれるファイルへのパス</p>
-      <p>path of the vertex shader to be loaded.</p>
+      <p>読み込む頂点シェーダーのパス。</p>
     type: String
   - name: fragFilename
     description: |
-      <p>フラグメントシェーダーソースコードが含まれるファイルへのパス</p>
-      <p>path of the fragment shader to be loaded.</p>
+      <p>読み込むフラグメントシェーダーのパス。</p>
     type: String
   - name: successCallback
     description: |
-      <p>function to call once the shader is loaded. Can be passed the
-                                          <a href="#/p5.Shader">p5.Shader</a> object.</p>
+      <p>シェーダーが読み込まれた後に呼び出される関数。
+                                          <a href="#/p5.Shader">p5.Shader</a> オブジェクトを渡すことができます。</p>
     type: Function
     optional: true
   - name: failureCallback
     description: |
-      <p>function to call if the shader fails to load. Can be passed an
-                                          <code>Error</code> event object.</p>
+      <p>シェーダーの読み込みに失敗した場合に呼び出される関数。
+                                          <code>Error</code> イベントオブジェクトを渡すことができます。</p>
     type: Function
     optional: true
 return:
-  description: |-
-    提供された頂点シェーダーとフラグメントシェーダーファイルから作成されたシェーダーオブジェクト。
-    new shader created from the vertex and fragment shader files.
+  description: 頂点シェーダーとフラグメントシェーダーファイルから作成された新しいシェーダー。
   type: p5.Shader
 chainable: false
 ---
 
 
 # loadShader
+

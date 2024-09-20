@@ -4,14 +4,8 @@ module: Image
 submodule: Image
 file: src/image/p5.Image.js
 description: |
-  <p><a href="#/p5.Image/pause">img.pause()</a> で一時停止されたアニメーション GIF を再生します。</p>
-  <p></p>
-
-  <hr/>
-  <p>Plays an animated GIF that was paused with
-  <a href="/reference/p5.Image/pause/">img.pause()</a>.</p>
-line: 1858
-isConstructor: false
+  <p>アニメーションGIFの再生を開始または再開します。</p>
+line: 1686
 itemtype: method
 example:
   - |-
@@ -19,37 +13,43 @@ example:
     <div>
     <code>
     let gif;
+    let playing = true;
 
-    // Load the image.
     function preload() {
-      gif = loadImage('/assets/nancy-liang-wind-loop-forever.gif');
+      gif = loadImage('/assets/arnott-wallace-eye-loop-forever.gif');
     }
 
     function setup() {
       createCanvas(100, 100);
-
-      describe('A drawing of a child with hair blowing in the wind. The animation freezes when clicked and resumes when released.');
     }
 
     function draw() {
       background(255);
+
+      // GIFを表示します。
       image(gif, 0, 0);
+
+      // 再生状態を表示します。
+      textAlign(CENTER);
+      textSize(16);
+      text(playing ? 'Playing' : 'Paused', 50, 90);
+
+      describe('アニメーションGIF。クリックすると一時停止/再生します。');
     }
 
-    // Pause the GIF when the user presses the mouse.
+    // キャンバスをクリックすると一時停止/再生を切り替えます。
     function mousePressed() {
-      gif.pause();
-    }
-
-    // Play the GIF when the user releases the mouse.
-    function mouseReleased() {
-      gif.play();
+      if (playing) {
+        gif.pause();
+        playing = false;
+      } else {
+        gif.play();
+        playing = true;
+      }
     }
     </code>
     </div>
 class: p5.Image
-chainable: false
 ---
-
 
 # play

@@ -4,17 +4,6 @@ module: Events
 submodule: Mouse
 file: src/events/mouse.js
 description: >
-  <p><a href="#/p5/mouseReleased">mouseReleased()</a>
-  関数は、マウスボタンが離されるたびに呼び出されます。</p>
-
-  <p> <a href="#/p5/mouseReleased">mouseReleased()</a> 関数が定義されていない場合、代わりに <a
-  href="#/p5/touchEnded">touchEnded()</a>
-  関数が定義されている場合はそれが呼び出されます。ブラウザーには、さまざまなマウスイベントに関連するデフォルトの動作が異なる場合があります。このイベントのデフォルトの動作を防ぐには、関数の最後に「return
-  false」を追加してください。</p>
-
-
-  <hr/>
-
   <p>A function that's called once when a mouse button is released.</p>
 
   <p>Declaring the function <code>mouseReleased()</code> sets a code block to
@@ -193,7 +182,6 @@ class: p5
 params:
   - name: event
     description: |
-      <p>(オプション) オプションの MouseEvent コールバック引数。</p>
       <p>optional <code>MouseEvent</code> argument.</p>
     type: MouseEvent
     optional: true

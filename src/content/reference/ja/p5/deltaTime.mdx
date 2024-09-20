@@ -4,33 +4,10 @@ module: Environment
 submodule: Environment
 file: src/core/environment.js
 description: >
-  <p>システム変数 <a href="#/p5/deltaTime">deltaTime</a>
-  には、前のフレームの開始と現在のフレームの開始の間の時間差がミリ秒単位で格納されます。</p>
+  <p>前のフレームの描画にかかったミリ秒数を追跡する<code>Number</code>変数です。</p>
 
-  <p></p>
-
-  <p>この変数は、時間に厳密なアニメーションや、フレームレートに関係なく一定であるべき物理計算を作成するのに便利です。</p>
-
-  <p>/// todo ///</p>
-
-  <p>Tracks the amount of time, in milliseconds, it took for <a
-  href="#/p5/draw">draw</a> to draw the previous frame. <code>deltaTime</code>
-  is useful for simulating physics.</p>
-
-
-  <hr/>
-
-  <p>A <code>Number</code> variable that tracks the number of milliseconds it
-  took to draw
-
-  the last frame.</p>
-
-  <p><code>deltaTime</code> contains the amount of time it took
-
-  <a href="/reference/p5/draw/">draw()</a> to execute during the previous frame.
-  It's
-
-  useful for simulating physics.</p>
+  <p><code>deltaTime</code>には、前のフレームで<a href="/reference/p5/draw/">draw()</a>の
+  実行にかかった時間が含まれます。物理シミュレーションに役立ちます。</p>
 line: 124
 isConstructor: false
 itemtype: property
@@ -45,30 +22,30 @@ example:
     function setup()  {
       createCanvas(100, 100);
 
-      // Set the frameRate to 30.
+      // フレームレートを30に設定します。
       frameRate(30);
 
-      describe('A white circle moves from left to right on a gray background. It reappears on the left side when it reaches the right side.');
+      describe('白い円が灰色の背景上を左から右に移動します。右端に達すると左側に再び現れます。');
     }
 
     function draw() {
       background(200);
 
-      // Use deltaTime to calculate
-      // a change in position.
+      // deltaTimeを使用して
+      // 位置の変化を計算します。
       let deltaX = speed * deltaTime;
 
-      // Update the x variable.
+      // x変数を更新します。
       x += deltaX;
 
-      // Reset x to 0 if it's
-      // greater than 100.
+      // xが100より大きい場合、
+      // 0にリセットします。
       if (x > 100)  {
         x = 0;
       }
 
-      // Use x to set the circle's
-      // position.
+      // xを使用して円の
+      // 位置を設定します。
       circle(x, 50, 20);
     }
     </code>
@@ -79,3 +56,4 @@ type: Integer
 
 
 # deltaTime
+

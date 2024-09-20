@@ -3,179 +3,89 @@ title: saveCanvas
 module: Image
 submodule: Image
 file: src/image/image.js
-description: >-
-  <p>現在のキャンバスを画像として保存します。</p>
+description: >
+  <p>キャンバスを画像として保存します。</p>
 
-  <p>ブラウザーは、ファイルをすぐに保存するか、ダイアログウィンドウでユーザーにプロンプトを表示します。</p>
+  <p>デフォルトでは、<code>saveCanvas()</code>はキャンバスをPNGファイルとして保存し、
 
-  <hr/>
+  ファイル名を<code>untitled.png</code>とします。</p>
 
-  <p>Saves the current canvas as an image.</p>
+  <p>最初のパラメータ<code>filename</code>は、ファイル名を設定します。
 
-  <p>By default, <code>saveCanvas()</code> saves the canvas as a PNG image
-  called
+  ファイル名には拡張子を含めないでください。例えば、<code>'myCanvas'</code>と
 
-  <code>untitled.png</code>.</p>
+  指定すると、<code>'myCanvas.png'</code>として保存されます。</p>
 
-  <p>The first parameter, <code>filename</code>, is optional. It's a string that
-  sets the
+  <p>2番目のパラメータ<code>extension</code>は、ファイルタイプを設定します。
 
-  file's name. If a file extension is included, as in
+  <code>'png'</code>または<code>'jpg'</code>を使用できます。</p>
 
-  <code>saveCanvas('drawing.png')</code>, then the image will be saved using
-  that
+  <p>3番目のパラメータ<code>canvas</code>は、保存するキャンバスを指定します。
 
-  format.</p>
+  デフォルトでは、現在のキャンバスが使用されます。</p>
 
-  <p>The second parameter, <code>extension</code>, is also optional. It sets the
-  files format.
-
-  Either <code>'png'</code>, <code>'webp'</code>, or <code>'jpg'</code> can be
-  used. For example, <code>saveCanvas('drawing', 'jpg')</code>
-
-  saves the canvas to a file called <code>drawing.jpg</code>.</p>
-
-  <p>Note: The browser will either save the file immediately or prompt the user
-
-  with a dialogue window.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "selectedCanvas": "p5.Framebuffer|p5.Element|HTMLCanvasElement: reference to a  specific HTML5 canvas element. /// todo /// p5.Element|HTMLCanvasElement: 特定の html5 キャンバスを表す変数 (オプション) ",
-      "filename": "String: (Optional) file name. Defaults to 'untitled'.  /// todo /// String (オプション) ",
-      "extension": "String: (Optional) file extension, either 'jpg' or 'png'. Defaults to 'png'. /// todo /// String: (オプション) 'jpg'または'png'"
-  }
-
-  </pre>
-line: 153
+  <p>注意：ブラウザによっては、大きなキャンバスの保存に失敗する場合があります。</p>
+line: 1
 isConstructor: false
 itemtype: method
 example:
   - |-
 
-    <div class='norender'>
+    <div>
     <code>
     function setup() {
       createCanvas(100, 100);
       background(255);
+      rect(20, 20, 60, 60);
+      describe('白い背景に黒い正方形が描かれています。');
+    }
 
-      // Save the canvas to 'untitled.png'.
-      saveCanvas();
-
-      describe('A white square.');
+    // キャンバスを保存するには、's'キーを押してください。
+    function keyPressed() {
+      if (key === 's') {
+        saveCanvas('myCanvas', 'png');
+      }
     }
     </code>
     </div>
 
-    <div class='norender'>
+    <div>
     <code>
+    let cnv;
+
     function setup() {
-      createCanvas(100, 100);
-
       background(255);
-
-      // Save the canvas to 'myCanvas.jpg'.
-      saveCanvas('myCanvas.jpg');
-
-      describe('A white square.');
+      cnv = createCanvas(100, 100);
+      rect(20, 20, 60, 60);
+      describe('白い背景に黒い正方形が描かれています。');
     }
-    </code>
-    </div>
 
-    <div class='norender'>
-    <code>
-    function setup() {
-      createCanvas(100, 100);
-
-      background(255);
-
-      // Save the canvas to 'myCanvas.jpg'.
-      saveCanvas('myCanvas', 'jpg');
-
-      describe('A white square.');
-    }
-    </code>
-    </div>
-
-    <div class='norender'>
-    <code>
-    function setup() {
-      let cnv = createCanvas(100, 100);
-
-      background(255);
-
-      // Save the canvas to 'untitled.png'.
-      saveCanvas(cnv);
-
-      describe('A white square.');
-    }
-    </code>
-    </div>
-
-    <div class='norender'>
-    <code>
-    function setup() {
-      let cnv = createCanvas(100, 100);
-
-      background(255);
-
-      // Save the canvas to 'myCanvas.jpg'.
-      saveCanvas(cnv, 'myCanvas.jpg');
-
-      describe('A white square.');
-    }
-    </code>
-    </div>
-
-    <div class='norender'>
-    <code>
-    function setup() {
-      let cnv = createCanvas(100, 100);
-
-      background(255);
-
-      // Save the canvas to 'myCanvas.jpg'.
-      saveCanvas(cnv, 'myCanvas', 'jpg');
-
-      describe('A white square.');
+    // キャンバスを保存するには、's'キーを押してください。
+    function keyPressed() {
+      if (key === 's') {
+        saveCanvas(cnv, 'myCanvas', 'jpg');
+      }
     }
     </code>
     </div>
 class: p5
-overloads:
-  - line: 153
-    params:
-      - name: selectedCanvas
-        description: |
-          <p>reference to a
-                                                                   specific HTML5 canvas element.</p>
-        type: p5.Framebuffer|p5.Element|HTMLCanvasElement
-      - name: filename
-        description: |
-          <p>file name. Defaults to 'untitled'.</p>
-        type: String
-        optional: true
-      - name: extension
-        description: |
-          <p>file extension, either 'jpg' or 'png'. Defaults to 'png'.</p>
-        type: String
-        optional: true
-  - line: 267
-    params:
-      - name: filename
-        description: ''
-        type: String
-        optional: true
-      - name: extension
-        description: ''
-        type: String
-        optional: true
+params:
+  - name: filename
+    description: |
+      <p>保存するファイルの名前。</p>
+    type: String
+    optional: true
+  - name: extension
+    description: |
+      <p>ファイル拡張子、'png'または'jpg'のいずれか。</p>
+    type: String
+    optional: true
+  - name: canvas
+    description: |
+      <p>保存するキャンバス要素。</p>
+    type: HTMLCanvasElement
+    optional: true
 chainable: false
 ---
-
 
 # saveCanvas

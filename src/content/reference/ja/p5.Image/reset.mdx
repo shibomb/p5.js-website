@@ -4,15 +4,8 @@ module: Image
 submodule: Image
 file: src/image/p5.Image.js
 description: |
-  <p>アニメーション GIF を最初の状態から再生します。</p>
-  <p></p>
-  <p>/// todo ///</p>
-  <p>Restarts an animated GIF at its first frame.</p>
-
-  <hr/>
-  <p>Restarts an animated GIF at its first frame.</p>
-line: 1668
-isConstructor: false
+  <p>アニメーションGIFを最初のフレームにリセットします。</p>
+line: 1774
 itemtype: method
 example:
   - |-
@@ -21,33 +14,30 @@ example:
     <code>
     let gif;
 
-    // Load the image.
     function preload() {
-      gif = loadImage('/assets/arnott-wallace-wink-loop-once.gif');
+      gif = loadImage('/assets/arnott-wallace-eye-loop-forever.gif');
     }
 
     function setup() {
       createCanvas(100, 100);
-
-      describe('A cartoon face winks once and then freezes. Clicking resets the face and makes it wink again.');
     }
 
     function draw() {
       background(255);
 
-      // Display the image.
+      // GIFを表示します。
       image(gif, 0, 0);
+
+      describe('アニメーションGIF。クリックするとリセットします。');
     }
 
-    // Reset the GIF when the user presses the mouse.
+    // キャンバスをクリックするとGIFをリセットします。
     function mousePressed() {
       gif.reset();
     }
     </code>
     </div>
 class: p5.Image
-chainable: false
 ---
-
 
 # reset

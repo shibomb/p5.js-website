@@ -4,16 +4,6 @@ module: Events
 submodule: Keyboard
 file: src/events/keyboard.js
 description: >
-  <p><a href="#/p5/keyIsDown">keyIsDown()</a>
-  関数は、キーが現在押されている（ダウン）かどうかをチェックします。</p>
-
-  <p>これは、オブジェクトが動き、複数のキーが同時にその動作に影響を与えることができる場合に使用できます。たとえば、スプライトを斜めに移動させる場合などです。キーの
-  keyCode を表す任意の数値を入力するか、<a href="#/p5/keyCode">keyCode</a> の変数名を <a
-  href="#/p5/keyCode">こちら</a> にリストされているものから使用することができます。</p>
-
-
-  <hr/>
-
   <p>Returns <code>true</code> if the key it’s checking is pressed and
   <code>false</code> if not.</p>
 
@@ -137,13 +127,10 @@ class: p5
 params:
   - name: code
     description: |
-      <p>チェックするキー</p>
       <p>key to check.</p>
     type: Number
 return:
-  description: |-
-    キーがダウンかどうか
-    whether the key is down or not.
+  description: whether the key is down or not.
   type: Boolean
 chainable: false
 ---

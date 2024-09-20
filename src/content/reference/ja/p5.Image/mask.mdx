@@ -3,63 +3,81 @@ title: mask
 module: Image
 submodule: Image
 file: src/image/p5.Image.js
-description: >
-  <p>他の画像をロードし、そのアルファチャンネルをこの画像のアルファチャンネルとして使用することにより、画像の一部を表示しないようにマスクします。</p>
+description: |
+  <p>マスク画像を使用して、この画像の透明度を設定します。</p>
 
-  <p>マスクは累積的であり、画像オブジェクトに適用されると、削除することはできません。</p>
+  <p>マスク画像は、この画像と同じサイズである必要があります。マスク画像の
+  各ピクセルの明るさが、この画像の対応するピクセルの透明度を決定します。
+  マスク画像の黒いピクセルは、この画像の対応するピクセルを完全に透明にします。
+  マスク画像の白いピクセルは、この画像の対応するピクセルを完全に不透明にします。
+  マスク画像のグレーのピクセルは、この画像の対応するピクセルを部分的に透明にします。</p>
 
-
-  <hr/>
-
-  <p>Masks part of the image with another.</p>
-
-  <p><code>img.mask()</code> uses another <a
-  href="/reference/p5/p5.Image/">p5.Image</a> object's
-
-  alpha channel as the alpha channel for this image. Masks are cumulative
-
-  and can't be removed once applied. If the mask has a different
-
-  pixel density from this image, the mask will be scaled.</p>
-line: 1109
-isConstructor: false
+  <p>マスク画像がグレースケールでない場合、各ピクセルの明るさは
+  その赤、緑、青の値の平均として計算されます。</p>
+line: 1326
+params:
+  - name: srcImage
+    description: |
+      <p>マスクとして使用する<a href="#/p5.Image">p5.Image</a>オブジェクト。</p>
+    type: p5.Image
 itemtype: method
 example:
   - |-
 
     <div>
     <code>
-    let photo;
+    let img;
     let maskImage;
 
-    // Load the images.
+    // 画像を読み込みます。
     function preload() {
-      photo = loadImage('/assets/rockies.jpg');
+      img = loadImage('/assets/bricks.jpg');
       maskImage = loadImage('/assets/mask2.png');
     }
 
     function setup() {
       createCanvas(100, 100);
 
-      // Apply the mask.
-      photo.mask(maskImage);
+      // マスクを適用します。
+      img.mask(maskImage);
 
-      // Display the image.
-      image(photo, 0, 0);
+      // マスクされた画像を表示します。
+      image(img, 0, 0, width, height);
 
-      describe('An image of a mountain landscape. The right side of the image has a faded patch of white.');
+      describe('レンガの壁の画像。中央に円形の透明な領域があります。');
+    }
+    </code>
+    </div>
+
+    <div>
+    <code>
+    let img;
+    let maskImage;
+
+    // 画像を読み込みます。
+    function preload() {
+      img = loadImage('/assets/bricks.jpg');
+      maskImage = loadImage('/assets/mask1.png');
+    }
+
+    function setup() {
+      createCanvas(100, 100);
+
+      // マスクを適用します。
+      img.mask(maskImage);
+
+      // マスクされた画像を表示します。
+      image(img, 0, 0, width, height);
+
+      describe('レンガの壁の画像。中央に正方形の透明な領域があります。');
     }
     </code>
     </div>
 class: p5.Image
-params:
-  - name: srcImage
-    description: |
-      <p>ソース画像</p>
-      <p>source image.</p>
-    type: p5.Image
-chainable: false
+return:
+  description: ''
+  type: p5.Image
+chainable: true
 ---
-
 
 # mask

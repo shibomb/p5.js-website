@@ -4,13 +4,6 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: >
-  <p>音源を処理し、オプションで量と oversample 値を指定します。</p>
-
-  <p></p>
-
-
-  <hr/>
-
   <p>Process a sound source, optionally specify amount and oversample
   values.</p>
 line: 10883
@@ -20,7 +13,6 @@ class: p5.Distortion
 params:
   - name: amount
     description: |
-      <p>(オプション) 歪みの量。通常、値は0-1の範囲内です。</p>
       <p>Unbounded distortion amount.
                                      Normal values range from 0-1.</p>
     type: Number
@@ -28,7 +20,6 @@ params:
     optdefault: '0.25'
   - name: oversample
     description: |
-      <p>(オプション) 'none'、'2x'、'4x'のいずれか</p>
       <p>'none', '2x', or '4x'.</p>
     type: String
     optional: true

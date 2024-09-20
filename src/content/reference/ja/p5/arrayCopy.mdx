@@ -3,22 +3,7 @@ title: arrayCopy
 module: Data
 submodule: Array Functions
 file: src/utilities/array_functions.js
-description: >-
-  <p>配列（または配列の一部）を別の配列にコピーします。</p>
-
-  <p>src 配列は、srcPosition で指定された位置から始まり、dstPosition で指定された位置にある dst
-  配列にコピーされます。コピーする要素の数は length で決定されます。値のコピーは、destination
-  配列内の既存の値を上書きすることに注意してください。上書きする代わりに値を追加するには、<a href="#/p5/concat">concat()</a>
-  を使用してください。</p>
-
-  <p>2つの引数のみの単純化されたバージョンである arrayCopy(src,
-  dst)は、同じサイズの別の配列に配列全体をコピーします。arrayCopy(src, 0, dst, 0, src.length) と同等です。</p>
-
-  <p>この関数を使用することは、for() ループを反復処理して各要素を個別にコピーするよりも、配列データをコピーするのにはるかに効率的です。</p>
-
-
-  <hr/>
-
+description: >
   <p>Copies an array (or part of an array) to another array. The src array is
 
   copied to the dst array, beginning at the position specified by
@@ -41,21 +26,6 @@ description: >-
   <p>Using this function is far more efficient for copying array data than
 
   iterating through a for() loop and copying each element individually.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "src": "Array: ソース配列",
-      "srcPosition": "Integer: ソース配列内の開始位置",
-      "dst": "Array: 送信先配列",
-      "dstPosition": "Integer: 送信先配列内の開始位置",
-      "length": "Integer: コピーされる配列要素の数"
-  }
-
-  </pre>
 line: 35
 isConstructor: false
 itemtype: method

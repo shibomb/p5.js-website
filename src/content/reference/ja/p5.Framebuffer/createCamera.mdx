@@ -4,32 +4,24 @@ module: Rendering
 submodule: ''
 file: src/webgl/p5.Framebuffer.js
 description: >
-  <p>新しい <a href="#/p5.FramebufferCamera">p5.FramebufferCamera</a>
-  を作成し、このフレームバッファに描画する際に使用します。</p>
+  <p>フレームバッファーで使用する新しい
 
-  <p>カメラは現在アクティブなカメラとして設定されます。</p>
+  <a href="/reference/p5/p5.Camera">p5.Camera</a>オブジェクトを作成します。</p>
 
+  <p>新しいカメラは、デフォルトの位置<code>(0, 0, 800)</code>と
 
-  <hr/>
+  デフォルトの透視投影で初期化されます。そのプロパティは
 
-  <p>Creates a new
+  <a href="/reference/p5/p5.Camera">p5.Camera</a>メソッド（例：
+  <code>myCamera.lookAt(0, 0, 0)</code>）で制御できます。</p>
 
-  <a href="/reference/p5/p5.Camera/">p5.Camera</a> object to use with the
-  framebuffer.</p>
+  <p>フレームバッファーのカメラは、
 
-  <p>The new camera is initialized with a default position <code>(0, 0,
-  800)</code> and a
+  <a href="/reference/p5.Framebuffer/begin/">myBuffer.begin()</a>と
 
-  default perspective projection. Its properties can be controlled with
-
-  <a href="/reference/p5/p5.Camera/">p5.Camera</a> methods such as
-  <code>myCamera.lookAt(0, 0, 0)</code>.</p>
-
-  <p>Framebuffer cameras should be created between calls to
-
-  <a href="/reference/p5.Framebuffer/begin/">myBuffer.begin()</a> and
-
-  <a href="/reference/p5.Framebuffer/end/">myBuffer.end()</a> like so:</p>
+  <a href="/reference/p5.Framebuffer/end/">myBuffer.end()</a>の呼び出しの間に
+  
+  以下のように作成する必要があります：</p>
 
   <pre><code class="language-js">let myCamera;
 
@@ -37,7 +29,7 @@ description: >
   myBuffer.begin();
 
 
-  // Create the camera for the framebuffer.
+  // フレームバッファー用のカメラを作成します。
 
   myCamera = myBuffer.createCamera();
 
@@ -46,29 +38,28 @@ description: >
 
   </code></pre>
 
-  <p>Calling <a href="/reference/p5/setCamera/">setCamera()</a> updates the
+  <p><a href="/reference/p5/setCamera/">setCamera()</a>を呼び出すと、
 
-  framebuffer's projection using the camera.
+  カメラを使用してフレームバッファーの投影が更新されます。
 
-  <a href="/reference/p5/resetMatrix/">resetMatrix()</a> must also be called for
-  the
-
-  view to change properly:</p>
+  ビューを適切に変更するには、<a href="/reference/p5/resetMatrix/">resetMatrix()</a>も
+  
+  呼び出す必要があります：</p>
 
   <pre><code class="language-js">myBuffer.begin();
 
 
-  // Set the camera for the framebuffer.
+  // フレームバッファー用のカメラを設定します。
 
   setCamera(myCamera);
 
 
-  // Reset all transformations.
+  // すべての変換をリセットします。
 
   resetMatrix();
 
 
-  // Draw stuff...
+  // 何かを描画します...
 
 
   myBuffer.end();
@@ -82,7 +73,7 @@ example:
 
     <div>
     <code>
-    // Double-click to toggle between cameras.
+    // ダブルクリックでカメラを切り替えます。
 
     let myBuffer;
     let cam1;
@@ -92,19 +83,19 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Framebuffer object.
+      // p5.Framebufferオブジェクトを作成します。
       myBuffer = createFramebuffer();
 
-      // Create the cameras between begin() and end().
+      // begin()とend()の間でカメラを作成します。
       myBuffer.begin();
 
-      // Create the first camera.
-      // Keep its default settings.
+      // 最初のカメラを作成します。
+      // デフォルト設定のままにします。
       cam1 = myBuffer.createCamera();
 
-      // Create the second camera.
-      // Place it at the top-left.
-      // Point it at the origin.
+      // 2番目のカメラを作成します。
+      // 左上に配置します。
+      // 原点を向くようにします。
       cam2 = myBuffer.createCamera();
       cam2.setPosition(400, -400, 800);
       cam2.lookAt(0, 0, 0);
@@ -112,35 +103,35 @@ example:
       myBuffer.end();
 
       describe(
-        'A white cube on a gray background. The camera toggles between frontal and aerial views when the user double-clicks.'
+        '灰色の背景に白い立方体。ユーザーがダブルクリックすると、カメラが正面図と俯瞰図の間で切り替わります。'
       );
     }
 
     function draw() {
-      // Draw to the p5.Framebuffer object.
+      // p5.Framebufferオブジェクトに描画します。
       myBuffer.begin();
       background(200);
 
-      // Set the camera.
+      // カメラを設定します。
       if (usingCam1 === true) {
         setCamera(cam1);
       } else {
         setCamera(cam2);
       }
 
-      // Reset all transformations.
+      // すべての変換をリセットします。
       resetMatrix();
 
-      // Draw the box.
+      // ボックスを描画します。
       box();
 
       myBuffer.end();
 
-      // Display the p5.Framebuffer object.
+      // p5.Framebufferオブジェクトを表示します。
       image(myBuffer, -50, -50);
     }
 
-    // Toggle the current camera when the user double-clicks.
+    // ユーザーがダブルクリックしたときに現在のカメラを切り替えます。
     function doubleClicked() {
       if (usingCam1 === true) {
         usingCam1 = false;
@@ -152,12 +143,11 @@ example:
     </div>
 class: p5.Framebuffer
 return:
-  description: |-
-    新しいカメラ
-    new camera.
+  description: 新しいカメラ。
   type: p5.Camera
 chainable: false
 ---
 
 
 # createCamera
+

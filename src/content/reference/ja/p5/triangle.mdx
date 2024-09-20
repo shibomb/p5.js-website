@@ -4,25 +4,10 @@ module: Shape
 submodule: 2D Primitives
 file: src/core/shape/2d_primitives.js
 description: >
-  <p>キャンバスに三角形を描きます。</p>
+  <p>三角形を描きます。</p>
 
-  <p>三角形は3辺の多角形です。最初の2つのパラメーターは三角形の第一点<code>(x1,y1)</code>を指定します。中間の2つのパラメーターはその第二点<code>(x2,y2)</code>を指定します。そして、最後の2つのパラメーターはその第三点<code>(x3,
-  y3)</code>を指定します。</p>
-
-
-  <hr/>
-
-  <p>Draws a triangle.</p>
-
-  <p>A triangle is a three-sided shape defined by three points. The
-
-  first two parameters specify the triangle's first point <code>(x1, y1)</code>.
-  The
-
-  middle two parameters specify its second point <code>(x2, y2)</code>. And the
-  last two
-
-  parameters specify its third point <code>(x3, y3)</code>.</p>
+  <p>三角形は3つの点で定義される3辺の形です。最初の2つのパラメータは三角形の最初の点<code>(x1, y1)</code>を指定します。
+  中間の2つのパラメータは2番目の点<code>(x2, y2)</code>を指定します。そして最後の2つのパラメータは3番目の点<code>(x3, y3)</code>を指定します。</p>
 line: 1370
 isConstructor: false
 itemtype: method
@@ -38,7 +23,7 @@ example:
 
       triangle(30, 75, 58, 20, 86, 75);
 
-      describe('A white triangle with a black outline on a gray canvas.');
+      describe('灰色のキャンバスに黒い輪郭の白い三角形。');
     }
     </code>
     </div>
@@ -52,7 +37,7 @@ example:
 
       triangle(-20, 25, 8, -30, 36, 25);
 
-      describe('A white triangle with a black outline on a gray canvas.');
+      describe('灰色のキャンバスに黒い輪郭の白い三角形。');
     }
     </code>
     </div>
@@ -62,16 +47,16 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white triangle spins around on a gray canvas.');
+      describe('灰色のキャンバスに白い三角形が回転する。');
     }
 
     function draw() {
       background(200);
 
-      // Rotate around the y-axis.
+      // y軸を中心に回転します。
       rotateY(frameCount * 0.01);
 
-      // Draw the triangle.
+      // 三角形を描きます。
       triangle(-20, 25, 8, -30, 36, 25);
     }
     </code>
@@ -80,33 +65,27 @@ class: p5
 params:
   - name: x1
     description: |
-      <p>最初の点の x 座標</p>
-      <p>x-coordinate of the first point.</p>
+      <p>最初の点のx座標。</p>
     type: Number
   - name: y1
     description: |
-      <p>最初の点の y 座標</p>
-      <p>y-coordinate of the first point.</p>
+      <p>最初の点のy座標。</p>
     type: Number
   - name: x2
     description: |
-      <p>2番目の点の x 座標</p>
-      <p>x-coordinate of the second point.</p>
+      <p>2番目の点のx座標。</p>
     type: Number
   - name: y2
     description: |
-      <p>2番目の点の y 座標</p>
-      <p>y-coordinate of the second point.</p>
+      <p>2番目の点のy座標。</p>
     type: Number
   - name: x3
     description: |
-      <p>3番目の点の x 座標</p>
-      <p>x-coordinate of the third point.</p>
+      <p>3番目の点のx座標。</p>
     type: Number
   - name: y3
     description: |
-      <p>3番目の点の y 座標</p>
-      <p>y-coordinate of the third point.</p>
+      <p>3番目の点のy座標。</p>
     type: Number
 chainable: true
 ---

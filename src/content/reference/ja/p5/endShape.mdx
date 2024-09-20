@@ -4,111 +4,70 @@ module: Shape
 submodule: Vertex
 file: src/core/shape/vertex.js
 description: >
-  <p><a href="#/p5/endShape">endShape()</a> 関数は、<a
-  href="#/p5/beginShape">beginShape()</a> とペアで使用され、<a
-  href="#/p5/beginShape">beginShape()</a> の後でのみ呼び出すことができます。</p>
+  <p>カスタム形状への頂点の追加を停止します。</p>
 
-  <p><a href="#/p5/endshape">endShape()</a> が呼び出されると、前回の <a
-  href="#/p5/beginShape">beginShape()</a>
-  の呼び出し以降に定義されたすべての画像データが画像バッファに書き込まれます。定数 CLOSE を <code>mode</code>
-  パラメーターの値として使用して、図形を閉じる（始点と終点を接続する）ことができます。</p>
+  <p><a href="/reference/p5/beginShape/">beginShape()</a>と<code>endShape()</code>関数は、
 
-  <p>/// todo ///</p>
+  2Dまたは3Dでカスタム形状を作成することができます。
 
-  <p>The <a href="#/p5/endShape">endShape()</a> function is the companion to <a
-  href="#/p5/beginShape">beginShape()</a> and may only be called after <a
-  href="#/p5/beginShape">beginShape()</a>. When <a
-  href="#/p5/endshape">endShape()</a> is called, all of the image data defined
-  since the previous call to <a href="#/p5/beginShape">beginShape()</a> is
-  written into the image buffer. The constant CLOSE is the value for the
-  <code>mode</code> parameter to close the shape (to connect the beginning and
-  the end). When using instancing with <a href="#/p5/endShape">endShape()</a>
-  the instancing will not apply to the strokes. When the count parameter is used
-  with a value greater than 1, it enables instancing for shapes built when in
-  WEBGL mode. Instancing is a feature that allows the GPU to efficiently draw
-  multiples of the same shape. It's often used for particle effects or other
-  times when you need a lot of repetition. In order to take advantage of
-  instancing, you will also need to write your own custom shader using the
-  gl_InstanceID keyword. You can read more about instancing <a
-  href="https://webglfundamentals.org/webgl/lessons/webgl-instanced-drawing.html">here</a>
-  or by working from the example on this page.</p>
+  <a href="/reference/p5/beginShape/">beginShape()</a>はカスタム形状への頂点の
 
+  追加を開始し、<code>endShape()</code>はその追加を停止します。</p>
 
-  <hr/>
+  <p>最初のパラメータ<code>mode</code>はオプションです。デフォルトでは、形状の最初と最後の
 
-  <p>Begins adding vertices to a custom shape.</p>
+  頂点は接続されません。定数<code>CLOSE</code>が渡された場合、
 
-  <p>The <a href="/reference/p5/beginShape/">beginShape()</a> and
-  <code>endShape()</code> functions
+  <code>endShape(CLOSE)</code>のように、最初と最後の頂点が接続されます。</p>
 
-  allow for creating custom shapes in 2D or 3D.
-
-  <a href="/reference/p5/beginShape/">beginShape()</a> begins adding vertices to
-  a
-
-  custom shape and <code>endShape()</code> stops adding them.</p>
-
-  <p>The first parameter, <code>mode</code>, is optional. By default, the first
-  and last
-
-  vertices of a shape aren't connected. If the constant <code>CLOSE</code> is
-  passed, as
-
-  in <code>endShape(CLOSE)</code>, then the first and last vertices will be
-  connected.</p>
-
-  <p>The second parameter, <code>count</code>, is also optional. In WebGL mode,
-  it’s more
-
-  efficient to draw many copies of the same shape using a technique called
+  <p>2番目のパラメータ<code>count</code>もオプションです。WebGLモードでは、
 
   <a
   href="https://webglfundamentals.org/webgl/lessons/webgl-instanced-drawing.html"
-  target="_blank">instancing</a>.
+  target="_blank">インスタンシング</a>と呼ばれる技術を使用して
 
-  The <code>count</code> parameter tells WebGL mode how many copies to draw. For
+  同じ形状の多くのコピーを描画する方が効率的です。
 
-  example, calling <code>endShape(CLOSE, 400)</code> after drawing a custom
-  shape will
+  <code>count</code>パラメータは、WebGLモードに何個のコピーを描画するかを指示します。
 
-  make it efficient to draw 400 copies. This feature requires
+  例えば、カスタム形状を描画した後に<code>endShape(CLOSE, 400)</code>を呼び出すと、
+
+  400個のコピーを効率的に描画することができます。この機能を使用するには
 
   <a href="https://p5js.org/learn/getting-started-in-webgl-shaders.html"
-  target="_blank">writing a custom shader</a>.</p>
+  target="_blank">カスタムシェーダーを作成する</a>必要があります。</p>
 
-  <p>After calling <a href="/reference/p5/beginShape/">beginShape()</a>, shapes
-  can be
+  <p><a href="/reference/p5/beginShape/">beginShape()</a>を呼び出した後、
 
-  built by calling <a href="/reference/p5/vertex/">vertex()</a>,
+  <a href="/reference/p5/vertex/">vertex()</a>、
 
-  <a href="/reference/p5/bezierVertex/">bezierVertex()</a>,
+  <a href="/reference/p5/bezierVertex/">bezierVertex()</a>、
 
-  <a href="/reference/p5/quadraticVertex/">quadraticVertex()</a>, and/or
+  <a href="/reference/p5/quadraticVertex/">quadraticVertex()</a>、および/または
 
-  <a href="/reference/p5/curveVertex/">curveVertex()</a>. Calling
+  <a href="/reference/p5/curveVertex/">curveVertex()</a>を呼び出すことで形状を構築できます。
 
-  <code>endShape()</code> will stop adding vertices to the
+  <code>endShape()</code>を呼び出すと、形状への頂点の
 
-  shape. Each shape will be outlined with the current stroke color and filled
+  追加が停止します。各形状は現在のストロークカラーで輪郭が描かれ、
 
-  with the current fill color.</p>
+  現在のフィルカラーで塗りつぶされます。</p>
 
-  <p>Transformations such as <a href="/reference/p5/translate/">translate()</a>,
+  <p><a href="/reference/p5/translate/">translate()</a>、
 
-  <a href="/reference/p5/rotate/">rotate()</a>, and
+  <a href="/reference/p5/rotate/">rotate()</a>、
 
-  <a href="/reference/p5/scale/">scale()</a> don't work between
+  <a href="/reference/p5/scale/">scale()</a>などの変換は、<a
+  href="/reference/p5/beginShape/">beginShape()</a>と
 
-  <a href="/reference/p5/beginShape/">beginShape()</a> and
-  <code>endShape()</code>. It's also not
+  <code>endShape()</code>の間では機能しません。また、
 
-  possible to use other shapes, such as <a
-  href="/reference/p5/ellipse/">ellipse()</a> or
+  <a href="/reference/p5/ellipse/">ellipse()</a>や
 
-  <a href="/reference/p5/rect/">rect()</a>, between
+  <a href="/reference/p5/rect/">rect()</a>などの他の形状を<a
+  href="/reference/p5/beginShape/">beginShape()</a>と
 
-  <a href="/reference/p5/beginShape/">beginShape()</a> and
-  <code>endShape()</code>.</p>
+  <code>endShape()</code>の間で使用することもできません。</p>
 line: 1344
 isConstructor: false
 itemtype: method
@@ -122,106 +81,115 @@ example:
 
       background(200);
 
-      // Style the shapes.
-      noFill();
-
-      // Left triangle.
+      // 形状の描画を開始します。
       beginShape();
-      vertex(20, 20);
-      vertex(45, 20);
-      vertex(45, 80);
+
+      // 頂点を追加します。
+      vertex(30, 20);
+      vertex(85, 20);
+      vertex(85, 75);
+      vertex(30, 75);
+      vertex(85, 75);
+      vertex(30, 75);
+
+      // 形状の描画を停止します。
+      // 最初と最後の頂点を接続します。
       endShape(CLOSE);
 
-      // Right triangle.
-      beginShape();
-      vertex(50, 20);
-      vertex(75, 20);
-      vertex(75, 80);
-      endShape();
-
-      describe(
-        'Two sets of black lines drawn on a gray background. The three lines on the left form a right triangle. The two lines on the right form a right angle.'
-      );
+      describe('灰色の背景に白い長方形が描かれています。');
     }
     </code>
     </div>
 
     <div>
     <code>
-    // Note: A "uniform" is a global variable within a shader program.
+    function setup() {
+      createCanvas(100, 100);
 
-    // Create a string with the vertex shader program.
-    // The vertex shader is called for each vertex.
-    let vertSrc = `#version 300 es
+      background(200);
 
-    precision mediump float;
+      // 形状の描画を開始します。
+      beginShape();
 
-    in vec3 aPosition;
-    flat out int instanceID;
+      // 頂点を追加します。
+      vertex(30, 20);
+      vertex(85, 20);
+      vertex(85, 75);
+      vertex(30, 75);
 
-    uniform mat4 uModelViewMatrix;
-    uniform mat4 uProjectionMatrix;
+      // 形状の描画を停止します。
+      // 最初と最後の頂点を接続しません。
+      endShape();
 
-    void main() {
-
-      // Copy the instance ID to the fragment shader.
-      instanceID = gl_InstanceID;
-      vec4 positionVec4 = vec4(aPosition, 1.0);
-
-      // gl_InstanceID represents a numeric value for each instance.
-      // Using gl_InstanceID allows us to move each instance separately.
-      // Here we move each instance horizontally by ID * 23.
-      float xOffset = float(gl_InstanceID) * 23.0;
-
-      // Apply the offset to the final position.
-      gl_Position = uProjectionMatrix * uModelViewMatrix * (positionVec4 -
-        vec4(xOffset, 0.0, 0.0, 0.0));
+      describe('灰色の背景に白いU字型が描かれています。');
     }
-    `;
+    </code>
+    </div>
 
-    // Create a string with the fragment shader program.
-    // The fragment shader is called for each pixel.
-    let fragSrc = `#version 300 es
+    <div>
+    <code>
+    function setup() {
+      createCanvas(100, 100, WEBGL);
 
-    precision mediump float;
-
-    out vec4 outColor;
-    flat in int instanceID;
-    uniform float numInstances;
-
-    void main() {
-      vec4 red = vec4(1.0, 0.0, 0.0, 1.0);
-      vec4 blue = vec4(0.0, 0.0, 1.0, 1.0);
-
-      // Normalize the instance ID.
-      float normId = float(instanceID) / numInstances;
-
-      // Mix between two colors using the normalized instance ID.
-      outColor = mix(red, blue, normId);
+      describe('灰色の背景に白い四角錐が描かれています。');
     }
-    `;
+
+    function draw() {
+      background(200);
+
+      // マウスでの軌道制御を有効にします。
+      orbitControl();
+
+      // 形状の描画を開始します。
+      beginShape();
+
+      // 頂点を追加します。
+      vertex(-40, -40, 0);
+      vertex(40, -40, 0);
+      vertex(40, 40, 0);
+      vertex(-40, 40, 0);
+      vertex(0, 0, 50);
+
+      // 形状の描画を停止します。
+      // 最初と最後の頂点を接続します。
+      endShape(CLOSE);
+    }
+    </code>
+    </div>
+
+    <div>
+    <code>
+    // このスケッチには、カスタムシェーダーが必要です。
+
+    let myShader;
+
+    function preload() {
+      // シェーダーをロードします。
+      myShader = loadShader('assets/shader.vert', 'assets/shader.frag');
+    }
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Shader object.
-      let myShader = createShader(vertSrc, fragSrc);
+      describe('灰色の背景に4つの正方形が描かれています。正方形の色は左から右へ紫から赤へと変化します。');
+    }
 
+    function draw() {
       background(220);
 
-      // Compile and apply the p5.Shader.
+      // シェーダーをコンパイルして適用します。
       shader(myShader);
 
-      // Set the numInstances uniform.
+      // numInstancesユニフォームを設定します。
       myShader.setUniform('numInstances', 4);
 
-      // Translate the origin to help align the drawing.
+      // 描画を整列させるために原点を移動します。
       translate(25, -10);
 
-      // Style the shapes.
+      // 形状のスタイルを設定します。
       noStroke();
 
-      // Draw the shapes.
+      // 形状を描画します。
       beginShape();
       vertex(0, 0);
       vertex(0, 20);
@@ -229,8 +197,6 @@ example:
       vertex(20, 0);
       vertex(0, 0);
       endShape(CLOSE, 4);
-
-      describe('A row of four squares. Their colors transition from purple on the left to red on the right');
     }
     </code>
     </div>
@@ -238,17 +204,12 @@ class: p5
 params:
   - name: mode
     description: |
-      <p>(オプション) 図形を閉じるために CLOSE を使用</p>
-      <p>use CLOSE to close the shape</p>
+      <p>形状を閉じるにはCLOSEを使用します</p>
     type: Constant
     optional: true
   - name: count
     description: >
-      <p>(Optional) number of times you want to draw/instance the shape (for
-      WebGL mode).</p>
-
-      <p>number of times you want to draw/instance the shape (for WebGL
-      mode).</p>
+      <p>形状を描画/インスタンス化する回数（WebGLモード用）。</p>
     type: Integer
     optional: true
 chainable: true

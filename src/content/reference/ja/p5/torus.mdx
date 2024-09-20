@@ -4,59 +4,39 @@ module: Shape
 submodule: 3D Primitives
 file: src/webgl/3d_primitives.js
 description: >
-  <p>指定された半径とチューブ半径のトーラスを描画します。</p>
+  <p>トーラスを描画します。</p>
 
-  <p></p>
+  <p>トーラスは、三角形の面がリング状に接続された3D形状です。
 
-  <p>detailX および detailY は、トーラスの x 次元および y
-  次元の細分割数を決定します。細分割が多いほど、トーラスは滑らかに見えます。detailX および detailY
-  のデフォルト値および最大値はそれぞれ24および16です。それらを比較的小さな値に設定することで、トーラス以外の新しい形状を作成できます。</p>
+  面の少ないトーラスは平らに見えます。面の多いトーラスは滑らかな表面を持ちます。</p>
 
+  <p>最初のパラメータ<code>radius</code>はオプションです。<code>Number</code>が渡されると、
 
-  <hr/>
+  <code>torus(30)</code>のようにリングの半径を設定します。デフォルトでは、
 
-  <p>Draws a torus.</p>
+  <code>radius</code>は50です。</p>
 
-  <p>A torus is a 3D shape with triangular faces that connect to form a ring.
+  <p>2番目のパラメータ<code>tubeRadius</code>もオプションです。<code>Number</code>が渡されると、
 
-  Toruses with few faces look flattened. Toruses with many faces have smooth
+  <code>torus(30, 15)</code>のようにチューブの半径を設定します。デフォルトでは、
 
-  surfaces.</p>
+  <code>tubeRadius</code>は10です。</p>
 
-  <p>The first parameter, <code>radius</code>, is optional. If a
-  <code>Number</code> is passed, as in
+  <p>3番目のパラメータ<code>detailX</code>もオプションです。<code>Number</code>が渡されると、
 
-  <code>torus(30)</code>, it sets the radius of the ring. By default,
-  <code>radius</code> is 50.</p>
+  <code>torus(30, 15, 5)</code>のようにトーラスの穴を描くために使用されるエッジの数を設定します。
 
-  <p>The second parameter, <code>tubeRadius</code>, is also optional. If a
-  <code>Number</code> is
+  より多くのエッジを使用すると、穴が円に近づきます。デフォルトでは、
 
-  passed, as in <code>torus(30, 15)</code>, it sets the radius of the tube. By
-  default,
+  <code>detailX</code>は24です。</p>
 
-  <code>tubeRadius</code> is 10.</p>
+  <p>4番目のパラメータ<code>detailY</code>もオプションです。<code>Number</code>が渡されると、
 
-  <p>The third parameter, <code>detailX</code>, is also optional. If a
-  <code>Number</code> is passed,
+  <code>torus(30, 15, 5, 7)</code>のようにトーラスの高さを埋めるために使用される三角形の細分化の数を設定します。
 
-  as in <code>torus(30, 15, 5)</code>, it sets the number of edges used to draw
-  the hole
+  デフォルトでは、<code>detailY</code>は16です。</p>
 
-  of the torus. Using more edges makes the hole look more like a circle. By
-
-  default, <code>detailX</code> is 24.</p>
-
-  <p>The fourth parameter, <code>detailY</code>, is also optional. If a
-  <code>Number</code> is passed,
-
-  as in <code>torus(30, 15, 5, 7)</code>, it sets the number of triangle
-  subdivisions to
-
-  use while filling in the torus’ height. By default, <code>detailY</code> is
-  16.</p>
-
-  <p>Note: <code>torus()</code> can only be used in WebGL mode.</p>
+  <p>注意: <code>torus()</code>はWebGLモードでのみ使用できます。</p>
 line: 2183
 isConstructor: false
 itemtype: method
@@ -65,21 +45,21 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、シーンを異なる角度から見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white torus on a gray background.');
+      describe('灰色の背景に白いトーラスがあります。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでのオービットを有効にします。
       orbitControl();
 
-      // Draw the torus.
+      // トーラスを描画します。
       torus();
     }
     </code>
@@ -87,22 +67,22 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、シーンを異なる角度から見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white torus on a gray background.');
+      describe('灰色の背景に白いトーラスがあります。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでのオービットを有効にします。
       orbitControl();
 
-      // Draw the torus.
-      // Set its radius to 30.
+      // トーラスを描画します。
+      // 半径を30に設定します。
       torus(30);
     }
     </code>
@@ -110,22 +90,22 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、シーンを異なる角度から見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white torus on a gray background.');
+      describe('灰色の背景に白いトーラスがあります。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでのオービットを有効にします。
       orbitControl();
 
-      // Draw the torus.
-      // Set its radius to 30 and tubeRadius to 15.
+      // トーラスを描画します。
+      // 半径を30に設定し、チューブの半径を15に設定します。
       torus(30, 15);
     }
     </code>
@@ -133,23 +113,23 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、シーンを異なる角度から見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white torus on a gray background.');
+      describe('灰色の背景に白いトーラスがあります。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでのオービットを有効にします。
       orbitControl();
 
-      // Draw the torus.
-      // Set its radius to 30 and tubeRadius to 15.
-      // Set its detailX to 5.
+      // トーラスを描画します。
+      // 半径を30に設定し、チューブの半径を15に設定します。
+      // detailXを5に設定します。
       torus(30, 15, 5);
     }
     </code>
@@ -157,24 +137,24 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、シーンを異なる角度から見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white torus on a gray background.');
+      describe('灰色の背景に白いトーラスがあります。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでのオービットを有効にします。
       orbitControl();
 
-      // Draw the torus.
-      // Set its radius to 30 and tubeRadius to 15.
-      // Set its detailX to 5.
-      // Set its detailY to 3.
+      // トーラスを描画します。
+      // 半径を30に設定し、チューブの半径を15に設定します。
+      // detailXを5に設定します。
+      // detailYを3に設定します。
       torus(30, 15, 5, 3);
     }
     </code>
@@ -183,26 +163,22 @@ class: p5
 params:
   - name: radius
     description: |
-      <p>(オプション) リング全体の半径</p>
-      <p>radius of the torus. Defaults to 50.</p>
+      <p>トーラスの半径。デフォルトは50。</p>
     type: Number
     optional: true
   - name: tubeRadius
     description: |
-      <p>(オプション) チューブの半径</p>
-      <p>radius of the tube. Defaults to 10.</p>
+      <p>チューブの半径。デフォルトは10。</p>
     type: Number
     optional: true
   - name: detailX
     description: |
-      <p>(オプション) x 次元のセグメント数, セグメントが多いほど、ジオメトリが滑らかになります。デフォルトは24</p>
-      <p>number of edges that form the hole. Defaults to 24.</p>
+      <p>穴を形成するエッジの数。デフォルトは24。</p>
     type: Integer
     optional: true
   - name: detailY
     description: |
-      <p>(オプション) y 次元のセグメント数, セグメントが多いほど、ジオメトリが滑らかになります。デフォルトは16</p>
-      <p>number of triangle subdivisions along the y-axis. Defaults to 16.</p>
+      <p>y軸に沿った三角形の細分化の数。デフォルトは16。</p>
     type: Integer
     optional: true
 chainable: true

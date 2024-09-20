@@ -4,36 +4,21 @@ module: Color
 submodule: Creating & Reading
 file: src/color/creating_reading.js
 description: >
-  <p>2つの色をブレンドして、それらの間の第三の色を見つけます。</p>
+  <p>2つの色を混ぜ合わせて、その間の第3の色を見つけます。</p>
 
-  <p> <code>amt</code> パラメーターは、2つの値の間で補間する量を指定します。0 は最初の色と等しく、0.1
-  は最初の色に非常に近く、0.5 は2つの色の半分で、以降、同様です。負の数は 0 に設定されます。1 より大きい数は 1 に設定されます。これは<a
-  href="#/lerp">lerp</a>の動作とは異なりますが、範囲外の数値が奇妙で予期しない色を生成しないようにするためです。</p>
+  <p><code>amt</code>パラメータは、2つの値の間を補間する量を指定します。
 
-  <p>色がどのように補間されるかは、現在の<a href="#/colorMode">colorMode()</a>に依存します。</p>
+  0は最初の色に等しく、0.1は最初の色に非常に近く、
 
+  0.5は2つの色の中間点であり、以下同様です。負の数は0に設定されます。
 
-  <hr/>
+  1より大きい数は1に設定されます。これは<a href="/reference/lerp/">lerp</a>の
 
-  <p>Blends two colors to find a third color between them.</p>
+  動作とは異なります。[0, 1]の区間外の数値は奇妙で予期しない色を
 
-  <p>The <code>amt</code> parameter specifies the amount to interpolate between
-  the two
+  生成するため、これは必要です。</p>
 
-  values. 0 is equal to the first color, 0.1 is very near the first color,
-
-  0.5 is halfway between the two colors, and so on. Negative numbers are set
-
-  to 0. Numbers greater than 1 are set to 1. This differs from the behavior of
-
-  <a href="/reference/lerp/">lerp</a>. It's necessary because numbers outside of
-  the
-
-  interval [0, 1] will produce strange and unexpected colors.</p>
-
-  <p>The way that colors are interpolated depends on the current
-
-  <a href="/reference/colorMode/">colorMode()</a>.</p>
+  <p>色の補間方法は、現在の<a href="/reference/colorMode/">colorMode()</a>に依存します。</p>
 line: 949
 isConstructor: false
 itemtype: method
@@ -47,33 +32,33 @@ example:
 
       background(200);
 
-      // Create p5.Color objects to interpolate between.
+      // 補間する2つのp5.Colorオブジェクトを作成します。
       let from = color(218, 165, 32);
       let to = color(72, 61, 139);
 
-      // Create intermediate colors.
+      // 中間色を作成します。
       let interA = lerpColor(from, to, 0.33);
       let interB = lerpColor(from, to, 0.66);
 
-      // Draw the left rectangle.
+      // 左の長方形を描画します。
       noStroke();
       fill(from);
       rect(10, 20, 20, 60);
 
-      // Draw the left-center rectangle.
+      // 左中央の長方形を描画します。
       fill(interA);
       rect(30, 20, 20, 60);
 
-      // Draw the right-center rectangle.
+      // 右中央の長方形を描画します。
       fill(interB);
       rect(50, 20, 20, 60);
 
-      // Draw the right rectangle.
+      // 右の長方形を描画します。
       fill(to);
       rect(70, 20, 20, 60);
 
       describe(
-        'Four rectangles. From left to right, the rectangles are tan, brown, brownish purple, and purple.'
+        '4つの長方形。左から右へ、長方形はタン、茶色、茶紫色、紫色です。'
       );
     }
     </code>
@@ -82,23 +67,18 @@ class: p5
 params:
   - name: c1
     description: |
-      <p>この色から補間</p>
-      <p>interpolate from this color.</p>
+      <p>この色から補間します。</p>
     type: p5.Color
   - name: c2
     description: |
-      <p>この色へ補間</p>
-      <p>interpolate to this color.</p>
+      <p>この色へ補間します。</p>
     type: p5.Color
   - name: amt
     description: |
-      <p>0から1までの数値</p>
-      <p>number between 0 and 1.</p>
+      <p>0から1の間の数値。</p>
     type: Number
 return:
-  description: |-
-    補間された色
-    interpolated color.
+  description: 補間された色。
   type: p5.Color
 chainable: false
 ---

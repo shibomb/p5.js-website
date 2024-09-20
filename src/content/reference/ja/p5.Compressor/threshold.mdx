@@ -4,10 +4,6 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
-  <p>現在の threshold を取得するか、時間ランプを使用して値を設定します。</p>
-  <p></p>
-
-  <hr/>
   <p>Get current threshold or set value w/ time ramp</p>
 line: 10228
 isConstructor: false
@@ -16,13 +12,11 @@ class: p5.Compressor
 params:
   - name: threshold
     description: |
-      <p>コンプレッションが効果を発揮し始めるしきい値以上のデシベル値。デフォルトは-24、範囲は-100-0</p>
       <p>The decibel value above which the compression will start taking effect
                                  default = -24, range -100 - 0</p>
     type: Number
   - name: time
     description: |
-      <p>(オプション) 値の変更をスケジュールするための時間値を指定します。</p>
       <p>Assign time value to schedule the change in value</p>
     type: Number
     optional: true

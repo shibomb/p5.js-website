@@ -4,31 +4,13 @@ module: Image
 submodule: Image
 file: src/image/p5.Image.js
 description: >
-  <p>画像を新しい幅と高さにリサイズします。</p>
+  <p>画像を指定された幅と高さにリサイズします。</p>
 
-  <p>画像を比例的にスケーリングするには、wide または high
-  パラメーターの値として0を使用します。たとえば、画像の幅を150ピクセルにし、同じ比率で高さを変更するには、resize(150,
-  0)を使用します。</p>
+  <p>画像の元のアスペクト比を保持するには、<code>width</code>または<code>height</code>のいずれかに0を渡します。
 
-  <p>/// todo ///</p>
+  例えば、500 × 300ピクセルの画像に対して<code>img.resize(50, 0)</code>を呼び出すと、
 
-  <p>Resizes the <a href="#/p5.Image">p5.Image</a> object to a given
-  <code>width</code> and <code>height</code>. The image's original aspect ratio
-  can be kept by passing 0 for either <code>width</code> or <code>height</code>.
-  For example, calling <code>img.resize(50, 0)</code> on an image that was 500 ×
-  300 pixels will resize it to 50 × 30 pixels.</p>
-
-
-  <hr/>
-
-  <p>Resizes the image to a given width and height.</p>
-
-  <p>The image's original aspect ratio can be kept by passing 0 for either
-
-  <code>width</code> or <code>height</code>. For example, calling
-  <code>img.resize(50, 0)</code> on an image
-
-  that was 500 × 300 pixels will resize it to 50 × 30 pixels.</p>
+  50 × 30ピクセルにリサイズされます。</p>
 line: 837
 isConstructor: false
 itemtype: method
@@ -39,7 +21,7 @@ example:
     <code>
     let img;
 
-    // Load the image.
+    // 画像を読み込みます。
     function preload() {
       img = loadImage('/assets/rockies.jpg');
     }
@@ -47,16 +29,16 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Display the image.
+      // 画像を表示します。
       image(img, 0, 0);
 
-      // Resize the image.
+      // 画像をリサイズします。
       img.resize(50, 100);
 
-      // Display the resized image.
+      // リサイズされた画像を表示します。
       image(img, 0, 0);
 
-      describe('Two images of a mountain landscape. One copy of the image is squeezed horizontally.');
+      describe('山の風景の2つの画像。1つのコピーが水平方向に圧縮されています。');
     }
     </code>
     </div>
@@ -65,7 +47,7 @@ example:
     <code>
     let img;
 
-    // Load the image.
+    // 画像を読み込みます。
     function preload() {
       img = loadImage('/assets/rockies.jpg');
     }
@@ -73,16 +55,16 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Display the image.
+      // 画像を表示します。
       image(img, 0, 0);
 
-      // Resize the image, keeping the aspect ratio.
+      // アスペクト比を保持しながら画像をリサイズします。
       img.resize(0, 30);
 
-      // Display the resized image.
+      // リサイズされた画像を表示します。
       image(img, 0, 0);
 
-      describe('Two images of a mountain landscape. The small copy of the image covers the top-left corner of the larger image.');
+      describe('山の風景の2つの画像。小さなコピーが大きな画像の左上隅を覆っています。');
     }
     </code>
     </div>
@@ -91,7 +73,7 @@ example:
     <code>
     let img;
 
-    // Load the image.
+    // 画像を読み込みます。
     function preload() {
       img = loadImage('/assets/rockies.jpg');
     }
@@ -99,16 +81,16 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Display the image.
+      // 画像を表示します。
       image(img, 0, 0);
 
-      // Resize the image, keeping the aspect ratio.
+      // アスペクト比を保持しながら画像をリサイズします。
       img.resize(60, 0);
 
-      // Display the image.
+      // 画像を表示します。
       image(img, 0, 0);
 
-      describe('Two images of a mountain landscape. The small copy of the image covers the top-left corner of the larger image.');
+      describe('山の風景の2つの画像。小さなコピーが大きな画像の左上隅を覆っています。');
     }
     </code>
     </div>
@@ -116,16 +98,15 @@ class: p5.Image
 params:
   - name: width
     description: |
-      <p>リサイズ後の画像の幅</p>
-      <p>resized image width.</p>
+      <p>リサイズされた画像の幅。</p>
     type: Number
   - name: height
     description: |
-      <p>リサイズ後の画像の高さ</p>
-      <p>resized image height.</p>
+      <p>リサイズされた画像の高さ。</p>
     type: Number
 chainable: false
 ---
 
 
 # resize
+

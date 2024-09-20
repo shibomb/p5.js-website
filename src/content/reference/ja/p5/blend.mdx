@@ -3,75 +3,38 @@ title: blend
 module: Image
 submodule: Pixels
 file: src/image/pixels.js
-description: >-
-  <p>指定されたブレンドモードを使用して、ある画像のピクセル領域を別の画像にコピーします。</p>
+description: >
+  <p>ある画像から別の画像へピクセルの領域をコピーします。</p>
 
-  <p></p>
+  <p>最初のパラメータ <code>srcImage</code> は、ブレンドする
 
-  <p>/// todo ///</p>
+  <a href="/reference/p5/p5.Image">p5.Image</a> オブジェクトです。</p>
 
-  <p>Copies a region of pixels from one image to another. The
-  <code>blendMode</code> parameter blends the images' colors to create different
-  effects.</p>
+  <p>次の4つのパラメータ <code>sx</code>、<code>sy</code>、<code>sw</code>、<code>sh</code> は、
 
+  ソース画像からブレンドする領域を決定します。<code>(sx, sy)</code> は領域の
 
-  <hr/>
+  左上隅です。<code>sw</code> と <code>sh</code> は領域の幅と
 
-  <p>Copies a region of pixels from one image to another.</p>
+  高さです。</p>
 
-  <p>The first parameter, <code>srcImage</code>, is the
+  <p>次の4つのパラメータ <code>dx</code>、<code>dy</code>、<code>dw</code>、<code>dh</code> は、
 
-  <a href="/reference/p5/p5.Image/">p5.Image</a> object to blend.</p>
+  ブレンド先のキャンバスの領域を決定します。<code>(dx, dy)</code> は領域の
 
-  <p>The next four parameters, <code>sx</code>, <code>sy</code>,
-  <code>sw</code>, and <code>sh</code> determine the region
+  左上隅です。<code>dw</code> と <code>dh</code> は領域の幅と
 
-  to blend from the source image. <code>(sx, sy)</code> is the top-left corner
-  of the
+  高さです。</p>
 
-  region. <code>sw</code> and <code>sh</code> are the regions width and
-  height.</p>
+  <p>10番目のパラメータ <code>blendMode</code> は、画像の色をブレンドする
 
-  <p>The next four parameters, <code>dx</code>, <code>dy</code>,
-  <code>dw</code>, and <code>dh</code> determine the region
+  際に使用するエフェクトを設定します。オプションには <code>BLEND</code>、<code>DARKEST</code>、
 
-  of the canvas to blend into. <code>(dx, dy)</code> is the top-left corner of
-  the
+  <code>LIGHTEST</code>、<code>DIFFERENCE</code>、<code>MULTIPLY</code>、<code>EXCLUSION</code>、
 
-  region. <code>dw</code> and <code>dh</code> are the regions width and
-  height.</p>
+  <code>SCREEN</code>、<code>REPLACE</code>、<code>OVERLAY</code>、<code>HARD_LIGHT</code>、
 
-  <p>The tenth parameter, <code>blendMode</code>, sets the effect used to blend
-  the images'
-
-  colors. The options are <code>BLEND</code>, <code>DARKEST</code>,
-  <code>LIGHTEST</code>, <code>DIFFERENCE</code>,
-
-  <code>MULTIPLY</code>, <code>EXCLUSION</code>, <code>SCREEN</code>,
-  <code>REPLACE</code>, <code>OVERLAY</code>, <code>HARD_LIGHT</code>,
-
-  <code>SOFT_LIGHT</code>, <code>DODGE</code>, <code>BURN</code>,
-  <code>ADD</code>, or <code>NORMAL</code></p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "srcImage": "p5.Image: ソース画像",
-      "sx": "Integer: ソースの左上隅の X 座標",
-      "sy": "Integer: ソースの左上隅の Y 座標",
-      "sw": "Integer: ソース画像の幅",
-      "sh": "Integer: ソース画像の高さ",
-      "dx": "Integer: 送り先の左上隅の X 座標",
-      "dy": "Integer: 送り先の左上隅の Y 座標",
-      "dw": "Integer: 送り先画像の幅",
-      "dh": "Integer: 送り先画像の高さ",
-      "blendMode": "Constant: ブレンドモード。BLEND, DARKEST, LIGHTEST, DIFFERENCE, MULTIPLY, EXCLUSION, SCREEN, REPLACE, OVERLAY, HARD_LIGHT, SOFT_LIGHT, DODGE, BURN, ADD, NORMAL のいずれか。"
-  }
-
-  </pre>
+  <code>SOFT_LIGHT</code>、<code>DODGE</code>、<code>BURN</code>、<code>ADD</code>、または <code>NORMAL</code> があります。</p>
 line: 148
 isConstructor: false
 itemtype: method
@@ -83,7 +46,7 @@ example:
     let img0;
     let img1;
 
-    // Load the images.
+    // 画像を読み込みます。
     function preload() {
       img0 = loadImage('/assets/rockies.jpg');
       img1 = loadImage('/assets/bricks_third.jpg');
@@ -92,16 +55,16 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Use the mountains as the background.
+      // 山々を背景として使用します。
       background(img0);
 
-      // Display the bricks.
+      // レンガを表示します。
       image(img1, 0, 0);
 
-      // Display the bricks faded into the landscape.
+      // レンガを風景にフェードさせて表示します。
       blend(img1, 0, 0, 33, 100, 67, 0, 33, 100, LIGHTEST);
 
-      describe('A wall of bricks in front of a mountain landscape. The same wall of bricks appears faded on the right of the image.');
+      describe('山の風景の前にレンガの壁があります。同じレンガの壁が画像の右側にフェードして表示されています。');
     }
     </code>
     </div>
@@ -111,7 +74,7 @@ example:
     let img0;
     let img1;
 
-    // Load the images.
+    // 画像を読み込みます。
     function preload() {
       img0 = loadImage('/assets/rockies.jpg');
       img1 = loadImage('/assets/bricks_third.jpg');
@@ -120,16 +83,16 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Use the mountains as the background.
+      // 山々を背景として使用します。
       background(img0);
 
-      // Display the bricks.
+      // レンガを表示します。
       image(img1, 0, 0);
 
-      // Display the bricks partially transparent.
+      // レンガを部分的に透明にして表示します。
       blend(img1, 0, 0, 33, 100, 67, 0, 33, 100, DARKEST);
 
-      describe('A wall of bricks in front of a mountain landscape. The same wall of bricks appears transparent on the right of the image.');
+      describe('山の風景の前にレンガの壁があります。同じレンガの壁が画像の右側に透明に表示されています。');
     }
     </code>
     </div>
@@ -139,7 +102,7 @@ example:
     let img0;
     let img1;
 
-    // Load the images.
+    // 画像を読み込みます。
     function preload() {
       img0 = loadImage('/assets/rockies.jpg');
       img1 = loadImage('/assets/bricks_third.jpg');
@@ -148,16 +111,16 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Use the mountains as the background.
+      // 山々を背景として使用します。
       background(img0);
 
-      // Display the bricks.
+      // レンガを表示します。
       image(img1, 0, 0);
 
-      // Display the bricks washed out into the landscape.
+      // レンガを風景に溶け込ませて表示します。
       blend(img1, 0, 0, 33, 100, 67, 0, 33, 100, ADD);
 
-      describe('A wall of bricks in front of a mountain landscape. The same wall of bricks appears washed out on the right of the image.');
+      describe('山の風景の前にレンガの壁があります。同じレンガの壁が画像の右側に溶け込んで表示されています。');
     }
     </code>
     </div>
@@ -167,46 +130,45 @@ overloads:
     params:
       - name: srcImage
         description: |
-          <p>source image.</p>
+          <p>ソース画像。</p>
         type: p5.Image
       - name: sx
         description: |
-          <p>x-coordinate of the source's upper-left corner.</p>
+          <p>ソースの左上隅のx座標。</p>
         type: Integer
       - name: sy
         description: |
-          <p>y-coordinate of the source's upper-left corner.</p>
+          <p>ソースの左上隅のy座標。</p>
         type: Integer
       - name: sw
         description: |
-          <p>source image width.</p>
+          <p>ソース画像の幅。</p>
         type: Integer
       - name: sh
         description: |
-          <p>source image height.</p>
+          <p>ソース画像の高さ。</p>
         type: Integer
       - name: dx
         description: |
-          <p>x-coordinate of the destination's upper-left corner.</p>
+          <p>目的地の左上隅のx座標。</p>
         type: Integer
       - name: dy
         description: |
-          <p>y-coordinate of the destination's upper-left corner.</p>
+          <p>目的地の左上隅のy座標。</p>
         type: Integer
       - name: dw
         description: |
-          <p>destination image width.</p>
+          <p>目的地の画像の幅。</p>
         type: Integer
       - name: dh
         description: |
-          <p>destination image height.</p>
+          <p>目的地の画像の高さ。</p>
         type: Integer
       - name: blendMode
         description: |
-          <p>the blend mode. either
-              BLEND, DARKEST, LIGHTEST, DIFFERENCE,
-              MULTIPLY, EXCLUSION, SCREEN, REPLACE, OVERLAY, HARD_LIGHT,
-              SOFT_LIGHT, DODGE, BURN, ADD or NORMAL.</p>
+          <p>ブレンドモード。BLEND、DARKEST、LIGHTEST、DIFFERENCE、
+              MULTIPLY、EXCLUSION、SCREEN、REPLACE、OVERLAY、HARD_LIGHT、
+              SOFT_LIGHT、DODGE、BURN、ADD、またはNORMALのいずれか。</p>
         type: Constant
   - line: 267
     params:
@@ -242,3 +204,4 @@ chainable: false
 
 
 # blend
+

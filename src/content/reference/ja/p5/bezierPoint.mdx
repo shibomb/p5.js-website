@@ -4,50 +4,29 @@ module: Shape
 submodule: Curves
 file: src/core/shape/curves.js
 description: >
-  <p>ベジェ曲線のコントロールポイントとアンカーポイントの x 座標または y 座標の値が与えられた場合、この関数はベジェ曲線の t 位置での x
-  座標または y 座標を評価します。</p>
+  <p>補間を使用してベジエ曲線に沿った座標を計算します。</p>
 
-  <p>パラメーター a と d は曲線上の最初と最後の点の x または y 座標であり、b と c はコントロールポイントの座標です。最後のパラメーター t
-  は、0から1の値で示される結果の点の位置です。これを x 座標で1回、y 座標で1回実行することで、t 位置におけるベジェ曲線の位置を取得できます。</p>
+  <p><code>bezierPoint()</code>は、アンカーポイントと制御点を使用して
 
+  ベジエ曲線に沿った座標を計算します。<a href="/reference/p5/bezier/">bezier()</a>関数と
 
-  <hr/>
+  同じ順序でポイントを指定することが期待されます。<code>bezierPoint()</code>は
 
-  <p>Calculates coordinates along a Bézier curve using interpolation.</p>
+  一度に1つの軸に対して機能します。アンカーポイントと制御点の
 
-  <p><code>bezierPoint()</code> calculates coordinates along a Bézier curve
-  using the
+  x座標を渡すと、曲線上のポイントのx座標が計算されます。
 
-  anchor and control points. It expects points in the same order as the
+  y座標を渡すと、曲線上のポイントのy座標が計算されます。</p>
 
-  <a href="/reference/p5/bezier/">bezier()</a> function.
-  <code>bezierPoint()</code> works one axis
+  <p>最初のパラメータ<code>a</code>は、最初のアンカーポイントの座標です。</p>
 
-  at a time. Passing the anchor and control points' x-coordinates will
+  <p>2番目と3番目のパラメータ<code>b</code>と<code>c</code>は、制御点の座標です。</p>
 
-  calculate the x-coordinate of a point on the curve. Passing the anchor and
+  <p>4番目のパラメータ<code>d</code>は、最後のアンカーポイントの座標です。</p>
 
-  control points' y-coordinates will calculate the y-coordinate of a point on
+  <p>5番目のパラメータ<code>t</code>は、曲線に沿って補間する量です。0は
 
-  the curve.</p>
-
-  <p>The first parameter, <code>a</code>, is the coordinate of the first anchor
-  point.</p>
-
-  <p>The second and third parameters, <code>b</code> and <code>c</code>, are the
-  coordinates of the
-
-  control points.</p>
-
-  <p>The fourth parameter, <code>d</code>, is the coordinate of the last anchor
-  point.</p>
-
-  <p>The fifth parameter, <code>t</code>, is the amount to interpolate along the
-  curve. 0
-
-  is the first anchor point, 1 is the second anchor point, and 0.5 is halfway
-
-  between them.</p>
+  最初のアンカーポイント、1は2番目のアンカーポイント、0.5はその中間点です。</p>
 line: 324
 isConstructor: false
 itemtype: method
@@ -61,7 +40,7 @@ example:
 
       background(200);
 
-      // Set the coordinates for the curve's anchor and control points.
+      // 曲線のアンカーポイントと制御点の座標を設定します。
       let x1 = 85;
       let x2 = 10;
       let x3 = 90;
@@ -71,31 +50,31 @@ example:
       let y3 = 90;
       let y4 = 80;
 
-      // Style the curve.
+      // 曲線のスタイルを設定します。
       noFill();
 
-      // Draw the curve.
+      // 曲線を描画します。
       bezier(x1, y1, x2, y2, x3, y3, x4, y4);
 
-      // Draw circles along the curve's path.
+      // 曲線のパスに沿って円を描画します。
       fill(255);
 
-      // Top-right.
+      // 右上。
       let x = bezierPoint(x1, x2, x3, x4, 0);
       let y = bezierPoint(y1, y2, y3, y4, 0);
       circle(x, y, 5);
 
-      // Center.
+      // 中央。
       x = bezierPoint(x1, x2, x3, x4, 0.5);
       y = bezierPoint(y1, y2, y3, y4, 0.5);
       circle(x, y, 5);
 
-      // Bottom-left.
+      // 左下。
       x = bezierPoint(x1, x2, x3, x4, 1);
       y = bezierPoint(y1, y2, y3, y4, 1);
       circle(x, y, 5);
 
-      describe('A black s-curve on a gray square. The endpoints and center of the curve are marked with white circles.');
+      describe('グレーの正方形上に黒のS字カーブ。カーブの端点と中心が白い円で示されています。');
     }
     </code>
     </div>
@@ -105,13 +84,13 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('A black s-curve on a gray square. A white circle moves back and forth along the curve.');
+      describe('グレーの正方形上に黒のS字カーブ。白い円がカーブに沿って前後に動きます。');
     }
 
     function draw() {
       background(200);
 
-      // Set the coordinates for the curve's anchor and control points.
+      // 曲線のアンカーポイントと制御点の座標を設定します。
       let x1 = 85;
       let x2 = 10;
       let x3 = 90;
@@ -121,16 +100,16 @@ example:
       let y3 = 90;
       let y4 = 80;
 
-      // Draw the curve.
+      // 曲線を描画します。
       noFill();
       bezier(x1, y1, x2, y2, x3, y3, x4, y4);
 
-      // Calculate the circle's coordinates.
+      // 円の座標を計算します。
       let t = 0.5 * sin(frameCount * 0.01) + 0.5;
       let x = bezierPoint(x1, x2, x3, x4, t);
       let y = bezierPoint(y1, y2, y3, y4, t);
 
-      // Draw the circle.
+      // 円を描画します。
       fill(255);
       circle(x, y, 5);
     }
@@ -140,33 +119,26 @@ class: p5
 params:
   - name: a
     description: |
-      <p>曲線上の最初の点の座標</p>
-      <p>coordinate of first control point.</p>
+      <p>最初の制御点の座標。</p>
     type: Number
   - name: b
     description: |
-      <p>最初のコントロールポイントの座標</p>
-      <p>coordinate of first anchor point.</p>
+      <p>最初のアンカーポイントの座標。</p>
     type: Number
   - name: c
     description: |
-      <p>2番目のコントロールポイントの座標</p>
-      <p>coordinate of second anchor point.</p>
+      <p>2番目のアンカーポイントの座標。</p>
     type: Number
   - name: d
     description: |
-      <p>曲線上の最後の点の座標</p>
-      <p>coordinate of second control point.</p>
+      <p>2番目の制御点の座標。</p>
     type: Number
   - name: t
     description: |
-      <p>0から1までの値</p>
-      <p>amount to interpolate between 0 and 1.</p>
+      <p>0から1の間で補間する量。</p>
     type: Number
 return:
-  description: |-
-    t 位置でのベジェ曲線の値
-    coordinate of the point on the curve.
+  description: 曲線上のポイントの座標。
   type: Number
 chainable: false
 ---

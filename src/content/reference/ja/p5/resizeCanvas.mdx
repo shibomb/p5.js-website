@@ -3,25 +3,17 @@ title: resizeCanvas
 module: Rendering
 submodule: Rendering
 file: src/core/rendering.js
-description: >-
+description: >
   <p>キャンバスを指定された幅と高さにリサイズします。</p>
 
-  <p>キャンバスはクリアされ、直ちに描画が呼び出され、スケッチがリサイズされたキャンバスで再レンダリングされます。</p>
+  <p><code>resizeCanvas()</code>は即座にキャンバスをクリアし、
 
+  <a href="/reference/p5/redraw/">redraw()</a>を呼び出します。
+  <code>resizeCanvas()</code>は
 
-  <hr/>
-
-  <p>Resizes the canvas to a given width and height.</p>
-
-  <p><code>resizeCanvas()</code> immediately clears the canvas and calls
-
-  <a href="/reference/p5/redraw/">redraw()</a>. It's common to call
-  <code>resizeCanvas()</code>
-
-  within the body of <a href="/reference/p5/windowResized/">windowResized()</a>
-  like
-
-  so:</p>
+  一般的に<a href="/reference/p5/windowResized/">windowResized()</a>の本体内で
+  
+  次のように呼び出されます：</p>
 
   <pre><code class="language-js">function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
@@ -29,60 +21,29 @@ description: >-
 
   </code></pre>
 
-  <p>The first two parameters, <code>width</code> and <code>height</code>, set
-  the dimensions of the
+  <p>最初の2つのパラメータ、<code>width</code>と<code>height</code>は、キャンバスの
 
-  canvas. They also the values of the <a href="/reference/p5/width/">width</a>
-  and
+  寸法を設定します。これらは同時に<a href="/reference/p5/width/">width</a>と
 
-  <a href="/reference/p5/height/">height</a> system variables. For example,
-  calling
+  <a href="/reference/p5/height/">height</a>システム変数の値も設定します。例えば、
 
-  <code>resizeCanvas(300, 500)</code> resizes the canvas to 300×500 pixels, then
-  sets
+  <code>resizeCanvas(300, 500)</code>を呼び出すと、キャンバスを300×500ピクセルにリサイズし、
 
-  <a href="/reference/p5/width/">width</a> to 300 and
+  <a href="/reference/p5/width/">width</a>を300に、
 
-  <a href="/reference/p5/height/">height</a> 500.</p>
+  <a href="/reference/p5/height/">height</a>を500に設定します。</p>
 
-  <p>The third parameter, <code>noRedraw</code>, is optional. If
-  <code>true</code> is passed, as in
+  <p>3番目のパラメータ<code>noRedraw</code>はオプションです。<code>true</code>が渡された場合、
 
-  <code>resizeCanvas(300, 500, true)</code>, then the canvas will be canvas to
-  300×500
+  例えば<code>resizeCanvas(300, 500, true)</code>のように、キャンバスは300×500
 
-  pixels but the <a href="/reference/p5/redraw/">redraw()</a> function won't be
-  called
+  ピクセルにリサイズされますが、<a href="/reference/p5/redraw/">redraw()</a>関数は
 
-  immediately. By default, <a href="/reference/p5/redraw/">redraw()</a> is
-  called
+  即座に呼び出されません。デフォルトでは、<code>resizeCanvas()</code>の実行が
 
-  immediately when <code>resizeCanvas()</code> finishes executing.</p>
+  完了すると直ちに<a href="/reference/p5/redraw/">redraw()</a>が
 
-
-  <pre>
-
-  todo: param width not found in ja-legacy:
-
-  {
-      "w": "Number: キャンバスの幅",
-      "h": "Number: キャンバスの高さ",
-      "noRedraw": "Boolean: (オプション) キャンバスを直ちに再描画しない"
-  }
-
-  </pre>
-
-  <pre>
-
-  todo: param height not found in ja-legacy:
-
-  {
-      "w": "Number: キャンバスの幅",
-      "h": "Number: キャンバスの高さ",
-      "noRedraw": "Boolean: (オプション) キャンバスを直ちに再描画しない"
-  }
-
-  </pre>
+  呼び出されます。</p>
 line: 221
 isConstructor: false
 itemtype: method
@@ -91,24 +52,24 @@ example:
 
     <div>
     <code>
-    // Double-click to resize the canvas.
+    // ダブルクリックしてキャンバスをリサイズします。
 
     function setup() {
       createCanvas(100, 100);
 
       describe(
-        'A white circle drawn on a gray background. The canvas shrinks by half the first time the user double-clicks.'
+        'グレーの背景に白い円が描かれています。ユーザーが初めてダブルクリックすると、キャンバスは半分のサイズに縮小します。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Draw a circle at the center of the canvas.
+      // キャンバスの中心に円を描きます。
       circle(width / 2, height / 2, 20);
     }
 
-    // Resize the canvas when the user double-clicks.
+    // ユーザーがダブルクリックしたときにキャンバスをリサイズします。
     function doubleClicked() {
       resizeCanvas(50, 50);
     }
@@ -117,22 +78,22 @@ example:
 
     <div>
     <code>
-    // Resize the web browser to change the canvas size.
+    // Webブラウザのサイズを変更してキャンバスのサイズを変更します。
 
     function setup() {
       createCanvas(windowWidth, windowHeight);
 
-      describe('A white circle drawn on a gray background.');
+      describe('グレーの背景に白い円が描かれています。');
     }
 
     function draw() {
       background(200);
 
-      // Draw a circle at the center of the canvas.
+      // キャンバスの中心に円を描きます。
       circle(width / 2, height / 2, 20);
     }
 
-    // Always resize the canvas to fill the browser window.
+    // 常にブラウザウィンドウを埋めるようにキャンバスをリサイズします。
     function windowResized() {
       resizeCanvas(windowWidth, windowHeight);
     }
@@ -142,18 +103,16 @@ class: p5
 params:
   - name: width
     description: |
-      <p>width of the canvas.</p>
+      <p>キャンバスの幅。</p>
     type: Number
   - name: height
     description: |
-      <p>height of the canvas.</p>
+      <p>キャンバスの高さ。</p>
     type: Number
   - name: noRedraw
     description: |
-      <p>(オプション) キャンバスを直ちに再描画しない</p>
-      <p>whether to delay calling
-                                   <a href="#/p5/redraw">redraw()</a>. Defaults
-                                   to <code>false</code>.</p>
+      <p><a href="#/p5/redraw">redraw()</a>の呼び出しを遅らせるかどうか。
+                                   デフォルトは<code>false</code>です。</p>
     type: Boolean
     optional: true
 chainable: false
@@ -161,3 +120,4 @@ chainable: false
 
 
 # resizeCanvas
+

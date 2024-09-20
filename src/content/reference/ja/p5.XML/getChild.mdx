@@ -4,16 +4,9 @@ module: IO
 submodule: Input
 file: src/io/p5.XML.js
 description: >
-  <p>名前パラメーターまたは指定されたインデックスの子を一致する要素の最初のものを返します。</p>
-
-  <p>一致する子が見つからない場合、undefined を返します。</p>
-
-
-  <hr/>
-
   <p>Returns the first matching child element as a new
 
-  <a href="/reference/p5/p5.XML/">p5.XML</a> object.</p>
+  <a href="/reference/p5/p5.XML">p5.XML</a> object.</p>
 
   <p>The parameter, <code>name</code>, is optional. If a string is passed, as in
 
@@ -98,13 +91,10 @@ class: p5.XML
 params:
   - name: name
     description: |
-      <p>String|Integer:要素名またはインデックス</p>
       <p>element name or index.</p>
     type: String|Integer
 return:
-  description: |-
-    p5.XML:
-    child element.
+  description: child element.
   type: p5.XML
 chainable: false
 ---

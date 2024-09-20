@@ -3,66 +3,19 @@ title: textAlign
 module: Typography
 submodule: Attributes
 file: src/typography/attributes.js
-description: >-
-  <p>テキストの描画に使用する現在のアライメントを設定します。</p>
+description: |
+  <p>テキストの水平方向と垂直方向の配置を設定します。
+  水平方向の配置には
+  LEFT、CENTER、または RIGHT を使用します。垂直方向の配置には
+  TOP、BOTTOM、CENTER、または BASELINE を使用します。</p>
 
-  <p>2つの引数を受け入れます: horizAlign（LEFT、CENTER、または RIGHT）と
-  vertAlign（TOP、BOTTOM、CENTER、または BASELINE）。</p>
+  <p>textAlign() の2番目のパラメータは省略可能です。両方のパラメータが
+  指定されていない場合、textAlign(LEFT) と同じになります。</p>
 
-  <p>horizAlign パラメーターは、<a href="#/p5/text">text()</a> 関数の x 値を参照し、vertAlign
-  パラメーターは y 値を参照します。</p>
-
-  <p>したがって、textAlign(LEFT)と記述すると、テキストの左端を <a href="#/p5/text">text()</a> で指定した x
-  値に揃えます。textAlign(RIGHT, TOP)と記述すると、テキストの右端を x 値に、上端を y 値に揃えます。</p>
-
-
-  <hr/>
-
-  <p>Sets the way text is aligned when <a href="/reference/p5/text/">text()</a>
-  is called.</p>
-
-  <p>By default, calling <code>text('hi', 10, 20)</code> places the bottom-left
-  corner of
-
-  the text's bounding box at (10, 20).</p>
-
-  <p>The first parameter, <code>horizAlign</code>, changes the way
-
-  <a href="/reference/p5/text/">text()</a> interprets x-coordinates. By default,
-  the
-
-  x-coordinate sets the left edge of the bounding box. <code>textAlign()</code>
-  accepts
-
-  the following values for <code>horizAlign</code>: <code>LEFT</code>,
-  <code>CENTER</code>, or <code>RIGHT</code>.</p>
-
-  <p>The second parameter, <code>vertAlign</code>, is optional. It changes the
-  way
-
-  <a href="/reference/p5/text/">text()</a> interprets y-coordinates. By default,
-  the
-
-  y-coordinate sets the bottom edge of the bounding box.
-  <code>textAlign()</code>
-
-  accepts the following values for <code>vertAlign</code>: <code>TOP</code>,
-  <code>BOTTOM</code>, <code>CENTER</code>,
-
-  or <code>BASELINE</code>.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "horizAlign": "Constant: 水平方向のアライメント。LEFT、CENTER、RIGHT",
-      "vertAlign": "Constant:  (オプション) 垂直方向のアライメント。TOP、BOTTOM、CENTER、BASELINE"
-  }
-
-  </pre>
-line: 11
+  <p>textAlign() の現在の設定は、text() 関数で描画されるすべてのテキストに
+  影響します。配置は、text() に渡される x と y パラメータを基準に
+  設定されます。</p>
+line: 13
 isConstructor: false
 itemtype: method
 example:
@@ -70,89 +23,50 @@ example:
 
     <div>
     <code>
-    function setup() {
-      createCanvas(100, 100);
-
-      background(200);
-
-      // Draw a vertical line.
-      strokeWeight(0.5);
-      line(50, 0, 50, 100);
-
-      // Top line.
-      textSize(16);
-      textAlign(RIGHT);
-      text('ABCD', 50, 30);
-
-      // Middle line.
-      textAlign(CENTER);
-      text('EFGH', 50, 50);
-
-      // Bottom line.
-      textAlign(LEFT);
-      text('IJKL', 50, 70);
-
-      describe('The letters ABCD displayed at top-left, EFGH at center, and IJKL at bottom-right. A vertical line divides the canvas in half.');
-    }
+    textSize(16);
+    textAlign(RIGHT);
+    text('ABCD', 50, 30);
+    textAlign(CENTER);
+    text('EFGH', 50, 50);
+    textAlign(LEFT);
+    text('IJKL', 50, 70);
+    describe('文字列"ABCD"が右揃え、"EFGH"が中央揃え、"IJKL"が左揃えで表示されています。');
     </code>
     </div>
 
     <div>
     <code>
-    function setup() {
-      createCanvas(100, 100);
+    textSize(16);
+    strokeWeight(0.5);
 
-      background(200);
+    // 中央揃え
+    textAlign(CENTER);
+    const centerX = 50;
+    line(centerX, 0, centerX, 100);
+    text('center', centerX, 30);
 
-      strokeWeight(0.5);
+    // 中央揃え（水平）、トップ揃え（垂直）
+    textAlign(CENTER, TOP);
+    text('center/top', centerX, 60);
 
-      // First line.
-      line(0, 12, width, 12);
-      textAlign(CENTER, TOP);
-      text('TOP', 50, 12);
-
-      // Second line.
-      line(0, 37, width, 37);
-      textAlign(CENTER, CENTER);
-      text('CENTER', 50, 37);
-
-      // Third line.
-      line(0, 62, width, 62);
-      textAlign(CENTER, BASELINE);
-      text('BASELINE', 50, 62);
-
-      // Fourth line.
-      line(0, 97, width, 97);
-      textAlign(CENTER, BOTTOM);
-      text('BOTTOM', 50, 97);
-
-      describe('The words "TOP", "CENTER", "BASELINE", and "BOTTOM" each drawn relative to a horizontal line. Their positions demonstrate different vertical alignments.');
-    }
+    // 中央揃え（水平）、ボトム揃え（垂直）
+    textAlign(CENTER, BOTTOM);
+    text('center/bottom', centerX, 90);
+    describe('3つの文字列が中央に垂直線で揃えられています。最初の文字列は中央揃え、2番目は上揃え、3番目は下揃えです。');
     </code>
     </div>
 class: p5
-overloads:
-  - line: 11
-    params:
-      - name: horizAlign
-        description: |
-          <p>horizontal alignment, either LEFT,
-                                     CENTER, or RIGHT.</p>
-        type: Constant
-      - name: vertAlign
-        description: |
-          <p>vertical alignment, either TOP,
-                                     BOTTOM, CENTER, or BASELINE.</p>
-        type: Constant
-        optional: true
-    chainable: 1
-  - line: 98
-    params: []
-    return:
-      description: ''
-      type: Object
+params:
+  - name: horizAlign
+    description: |
+      <p>水平方向の配置、LEFT、CENTER、または RIGHT のいずれか</p>
+    type: Constant
+  - name: vertAlign
+    description: |
+      <p>垂直方向の配置、TOP、BOTTOM、CENTER、または BASELINE のいずれか</p>
+    type: Constant
+    optional: true
 chainable: true
 ---
-
 
 # textAlign

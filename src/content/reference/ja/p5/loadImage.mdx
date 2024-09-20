@@ -4,63 +4,24 @@ module: Image
 submodule: Loading & Displaying
 file: src/image/loading_displaying.js
 description: >
-  <p>画像をパスから読み込み、<a href="#/p5.Image">p5.Image</a> を作成します。</p>
+  <p>画像をロードし、<a href="/reference/p5/p5.Image">p5.Image</a>オブジェクトを返します。</p>
 
-  <p></p>
+  <p><code>loadImage()</code>は非同期関数です。通常、<code>preload()</code>内で呼び出されます。
+  これにより、画像が<code>setup()</code>や<code>draw()</code>で使用可能になる前に
+  完全にロードされることが保証されます。</p>
 
-  <p>画像はレンダリングのためにすぐに利用できない場合があります。画像が準備完了してから何かを行いたい場合は、<a
-  href="#/p5/loadImage">loadImage()</a> を <a href="#/p5/preload">preload()</a>
-  の中に入れてください。また、準備ができたときに画像を処理するためのコールバック関数を提供することもできます。</p>
+  <p><code>loadImage()</code>を<code>preload()</code>の外で呼び出す場合、
+  コールバック関数を渡す必要があります。コールバックは、画像が完全にロードされた後に
+  実行されます。</p>
 
-  <p>画像へのパスは、スケッチにリンクする HTML ファイルに対して相対的であるべきです。URL
-  や他のリモート場所からの画像の読み込みは、ブラウザーの組み込みセキュリティによってブロックされることがあります。</p>
+  <p>サポートされている画像形式は、.gif、.jpg、.jpeg、.png、.svg、.webp、.avif、.apngです。
+  ブラウザのサポート状況については、
+  <a href="https://caniuse.com/webp" target="_blank">WebP</a>と
+  <a href="https://caniuse.com/avif" target="_blank">AVIF</a>を参照してください。</p>
 
-  <p>ファイルパスの代わりに、base64 でエンコードされた画像の文字列を渡すこともできます。文字列の前に
-  "data:image/png;base64," を追加することを忘れないでください。</p>
-
-  <p>/// todo ///</p>
-
-  <hr/>
-
-  <p>Loads an image to create a <a href="/reference/p5/p5.Image">p5.Image</a>
-  object.</p>
-
-  <p><code>loadImage()</code> interprets the first parameter one of three ways.
-  If the path
-
-  to an image file is provided, <code>loadImage()</code> will load it. Paths to
-  local
-
-  files should be relative, such as <code>'/assets/thundercat.jpg'</code>. URLs
-  such as
-
-  <code>'https://example.com/thundercat.jpg'</code> may be blocked due to
-  browser
-
-  security. Raw image data can also be passed as a base64 encoded image in
-
-  the form <code>'data:image/png;base64,arandomsequenceofcharacters'</code>.</p>
-
-  <p>The second parameter is optional. If a function is passed, it will be
-
-  called once the image has loaded. The callback function can optionally use
-
-  the new <a href="/reference/p5/p5.Image">p5.Image</a> object.</p>
-
-  <p>The third parameter is also optional. If a function is passed, it will be
-
-  called if the image fails to load. The callback function can optionally use
-
-  the event error.</p>
-
-  <p>Images can take time to load. Calling <code>loadImage()</code> in
-
-  <a href="/reference/p5/preload/">preload()</a> ensures images load before
-  they're
-
-  used in <a href="/reference/p5/setup/">setup()</a> or <a
-  href="/reference/p5/draw/">draw()</a>.</p>
-line: 18
+  <p>画像をロードする際、クロスオリジンの問題を避けるために、
+  ローカルサーバーを使用することをお勧めします。</p>
+line: 13
 isConstructor: false
 itemtype: method
 example:
@@ -70,18 +31,18 @@ example:
     <code>
     let img;
 
-    // Load the image and create a p5.Image object.
     function preload() {
+      // 画像をロードします。
       img = loadImage('/assets/laDefense.jpg');
     }
 
     function setup() {
       createCanvas(100, 100);
 
-      // Draw the image.
+      // 画像を描画します。
       image(img, 0, 0);
 
-      describe('Image of the underside of a white umbrella and a gridded ceiling.');
+      describe('格子状の天井の下にある白い傘の裏側の画像。');
     }
     </code>
     </div>
@@ -89,74 +50,38 @@ example:
     <div>
     <code>
     function setup() {
-      // Call handleImage() once the image loads.
-      loadImage('/assets/laDefense.jpg', handleImage);
+      createCanvas(100, 100);
 
-      describe('Image of the underside of a white umbrella and a gridded ceiling.');
-    }
+      background(200);
 
-    // Display the image.
-    function handleImage(img) {
-      image(img, 0, 0);
-    }
-    </code>
-    </div>
+      // 画像をロードします。
+      loadImage('/assets/laDefense.jpg', (img) => {
+        // 画像を描画します。
+        image(img, 0, 0);
+      });
 
-    <div>
-    <code>
-    function setup() {
-      // Call handleImage() once the image loads or
-      // call handleError() if an error occurs.
-      loadImage('/assets/laDefense.jpg', handleImage, handleError);
-    }
-
-    // Display the image.
-    function handleImage(img) {
-      image(img, 0, 0);
-
-      describe('Image of the underside of a white umbrella and a gridded ceiling.');
-    }
-
-    // Log the error.
-    function handleError(event) {
-      console.error('Oops!', event);
+      describe('格子状の天井の下にある白い傘の裏側の画像。');
     }
     </code>
     </div>
 class: p5
 params:
   - name: path
-    description: >
-      <p>path of the image to be loaded or base64 encoded image. /// todo ///
-      String: 読み込む画像のパス</p>
-
-      <p>path of the image to be loaded or base64 encoded image.</p>
-    type: String
+    description: |
+      <p>画像ファイルへのパス、またはGIFアニメーションの場合はファイルパスの配列。</p>
+    type: String|String[]
   - name: successCallback
-    description: >
-      <p>(Optional) function called with  <a href="#/p5.Image">p5.Image</a> once
-      it  loads. /// todo /// function(p5.Image): (オプション) 画像が読み込まれたら呼び出される関数。<a
-      href="#/p5.Image">p5.Image</a> が渡されます。</p>
-
-      <p>function called with
-                                    <a href="#/p5.Image">p5.Image</a> once it
-                                    loads.</p>
+    description: |
+      <p>画像のロードが完了したときに実行される関数。</p>
     type: function(p5.Image)
     optional: true
   - name: failureCallback
-    description: >
-      <p>(Optional) function called with event  error if the image fails to
-      load. /// todo /// Function(Event): (オプション)
-      画像の読み込みに失敗した場合、イベントエラーとともに呼び出されます。</p>
-
-      <p>function called with event
-                                    error if the image fails to load.</p>
-    type: Function(Event)
+    description: |
+      <p>画像のロードに失敗したときに実行される関数。</p>
+    type: function(Event)
     optional: true
 return:
-  description: |-
-    <a href="#/p5.Image">p5.Image</a> オブジェクト
-    the <a href="#/p5.Image">p5.Image</a> object.
+  description: <a href="#/p5.Image">p5.Image</a>オブジェクト。
   type: p5.Image
 chainable: false
 ---

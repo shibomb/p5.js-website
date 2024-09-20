@@ -4,10 +4,6 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
-  <p>オシレーターの周波数を設定します。</p>
-  <p>また、オーディオ信号で周波数を変調するようなオシレーターなどのオブジェクトを渡すこともできます。</p>
-
-  <hr/>
   <p>Set frequency of an oscillator to a value. Or, pass in an object
   such as an oscillator to modulate the frequency with an audio signal.</p>
 line: 4285
@@ -41,28 +37,22 @@ class: p5.Oscillator
 params:
   - name: Frequency
     description: |
-      <p>Number | Object: Hz での周波数またはモジュレーション信号/オシレーター</p>
       <p>Frequency in Hz
                                             or modulating signal/oscillator</p>
     type: Number|Object
   - name: rampTime
     description: |
-      <p>(オプション) ramp time（秒単位）</p>
       <p>Ramp time (in seconds)</p>
     type: Number
     optional: true
   - name: timeFromNow
     description: |
-      <p>(オプション) x 秒後にこのイベントが発生するようスケジュールします</p>
       <p>Schedule this event to happen
                                        at x seconds from now</p>
     type: Number
     optional: true
 return:
-  description: >-
-    AudioParam:周波数。値が指定されていない場合、このオシレーターの周波数を制御する Web オーディオ API の AudioParam
-    を返します。
-
+  description: |-
     Frequency If no value is provided,
                                     returns the Web Audio API
                                     AudioParam that controls

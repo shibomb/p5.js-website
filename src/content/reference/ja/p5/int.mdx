@@ -3,14 +3,7 @@ title: int
 module: Data
 submodule: Conversion
 file: src/utilities/conversion.js
-description: >-
-  <p>ブール値、文字列、または浮動小数点数を整数表現に変換します。</p>
-
-  <p>値の配列が渡された場合、同じ長さの int 配列が返されます。</p>
-
-
-  <hr/>
-
+description: >
   <p>Converts a <code>Boolean</code>, <code>String</code>, or decimal
   <code>Number</code> to an integer.</p>
 
@@ -40,19 +33,6 @@ description: >-
   <code>int('giraffe')</code>,
 
   then the value <code>NaN</code> (not a number) will be returned.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "n": "String|Boolean|Number: 解析する値",
-      "radix": "Integer:  (オプション) 変換する基数（デフォルト:10）",
-      "ns": "Array: 解析する値"
-  }
-
-  </pre>
 line: 92
 isConstructor: false
 itemtype: method
@@ -158,9 +138,7 @@ example:
     </div>
 class: p5
 return:
-  description: |-
-    値の整数表現
-    converted number.
+  description: converted number.
   type: Number
 overloads:
   - line: 92

@@ -4,13 +4,6 @@ module: Data
 submodule: Dictionary
 file: src/data/p5.TypedDict.js
 description: >
-  <p>指定されたキーで現在保存されている値から指定された数値を減算します。</p>
-
-  <p>差は、以前に辞書に保存されていた値を置き換えます。</p>
-
-
-  <hr/>
-
   <p>Subtract the given number from the value currently stored at the given key.
 
   The difference then replaces the value previously stored in the
@@ -33,12 +26,10 @@ class: p5.NumberDict
 params:
   - name: Key
     description: |
-      <p>減算したい値のキー</p>
       <p>for the value you wish to subtract from</p>
     type: Number
   - name: Number
     description: |
-      <p>値から減算する数</p>
       <p>to subtract from the value</p>
     type: Number
 chainable: false

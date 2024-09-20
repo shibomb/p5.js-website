@@ -4,10 +4,6 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
-  <p>オシレーターの位相を0.0から1.0の間に設定します。</p>
-  <p>この実装では、位相はオシレーターの現在の周波数にもとづく遅延時間です。</p>
-
-  <hr/>
   <p>Set the phase of an oscillator between 0.0 and 1.0.
   In this implementation, phase is a delay time
   based on the oscillator's current frequency.</p>
@@ -18,7 +14,6 @@ class: p5.Oscillator
 params:
   - name: phase
     description: |
-      <p>0.0から1.0までの浮動小数点数</p>
       <p>float between 0.0 and 1.0</p>
     type: Number
 chainable: false

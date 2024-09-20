@@ -3,103 +3,44 @@ title: spotLight
 module: 3D
 submodule: Lights
 file: src/webgl/light.js
-description: >-
-  <p>指定された色、位置、光の方向、角度、および集中度でスポットライトを作成します。</p>
+description: >
+  <p>一点から一方向に光を放つライトを作成します。</p>
 
-  <p></p>
+  <p>スポットライトは、一方向に光を放つ懐中電灯のようなもので、円錐状の光を作り出します。
 
-  <p><a href="#/p5/pointLight">pointLight()</a> と同様に、spotLight()
-  は特定の点（位置）から光を放射します。オブジェクトに対して遠くまたは近くに配置すると効果が異なります。</p>
+  円錐の形状は、angleとconcentrationパラメータを使用して制御できます。
 
-  <p>ただし、pointLight() とは異なり、光は <strong>一方向</strong>
-  に沿って円錐状に放射されます。円錐の形状は、<code>angle</code> および <code>concentration</code>
-  パラメーターを使用して制御できます。</p>
+  一度に最大5つのスポットライトを有効にできます。</p>
 
-  <p><code>angle</code>
-  パラメーターは、円錐の半径を決定するために使用されます。そして、<code>concentration</code>
-  パラメーターは、円錐の中心に向かって光を集めるために使用されます</p>
+  <p><code>spotLight()</code>には、ライトの色、位置、方向を設定するための
 
-  <p>両方のパラメーターはオプションですが、<code>concentration</code> を指定する場合は、<code>angle</code>
-  も指定する必要があります。最小集中値は1です。一度に最大 <strong>5</strong> つのスポットライトがアクティブにできます。</p>
+  8つの呼び出し方があります。例えば、
 
-  <p>注意: ループプログラム内でライトを持続させるためには、draw() 内でライトを呼び出す必要があります（直接または間接的に）。setup()
-  に配置すると、ループの最初の通過でのみ効果があります。</p>
+  <code>spotLight(255, 0, 0, 0, 0, 0, 1, 0, 0)</code>は、原点<code>(0, 0, 0)</code>に
 
+  赤色<code>(255, 0, 0)</code>のライトを作成し、右方向<code>(1, 0, 0)</code>に向けます。</p>
 
-  <hr/>
+  <p><code>angle</code>パラメータはオプションです。これは光円錐の半径を設定します。
 
-  <p>Creates a light that shines from a point in one direction.</p>
+  例えば、<code>spotLight(255, 0, 0, 0, 0, 0, 1, 0, 0, PI / 16)</code>は、
 
-  <p>Spot lights are like flashlights that shine in one direction creating a
+  原点<code>(0, 0, 0)</code>に赤色<code>(255, 0, 0)</code>のライトを作成し、右方向
 
-  cone of light. The shape of the cone can be controlled using the angle and
+  <code>(1, 0, 0)</code>に向け、角度を<code>PI / 16</code>ラジアンに設定します。
 
-  concentration parameters. A maximum of 5 spot lights can be active at
-  once.</p>
+  デフォルトでは、<code>angle</code>は<code>PI / 3</code>ラジアンです。</p>
 
-  <p>There are eight ways to call <code>spotLight()</code> with parameters to
-  set the
+  <p><code>concentration</code>パラメータもオプションです。これは光を
 
-  light’s color, position, direction. For example,
+  光円錐の中心に向けて集中させます。例えば、
 
-  <code>spotLight(255, 0, 0, 0, 0, 0, 1, 0, 0)</code> creates a red <code>(255,
-  0, 0)</code> light
+  <code>spotLight(255, 0, 0, 0, 0, 0, 1, 0, 0, PI / 16, 50)</code>は、原点<code>(0, 0, 0)</code>に
 
-  at the origin <code>(0, 0, 0)</code> that points to the right <code>(1, 0,
-  0)</code>.</p>
+  赤色<code>(255, 0, 0)</code>のライトを作成し、右方向<code>(1, 0, 0)</code>に向け、
 
-  <p>The <code>angle</code> parameter is optional. It sets the radius of the
-  light cone.
+  角度を<code>PI / 16</code>ラジアン、集中度を50に設定します。
 
-  For example, <code>spotLight(255, 0, 0, 0, 0, 0, 1, 0, 0, PI / 16)</code>
-  creates a
-
-  red <code>(255, 0, 0)</code> light at the origin <code>(0, 0, 0)</code> that
-  points to the right
-
-  <code>(1, 0, 0)</code> with an angle of <code>PI / 16</code> radians. By
-  default, <code>angle</code> is
-
-  <code>PI / 3</code> radians.</p>
-
-  <p>The <code>concentration</code> parameter is also optional. It focuses the
-  light
-
-  towards the center of the light cone. For example,
-
-  <code>spotLight(255, 0, 0, 0, 0, 0, 1, 0, 0, PI / 16, 50)</code> creates a red
-
-  <code>(255, 0, 0)</code> light at the origin <code>(0, 0, 0)</code> that
-  points to the right
-
-  <code>(1, 0, 0)</code> with an angle of <code>PI / 16</code> radians at
-  concentration of 50. By
-
-  default, <code>concentration</code> is 100.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "v1": "Number: 現在の色範囲に対する赤または色相値",
-      "v2": "Number: 現在の色範囲に対する緑または彩度値",
-      "v3": "Number: 現在の色範囲に対する青または明るさ値",
-      "x": "Number: 位置の x 成分",
-      "y": "Number: 位置の y 成分",
-      "z": "Number: 位置の z 成分",
-      "rx": "Number: 光の方向の x 成分（-1から1までの範囲を含む）",
-      "ry": "Number: 光の方向の y 成分（-1から1までの範囲を含む）",
-      "rz": "Number: 光の方向の z 成分（-1から1までの範囲を含む）",
-      "angle": "Number:  (オプション) 円錐の角度。デフォルトは PI/3",
-      "concentration": "Number:  (オプション) 円錐の集中度。デフォルトは100",
-      "color": "p5.Color|Number[]|String: <a href=\"#/p5.Color\">p5.Color</a> としての色、配列として、または CSS 文字列として",
-      "position": "p5.Vector: <a href=\"#/p5.Vector\">p5.Vector</a> としてのライトの位置",
-      "direction": "p5.Vector: <a href=\"#/p5.Vector\">p5.Vector</a> としてのライトの方向"
-  }
-
-  </pre>
+  デフォルトでは、<code>concentration</code>は100です。</p>
 line: 1271
 isConstructor: false
 itemtype: method
@@ -108,38 +49,38 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
-    // Double-click to adjust the spotlight.
+    // クリックしてドラッグすると、異なる角度からシーンを見ることができます。
+    // ダブルクリックするとスポットライトを調整します。
 
     let isLit = false;
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white sphere drawn on a gray background. A red spotlight starts shining when the user double-clicks.');
+      describe('グレーの背景に白い球体が描かれています。ユーザーがダブルクリックすると、赤いスポットライトが輝き始めます。');
     }
 
     function draw() {
       background(50);
 
-      // Enable orbiting with the mouse.
+      // マウスで軌道制御を有効にします。
       orbitControl();
 
-      // Turn on the lights.
+      // ライトをオンにします。
       lights();
 
-      // Control the spotlight.
+      // スポットライトを制御します。
       if (isLit === true) {
-        // Add a red spot light that shines into the screen.
-        // Set its angle to PI / 32 radians.
+        // 画面内に向かって赤いスポットライトを追加します。
+        // 角度をPI / 32ラジアンに設定します。
         spotLight(255, 0, 0, 0, 0, 100, 0, 0, -1, PI / 32);
       }
 
-      // Draw the sphere.
+      // 球体を描画します。
       sphere(30);
     }
 
-    // Turn on the spotlight when the user double-clicks.
+    // ユーザーがダブルクリックするとスポットライトをオンにします。
     function doubleClicked() {
       isLit = true;
     }
@@ -148,42 +89,42 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
-    // Double-click to adjust the spotlight.
+    // クリックしてドラッグすると、異なる角度からシーンを見ることができます。
+    // ダブルクリックするとスポットライトを調整します。
 
     let isLit = false;
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white sphere drawn on a gray background. A red spotlight starts shining when the user double-clicks.');
+      describe('グレーの背景に白い球体が描かれています。ユーザーがダブルクリックすると、赤いスポットライトが輝き始めます。');
     }
 
     function draw() {
       background(50);
 
-      // Enable orbiting with the mouse.
+      // マウスで軌道制御を有効にします。
       orbitControl();
 
-      // Turn on the lights.
+      // ライトをオンにします。
       lights();
 
-      // Control the spotlight.
+      // スポットライトを制御します。
       if (isLit === true) {
-        // Add a red spot light that shines into the screen.
-        // Set its angle to PI / 3 radians (default).
-        // Set its concentration to 1000.
+        // 画面内に向かって赤いスポットライトを追加します。
+        // 角度をPI / 3ラジアン（デフォルト）に設定します。
+        // 集中度を1000に設定します。
         let c = color(255, 0, 0);
         let position = createVector(0, 0, 100);
         let direction = createVector(0, 0, -1);
         spotLight(c, position, direction, PI / 3, 1000);
       }
 
-      // Draw the sphere.
+      // 球体を描画します。
       sphere(30);
     }
 
-    // Turn on the spotlight when the user double-clicks.
+    // ユーザーがダブルクリックするとスポットライトをオンにします。
     function doubleClicked() {
       isLit = true;
     }
@@ -195,51 +136,51 @@ overloads:
     params:
       - name: v1
         description: |
-          <p>red or hue value in the current
-                                               <a href="#/p5/colorMode">colorMode()</a>.</p>
+          <p>現在の<a href="#/p5/colorMode">colorMode()</a>での
+          赤または色相の値。</p>
         type: Number
       - name: v2
         description: |
-          <p>green or saturation value in the current
-                                               <a href="#/p5/colorMode">colorMode()</a>.</p>
+          <p>現在の<a href="#/p5/colorMode">colorMode()</a>での
+          緑または彩度の値。</p>
         type: Number
       - name: v3
         description: |
-          <p>blue, brightness, or lightness value in the current
-                                               <a href="#/p5/colorMode">colorMode()</a>.</p>
+          <p>現在の<a href="#/p5/colorMode">colorMode()</a>での
+          青、明度、または輝度の値。</p>
         type: Number
       - name: x
         description: |
-          <p>x-coordinate of the light.</p>
+          <p>ライトのx座標。</p>
         type: Number
       - name: 'y'
         description: |
-          <p>y-coordinate of the light.</p>
+          <p>ライトのy座標。</p>
         type: Number
       - name: z
         description: |
-          <p>z-coordinate of the light.</p>
+          <p>ライトのz座標。</p>
         type: Number
       - name: rx
         description: |
-          <p>x-component of light direction between -1 and 1.</p>
+          <p>光の方向のx成分（-1から1の間）。</p>
         type: Number
       - name: ry
         description: |
-          <p>y-component of light direction between -1 and 1.</p>
+          <p>光の方向のy成分（-1から1の間）。</p>
         type: Number
       - name: rz
         description: |
-          <p>z-component of light direction between -1 and 1.</p>
+          <p>光の方向のz成分（-1から1の間）。</p>
         type: Number
       - name: angle
         description: |
-          <p>angle of the light cone. Defaults to <code>PI / 3</code>.</p>
+          <p>光円錐の角度。デフォルトは<code>PI / 3</code>。</p>
         type: Number
         optional: true
       - name: concentration
         description: |
-          <p>concentration of the light. Defaults to 100.</p>
+          <p>光の集中度。デフォルトは100。</p>
         type: Number
         optional: true
     chainable: 1
@@ -247,18 +188,18 @@ overloads:
     params:
       - name: color
         description: |
-          <p>color as a <a href="#/p5.Color">p5.Color</a> object,
-                                                       an array of color values, or a CSS string.</p>
+          <p><a href="#/p5.Color">p5.Color</a>オブジェクト、
+          色の値の配列、またはCSSの文字列として指定された色。</p>
         type: 'p5.Color|Number[]|String'
       - name: position
         description: >
-          <p>position of the light as a <a href="#/p5.Vector">p5.Vector</a>
-          object.</p>
+          <p><a href="#/p5.Vector">p5.Vector</a>オブジェクトとして指定された
+          ライトの位置。</p>
         type: p5.Vector
       - name: direction
         description: >
-          <p>direction of light as a <a href="#/p5.Vector">p5.Vector</a>
-          object.</p>
+          <p><a href="#/p5.Vector">p5.Vector</a>オブジェクトとして指定された
+          光の方向。</p>
         type: p5.Vector
       - name: angle
         description: ''
@@ -441,3 +382,4 @@ chainable: true
 
 
 # spotLight
+

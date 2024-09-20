@@ -3,16 +3,7 @@ title: getLevel
 module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
-description: >
-  <p>AudioIn の Amplitude（ボリュームレベル）を読み取ります。</p>
-
-  <p>AudioIn クラスには、マイクのボリュームレベルを簡単に取得するための Amplitude
-  クラスのインスタンスが含まれています。オプションのスムージング値（0.0 < 1.0）を受け取ります。<em>注意: AudioIn は.start()
-  後に.getLevel() を使用する必要があります。</em><br/></p>
-
-
-  <hr/>
-
+description: |
   <p>Read the Amplitude (volume level) of an AudioIn. The AudioIn
   class contains its own instance of the Amplitude class to help
   make it easy to get a microphone's volume level. Accepts an
@@ -25,15 +16,12 @@ class: p5.AudioIn
 params:
   - name: smoothing
     description: |
-      <p>(オプション) スムージングはデフォルトで0.0です。以前の値にもとづいて値を平滑化します。</p>
       <p>Smoothing is 0.0 by default.
                                    Smooths values based on previous values.</p>
     type: Number
     optional: true
 return:
-  description: |-
-    ボリュームレベル（0.0から1.0の間）
-    Volume level (between 0.0 and 1.0)
+  description: Volume level (between 0.0 and 1.0)
   type: Number
 chainable: false
 ---

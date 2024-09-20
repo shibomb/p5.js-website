@@ -4,12 +4,8 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
-  <p>デフォルトで p5sound インスタンス（メイン出力）に接続します。</p>
-  <p>オプションで、特定のソース（たとえば、サウンドファイル）を渡すこともできます。</p>
-
-  <hr/>
-  <p>Connects to the p5sound instance (main output) by default.
-  Optionally, you can pass in a specific source (i.e. a soundfile).</p>
+  <p>デフォルトでp5soundインスタンス（メイン出力）に接続します。
+  オプションで、特定のソース（例：サウンドファイル）を渡すこともできます。</p>
 line: 3117
 isConstructor: false
 itemtype: method
@@ -31,7 +27,7 @@ example:
 
     function draw() {
       background(220);
-      text('tap to play', 20, 20);
+      text('タップして再生', 20, 20);
 
       let level = amplitude.getLevel();
       let size = map(level, 0, 1, 0, 200);
@@ -52,17 +48,15 @@ class: p5.Amplitude
 params:
   - name: snd
     description: |
-      <p>(オプション) 音源を設定します。デフォルトはメイン出力です。</p>
-      <p>set the sound source
-                                           (optional, defaults to
-                                           main output)</p>
+      <p>サウンドソースを設定します
+                                           （オプション、デフォルトは
+                                           メイン出力）</p>
     type: SoundObject|undefined
     optional: true
   - name: smoothing
     description: |
-      <p>(オプション) ボリューム読み取りのスムージングを0.0から1.0の範囲で設定します。</p>
-      <p>a range between 0.0 and 1.0
-                                            to smooth amplitude readings</p>
+      <p>振幅の読み取りを滑らかにするための
+                                            0.0から1.0の範囲</p>
     type: Number|undefined
     optional: true
 chainable: false

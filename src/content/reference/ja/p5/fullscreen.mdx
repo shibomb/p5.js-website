@@ -4,43 +4,20 @@ module: Environment
 submodule: Environment
 file: src/core/environment.js
 description: >
-  <p>引数が与えられた場合、引数の値にもとづいてスケッチをフルスクリーンにするかどうかを設定します。</p>
+  <p>フルスクリーンモードを切り替えるか、現在のモードを返します。</p>
 
-  <p>引数が与えられなかった場合、現在のフルスクリーン状態を返します。ただし、ブラウザーの制限により、この関数を呼び出せるのはユーザー入力時のみです。たとえば、下記の例のようにマウスプレス時に呼び出せます。</p>
+  <p><code>fullscreen(true)</code>を呼び出すとスケッチをフルスクリーンにします。
 
-  <p>/// todo ///</p>
+  <code>fullscreen(false)</code>を呼び出すとスケッチを元のサイズに戻します。</p>
 
-  <p>Toggles full-screen mode or returns the current mode.</p>
+  <p>引数なしで<code>fullscreen()</code>を呼び出すと、スケッチが
 
-  <p>Calling <code>fullscreen(true)</code> makes the sketch full-screen. Calling
-  <code>fullscreen(false)</code> makes the sketch its original size.</p>
+  フルスクリーンモードの場合は<code>true</code>を、そうでない場合は<code>false</code>を返します。</p>
 
-  <p>Calling <code>fullscreen()</code> without an argument returns
-  <code>true</code> if the sketch is in full-screen mode and <code>false</code>
-  if not.</p>
+  <p>注意：ブラウザの制限により、<code>fullscreen()</code>はマウスクリックなどの
 
-  <p>Note: Due to browser restrictions, <code>fullscreen()</code> can only be
-  called with user input such as a mouse press.</p>
-
-
-  <hr/>
-
-  <p>Toggles full-screen mode or returns the current mode.</p>
-
-  <p>Calling <code>fullscreen(true)</code> makes the sketch full-screen. Calling
-
-  <code>fullscreen(false)</code> makes the sketch its original size.</p>
-
-  <p>Calling <code>fullscreen()</code> without an argument returns
-  <code>true</code> if the sketch
-
-  is in full-screen mode and <code>false</code> if not.</p>
-
-  <p>Note: Due to browser restrictions, <code>fullscreen()</code> can only be
-  called with
-
-  user input such as a mouse press.</p>
-line: 941
+  ユーザー入力でのみ呼び出すことができます。</p>
+line: 950
 isConstructor: false
 itemtype: method
 example:
@@ -51,11 +28,11 @@ example:
     function setup() {
       background(200);
 
-      describe('A gray canvas that switches between default and full-screen display when clicked.');
+      describe('クリックするとデフォルト表示とフルスクリーン表示を切り替えるグレーのキャンバス。');
     }
 
-    // If the mouse is pressed,
-    // toggle full-screen mode.
+    // マウスが押されたら、
+    // フルスクリーンモードを切り替えます。
     function mousePressed() {
       if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
         let fs = fullscreen();
@@ -67,20 +44,14 @@ example:
 class: p5
 params:
   - name: val
-    description: >
-      <p>(Optional) whether the sketch should be in fullscreen mode. /// todo
-      /// Boolean: (オプション) スケッチをフルスクリーンモードにするかどうか</p>
-
-      <p>whether the sketch should be in fullscreen mode.</p>
+    description: |
+      <p>スケッチをフルスクリーンモードにするかどうか。</p>
     type: Boolean
     optional: true
 return:
-  description: |-
-    現在のフルスクリーン状態
-    current fullscreen state.
+  description: 現在のフルスクリーン状態。
   type: Boolean
 chainable: false
 ---
-
 
 # fullscreen

@@ -4,29 +4,14 @@ module: Math
 submodule: Calculation
 file: src/math/calculation.js
 description: >
-  <p>数値の絶対値（大きさ）を計算します。</p>
+  <p>数値の絶対値を計算します。</p>
 
-  <p>Math.abs() にマッピングされます。数値の絶対値は常に正です。</p>
+  <p>数値の絶対値とは、数直線上でその数値と0との距離です。
 
-  <p>/// todo ///</p>
+  -5と5はどちらも0から5単位離れているので、<code>abs(-5)</code>と
 
-  <p>Calculates the absolute value of a number. A number's absolute value is its
-  distance from zero on the number line. -5 and 5 are both five units away from
-  zero, so calling <code>abs(-5)</code> and <code>abs(5)</code> both return 5.
-  The absolute value of a number is always positive.</p>
-
-
-  <hr/>
-
-  <p>Calculates the absolute value of a number.</p>
-
-  <p>A number's absolute value is its distance from zero on the number line.
-
-  -5 and 5 are both five units away from zero, so calling <code>abs(-5)</code>
-  and
-
-  <code>abs(5)</code> both return 5. The absolute value of a number is always
-  positive.</p>
+  <code>abs(5)</code>はどちらも5を返します。数値の絶対値は常に
+  正の値です。</p>
 line: 10
 isConstructor: false
 itemtype: method
@@ -38,20 +23,20 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('A gray square with a vertical black line that divides it in half. A white rectangle gets taller when the user moves the mouse away from the line.');
+      describe('灰色の正方形の中央に垂直の黒い線があります。ユーザーがマウスを線から遠ざけると、白い長方形が高くなります。');
     }
 
     function draw() {
       background(200);
 
-      // Divide the canvas.
+      // キャンバスを分割します。
       line(50, 0, 50, 100);
 
-      // Calculate the mouse's distance from the middle.
+      // マウスの中央からの距離を計算します。
       let h = abs(mouseX - 50);
 
-      // Draw a rectangle based on the mouse's distance
-      // from the middle.
+      // マウスの中央からの距離に基づいて
+      // 長方形を描画します。
       rect(0, 100 - h, 100, h);
     }
     </code>
@@ -60,13 +45,10 @@ class: p5
 params:
   - name: 'n'
     description: |
-      <p>計算する数値</p>
-      <p>number to compute.</p>
+      <p>計算する数値。</p>
     type: Number
 return:
-  description: |-
-    与えられた数値の絶対値
-    absolute value of given number.
+  description: 与えられた数値の絶対値。
   type: Number
 chainable: false
 ---

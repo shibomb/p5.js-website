@@ -4,32 +4,25 @@ module: 3D
 submodule: Camera
 file: src/webgl/p5.Camera.js
 description: >
-  <p>Rotates the camera in a clockwise/counter-clockwise direction.</p>
+  <p>カメラを時計回り/反時計回りに回転させます。</p>
 
-  <p>Rolling rotates the camera without changing its orientation. The rotation
+  <p>ロールはカメラの向きを変えずに回転させます。回転は
 
-  happens in the camera’s "local" space.</p>
+  カメラの「ローカル」空間で行われます。</p>
 
-  <p>The parameter, <code>angle</code>, is the angle the camera should rotate.
-  Passing a
+  <p>パラメータ<code>angle</code>は、カメラが回転すべき角度です。
+  正の角度を渡すと、例えば<code>myCamera.roll(0.001)</code>のように、カメラは反時計回りに回転します。
 
-  positive angle, as in <code>myCamera.roll(0.001)</code>, rotates the camera in
-  counter-clockwise direction.
+  負の角度を渡すと、例えば<code>myCamera.roll(-0.001)</code>のように、カメラは
 
-  Passing a negative angle, as in <code>myCamera.roll(-0.001)</code>, rotates
-  the
+  時計回りに回転します。</p>
 
-  camera in clockwise direction.</p>
-
-  <p>Note: Angles are interpreted based on the current
-
-  <a href="/reference/p5/angleMode/">angleMode()</a>.</p>
+  <p>注意：角度は現在の<a href="/reference/p5/angleMode/">angleMode()</a>に基づいて解釈されます。</p>
 line: 2463
 isConstructor: false
 itemtype: method
 alt: >-
-  camera view rotates in counter clockwise direction with vertically stacked
-  boxes in front of it.
+  カメラビューが反時計回りに回転し、その前に縦に積み重なったボックスがある。
 example:
   - |-
 
@@ -41,14 +34,14 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
       normalMaterial();
-      // Create a p5.Camera object.
+      // p5.Cameraオブジェクトを作成します。
       cam = createCamera();
     }
 
     function draw() {
       background(200);
 
-      // Roll camera according to angle 'delta'
+      // 'delta'角度に従ってカメラをロールさせます
       cam.roll(delta);
 
       translate(0, 0, 0);
@@ -72,11 +65,11 @@ class: p5.Camera
 params:
   - name: angle
     description: |
-      <p>amount to rotate camera in current
-      <a href="#/p5/angleMode">angleMode</a> units.</p>
+      <p>現在の<a href="#/p5/angleMode">angleMode</a>単位でカメラを回転させる量。</p>
     type: Number
 chainable: false
 ---
 
 
 # roll
+

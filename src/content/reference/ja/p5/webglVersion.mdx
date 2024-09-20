@@ -4,37 +4,21 @@ module: Environment
 submodule: Environment
 file: src/core/environment.js
 description: >
-  <p>スケッチが WebGL モードで作成された場合、<code>webglVersion</code> はそのスケッチで使用されている WebGL
-  のバージョンを示します。</p>
+  <p>使用中のWebGLバージョンを示す<code>String</code>変数です。</p>
 
-  <p><code>setAttributes({ version: 1 })</code>を介して WebGL1 をリクエストしない限り、スケッチは
-  WebGL2 キャンバスの作成を試み、WebGL2 が利用できない場合は WebGL1 にフォールバックします。</p>
-
-  <p><code>webglVersion</code> は常に <code>WEBGL2</code>、<code>WEBGL</code>、または
-  <code>P2D</code>（WebGL モードでない場合）のいずれかになります。</p>
-
-  <hr/>
-
-  <p>A <code>String</code> variable with the WebGL version in use.</p>
-
-  <p><code>webglVersion</code>'s value equals one of the following string
-  constants:</p>
+  <p><code>webglVersion</code>の値は、以下の文字列定数のいずれかと等しくなります：</p>
 
   <ul>
 
-  <li><code>WEBGL2</code> whose value is <code>'webgl2'</code>,</li>
+  <li><code>WEBGL2</code>：値は<code>'webgl2'</code></li>
 
-  <li><code>WEBGL</code> whose value is <code>'webgl'</code>, or</li>
+  <li><code>WEBGL</code>：値は<code>'webgl'</code></li>
 
-  <li><code>P2D</code> whose value is <code>'p2d'</code>. This is the default
-  for 2D sketches.</li>
+  <li><code>P2D</code>：値は<code>'p2d'</code>。これは2Dスケッチのデフォルトです。</li>
 
   </ul>
 
-  <p>See <a href="/reference/p5/setAttributes/">setAttributes()</a> for ways to
-  set the
-
-  WebGL version.</p>
+  <p>WebGLバージョンの設定方法については、<a href="/reference/p5/setAttributes/">setAttributes()</a>を参照してください。</p>
 line: 508
 isConstructor: false
 itemtype: property
@@ -46,10 +30,10 @@ example:
     function setup() {
       background(200);
 
-      // Display the current WebGL version.
+      // 現在のWebGLバージョンを表示します。
       text(webglVersion, 42, 54);
 
-      describe('The text "p2d" written in black on a gray background.');
+      describe('灰色の背景に黒で書かれた "p2d" というテキスト。');
     }
     </code>
     </div>
@@ -59,21 +43,21 @@ example:
     let font;
 
     function preload() {
-      // Load a font to use.
+      // 使用するフォントを読み込みます。
       font = loadFont('/assets/inconsolata.otf');
     }
 
     function setup() {
-      // Create a canvas using WEBGL mode.
+      // WEBGLモードを使用してキャンバスを作成します。
       createCanvas(100, 50, WEBGL);
       background(200);
 
-      // Display the current WebGL version.
+      // 現在のWebGLバージョンを表示します。
       fill(0);
       textFont(font);
       text(webglVersion, -15, 5);
 
-      describe('The text "webgl2" written in black on a gray background.');
+      describe('灰色の背景に黒で書かれた "webgl2" というテキスト。');
     }
     </code>
     </div>
@@ -83,25 +67,25 @@ example:
     let font;
 
     function preload() {
-      // Load a font to use.
+      // 使用するフォントを読み込みます。
       font = loadFont('/assets/inconsolata.otf');
     }
 
     function setup() {
-      // Create a canvas using WEBGL mode.
+      // WEBGLモードを使用してキャンバスを作成します。
       createCanvas(100, 50, WEBGL);
 
-      // Set WebGL to version 1.
+      // WebGLをバージョン1に設定します。
       setAttributes({ version: 1 });
 
       background(200);
 
-      // Display the current WebGL version.
+      // 現在のWebGLバージョンを表示します。
       fill(0);
       textFont(font);
       text(webglVersion, -14, 5);
 
-      describe('The text "webgl" written in black on a gray background.');
+      describe('灰色の背景に黒で書かれた "webgl" というテキスト。');
     }
     </code>
     </div>
@@ -111,3 +95,4 @@ type: String
 
 
 # webglVersion
+

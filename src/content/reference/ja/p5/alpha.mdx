@@ -4,22 +4,11 @@ module: Color
 submodule: Creating & Reading
 file: src/color/creating_reading.js
 description: >
-  <p><a href="#/p5.Color">p5.Color</a>オブジェクト、色成分の配列、または CSS
-  カラー文字列からアルファ値(透明度)の値を抽出します。</p>
+  <p>色のアルファ（透明度）値を取得します。</p>
 
-  <p></p>
+  <p><code>alpha()</code>は<a href="/reference/p5/p5.Color">p5.Color</a>オブジェクト、色成分の配列、または
 
-
-  <hr/>
-
-  <p>Gets the alpha (transparency) value of a color.</p>
-
-  <p><code>alpha()</code> extracts the alpha value from a
-
-  <a href="/reference/p5/p5.Color/">p5.Color</a> object, an array of color
-  components, or
-
-  a CSS color string.</p>
+  CSS色文字列からアルファ値を抽出します。</p>
 line: 16
 isConstructor: false
 itemtype: method
@@ -33,22 +22,22 @@ example:
 
       background(200);
 
-      // Create a p5.Color object.
+      // p5.Colorオブジェクトを作成します。
       let c = color(0, 126, 255, 102);
 
-      // Draw the left rectangle.
+      // 左の長方形を描画します。
       noStroke();
       fill(c);
       rect(15, 15, 35, 70);
 
-      // Set 'alphaValue' to 102.
+      // 'alphaValue'を102に設定します。
       let alphaValue = alpha(c);
 
-      // Draw the right rectangle.
+      // 右の長方形を描画します。
       fill(alphaValue);
       rect(50, 15, 35, 70);
 
-      describe('Two rectangles. The left one is light blue and the right one is charcoal gray.');
+      describe('2つの長方形。左側は薄い青色で、右側は炭色です。');
     }
     </code>
     </div>
@@ -61,22 +50,22 @@ example:
 
       background(200);
 
-      // Create a color array.
+      // 色の配列を作成します。
       let c = [0, 126, 255, 102];
 
-      // Draw the left rectangle.
+      // 左の長方形を描画します。
       noStroke();
       fill(c);
       rect(15, 15, 35, 70);
 
-      // Set 'alphaValue' to 102.
+      // 'alphaValue'を102に設定します。
       let alphaValue = alpha(c);
 
-      // Draw the left rectangle.
+      // 左の長方形を描画します。
       fill(alphaValue);
       rect(50, 15, 35, 70);
 
-      describe('Two rectangles. The left one is light blue and the right one is charcoal gray.');
+      describe('2つの長方形。左側は薄い青色で、右側は炭色です。');
     }
     </code>
     </div>
@@ -89,22 +78,22 @@ example:
 
       background(200);
 
-      // Create a CSS color string.
+      // CSS色文字列を作成します。
       let c = 'rgba(0, 126, 255, 0.4)';
 
-      // Draw the left rectangle.
+      // 左の長方形を描画します。
       noStroke();
       fill(c);
       rect(15, 15, 35, 70);
 
-      // Set 'alphaValue' to 102.
+      // 'alphaValue'を102に設定します。
       let alphaValue = alpha(c);
 
-      // Draw the right rectangle.
+      // 右の長方形を描画します。
       fill(alphaValue);
       rect(50, 15, 35, 70);
 
-      describe('Two rectangles. The left one is light blue and the right one is charcoal gray.');
+      describe('2つの長方形。左側は薄い青色で、右側は炭色です。');
     }
     </code>
     </div>
@@ -112,14 +101,11 @@ class: p5
 params:
   - name: color
     description: |
-      <p><a href="#/p5.Color">p5.Color</a> オブジェクト、色成分の配列、または CSS カラー文字列</p>
-      <p><a href="#/p5.Color">p5.Color</a> object, array of
-                                              color components, or CSS color string.</p>
+      <p><a href="#/p5.Color">p5.Color</a>オブジェクト、色成分の配列、
+      またはCSS色文字列。</p>
     type: 'p5.Color|Number[]|String'
 return:
-  description: |-
-    アルファ値
-    the alpha value.
+  description: アルファ値。
   type: Number
 chainable: false
 ---

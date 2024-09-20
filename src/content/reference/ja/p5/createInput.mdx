@@ -3,27 +3,7 @@ title: createInput
 module: DOM
 submodule: DOM
 file: src/dom/dom.js
-description: >-
-  <p>DOM でテキスト入力用の <code>&lt;input&gt;&lt;/input&gt;</code> 要素を作成します。</p>
-
-  <p>.<a href="#/p5.Element/size">size()</a> を使ってボックスの表示長さを設定します。</p>
-
-  <p>/// todo ///</p>
-
-  <p>Creates a text <code>&lt;input&gt;&lt;/input&gt;</code> element. Call
-  <code>myInput.size()</code> to set the length of the text box.</p>
-
-  <p>The first parameter, <code>value</code>, is optional. It's a string that
-  sets the input's default value. The input is blank by default.</p>
-
-  <p>The second parameter, <code>type</code>, is also optional. It's a string
-  that specifies the type of text being input. See MDN for a full <a
-  href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input"
-  target="_blank">list of options</a>. The default is <code>'text'</code>.</p>
-
-
-  <hr/>
-
+description: >
   <p>Creates a text <code><input></input></code> element.</p>
 
   <p>Call <code>myInput.size()</code> to set the length of the text box.</p>
@@ -42,19 +22,7 @@ description: >-
   target="_blank">list of options</a>.
 
   The default is <code>'text'</code>.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "value": "String: (Optional) default value of the input box. Defaults to an empty string <code>''</code>. /// todo /// String: 入力ボックスのデフォルト値",
-      "type": "String: (Optional) type of input. Defaults to <code>'text'</code>. /// todo /// String: テキストの種類(オプション)、例:text、password など。デフォルトは text。最初に値を指定する必要があります。"
-  }
-
-  </pre>
-line: 1840
+line: 1841
 isConstructor: false
 itemtype: method
 example:
@@ -112,14 +80,10 @@ example:
     </div>
 class: p5
 return:
-  description: >-
-    new <a href="#/p5.Element">p5.Element</a> object. /// todo /// p5.Element:
-    作成されたノードを保持する <a href="#/p5.Element">p5.Element</a> へのポインター
-
-    new <a href="#/p5.Element">p5.Element</a> object.
+  description: new <a href="#/p5.Element">p5.Element</a> object.
   type: p5.Element
 overloads:
-  - line: 1840
+  - line: 1841
     params:
       - name: value
         description: >

@@ -4,35 +4,17 @@ module: Color
 submodule: Creating & Reading
 file: src/color/creating_reading.js
 description: >
-  <p><a href="#/p5.Color">p5.Color</a>オブジェクト、色成分の配列、または CSS
-  カラー文字列から彩度の値を抽出します。</p>
+  <p>色の彩度の値を取得します。</p>
 
-  <p></p>
+  <p><code>saturation()</code>は<a href="/reference/p5/p5.Color">p5.Color</a>オブジェクト、色成分の配列、
 
-  <p>HSB と HSL では、飽和度が異なる尺度でスケールされます。デフォルトでは、この関数は HSL の飽和度を返します。<a
-  href="#/colorMode">colorMode()</a> が HSB に設定されている場合、 HSB の飽和度を返します。</p>
+  またはCSSの色文字列から彩度の値を抽出します。</p>
 
+  <p>彩度はHSBとHSLで異なる方法でスケーリングされます。デフォルトでは、<code>saturation()</code>は
 
-  <hr/>
+  色のHSLの彩度を0から100の範囲で返します。<a href="/reference/colorMode/">colorMode()</a>が
 
-  <p>Gets the saturation value of a color.</p>
-
-  <p><code>saturation()</code> extracts the saturation value from a
-
-  <a href="/reference/p5/p5.Color">p5.Color</a> object, an array of color
-  components, or
-
-  a CSS color string.</p>
-
-  <p>Saturation is scaled differently in HSB and HSL. By default,
-  <code>saturation()</code>
-
-  returns a color's HSL saturation in the range 0 to 100. If the
-
-  <a href="/reference/colorMode/">colorMode()</a> is set to HSB or HSL, it
-  returns the
-
-  saturation value in the given mode.</p>
+  HSBまたはHSLに設定されている場合、指定されたモードでの彩度の値を返します。</p>
 line: 1352
 isConstructor: false
 itemtype: method
@@ -46,25 +28,25 @@ example:
 
       background(50);
 
-      // Use HSB color.
+      // HSB色を使用します。
       colorMode(HSB);
 
-      // Create a p5.Color object.
+      // p5.Colorオブジェクトを作成します。
       let c = color(0, 50, 100);
 
-      // Draw the left rectangle.
+      // 左の長方形を描画します。
       noStroke();
       fill(c);
       rect(15, 15, 35, 70);
 
-      // Set 'satValue' to 50.
+      // 'satValue'を50に設定します。
       let satValue = saturation(c);
 
-      // Draw the right rectangle.
+      // 右の長方形を描画します。
       fill(satValue);
       rect(50, 15, 35, 70);
 
-      describe('Two rectangles. The left one is salmon pink and the right one is dark gray.');
+      describe('2つの長方形。左側はサーモンピンクで、右側は濃い灰色です。');
     }
     </code>
     </div>
@@ -77,25 +59,25 @@ example:
 
       background(50);
 
-      // Use HSB color.
+      // HSB色を使用します。
       colorMode(HSB);
 
-      // Create a color array.
+      // 色の配列を作成します。
       let c = [0, 50, 100];
 
-      // Draw the left rectangle.
+      // 左の長方形を描画します。
       noStroke();
       fill(c);
       rect(15, 15, 35, 70);
 
-      // Set 'satValue' to 100.
+      // 'satValue'を100に設定します。
       let satValue = saturation(c);
 
-      // Draw the right rectangle.
+      // 右の長方形を描画します。
       fill(satValue);
       rect(50, 15, 35, 70);
 
-      describe('Two rectangles. The left one is salmon pink and the right one is gray.');
+      describe('2つの長方形。左側はサーモンピンクで、右側は灰色です。');
     }
     </code>
     </div>
@@ -108,25 +90,25 @@ example:
 
       background(50);
 
-      // Use HSB color.
+      // HSB色を使用します。
       colorMode(HSB);
 
-      // Create a CSS color string.
+      // CSS色文字列を作成します。
       let c = 'rgb(255, 128, 128)';
 
-      // Draw the left rectangle.
+      // 左の長方形を描画します。
       noStroke();
       fill(c);
       rect(15, 15, 35, 70);
 
-      // Set 'satValue' to 100.
+      // 'satValue'を100に設定します。
       let satValue = saturation(c);
 
-      // Draw the right rectangle.
+      // 右の長方形を描画します。
       fill(satValue);
       rect(50, 15, 35, 70);
 
-      describe('Two rectangles. The left one is salmon pink and the right one is gray.');
+      describe('2つの長方形。左側はサーモンピンクで、右側は灰色です。');
     }
     </code>
     </div>
@@ -139,25 +121,25 @@ example:
 
       background(50);
 
-      // Use HSL color.
+      // HSL色を使用します。
       colorMode(HSL);
 
-      // Create a p5.Color object.
+      // p5.Colorオブジェクトを作成します。
       let c = color(0, 100, 75);
 
-      // Draw the left rectangle.
+      // 左の長方形を描画します。
       noStroke();
       fill(c);
       rect(15, 15, 35, 70);
 
-      // Set 'satValue' to 100.
+      // 'satValue'を100に設定します。
       let satValue = saturation(c);
 
-      // Draw the right rectangle.
+      // 右の長方形を描画します。
       fill(satValue);
       rect(50, 15, 35, 70);
 
-      describe('Two rectangles. The left one is salmon pink and the right one is white.');
+      describe('2つの長方形。左側はサーモンピンクで、右側は白です。');
     }
     </code>
     </div>
@@ -170,25 +152,25 @@ example:
 
       background(50);
 
-      // Use HSL color with values in the range 0-255.
+      // 0-255の範囲の値でHSL色を使用します。
       colorMode(HSL, 255);
 
-      // Create a p5.Color object.
+      // p5.Colorオブジェクトを作成します。
       let c = color(0, 255, 191.5);
 
-      // Draw the left rectangle.
+      // 左の長方形を描画します。
       noStroke();
       fill(c);
       rect(15, 15, 35, 70);
 
-      // Set 'satValue' to 255.
+      // 'satValue'を255に設定します。
       let satValue = saturation(c);
 
-      // Draw the right rectangle.
+      // 右の長方形を描画します。
       fill(satValue);
       rect(50, 15, 35, 70);
 
-      describe('Two rectangles. The left one is salmon pink and the right one is white.');
+      describe('2つの長方形。左側はサーモンピンクで、右側は白です。');
     }
     </code>
     </div>
@@ -196,14 +178,11 @@ class: p5
 params:
   - name: color
     description: |
-      <p><a href="#/p5.Color">p5.Color</a> オブジェクト、色成分の配列、または CSS カラー文字列</p>
-      <p><a href="#/p5.Color">p5.Color</a> object, array of
-                                              color components, or CSS color string.</p>
+      <p><a href="#/p5.Color">p5.Color</a>オブジェクト、色成分の配列、
+                                              またはCSS色文字列。</p>
     type: 'p5.Color|Number[]|String'
 return:
-  description: |-
-    彩度の値
-    the saturation value
+  description: 彩度の値
   type: Number
 chainable: false
 ---

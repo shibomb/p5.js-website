@@ -4,52 +4,31 @@ module: Shape
 submodule: Curves
 file: src/core/shape/curves.js
 description: >
-  <p>点 a、b、c、d の位置 t における曲線の接線を評価します。</p>
+  <p>スプライン曲線の接線上の座標を計算します。</p>
 
-  <p>パラメーター t が0から1の間で変化し、a と d は曲線上の点、b と c はコントロールポイントです。</p>
+  <p>接線は曲線の表面をかすめます。接線の傾きは、交点での曲線の傾きと等しくなります。</p>
 
+  <p><code>curveTangent()</code>は、スプライン曲線のアンカーポイントと制御点を使用して
 
-  <hr/>
+  接線上の座標を計算します。<a href="/reference/p5/curve/">curve()</a>関数と同じ順序で
 
-  <p>Calculates coordinates along a line that's tangent to a spline curve.</p>
+  点を指定することが期待されます。<code>curveTangent()</code>は一度に1つの軸に対して
 
-  <p>Tangent lines skim the surface of a curve. A tangent line's slope equals
+  機能します。アンカーポイントと制御点のx座標を渡すと、接線上の点のx座標が
 
-  the curve's slope at the point where it intersects.</p>
+  計算されます。アンカーポイントと制御点のy座標を渡すと、接線上の点のy座標が
 
-  <p><code>curveTangent()</code> calculates coordinates along a tangent line
-  using the
+  計算されます。</p>
 
-  spline curve's anchor and control points. It expects points in the same
+  <p>最初のパラメータ<code>a</code>は、最初の制御点の座標です。</p>
 
-  order as the <a href="/reference/p5/curve/">curve()</a> function.
-  <code>curveTangent()</code>
+  <p>2番目と3番目のパラメータ<code>b</code>と<code>c</code>は、アンカーポイントの座標です。</p>
 
-  works one axis at a time. Passing the anchor and control points'
+  <p>4番目のパラメータ<code>d</code>は、最後の制御点の座標です。</p>
 
-  x-coordinates will calculate the x-coordinate of a point on the tangent
+  <p>5番目のパラメータ<code>t</code>は、曲線に沿って補間する量です。0は最初の
 
-  line. Passing the anchor and control points' y-coordinates will calculate
-
-  the y-coordinate of a point on the tangent line.</p>
-
-  <p>The first parameter, <code>a</code>, is the coordinate of the first control
-  point.</p>
-
-  <p>The second and third parameters, <code>b</code> and <code>c</code>, are the
-  coordinates of the
-
-  anchor points.</p>
-
-  <p>The fourth parameter, <code>d</code>, is the coordinate of the last control
-  point.</p>
-
-  <p>The fifth parameter, <code>t</code>, is the amount to interpolate along the
-  curve. 0
-
-  is the first anchor point, 1 is the second anchor point, and 0.5 is halfway
-
-  between them.</p>
+  アンカーポイント、1は2番目のアンカーポイント、0.5はその中間点です。</p>
 line: 1054
 isConstructor: false
 itemtype: method
@@ -63,7 +42,7 @@ example:
 
       background(200);
 
-      // Set the coordinates for the curve's anchor and control points.
+      // 曲線のアンカーポイントと制御点の座標を設定します。
       let x1 = 5;
       let y1 = 26;
       let x2 = 73;
@@ -73,54 +52,54 @@ example:
       let x4 = 15;
       let y4 = 65;
 
-      // Draw the curve.
+      // 曲線を描画します。
       noFill();
       curve(x1, y1, x2, y2, x3, y3, x4, y4);
 
-      // Draw tangents along the curve's path.
+      // 曲線のパスに沿って接線を描画します。
       fill(255);
 
-      // Top circle.
+      // 上部の円。
       stroke(0);
       let x = curvePoint(x1, x2, x3, x4, 0);
       let y = curvePoint(y1, y2, y3, y4, 0);
       circle(x, y, 5);
 
-      // Top tangent line.
-      // Scale the tangent point to draw a shorter line.
+      // 上部の接線。
+      // より短い線を描画するために接点をスケーリングします。
       stroke(255, 0, 0);
       let tx = 0.2 * curveTangent(x1, x2, x3, x4, 0);
       let ty = 0.2 * curveTangent(y1, y2, y3, y4, 0);
       line(x + tx, y + ty, x - tx, y - ty);
 
-      // Center circle.
+      // 中央の円。
       stroke(0);
       x = curvePoint(x1, x2, x3, x4, 0.5);
       y = curvePoint(y1, y2, y3, y4, 0.5);
       circle(x, y, 5);
 
-      // Center tangent line.
-      // Scale the tangent point to draw a shorter line.
+      // 中央の接線。
+      // より短い線を描画するために接点をスケーリングします。
       stroke(255, 0, 0);
       tx = 0.2 * curveTangent(x1, x2, x3, x4, 0.5);
       ty = 0.2 * curveTangent(y1, y2, y3, y4, 0.5);
       line(x + tx, y + ty, x - tx, y - ty);
 
-      // Bottom circle.
+      // 下部の円。
       stroke(0);
       x = curvePoint(x1, x2, x3, x4, 1);
       y = curvePoint(y1, y2, y3, y4, 1);
       circle(x, y, 5);
 
-      // Bottom tangent line.
-      // Scale the tangent point to draw a shorter line.
+      // 下部の接線。
+      // より短い線を描画するために接点をスケーリングします。
       stroke(255, 0, 0);
       tx = 0.2 * curveTangent(x1, x2, x3, x4, 1);
       ty = 0.2 * curveTangent(y1, y2, y3, y4, 1);
       line(x + tx, y + ty, x - tx, y - ty);
 
       describe(
-        'A black curve on a gray square. A white circle moves back and forth along the curve.'
+        '灰色の正方形上の黒い曲線。白い円が曲線に沿って前後に動きます。'
       );
     }
     </code>
@@ -129,33 +108,26 @@ class: p5
 params:
   - name: a
     description: |
-      <p>最初のコントロールポイントの座標</p>
-      <p>coordinate of first control point.</p>
+      <p>最初の制御点の座標。</p>
     type: Number
   - name: b
     description: |
-      <p>曲線上の最初の点の座標</p>
-      <p>coordinate of first anchor point.</p>
+      <p>最初のアンカーポイントの座標。</p>
     type: Number
   - name: c
     description: |
-      <p>曲線上の2番目の点の座標</p>
-      <p>coordinate of second anchor point.</p>
+      <p>2番目のアンカーポイントの座標。</p>
     type: Number
   - name: d
     description: |
-      <p>2番目のコントロールポイントの座標</p>
-      <p>coordinate of second control point.</p>
+      <p>2番目の制御点の座標。</p>
     type: Number
   - name: t
     description: |
-      <p>0から1までの値</p>
-      <p>amount to interpolate between 0 and 1.</p>
+      <p>0から1の間で補間する量。</p>
     type: Number
 return:
-  description: |-
-    位置 t における曲線の接線
-    coordinate of a point on the tangent line.
+  description: 接線上の点の座標。
   type: Number
 chainable: false
 ---

@@ -4,32 +4,17 @@ module: Shape
 submodule: 3D Primitives
 file: src/webgl/p5.Geometry.js
 description: >
-  <p>An array that lists the texture coordinates for each of the geometry's
+  <p>ジオメトリの各頂点のテクスチャ座標をリストした配列です。</p>
 
-  vertices.</p>
+  <p><a href="/reference/p5/texture/">texture()</a>を機能させるために、ジオメトリは
+  その表面上の点をテクスチャとして使用される長方形の画像のピクセルに
+  マッピングする方法が必要です。座標<code>(x, y, z)</code>のジオメトリの頂点は、
+  座標<code>(u, v)</code>のテクスチャ画像のピクセルにマッピングされます。</p>
 
-  <p>In order for <a href="/reference/p5/texture/">texture()</a> to work, the
-  geometry
-
-  needs a way to map the points on its surface to the pixels in a
-
-  rectangular image that's used as a texture. The geometry's vertex at
-
-  coordinates <code>(x, y, z)</code> maps to the texture image's pixel at
-  coordinates
-
-  <code>(u, v)</code>.</p>
-
-  <p>The <code>myGeometry.uvs</code> array stores the <code>(u, v)</code>
-  coordinates for each
-
-  vertex in the order it was added to the geometry. For example, the
-
-  first vertex, <code>myGeometry.vertices[0]</code>, has its <code>(u, v)</code>
-  coordinates
-
-  stored at <code>myGeometry.uvs[0]</code> and
-  <code>myGeometry.uvs[1]</code>.</p>
+  <p><code>myGeometry.uvs</code>配列は、ジオメトリに追加された順序で各頂点の
+  <code>(u, v)</code>座標を格納します。例えば、最初の頂点<code>myGeometry.vertices[0]</code>の
+  <code>(u, v)</code>座標は<code>myGeometry.uvs[0]</code>と<code>myGeometry.uvs[1]</code>に
+  格納されます。</p>
 line: 591
 isConstructor: false
 itemtype: property
@@ -40,7 +25,7 @@ example:
     <code>
     let img;
 
-    // Load the image and create a p5.Image object.
+    // 画像を読み込み、p5.Imageオブジェクトを作成します。
     function preload() {
       img = loadImage('/assets/laDefense.jpg');
     }
@@ -50,11 +35,11 @@ example:
 
       background(200);
 
-      // Create p5.Geometry objects.
+      // p5.Geometryオブジェクトを作成します。
       let geom1 = buildGeometry(createShape);
       let geom2 = buildGeometry(createShape);
 
-      // Left (original).
+      // 左（オリジナル）
       push();
       translate(-25, 0, 0);
       texture(img);
@@ -62,10 +47,10 @@ example:
       model(geom1);
       pop();
 
-      // Set geom2's texture coordinates.
+      // geom2のテクスチャ座標を設定します。
       geom2.uvs = [0.25, 0.25, 0.75, 0.25, 0.25, 0.75, 0.75, 0.75];
 
-      // Right (zoomed in).
+      // 右（ズームイン）
       push();
       translate(25, 0, 0);
       texture(img);
@@ -74,7 +59,7 @@ example:
       pop();
 
       describe(
-        'Two photos of a ceiling on a gray background. The photo on the right zooms in to the center of the photo.'
+        '灰色の背景に2つの天井の写真。右側の写真は写真の中央部分にズームインしています。'
       );
     }
 
@@ -88,3 +73,4 @@ class: p5.Geometry
 
 
 # uvs
+

@@ -4,66 +4,50 @@ module: 3D
 submodule: Material
 file: src/webgl/p5.Shader.js
 description: >
-  <p>A class to describe a shader program.</p>
+  <p>シェーダープログラムを記述するクラスです。</p>
 
-  <p>Each <code>p5.Shader</code> object contains a shader program that runs on
-  the graphics
-
-  processing unit (GPU). Shaders can process many pixels or vertices at the
-
-  same time, making them fast for many graphics tasks. They’re written in a
-
-  language called
-
+  <p>各<code>p5.Shader</code>オブジェクトには、グラフィックス処理ユニット（GPU）上で
+  実行されるシェーダープログラムが含まれています。シェーダーは多くのピクセルや頂点を
+  同時に処理できるため、多くのグラフィックスタスクに対して高速です。シェーダーは
   <a
   href="https://developer.mozilla.org/en-US/docs/Games/Techniques/3D_on_the_web/GLSL_Shaders/"
   target="_blank">GLSL</a>
+  という言語で書かれ、スケッチの他のコードと一緒に実行されます。</p>
 
-  and run along with the rest of the code in a sketch.</p>
+  <p>シェーダープログラムは、頂点シェーダーとフラグメントシェーダーの2つのファイルで
+  構成されています。頂点シェーダーは3Dジオメトリが画面上のどこに描画されるかに影響し、
+  フラグメントシェーダーは色に影響します。<code>p5.Shader</code>オブジェクトが
+  作成されると、<a href="/reference/p5/shader/">shader()</a>関数で使用できます。
+  例えば、<code>shader(myShader)</code>のように使います。</p>
 
-  <p>A shader program consists of two files, a vertex shader and a fragment
-
-  shader. The vertex shader affects where 3D geometry is drawn on the screen
-
-  and the fragment shader affects color. Once the <code>p5.Shader</code> object
-  is
-
-  created, it can be used with the <a href="/reference/p5/shader/">shader()</a>
-
-  function, as in <code>shader(myShader)</code>.</p>
-
-  <p>Note: <a href="/reference/p5/createShader/">createShader()</a>,
-
-  <a href="/reference/p5/createFilterShader/">createFilterShader()</a>, and
-
-  <a href="/reference/p5/loadShader/">loadShader()</a> are the recommended ways
-  to
-
-  create an instance of this class.</p>
+  <p>注意：<a href="/reference/p5/createShader/">createShader()</a>、
+  <a href="/reference/p5/createFilterShader/">createFilterShader()</a>、
+  <a href="/reference/p5/loadShader/">loadShader()</a>が、このクラスの
+  インスタンスを作成する推奨される方法です。</p>
 line: 11
 isConstructor: true
 params:
   - name: renderer
     description: |
-      <p>WebGL context for this shader.</p>
+      <p>このシェーダーのWebGLコンテキスト。</p>
     type: p5.RendererGL
   - name: vertSrc
     description: |
-      <p>source code for the vertex shader program.</p>
+      <p>頂点シェーダープログラムのソースコード。</p>
     type: String
   - name: fragSrc
     description: |
-      <p>source code for the fragment shader program.</p>
+      <p>フラグメントシェーダープログラムのソースコード。</p>
     type: String
 example:
   - |-
 
     <div>
     <code>
-    // Note: A "uniform" is a global variable within a shader program.
+    // 注意：「uniform」はシェーダープログラム内のグローバル変数です。
 
-    // Create a string with the vertex shader program.
-    // The vertex shader is called for each vertex.
+    // 頂点シェーダープログラムを含む文字列を作成します。
+    // 頂点シェーダーは各頂点に対して呼び出されます。
     let vertSrc = `
     precision highp float;
     uniform mat4 uModelViewMatrix;
@@ -80,13 +64,13 @@ example:
     }
     `;
 
-    // Create a string with the fragment shader program.
-    // The fragment shader is called for each pixel.
+    // フラグメントシェーダープログラムを含む文字列を作成します。
+    // フラグメントシェーダーは各ピクセルに対して呼び出されます。
     let fragSrc = `
     precision highp float;
 
     void main() {
-      // Set each pixel's RGBA value to yellow.
+      // 各ピクセルのRGBA値を黄色に設定します。
       gl_FragColor = vec4(1.0, 1.0, 0.0, 1.0);
     }
     `;
@@ -94,30 +78,30 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Shader object.
+      // p5.Shaderオブジェクトを作成します。
       let myShader = createShader(vertSrc, fragSrc);
 
-      // Apply the p5.Shader object.
+      // p5.Shaderオブジェクトを適用します。
       shader(myShader);
 
-      // Style the drawing surface.
+      // 描画面のスタイルを設定します。
       noStroke();
 
-      // Add a plane as a drawing surface.
+      // 描画面としてplaneを追加します。
       plane(100, 100);
 
-      describe('A yellow square.');
+      describe('黄色の正方形。');
     }
     </code>
     </div>
 
     <div>
     <code>
-    // Note: A "uniform" is a global variable within a shader program.
+    // 注意：「uniform」はシェーダープログラム内のグローバル変数です。
 
     let mandelbrot;
 
-    // Load the shader and create a p5.Shader object.
+    // シェーダーを読み込み、p5.Shaderオブジェクトを作成します。
     function preload() {
       mandelbrot = loadShader('/assets/shader.vert', '/assets/shader.frag');
     }
@@ -125,20 +109,20 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Use the p5.Shader object.
+      // p5.Shaderオブジェクトを使用します。
       shader(mandelbrot);
 
-      // Set the shader uniform p to an array.
+      // シェーダーのuniform変数pを配列に設定します。
       mandelbrot.setUniform('p', [-0.74364388703, 0.13182590421]);
 
-      describe('A fractal image zooms in and out of focus.');
+      describe('フラクタル画像がズームインとズームアウトを繰り返します。');
     }
 
     function draw() {
-      // Set the shader uniform r to a value that oscillates between 0 and 2.
+      // シェーダーのuniform変数rを0から2の間で振動する値に設定します。
       mandelbrot.setUniform('r', sin(frameCount * 0.01) + 1);
 
-      // Add a quad as a display surface for the shader.
+      // シェーダーの表示面としてquadを追加します。
       quad(-1, -1, 1, -1, 1, 1, -1, 1);
     }
     </code>
@@ -146,95 +130,53 @@ example:
 methods:
   copyToContext:
     description: >
-      <p>Copies the shader from one drawing context to another.</p>
+      <p>シェーダーを一つの描画コンテキストから別のコンテキストにコピーします。</p>
 
-      <p>Each <code>p5.Shader</code> object must be compiled by calling
+      <p>各<code>p5.Shader</code>オブジェクトは、実行前に
+      <a href="/reference/p5/shader/">shader()</a>を呼び出してコンパイルする必要が
+      あります。コンパイルは通常、メインキャンバスまたは
+      <a href="/reference/p5/p5.Graphics">p5.Graphics</a>のインスタンスである
+      描画コンテキストで行われます。シェーダーはコンパイルされたコンテキストでのみ
+      使用できます。<code>copyToContext()</code>メソッドはシェーダーを再度コンパイルし、
+      再利用可能な別の描画コンテキストにコピーします。</p>
 
-      <a href="/reference/p5/shader/">shader()</a> before it can run.
-      Compilation happens
+      <p>パラメータ<code>context</code>は、シェーダーが使用される描画コンテキストです。
+      シェーダーは<a href="/reference/p5/p5.Graphics">p5.Graphics</a>のインスタンスに
+      コピーできます。例えば、<code>myShader.copyToContext(pg)</code>のようにします。
+      また、シェーダーを<a href="/reference/p5/p5.Graphics">p5.Graphics</a>オブジェクトから
+      メインキャンバスにコピーする場合は、<code>window</code>変数を使用します。
+      例えば、<code>myShader.copyToContext(window)</code>のようにします。</p>
 
-      in a drawing context which is usually the main canvas or an instance of
-
-      <a href="/reference/p5/p5.Graphics">p5.Graphics</a>. A shader can only be
-      used in the
-
-      context where it was compiled. The <code>copyToContext()</code> method
-      compiles the
-
-      shader again and copies it to another drawing context where it can be
-
-      reused.</p>
-
-      <p>The parameter, <code>context</code>, is the drawing context where the
-      shader will be
-
-      used. The shader can be copied to an instance of
-
-      <a href="/reference/p5/p5.Graphics">p5.Graphics</a>, as in
-
-      <code>myShader.copyToContext(pg)</code>. The shader can also be copied
-      from a
-
-      <a href="/reference/p5/p5.Graphics">p5.Graphics</a> object to the main
-      canvas using
-
-      the <code>window</code> variable, as in
-      <code>myShader.copyToContext(window)</code>.</p>
-
-      <p>Note: A <a href="/reference/p5/p5.Shader">p5.Shader</a> object created
-      with
-
-      <a href="/reference/p5/createShader/">createShader()</a>,
-
-      <a href="/reference/p5/createFilterShader/">createFilterShader()</a>, or
-
-      <a href="/reference/p5/loadShader/">loadShader()</a>
-
-      can be used directly with a <a
-      href="/reference/p5/p5.Framebuffer">p5.Framebuffer</a>
-
-      object created with
-
-      <a href="/reference/p5/createFramebuffer/">createFramebuffer()</a>. Both
-      objects
-
-      have the same context as the main canvas.</p>
+      <p>注意：<a href="/reference/p5/createShader/">createShader()</a>、
+      <a href="/reference/p5/createFilterShader/">createFilterShader()</a>、または
+      <a href="/reference/p5/loadShader/">loadShader()</a>で作成された
+      <a href="/reference/p5/p5.Shader">p5.Shader</a>オブジェクトは、
+      <a href="/reference/p5/createFramebuffer/">createFramebuffer()</a>で作成された
+      <a href="/reference/p5/p5.Framebuffer">p5.Framebuffer</a>オブジェクトと
+      直接使用できます。両オブジェクトはメインキャンバスと同じコンテキストを持ちます。</p>
     path: p5.Shader/copyToContext
   setUniform:
     description: >
-      <p>Sets the shader’s uniform (global) variables.</p>
+      <p>シェーダーのuniform（グローバル）変数を設定します。</p>
 
-      <p>Shader programs run on the computer’s graphics processing unit (GPU).
+      <p>シェーダープログラムはコンピューターのグラフィックス処理ユニット（GPU）上で
+      実行されます。シェーダーはスケッチを実行するメモリとは完全に分離された
+      コンピューターのメモリ部分に存在します。uniformはシェーダープログラム内の
+      グローバル変数です。uniformは、CPU上で実行されているスケッチからGPU上で
+      実行されているシェーダープログラムに値を渡す方法を提供します。</p>
 
-      They live in part of the computer’s memory that’s completely separate
+      <p>最初のパラメータ<code>uniformName</code>は、uniformの名前を含む文字列です。
+      上記のシェーダーの場合、<code>uniformName</code>は<code>'r'</code>となります。</p>
 
-      from the sketch that runs them. Uniforms are global variables within a
-
-      shader program. They provide a way to pass values from a sketch running
-
-      on the CPU to a shader program running on the GPU.</p>
-
-      <p>The first parameter, <code>uniformName</code>, is a string with the
-      uniform’s name.
-
-      For the shader above, <code>uniformName</code> would be
-      <code>'r'</code>.</p>
-
-      <p>The second parameter, <code>data</code>, is the value that should be
-      used to set the
-
-      uniform. For example, calling <code>myShader.setUniform('r', 0.5)</code>
-      would set
-
-      the <code>r</code> uniform in the shader above to <code>0.5</code>. data
-      should match the
-
-      uniform’s type. Numbers, strings, booleans, arrays, and many types of
-
-      images can all be passed to a shader with <code>setUniform()</code>.</p>
+      <p>2番目のパラメータ<code>data</code>は、uniformを設定するために使用される値です。
+      例えば、<code>myShader.setUniform('r', 0.5)</code>を呼び出すと、上記のシェーダーの
+      <code>r</code> uniformが<code>0.5</code>に設定されます。dataはuniformの型と
+      一致する必要があります。数値、文字列、ブール値、配列、および多くの種類の画像を
+      <code>setUniform()</code>を使用してシェーダーに渡すことができます。</p>
     path: p5.Shader/setUniform
 chainable: false
 ---
 
 
 # p5.Shader
+

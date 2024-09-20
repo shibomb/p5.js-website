@@ -4,68 +4,43 @@ module: Shape
 submodule: Vertex
 file: src/core/shape/vertex.js
 description: >
-  <p><a href="#/p5/beginContour">beginContour()</a> 関数と <a
-  href="#/p5/endContour">endContour()</a>
-  関数を使用して、文字「0」の中心などのような形状内の負の形状を作成します。</p>
+  <p>平面形状内の穴の作成を停止します。</p>
 
-  <p><a href="#/p5/beginContour">beginContour()</a> 関数は形状の頂点の記録を開始し、<a
-  href="#/p5/endContour">endContour()</a>
-  関数は記録を停止します。負の形状を定義する頂点は、外部形状とは逆方向に「巻かれる」必要があります。まず外部の頂点を時計回りの順序で描き、内部の形状では反時計回りに頂点を描画します。</p>
+  <p><a href="/reference/p5/beginContour/">beginContour()</a>と<code>endContour()</code>
 
-  <p>これらの関数は、<a href="#/p5/beginShape">beginShape()</a>/<a
-  href="#/p5/endShape">endShape()</a> のペア内でのみ使用できます。また、<a
-  href="#/p5/translate">translate()</a>、<a href="#/p5/rotate">rotate()</a>、および
-  <a href="#/p5/scale">scale()</a> などの変換は、<a
-  href="#/p5/beginContour">beginContour()</a>/<a
-  href="#/p5/endContour">endContour()</a> のペア内では機能しません。<a
-  href="#/p5/ellipse">ellipse()</a> や <a href="#/p5/rect">rect()</a>
-  などの他の図形を使用することもできません。</p>
+  関数は、平面的なカスタム形状内に負の空間を作成することができます。
 
+  <a href="/reference/p5/beginContour/">beginContour()</a>は負の空間への頂点の
 
-  <hr/>
+  追加を開始し、<code>endContour()</code>はその追加を停止します。
 
-  <p>Stops creating a hole within a flat shape.</p>
+  <a href="/reference/p5/beginContour/">beginContour()</a>と<code>endContour()</code>は
 
-  <p>The <a href="/reference/p5/beginContour/">beginContour()</a> and
-  <code>endContour()</code>
+  <a href="/reference/p5/beginShape/">beginShape()</a>と
 
-  functions allow for creating negative space within custom shapes that are
+  <a href="/reference/p5/endShape/">endShape()</a>の間で呼び出す必要があります。</p>
 
-  flat. <a href="/reference/p5/beginContour/">beginContour()</a> begins adding
-  vertices
+  <p><a href="/reference/p5/translate/">translate()</a>、
 
-  to a negative space and <code>endContour()</code> stops adding them.
-
-  <a href="/reference/p5/beginContour/">beginContour()</a> and
-  <code>endContour()</code> must be
-
-  called between <a href="/reference/p5/beginShape/">beginShape()</a> and
-
-  <a href="/reference/p5/endShape/">endShape()</a>.</p>
-
-  <p>Transformations such as <a href="/reference/p5/translate/">translate()</a>,
-
-  <a href="/reference/p5/rotate/">rotate()</a>, and <a
+  <a href="/reference/p5/rotate/">rotate()</a>、<a
   href="/reference/p5/scale/">scale()</a>
 
-  don't work between <a href="/reference/p5/beginContour/">beginContour()</a>
-  and
+  などの変換は<a href="/reference/p5/beginContour/">beginContour()</a>と
 
-  <code>endContour()</code>. It's also not possible to use other shapes, such as
+  <code>endContour()</code>の間では機能しません。また、
 
-  <a href="/reference/p5/ellipse/">ellipse()</a> or <a
-  href="/reference/p5/rect/">rect()</a>,
+  <a href="/reference/p5/ellipse/">ellipse()</a>や
 
-  between <a href="/reference/p5/beginContour/">beginContour()</a> and
-  <code>endContour()</code>.</p>
+  <a href="/reference/p5/rect/">rect()</a>などの他の形状を<a
+  href="/reference/p5/beginContour/">beginContour()</a>と
 
-  <p>Note: The vertices that define a negative space must "wind" in the opposite
+  <code>endContour()</code>の間で使用することもできません。</p>
 
-  direction from the outer shape. First, draw vertices for the outer shape
+  <p>注意：負の空間を定義する頂点は、外側の形状とは逆の方向に「巻く」必要があります。
 
-  clockwise order. Then, draw vertices for the negative space in
+  まず、外側の形状の頂点を時計回りの順序で描画します。
 
-  counter-clockwise order.</p>
+  次に、負の空間の頂点を反時計回りの順序で描画します。</p>
 line: 1224
 isConstructor: false
 itemtype: method
@@ -79,16 +54,16 @@ example:
 
       background(200);
 
-      // Start drawing the shape.
+      // 形状の描画を開始します。
       beginShape();
 
-      // Exterior vertices, clockwise winding.
+      // 外側の頂点、時計回りの巻き方。
       vertex(10, 10);
       vertex(90, 10);
       vertex(90, 90);
       vertex(10, 90);
 
-      // Interior vertices, counter-clockwise winding.
+      // 内側の頂点、反時計回りの巻き方。
       beginContour();
       vertex(30, 30);
       vertex(30, 70);
@@ -96,40 +71,40 @@ example:
       vertex(70, 30);
       endContour();
 
-      // Stop drawing the shape.
+      // 形状の描画を停止します。
       endShape(CLOSE);
 
-      describe('A white square with a square hole in its center drawn on a gray background.');
+      describe('灰色の背景に中央に正方形の穴がある白い正方形が描かれています。');
     }
     </code>
     </div>
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // クリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white square with a square hole in its center drawn on a gray background.');
+      describe('灰色の背景に中央に正方形の穴がある白い正方形が描かれています。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Start drawing the shape.
+      // 形状の描画を開始します。
       beginShape();
 
-      // Exterior vertices, clockwise winding.
+      // 外側の頂点、時計回りの巻き方。
       vertex(-40, -40);
       vertex(40, -40);
       vertex(40, 40);
       vertex(-40, 40);
 
-      // Interior vertices, counter-clockwise winding.
+      // 内側の頂点、反時計回りの巻き方。
       beginContour();
       vertex(-20, -20);
       vertex(-20, 20);
@@ -137,7 +112,7 @@ example:
       vertex(20, -20);
       endContour();
 
-      // Stop drawing the shape.
+      // 形状の描画を停止します。
       endShape(CLOSE);
     }
     </code>

@@ -4,81 +4,32 @@ module: Image
 submodule: Loading & Displaying
 file: src/image/loading_displaying.js
 description: >
-  <p>画像モードを設定します。</p>
+  <p>画像の描画方法を設定します。</p>
 
-  <p><a href="#/p5/image">image()</a>
-  に与えられるパラメーターの解釈方法を変更することで、画像が描画される位置を変更します。デフォルトのモードは imageMode(CORNER) で、<a
-  href="#/p5/image">image()</a>
-  の第2および第3のパラメーターを画像の左上の角として解釈します。さらに2つのパラメーターが指定されている場合、それらは画像の幅と高さを設定するために使用されます。</p>
+  <p>デフォルトモードは<code>CORNER</code>です。これは、<code>image()</code>の2番目と3番目の
+  パラメータを画像の左上隅の座標として解釈します。4番目と5番目のパラメータ（オプション）は
+  画像の幅と高さです。</p>
 
-  <p>imageMode(CORNERS)は、<a href="#/p5/image">image()</a>
-  の第2および第3のパラメーターをひとつの角の位置として解釈し、第4および第5のパラメーターを反対側の角として解釈します。</p>
+  <p><code>imageMode(CORNERS)</code>は、<code>image()</code>の2番目と3番目のパラメータを
+  画像の一つの隅の位置として解釈し、4番目と5番目のパラメータを反対側の隅の位置として
+  解釈します。</p>
 
-  <p>imageMode(CENTER)は、<a href="#/p5/image">image()</a>
-  の第2および第3のパラメーターを画像の中心点として解釈します。さらに2つのパラメーターが指定されている場合、それらは画像の幅と高さを設定するために使用されます。</p>
+  <p><code>imageMode(CENTER)</code>は、<code>image()</code>の2番目と3番目のパラメータを
+  画像の中心の位置として解釈します。4番目と5番目のパラメータ（オプション）は画像の幅と
+  高さです。</p>
 
-  <p>/// todo ///</p>
-
-  <p>Changes the location from which images are drawn when <a
-  href="#/p5/image">image()</a> is called.</p>
-
-  <p>By default, the first two parameters of <a href="#/p5/image">image()</a>
-  are the x- and y-coordinates of the image's upper-left corner. The next
-  parameters are its width and height. This is the same as calling
-  <code>imageMode(CORNER)</code>.</p>
-
-  <p><code>imageMode(CORNERS)</code> also uses the first two parameters of <a
-  href="#/p5/image">image()</a> as the x- and y-coordinates of the image's
-  top-left corner. The third and fourth parameters are the coordinates of its
-  bottom-right corner.</p>
-
-  <p><code>imageMode(CENTER)</code> uses the first two parameters of <a
-  href="#/p5/image">image()</a> as the x- and y-coordinates of the image's
-  center. The next parameters are its width and height.</p>
-
-
-  <hr/>
-
-  <p>Changes the location from which images are drawn when
-
-  <a href="/reference/p5/image/">image()</a> is called.</p>
-
-  <p>By default, the first
-
-  two parameters of <a href="/reference/p5/image/">image()</a> are the x- and
-
-  y-coordinates of the image's upper-left corner. The next parameters are
-
-  its width and height. This is the same as calling
-  <code>imageMode(CORNER)</code>.</p>
-
-  <p><code>imageMode(CORNERS)</code> also uses the first two parameters of
-
-  <a href="/reference/p5/image/">image()</a> as the x- and y-coordinates of the
-  image's
-
-  top-left corner. The third and fourth parameters are the coordinates of its
-
-  bottom-right corner.</p>
-
-  <p><code>imageMode(CENTER)</code> uses the first two parameters of
-
-  <a href="/reference/p5/image/">image()</a> as the x- and y-coordinates of the
-  image's
-
-  center. The next parameters are its width and height.</p>
-line: 1395
+  <p><code>rectMode()</code>も参照してください。</p>
+line: 1
 isConstructor: false
 itemtype: method
 example:
   - |-
 
-
     <div>
     <code>
     let img;
 
-    // Load the image.
+    // 画像を読み込みます。
     function preload() {
       img = loadImage('/assets/bricks.jpg');
     }
@@ -86,15 +37,10 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      background(200);
-
-      // Use CORNER mode.
       imageMode(CORNER);
-
-      // Display the image.
       image(img, 10, 10, 50, 50);
 
-      describe('A square image of a brick wall is drawn at the top left of a gray square.');
+      describe('レンガの壁の画像。画像は正方形のキャンバスの左上隅近くに描画されています。');
     }
     </code>
     </div>
@@ -103,7 +49,7 @@ example:
     <code>
     let img;
 
-    // Load the image.
+    // 画像を読み込みます。
     function preload() {
       img = loadImage('/assets/bricks.jpg');
     }
@@ -111,15 +57,10 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      background(200);
-
-      // Use CORNERS mode.
       imageMode(CORNERS);
+      image(img, 10, 10, 90, 90);
 
-      // Display the image.
-      image(img, 10, 10, 90, 40);
-
-      describe('An image of a brick wall is drawn on a gray square. The image is squeezed into a small rectangular area.');
+      describe('レンガの壁の画像。画像はほぼ正方形のキャンバス全体を覆っています。');
     }
     </code>
     </div>
@@ -128,7 +69,7 @@ example:
     <code>
     let img;
 
-    // Load the image.
+    // 画像を読み込みます。
     function preload() {
       img = loadImage('/assets/bricks.jpg');
     }
@@ -136,15 +77,10 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      background(200);
-
-      // Use CENTER mode.
       imageMode(CENTER);
-
-      // Display the image.
       image(img, 50, 50, 80, 80);
 
-      describe('A square image of a brick wall is drawn on a gray square.');
+      describe('レンガの壁の画像。画像は正方形のキャンバスの中心に描画されています。');
     }
     </code>
     </div>
@@ -152,10 +88,9 @@ class: p5
 params:
   - name: mode
     description: |
-      <p>CORNER、CORNERS、CENTER のいずれか</p>
-      <p>either CORNER, CORNERS, or CENTER.</p>
+      <p>CORNER、CORNERS、またはCENTERのいずれか。</p>
     type: Constant
-chainable: false
+chainable: true
 ---
 
 

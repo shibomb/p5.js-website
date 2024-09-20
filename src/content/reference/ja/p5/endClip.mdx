@@ -4,20 +4,14 @@ module: Color
 submodule: Setting
 file: src/color/setting.js
 description: >
-  <p>Finishes defining a shape that will mask subsequent things drawn to the
-  canvas. Only opaque regions of the mask shape will allow content to be drawn.
-  Any shapes drawn between <a href="#/p5/beginClip">beginClip()</a> and this
-  will contribute to the mask shape.。</p>
+  <p>クリッピング領域を終了します。</p>
 
-  <p>/// todo ///</p>
+  <p><code>endClip()</code>は<code>beginClip()</code>と一緒に使用され、
 
+  クリッピング領域の終わりを示します。</p>
 
-  <hr/>
-
-  <p>Ends defining a mask that was started with
-
-  <a href="/reference/p5/beginClip/">beginClip()</a>.</p>
-line: 190
+  <p><code>endClip()</code>は、対応する<code>beginClip()</code>の後に呼び出す必要があります。</p>
+line: '2237'
 isConstructor: false
 itemtype: method
 example:
@@ -27,25 +21,55 @@ example:
     <code>
     function setup() {
       createCanvas(100, 100);
+    }
 
-      background(200);
+    function draw() {
+      background(220);
 
-      // Create a mask.
+      push();
       beginClip();
-      triangle(15, 37, 30, 13, 43, 37);
-      circle(45, 45, 7);
+      circle(50, 50, 40);
       endClip();
 
-      // Draw a backing shape.
-      square(5, 5, 45);
+      // この長方形は円の内側にのみ表示されます
+      fill('red');
+      rect(0, 0, 100, 100);
+      pop();
 
-      describe('A white triangle and circle on a gray background.');
+      describe('赤い円。円は長方形でクリップされています。');
+    }
+    </code>
+    </div>
+
+    <div>
+    <code>
+    function setup() {
+      createCanvas(100, 100);
+    }
+
+    function draw() {
+      background(220);
+
+      push();
+      beginClip();
+      square(25, 25, 50);
+      endClip();
+
+      // この円は正方形の内側にのみ表示されます
+      fill('blue');
+      circle(50, 50, 80);
+      pop();
+
+      describe('青い正方形。正方形は円でクリップされています。');
     }
     </code>
     </div>
 class: p5
-chainable: false
+overloads:
+  - line: '2237'
+    params: []
+    chainable: 1
+chainable: true
 ---
-
 
 # endClip

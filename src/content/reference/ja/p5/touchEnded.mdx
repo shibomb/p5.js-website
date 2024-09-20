@@ -4,16 +4,6 @@ module: Events
 submodule: Touch
 file: src/events/touch.js
 description: >
-  <p><a href="#/p5/touchEnded">touchEnded()</a> 関数はタッチが終了するたびに呼び出されます。</p>
-
-  <p> <a href="#/p5/touchEnded">touchEnded()</a> 関数が定義されていない場合、代わりに定義されている <a
-  href="#/p5/mouseReleased">mouseReleased()</a>
-  関数が呼び出されます。ブラウザーは、さまざまなタッチイベントに添付された異なるデフォルトの動作をもつことがあります。このイベントのデフォルトの動作を防ぐには、メソッドの最後に
-  "return false" を追加してください。</p>
-
-
-  <hr/>
-
   <p>A function that's called once each time a screen touch ends.</p>
 
   <p>Declaring the function <code>touchEnded()</code> sets a code block to run
@@ -193,7 +183,6 @@ class: p5
 params:
   - name: event
     description: |
-      <p>(オプション) オプションの TouchEvent コールバック引数。</p>
       <p>optional <code>TouchEvent</code> argument.</p>
     type: TouchEvent
     optional: true

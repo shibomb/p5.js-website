@@ -4,22 +4,6 @@ module: Math
 submodule: Trigonometry
 file: src/math/trigonometry.js
 description: >
-  <p><a href="#/p5/sin">sin()</a> の逆関数で、値の逆正弦を返します。</p>
-
-  <p>この関数は、-1から1の範囲の値を想定しており、angleMode が RADIANS の場合は-PI / 2 から PI / 2
-  の範囲の値が、DEGREES の場合は-90から90の範囲の値が返されます。</p>
-
-  <p>/// todo ///</p>
-
-  <p>The inverse of <a href="#/p5/sin">sin()</a>, returns the arc sine of a
-  value. This function expects input values in the range of -1 to 1. By default,
-  <code>asin()</code> returns values in the range -π ÷ 2 (about -1.57) to π ÷ 2
-  (about 1.57). If the <a href="#/p5/angleMode">angleMode()</a> is
-  <code>DEGREES</code> then values are returned in the range -90 to 90.</p>
-
-
-  <hr/>
-
   <p>Calculates the arc sine of a number.</p>
 
   <p><code>asin()</code> is the inverse of <a
@@ -87,13 +71,10 @@ class: p5
 params:
   - name: value
     description: |
-      <p>逆正弦を返す値</p>
       <p>value whose arc sine is to be returned.</p>
     type: Number
 return:
-  description: |-
-    与えられた値の逆正弦
-    arc sine of the given value.
+  description: arc sine of the given value.
   type: Number
 chainable: false
 ---

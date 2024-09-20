@@ -3,19 +3,7 @@ title: start
 module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
-description: >
-  <p>オーディオ入力処理を開始します。</p>
-
-  <p>これにより、getLevel() などの他 AudioIn メソッドを使用できるようになります。デフォルトでは、AudioIn は p5.sound
-  の出力に接続されていないため、connect() メソッドを使用しない限り、何も聞こえません。<br/></p>
-
-  <p>一部のブラウザーは、ユーザーのマイクへのアクセスを制限しています。たとえば、Chrome ブラウザーでは localhost と https
-  からのアクセスのみ許可されています。このため、mic アクセスが提供されない場合に呼び出される
-  errorCallback（関数）を含めた方がよい場合があります。</p>
-
-
-  <hr/>
-
+description: |
   <p>Start processing audio input. This enables the use of other
   AudioIn methods like getLevel(). Note that by default, AudioIn
   is not connected to p5.sound's output. So you won't hear
@@ -31,16 +19,12 @@ class: p5.AudioIn
 params:
   - name: successCallback
     description: |
-      <p>(オプション) 成功時に呼び出す関数の名前</p>
       <p>Name of a function to call on
                                         success.</p>
     type: Function
     optional: true
   - name: errorCallback
-    description: >
-      <p>(オプション) エラーが発生した場合に呼び出す関数の名前。たとえば、一部のブラウザーは getUserMedia
-      をサポートしていないため、この関数が呼び出される場合があります。</p>
-
+    description: |
       <p>Name of a function to call if
                                         there was an error. For example,
                                         some browsers do not support

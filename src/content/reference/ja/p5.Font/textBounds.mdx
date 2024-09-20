@@ -3,78 +3,26 @@ title: textBounds
 module: Typography
 submodule: Loading & Displaying
 file: src/typography/p5.Font.js
-description: >-
-  <p>このフォントを使用して、指定されたテキスト文字列に対して、タイトな境界ボックスを返します。</p>
+description: >
+  <p>指定されたテキスト文字列の境界ボックスを計算します。</p>
 
-  <p></p>
+  <p>境界ボックスは、テキストを含む最小の長方形です。
+  これは、テキストの配置や衝突検出に役立ちます。</p>
 
-  <p>/// todo ///</p>
+  <p>返されるオブジェクトには以下のプロパティがあります：</p>
 
-  <p>Returns the bounding box for a string of text written using this <a
-  href="#/p5.Font">p5.Font</a>.</p>
+  <ul>
 
-  <p>The first parameter, <code>str</code>, is a string of text. The second and
-  third parameters, <code>x</code> and <code>y</code>, are the text's position.
-  By default, they set the coordinates of the bounding box's bottom-left corner.
-  See <a href="#/p5/textAlign">textAlign()</a> for more ways to align text.</p>
+  <li><code>x</code>：境界ボックスの左上隅のx座標。</li>
 
-  <p>The fourth parameter, <code>fontSize</code>, is optional. It sets the font
-  size used to determine the bounding box. By default,
-  <code>font.textBounds()</code> will use the current <a
-  href="#/p5/textSize">textSize()</a>.</p>
+  <li><code>y</code>：境界ボックスの左上隅のy座標。</li>
 
+  <li><code>w</code>：境界ボックスの幅。</li>
 
-  <hr/>
+  <li><code>h</code>：境界ボックスの高さ。</li>
 
-  <p>Returns the bounding box for a string of text written using the font.</p>
-
-  <p>The bounding box is the smallest rectangle that can contain a string of
-
-  text. <code>font.textBounds()</code> returns an object with the bounding box's
-
-  location and size. For example, calling <code>font.textBounds('p5*js', 5,
-  20)</code>
-
-  returns an object in the format
-
-  <code>{ x: 5.7, y: 12.1 , w: 9.9, h: 28.6 }</code>. The <code>x</code> and
-  <code>y</code> properties are
-
-  always the coordinates of the bounding box's top-left corner.</p>
-
-  <p>The first parameter, <code>str</code>, is a string of text. The second and
-  third
-
-  parameters, <code>x</code> and <code>y</code>, are the text's position. By
-  default, they set the
-
-  coordinates of the bounding box's bottom-left corner. See
-
-  <a href="/reference/p5/textAlign/">textAlign()</a> for more ways to align
-  text.</p>
-
-  <p>The fourth parameter, <code>fontSize</code>, is optional. It sets the font
-  size used to
-
-  determine the bounding box. By default, <code>font.textBounds()</code> will
-  use the
-
-  current <a href="/reference/p5/textSize/">textSize()</a>.</p>
-
-
-  <pre>
-
-  todo: param str not found in ja-legacy:
-
-  {
-      "line": "String: テキストの行",
-      "x": "Number: テキストの x 座標",
-      "y": "Number: テキストの y 座標",
-      "fontSize": "Number: (Optional) font size. Defaults to the current  <a href=\"#/p5/textSize\">textSize()</a>. /// todo /// Number: (オプション) 使用するフォントサイズ (デフォルトは12)"
-  }
-
-  </pre>
-line: 62
+  </ul>
+line: 170
 isConstructor: false
 itemtype: method
 example:
@@ -82,87 +30,33 @@ example:
 
     <div>
     <code>
-    let font;
+    let myFont;
+    let bbox;
 
     function preload() {
-      font = loadFont('/assets/inconsolata.otf');
+      myFont = loadFont('/assets/inconsolata.otf');
     }
 
     function setup() {
       createCanvas(100, 100);
-
       background(200);
 
-      // Display the bounding box.
-      let bbox = font.textBounds('p5*js', 35, 53);
-      rect(bbox.x, bbox.y, bbox.w, bbox.h);
+      textFont(myFont);
+      textSize(20);
 
-      // Style the text.
-      textFont(font);
+      let message = 'こんにちは';
+      bbox = myFont.textBounds(message, 0, 0, 20);
 
-      // Display the text.
-      text('p5*js', 35, 53);
+      // テキストを描画します。
+      fill(0);
+      text(message, 10, 30);
 
-      describe('The text "p5*js" written in black inside a white rectangle.');
-    }
-    </code>
-    </div>
+      // 境界ボックスを描画します。
+      noFill();
+      stroke(255, 0, 0);
+      rect(10 + bbox.x, 30 + bbox.y, bbox.w, bbox.h);
 
-    <div>
-    <code>
-    let font;
-
-    function preload() {
-      font = loadFont('/assets/inconsolata.otf');
-    }
-
-    function setup() {
-      createCanvas(100, 100);
-
-      background(200);
-
-      // Style the text.
-      textFont(font);
-      textSize(15);
-      textAlign(CENTER, CENTER);
-
-      // Display the bounding box.
-      let bbox = font.textBounds('p5*js', 50, 50);
-      rect(bbox.x, bbox.y, bbox.w, bbox.h);
-
-      // Display the text.
-      text('p5*js', 50, 50);
-
-      describe('The text "p5*js" written in black inside a white rectangle.');
-    }
-    </code>
-    </div>
-
-    <div>
-    <code>
-    let font;
-
-    function preload() {
-      font = loadFont('/assets/inconsolata.otf');
-    }
-
-    function setup() {
-      createCanvas(100, 100);
-
-      background(200);
-
-      // Display the bounding box.
-      let bbox = font.textBounds('p5*js', 31, 53, 15);
-      rect(bbox.x, bbox.y, bbox.w, bbox.h);
-
-      // Style the text.
-      textFont(font);
-      textSize(15);
-
-      // Display the text.
-      text('p5*js', 31, 53);
-
-      describe('The text "p5*js" written in black inside a white rectangle.');
+      describe('灰色の背景に「こんにちは」と書かれています。テキストの周りに赤い長方形が描かれています。');
     }
     </code>
     </div>
@@ -170,38 +64,29 @@ class: p5.Font
 params:
   - name: str
     description: |
-      <p>string of text.</p>
+      <p>境界を計算するテキスト。</p>
     type: String
   - name: x
     description: |
-      <p>テキストの x 座標</p>
-      <p>x-coordinate of the text.</p>
+      <p>テキストのx位置。</p>
     type: Number
   - name: 'y'
     description: |
-      <p>テキストの y 座標</p>
-      <p>y-coordinate of the text.</p>
+      <p>テキストのy位置。</p>
     type: Number
   - name: fontSize
-    description: >
-      <p>(Optional) font size. Defaults to the current  <a
-      href="#/p5/textSize">textSize()</a>. /// todo /// Number: (オプション)
-      使用するフォントサイズ (デフォルトは12)</p>
-
-      <p>font size. Defaults to the current
-                                  <a href="#/p5/textSize">textSize()</a>.</p>
+    description: |
+      <p>テキストのフォントサイズ。</p>
     type: Number
+  - name: options
+    description: |
+      <p>追加のオプションを含むオブジェクト。</p>
+    type: Object
     optional: true
 return:
-  description: >-
-    object describing the bounding box with  properties x, y, w, and h. /// todo
-    /// オブジェクト: x、y、w、h プロパティをもつ矩形オブジェクト
-
-    object describing the bounding box with
-                                properties x, y, w, and h.
+  description: テキストの境界を表すオブジェクト。
   type: Object
 chainable: false
 ---
-
 
 # textBounds

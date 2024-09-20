@@ -4,19 +4,6 @@ module: Math
 submodule: Calculation
 file: src/math/calculation.js
 description: >
-  <p>パラメーターの値以上の最も近い int 値を計算します。</p>
-
-  <p>Math.ceil() にマッピングされます。たとえば、ceil(9.03)は値10を返します。</p>
-
-  <p>/// todo ///</p>
-
-  <p>Calculates the closest integer value that is greater than or equal to the
-  parameter's value. For example, calling <code>ceil(9.03)</code> returns the
-  value 10.</p>
-
-
-  <hr/>
-
   <p>Calculates the closest integer value that is greater than or equal to a
 
   number.</p>
@@ -63,13 +50,10 @@ class: p5
 params:
   - name: 'n'
     description: |
-      <p>切り上げる数値</p>
       <p>number to round up.</p>
     type: Number
 return:
-  description: |-
-    切り上げられた数値
-    rounded up number.
+  description: rounded up number.
   type: Integer
 chainable: false
 ---

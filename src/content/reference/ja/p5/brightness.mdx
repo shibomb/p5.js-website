@@ -4,30 +4,17 @@ module: Color
 submodule: Creating & Reading
 file: src/color/creating_reading.js
 description: >
-  <p><a href="#/p5.Color">p5.Color</a>オブジェクト、色成分の配列、または CSS カラー文字列から HSB
-  明度値を抽出します。</p>
+  <p>色の明るさの値を取得します。</p>
 
-  <p></p>
+  <p><code>brightness()</code>は<a href="/reference/p5/p5.Color">p5.Color</a>オブジェクト、色成分の配列、
 
+  またはCSSの色文字列からHSBの明るさの値を抽出します。</p>
 
-  <hr/>
+  <p>デフォルトでは、<code>brightness()</code>は色のHSBの明るさを0から100の範囲で返します。
 
-  <p>Gets the brightness value of a color.</p>
+  <a href="/reference/colorMode/">colorMode()</a>がHSBに設定されている場合、
 
-  <p><code>brightness()</code> extracts the HSB brightness value from a
-
-  <a href="/reference/p5/p5.Color/">p5.Color</a> object, an array of color
-  components, or
-
-  a CSS color string.</p>
-
-  <p>By default, <code>brightness()</code> returns a color's HSB brightness in
-  the range 0
-
-  to 100. If the <a href="/reference/colorMode/">colorMode()</a> is set to HSB,
-  it
-
-  returns the brightness value in the given range.</p>
+  指定された範囲内で明るさの値を返します。</p>
 line: 253
 isConstructor: false
 itemtype: method
@@ -41,25 +28,25 @@ example:
 
       background(200);
 
-      // Use HSB color.
+      // HSB色を使用します。
       colorMode(HSB);
 
-      // Create a p5.Color object.
+      // p5.Colorオブジェクトを作成します。
       let c = color(0, 50, 100);
 
-      // Draw the left rectangle.
+      // 左の長方形を描画します。
       noStroke();
       fill(c);
       rect(15, 15, 35, 70);
 
-      // Set 'brightValue' to 100.
+      // 'brightValue'を100に設定します。
       let brightValue = brightness(c);
 
-      // Draw the right rectangle.
+      // 右の長方形を描画します。
       fill(brightValue);
       rect(50, 15, 35, 70);
 
-      describe('Two rectangles. The left one is salmon pink and the right one is white.');
+      describe('2つの長方形。左側はサーモンピンクで、右側は白です。');
     }
     </code>
     </div>
@@ -72,25 +59,25 @@ example:
 
       background(200);
 
-      // Use HSB color.
+      // HSB色を使用します。
       colorMode(HSB);
 
-      // Create a color array.
+      // 色の配列を作成します。
       let c = [0, 50, 100];
 
-      // Draw the left rectangle.
+      // 左の長方形を描画します。
       noStroke();
       fill(c);
       rect(15, 15, 35, 70);
 
-      // Set 'brightValue' to 100.
+      // 'brightValue'を100に設定します。
       let brightValue = brightness(c);
 
-      // Draw the right rectangle.
+      // 右の長方形を描画します。
       fill(brightValue);
       rect(50, 15, 35, 70);
 
-      describe('Two rectangles. The left one is salmon pink and the right one is white.');
+      describe('2つの長方形。左側はサーモンピンクで、右側は白です。');
     }
     </code>
     </div>
@@ -103,25 +90,25 @@ example:
 
       background(200);
 
-      // Use HSB color.
+      // HSB色を使用します。
       colorMode(HSB);
 
-      // Create a CSS color string.
+      // CSS色文字列を作成します。
       let c = 'rgb(255, 128, 128)';
 
-      // Draw the left rectangle.
+      // 左の長方形を描画します。
       noStroke();
       fill(c);
       rect(15, 15, 35, 70);
 
-      // Set 'brightValue' to 100.
+      // 'brightValue'を100に設定します。
       let brightValue = brightness(c);
 
-      // Draw the right rectangle.
+      // 右の長方形を描画します。
       fill(brightValue);
       rect(50, 15, 35, 70);
 
-      describe('Two rectangles. The left one is salmon pink and the right one is white.');
+      describe('2つの長方形。左側はサーモンピンクで、右側は白です。');
     }
     </code>
     </div>
@@ -134,25 +121,25 @@ example:
 
       background(200);
 
-      // Use HSB color with values in the range 0-255.
+      // 0-255の範囲の値でHSB色を使用します。
       colorMode(HSB, 255);
 
-      // Create a p5.Color object.
+      // p5.Colorオブジェクトを作成します。
       let c = color(0, 127, 255);
 
-      // Draw the left rectangle.
+      // 左の長方形を描画します。
       noStroke();
       fill(c);
       rect(15, 15, 35, 70);
 
-      // Set 'brightValue' to 255.
+      // 'brightValue'を255に設定します。
       let brightValue = brightness(c);
 
-      // Draw the right rectangle.
+      // 右の長方形を描画します。
       fill(brightValue);
       rect(50, 15, 35, 70);
 
-      describe('Two rectangles. The left one is salmon pink and the right one is white.');
+      describe('2つの長方形。左側はサーモンピンクで、右側は白です。');
     }
     </code>
     </div>
@@ -160,14 +147,11 @@ class: p5
 params:
   - name: color
     description: |
-      <p><a href="#/p5.Color">p5.Color</a> オブジェクト、色成分の配列、または CSS カラー文字列</p>
-      <p><a href="#/p5.Color">p5.Color</a> object, array of
-                                              color components, or CSS color string.</p>
+      <p><a href="#/p5.Color">p5.Color</a>オブジェクト、色成分の配列、
+                                              またはCSS色文字列。</p>
     type: 'p5.Color|Number[]|String'
 return:
-  description: |-
-    明度値
-    the brightness value.
+  description: 明るさの値。
   type: Number
 chainable: false
 ---

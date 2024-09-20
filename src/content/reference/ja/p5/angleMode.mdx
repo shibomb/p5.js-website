@@ -3,55 +3,24 @@ title: angleMode
 module: Math
 submodule: Trigonometry
 file: src/math/trigonometry.js
-description: >-
-  <p>p5 の現在のモードを指定されたモードに設定します。</p>
+description: >
+  <p>角度を測定するために使用される単位系を変更します。</p>
 
-  <p>デフォルトのモードは RADIANS です。</p>
+  <p>度とラジアンは両方とも角度を測定する単位です。1回転には360°あります。
 
-  <p><a href="#/p5/angleMode">angleMode()</a> を引数なしで呼び出すと、現在の angleMode
-  が返されます。</p>
+  1回転は2 × π（約6.28）ラジアンです。</p>
 
-  <p>/// todo ///</p>
+  <p><a href="/reference/p5/rotate/">rotate()</a>や
 
-  <p>Changes the way trigonometric functions interpret angle values. By default,
-  the mode is <code>RADIANS</code>.</p>
+  <a href="/reference/p5/sin/">sin()</a>などの関数は、デフォルトでラジアンで測定された角度を
 
-  <p>Calling <code>angleMode()</code> with no arguments returns current angle
-  mode.</p>
+  期待します。<code>angleMode(DEGREES)</code>を呼び出すと度に切り替わります。
 
+  <code>angleMode(RADIANS)</code>を呼び出すとラジアンに戻ります。</p>
 
-  <hr/>
+  <p>引数なしで<code>angleMode()</code>を呼び出すと、現在の角度モードを返します。
 
-  <p>Changes the unit system used to measure angles.</p>
-
-  <p>Degrees and radians are both units for measuring angles. There are 360˚ in
-
-  one full rotation. A full rotation is 2 × π (about 6.28) radians.</p>
-
-  <p>Functions such as <a href="/reference/p5/rotate/">rotate()</a> and
-
-  <a href="/reference/p5/sin/">sin()</a> expect angles measured radians by
-  default.
-
-  Calling <code>angleMode(DEGREES)</code> switches to degrees. Calling
-
-  <code>angleMode(RADIANS)</code> switches back to radians.</p>
-
-  <p>Calling <code>angleMode()</code> with no arguments returns current angle
-  mode, which
-
-  is either <code>RADIANS</code> or <code>DEGREES</code>.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "mode": "Constant: RADIANS または DEGREES のいずれか"
-  }
-
-  </pre>
+  これは<code>RADIANS</code>または<code>DEGREES</code>のいずれかです。</p>
 line: 551
 isConstructor: false
 itemtype: method
@@ -65,13 +34,13 @@ example:
 
       background(200);
 
-      // Rotate 1/8 turn.
+      // 1/8回転します。
       rotate(QUARTER_PI);
 
-      // Draw a line.
+      // 線を描画します。
       line(0, 0, 80, 0);
 
-      describe('A diagonal line radiating from the top-left corner of a square.');
+      describe('左上隅から始まる正方形の対角線');
     }
     </code>
     </div>
@@ -83,16 +52,16 @@ example:
 
       background(200);
 
-      // Use degrees.
+      // 度を使用します。
       angleMode(DEGREES);
 
-      // Rotate 1/8 turn.
+      // 1/8回転します。
       rotate(45);
 
-      // Draw a line.
+      // 線を描画します。
       line(0, 0, 80, 0);
 
-      describe('A diagonal line radiating from the top-left corner of a square.');
+      describe('左上隅から始まる正方形の対角線');
     }
     </code>
     </div>
@@ -104,23 +73,23 @@ example:
 
       background(50);
 
-      // Calculate the angle to rotate.
+      // 回転角度を計算します。
       let angle = TWO_PI / 7;
 
-      // Move the origin to the center.
+      // 原点を中央に移動します。
       translate(50, 50);
 
-      // Style the flower.
+      // 花のスタイルを設定します。
       noStroke();
       fill(255, 50);
 
-      // Draw the flower.
+      // 花を描画します。
       for (let i = 0; i < 7; i += 1) {
         ellipse(0, 0, 80, 20);
         rotate(angle);
       }
 
-      describe('A translucent white flower on a dark background.');
+      describe('暗い背景に対して透明な白い花');
     }
     </code>
     </div>
@@ -132,26 +101,26 @@ example:
 
       background(50);
 
-      // Use degrees.
+      // 度を使用します。
       angleMode(DEGREES);
 
-      // Calculate the angle to rotate.
+      // 回転角度を計算します。
       let angle = 360 / 7;
 
-      // Move the origin to the center.
+      // 原点を中央に移動します。
       translate(50, 50);
 
-      // Style the flower.
+      // 花のスタイルを設定します。
       noStroke();
       fill(255, 50);
 
-      // Draw the flower.
+      // 花を描画します。
       for (let i = 0; i < 7; i += 1) {
         ellipse(0, 0, 80, 20);
         rotate(angle);
       }
 
-      describe('A translucent white flower on a dark background.');
+      describe('暗い背景に対して透明な白い花');
     }
     </code>
     </div>
@@ -161,17 +130,17 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('A white ball on a string oscillates left and right.');
+      describe('紐につながれた白いボールが左右に振動しています');
     }
 
     function draw() {
       background(200);
 
-      // Calculate the coordinates.
+      // 座標を計算します。
       let x = 30 * cos(frameCount * 0.05) + 50;
       let y = 50;
 
-      // Draw the oscillator.
+      // 振動子を描画します。
       line(50, y, x, y);
       circle(x, y, 20);
     }
@@ -183,20 +152,20 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Use degrees.
+      // 度を使用します。
       angleMode(DEGREES);
 
-      describe('A white ball on a string oscillates left and right.');
+      describe('紐につながれた白いボールが左右に振動しています');
     }
 
     function draw() {
       background(200);
 
-      // Calculate the coordinates.
+      // 座標を計算します。
       let x = 30 * cos(frameCount * 2.86) + 50;
       let y = 50;
 
-      // Draw the oscillator.
+      // 振動子を描画します。
       line(50, y, x, y);
       circle(x, y, 20);
     }
@@ -210,18 +179,18 @@ example:
 
       background(200);
 
-      // Draw the upper line.
+      // 上の線を描画します。
       rotate(PI / 6);
       line(0, 0, 80, 0);
 
-      // Use degrees.
+      // 度を使用します。
       angleMode(DEGREES);
 
-      // Draw the lower line.
+      // 下の線を描画します。
       rotate(30);
       line(0, 0, 80, 0);
 
-      describe('Two diagonal lines radiating from the top-left corner of a square. The lines are oriented 30 degrees from the edges of the square and 30 degrees apart from each other.');
+      describe('左上隅から始まる2本の対角線。線は正方形の辺から30度、および互いに30度離れています');
     }
     </code>
     </div>
@@ -231,12 +200,12 @@ overloads:
     params:
       - name: mode
         description: |
-          <p>either RADIANS or DEGREES.</p>
+          <p>RADIANSまたはDEGREESのいずれか。</p>
         type: Constant
   - line: 737
     params: []
     return:
-      description: mode either RADIANS or DEGREES
+      description: RADIANSまたはDEGREESのモード
       type: Constant
 chainable: false
 ---

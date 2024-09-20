@@ -3,17 +3,7 @@ title: httpGet
 module: IO
 submodule: Input
 file: src/io/files.js
-description: >-
-  <p>HTTP GET リクエストを実行するメソッドです。</p>
-
-  <p>データ型が指定されていない場合、p5 は URL にもとづいて推測し、テキストをデフォルトとします。これは、<code>httpDo(path,
-  'GET')</code> を呼び出すことと同等です。'binary'データ型は Blob
-  オブジェクトを返し、'arrayBuffer'データ型は、タイプ付き配列（Uint8Array など）を初期化するために使用できる ArrayBuffer
-  を返します。</p>
-
-
-  <hr/>
-
+description: >
   <p>Method for executing an HTTP GET request. If data type is not specified,
 
   p5 will try to guess based on the URL, defaulting to text. This is equivalent
@@ -24,21 +14,6 @@ description: >-
   a Blob object, and the 'arrayBuffer' datatype will return an ArrayBuffer
 
   which can be used to initialize typed arrays (such as Uint8Array).</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "path": "String: ロードするファイル名または URL",
-      "datatype": "String: (オプション) \"json\", \"jsonp\", \"binary\", \"arrayBuffer\", \"xml\", \"text\"",
-      "data": "Object|Boolean: (オプション) リクエストとともに送信されるパラメーターデータ",
-      "callback": "Function: (オプション) <a href=\"#/p5/httpGet\">httpGet()</a> が完了した後に実行される関数、データは最初の引数として渡されます。",
-      "errorCallback": "Function: (オプション) エラーが発生した場合に実行される関数、レスポンスは最初の引数として渡されます。"
-  }
-
-  </pre>
 line: 1043
 isConstructor: false
 itemtype: method
@@ -79,7 +54,6 @@ example:
 class: p5
 return:
   description: |-
-    操作が正常に完了した場合はデータを含む Promise、エラーが発生した場合はエラーを含む Promise を返します。
     A promise that resolves with the data when the operation
                       completes successfully or rejects with the error after
                       one occurs.

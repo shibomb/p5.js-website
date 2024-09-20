@@ -4,68 +4,45 @@ module: 3D
 submodule: Material
 file: src/webgl/p5.Shader.js
 description: >
-  <p>Shaders belong to the main canvas or a p5.Graphics. Once they are compiled,
-  they can only be used in the context they were compiled on.。</p>
+  <p>シェーダーをある描画コンテキストから別のコンテキストにコピーします。</p>
 
-  <p>Use this method to make a new copy of a shader that gets compiled on a
-  different context.</p>
+  <p>各 <code>p5.Shader</code> オブジェクトは、実行前に <a href="/reference/p5/shader/">shader()</a> を呼び出してコンパイルする必要があります。コンパイルは
 
-  <p>/// todo ///</p>
+  通常メインキャンバスか <a href="/reference/p5/p5.Graphics">p5.Graphics</a> のインスタンスである
 
+  描画コンテキストで行われます。シェーダーはコンパイルされたコンテキストでのみ
 
-  <hr/>
+  使用できます。<code>copyToContext()</code> メソッドは
 
-  <p>Copies the shader from one drawing context to another.</p>
+  シェーダーを再度コンパイルし、別の描画コンテキストにコピーして
 
-  <p>Each <code>p5.Shader</code> object must be compiled by calling
+  再利用できるようにします。</p>
 
-  <a href="/reference/p5/shader/">shader()</a> before it can run. Compilation
-  happens
+  <p>パラメータ <code>context</code> は、シェーダーが使用される
 
-  in a drawing context which is usually the main canvas or an instance of
+  描画コンテキストです。シェーダーは <a href="/reference/p5/p5.Graphics">p5.Graphics</a> のインスタンスに
 
-  <a href="/reference/p5/p5.Graphics/">p5.Graphics</a>. A shader can only be used
-  in the
+  コピーできます（<code>myShader.copyToContext(pg)</code> のように）。また、シェーダーを
 
-  context where it was compiled. The <code>copyToContext()</code> method
-  compiles the
+  <a href="/reference/p5/p5.Graphics">p5.Graphics</a> オブジェクトからメインキャンバスに
 
-  shader again and copies it to another drawing context where it can be
+  <code>window</code> 変数を使ってコピーすることもできます（<code>myShader.copyToContext(window)</code> のように）。</p>
 
-  reused.</p>
+  <p>注意: <a href="/reference/p5/createShader/">createShader()</a>、
 
-  <p>The parameter, <code>context</code>, is the drawing context where the
-  shader will be
+  <a href="/reference/p5/createFilterShader/">createFilterShader()</a>、または
 
-  used. The shader can be copied to an instance of
+  <a href="/reference/p5/loadShader/">loadShader()</a> で作成された
 
-  <a href="/reference/p5/p5.Graphics/">p5.Graphics</a>, as in
+  <a href="/reference/p5/p5.Shader">p5.Shader</a> オブジェクトは、
 
-  <code>myShader.copyToContext(pg)</code>. The shader can also be copied from a
+  <a href="/reference/p5/createFramebuffer/">createFramebuffer()</a> で作成された
 
-  <a href="/reference/p5/p5.Graphics/">p5.Graphics</a> object to the main canvas
-  using
+  <a href="/reference/p5/p5.Framebuffer">p5.Framebuffer</a> オブジェクトと
 
-  the <code>window</code> variable, as in
-  <code>myShader.copyToContext(window)</code>.</p>
+  直接使用できます。両オブジェクトは
 
-  <p>Note: A <a href="/reference/p5/p5.Shader/">p5.Shader</a> object created with
-
-  <a href="/reference/p5/createShader/">createShader()</a>,
-
-  <a href="/reference/p5/createFilterShader/">createFilterShader()</a>, or
-
-  <a href="/reference/p5/loadShader/">loadShader()</a>
-
-  can be used directly with a <a
-  href="/reference/p5/p5.Framebuffer/">p5.Framebuffer</a>
-
-  object created with
-
-  <a href="/reference/p5/createFramebuffer/">createFramebuffer()</a>. Both
-  objects
-
-  have the same context as the main canvas.</p>
+  メインキャンバスと同じコンテキストを持ちます。</p>
 line: 211
 isConstructor: false
 itemtype: method
@@ -74,10 +51,10 @@ example:
 
     <div>
     <code>
-    // Note: A "uniform" is a global variable within a shader program.
+    // 注意: "uniform"はシェーダープログラム内のグローバル変数です。
 
-    // Create a string with the vertex shader program.
-    // The vertex shader is called for each vertex.
+    // 頂点シェーダープログラムを含む文字列を作成します。
+    // 頂点シェーダーは各頂点に対して呼び出されます。
     let vertSrc = `
     precision highp float;
     uniform mat4 uModelViewMatrix;
@@ -94,8 +71,8 @@ example:
     }
     `;
 
-    // Create a string with the fragment shader program.
-    // The fragment shader is called for each pixel.
+    // フラグメントシェーダープログラムを含む文字列を作成します。
+    // フラグメントシェーダーは各ピクセルに対して呼び出されます。
     let fragSrc = `
     precision mediump float;
     varying vec2 vTexCoord;
@@ -114,34 +91,34 @@ example:
 
       background(200);
 
-      // Create a p5.Shader object.
+      // p5.Shaderオブジェクトを作成します。
       let original = createShader(vertSrc, fragSrc);
 
-      // Compile the p5.Shader object.
+      // p5.Shaderオブジェクトをコンパイルします。
       shader(original);
 
-      // Create a p5.Graphics object.
+      // p5.Graphicsオブジェクトを作成します。
       pg = createGraphics(50, 50, WEBGL);
 
-      // Copy the original shader to the p5.Graphics object.
+      // 元のシェーダーをp5.Graphicsオブジェクトにコピーします。
       let copied = original.copyToContext(pg);
 
-      // Apply the copied shader to the p5.Graphics object.
+      // コピーされたシェーダーをp5.Graphicsオブジェクトに適用します。
       pg.shader(copied);
 
-      // Style the display surface.
+      // 表示面のスタイルを設定します。
       pg.noStroke();
 
-      // Add a display surface for the shader.
+      // シェーダー用の表示面を追加します。
       pg.plane(50, 50);
 
-      describe('A square with purple-blue gradient on its surface drawn against a gray background.');
+      describe('灰色の背景に対して描かれた、表面に紫青のグラデーションがある正方形。');
     }
 
     function draw() {
       background(200);
 
-      // Draw the p5.Graphics object to the main canvas.
+      // p5.Graphicsオブジェクトをメインキャンバスに描画します。
       image(pg, -25, -25);
     }
     </code>
@@ -149,10 +126,10 @@ example:
 
     <div class='notest'>
     <code>
-    // Note: A "uniform" is a global variable within a shader program.
+    // 注意: "uniform"はシェーダープログラム内のグローバル変数です。
 
-    // Create a string with the vertex shader program.
-    // The vertex shader is called for each vertex.
+    // 頂点シェーダープログラムを含む文字列を作成します。
+    // 頂点シェーダーは各頂点に対して呼び出されます。
     let vertSrc = `
     precision highp float;
     uniform mat4 uModelViewMatrix;
@@ -169,8 +146,8 @@ example:
     }
     `;
 
-    // Create a string with the fragment shader program.
-    // The fragment shader is called for each pixel.
+    // フラグメントシェーダープログラムを含む文字列を作成します。
+    // フラグメントシェーダーは各ピクセルに対して呼び出されます。
     let fragSrc = `
     precision mediump float;
 
@@ -188,33 +165,33 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Graphics object.
+      // p5.Graphicsオブジェクトを作成します。
       let pg = createGraphics(25, 25, WEBGL);
 
-      // Create a p5.Shader object.
+      // p5.Shaderオブジェクトを作成します。
       let original = pg.createShader(vertSrc, fragSrc);
 
-      // Compile the p5.Shader object.
+      // p5.Shaderオブジェクトをコンパイルします。
       pg.shader(original);
 
-      // Copy the original shader to the main canvas.
+      // 元のシェーダーをメインキャンバスにコピーします。
       copied = original.copyToContext(window);
 
-      // Apply the copied shader to the main canvas.
+      // コピーされたシェーダーをメインキャンバスに適用します。
       shader(copied);
 
-      describe('A rotating cube with a purple-blue gradient on its surface drawn against a gray background.');
+      describe('灰色の背景に対して描かれた、表面に紫青のグラデーションがある回転する立方体。');
     }
 
     function draw() {
       background(200);
 
-      // Rotate around the x-, y-, and z-axes.
+      // x軸、y軸、z軸周りに回転させます。
       rotateX(frameCount * 0.01);
       rotateY(frameCount * 0.01);
       rotateZ(frameCount * 0.01);
 
-      // Draw the box.
+      // 立方体を描画します。
       box(50);
     }
     </code>
@@ -222,19 +199,15 @@ example:
 class: p5.Shader
 params:
   - name: context
-    description: >
-      <p>The graphic or instance to copy this shader to. Pass
-      <code>window</code> if you need to copy to the main canvas.</p>
-
-      <p>WebGL context for the copied shader.</p>
+    description: |
+      <p>コピーされたシェーダーのWebGLコンテキスト。</p>
     type: p5|p5.Graphics
 return:
-  description: |-
-    A new shader on the target context.
-    new shader compiled for the target context.
+  description: ターゲットコンテキスト用にコンパイルされた新しいシェーダー。
   type: p5.Shader
 chainable: false
 ---
 
 
 # copyToContext
+

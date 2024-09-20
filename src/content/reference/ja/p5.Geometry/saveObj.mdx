@@ -4,19 +4,13 @@ module: Shape
 submodule: 3D Primitives
 file: src/webgl/p5.Geometry.js
 description: >
-  <p>The <code>saveObj()</code> function exports <code>p5.Geometry</code>
-  objects as
+  <p><code>saveObj()</code>関数は<code>p5.Geometry</code>オブジェクトを
+  Wavefront .objファイル形式で3Dモデルとしてエクスポートします。
+  これにより、p5.jsで作成した3Dシェイプを他のソフトウェアで
+  レンダリング、アニメーション、3Dプリントなどに使用できます。</p>
 
-  3D models in the Wavefront .obj file format.
-
-  This way, you can use the 3D shapes you create in p5.js in other software
-
-  for rendering, animation, 3D printing, or more.</p>
-
-  <p>The exported .obj file will include the faces and vertices of the
-  <code>p5.Geometry</code>,
-
-  as well as its texture coordinates and normals, if it has them.</p>
+  <p>エクスポートされた.objファイルには、<code>p5.Geometry</code>の面と頂点、
+  およびテクスチャ座標と法線（存在する場合）が含まれます。</p>
 line: 928
 isConstructor: false
 itemtype: method
@@ -45,7 +39,7 @@ example:
       saveBtn = createButton('Save .obj');
       saveBtn.mousePressed(() => myModel.saveObj());
 
-      describe('A few spheres rotating in space');
+      describe('空間で回転する数個の球体');
     }
 
     function draw() {
@@ -62,8 +56,8 @@ class: p5.Geometry
 params:
   - name: fileName
     description: |
-      <p>The name of the file to save the model as.
-                                             If not specified, the default file name will be 'model.obj'.</p>
+      <p>モデルを保存するファイル名。
+                                             指定されない場合、デフォルトのファイル名は'model.obj'になります。</p>
     type: String
     optional: true
     optdefault: '''model.obj'''
@@ -72,3 +66,4 @@ chainable: false
 
 
 # saveObj
+

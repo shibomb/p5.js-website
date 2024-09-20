@@ -3,74 +3,32 @@ title: copy
 module: Image
 submodule: Image
 file: src/image/p5.Image.js
-description: >-
-  <p>画像の一部を別の画像にコピーします。</p>
+description: >
+  <p>ソース画像からこの画像にピクセルをコピーします。</p>
 
-  <p>srcImage
-  が指定されていない場合は、これがソースとして使用されます。ソースと宛先の領域が同じサイズでない場合、ソースピクセルを自動的に指定されたターゲット領域に合わせてリサイズします。</p>
+  <p>最初のパラメータ <code>srcImage</code> は、コピーする
 
-  <p>/// todo ///</p>
+  <a href="/reference/p5/p5.Image">p5.Image</a> オブジェクトのオプションです。ソース
 
-  <p>Copies pixels from a source <a href="#/p5.Image">p5.Image</a>  to this one.
-  Calling <code>img.copy()</code> will scale pixels from the source  region if
-  it isn't the same size as the destination region.</p>
+  画像が渡されない場合、<code>img.copy()</code> はこの画像の一部を別の
 
+  領域にコピーすることができます。</p>
 
-  <hr/>
+  <p>次の4つのパラメータ、<code>sx</code>、<code>sy</code>、<code>sw</code>、<code>sh</code> は
 
-  <p>Copies pixels from a source image to this image.</p>
+  ソース画像からコピーする領域を決定します。<code>(sx, sy)</code> は領域の
 
-  <p>The first parameter, <code>srcImage</code>, is an optional
+  左上隅です。<code>sw</code> と <code>sh</code> は領域の幅と高さです。</p>
 
-  <a href="/reference/p5/p5.Image/">p5.Image</a> object to copy. If a source
-  image isn't
+  <p>次の4つのパラメータ、<code>dx</code>、<code>dy</code>、<code>dw</code>、<code>dh</code> は
 
-  passed, then <code>img.copy()</code> can copy a region of this image to
-  another
+  この画像にコピーする領域を決定します。<code>(dx, dy)</code> は領域の
 
-  region.</p>
+  左上隅です。<code>dw</code> と <code>dh</code> は領域の幅と高さです。</p>
 
-  <p>The next four parameters, <code>sx</code>, <code>sy</code>,
-  <code>sw</code>, and <code>sh</code> determine the region
+  <p><code>img.copy()</code> を呼び出すと、ソース領域がコピー先の領域と
 
-  to copy from the source image. <code>(sx, sy)</code> is the top-left corner of
-  the
-
-  region. <code>sw</code> and <code>sh</code> are the region's width and
-  height.</p>
-
-  <p>The next four parameters, <code>dx</code>, <code>dy</code>,
-  <code>dw</code>, and <code>dh</code> determine the region
-
-  of this image to copy into. <code>(dx, dy)</code> is the top-left corner of
-  the
-
-  region. <code>dw</code> and <code>dh</code> are the region's width and
-  height.</p>
-
-  <p>Calling <code>img.copy()</code> will scale pixels from the source region if
-  it isn't
-
-  the same size as the destination region.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "srcImage": "p5.Image|p5.Element: ソース画像",
-      "sx": "Integer: ソースの左上隅の X 座標",
-      "sy": "Integer: ソースの左上隅の Y 座標",
-      "sw": "Integer: ソース画像の幅",
-      "sh": "Integer: ソース画像の高さ",
-      "dx": "Integer: 宛先の左上隅の X 座標",
-      "dy": "Integer: 宛先の左上隅の Y 座標",
-      "dw": "Integer: 宛先画像の幅",
-      "dh": "Integer: 宛先画像の高さ"
-  }
-
-  </pre>
+  同じサイズでない場合、ピクセルがスケーリングされます。</p>
 line: 1006
 isConstructor: false
 itemtype: method
@@ -81,7 +39,7 @@ example:
     <code>
     let img;
 
-    // Load the image.
+    // 画像を読み込みます。
     function preload() {
       img = loadImage('/assets/rockies.jpg');
     }
@@ -89,18 +47,18 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Copy one region of the image to another.
+      // 画像の一部の領域を別の領域にコピーします。
       img.copy(7, 22, 10, 10, 35, 25, 50, 50);
 
-      // Display the image.
+      // 画像を表示します。
       image(img, 0, 0);
 
-      // Outline the copied region.
+      // コピーした領域を輪郭線で囲みます。
       stroke(255);
       noFill();
       square(7, 22, 10);
 
-      describe('An image of a mountain landscape. A square region is outlined in white. A larger square contains a pixelated view of the outlined region.');
+      describe('山の風景の画像。白い輪郭線で囲まれた正方形の領域がある。より大きな正方形には、輪郭線で囲まれた領域のピクセル化されたビューが含まれている。');
     }
     </code>
     </div>
@@ -110,7 +68,7 @@ example:
     let mountains;
     let bricks;
 
-    // Load the images.
+    // 画像を読み込みます。
     function preload() {
       mountains = loadImage('/assets/rockies.jpg');
       bricks = loadImage('/assets/bricks.jpg');
@@ -119,17 +77,17 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Calculate the center of the bricks image.
+      // レンガの画像の中心を計算します。
       let x = bricks.width / 2;
       let y = bricks.height / 2;
 
-      // Copy the bricks to the mountains image.
+      // レンガを山の画像にコピーします。
       mountains.copy(bricks, 0, 0, x, y, 0, 0, x, y);
 
-      // Display the mountains image.
+      // 山の画像を表示します。
       image(mountains, 0, 0);
 
-      describe('An image of a brick wall drawn at the top-left of an image of a mountain landscape.');
+      describe('山の風景の画像の左上に描かれたレンガの壁の画像。');
     }
     </code>
     </div>
@@ -139,39 +97,39 @@ overloads:
     params:
       - name: srcImage
         description: |
-          <p>source image.</p>
+          <p>ソース画像。</p>
         type: p5.Image|p5.Element
       - name: sx
         description: |
-          <p>x-coordinate of the source's upper-left corner.</p>
+          <p>ソースの左上隅のx座標。</p>
         type: Integer
       - name: sy
         description: |
-          <p>y-coordinate of the source's upper-left corner.</p>
+          <p>ソースの左上隅のy座標。</p>
         type: Integer
       - name: sw
         description: |
-          <p>source image width.</p>
+          <p>ソース画像の幅。</p>
         type: Integer
       - name: sh
         description: |
-          <p>source image height.</p>
+          <p>ソース画像の高さ。</p>
         type: Integer
       - name: dx
         description: |
-          <p>x-coordinate of the destination's upper-left corner.</p>
+          <p>コピー先の左上隅のx座標。</p>
         type: Integer
       - name: dy
         description: |
-          <p>y-coordinate of the destination's upper-left corner.</p>
+          <p>コピー先の左上隅のy座標。</p>
         type: Integer
       - name: dw
         description: |
-          <p>destination image width.</p>
+          <p>コピー先画像の幅。</p>
         type: Integer
       - name: dh
         description: |
-          <p>destination image height.</p>
+          <p>コピー先画像の高さ。</p>
         type: Integer
   - line: 1094
     params:
@@ -204,3 +162,4 @@ chainable: false
 
 
 # copy
+

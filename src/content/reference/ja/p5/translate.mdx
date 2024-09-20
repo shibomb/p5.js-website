@@ -3,102 +3,40 @@ title: translate
 module: Transform
 submodule: Transform
 file: src/core/transform.js
-description: >-
-  <p>表示ウィンドウ内のオブジェクトを移動する量を指定します。</p>
+description: >
+  <p>座標系を平行移動します。</p>
 
-  <p>x パラメーターは左/右の移動を指定し、y パラメーターは上/下の移動を指定します。</p>
+  <p>デフォルトでは、原点<code>(0, 0)</code>は2Dモードではスケッチの左上隅に、
+  WebGLモードでは中央にあります。<code>translate()</code>関数は原点を
+  別の位置に移動させます。<code>translate()</code>が呼び出された後に
+  描画されるものはすべて移動したように見えます。原点の位置を設定する
+  パラメータを使って<code>translate()</code>を呼び出す方法は2つあります。</p>
 
-  <p>変換は累積的であり、それ以降に発生するすべてのことに適用され、関数への後続の呼び出しは効果を蓄積します。たとえば、translate(50,
-  0)を呼び出した後に translate(20, 0)を呼び出すと、translate(70, 0)と同じになります。 <a
-  href="#/p5/translate">translate()</a> が <a href="#/p5/draw">draw()</a>
-  内で呼び出された場合、ループが再度始まるときに変換がリセットされます。この関数は、<a href="#/p5/push">push()</a> および <a
-  href="#/p5/pop">pop()</a> を使用してさらに制御できます。</p>
+  <p><code>translate()</code>を呼び出す最初の方法は、数値を使用して
+  平行移動量を設定します。最初の2つのパラメータ<code>x</code>と<code>y</code>は、
+  正のx軸とy軸に沿って平行移動する量を設定します。例えば、
+  <code>translate(20, 30)</code>を呼び出すと、原点がx軸に沿って20ピクセル、
+  y軸に沿って30ピクセル平行移動します。3番目のパラメータ<code>z</code>はオプションです。
+  これは正のz軸に沿って平行移動する量を設定します。例えば、
+  <code>translate(20, 30, 40)</code>を呼び出すと、原点がx軸に沿って20ピクセル、
+  y軸に沿って30ピクセル、z軸に沿って40ピクセル平行移動します。</p>
 
+  <p><code>translate()</code>を呼び出す2番目の方法は、
+  <a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトを使用して
+  平行移動量を設定します。例えば、<code>translate(myVector)</code>を呼び出すと、
+  <code>myVector</code>のx、y、z成分を使用して、x軸、y軸、z軸に沿って
+  平行移動する量を設定します。これは<code>translate(myVector.x, myVector.y, myVector.z)</code>
+  を呼び出すのと同じです。</p>
 
-  <hr/>
+  <p>デフォルトでは、変換は累積されます。例えば、<code>translate(10, 0)</code>を
+  2回呼び出すことは、<code>translate(20, 0)</code>を1回呼び出すのと
+  同じ効果があります。<a href="/reference/p5/push/">push()</a>関数と
+  <a href="/reference/p5/pop/">pop()</a>関数を使用して、変換を
+  個別の描画グループ内に分離することができます。</p>
 
-  <p>Translates the coordinate system.</p>
-
-  <p>By default, the origin <code>(0, 0)</code> is at the sketch's top-left
-  corner in 2D
-
-  mode and center in WebGL mode. The <code>translate()</code> function shifts
-  the origin
-
-  to a different position. Everything drawn after <code>translate()</code> is
-  called
-
-  will appear to be shifted. There are two ways to call <code>translate()</code>
-  with
-
-  parameters that set the origin's position.</p>
-
-  <p>The first way to call <code>translate()</code> uses numbers to set the
-  amount of
-
-  translation. The first two parameters, <code>x</code> and <code>y</code>, set
-  the amount to
-
-  translate along the positive x- and y-axes. For example, calling
-
-  <code>translate(20, 30)</code> translates the origin 20 pixels along the
-  x-axis and 30
-
-  pixels along the y-axis. The third parameter, <code>z</code>, is optional. It
-  sets the
-
-  amount to translate along the positive z-axis. For example, calling
-
-  <code>translate(20, 30, 40)</code> translates the origin 20 pixels along the
-  x-axis,
-
-  30 pixels along the y-axis, and 40 pixels along the z-axis.</p>
-
-  <p>The second way to call <code>translate()</code> uses a
-
-  <a href="/reference/p5/p5.Vector/">p5.Vector</a> object to set the amount of
-
-  translation. For example, calling <code>translate(myVector)</code> uses the
-  x-, y-,
-
-  and z-components of <code>myVector</code> to set the amount to translate along
-  the x-,
-
-  y-, and z-axes. Doing so is the same as calling
-
-  <code>translate(myVector.x, myVector.y, myVector.z)</code>.</p>
-
-  <p>By default, transformations accumulate. For example, calling
-
-  <code>translate(10, 0)</code> twice has the same effect as calling
-
-  <code>translate(20, 0)</code> once. The <a
-  href="/reference/p5/push/">push()</a> and
-
-  <a href="/reference/p5/pop/">pop()</a> functions can be used to isolate
-
-  transformations within distinct drawing groups.</p>
-
-  <p>Note: Transformations are reset at the beginning of the draw loop. Calling
-
-  <code>translate(10, 0)</code> inside the <a
-  href="/reference/p5/draw/">draw()</a> function won't
-
-  cause shapes to move continuously.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "x": "Number: 左/右の移動",
-      "y": "Number: 上/下の移動",
-      "z": "Number: (オプション) 前/後ろの移動 (WebGL のみ)",
-      "vector": "p5.Vector: 移動するベクトル"
-  }
-
-  </pre>
+  <p>注意：変換はdrawループの開始時にリセットされます。<a href="/reference/p5/draw/">draw()</a>
+  関数内で<code>translate(10, 0)</code>を呼び出しても、図形が
+  連続的に移動することはありません。</p>
 line: 1223
 isConstructor: false
 itemtype: method
@@ -110,16 +48,16 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('A white circle on a gray background.');
+      describe('灰色の背景に白い円。');
     }
 
     function draw() {
       background(200);
 
-      // Translate the origin to the center.
+      // 原点を中心に移動します。
       translate(50, 50);
 
-      // Draw a circle at coordinates (0, 0).
+      // 座標(0, 0)に円を描きます。
       circle(0, 0, 40);
     }
     </code>
@@ -131,24 +69,24 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'Two circles drawn on a gray background. The blue circle on the right overlaps the red circle at the center.'
+        '灰色の背景に2つの円が描かれています。右側の青い円が中央の赤い円に重なっています。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Translate the origin to the center.
+      // 原点を中心に移動します。
       translate(50, 50);
 
-      // Draw the red circle.
+      // 赤い円を描きます。
       fill('red');
       circle(0, 0, 40);
 
-      // Translate the origin to the right.
+      // 原点を右に移動します。
       translate(25, 0);
 
-      // Draw the blue circle.
+      // 青い円を描きます。
       fill('blue');
       circle(0, 0, 40);
     }
@@ -160,19 +98,19 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('A white circle moves slowly from left to right on a gray background.');
+      describe('灰色の背景上を白い円がゆっくりと左から右に移動します。');
     }
 
     function draw() {
       background(200);
 
-      // Calculate the x-coordinate.
+      // x座標を計算します。
       let x = frameCount * 0.2;
 
-      // Translate the origin.
+      // 原点を移動します。
       translate(x, 50);
 
-      // Draw a circle at coordinates (0, 0).
+      // 座標(0, 0)に円を描きます。
       circle(0, 0, 40);
     }
     </code>
@@ -183,19 +121,19 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('A white circle on a gray background.');
+      describe('灰色の背景に白い円。');
     }
 
     function draw() {
       background(200);
 
-      // Create a p5.Vector object.
+      // p5.Vectorオブジェクトを作成します。
       let v = createVector(50, 50);
 
-      // Translate the origin by the vector.
+      // ベクトルによって原点を移動します。
       translate(v);
 
-      // Draw a circle at coordinates (0, 0).
+      // 座標(0, 0)に円を描きます。
       circle(0, 0, 40);
     }
     </code>
@@ -207,27 +145,27 @@ example:
       createCanvas(100, 100, WEBGL);
 
       describe(
-        'Two spheres sitting side-by-side on gray background. The sphere at the center is red. The sphere on the right is blue.'
+        '灰色の背景に並んで置かれた2つの球体。中央の球体は赤色。右側の球体は青色。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Turn on the lights.
+      // ライトをオンにします。
       lights();
 
-      // Style the spheres.
+      // 球体のスタイルを設定します。
       noStroke();
 
-      // Draw the red sphere.
+      // 赤い球体を描きます。
       fill('red');
       sphere(10);
 
-      // Translate the origin to the right.
+      // 原点を右に移動します。
       translate(30, 0, 0);
 
-      // Draw the blue sphere.
+      // 青い球体を描きます。
       fill('blue');
       sphere(10);
     }
@@ -239,15 +177,15 @@ overloads:
     params:
       - name: x
         description: |
-          <p>amount to translate along the positive x-axis.</p>
+          <p>正のx軸に沿って平行移動する量。</p>
         type: Number
       - name: 'y'
         description: |
-          <p>amount to translate along the positive y-axis.</p>
+          <p>正のy軸に沿って平行移動する量。</p>
         type: Number
       - name: z
         description: |
-          <p>amount to translate along the positive z-axis.</p>
+          <p>正のz軸に沿って平行移動する量。</p>
         type: Number
         optional: true
     chainable: 1
@@ -255,7 +193,7 @@ overloads:
     params:
       - name: vector
         description: |
-          <p>vector by which to translate.</p>
+          <p>平行移動するベクトル。</p>
         type: p5.Vector
     chainable: 1
 chainable: true
@@ -263,3 +201,4 @@ chainable: true
 
 
 # translate
+

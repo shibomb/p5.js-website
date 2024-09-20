@@ -3,163 +3,67 @@ title: loadModel
 module: Shape
 submodule: 3D Models
 file: src/webgl/loading.js
-description: >-
-  <p>OBJ または STL ファイルから 3D モデルを読み込みます。</p>
+description: >
+  <p>3Dモデルを読み込んで
 
-  <p></p>
+  <a href="/reference/p5/p5.Geometry">p5.Geometry</a>オブジェクトを作成します。</p>
 
-  <p><a href="#/p5/loadModel">loadModel()</a> は、<a
-  href="#/p5/preload">preload()</a>
-  の中に配置する必要があります。これにより、モデルが他のコードが実行される前に完全に読み込まれます。</p>
+  <p><code>loadModel()</code>はOBJおよびSTLファイルから3Dモデルを読み込むことができます。モデルが
 
-  <p>OBJ および STL
-  形式の制約のひとつは、スケールの組み込み概念がないことです。これは、異なるプログラムからエクスポートされたモデルが非常に異なるサイズになる可能性があることを意味します。モデルが表示されない場合は、正規化パラメーターを
-  true に設定して <a href="#/p5/loadModel">loadModel()</a> を呼び出してみてください。これにより、モデルが p5
-  に適したスケールにリサイズされます。<a href="#/p5/scale">scale()</a>
-  関数を使ってモデルの最終サイズにさらに変更を加えることもできます。</p>
+  読み込まれると、<code>model(shape)</code>のように
 
-  <p>また、カラー付き STL ファイルのサポートはありません。カラー付きの STL ファイルは、カラープロパティなしでレンダリングされます。</p>
+  <a href="/reference/p5/model/">model()</a>関数で表示できます。</p>
 
+  <p><code>loadModel()</code>を呼び出す方法は3つあり、モデルの処理を助けるためのオプションパラメータがあります。</p>
 
-  <hr/>
+  <p>最初のパラメータ<code>path</code>は常にファイルへのパスを示す<code>String</code>です。ローカルファイルへのパスは
 
-  <p>Loads a 3D model to create a
+  <code>loadModel('/assets/model.obj')</code>のように相対パスで指定する必要があります。URL（例：
 
-  <a href="/reference/p5/p5.Geometry">p5.Geometry</a> object.</p>
+  <code>'https://example.com/model.obj'</code>）はブラウザのセキュリティによってブロックされることがあります。</p>
 
-  <p><code>loadModel()</code> can load 3D models from OBJ and STL files. Once
-  the model is
+  <p><code>loadModel()</code>を呼び出す最初の方法は、ファイルパスの後に3つのオプションパラメータがあります。最初のオプションパラメータ<code>successCallback</code>は、モデルが読み込まれた後に呼び出される関数です。例えば、
 
-  loaded, it can be displayed with the
+  <code>loadModel('/assets/model.obj', handleModel)</code>は、モデルが読み込まれた後に<code>handleModel()</code>関数を呼び出します。2番目のオプションパラメータ<code>failureCallback</code>は、モデルの読み込みに失敗した場合に呼び出される関数です。例えば、
 
-  <a href="/reference/p5/model/">model()</a> function, as in
-  <code>model(shape)</code>.</p>
+  <code>loadModel('/assets/model.obj', handleModel, handleFailure)</code>は、エラーが発生した場合に<code>handleFailure()</code>関数を呼び出します。3番目のオプションパラメータ<code>fileType</code>は、モデルのファイル拡張子を示す文字列です。例えば、
 
-  <p>There are three ways to call <code>loadModel()</code> with optional
-  parameters to help
+  <code>loadModel('/assets/model', handleModel, handleFailure, '.obj')</code>は、ファイルモデルを<code>.obj</code>ファイルとして読み込もうとします。</p>
 
-  process the model.</p>
+  <p><code>loadModel()</code>を呼び出す2番目の方法は、ファイルパスの後に4つのオプションパラメータがあります。最初のオプションパラメータは<code>Boolean</code>値です。<code>true</code>が渡されると、例えば<code>loadModel('/assets/model.obj', true)</code>のように、モデルはキャンバスに収まるようにリサイズされます。次の3つのパラメータは、上記の<code>successCallback</code>、<code>failureCallback</code>、および<code>fileType</code>です。</p>
 
-  <p>The first parameter, <code>path</code>, is always a <code>String</code>
-  with the path to the
-
-  file. Paths to local files should be relative, as in
-
-  <code>loadModel('/assets/model.obj')</code>. URLs such as
-
-  <code>'https://example.com/model.obj'</code> may be blocked due to browser
-  security.</p>
-
-  <p>The first way to call <code>loadModel()</code> has three optional
-  parameters after the
-
-  file path. The first optional parameter, <code>successCallback</code>, is a
-  function
-
-  to call once the model loads. For example,
-
-  <code>loadModel('/assets/model.obj', handleModel)</code> will call the
-  <code>handleModel()</code>
-
-  function once the model loads. The second optional parameter,
-
-  <code>failureCallback</code>, is a function to call if the model fails to
-  load. For
-
-  example, <code>loadModel('/assets/model.obj', handleModel,
-  handleFailure)</code> will
-
-  call the <code>handleFailure()</code> function if an error occurs while
-  loading. The
-
-  third optional parameter, <code>fileType</code>, is the model’s file extension
-  as a
-
-  string. For example,
-
-  <code>loadModel('/assets/model', handleModel, handleFailure, '.obj')</code>
-  will try to
-
-  load the file model as a <code>.obj</code> file.</p>
-
-  <p>The second way to call <code>loadModel()</code> has four optional
-  parameters after the
-
-  file path. The first optional parameter is a <code>Boolean</code> value. If
-  <code>true</code> is
-
-  passed, as in <code>loadModel('/assets/model.obj', true)</code>, then the
-  model will be
-
-  resized to ensure it fits the canvas. The next three parameters are
-
-  <code>successCallback</code>, <code>failureCallback</code>, and
-  <code>fileType</code> as described above.</p>
-
-  <p>The third way to call <code>loadModel()</code> has one optional parameter
-  after the
-
-  file path. The optional parameter, <code>options</code>, is an
-  <code>Object</code> with options,
-
-  as in <code>loadModel('/assets/model.obj', options)</code>. The
-  <code>options</code> object can
-
-  have the following properties:</p>
+  <p><code>loadModel()</code>を呼び出す3番目の方法は、ファイルパスの後に1つのオプションパラメータがあります。オプションパラメータ<code>options</code>はオプションを持つ<code>Object</code>です。例えば<code>loadModel('/assets/model.obj', options)</code>のように。<code>options</code>オブジェクトには次のプロパティがあります：</p>
 
   <pre><code class="language-js">let options = {
-    // Enables standardized size scaling during loading if set to true.
+    // 読み込み中に標準化されたサイズスケーリングを有効にする場合はtrueに設定します。
     normalize: true,
 
-    // Function to call once the model loads.
+    // モデルが読み込まれた後に呼び出される関数。
     successCallback: handleModel,
 
-    // Function to call if an error occurs while loading.
+    // 読み込み中にエラーが発生した場合に呼び出される関数。
     failureCallback: handleError,
 
-    // Model's file extension.
+    // モデルのファイル拡張子。
     fileType: '.stl',
 
-    // Flips the U texture coordinates of the model.
+    // モデルのUテクスチャ座標を反転します。
     flipU: false,
 
-    // Flips the V texture coordinates of the model.
+    // モデルのVテクスチャ座標を反転します。
     flipV: false
   };
 
 
-  // Pass the options object to loadModel().
+  // optionsオブジェクトをloadModel()に渡します。
 
   loadModel('/assets/model.obj', options);
 
   </code></pre>
 
-  <p>Models can take time to load. Calling <code>loadModel()</code> in
+  <p>モデルの読み込みには時間がかかることがあります。<a href="/reference/p5/preload/">preload()</a>で<code>loadModel()</code>を呼び出すことで、モデルが<a href="/reference/p5/setup/">setup()</a>や<a href="/reference/p5/draw/">draw()</a>で使用される前に読み込まれることを保証します。</p>
 
-  <a href="/reference/p5/preload/">preload()</a> ensures models load before
-  they're
-
-  used in <a href="/reference/p5/setup/">setup()</a> or <a
-  href="/reference/p5/draw/">draw()</a>.</p>
-
-  <p>Note: There’s no support for colored STL files. STL files with color will
-
-  be rendered without color.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "path": "String: 読み込むモデルのパス",
-      "normalize": "Boolean: true の場合、読み込み時にモデルを標準化されたサイズにスケールします。",
-      "successCallback": "function(p5.Geometry): (オプション) モデルが読み込まれた後に呼び出される関数。3D モデルオブジェクトが渡されます。",
-      "failureCallback": "Function(Event): (オプション) モデルの読み込みに失敗した場合にイベントエラーとともに呼び出される関数。",
-      "fileType": "String: (オプション) モデルのファイル拡張子（<code>.stl</code>, <code>.obj</code>）"
-  }
-
-  </pre>
+  <p>注意：カラー付きSTLファイルのサポートはありません。カラー付きSTLファイルは色なしでレンダリングされます。</p>
 line: 12
 isConstructor: false
 itemtype: method
@@ -168,11 +72,11 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、シーンを異なる角度から見ることができます。
 
     let shape;
 
-    // Load the file and create a p5.Geometry object.
+    // ファイルを読み込み、p5.Geometryオブジェクトを作成します。
     function preload() {
       shape = loadModel('/assets/teapot.obj');
     }
@@ -180,16 +84,16 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white teapot drawn against a gray background.');
+      describe('灰色の背景に白いティーポットが描かれています。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでのオービットを有効にします。
       orbitControl();
 
-      // Draw the shape.
+      // 形状を描画します。
       model(shape);
     }
     </code>
@@ -197,12 +101,12 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、シーンを異なる角度から見ることができます。
 
     let shape;
 
-    // Load the file and create a p5.Geometry object.
-    // Normalize the geometry's size to fit the canvas.
+    // ファイルを読み込み、p5.Geometryオブジェクトを作成します。
+    // ジオメトリのサイズをキャンバスに合わせて正規化します。
     function preload() {
       shape = loadModel('/assets/teapot.obj', true);
     }
@@ -210,16 +114,16 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white teapot drawn against a gray background.');
+      describe('灰色の背景に白いティーポットが描かれています。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでのオービットを有効にします。
       orbitControl();
 
-      // Draw the shape.
+      // 形状を描画します。
       model(shape);
     }
     </code>
@@ -227,11 +131,11 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、シーンを異なる角度から見ることができます。
 
     let shape;
 
-    // Load the file and create a p5.Geometry object.
+    // ファイルを読み込み、p5.Geometryオブジェクトを作成します。
     function preload() {
       loadModel('/assets/teapot.obj', true, handleModel);
     }
@@ -239,21 +143,20 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white teapot drawn against a gray background.');
+      describe('灰色の背景に白いティーポットが描かれています。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでのオービットを有効にします。
       orbitControl();
 
-      // Draw the shape.
+      // 形状を描画します。
       model(shape);
     }
 
-    // Set the shape variable and log the geometry's
-    // ID to the console.
+    // shape変数を設定し、ジオメトリのIDをコンソールにログ出力します。
     function handleModel(data) {
       shape = data;
       console.log(shape.gid);
@@ -263,11 +166,11 @@ example:
 
     <div class='notest'>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、シーンを異なる角度から見ることができます。
 
     let shape;
 
-    // Load the file and create a p5.Geometry object.
+    // ファイルを読み込み、p5.Geometryオブジェクトを作成します。
     function preload() {
       loadModel('/assets/wrong.obj', true, handleModel, handleError);
     }
@@ -275,40 +178,39 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white teapot drawn against a gray background.');
+      describe('灰色の背景に白いティーポットが描かれています。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでのオービットを有効にします。
       orbitControl();
 
-      // Draw the shape.
+      // 形状を描画します。
       model(shape);
     }
 
-    // Set the shape variable and print the geometry's
-    // ID to the console.
+    // shape変数を設定し、ジオメトリのIDをコンソールにログ出力します。
     function handleModel(data) {
       shape = data;
       console.log(shape.gid);
     }
 
-    // Print an error message if the file doesn't load.
+    // ファイルが読み込まれない場合にエラーメッセージを出力します。
     function handleError(error) {
-      console.error('Oops!', error);
+      console.error('おっと！', error);
     }
     </code>
     </div>
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、シーンを異なる角度から見ることができます。
 
     let shape;
 
-    // Load the file and create a p5.Geometry object.
+    // ファイルを読み込み、p5.Geometryオブジェクトを作成します。
     function preload() {
       loadModel('/assets/teapot.obj', true, handleModel, handleError, '.obj');
     }
@@ -316,36 +218,35 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white teapot drawn against a gray background.');
+      describe('灰色の背景に白いティーポットが描かれています。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでのオービットを有効にします。
       orbitControl();
 
-      // Draw the shape.
+      // 形状を描画します。
       model(shape);
     }
 
-    // Set the shape variable and print the geometry's
-    // ID to the console.
+    // shape変数を設定し、ジオメトリのIDをコンソールにログ出力します。
     function handleModel(data) {
       shape = data;
       console.log(shape.gid);
     }
 
-    // Print an error message if the file doesn't load.
+    // ファイルが読み込まれない場合にエラーメッセージを出力します。
     function handleError(error) {
-      console.error('Oops!', error);
+      console.error('おっと！', error);
     }
     </code>
     </div>
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、シーンを異なる角度から見ることができます。
 
     let shape;
     let options = {
@@ -355,7 +256,7 @@ example:
       fileType: '.obj'
     };
 
-    // Load the file and create a p5.Geometry object.
+    // ファイルを読み込み、p5.Geometryオブジェクトを作成します。
     function preload() {
       loadModel('/assets/teapot.obj', options);
     }
@@ -363,69 +264,63 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white teapot drawn against a gray background.');
+      describe('灰色の背景に白いティーポットが描かれています。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでのオービットを有効にします。
       orbitControl();
 
-      // Draw the shape.
+      // 形状を描画します。
       model(shape);
     }
 
-    // Set the shape variable and print the geometry's
-    // ID to the console.
+    // shape変数を設定し、ジオメトリのIDをコンソールにログ出力します。
     function handleModel(data) {
       shape = data;
       console.log(shape.gid);
     }
 
-    // Print an error message if the file doesn't load.
+    // ファイルが読み込まれない場合にエラーメッセージを出力します。
     function handleError(error) {
-      console.error('Oops!', error);
+      console.error('おっと！', error);
     }
     </code>
     </div>
 class: p5
 return:
-  description: |-
-    <a href="#/p5.Geometry">p5.Geometry</a> オブジェクト
-    the <a href="#/p5.Geometry">p5.Geometry</a> object
+  description: <a href="#/p5.Geometry">p5.Geometry</a>オブジェクト
   type: p5.Geometry
 overloads:
   - line: 12
     params:
       - name: path
         description: |
-          <p>path of the model to be loaded.</p>
+          <p>読み込むモデルのパス。</p>
         type: String
       - name: normalize
         description: |
-          <p>if <code>true</code>, scale the model to fit the canvas.</p>
+          <p><code>true</code>の場合、モデルをキャンバスに収まるようにスケーリングします。</p>
         type: Boolean
       - name: successCallback
         description: |
-          <p>function to call once the model is loaded. Will be passed
-                                                            the <a href="#/p5.Geometry">p5.Geometry</a> object.</p>
+          <p>モデルが読み込まれた後に呼び出される関数。<a href="#/p5.Geometry">p5.Geometry</a>オブジェクトが渡されます。</p>
         type: function(p5.Geometry)
         optional: true
       - name: failureCallback
         description: >
-          <p>function to call if the model fails to load. Will be passed an
-          <code>Error</code> event object.</p>
+          <p>モデルの読み込みに失敗した場合に呼び出される関数。<code>Error</code>イベントオブジェクトが渡されます。</p>
         type: Function(Event)
         optional: true
       - name: fileType
         description: >
-          <p>model’s file extension. Either <code>'.obj'</code> or
-          <code>'.stl'</code>.</p>
+          <p>モデルのファイル拡張子。<code>'.obj'</code>または<code>'.stl'</code>。</p>
         type: String
         optional: true
     return:
-      description: the <a href="#/p5.Geometry">p5.Geometry</a> object
+      description: <a href="#/p5.Geometry">p5.Geometry</a>オブジェクト
       type: p5.Geometry
   - line: 318
     params:
@@ -445,7 +340,7 @@ overloads:
         type: String
         optional: true
     return:
-      description: new <a href="#/p5.Geometry">p5.Geometry</a> object.
+      description: 新しい<a href="#/p5.Geometry">p5.Geometry</a>オブジェクト。
       type: p5.Geometry
   - line: 326
     params:
@@ -454,7 +349,7 @@ overloads:
         type: String
       - name: options
         description: |
-          <p>loading options.</p>
+          <p>読み込みオプション。</p>
         type: Object
         optional: true
         props:
@@ -483,7 +378,7 @@ overloads:
             type: Boolean
             optional: true
     return:
-      description: new <a href="#/p5.Geometry">p5.Geometry</a> object.
+      description: 新しい<a href="#/p5.Geometry">p5.Geometry</a>オブジェクト。
       type: p5.Geometry
 chainable: false
 ---

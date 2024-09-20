@@ -4,216 +4,93 @@ module: Typography
 submodule: Loading & Displaying
 file: src/typography/loading_displaying.js
 description: >
-  <p>ファイルまたは URL から OpenType フォントファイル（.otf、.ttf）をロードし、<a
-  href="#/p5.Font">p5.Font</a> オブジェクトを返します。</p>
+  <p>フォントをロードし、<a href="/reference/p5/p5.Font">p5.Font</a>オブジェクトを返します。</p>
 
-  <p>この関数は非同期であり、スケッチの次の行が実行される前に終了しない場合があります。</p>
+  <p><code>loadFont()</code>は非同期関数です。通常、<code>preload()</code>内で呼び出されます。
+  これにより、フォントが<code>setup()</code>や<code>draw()</code>で使用可能になる前に
+  完全にロードされることが保証されます。</p>
 
-  <p>フォントへのパスは、スケッチにリンクされた HTML ファイルに対して相対的である必要があります。URL
-  や他のリモート場所からのフォントの読み込みは、ブラウザーの組み込みセキュリティによりブロックされることがあります。</p>
+  <p><code>loadFont()</code>を<code>preload()</code>の外で呼び出す場合、
+  コールバック関数を渡す必要があります。コールバックは、フォントが完全にロードされた後に
+  実行されます。</p>
 
-  <p>/// todo ///</p>
-
-  <p>Loads a font and creates a <a href="#/p5.Font">p5.Font</a> object.
-  <code>loadFont()</code> can load fonts in either .otf or .ttf format. Loaded
-  fonts can be used to style text on the canvas and in HTML elements.</p>
-
-  <p>The first parameter, <code>path</code>, is the path to a font file. Paths
-  to local files should be relative. For example,
-  <code>'assets/inconsolata.otf'</code>. The Inconsolata font used in the
-  following examples can be downloaded for free <a
-  href="https://www.fontsquirrel.com/fonts/inconsolata"
-  target="_blank">here</a>. Paths to remote files should be URLs. For example,
-  <code>'https://example.com/inconsolata.otf'</code>. URLs may be blocked due to
-  browser security.</p>
-
-  <p>The second parameter, <code>successCallback</code>, is optional. If a
-  function is passed, it will be called once the font has loaded. The callback
-  function may use the new <a href="#/p5.Font">p5.Font</a> object if needed.</p>
-
-  <p>The third parameter, <code>failureCallback</code>, is also optional. If a
-  function is passed, it will be called if the font fails to load. The callback
-  function may use the error <a
-  href="https://developer.mozilla.org/en-US/docs/Web/API/Event"
-  target="_blank">Event</a> object if needed.</p>
-
-  <p>Fonts can take time to load. Calling <code>loadFont()</code> in <a
-  href="#/p5/preload">preload()</a> ensures fonts load before they're used in <a
-  href="#/p5/setup">setup()</a> or <a href="#/p5/draw">draw()</a>.</p>
-
-
-  <hr/>
-
-  <p>Loads a font and creates a <a href="/reference/p5/p5.Font/">p5.Font</a>
-  object.
-
-  <code>loadFont()</code> can load fonts in either .otf or .ttf format. Loaded
-  fonts can
-
-  be used to style text on the canvas and in HTML elements.</p>
-
-  <p>The first parameter, <code>path</code>, is the path to a font file.
-
-  Paths to local files should be relative. For example,
-
-  <code>'/assets/inconsolata.otf'</code>. The Inconsolata font used in the
-  following
-
-  examples can be downloaded for free
-
-  <a href="https://www.fontsquirrel.com/fonts/inconsolata/"
-  target="_blank">here</a>.
-
-  Paths to remote files should be URLs. For example,
-
-  <code>'https://example.com/inconsolata.otf'</code>. URLs may be blocked due to
-  browser
-
-  security.</p>
-
-  <p>The second parameter, <code>successCallback</code>, is optional. If a
-  function is
-
-  passed, it will be called once the font has loaded. The callback function
-
-  may use the new <a href="/reference/p5/p5.Font">p5.Font</a> object if
-  needed.</p>
-
-  <p>The third parameter, <code>failureCallback</code>, is also optional. If a
-  function is
-
-  passed, it will be called if the font fails to load. The callback function
-
-  may use the error
-
-  <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/"
-  target="_blank">Event</a>
-
-  object if needed.</p>
-
-  <p>Fonts can take time to load. Calling <code>loadFont()</code> in
-
-  <a href="/reference/p5/preload/">preload()</a> ensures fonts load before
-  they're
-
-  used in <a href="/reference/p5/setup/">setup()</a> or
-
-  <a href="/reference/p5/draw/">draw()</a>.</p>
-line: 16
+  <p>サポートされているフォント形式は、TrueType（.ttf）、OpenType（.otf）、WOFF、およびWOFF2です。
+  ブラウザのサポート状況については、
+  <a href="https://caniuse.com/woff" target="_blank">WOFF</a>と
+  <a href="https://caniuse.com/woff2" target="_blank">WOFF2</a>を参照してください。</p>
+line: 13
 isConstructor: false
 itemtype: method
 example:
   - |-
 
-
     <div>
     <code>
-    let font;
+    let myFont;
 
     function preload() {
-      font = loadFont('/assets/inconsolata.otf');
+      // フォントをロードします。
+      myFont = loadFont('/assets/inconsolata.otf');
     }
 
     function setup() {
-      fill('deeppink');
-      textFont(font);
-      textSize(36);
-      text('p5*js', 10, 50);
+      createCanvas(100, 100);
 
-      describe('The text "p5*js" written in pink on a white background.');
+      background(200);
+
+      // フォントを設定します。
+      textFont(myFont);
+      textSize(20);
+
+      // テキストを描画します。
+      text('hello', 20, 50);
+
+      describe('灰色の背景に黒で「hello」と書かれています。');
     }
     </code>
     </div>
 
     <div>
     <code>
+    let myFont;
+
     function setup() {
-      loadFont('/assets/inconsolata.otf', font => {
-        fill('deeppink');
+      createCanvas(100, 100);
+
+      background(200);
+
+      // フォントをロードします。
+      loadFont('/assets/inconsolata.otf', (font) => {
+        // フォントを設定します。
         textFont(font);
-        textSize(36);
-        text('p5*js', 10, 50);
+        textSize(20);
 
-        describe('The text "p5*js" written in pink on a white background.');
+        // テキストを描画します。
+        text('hello', 20, 50);
       });
-    }
-    </code>
-    </div>
 
-    <div>
-    <code>
-    function setup() {
-      loadFont('/assets/inconsolata.otf', success, failure);
-    }
-
-    function success(font) {
-      fill('deeppink');
-      textFont(font);
-      textSize(36);
-      text('p5*js', 10, 50);
-
-      describe('The text "p5*js" written in pink on a white background.');
-    }
-
-    function failure(event) {
-      console.error('Oops!', event);
-    }
-    </code>
-    </div>
-
-    <div>
-    <code>
-    function preload() {
-      loadFont('/assets/inconsolata.otf');
-    }
-
-    function setup() {
-      let p = createP('p5*js');
-      p.style('color', 'deeppink');
-      p.style('font-family', 'Inconsolata');
-      p.style('font-size', '36px');
-      p.position(10, 50);
-
-      describe('The text "p5*js" written in pink on a white background.');
+      describe('灰色の背景に黒で「hello」と書かれています。');
     }
     </code>
     </div>
 class: p5
 params:
   - name: path
-    description: >
-      <p>path of the font to be loaded. /// todo /// String:  ロードするファイルまたは URL
-      の名前</p>
-
-      <p>path of the font to be loaded.</p>
+    description: |
+      <p>フォントファイルへのパス。</p>
     type: String
-  - name: successCallback
-    description: >
-      <p>(Optional) function called with the  <a href="#/p5.Font">p5.Font</a>
-      object after it  loads. /// todo /// 関数: (オプション) <a
-      href="#/p5/loadFont">loadFont()</a> が完了した後に実行される関数</p>
-
-      <p>function called with the
-                                                <a href="#/p5.Font">p5.Font</a> object after it
-                                                loads.</p>
-    type: Function
+  - name: callback
+    description: |
+      <p>フォントのロードが完了したときに実行される関数。</p>
+    type: function(p5.Font)
     optional: true
-  - name: failureCallback
-    description: >
-      <p>(Optional) function called with the error  <a
-      href="https://developer.mozilla.org/en-US/docs/Web/API/Event"
-      target="_blank">Event</a>  object if the font fails to load. /// todo ///
-      関数: (オプション) エラーが発生した場合に実行される関数</p>
-
-      <p>function called with the error
-                                                <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event" target="_blank">Event</a>
-                                                object if the font fails to load.</p>
-    type: Function
+  - name: onError
+    description: |
+      <p>フォントのロードに失敗したときに実行される関数。</p>
+    type: function(Event)
     optional: true
 return:
-  description: |-
-    <a href="#/p5.Font">p5.Font</a> オブジェクト
-    <a href="#/p5.Font">p5.Font</a> object.
+  description: <a href="#/p5.Font">p5.Font</a>オブジェクト。
   type: p5.Font
 chainable: false
 ---

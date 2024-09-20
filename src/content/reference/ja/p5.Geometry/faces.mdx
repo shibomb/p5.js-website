@@ -4,57 +4,29 @@ module: Shape
 submodule: 3D Primitives
 file: src/webgl/p5.Geometry.js
 description: >
-  <p>An array that lists which of the geometry's vertices form each of its
+  <p>ジオメトリの頂点のうち、どれがそれぞれの面を形成するかをリストした配列です。</p>
 
-  faces.</p>
+  <p>すべての3D形状は、<em>頂点</em>と呼ばれる点の集合を接続して作られます。
+  ジオメトリの表面は、頂点を接続して三角形を形成し、それらを縫い合わせることで
+  作られます。ジオメトリの表面上の各三角形のパッチを<em>面</em>と呼びます。</p>
 
-  <p>All 3D shapes are made by connecting sets of points called
-  <em>vertices</em>. A
+  <p>ジオメトリの頂点は、
+  <a href="/reference/p5.Geometry/vertices/">myGeometry.vertices</a>配列内に
+  <a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトとして格納されています。
+  ジオメトリの最初の頂点は<code>myGeometry.vertices[0]</code>にある
+  <a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトで、2番目の頂点は
+  <code>myGeometry.vertices[1]</code>、3番目の頂点は<code>myGeometry.vertices[2]</code>
+  というように続きます。</p>
 
-  geometry's surface is formed by connecting vertices to form triangles
-
-  that are stitched together. Each triangular patch on the geometry's
-
-  surface is called a <em>face</em>.</p>
-
-  <p>The geometry's vertices are stored as
-
-  <a href="/reference/p5/p5.Vector/">p5.Vector</a> objects in the
-
-  <a href="/reference/p5.Geometry/vertices/">myGeometry.vertices</a> array. The
-
-  geometry's first vertex is the <a href="/reference/p5/p5.Vector/">p5.Vector</a>
-
-  object at <code>myGeometry.vertices[0]</code>, its second vertex is
-
-  <code>myGeometry.vertices[1]</code>, its third vertex is
-  <code>myGeometry.vertices[2]</code>,
-
-  and so on.</p>
-
-  <p>For example, a geometry made from a rectangle has two faces because a
-
-  rectangle is made by joining two triangles. <code>myGeometry.faces</code> for
-  a
-
-  rectangle would be the two-dimensional array <code>[[0, 1, 2], [2, 1,
-  3]]</code>.
-
-  The first face, <code>myGeometry.faces[0]</code>, is the array <code>[0, 1,
-  2]</code> because
-
-  it's formed by connecting <code>myGeometry.vertices[0]</code>,
-
-  <code>myGeometry.vertices[1]</code>,and <code>myGeometry.vertices[2]</code>.
-  The second face,
-
-  <code>myGeometry.faces[1]</code>, is the array <code>[2, 1, 3]</code> because
-  it's formed by
-
-  connecting <code>myGeometry.vertices[2]</code>,
-  <code>myGeometry.vertices[1]</code>,and
-
-  <code>myGeometry.vertices[3]</code>.</p>
+  <p>例えば、長方形から作られたジオメトリは2つの面を持ちます。なぜなら、長方形は
+  2つの三角形を結合して作られるからです。長方形の<code>myGeometry.faces</code>は
+  <code>[[0, 1, 2], [2, 1, 3]]</code>という2次元配列になります。
+  最初の面、<code>myGeometry.faces[0]</code>は<code>[0, 1, 2]</code>という配列です。
+  これは<code>myGeometry.vertices[0]</code>、<code>myGeometry.vertices[1]</code>、
+  <code>myGeometry.vertices[2]</code>を接続して形成されるからです。
+  2番目の面、<code>myGeometry.faces[1]</code>は<code>[2, 1, 3]</code>という配列です。
+  これは<code>myGeometry.vertices[2]</code>、<code>myGeometry.vertices[1]</code>、
+  <code>myGeometry.vertices[3]</code>を接続して形成されるからです。</p>
 line: 505
 isConstructor: false
 itemtype: property
@@ -63,48 +35,48 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // クリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     let myGeometry;
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Geometry object.
+      // p5.Geometryオブジェクトを作成します。
       beginGeometry();
       sphere();
       myGeometry = endGeometry();
 
-      describe("A sphere drawn on a gray background. The sphere's surface is a grayscale patchwork of triangles.");
+      describe("灰色の背景に描かれた球体。球体の表面は三角形のグレースケールのパッチワークになっています。");
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスで軌道制御を有効にします。
       orbitControl();
 
-      // Turn on the lights.
+      // ライトをオンにします。
       lights();
 
-      // Style the p5.Geometry object.
+      // p5.Geometryオブジェクトのスタイルを設定します。
       noStroke();
 
-      // Set a random seed.
+      // ランダムシードを設定します。
       randomSeed(1234);
 
-      // Iterate over the faces array.
+      // faces配列をイテレートします。
       for (let face of myGeometry.faces) {
 
-        // Style the face.
+        // 面のスタイルを設定します。
         let g = random(0, 255);
         fill(g);
 
-        // Draw the face.
+        // 面を描画します。
         beginShape();
-        // Iterate over the vertices that form the face.
+        // 面を形成する頂点をイテレートします。
         for (let f of face) {
-          // Get the vertex's p5.Vector object.
+          // 頂点のp5.Vectorオブジェクトを取得します。
           let v = myGeometry.vertices[f];
           vertex(v.x, v.y, v.z);
         }
@@ -119,3 +91,4 @@ class: p5.Geometry
 
 
 # faces
+

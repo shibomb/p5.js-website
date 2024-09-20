@@ -3,52 +3,7 @@ title: createRadio
 module: DOM
 submodule: DOM
 file: src/dom/dom.js
-description: >-
-  <p>DOM にラジオボタン要素を作成します。</p>
-
-  <p>また、既存のラジオボタンに <a href="#/p5.Element/">p5.Element</a> のメソッドを割り当てるのに役立ちます。
-  <ul> <li><code>.option(value, [label])</code>
-  は、要素に新しいオプションを作成するために使用できます。すでに値が存在するオプションがある場合は、それが返されます。<code>value</code>
-  の入力として文字列値を使用することが推奨されます。オプションとして、2つ目の引数としてラベルを提供できます。</li>
-  <li><code>.remove(value)</code> は、要素のオプションを削除するために使用できます。<code>value</code>
-  の入力として文字列値が推奨されます。</li> <li><code>.value()</code> メソッドは、現在選択されている値を返します。</li>
-  <li><code>.selected()</code> メソッドは、現在選択されている入力要素を返します。</li>
-  <li><code>.selected(value)</code> メソッドは、オプションを選択して返します。<code>value</code>
-  の入力として文字列値が推奨されます。</li> <li><code>.disable(Boolean)</code>
-  メソッドは、ラジオボタン要素全体を有効/無効にします。</li> </ul></p>
-
-  <p>/// todo ///</p>
-
-  <p>Creates a radio button element.</p>
-
-  <p>The parameter is optional. If a string is passed, as in <code>let myRadio =
-  createSelect('food')</code>, then each radio option will have
-  <code>"food"</code> as its <code>name</code> parameter: <code>&lt;input
-  name="food"&gt;&lt;/input&gt;</code>. If an existing
-  <code>&lt;div&gt;&lt;/div&gt;</code> or <code>&lt;span&gt;&lt;/span&gt;</code>
-  element is passed, as in <code>let myRadio = createSelect(container)</code>,
-  it will become the radio button's parent element.</p>
-
-  <p>Radio buttons extend the <a href="#/p5.Element">p5.Element</a> class with a
-  few helpful methods for managing options: <ul> <li><code>myRadio.option(value,
-  [label])</code> adds an option to the menu. The first paremeter,
-  <code>value</code>, is a string that sets the option's value and label. The
-  second parameter, <code>label</code>, is optional. If provided, it sets the
-  label displayed for the <code>value</code>. If an option with
-  <code>value</code> already exists, its label is changed and its value is
-  returned.</li> <li><code>myRadio.value()</code> returns the currently-selected
-  option's value.</li> <li><code>myRadio.selected()</code> returns the
-  currently-selected option.</li> <li><code>myRadio.selected(value)</code>
-  selects the given option and returns it as an <a
-  href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement"
-  target="_blank"><code>HTMLInputElement</code></a>.</li>
-  <li><code>myRadio.disable(shouldDisable)</code> enables the entire radio
-  button if <code>true</code> is passed and disables it if <code>false</code> is
-  passed.</li> </ul></p>
-
-
-  <hr/>
-
+description: >
   <p>Creates a radio button element.</p>
 
   <p>The parameter is optional. If a string is passed, as in
@@ -65,7 +20,7 @@ description: >-
 
   become the radio button's parent element.</p>
 
-  <p>Radio buttons extend the <a href="/reference/p5/p5.Element/">p5.Element</a>
+  <p>Radio buttons extend the <a href="/reference/p5/p5.Element">p5.Element</a>
   class with a few
 
   helpful methods for managing options:</p>
@@ -87,7 +42,7 @@ description: >-
 
   <li><code>myRadio.selected(value)</code> selects the given option and returns
   it as an <a
-  href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement"
+  href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/"
   target="_blank"><code>HTMLInputElement</code></a>.</li>
 
   <li><code>myRadio.disable(shouldDisable)</code> enables the entire radio
@@ -95,19 +50,7 @@ description: >-
   passed.</li>
 
   </ul>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "containerElement": "Object: (Optional) container HTML Element, either a <code>&lt;div&gt;&lt;/div&gt;</code> or <code>&lt;span&gt;&lt;/span&gt;</code>. /// todo /// Object: すべての既存のラジオ入力がオプションと見なされる div または span の HTML 要素コンテナ。",
-      "name": "String: (Optional) name parameter assigned to each option's <code>&lt;input&gt;&lt;/input&gt;</code> element. /// todo /// String: (オプション) 各入力要素の名前パラメーター。"
-  }
-
-  </pre>
-line: 1439
+line: 1440
 isConstructor: false
 itemtype: method
 example:
@@ -224,14 +167,10 @@ example:
     </div>
 class: p5
 return:
-  description: >-
-    new <a href="#/p5.Element">p5.Element</a> object. /// todo /// p5.Element:
-    作成されたノードを保持する <a href="#/p5.Element">p5.Element</a> へのポインター
-
-    new <a href="#/p5.Element">p5.Element</a> object.
+  description: new <a href="#/p5.Element">p5.Element</a> object.
   type: p5.Element
 overloads:
-  - line: 1439
+  - line: 1440
     params:
       - name: containerElement
         description: >
@@ -244,7 +183,7 @@ overloads:
     return:
       description: new <a href="#/p5.Element">p5.Element</a> object.
       type: p5.Element
-  - line: 1573
+  - line: 1574
     params:
       - name: name
         description: >
@@ -255,7 +194,7 @@ overloads:
     return:
       description: new <a href="#/p5.Element">p5.Element</a> object.
       type: p5.Element
-  - line: 1578
+  - line: 1579
     params: []
     return:
       description: new <a href="#/p5.Element">p5.Element</a> object.

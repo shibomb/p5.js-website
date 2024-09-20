@@ -4,11 +4,8 @@ module: 3D
 submodule: Camera
 file: src/webgl/p5.Camera.js
 description: |
-  <p>y 軸上のカメラ位置値。</p>
-
-  <hr/>
-  <p>The camera’s y-coordinate.</p>
-  <p>By default, the camera’s y-coordinate is set to 0 in "world" space.</p>
+  <p>カメラのy座標。</p>
+  <p>デフォルトでは、カメラのy座標は「ワールド」空間で0に設定されています。</p>
 line: 962
 isConstructor: false
 itemtype: property
@@ -20,7 +17,7 @@ example:
     let cam;
     let font;
 
-    // Load a font and create a p5.Font object.
+    // フォントを読み込み、p5.Fontオブジェクトを作成します。
     function preload() {
       font = loadFont('/assets/inconsolata.otf');
     }
@@ -28,36 +25,36 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Camera object.
+      // p5.Cameraオブジェクトを作成します。
       cam = createCamera();
 
-      // Place the camera at the top-center.
+      // カメラを上部中央に配置します。
       cam.setPosition(0, -400, 800);
 
-      // Point the camera at the origin.
+      // カメラを原点に向けます。
       cam.lookAt(0, 0, 0);
 
       describe(
-        'A white cube on a gray background. The text "eyeY: -400" is written in black beneath it.'
+        'グレーの背景に白い立方体。その下に黒字で "eyeY: -400" と書かれています。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Style the box.
+      // ボックスのスタイルを設定します。
       fill(255);
 
-      // Draw the box.
+      // ボックスを描画します。
       box();
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER);
       textSize(16);
       textFont(font);
       fill(0);
 
-      // Display the value of eyeY, rounded to the nearest integer.
+      // eyeYの値を最も近い整数に丸めて表示します。
       text(`eyeX: ${round(cam.eyeY)}`, 0, 55);
     }
     </code>
@@ -68,7 +65,7 @@ example:
     let cam;
     let font;
 
-    // Load a font and create a p5.Font object.
+    // フォントを読み込み、p5.Fontオブジェクトを作成します。
     function preload() {
       font = loadFont('/assets/inconsolata.otf');
     }
@@ -76,42 +73,42 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Camera object.
+      // p5.Cameraオブジェクトを作成します。
       cam = createCamera();
 
-      // Place the camera at the top-center.
+      // カメラを上部中央に配置します。
       cam.setPosition(0, -400, 800);
 
-      // Point the camera at the origin.
+      // カメラを原点に向けます。
       cam.lookAt(0, 0, 0);
 
       describe(
-        'A white cube on a gray background. The cube appears to move up and down as the camera moves. The text "eyeY: Y" is written in black beneath the cube. Y oscillates between -374 and -425.'
+        'グレーの背景に白い立方体。カメラが動くにつれて立方体が上下に動くように見えます。立方体の下に黒字で "eyeY: Y" と書かれています。Yは-374から-425の間で振動します。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Style the box.
+      // ボックスのスタイルを設定します。
       fill(255);
 
-      // Draw the box.
+      // ボックスを描画します。
       box();
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER);
       textSize(16);
       textFont(font);
       fill(0);
 
-      // Calculate the new y-coordinate.
+      // 新しいy座標を計算します。
       let y = 25 * sin(frameCount * 0.01) - 400;
 
-      // Set the camera's position.
+      // カメラの位置を設定します。
       cam.setPosition(0, y, 800);
 
-      // Display the value of eyeY, rounded to the nearest integer.
+      // eyeYの値を最も近い整数に丸めて表示します。
       text(`eyeY: ${round(cam.eyeY)}`, 0, 55);
     }
     </code>
@@ -122,3 +119,4 @@ type: Number
 
 
 # eyeY
+

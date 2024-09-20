@@ -4,10 +4,6 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
-  <p>エンベロープのリリースをトリガーします。</p>
-  <p>これは、ピアノのキーを解放して、リリースレベルとリリース時間にしたがって音がフェードアウトするのと似ています。</p>
-
-  <hr/>
   <p>Trigger the Release of the Envelope. This is similar to releasing
   the key on a piano and letting the sound fade according to the
   release level and release time.</p>
@@ -61,12 +57,10 @@ class: p5.Envelope
 params:
   - name: unit
     description: |
-      <p>p5.sound オブジェクトまたは Web Audio Param</p>
       <p>p5.sound Object or Web Audio Param</p>
     type: Object
   - name: secondsFromNow
     description: |
-      <p>リリースをトリガーする時間</p>
       <p>time to trigger the release</p>
     type: Number
 chainable: false

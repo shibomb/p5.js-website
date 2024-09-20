@@ -4,30 +4,13 @@ module: Shape
 submodule: 3D Primitives
 file: src/webgl/p5.Geometry.js
 description: >
-  <p>Removes the internal colors of p5.Geometry. Using
-  <code>clearColors()</code>, you can use <code>fill()</code> to supply new
-  colors before drawing each shape. If <code>clearColors()</code> is not used,
-  the shapes will use their internal colors by ignoring
-  <code>fill()</code>.。</p>
+  <p>ジオメトリの内部カラーを削除します。</p>
 
-  <p>/// todo ///</p>
-
-
-  <hr/>
-
-  <p>Removes the geometry’s internal colors.</p>
-
-  <p><code>p5.Geometry</code> objects can be created with "internal colors"
-  assigned to
-
-  vertices or the entire shape. When a geometry has internal colors,
-
-  <a href="/reference/p5/fill/">fill()</a> has no effect. Calling
-
-  <code>myGeometry.clearColors()</code> allows the
-
-  <a href="/reference/p5/fill/">fill()</a> function to apply color to the
-  geometry.</p>
+  <p><code>p5.Geometry</code>オブジェクトは、頂点や形状全体に割り当てられた
+  「内部カラー」で作成できます。ジオメトリに内部カラーがある場合、
+  <a href="/reference/p5/fill/">fill()</a>は効果がありません。
+  <code>myGeometry.clearColors()</code>を呼び出すことで、
+  <a href="/reference/p5/fill/">fill()</a>関数がジオメトリに色を適用できるようになります。</p>
 line: 863
 isConstructor: false
 itemtype: method
@@ -41,42 +24,42 @@ example:
 
       background(200);
 
-      // Create a p5.Geometry object.
-      // Set its internal color to red.
+      // p5.Geometryオブジェクトを作成します。
+      // 内部カラーを赤に設定します。
       beginGeometry();
       fill(255, 0, 0);
       plane(20);
       let myGeometry = endGeometry();
 
-      // Style the shape.
+      // 形状のスタイルを設定します。
       noStroke();
 
-      // Draw the p5.Geometry object (center).
+      // p5.Geometryオブジェクトを描画します（中央）。
       model(myGeometry);
 
-      // Translate the origin to the bottom-right.
+      // 原点を右下に移動します。
       translate(25, 25, 0);
 
-      // Try to fill the geometry with green.
+      // ジオメトリを緑で塗りつぶそうとします。
       fill(0, 255, 0);
 
-      // Draw the geometry again (bottom-right).
+      // ジオメトリを再度描画します（右下）。
       model(myGeometry);
 
-      // Clear the geometry's colors.
+      // ジオメトリの色をクリアします。
       myGeometry.clearColors();
 
-      // Fill the geometry with blue.
+      // ジオメトリを青で塗りつぶします。
       fill(0, 0, 255);
 
-      // Translate the origin up.
+      // 原点を上に移動します。
       translate(0, -50, 0);
 
-      // Draw the geometry again (top-right).
+      // ジオメトリを再度描画します（右上）。
       model(myGeometry);
 
       describe(
-        'Three squares drawn against a gray background. Red squares are at the center and the bottom-right. A blue square is at the top-right.'
+        '灰色の背景に3つの四角形が描かれています。赤い四角形が中央と右下にあります。青い四角形が右上にあります。'
       );
     }
     </code>
@@ -87,3 +70,4 @@ chainable: false
 
 
 # clearColors
+

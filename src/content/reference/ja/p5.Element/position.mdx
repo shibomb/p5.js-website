@@ -3,18 +3,7 @@ title: position
 module: DOM
 submodule: DOM
 file: src/dom/dom.js
-description: >-
-  <p>要素の位置を設定します。</p>
-
-  <p>位置タイプの引数が与えられない場合、位置はウィンドウの(0, 0)に対して相対的になります。基本的に、これにより position:absolute
-  および style の left および top プロパティが設定されます。位置タイプを指定するオプションの第3引数が与えられた場合、x 座標と y 座標は
-  <a target="_blank"
-  href="https://developer.mozilla.org/ja/docs/Web/CSS/position">位置決めスキーム</a>
-  にもとづいて解釈されます。引数が与えられない場合、関数は要素の x および y 位置を返します。</p>
-
-
-  <hr/>
-
+description: >
   <p>Sets the element's position.</p>
 
   <p>The first two parameters, <code>x</code> and <code>y</code>, set the
@@ -39,20 +28,7 @@ description: >-
   returns
 
   the element's position in an object, as in <code>{ x: 0, y: 0 }</code>.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "x": "Number: (オプション) ウィンドウの左上を基準とした x 位置(オプション)",
-      "y": "Number: (オプション) ウィンドウの左上を基準とした y 位置(オプション)",
-      "positionType": "String: (オプション) static, fixed, relative, sticky, initial, inherit のいずれか(オプション)"
-  }
-
-  </pre>
-line: 2961
+line: 2962
 isConstructor: false
 itemtype: method
 example:
@@ -91,17 +67,15 @@ example:
     </div>
 class: p5.Element
 return:
-  description: |-
-    要素の位置を含むオブジェクト { x: 0, y: 0 }形式のオブジェクト
-    object of form `{ x: 0, y: 0 }` containing the element's position.
+  description: 'object of form `{ x: 0, y: 0 }` containing the element''s position.'
   type: Object
 overloads:
-  - line: 2961
+  - line: 2962
     params: []
     return:
       description: 'object of form `{ x: 0, y: 0 }` containing the element''s position.'
       type: Object
-  - line: 3012
+  - line: 3013
     params:
       - name: x
         description: |

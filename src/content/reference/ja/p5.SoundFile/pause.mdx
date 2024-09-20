@@ -3,27 +3,12 @@ title: pause
 module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
-description: >
-  <p>現在再生中のファイルを一時停止します。</p>
-
-  <p>ファイルが再生されていない場合は何も起こりません。</p>
-
-  <p>.play() は、一時停止した位置から再開されます。p5.SoundFile がループに設定されていた場合、一時停止する前に、.play()
-  による再生が継続され、.play() で再開された後もループが続行されます。</p>
-
-
-  <hr/>
-
+description: |
   <p>Pauses a file that is currently playing. If the file is not
-
   playing, then nothing will happen.</p>
-
   <p>After pausing, .play() will resume from the paused
-
   position.
-
   If p5.SoundFile had been set to loop before it was paused,
-
   it will continue to loop after it is unpaused with .play().</p>
 line: 1847
 isConstructor: false
@@ -57,7 +42,6 @@ class: p5.SoundFile
 params:
   - name: startTime
     description: |
-      <p>(オプション) イベントをスケジュールする時刻（現在時刻からの秒数）</p>
       <p>(optional) schedule event to occur
                                    seconds from now</p>
     type: Number

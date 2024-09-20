@@ -4,15 +4,6 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: >
-  <p>p5.SoundFile を.wav ファイルとして保存します。</p>
-
-  <p>ブラウザーはユーザーにファイルをダウンロードするように促します。サーバーにオーディオをアップロードする場合は、<a
-  href="/docs/reference/#/p5.SoundFile/saveBlob"><code>p5.SoundFile.saveBlob</code></a>
-  を使用してください。</p>
-
-
-  <hr/>
-
   <p>Save a p5.SoundFile as a .wav file. The browser will prompt the user
 
   to download the file to their device.
@@ -28,12 +19,10 @@ class: p5
 params:
   - name: soundFile
     description: |
-      <p>保存したい p5.SoundFile</p>
       <p>p5.SoundFile that you wish to save</p>
     type: p5.SoundFile
   - name: fileName
     description: |
-      <p>.wav ファイルの名前。</p>
       <p>name of the resulting .wav file.</p>
     type: String
 chainable: false

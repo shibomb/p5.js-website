@@ -4,29 +4,11 @@ module: 3D
 submodule: Material
 file: src/webgl/material.js
 description: >
-  <p>現在のマテリアルを通常のマテリアルとして設定します。</p>
+  <p>現在のマテリアルをノーマルマテリアルに設定します。</p>
 
-  <p></p>
+  <p>ノーマルマテリアルは、x軸に向いている面を赤、y軸に向いている面を緑、z軸に向いている面を青に設定します。ノーマルマテリアルは光の影響を受けません。デバッグ時のプレースホルダーマテリアルとしてよく使用されます。</p>
 
-  <p>通常のマテリアルは光の影響を受けません。デバッグ時にプレースホルダーマテリアルとしてよく使われます。</p>
-
-  <p>X 軸に面した面は赤くなり、Y 軸に面した面は緑になり、Z 軸に面した面は青になります。</p>
-
-  <p>他のマテリアルは、この <a href="/examples/3d-materials.html">例</a> で見ることができます。</p>
-
-
-  <hr/>
-
-  <p>Sets the current material as a normal material.</p>
-
-  <p>A normal material sets surfaces facing the x-axis to red, those facing the
-
-  y-axis to green, and those facing the z-axis to blue. Normal material isn't
-
-  affected by light. It’s often used as a placeholder material when
-  debugging.</p>
-
-  <p>Note: <code>normalMaterial()</code> can only be used in WebGL mode.</p>
+  <p>注意：<code>normalMaterial()</code>はWebGLモードでのみ使用できます。</p>
 line: 1510
 isConstructor: false
 itemtype: method
@@ -35,24 +17,24 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // クリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A multicolor torus drawn on a gray background.');
+      describe('灰色の背景に描かれたマルチカラーのトーラス。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Style the torus.
+      // トーラスのスタイルを設定します。
       normalMaterial();
 
-      // Draw the torus.
+      // トーラスを描画します。
       torus(30);
     }
     </code>
@@ -63,3 +45,4 @@ chainable: true
 
 
 # normalMaterial
+

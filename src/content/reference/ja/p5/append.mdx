@@ -4,15 +4,11 @@ module: Data
 submodule: Array Functions
 file: src/utilities/array_functions.js
 description: |
-  <p>配列の末尾に値を追加します。</p>
-  <p>配列の長さがひとつ延びます。Array.push() に対応します。</p>
-
-  <hr/>
-  <p>Adds a value to the end of an array. Extends the length of
-  the array by one. Maps to Array.push().</p>
+  <p>配列の末尾に値を追加します。配列の長さを1つ増やします。
+  Array.push()にマッピングされます。</p>
 line: 10
 isConstructor: false
-itemtype: method
+itemtype: メソッド
 example:
   - |-
 
@@ -29,18 +25,14 @@ class: p5
 params:
   - name: array
     description: |
-      <p>追加する配列</p>
-      <p>Array to append</p>
+      <p>追加先の配列</p>
     type: Array
   - name: value
     description: |
       <p>配列に追加される値</p>
-      <p>to be added to the Array</p>
     type: Any
 return:
-  description: |-
-    追加された配列
-    the array that was appended to
+  description: 追加された配列
   type: Array
 chainable: false
 ---

@@ -4,89 +4,52 @@ module: Shape
 submodule: 3D Primitives
 file: src/webgl/p5.Geometry.js
 description: >
-  <p>各頂点について、各面の平均としてスムーズな法線を計算します。</p>
+  <p>ジオメトリの各頂点の法線ベクトルを計算します。</p>
 
-  <p></p>
+  <p>すべての3D形状は、<em>頂点</em>と呼ばれる点の集合を接続して作られています。
 
-  <p>/// todo ///</p>
+  ジオメトリの表面は、頂点を接続して三角形を作り、それらを縫い合わせることで
 
-  <p>This function calculates normals for each face, where each vertex's normal
-  is the average of the normals of all faces it's connected to. i.e computes
-  smooth normals per vertex as an average of each face.</p>
+  形成されます。ジオメトリの表面上の三角形のパッチは<em>面</em>と呼ばれます。
 
-  <p>When using <code>FLAT</code> shading, vertices are disconnected/duplicated
-  i.e each face has its own copy of vertices. When using <code>SMOOTH</code>
-  shading, vertices are connected/deduplicated i.e each face has its vertices
-  shared with other faces.</p>
+  <code>myGeometry.computeNormals()</code>は、各面の向きを決めるために必要な
 
-  <p>Options can include: <ul> <li><code>roundToPrecision</code>: Precision
-  value for rounding computations. Defaults to 3.</li> </ul></p>
+  計算を行います。向きは、照明やその他の効果のために重要です。</p>
 
+  <p>面の向きは、その<em>法線ベクトル</em>によって定義されます。法線ベクトルは
 
-  <hr/>
+  面から外向きに伸び、表面に対して垂直（法線）です。
 
-  <p>Calculates the normal vector for each vertex on the geometry.</p>
+  <code>myGeometry.computeNormals()</code>を呼び出すと、まず各面の法線ベクトルを
 
-  <p>All 3D shapes are made by connecting sets of points called
-  <em>vertices</em>. A
+  計算します。次に、各頂点の周囲の面の法線ベクトルを平均化して、各頂点の
 
-  geometry's surface is formed by connecting vertices to create triangles
+  法線ベクトルを計算します。頂点の法線は<a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトとして
 
-  that are stitched together. Each triangular patch on the geometry's
+  <a href="/reference/p5.Geometry/vertexNormals/">myGeometry.vertexNormals</a>配列に格納されます。</p>
 
-  surface is called a <em>face</em>. <code>myGeometry.computeNormals()</code>
-  performs the
+  <p>最初のパラメータ<code>shadingType</code>はオプションです。定数<code>FLAT</code>を渡すと、
 
-  math needed to orient each face. Orientation is important for lighting
+  例えば<code>myGeometry.computeNormals(FLAT)</code>のように、隣接する面に共有する
 
-  and other effects.</p>
+  頂点のコピーを提供します。表面はフラットシェーディングでタイル状に見えます。
 
-  <p>A face's orientation is defined by its <em>normal vector</em> which points
-  out
+  定数<code>SMOOTH</code>を渡すと、例えば<code>myGeometry.computeNormals(SMOOTH)</code>のように、
 
-  of the face and is normal (perpendicular) to the surface. Calling
+  隣接する面が共有する頂点を再利用します。表面はスムースシェーディングで
 
-  <code>myGeometry.computeNormals()</code> first calculates each face's normal
-  vector.
+  より滑らかに見えます。デフォルトでは、<code>shadingType</code>は<code>FLAT</code>です。</p>
 
-  Then it calculates the normal vector for each vertex by averaging the
+  <p>2番目のパラメータ<code>options</code>もオプションです。<code>roundToPrecision</code>
 
-  normal vectors of the faces surrounding the vertex. The vertex normals
+  プロパティを持つオブジェクトを渡すと、例えば
 
-  are stored as <a href="/reference/p5/p5.Vector/">p5.Vector</a> objects in the
+  <code>myGeometry.computeNormals(SMOOTH, { roundToPrecision: 5 })</code>のように、
 
-  <a href="/reference/p5.Geometry/vertexNormals/">myGeometry.vertexNormals</a>
-  array.</p>
+  計算に使用する小数点以下の桁数を設定します。デフォルトでは、
 
-  <p>The first parameter, <code>shadingType</code>, is optional. Passing the
-  constant
-
-  <code>FLAT</code>, as in <code>myGeometry.computeNormals(FLAT)</code>,
-  provides neighboring
-
-  faces with their own copies of the vertices they share. Surfaces appear
-
-  tiled with flat shading. Passing the constant <code>SMOOTH</code>, as in
-
-  <code>myGeometry.computeNormals(SMOOTH)</code>, makes neighboring faces reuse
-  their
-
-  shared vertices. Surfaces appear smoother with smooth shading. By
-
-  default, <code>shadingType</code> is <code>FLAT</code>.</p>
-
-  <p>The second parameter, <code>options</code>, is also optional. If an object
-  with a
-
-  <code>roundToPrecision</code> property is passed, as in
-
-  <code>myGeometry.computeNormals(SMOOTH, { roundToPrecision: 5 })</code>, it
-  sets the
-
-  number of decimal places to use for calculations. By default,
-
-  <code>roundToPrecision</code> uses 3 decimal places.</p>
-line: 1286
+  <code>roundToPrecision</code>は3桁の小数点を使用します。</p>
+line: 1508
 isConstructor: false
 itemtype: method
 example:
@@ -94,60 +57,60 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     let myGeometry;
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Geometry object.
+      // p5.Geometryオブジェクトを作成します。
       beginGeometry();
       torus();
       myGeometry = endGeometry();
 
-      // Compute the vertex normals.
+      // 頂点の法線を計算します。
       myGeometry.computeNormals();
 
       describe(
-        "A white torus drawn on a dark gray background. Red lines extend outward from the torus' vertices."
+        "暗い灰色の背景に描かれた白いトーラス。トーラスの頂点から赤い線が外側に伸びています。"
       );
     }
 
     function draw() {
       background(50);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Turn on the lights.
+      // ライトをオンにします。
       lights();
 
-      // Rotate the coordinate system.
+      // 座標系を回転させます。
       rotateX(1);
 
-      // Style the helix.
+      // らせんのスタイルを設定します。
       stroke(0);
 
-      // Display the helix.
+      // らせんを表示します。
       model(myGeometry);
 
-      // Style the normal vectors.
+      // 法線ベクトルのスタイルを設定します。
       stroke(255, 0, 0);
 
-      // Iterate over the vertices and vertexNormals arrays.
+      // verticesとvertexNormals配列を反復処理します。
       for (let i = 0; i < myGeometry.vertices.length; i += 1) {
 
-        // Get the vertex p5.Vector object.
+        // 頂点のp5.Vectorオブジェクトを取得します。
         let v = myGeometry.vertices[i];
 
-        // Get the vertex normal p5.Vector object.
+        // 頂点の法線のp5.Vectorオブジェクトを取得します。
         let n = myGeometry.vertexNormals[i];
 
-        // Calculate a point along the vertex normal.
+        // 頂点の法線に沿った点を計算します。
         let p = p5.Vector.mult(n, 5);
 
-        // Draw the vertex normal as a red line.
+        // 頂点の法線を赤い線として描画します。
         push();
         translate(v);
         line(0, 0, 0, p.x, p.y, p.z);
@@ -159,48 +122,48 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     let myGeometry;
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Geometry object using a callback function.
+      // コールバック関数を使用してp5.Geometryオブジェクトを作成します。
       myGeometry = new p5.Geometry();
 
-      // Create p5.Vector objects to position the vertices.
+      // 頂点の位置を決めるp5.Vectorオブジェクトを作成します。
       let v0 = createVector(-40, 0, 0);
       let v1 = createVector(0, -40, 0);
       let v2 = createVector(0, 40, 0);
       let v3 = createVector(40, 0, 0);
 
-      // Add the vertices to the p5.Geometry object's vertices array.
+      // p5.Geometryオブジェクトのvertices配列に頂点を追加します。
       myGeometry.vertices.push(v0, v1, v2, v3);
 
-      // Compute the faces array.
+      // faces配列を計算します。
       myGeometry.computeFaces();
 
-      // Compute the surface normals.
+      // 表面の法線を計算します。
       myGeometry.computeNormals();
 
-      describe('A red square drawn on a gray background.');
+      describe('灰色の背景に描かれた赤い四角形。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Add a white point light.
+      // 白い点光源を追加します。
       pointLight(255, 255, 255, 0, 0, 10);
 
-      // Style the p5.Geometry object.
+      // p5.Geometryオブジェクトのスタイルを設定します。
       noStroke();
       fill(255, 0, 0);
 
-      // Draw the p5.Geometry object.
+      // p5.Geometryオブジェクトを描画します。
       model(myGeometry);
     }
     </code>
@@ -208,43 +171,43 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     let myGeometry;
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Geometry object.
+      // p5.Geometryオブジェクトを作成します。
       myGeometry = buildGeometry(createShape);
 
-      // Compute normals using default (FLAT) shading.
+      // デフォルト（FLAT）シェーディングを使用して法線を計算します。
       myGeometry.computeNormals(FLAT);
 
-      describe('A white, helical structure drawn on a dark gray background. Its faces appear faceted.');
+      describe('暗い灰色の背景に描かれた白いらせん構造。その面はファセット状に見えます。');
     }
 
     function draw() {
       background(50);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Turn on the lights.
+      // ライトをオンにします。
       lights();
 
-      // Rotate the coordinate system.
+      // 座標系を回転させます。
       rotateX(1);
 
-      // Style the helix.
+      // らせんのスタイルを設定します。
       noStroke();
 
-      // Display the helix.
+      // らせんを表示します。
       model(myGeometry);
     }
 
     function createShape() {
-      // Create a helical shape.
+      // らせん形状を作成します。
       beginShape();
       for (let i = 0; i < TWO_PI * 3; i += 0.5) {
         let x = 30 * cos(i);
@@ -259,43 +222,43 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     let myGeometry;
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Geometry object.
+      // p5.Geometryオブジェクトを作成します。
       myGeometry = buildGeometry(createShape);
 
-      // Compute normals using smooth shading.
+      // スムースシェーディングを使用して法線を計算します。
       myGeometry.computeNormals(SMOOTH);
 
-      describe('A white, helical structure drawn on a dark gray background.');
+      describe('暗い灰色の背景に描かれた白いらせん構造。');
     }
 
     function draw() {
       background(50);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Turn on the lights.
+      // ライトをオンにします。
       lights();
 
-      // Rotate the coordinate system.
+      // 座標系を回転させます。
       rotateX(1);
 
-      // Style the helix.
+      // らせんのスタイルを設定します。
       noStroke();
 
-      // Display the helix.
+      // らせんを表示します。
       model(myGeometry);
     }
 
     function createShape() {
-      // Create a helical shape.
+      // らせん形状を作成します。
       beginShape();
       for (let i = 0; i < TWO_PI * 3; i += 0.5) {
         let x = 30 * cos(i);
@@ -310,46 +273,46 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     let myGeometry;
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Geometry object.
+      // p5.Geometryオブジェクトを作成します。
       myGeometry = buildGeometry(createShape);
 
-      // Create an options object.
+      // オプションオブジェクトを作成します。
       let options = { roundToPrecision: 5 };
 
-      // Compute normals using smooth shading.
+      // スムースシェーディングを使用して法線を計算します。
       myGeometry.computeNormals(SMOOTH, options);
 
-      describe('A white, helical structure drawn on a dark gray background.');
+      describe('暗い灰色の背景に描かれた白いらせん構造。');
     }
 
     function draw() {
       background(50);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Turn on the lights.
+      // ライトをオンにします。
       lights();
 
-      // Rotate the coordinate system.
+      // 座標系を回転させます。
       rotateX(1);
 
-      // Style the helix.
+      // らせんのスタイルを設定します。
       noStroke();
 
-      // Display the helix.
+      // らせんを表示します。
       model(myGeometry);
     }
 
     function createShape() {
-      // Create a helical shape.
+      // らせん形状を作成します。
       beginShape();
       for (let i = 0; i < TWO_PI * 3; i += 0.5) {
         let x = 30 * cos(i);
@@ -364,18 +327,13 @@ example:
 class: p5.Geometry
 params:
   - name: shadingType
-    description: >
-      <p>(Optional) shading type (<code>FLAT</code> for flat shading or
-      <code>SMOOTH</code> for smooth shading) for buildGeometry() outputs.
-      Defaults to <code>FLAT</code>. /// todo /// </p>
-
-      <p>shading type. either FLAT or SMOOTH. Defaults to <code>FLAT</code>.</p>
+    description: |
+      <p>シェーディングタイプ。FLATまたはSMOOTH。デフォルトは<code>FLAT</code>です。</p>
     type: String
     optional: true
   - name: options
     description: |
-      <p>(Optional) An optional object with configuration. /// todo /// </p>
-      <p>shading options.</p>
+      <p>シェーディングオプション。</p>
     type: Object
     optional: true
 chainable: true
@@ -383,3 +341,4 @@ chainable: true
 
 
 # computeNormals
+

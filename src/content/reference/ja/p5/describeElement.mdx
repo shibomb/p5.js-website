@@ -4,84 +4,37 @@ module: Environment
 submodule: Environment
 file: src/accessibility/describe.js
 description: >
-  <p>この関数は、キャンバス内の要素（一緒に意味を作り出す形状または形状のグループ）に対してスクリーンリーダー対応の説明を作成します。</p>
+  <p>キャンバス内の要素のスクリーンリーダーでアクセス可能な説明を作成します。</p>
 
-  <p>最初のパラメーターは要素の名前である必要があります。2つ目のパラメーターは、要素の説明を示す文字列である必要があります。3つ目のパラメーターはオプションです。指定された場合、要素の説明の表示方法が決まります。</p>
+  <p>要素とは、形状または一緒に意味を作り出す形状のグループです。例えば、
 
-  <p><code class="language-javascript">describeElement(name, text, LABEL)</code>
-  は、キャンバスに隣接する div 内にある <a href="https://en.wikipedia.org/wiki/Museum_label"
-  target="_blank">キャプションパネル</a> として、すべてのユーザーに要素の説明を表示します。CSS
-  で好みのスタイルに変更できます。</p>
+  いくつかの重なり合う円が「目」の要素を作り出すことができます。</p>
 
-  <p><code class="language-javascript">describeElement(name, text,
-  FALLBACK)</code> は、<a
-  href="https://developer.mozilla.org/ja/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility"
-  target="_blank">キャンバス要素内のサブ DOM</a>
-  で、スクリーンリーダーユーザーのみが要素の説明を利用できるようにします。2つ目のパラメーターが指定されていない場合、デフォルトで要素の説明はスクリーンリーダーユーザーにのみ利用可能です。</p>
+  <p>最初のパラメータ<code>name</code>は、要素の名前です。</p>
 
-  <p>/// todo ///</p>
+  <p>2番目のパラメータ<code>text</code>は、要素の説明です。</p>
 
-  <p>Creates a screen reader-accessible description for elements in the canvas.
-  Elements are shapes or groups of shapes that create meaning together.</p>
+  <p>3番目のパラメータ<code>display</code>はオプションです。これは説明の
 
-  <p>The first parameter, <code>name</code>, is the name of the element.</p>
+  表示方法を決定します。<code>LABEL</code>が渡された場合、
 
-  <p>The second parameter, <code>text</code>, is the description of the
-  element.</p>
+  <code>describe('説明文', LABEL)</code>のように、説明はキャンバスの隣の
 
-  <p>The third parameter, <code>display</code>, is optional. It determines how
-  the description is displayed. If <code>LABEL</code> is passed, as in
-  <code>describe('A description.', LABEL)</code>, the description will be
-  visible in a div element next to the canvas. Using <code>LABEL</code> creates
-  unhelpful duplicates for screen readers. Only use <code>LABEL</code> during
-  development. If <code>FALLBACK</code> is passed, as in <code>describe('A
-  description.', FALLBACK)</code>, the description will only be visible to
-  screen readers. This is the default mode.</p>
+  div要素に表示されます。<code>LABEL</code>を使用すると、スクリーンリーダーにとって
 
-  <p>Read <a href="/learn/labeling-canvases.html">How to label your p5.js
-  code</a> to learn more about making sketches accessible.</p>
+  役に立たない重複が生じます。<code>LABEL</code>は開発中にのみ使用してください。
 
+  <code>FALLBACK</code>が渡された場合、<code>describe('説明文', FALLBACK)</code>のように、
 
-  <hr/>
+  説明はスクリーンリーダーにのみ表示されます。これがデフォルトの
 
-  <p>Creates a screen reader-accessible description of elements in the
-  canvas.</p>
+  モードです。</p>
 
-  <p>Elements are shapes or groups of shapes that create meaning together. For
+  <p>スケッチをアクセシブルにする方法について詳しく学ぶには、
 
-  example, a few overlapping circles could make an "eye" element.</p>
+  <a href="/learn/accessible-labels.html">アクセシブルなキャンバスの説明を書く</a>
 
-  <p>The first parameter, <code>name</code>, is the name of the element.</p>
-
-  <p>The second parameter, <code>text</code>, is the description of the
-  element.</p>
-
-  <p>The third parameter, <code>display</code>, is optional. It determines how
-  the
-
-  description is displayed. If <code>LABEL</code> is passed, as in
-
-  <code>describe('A description.', LABEL)</code>, the description will be
-  visible in
-
-  a div element next to the canvas. Using <code>LABEL</code> creates unhelpful
-
-  duplicates for screen readers. Only use <code>LABEL</code> during development.
-  If
-
-  <code>FALLBACK</code> is passed, as in <code>describe('A description.',
-  FALLBACK)</code>, the
-
-  description will only be visible to screen readers. This is the default
-
-  mode.</p>
-
-  <p>Read
-
-  <a href="/learn/accessible-labels.html">Writing accessible canvas
-  descriptions</a>
-
-  to learn more about making sketches accessible.</p>
+  をお読みください。</p>
 line: 162
 isConstructor: false
 itemtype: method
@@ -93,23 +46,23 @@ example:
     function setup() {
       background('pink');
 
-      // Describe the first element
-      // and draw it.
-      describeElement('Circle', 'A yellow circle in the top-left corner.');
+      // 最初の要素を説明し、
+      // 描画します。
+      describeElement('Circle', '左上隅にある黄色い円。');
       noStroke();
       fill('yellow');
       circle(25, 25, 40);
 
-      // Describe the second element
-      // and draw it.
-      describeElement('Heart', 'A red heart in the bottom-right corner.');
+      // 2番目の要素を説明し、
+      // 描画します。
+      describeElement('Heart', '右下隅にある赤いハート。');
       fill('red');
       circle(66.6, 66.6, 20);
       circle(83.2, 66.6, 20);
       triangle(91.2, 72.6, 75, 95, 58.6, 72.6);
 
-      // Add a general description of the canvas.
-      describe('A red heart and yellow circle over a pink background.');
+      // キャンバスの一般的な説明を追加します。
+      describe('ピンクの背景に赤いハートと黄色い円。');
     }
     </code>
     </div>
@@ -119,25 +72,25 @@ example:
     function setup() {
       background('pink');
 
-      // Describe the first element
-      // and draw it. Display the
-      // description for debugging.
-      describeElement('Circle', 'A yellow circle in the top-left corner.', LABEL);
+      // 最初の要素を説明し、
+      // 描画します。デバッグ用に
+      // 説明を表示します。
+      describeElement('Circle', '左上隅にある黄色い円。', LABEL);
       noStroke();
       fill('yellow');
       circle(25, 25, 40);
 
-      // Describe the second element
-      // and draw it. Display the
-      // description for debugging.
-      describeElement('Heart', 'A red heart in the bottom-right corner.', LABEL);
+      // 2番目の要素を説明し、
+      // 描画します。デバッグ用に
+      // 説明を表示します。
+      describeElement('Heart', '右下隅にある赤いハート。', LABEL);
       fill('red');
       circle(66.6, 66.6, 20);
       circle(83.2, 66.6, 20);
       triangle(91.2, 72.6, 75, 95, 58.6, 72.6);
 
-      // Add a general description of the canvas.
-      describe('A red heart and yellow circle over a pink background.');
+      // キャンバスの一般的な説明を追加します。
+      describe('ピンクの背景に赤いハートと黄色い円。');
     }
     </code>
     </div>
@@ -145,18 +98,15 @@ class: p5
 params:
   - name: name
     description: |
-      <p>要素の名前</p>
-      <p>name of the element.</p>
+      <p>要素の名前。</p>
     type: String
   - name: text
     description: |
-      <p>要素の説明</p>
-      <p>description of the element.</p>
+      <p>要素の説明。</p>
     type: String
   - name: display
     description: |
-      <p>(オプション) LABEL または FALLBACK のいずれか</p>
-      <p>either LABEL or FALLBACK.</p>
+      <p>LABELまたはFALLBACK。</p>
     type: Constant
     optional: true
 chainable: false
@@ -164,3 +114,4 @@ chainable: false
 
 
 # describeElement
+

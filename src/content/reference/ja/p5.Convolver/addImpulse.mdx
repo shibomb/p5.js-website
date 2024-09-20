@@ -3,15 +3,7 @@ title: addImpulse
 module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
-description: >
-  <p>新しいインパルス応答をロードして割り当てます。</p>
-
-  <p>インパルスは <code>.impulses</code> 配列に追加され、<code>.toggleImpulse(id)</code>
-  メソッドを使用して前のインパルスに切り替えることができます。</p>
-
-
-  <hr/>
-
+description: |
   <p>Load and assign a new Impulse Response to the p5.Convolver.
   The impulse is added to the <code>.impulses</code> array. Previous
   impulses can be accessed with the <code>.toggleImpulse(id)</code>
@@ -23,17 +15,14 @@ class: p5.Convolver
 params:
   - name: path
     description: |
-      <p>サウンドファイルへのパス</p>
       <p>path to a sound file</p>
     type: String
   - name: callback
     description: |
-      <p>関数 (オプション) </p>
       <p>function (optional)</p>
     type: Function
   - name: errorCallback
     description: |
-      <p>関数 (オプション) </p>
       <p>function (optional)</p>
     type: Function
 chainable: false

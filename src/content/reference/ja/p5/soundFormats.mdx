@@ -3,15 +3,7 @@ title: soundFormats
 module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
-description: >
-  <p>SoundFile フォーマットをリストアップし、クライアントの Web ブラウザーに適合するフォーマットを探します。</p>
-
-  <p>LoadSound はこれらの拡張子を検索し、変換が必要な場合は <a href="http://media.io/">こちら</a>
-  の無料のオンラインファイルコンバーターを使用してください。</p>
-
-
-  <hr/>
-
+description: |
   <p>List the SoundFile formats that you will include. LoadSound
   will search your directory for these extensions, and will pick
   a format that is compatable with the client's web browser.
@@ -45,7 +37,6 @@ class: p5
 params:
   - name: formats
     description: |
-      <p>(オプション) 例: 'mp3', 'wav', 'ogg'</p>
       <p>i.e. 'mp3', 'wav', 'ogg'</p>
     type: String
     optional: true

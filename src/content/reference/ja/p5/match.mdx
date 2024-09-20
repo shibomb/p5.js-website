@@ -4,19 +4,6 @@ module: Data
 submodule: String Functions
 file: src/utilities/string_functions.js
 description: >
-  <p>この関数は、テキストに正規表現を適用し、一致するグループ(括弧内に見つかった要素)を文字列配列として返すために使用されます。</p>
-
-  <p>一致がない場合は null
-  値が返されます。正規表現でグループが指定されていない場合でも、シーケンスが一致する場合は、配列の長さ1(一致したテキストが配列の最初の要素)が返されます。</p>
-
-  <p>関数を使用するには、まず結果が null かどうかを確認します。結果が null
-  の場合、シーケンスはまったく一致しませんでした。シーケンスが一致した場合、配列が返されます。</p>
-
-  <p>正規表現にグループ(括弧で指定されたセット)がある場合、それぞれの内容が配列に返されます。正規表現のマッチングの要素[0]は、マッチングした文字列全体を返し、マッチンググループは要素[1]から始まります(最初のグループは[1]、次は[2]、と続きます)。</p>
-
-
-  <hr/>
-
   <p>Applies a regular expression to a string and returns an array with the
 
   first match.</p>
@@ -85,18 +72,14 @@ class: p5
 params:
   - name: str
     description: |
-      <p>検索対象の文字列</p>
       <p>string to search.</p>
     type: String
   - name: regexp
     description: |
-      <p>マッチングに使用される正規表現</p>
       <p>regular expression to match.</p>
     type: String
 return:
-  description: |-
-    見つかった文字列の配列
-    match if found.
+  description: match if found.
   type: 'String[]'
 chainable: false
 ---

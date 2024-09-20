@@ -3,14 +3,7 @@ title: feedback
 module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
-description: >
-  <p>遅延が自己にループバックすると、フィードバックが発生します。</p>
-
-  <p>フィードバック量は、ループを通るたびに送信する信号の量を決定します。フィードバックが1.0を超えると、全体の出力がループを通るたびに増加し、無限のフィードバックループが作成されます。デフォルト値は0.5です。</p>
-
-
-  <hr/>
-
+description: |
   <p>Feedback occurs when Delay sends its signal back through its input
   in a loop. The feedback amount determines how much signal to send each
   time through the loop. A feedback greater than 1.0 is not desirable because
@@ -23,15 +16,12 @@ class: p5.Delay
 params:
   - name: feedback
     description: |
-      <p>0.0から1.0までの値、またはこのパラメーターを変調するために使用できるオシレーターなどのオブジェクト</p>
       <p>0.0 to 1.0, or an object such as an
                                       Oscillator that can be used to
                                       modulate this param</p>
     type: Number|Object
 return:
-  description: |-
-    フィードバック値
-    Feedback value
+  description: Feedback value
   type: Number
 chainable: false
 ---

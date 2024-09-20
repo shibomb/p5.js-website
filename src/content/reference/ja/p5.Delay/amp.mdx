@@ -4,10 +4,6 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
-  <p>遅延効果の出力レベルを設定します。</p>
-  <p></p>
-
-  <hr/>
   <p>Set the output level of the delay effect.</p>
 line: 8223
 isConstructor: false
@@ -16,18 +12,15 @@ class: p5.Delay
 params:
   - name: volume
     description: |
-      <p>0から1.0の振幅</p>
       <p>amplitude between 0 and 1.0</p>
     type: Number
   - name: rampTime
     description: |
-      <p>(オプション) rampTime が持続するフェードを作成します</p>
       <p>create a fade that lasts rampTime</p>
     type: Number
     optional: true
   - name: timeFromNow
     description: |
-      <p>(オプション) このイベントが何秒後に発生するようにスケジュールするか</p>
       <p>schedule this event to happen
                                     seconds from now</p>
     type: Number

@@ -3,70 +3,35 @@ title: point
 module: Shape
 submodule: 2D Primitives
 file: src/core/shape/2d_primitives.js
-description: >-
-  <p>点を描画します。</p>
+description: >
+  <p>空間に単一の点を描画します。</p>
 
-  <p>これは空間内の単一の座標です。デフォルトのサイズは1ピクセルです。最初の2つのパラメーターは、それぞれポイントのx座標とy座標です。ポイントに色を付けるには、<a
-  href="#/p5/stroke">stroke()</a>関数を使用します。そのサイズを変更するには、<a
-  href="#/p5/strokeWeight">strokeWeight()</a>関数を使用します。</p>
+  <p>点のデフォルトの幅は1ピクセルです。点の色を変更するには
 
-  <p>3つのパラメーターをもつ<code>point()</code>のバージョンでは、ポイントを3D空間に描画できます。これを行うには、<a
-  href="#/p5/createCanvas">createCanvas()</a>に<code>WEBGL</code>引数を追加する必要があります。</p>
+  <a href="/reference/p5/stroke/">stroke()</a> 関数を使用します。幅を変更するには
 
-  <p>1つのパラメーターをもつpoint()のバージョンでは、ポイントの位置を<a
-  href="#/p5/p5.Vector">p5.Vector</a>オブジェクトで設定できます。</p>
+  <a href="/reference/p5/strokeWeight/">strokeWeight()</a> 関数を使用します。点は
 
+  塗りつぶすことができないため、<a href="/reference/p5/fill/">fill()</a> 関数は
 
-  <hr/>
+  点の色に影響を与えません。</p>
 
-  <p>Draws a single point in space.</p>
+  <p>2つのパラメータを持つ <code>point()</code> のバージョンでは、点の位置を
 
-  <p>A point's default width is one pixel. To color a point, use the
+  x座標とy座標で設定できます。例: <code>point(10, 20)</code>。</p>
 
-  <a href="/reference/p5/stroke/">stroke()</a> function. To change its width,
-  use the
+  <p>3つのパラメータを持つ <code>point()</code> のバージョンでは、点を
 
-  <a href="/reference/p5/strokeWeight/">strokeWeight()</a> function. A point
+  x座標、y座標、z座標で3D空間に描画できます。例: <code>point(10, 20,
 
-  can't be filled, so the <a href="/reference/p5/fill/">fill()</a> function
-  won't
+  30)</code>。これを行うには、<a href="/reference/p5/createCanvas/">createCanvas()</a> に
 
-  affect the point's color.</p>
+  <code>WEBGL</code> 引数を追加する必要があります。</p>
 
-  <p>The version of <code>point()</code> with two parameters allows the point's
-  location to
+  <p>1つのパラメータを持つ <code>point()</code> のバージョンでは、点の位置を
 
-  be set with its x- and y-coordinates, as in <code>point(10, 20)</code>.</p>
-
-  <p>The version of <code>point()</code> with three parameters allows the point
-  to be drawn
-
-  in 3D space with x-, y-, and z-coordinates, as in <code>point(10, 20,
-  30)</code>.
-
-  Doing so requires adding the <code>WEBGL</code> argument to
-
-  <a href="/reference/p5/createCanvas/">createCanvas()</a>.</p>
-
-  <p>The version of <code>point()</code> with one parameter allows the point's
-  location to
-
-  be set with a <a href="/reference/p5/p5.Vector/">p5.Vector</a> object.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "x": "Number: x 座標",
-      "y": "Number: y 座標",
-      "z": "Number: (オプション) z 座標（WebGL モード用）",
-      "coordinate_vector": "p5.Vector: 座標ベクトル"
-  }
-
-  </pre>
-line: 731
+  <a href="/reference/p5/p5.Vector">p5.Vector</a> オブジェクトで設定できます。</p>
+line: 730
 isConstructor: false
 itemtype: method
 example:
@@ -79,20 +44,20 @@ example:
 
       background(200);
 
-      // Top-left.
+      // 左上
       point(30, 20);
 
-      // Top-right.
+      // 右上
       point(85, 20);
 
-      // Bottom-right.
+      // 右下
       point(85, 75);
 
-      // Bottom-left.
+      // 左下
       point(30, 75);
 
       describe(
-        'Four small, black points drawn on a gray canvas. The points form the corners of a square.'
+        '灰色のキャンバスに4つの小さな黒い点が描かれています。点は正方形の角を形成しています。'
       );
     }
     </code>
@@ -105,24 +70,24 @@ example:
 
       background(200);
 
-      // Top-left.
+      // 左上
       point(30, 20);
 
-      // Top-right.
+      // 右上
       point(70, 20);
 
-      // Style the next points.
+      // 次の点のスタイルを設定
       stroke('purple');
       strokeWeight(10);
 
-      // Bottom-right.
+      // 右下
       point(70, 80);
 
-      // Bottom-left.
+      // 左下
       point(30, 80);
 
       describe(
-        'Four points drawn on a gray canvas. Two are black and two are purple. The points form the corners of a square.'
+        '灰色のキャンバスに4つの点が描かれています。2つは黒で、2つは紫です。点は正方形の角を形成しています。'
       );
     }
     </code>
@@ -135,24 +100,24 @@ example:
 
       background(200);
 
-      // Top-left.
+      // 左上
       let a = createVector(30, 20);
       point(a);
 
-      // Top-right.
+      // 右上
       let b = createVector(70, 20);
       point(b);
 
-      // Bottom-right.
+      // 右下
       let c = createVector(70, 80);
       point(c);
 
-      // Bottom-left.
+      // 左下
       let d = createVector(30, 80);
       point(d);
 
       describe(
-        'Four small, black points drawn on a gray canvas. The points form the corners of a square.'
+        '灰色のキャンバスに4つの小さな黒い点が描かれています。点は正方形の角を形成しています。'
       );
     }
     </code>
@@ -163,20 +128,20 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('Two purple points drawn on a gray canvas.');
+      describe('灰色のキャンバスに2つの紫の点が描かれています。');
     }
 
     function draw() {
       background(200);
 
-      // Style the points.
+      // 点のスタイルを設定
       stroke('purple');
       strokeWeight(10);
 
-      // Top-left.
+      // 左上
       point(-20, -30);
 
-      // Bottom-right.
+      // 右下
       point(20, 30);
     }
     </code>
@@ -187,23 +152,23 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('Two purple points drawn on a gray canvas. The scene spins slowly.');
+      describe('灰色のキャンバスに2つの紫の点が描かれています。シーンはゆっくりと回転します。');
     }
 
     function draw() {
       background(200);
 
-      // Rotate around the y-axis.
+      // y軸周りに回転
       rotateY(frameCount * 0.01);
 
-      // Style the points.
+      // 点のスタイルを設定
       stroke('purple');
       strokeWeight(10);
 
-      // Top-left.
+      // 左上
       point(-20, -30, 0);
 
-      // Bottom-right.
+      // 右下
       point(20, 30, -50);
     }
     </code>
@@ -214,15 +179,15 @@ overloads:
     params:
       - name: x
         description: |
-          <p>the x-coordinate.</p>
+          <p>x座標。</p>
         type: Number
       - name: 'y'
         description: |
-          <p>the y-coordinate.</p>
+          <p>y座標。</p>
         type: Number
       - name: z
         description: |
-          <p>the z-coordinate (for WebGL mode).</p>
+          <p>z座標（WebGLモード用）。</p>
         type: Number
         optional: true
     chainable: 1
@@ -230,7 +195,7 @@ overloads:
     params:
       - name: coordinateVector
         description: |
-          <p>the coordinate vector.</p>
+          <p>座標ベクトル。</p>
         type: p5.Vector
     chainable: 1
 chainable: true

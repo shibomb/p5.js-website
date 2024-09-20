@@ -4,10 +4,6 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
-  <p>音符を再生し、サステイン時間をもつ noteAttack と noteRelease をトリガーします。</p>
-  <p></p>
-
-  <hr/>
   <p>Play a note by triggering noteAttack and noteRelease with sustain time</p>
 line: 11800
 isConstructor: false
@@ -49,25 +45,21 @@ class: p5.PolySynth
 params:
   - name: note
     description: |
-      <p>(オプション) 再生する MIDI ノート（0から127の範囲、60は中央の C 音です）。</p>
       <p>midi note to play (ranging from 0 to 127 - 60 being a middle C)</p>
     type: Number
     optional: true
   - name: velocity
     description: |
-      <p>(オプション) 再生する音符のベロシティ（0から1の範囲）。</p>
       <p>velocity of the note to play (ranging from 0 to 1)</p>
     type: Number
     optional: true
   - name: secondsFromNow
     description: |
-      <p>(オプション) 再生する時間（秒単位）。</p>
       <p>time from now (in seconds) at which to play</p>
     type: Number
     optional: true
   - name: sustainTime
     description: |
-      <p>(オプション) エンベロープを解除する前にサステインする時間（秒単位）。</p>
       <p>time to sustain before releasing the envelope</p>
     type: Number
     optional: true

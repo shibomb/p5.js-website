@@ -3,20 +3,10 @@ title: getSources
 module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
-description: >
-  <p>利用可能な入力ソースのリストを返します。</p>
-
-  <p>これは <a href="https://developer.mozilla.org/
-  en-US/docs/Web/API/MediaDevices/enumerateDevices"
-  target="_blank">MediaDevices.enumerateDevices() - Web APIs | MDN</a>
-  のラッパーで、Promise を返します。</p>
-
-
-  <hr/>
-
+description: |
   <p>Returns a list of available input sources. This is a wrapper
   for <a href="https://developer.mozilla.org/
-  en-US/docs/Web/API/MediaDevices/enumerateDevices" target="_blank">
+  en-US/docs/Web/API/MediaDevices/enumerateDevices/" target="_blank">
   MediaDevices.enumerateDevices() - Web APIs | MDN</a>
   and it returns a Promise.</p>
 line: 6280
@@ -47,7 +37,6 @@ class: p5.AudioIn
 params:
   - name: successCallback
     description: |
-      <p>(オプション) デバイスリスト配列を唯一の引数として受け取るコールバック関数。</p>
       <p>This callback function handles the sources when they
                                            have been enumerated. The callback function
                                            receives the deviceList array as its only argument</p>
@@ -55,14 +44,12 @@ params:
     optional: true
   - name: errorCallback
     description: |
-      <p>(オプション) エラーメッセージを受け取るオプションのコールバック関数。</p>
       <p>This optional callback receives the error
                                          message as its argument.</p>
     type: Function
     optional: true
 return:
   description: |-
-    コールバックの代わりに使用できる Promise が返されます。enumerateDevices() メソッドと同様です
     Returns a Promise that can be used in place of the callbacks, similar
                                to the enumerateDevices() method
   type: Promise

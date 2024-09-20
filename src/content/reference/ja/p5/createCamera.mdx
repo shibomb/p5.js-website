@@ -4,51 +4,31 @@ module: 3D
 submodule: Camera
 file: src/webgl/p5.Camera.js
 description: >
-  <p>新しい <a href="#/p5.Camera">p5.Camera</a>
-  オブジェクトを作成し、現在の(アクティブな)カメラとして設定します。</p>
+  <p>新しい<a href="/reference/p5/p5.Camera">p5.Camera</a>オブジェクトを作成し、
 
-  <p></p>
+  現在の（アクティブな）カメラとして設定します。</p>
 
-  <p>新しいカメラは、デフォルトの位置( <a href="#/p5.Camera/camera">camera()</a>
-  を参照)とデフォルトの遠近法プロジェクション( <a href="#/p5.Camera/perspective">perspective()</a>
-  を参照)で初期化されます。プロパティは <a href="#/p5.Camera">p5.Camera</a> のメソッドで制御できます。</p>
+  <p>新しいカメラは、デフォルトの位置<code>(0, 0, 800)</code>とデフォルトの
 
-  <p>注:すべての 3D スケッチは、デフォルトのカメラで初期化されます。このカメラは、シーン内で唯一のカメラである場合、グローバルなメソッド <a
-  href="#/p5/camera">camera()</a>、<a
-  href="#/p5/perspective">perspective()</a>、<a href="#/p5/ortho">ortho()</a>、および
-  <a href="#/p5/frustum">frustum()</a> で制御できます。</p>
+  透視投影で初期化されます。そのプロパティは
 
+  <a href="/reference/p5/p5.Camera">p5.Camera</a>メソッド（例：
 
-  <hr/>
+  <code>myCamera.lookAt(0, 0, 0)</code>）で制御できます。</p>
 
-  <p>Creates a new <a href="/reference/p5/p5.Camera/">p5.Camera</a> object and
-  sets it
+  <p>注意：すべての3Dスケッチは、初期化されたデフォルトカメラで開始します。
 
-  as the current (active) camera.</p>
+  このカメラは、シーン内で唯一のカメラである場合、
 
-  <p>The new camera is initialized with a default position <code>(0, 0,
-  800)</code> and a
+  <a href="/reference/p5/camera/">camera()</a>、
 
-  default perspective projection. Its properties can be controlled with
+  <a href="/reference/p5/perspective/">perspective()</a>、
 
-  <a href="/reference/p5/p5.Camera/">p5.Camera</a> methods such as
+  <a href="/reference/p5/ortho/">ortho()</a>、
 
-  <code>myCamera.lookAt(0, 0, 0)</code>.</p>
+  <a href="/reference/p5/frustum/">frustum()</a>関数で制御できます。</p>
 
-  <p>Note: Every 3D sketch starts with a default camera initialized.
-
-  This camera can be controlled with the functions
-
-  <a href="/reference/p5/camera/">camera()</a>,
-
-  <a href="/reference/p5/perspective/">perspective()</a>,
-
-  <a href="/reference/p5/ortho/">ortho()</a>, and
-
-  <a href="/reference/p5/frustum/">frustum()</a> if it's the only camera in the
-  scene.</p>
-
-  <p>Note: <code>createCamera()</code> can only be used in WebGL mode.</p>
+  <p>注意：<code>createCamera()</code>はWebGLモードでのみ使用できます。</p>
 line: 638
 isConstructor: false
 itemtype: method
@@ -57,7 +37,7 @@ example:
 
     <div>
     <code>
-    // Double-click to toggle between cameras.
+    // ダブルクリックでカメラを切り替えます。
 
     let cam1;
     let cam2;
@@ -66,31 +46,31 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create the first camera.
-      // Keep its default settings.
+      // 最初のカメラを作成します。
+      // デフォルト設定のままにします。
       cam1 = createCamera();
 
-      // Create the second camera.
-      // Place it at the top-left.
-      // Point it at the origin.
+      // 2番目のカメラを作成します。
+      // 左上に配置します。
+      // 原点を向くようにします。
       cam2 = createCamera();
       cam2.setPosition(400, -400, 800);
       cam2.lookAt(0, 0, 0);
 
-      // Set the current camera to cam1.
+      // 現在のカメラをcam1に設定します。
       setCamera(cam1);
 
-      describe('A white cube on a gray background. The camera toggles between frontal and aerial views when the user double-clicks.');
+      describe('灰色の背景に白い立方体。ユーザーがダブルクリックすると、カメラが正面図と俯瞰図の間で切り替わります。');
     }
 
     function draw() {
       background(200);
 
-      // Draw the box.
+      // 箱を描画します。
       box();
     }
 
-    // Toggle the current camera when the user double-clicks.
+    // ユーザーがダブルクリックしたときに現在のカメラを切り替えます。
     function doubleClicked() {
       if (usingCam1 === true) {
         setCamera(cam2);
@@ -104,12 +84,11 @@ example:
     </div>
 class: p5
 return:
-  description: |-
-    新しく作成されたカメラオブジェクト。
-    the new camera.
+  description: 新しいカメラ。
   type: p5.Camera
 chainable: false
 ---
 
 
 # createCamera
+

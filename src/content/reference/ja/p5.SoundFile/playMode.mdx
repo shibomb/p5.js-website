@@ -3,29 +3,13 @@ title: playMode
 module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
-description: >
-  <p>p5.SoundFile には2つの再生モードがあります:<code>restart</code> と
-  <code>sustain</code>。</p>
-
-  <p>再生モードは、p5.SoundFile が再生中にトリガーされた場合の動作を決定します。sustain
-  モードでは、新しい再生と同時に再生が続行されます。restart モードでは、play() は再生を停止して最初から再生します。untilDone
-  で、サウンドは再生中でない場合にのみ再生されます。sustain がデフォルトのモードです。</p>
-
-
-  <hr/>
-
+description: |
   <p>p5.SoundFile has two play modes: <code>restart</code> and
-
   <code>sustain</code>. Play Mode determines what happens to a
-
   p5.SoundFile if it is triggered while in the middle of playback.
-
   In sustain mode, playback will continue simultaneous to the
-
   new playback. In restart mode, play() will stop playback
-
   and start over. With untilDone, a sound will play only if it's
-
   not already playing. Sustain is the default mode.</p>
 line: 1787
 isConstructor: false
@@ -63,7 +47,6 @@ class: p5.SoundFile
 params:
   - name: str
     description: |
-      <p>'restart'、'sustain'、'untilDone'のいずれか</p>
       <p>'restart' or 'sustain' or 'untilDone'</p>
     type: String
 chainable: false

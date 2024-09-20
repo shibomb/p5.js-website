@@ -6,130 +6,85 @@ file: src/typography/loading_displaying.js
 description: >
   <p>画面上にテキストを描画します。</p>
 
-  <p>追加のパラメーターで指定された位置に、最初のパラメーターで指定された情報を画面上に表示します。<a
-  href="#/p5/textFont">textFont()</a> 関数でフォントが設定されていない場合はデフォルトのフォントが使用され、<a
-  href="#/p5/textSize">textSize()</a>
-  でフォントサイズが設定されていない場合はデフォルトのサイズが使用されます。テキストの色を <a href="#/p5/fill">fill()</a>
-  関数で変更します。テキストのアウトラインを <a href="#/p5/stroke">stroke()</a> 関数と <a
-  href="#/p5/strokeWeight">strokeWeight()</a> 関数で変更します。</p>
+  <p>最初のパラメータは描画するテキストです。2番目と3番目のパラメータは
+  テキストの位置を設定します。デフォルトでは、これらはテキストの左上隅の
+  x座標とy座標です。テキストの配置方法を変更するには、
+  <a href="/reference/p5/textAlign">textAlign()</a>を使用します。</p>
 
-  <p>テキストは <a href="#/p5/textAlign">textAlign()</a>
-  関数に関連して表示され、座標の左、右、および中央に描画するオプションがあります。</p>
+  <p>4番目と5番目のパラメータはオプションで、テキストの最大幅と高さを
+  設定します。テキストがこの領域に収まらない場合、自動的に折り返されます。</p>
 
-  <p>x2 および y2 パラメーターは、文字列データのみで使用できる表示範囲を定義し、現在の <a
-  href="#/p5/rectMode">rectMode()</a>
-  設定にもとづいて解釈されます。指定された矩形内に完全に収まらないテキストは画面に描画されません。x2 と y2
-  が指定されていない場合、デフォルトのベースライン揃えが適用され、テキストは x および y から上向きに描画されます。</p>
-
-  <p><b>WebGL</b>: Opentype/Truetype フォントのみがサポートされています。例のように、<a
-  href="#/p5/loadFont">loadFont()</a> メソッドを使ってフォントを読み込む必要があります。<a
-  href="#/p5/stroke">stroke()</a> は、現在 webgl モードでは効果がありません。WebGL
-  モードでテキストを操作する方法については、<a
-  href="https://github.com/processing/p5.js/wiki/Getting-started-with-WebGL-in-p5#text">wiki</a>
-  を参照してください。</p>
-
-
-  <hr/>
-
-  <p>Draws text to the canvas.</p>
-
-  <p>The first parameter, <code>str</code>, is the text to be drawn. The second
-  and third
-
-  parameters, <code>x</code> and <code>y</code>, set the coordinates of the
-  text's bottom-left
-
-  corner. See <a href="/reference/p5/textAlign/">textAlign()</a> for other ways
-  to
-
-  align text.</p>
-
-  <p>The fourth and fifth parameters, <code>maxWidth</code> and
-  <code>maxHeight</code>, are optional.
-
-  They set the dimensions of the invisible rectangle containing the text. By
-
-  default, they set its  maximum width and height. See
-
-  <a href="/reference/p5/rectMode/">rectMode()</a> for other ways to define the
-
-  rectangular text box. Text will wrap to fit within the text box. Text
-
-  outside of the box won't be drawn.</p>
-
-  <p>Text can be styled a few ways. Call the <a
-  href="/reference/p5/fill/">fill()</a>
-
-  function to set the text's fill color. Call
-
-  <a href="/reference/p5/stroke/">stroke()</a> and
-
-  <a href="/reference/p5/strokeWeight/">strokeWeight()</a> to set the text's
-  outline.
-
-  Call <a href="/reference/p5/textSize/">textSize()</a> and
-
-  <a href="/reference/p5/textFont/">textFont()</a> to set the text's size and
-  font,
-
-  respectively.</p>
-
-  <p>Note: <code>WEBGL</code> mode only supports fonts loaded with
-
-  <a href="/reference/p5/loadFont/">loadFont()</a>. Calling
-
-  <a href="/reference/p5/stroke/">stroke()</a> has no effect in
-  <code>WEBGL</code> mode.</p>
-line: 182
+  <p><a href="/reference/p5/loadFont">loadFont()</a>を使用してフォントをロードし、
+  <a href="/reference/p5/textFont">textFont()</a>を使用してフォントを設定できます。</p>
+line: 472
 isConstructor: false
 itemtype: method
 example:
-  - "\n<div>\n<code>\nfunction setup() {\n  background(200);\n  text('hi', 50, 50);\n\n  describe('The text \"hi\" written in black in the middle of a gray square.');\n}\n</code>\n</div>\n\n<div>\n<code>\nfunction setup() {\n  background('skyblue');\n  textSize(100);\n  text('\U0001F308', 0, 100);\n\n  describe('A rainbow in a blue sky.');\n}\n</code>\n</div>\n\n<div>\n<code>\nfunction setup() {\n  textSize(32);\n  fill(255);\n  stroke(0);\n  strokeWeight(4);\n  text('hi', 50, 50);\n\n  describe('The text \"hi\" written in white with a black outline.');\n}\n</code>\n</div>\n\n<div>\n<code>\nfunction setup() {\n  background('black');\n  textSize(22);\n  fill('yellow');\n  text('rainbows', 6, 20);\n  fill('cornflowerblue');\n  text('rainbows', 6, 45);\n  fill('tomato');\n  text('rainbows', 6, 70);\n  fill('limegreen');\n  text('rainbows', 6, 95);\n\n  describe('The text \"rainbows\" written on several lines, each in a different color.');\n}\n</code>\n</div>\n\n<div>\n<code>\nfunction setup() {\n  background(200);\n  let s = 'The quick brown fox jumps over the lazy dog.';\n  text(s, 10, 10, 70, 80);\n\n  describe('The sample text \"The quick brown fox...\" written in black across several lines.');\n}\n</code>\n</div>\n\n<div>\n<code>\nfunction setup() {\n  background(200);\n  rectMode(CENTER);\n  let s = 'The quick brown fox jumps over the lazy dog.';\n  text(s, 50, 50, 70, 80);\n\n  describe('The sample text \"The quick brown fox...\" written in black across several lines.');\n}\n</code>\n</div>\n\n<div modernizr='webgl'>\n<code>\nlet font;\n\nfunction preload() {\n  font = loadFont('/assets/inconsolata.otf');\n}\n\nfunction setup() {\n  createCanvas(100, 100, WEBGL);\n  textFont(font);\n  textSize(32);\n  textAlign(CENTER, CENTER);\n}\n\nfunction draw() {\n  background(0);\n  rotateY(frameCount / 30);\n  text('p5*js', 0, 0);\n\n  describe('The text \"p5*js\" written in white and spinning in 3D.');\n}\n</code>\n</div>"
+  - |-
+
+    <div>
+    <code>
+    function setup() {
+      createCanvas(100, 100);
+      background(200);
+      textSize(20);
+      text('こんにちは', 10, 30);
+      describe('灰色の背景に黒で「こんにちは」と書かれています。');
+    }
+    </code>
+    </div>
+
+    <div>
+    <code>
+    function setup() {
+      createCanvas(100, 100);
+      background(200);
+      textSize(20);
+      textAlign(CENTER);
+      text('こんにちは', width / 2, height / 2);
+      describe('灰色の背景の中央に黒で「こんにちは」と書かれています。');
+    }
+    </code>
+    </div>
+
+    <div>
+    <code>
+    function setup() {
+      createCanvas(100, 100);
+      background(200);
+      textSize(20);
+      text('長い文章を折り返します', 10, 10, 80, 80);
+      describe('灰色の背景に黒で「長い文章を折り返します」と書かれています。テキストは自動的に折り返されています。');
+    }
+    </code>
+    </div>
 class: p5
-params:
-  - name: str
-    description: >
-      <p>text to be displayed. /// todo /// String|Object|Array|Number|Boolean:
-      表示する英数字のシンボル</p>
-
-      <p>text to be displayed.</p>
-    type: String|Object|Array|Number|Boolean
-  - name: x
-    description: |
-      <p>テキストボックスの x 座標</p>
-      <p>x-coordinate of the text box.</p>
-    type: Number
-  - name: 'y'
-    description: |
-      <p>テキストボックスの y 座標</p>
-      <p>y-coordinate of the text box.</p>
-    type: Number
-  - name: maxWidth
-    description: >
-      <p>(Optional) maximum width of the text box. See  <a
-      href="#/p5/rectMode">rectMode()</a> for  other options. /// todo ///
-      Number: (オプション) デフォルトでは、テキストボックスの幅で、<a href="#/p5/rectMode">rectMode()</a>
-      で詳細を確認できます</p>
-
-      <p>maximum width of the text box. See
-                                 <a href="#/p5/rectMode">rectMode()</a> for
-                                 other options.</p>
-    type: Number
-    optional: true
-  - name: maxHeight
-    description: >
-      <p>(Optional) maximum height of the text box. See  <a
-      href="#/p5/rectMode">rectMode()</a> for  other options. /// todo ///
-      Number: (オプション) デフォルトでは、テキストボックスの高さで、<a
-      href="#/p5/rectMode">rectMode()</a> で詳細を確認できます</p>
-
-      <p>maximum height of the text box. See
-                                 <a href="#/p5/rectMode">rectMode()</a> for
-                                 other options.</p>
-    type: Number
-    optional: true
-chainable: true
+overloads:
+  - line: 472
+    params:
+      - name: str
+        description: |
+          <p>表示するテキスト</p>
+        type: String|Object|Array|Number|Boolean
+      - name: x
+        description: |
+          <p>テキストの左上隅のx座標</p>
+        type: Number
+      - name: 'y'
+        description: |
+          <p>テキストの左上隅のy座標</p>
+        type: Number
+      - name: x2
+        description: |
+          <p>テキストボックスの幅（オプション）</p>
+        type: Number
+        optional: true
+      - name: y2
+        description: |
+          <p>テキストボックスの高さ（オプション）</p>
+        type: Number
+        optional: true
+chainable: false
 ---
-
 
 # text

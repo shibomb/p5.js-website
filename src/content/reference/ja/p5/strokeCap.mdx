@@ -4,30 +4,15 @@ module: Shape
 submodule: Attributes
 file: src/core/shape/attributes.js
 description: >
-  <p>線の終端の描画スタイルを設定します。</p>
+  <p>線の端の描画スタイルを設定します。</p>
 
-  <p>これらの終端は、丸く（<code>ROUND</code>）、四角く（<code>SQUARE</code>）、または延長され（<code>PROJECT</code>）ます。デフォルトのキャップは<code>ROUND</code>です。</p>
+  <p>線の端のキャップは、丸型（<code>ROUND</code>）、四角型（<code>SQUARE</code>）、
+  または延長型（<code>PROJECT</code>）のいずれかです。デフォルトのキャップは
+  <code>ROUND</code>です。</p>
 
-  <p><code>strokeCap()</code>へ渡される引数は、定数<code>ROUND</code>、<code>SQUARE</code>、そして<code>PROJECT</code>がこのように定義されているため、すべて大文字で記述する必要があります。
-  JavaScript は大文字と小文字を区別する言語です。</p>
-
-
-  <hr/>
-
-  <p>Sets the style for rendering the ends of lines.</p>
-
-  <p>The caps for line endings are either rounded (<code>ROUND</code>), squared
-
-  (<code>SQUARE</code>), or extended (<code>PROJECT</code>). The default cap is
-  <code>ROUND</code>.</p>
-
-  <p>The argument passed to <code>strokeCap()</code> must be written in ALL CAPS
-  because
-
-  the constants <code>ROUND</code>, <code>SQUARE</code>, and
-  <code>PROJECT</code> are defined this way.
-
-  JavaScript is a case-sensitive language.</p>
+  <p><code>strokeCap()</code>に渡す引数は、すべて大文字で書く必要があります。
+  これは、<code>ROUND</code>、<code>SQUARE</code>、<code>PROJECT</code>という定数が
+  このように定義されているためです。JavaScriptは大文字と小文字を区別する言語です。</p>
 line: 387
 isConstructor: false
 itemtype: method
@@ -43,20 +28,20 @@ example:
 
       strokeWeight(12);
 
-      // Top.
+      // 上部
       strokeCap(ROUND);
       line(20, 30, 80, 30);
 
-      // Middle.
+      // 中央
       strokeCap(SQUARE);
       line(20, 50, 80, 50);
 
-      // Bottom.
+      // 下部
       strokeCap(PROJECT);
       line(20, 70, 80, 70);
 
       describe(
-        'Three horizontal lines. The top line has rounded ends, the middle line has squared ends, and the bottom line has longer, squared ends.'
+        '3本の水平線。上の線は丸い端、中央の線は四角い端、下の線はより長い四角い端を持っています。'
       );
     }
     </code>
@@ -65,8 +50,7 @@ class: p5
 params:
   - name: cap
     description: |
-      <p>ROUND、SQUARE、PROJECT のいずれか</p>
-      <p>either ROUND, SQUARE, or PROJECT</p>
+      <p>ROUND、SQUARE、またはPROJECTのいずれか</p>
     type: Constant
 chainable: true
 ---

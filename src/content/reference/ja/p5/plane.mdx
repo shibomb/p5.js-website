@@ -4,56 +4,19 @@ module: Shape
 submodule: 3D Primitives
 file: src/webgl/3d_primitives.js
 description: >
-  <p>指定された幅と高さで平面を描画します。</p>
+  <p>平面を描画します。</p>
 
-  <p></p>
+  <p>平面は、すべての角度が90˚の四辺形の平らな形です。長方形に似ており、WebGLモードで高度な描画機能を提供します。</p>
 
+  <p>最初のパラメータ<code>width</code>はオプションです。<code>Number</code>が渡されると、<code>plane(20)</code>のように、平面の幅と高さが設定されます。デフォルトでは、<code>width</code>は50です。</p>
 
-  <hr/>
+  <p>2番目のパラメータ<code>height</code>もオプションです。<code>Number</code>が渡されると、<code>plane(20, 30)</code>のように、平面の高さが設定されます。デフォルトでは、<code>height</code>は平面の<code>width</code>に設定されます。</p>
 
-  <p>Draws a plane.</p>
+  <p>3番目のパラメータ<code>detailX</code>もオプションです。<code>Number</code>が渡されると、<code>plane(20, 30, 5)</code>のように、x軸に沿った三角形の細分化の数が設定されます。すべての3D形状は、三角形を接続してその表面を形成します。デフォルトでは、<code>detailX</code>は1です。</p>
 
-  <p>A plane is a four-sided, flat shape with every angle measuring 90˚. It’s
+  <p>4番目のパラメータ<code>detailY</code>もオプションです。<code>Number</code>が渡されると、<code>plane(20, 30, 5, 7)</code>のように、y軸に沿った三角形の細分化の数が設定されます。すべての3D形状は、三角形を接続してその表面を形成します。デフォルトでは、<code>detailY</code>は1です。</p>
 
-  similar to a rectangle and offers advanced drawing features in WebGL mode.</p>
-
-  <p>The first parameter, <code>width</code>, is optional. If a
-  <code>Number</code> is passed, as in
-
-  <code>plane(20)</code>, it sets the plane’s width and height. By default,
-  <code>width</code> is
-
-  50.</p>
-
-  <p>The second parameter, <code>height</code>, is also optional. If a
-  <code>Number</code> is passed,
-
-  as in <code>plane(20, 30)</code>, it sets the plane’s height. By default,
-  <code>height</code> is
-
-  set to the plane’s <code>width</code>.</p>
-
-  <p>The third parameter, <code>detailX</code>, is also optional. If a
-  <code>Number</code> is passed,
-
-  as in <code>plane(20, 30, 5)</code> it sets the number of triangle
-  subdivisions to use
-
-  along the x-axis. All 3D shapes are made by connecting triangles to form
-
-  their surfaces. By default, <code>detailX</code> is 1.</p>
-
-  <p>The fourth parameter, <code>detailY</code>, is also optional. If a
-  <code>Number</code> is passed,
-
-  as in <code>plane(20, 30, 5, 7)</code> it sets the number of triangle
-  subdivisions to
-
-  use along the y-axis. All 3D shapes are made by connecting triangles to
-
-  form their surfaces. By default, <code>detailY</code> is 1.</p>
-
-  <p>Note: <code>plane()</code> can only be used in WebGL mode.</p>
+  <p>注意: <code>plane()</code>はWebGLモードでのみ使用できます。</p>
 line: 866
 isConstructor: false
 itemtype: method
@@ -62,21 +25,21 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、シーンを異なる角度から見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white plane on a gray background.');
+      describe('灰色の背景に白い平面。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Draw the plane.
+      // 平面を描画します。
       plane();
     }
     </code>
@@ -84,22 +47,22 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、シーンを異なる角度から見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white plane on a gray background.');
+      describe('灰色の背景に白い平面。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Draw the plane.
-      // Set its width and height to 30.
+      // 平面を描画します。
+      // 幅と高さを30に設定します。
       plane(30);
     }
     </code>
@@ -107,22 +70,22 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、シーンを異なる角度から見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white plane on a gray background.');
+      describe('灰色の背景に白い平面。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Draw the plane.
-      // Set its width to 30 and height to 50.
+      // 平面を描画します。
+      // 幅を30、高さを50に設定します。
       plane(30, 50);
     }
     </code>
@@ -131,26 +94,22 @@ class: p5
 params:
   - name: width
     description: |
-      <p>(オプション) 平面の幅</p>
-      <p>width of the plane.</p>
+      <p>平面の幅。</p>
     type: Number
     optional: true
   - name: height
     description: |
-      <p>(オプション) 平面の高さ</p>
-      <p>height of the plane.</p>
+      <p>平面の高さ。</p>
     type: Number
     optional: true
   - name: detailX
     description: |
-      <p>(オプション) x 次元の三角形の細分割数</p>
-      <p>number of triangle subdivisions along the x-axis.</p>
+      <p>x軸に沿った三角形の細分化の数。</p>
     type: Integer
     optional: true
   - name: detailY
     description: |
-      <p>(オプション) y 次元の三角形の細分割数</p>
-      <p>number of triangle subdivisions along the y-axis.</p>
+      <p>y軸に沿った三角形の細分化の数。</p>
     type: Integer
     optional: true
 chainable: true

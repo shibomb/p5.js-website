@@ -3,59 +3,25 @@ title: pixelDensity
 module: Environment
 submodule: Environment
 file: src/core/environment.js
-description: >-
-  <p>高ピクセル密度ディスプレイのピクセルスケーリングを設定します。</p>
+description: >
+  <p>ピクセル密度を設定するか、現在の密度を返します。</p>
 
-  <p>デフォルトでは、ピクセル密度は表示密度に合わせて設定されています。これをオフにするには、pixelDensity(1) を呼び出します。<a
-  href="#/p5/pixelDensity">pixelDensity()</a>
-  を引数なしで呼び出すと、スケッチの現在のピクセル密度が返されます。</p>
+  <p>コンピューターのディスプレイは<em>ピクセル</em>と呼ばれる小さな光の格子です。
 
-  <p>/// todo ///</p>
+  ディスプレイの<em>ピクセル密度</em>は、ある領域にどれだけのピクセルが詰め込まれているかを表します。
 
-  <p>Sets the pixel scaling for high pixel density displays.</p>
+  より小さなピクセルを持つディスプレイは、より高いピクセル密度を持ち、より鮮明な画像を生成します。</p>
 
-  <p>By default, the pixel density is set to match display density. Calling
-  <code>pixelDensity(1)</code> turn this off.</p>
+  <p><code>pixelDensity()</code>は、高ピクセル密度ディスプレイ用のピクセルスケーリングを設定します。
 
-  <p>Calling <code>pixelDensity()</code> without an argument returns the current
-  pixel density.</p>
+  デフォルトでは、ピクセル密度はディスプレイの密度に合わせて設定されています。
 
+  <code>pixelDensity(1)</code>を呼び出すと、これをオフにします。</p>
 
-  <hr/>
+  <p>引数なしで<code>pixelDensity()</code>を呼び出すと、現在のピクセル
 
-  <p>Sets the pixel density or returns the current density.</p>
-
-  <p>Computer displays are grids of little lights called <em>pixels</em>. A
-
-  display's <em>pixel density</em> describes how many pixels it packs into an
-
-  area. Displays with smaller pixels have a higher pixel density and create
-
-  sharper images.</p>
-
-  <p><code>pixelDensity()</code> sets the pixel scaling for high pixel density
-  displays.
-
-  By default, the pixel density is set to match the display's density.
-
-  Calling <code>pixelDensity(1)</code> turn this off.</p>
-
-  <p>Calling <code>pixelDensity()</code> without an argument returns the current
-  pixel
-
-  density.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "val": "Number: (Optional) desired pixel density. /// todo /// Number: スケッチを拡大縮小するかどうか、またはどの程度拡大縮小するか"
-  }
-
-  </pre>
-line: 996
+  密度を返します。</p>
+line: 1005
 isConstructor: false
 itemtype: method
 example:
@@ -64,16 +30,16 @@ example:
     <div>
     <code>
     function setup() {
-      // Set the pixel density to 1.
+      // ピクセル密度を1に設定します。
       pixelDensity(1);
 
-      // Create a canvas and draw
-      // a circle.
+      // キャンバスを作成し、
+      // 円を描画します。
       createCanvas(100, 100);
       background(200);
       circle(50, 50, 70);
 
-      describe('A fuzzy white circle on a gray canvas.');
+      describe('灰色のキャンバス上にぼやけた白い円。');
     }
     </code>
     </div>
@@ -81,37 +47,38 @@ example:
     <div>
     <code>
     function setup() {
-      // Set the pixel density to 3.
+      // ピクセル密度を3に設定します。
       pixelDensity(3);
 
-      // Create a canvas, paint the
-      // background, and draw a
-      // circle.
+      // キャンバスを作成し、
+      // 背景を塗り、
+      // 円を描画します。
       createCanvas(100, 100);
       background(200);
       circle(50, 50, 70);
 
-      describe('A sharp white circle on a gray canvas.');
+      describe('灰色のキャンバス上にシャープな白い円。');
     }
     </code>
     </div>
 class: p5
 overloads:
-  - line: 996
+  - line: 1005
     params:
       - name: val
         description: |
-          <p>desired pixel density.</p>
+          <p>希望するピクセル密度。</p>
         type: Number
         optional: true
     chainable: 1
-  - line: 1050
+  - line: 1059
     params: []
     return:
-      description: current pixel density of the sketch.
+      description: スケッチの現在のピクセル密度。
       type: Number
 chainable: true
 ---
 
 
 # pixelDensity
+

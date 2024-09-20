@@ -4,14 +4,6 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: >
-  <p>再生中のサウンドファイルの再生位置と再生時間を秒数で指定して移動します。</p>
-
-  <p>何も指定されていない場合は、ファイルの再生位置を先頭に戻し、最後まで再生します。再生中でないサウンドファイルの位置を設定するには、<code>play</code>
-  または <code>loop</code> メソッドを使用してください。</p>
-
-
-  <hr/>
-
   <p>Move the playhead of a soundfile that is currently playing to a
 
   new position and a new duration, in seconds.
@@ -29,12 +21,10 @@ class: p5.SoundFile
 params:
   - name: cueTime
     description: |
-      <p>サウンドファイルのキュータイム（秒単位）</p>
       <p>cueTime of the soundFile in seconds.</p>
     type: Number
   - name: duration
     description: |
-      <p>再生時間（秒単位）</p>
       <p>duration in seconds.</p>
     type: Number
 chainable: false

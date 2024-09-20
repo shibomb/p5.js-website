@@ -4,10 +4,6 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
-  <p>現在の knee を取得するか、時間ランプを使用して値を設定します。</p>
-  <p></p>
-
-  <hr/>
   <p>Get current knee or set value w/ time ramp</p>
 line: 10178
 isConstructor: false
@@ -15,10 +11,7 @@ itemtype: method
 class: p5.Compressor
 params:
   - name: knee
-    description: >
-      <p>(オプション)
-      しきい値よりも上の範囲を表すデシベル値で、カーブが「ratio」部分に滑らかに移行する範囲を表します。デフォルトは30、範囲は0-40</p>
-
+    description: |
       <p>A decibel value representing the range above the
                              threshold where the curve smoothly transitions to the "ratio" portion.
                              default = 30, range 0 - 40</p>
@@ -26,7 +19,6 @@ params:
     optional: true
   - name: time
     description: |
-      <p>(オプション) 値の変更をスケジュールするための時間値を指定します。</p>
       <p>Assign time value to schedule the change in value</p>
     type: Number
     optional: true

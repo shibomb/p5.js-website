@@ -4,10 +4,6 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
-  <p>ゲインノードの出力レベルを設定します。</p>
-  <p></p>
-
-  <hr/>
   <p>Set the output level of the gain node.</p>
 line: 11098
 isConstructor: false
@@ -16,18 +12,15 @@ class: p5.Gain
 params:
   - name: volume
     description: |
-      <p>0から1.0の振幅値</p>
       <p>amplitude between 0 and 1.0</p>
     type: Number
   - name: rampTime
     description: |
-      <p>(オプション) rampTime 秒間のフェードを作成します。</p>
       <p>create a fade that lasts rampTime</p>
     type: Number
     optional: true
   - name: timeFromNow
     description: |
-      <p>(オプション) このイベントを、現在から timeFromNow 秒後に予約します。</p>
       <p>schedule this event to happen
                                     seconds from now</p>
     type: Number

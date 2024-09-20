@@ -4,24 +4,24 @@ module: Rendering
 submodule: Rendering
 file: src/core/p5.Renderer.js
 description: |
-  <p>Main graphics and rendering context, as well as the base API
-  implementation for p5.js "core". To be used as the superclass for
-  Renderer2D and Renderer3D classes, respectively.</p>
+  <p>p5.jsの「コア」のためのメイングラフィックスおよびレンダリングコンテキスト、
+  および基本的なAPI実装です。それぞれRenderer2DクラスとRenderer3Dクラスの
+  スーパークラスとして使用されます。</p>
 line: 10
 isConstructor: true
 params:
   - name: elt
     description: |
-      <p>DOM node that is wrapped</p>
+      <p>ラップされるDOM要素</p>
     type: HTMLElement
   - name: pInst
     description: |
-      <p>pointer to p5 instance</p>
+      <p>p5インスタンスへのポインタ</p>
     type: P5
     optional: true
   - name: isMainCanvas
     description: |
-      <p>whether we're using it as main canvas</p>
+      <p>メインキャンバスとして使用するかどうか</p>
     type: Boolean
     optional: true
 chainable: false
@@ -29,3 +29,4 @@ chainable: false
 
 
 # p5.Renderer
+

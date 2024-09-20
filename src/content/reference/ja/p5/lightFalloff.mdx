@@ -4,49 +4,26 @@ module: 3D
 submodule: Lights
 file: src/webgl/light.js
 description: >
-  <p><a href="#/p5/pointLight">pointLight()</a> および <a
-  href="#/p5/spotLight">spotLight()</a> の減衰率を設定します。</p>
+  <p><a href="/reference/p5/pointLight/">pointLight()</a>と<a
+  href="/reference/p5/spotLight/">spotLight()</a>の減衰率を設定します。</p>
 
-  <p></p>
+  <p>光の減衰は、距離に応じてビームの強度がどのように変化するかを表します。
 
-  <p>lightFalloff() は、コード内でそれ以降に作成されたライトにのみ影響します。</p>
+  例えば、ランタンはゆっくりとした減衰、懐中電灯は中程度の減衰、
 
-  <p><code>constant</code>、<code>linear</code>、および <code>quadratic</code>
-  パラメーターは、次のように減衰を計算するために使用されます:</p>
+  レーザーポインターは急激な減衰を持ちます。</p>
 
-  <p>d = 光の位置から頂点位置までの距離</p>
+  <p><code>lightFalloff()</code>には3つのパラメータ、<code>constant</code>、<code>linear</code>、
 
-  <p>減衰 = 1 / (CONSTANT + d * LINEAR + (d * d) * QUADRATIC)</p>
+  <code>quadratic</code>があります。これらは距離<code>d</code>における減衰を
 
+  計算するための数値で、以下のように使用されます：</p>
 
-  <hr/>
+  <p><code>falloff = 1 / (constant + d * linear + (d * d) * quadratic)</code></p>
 
-  <p>Sets the falloff rate for <a
-  href="/reference/p5/pointLight/">pointLight()</a>
+  <p>注意：<code>constant</code>、<code>linear</code>、<code>quadratic</code>は常に
 
-  and <a href="/reference/p5/spotLight/">spotLight()</a>.</p>
-
-  <p>A light’s falloff describes the intensity of its beam at a distance. For
-
-  example, a lantern has a slow falloff, a flashlight has a medium falloff,
-
-  and a laser pointer has a sharp falloff.</p>
-
-  <p><code>lightFalloff()</code> has three parameters, <code>constant</code>,
-  <code>linear</code>, and
-
-  <code>quadratic</code>. They’re numbers used to calculate falloff at a
-  distance, <code>d</code>,
-
-  as follows:</p>
-
-  <p><code>falloff = 1 / (constant + d * linear + (d * d) *
-  quadratic)</code></p>
-
-  <p>Note: <code>constant</code>, <code>linear</code>, and
-  <code>quadratic</code> should always be set to values
-
-  greater than 0.</p>
+  0より大きい値に設定する必要があります。</p>
 line: 1160
 isConstructor: false
 itemtype: method
@@ -55,39 +32,39 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
-    // Double-click to change the falloff rate.
+    // クリックしてドラッグすると、異なる角度からシーンを見ることができます。
+    // ダブルクリックすると減衰率が変更されます。
 
     let useFalloff = false;
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A sphere drawn against a gray background. The intensity of the light changes when the user double-clicks.');
+      describe('灰色の背景に描かれた球体。ユーザーがダブルクリックすると光の強度が変化します。');
     }
 
     function draw() {
       background(50);
 
-      // Enable orbiting with the mouse.
+      // マウスで軌道制御を有効にします。
       orbitControl();
 
-      // Set the light falloff.
+      // 光の減衰を設定します。
       if (useFalloff === true) {
         lightFalloff(2, 0, 0);
       }
 
-      // Add a white point light from the front.
+      // 前方から白い点光源を追加します。
       pointLight(255, 255, 255, 0, 0, 100);
 
-      // Style the sphere.
+      // 球体のスタイルを設定します。
       noStroke();
 
-      // Draw the sphere.
+      // 球体を描画します。
       sphere(30);
     }
 
-    // Change the falloff value when the user double-clicks.
+    // ユーザーがダブルクリックしたときに減衰値を変更します。
     function doubleClicked() {
       useFalloff = true;
     }
@@ -97,21 +74,19 @@ class: p5
 params:
   - name: constant
     description: |
-      <p>減衰を決定する CONSTANT 値</p>
-      <p>constant value for calculating falloff.</p>
+      <p>減衰を計算するための定数値。</p>
     type: Number
   - name: linear
     description: |
-      <p>減衰を決定する LINEAR 値</p>
-      <p>linear value for calculating falloff.</p>
+      <p>減衰を計算するための線形値。</p>
     type: Number
   - name: quadratic
     description: |
-      <p>減衰を決定する QUADRATIC 値</p>
-      <p>quadratic value for calculating falloff.</p>
+      <p>減衰を計算するための二次値。</p>
     type: Number
 chainable: true
 ---
 
 
 # lightFalloff
+

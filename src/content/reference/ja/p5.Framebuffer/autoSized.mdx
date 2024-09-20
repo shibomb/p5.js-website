@@ -3,35 +3,18 @@ title: autoSized
 module: Rendering
 submodule: ''
 file: src/webgl/p5.Framebuffer.js
-description: >-
-  <p>このフレームバッファがキャンバスのサイズに合わせて自動的にリサイズされるかどうかを取得または設定します。</p>
+description: >
+  <p>フレームバッファの自動サイズ調整モードを切り替えるか、現在のモードを返します。</p>
 
-  <p></p>
+  <p>デフォルトでは、フレームバッファは自動的にサイズを調整して、それを作成したキャンバスに合わせます。
 
-  <p>現在自動サイズ調整が行われているかどうかを確認するには、このメソッドを引数なしで呼び出すか、このプロパティを設定するために真偽値を渡します。</p>
+  <code>myBuffer.autoSized(false)</code>を呼び出すとこの動作を無効にし、
 
+  <code>myBuffer.autoSized(true)</code>を呼び出すと再び有効にします。</p>
 
-  <hr/>
+  <p><code>myBuffer.autoSized()</code>を引数なしで呼び出すと、フレームバッファが
 
-  <p>Toggles the framebuffer's autosizing mode or returns the current mode.</p>
-
-  <p>By default, the framebuffer automatically resizes to match the canvas
-
-  that created it. Calling <code>myBuffer.autoSized(false)</code> disables this
-
-  behavior and calling <code>myBuffer.autoSized(true)</code> re-enables it.</p>
-
-  <p>Calling <code>myBuffer.autoSized()</code> without an argument returns
-  <code>true</code> if
-
-  the framebuffer automatically resizes and <code>false</code> if not.</p>
-
-
-  <pre>
-
-  todo: return not found in ja-legacy.
-
-  </pre>
+  自動的にサイズ調整される場合は<code>true</code>を、そうでない場合は<code>false</code>を返します。</p>
 line: 402
 isConstructor: false
 itemtype: method
@@ -40,42 +23,42 @@ example:
 
     <div>
     <code>
-    // Double-click to toggle the autosizing mode.
+    // ダブルクリックで自動サイズ調整モードを切り替えます。
 
     let myBuffer;
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Framebuffer object.
+      // p5.Framebufferオブジェクトを作成します。
       myBuffer = createFramebuffer();
 
-      describe('A multicolor sphere on a gray background. The image resizes when the user moves the mouse.');
+      describe('グレーの背景に多色の球体。ユーザーがマウスを動かすと画像のサイズが変わります。');
     }
 
     function draw() {
       background(50);
 
-      // Draw to the p5.Framebuffer object.
+      // p5.Framebufferオブジェクトに描画します。
       myBuffer.begin();
       background(200);
       normalMaterial();
       sphere(width / 4);
       myBuffer.end();
 
-      // Display the p5.Framebuffer object.
+      // p5.Framebufferオブジェクトを表示します。
       image(myBuffer, -width / 2, -height / 2);
     }
 
-    // Resize the canvas when the user moves the mouse.
+    // ユーザーがマウスを動かすとキャンバスのサイズを変更します。
     function mouseMoved() {
       let w = constrain(mouseX, 0, 100);
       let h = constrain(mouseY, 0, 100);
       resizeCanvas(w, h);
     }
 
-    // Toggle autoSizing when the user double-clicks.
-    // Note: opened an issue to fix(?) this.
+    // ユーザーがダブルクリックするとautoSizingを切り替えます。
+    // 注意：これを修正（？）するための問題を開きました。
     function doubleClicked() {
       let isAuto = myBuffer.autoSized();
       myBuffer.autoSized(!isAuto);
@@ -86,17 +69,15 @@ class: p5.Framebuffer
 params:
   - name: autoSized
     description: >
-      <p>(オプション) フレームバッファがキャンバスに合わせてサイズを変更すべきかどうか</p>
-
-      <p>whether to automatically resize the framebuffer to match the
-      canvas.</p>
+      <p>フレームバッファを自動的にキャンバスに合わせてサイズ調整するかどうか。</p>
     type: Boolean
     optional: true
 return:
-  description: current autosize setting.
+  description: 現在の自動サイズ調整設定。
   type: Boolean
 chainable: false
 ---
 
 
 # autoSized
+

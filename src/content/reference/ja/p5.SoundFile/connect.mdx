@@ -3,23 +3,11 @@ title: connect
 module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
-description: >
-  <p>p5sound オブジェクトの出力を他の p5.sound オブジェクトの入力に接続します。</p>
-
-  <p>たとえば、p5.SoundFile を FFT やエフェクトに接続できます。パラメーターが指定されていない場合、メイン出力に接続されます。ほとんどの
-  p5sound オブジェクトは、作成時にマスター出力に接続されます。</p>
-
-
-  <hr/>
-
+description: |
   <p>Connects the output of a p5sound object to input of another
-
   p5.sound object. For example, you may connect a p5.SoundFile to an
-
   FFT or an Effect. If no parameter is given, it will connect to
-
   the main output. Most p5sound objects connect to the master
-
   output when they are created.</p>
 line: 2565
 isConstructor: false
@@ -28,7 +16,6 @@ class: p5.SoundFile
 params:
   - name: object
     description: |
-      <p>(オプション) 入力を受け入れるオーディオオブジェクト</p>
       <p>Audio object that accepts an input</p>
     type: Object
     optional: true

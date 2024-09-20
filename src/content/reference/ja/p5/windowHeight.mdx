@@ -4,37 +4,30 @@ module: Environment
 submodule: Environment
 file: src/core/environment.js
 description: >
-  <p>内側のウィンドウの高さを保存するシステム変数で、window.innerHeight にマップされます。</p>
+  <p>ブラウザのビューポートの高さを格納する<code>Number</code>変数です。</p>
 
-  
-
-  <hr/>
-
-  <p>A <code>Number</code> variable that stores the height of the browser's
-  viewport.</p>
-
-  <p>The <a
+  <p><a
   href="https://developer.mozilla.org/en-US/docs/Glossary/Layout_viewport/"
-  target="_blank">layout viewport</a>
+  target="_blank">レイアウトビューポート</a>は、
 
-  is the area within the browser that's available for drawing.</p>
+  ブラウザ内で描画に利用可能な領域です。</p>
 line: 680
 isConstructor: false
 itemtype: property
-alt: This example does not render anything.
+alt: この例は何も描画しません。
 example:
   - |-
 
     <div class="norender">
     <code>
     function setup() {
-      // Set the canvas' width and height
-      // using the browser's dimensions.
+      // ブラウザの寸法を使用して
+      // キャンバスの幅と高さを設定します。
       createCanvas(windowWidth, windowHeight);
 
       background(200);
 
-      describe('A gray canvas that takes up the entire browser window.');
+      describe('ブラウザウィンドウ全体を占める灰色のキャンバス。');
     }
     </code>
     </div>
@@ -44,3 +37,4 @@ type: Number
 
 
 # windowHeight
+

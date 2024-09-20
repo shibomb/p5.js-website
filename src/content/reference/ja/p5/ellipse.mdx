@@ -3,58 +3,20 @@ title: ellipse
 module: Shape
 submodule: 2D Primitives
 file: src/core/shape/2d_primitives.js
-description: >-
-  <p>キャンバスに楕円（オーバル）を描きます。</p>
+description: >
+  <p>楕円（楕円形）を描画します。</p>
 
-  <p>幅と高さが等しい楕円は円です。デフォルトでは最初の2つのパラメーターで楕円の中心の位置を設定します。3番目と4番目のパラメーターはそれぞれ形状の幅と高さを設定します。<a
-  href="#/p5/ellipseMode">ellipseMode()</a> 関数で原点を変更できます。</p>
+  <p>楕円は、<code>x</code>、<code>y</code>、<code>w</code>、および<code>h</code>パラメータで定義される
+  丸い形状です。<code>x</code>と<code>y</code>は中心の位置を設定します。<code>w</code>と<code>h</code>は
+  幅と高さを設定します。位置を設定する他の方法については、
+  <a href="/reference/p5/ellipseMode/">ellipseMode()</a>を参照してください。</p>
 
-  <p>高さが指定されていない場合、幅の値が幅と高さの両方に使用されます。負の高さまたは幅が指定された場合、絶対値が取られます。</p>
+  <p>高さが設定されていない場合、幅の値が幅と高さの両方に使用されます。
+  負の高さまたは幅が指定された場合、絶対値が使用されます。</p>
 
+  <p>5番目のパラメータ<code>detail</code>はオプションです。WebGLモードで楕円を描画する際に
+  使用される頂点の数を決定します。デフォルト値は25です。</p>
 
-  <hr/>
-
-  <p>Draws an ellipse (oval).</p>
-
-  <p>An ellipse is a round shape defined by the <code>x</code>, <code>y</code>,
-  <code>w</code>, and
-
-  <code>h</code> parameters. <code>x</code> and <code>y</code> set the location
-  of its center. <code>w</code> and
-
-  <code>h</code> set its width and height. See
-
-  <a href="/reference/p5/ellipseMode/">ellipseMode()</a> for other ways to set
-
-  its position.</p>
-
-  <p>If no height is set, the value of width is used for both the width and
-
-  height. If a negative height or width is specified, the absolute value is
-
-  taken.</p>
-
-  <p>The fifth parameter, <code>detail</code>, is also optional. It determines
-  how many
-
-  vertices are used to draw the ellipse in WebGL mode. The default value is
-
-  25.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "x": "Number: 楕円の中心の x 座標",
-      "y": "Number: 楕円の中心の y 座標",
-      "w": "Number: 楕円の幅",
-      "h": "Number: (オプション) 楕円の高さ",
-      "detail": "Integer: (オプション) WebGL モード専用のオプションパラメーター。これは、楕円の周囲を構成する頂点の数を指定するためのものです。デフォルト値は25です。細かさが50を超える場合にはストロークを描画しません。"
-  }
-
-  </pre>
 line: 373
 isConstructor: false
 itemtype: method
@@ -70,7 +32,7 @@ example:
 
       ellipse(50, 50, 80, 80);
 
-      describe('A white circle on a gray canvas.');
+      describe('灰色のキャンバスに白い円。');
     }
     </code>
     </div>
@@ -85,7 +47,7 @@ example:
 
       ellipse(50, 50, 80);
 
-      describe('A white circle on a gray canvas.');
+      describe('灰色のキャンバスに白い円。');
     }
     </code>
     </div>
@@ -100,7 +62,7 @@ example:
 
       ellipse(50, 50, 80, 40);
 
-      describe('A white ellipse on a gray canvas.');
+      describe('灰色のキャンバスに白い楕円。');
     }
     </code>
     </div>
@@ -115,7 +77,7 @@ example:
 
       ellipse(0, 0, 80, 40);
 
-      describe('A white ellipse on a gray canvas.');
+      describe('灰色のキャンバスに白い楕円。');
     }
     </code>
     </div>
@@ -128,10 +90,10 @@ example:
 
       background(200);
 
-      // Use 6 vertices.
+      // 6つの頂点を使用。
       ellipse(0, 0, 80, 40, 6);
 
-      describe('A white hexagon on a gray canvas.');
+      describe('灰色のキャンバスに白い六角形。');
     }
     </code>
     </div>
@@ -141,19 +103,19 @@ overloads:
     params:
       - name: x
         description: |
-          <p>x-coordinate of the center of the ellipse.</p>
+          <p>楕円の中心のx座標。</p>
         type: Number
       - name: 'y'
         description: |
-          <p>y-coordinate of the center of the ellipse.</p>
+          <p>楕円の中心のy座標。</p>
         type: Number
       - name: w
         description: |
-          <p>width of the ellipse.</p>
+          <p>楕円の幅。</p>
         type: Number
       - name: h
         description: |
-          <p>height of the ellipse.</p>
+          <p>楕円の高さ。</p>
         type: Number
         optional: true
     chainable: 1
@@ -173,10 +135,9 @@ overloads:
         type: Number
       - name: detail
         description: |
-          <p>optional parameter for WebGL mode only. This is to
-                                  specify the number of vertices that makes up the
-                                  perimeter of the ellipse. Default value is 25. Won't
-                                  draw a stroke for a detail of more than 50.</p>
+          <p>WebGLモードのみのオプションパラメータ。楕円の周囲を構成する
+                                  頂点の数を指定します。デフォルト値は25です。50を超える
+                                  detailでは輪郭線が描画されません。</p>
         type: Integer
         optional: true
 chainable: true

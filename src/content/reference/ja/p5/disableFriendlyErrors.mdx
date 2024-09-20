@@ -4,21 +4,6 @@ module: Structure
 submodule: Structure
 file: src/core/main.js
 description: >
-  <p>フレンドリーエラーシステム（FES）の一部の機能をオフにし、必要に応じてパフォーマンスを大幅に向上させます。</p>
-
-  <p></p>
-
-  <p>これにより、パフォーマンス低下を引き起こす FES
-  の部分（引数チェックなど）が無効になります。パフォーマンスコストがないフレンドリーエラー（ファイルの読み込みに失敗した場合に説明的なエラーを表示する、グローバル空間で
-  p5.js 関数をオーバーライドしようとした場合に警告を表示するなど）はそのまま残ります。</p>
-
-  <p><a
-  href='https://github.com/processing/p5.js/wiki/Optimizing-p5.js-Code-for-Performance#disable-the-friendly-error-system-fes'>フレンドリーエラーシステムの無効化</a>
-  を参照してください。</p>
-
-
-  <hr/>
-
   <p>Turns off the parts of the Friendly Error System (FES) that impact
   performance.</p>
 
@@ -33,7 +18,7 @@ description: >
   which takes time to process. Disabling the FES can significantly improve
 
   performance by turning off these checks.</p>
-line: 874
+line: 877
 isConstructor: false
 itemtype: property
 example:

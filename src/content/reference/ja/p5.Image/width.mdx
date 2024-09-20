@@ -4,11 +4,8 @@ module: Image
 submodule: Image
 file: src/image/p5.Image.js
 description: |
-  <p>画像の幅。</p>
-
-  <hr/>
-  <p>The image's width in pixels.</p>
-line: 114
+  <p>画像の幅をピクセル単位で表します。</p>
+line: 131
 isConstructor: false
 itemtype: property
 example:
@@ -18,7 +15,7 @@ example:
     <code>
     let img;
 
-    // Load the image.
+    // 画像を読み込みます。
     function preload() {
       img = loadImage('/assets/rockies.jpg');
     }
@@ -26,23 +23,22 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Display the image.
+      // 画像を表示します。
       image(img, 0, 0);
 
-      // Calculate the center coordinates.
+      // 中心座標を計算します。
       let x = img.width / 2;
       let y = img.height / 2;
 
-      // Draw a circle at the image's center.
+      // 画像の中心に円を描きます。
       circle(x, y, 20);
 
-      describe('An image of a mountain landscape with a white circle drawn in the middle.');
+      describe('山の風景の画像に、中央に白い円が描かれています。');
     }
     </code>
     </div>
 class: p5.Image
 type: '{Number}'
 ---
-
 
 # width

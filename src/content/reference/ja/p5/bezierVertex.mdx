@@ -3,87 +3,44 @@ title: bezierVertex
 module: Shape
 submodule: Vertex
 file: src/core/shape/vertex.js
-description: >-
-  <p>Bezier 曲線の頂点座標を指定します。</p>
+description: >
+  <p>カスタム形状にベジエ曲線セグメントを追加します。</p>
 
-  <p>bezierVertex() を呼び出すごとに、Bezier
-  曲線の2つのコントロールポイントとひとつのアンカーポイントの位置が定義され、線または図形に新しいセグメントが追加されます。WebGL
-  モードでは、bezierVertex() は 2D および 3D モードの両方で使用できます。2D モードでは6つのパラメーターが必要ですが、3D
-  モードでは9つのパラメーター（z 座標を含む）が必要です。</p>
+  <p><code>bezierVertex()</code>はカスタム形状に曲線セグメントを追加します。作成される
 
-  <p><a href="#/p5/beginShape">beginShape()</a> 呼び出し内で初めて bezierVertex()
-  を使用する際は、最初のアンカーポイントを設定するために <a href="#/p5/vertex">vertex()</a>
-  呼び出しを先頭に置く必要があります。この関数は <a href="#/p5/beginShape">beginShape()</a> と <a
-  href="#/p5/endShape">endShape()</a> の間でのみ使用できますが、<a
-  href="#/p5/beginShape">beginShape()</a> に MODE または POINTS
-  パラメーターが指定されている場合は使用できません。</p>
+  ベジエ曲線は、<a href="/reference/p5/bezier/">bezier()</a>関数で作成される
 
+  ものと同様に定義されます。<code>bezierVertex()</code>は
 
-  <hr/>
+  <a href="/reference/p5/beginShape/">beginShape()</a>と
 
-  <p>Adds a Bézier curve segment to a custom shape.</p>
+  <a href="/reference/p5/endShape/">endShape()</a>関数の間で呼び出す必要があります。
 
-  <p><code>bezierVertex()</code> adds a curved segment to custom shapes. The
-  Bézier curves
+  曲線セグメントは前の頂点を最初のアンカーポイントとして使用するため、
 
-  it creates are defined like those made by the
+  <code>bezierVertex()</code>を使用する前に少なくとも1回の
 
-  <a href="/reference/p5/bezier/">bezier()</a> function.
-  <code>bezierVertex()</code> must be
+  <a href="/reference/p5/vertex/">vertex()</a>の呼び出しが必要です。</p>
 
-  called between the
+  <p>最初の4つのパラメータ、<code>x2</code>、<code>y2</code>、<code>x3</code>、<code>y3</code>は、
 
-  <a href="/reference/p5/beginShape/">beginShape()</a> and
+  曲線の2つの制御点を設定します。制御点は曲線を「引っ張る」役割をします。</p>
 
-  <a href="/reference/p5/endShape/">endShape()</a> functions. The curved segment
-  uses
+  <p>5番目と6番目のパラメータ、<code>x4</code>と<code>y4</code>は、最後のアンカーポイントを
 
-  the previous vertex as the first anchor point, so there must be at least
+  設定します。最後のアンカーポイントは曲線が終わる場所です。</p>
 
-  one call to <a href="/reference/p5/vertex/">vertex()</a> before
-  <code>bezierVertex()</code> can
+  <p>ベジエ曲線はWebGLモードを使用して3Dでも描画できます。3Dバージョンの
 
-  be used.</p>
+  <code>bezierVertex()</code>は8つの引数を持ちます。各点がx、y、z座標を
 
-  <p>The first four parameters, <code>x2</code>, <code>y2</code>,
-  <code>x3</code>, and <code>y3</code>, set the curve’s two
+  持つためです。</p>
 
-  control points. The control points "pull" the curve towards them.</p>
+  <p>注意：<code>bezierVertex()</code>は
 
-  <p>The fifth and sixth parameters, <code>x4</code>, and <code>y4</code>, set
-  the last anchor point.
+  <a href="/reference/p5/beginShape/">beginShape()</a>に引数が渡された場合は
 
-  The last anchor point is where the curve ends.</p>
-
-  <p>Bézier curves can also be drawn in 3D using WebGL mode. The 3D version of
-
-  <code>bezierVertex()</code> has eight arguments because each point has x-, y-,
-  and
-
-  z-coordinates.</p>
-
-  <p>Note: <code>bezierVertex()</code> won’t work when an argument is passed to
-
-  <a href="/reference/p5/beginShape/">beginShape()</a>.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "x2": "Number: 第1コントロールポイントの x 座標",
-      "y2": "Number: 第1コントロールポイントの y 座標",
-      "x3": "Number: 第2コントロールポイントの x 座標",
-      "y3": "Number: 第2コントロールポイントの y 座標",
-      "x4": "Number: アンカーポイントの x 座標",
-      "y4": "Number: アンカーポイントの y 座標",
-      "z2": "Number: 第1コントロールポイントの z 座標 (WebGL モード用)",
-      "z3": "Number: 第2コントロールポイントの z 座標 (WebGL モード用)",
-      "z4": "Number: アンカーポイントの z 座標 (WebGL モード用)"
-  }
-
-  </pre>
+  機能しません。</p>
 line: 543
 isConstructor: false
 itemtype: method
@@ -97,22 +54,22 @@ example:
 
       background(200);
 
-      // Style the shape.
+      // 形状のスタイルを設定します。
       noFill();
 
-      // Start drawing the shape.
+      // 形状の描画を開始します。
       beginShape();
 
-      // Add the first anchor point.
+      // 最初のアンカーポイントを追加します。
       vertex(30, 20);
 
-      // Add the Bézier vertex.
+      // ベジエ頂点を追加します。
       bezierVertex(80, 0, 80, 75, 30, 75);
 
-      // Stop drawing the shape.
+      // 形状の描画を停止します。
       endShape();
 
-      describe('A black C curve on a gray background.');
+      describe('灰色の背景に黒いC曲線。');
     }
     </code>
     </div>
@@ -124,41 +81,41 @@ example:
 
       background(200);
 
-      // Draw the anchor points in black.
+      // アンカーポイントを黒で描画します。
       stroke(0);
       strokeWeight(5);
       point(30, 20);
       point(30, 75);
 
-      // Draw the control points in red.
+      // 制御点を赤で描画します。
       stroke(255, 0, 0);
       point(80, 0);
       point(80, 75);
 
-      // Style the shape.
+      // 形状のスタイルを設定します。
       noFill();
       stroke(0);
       strokeWeight(1);
 
-      // Start drawing the shape.
+      // 形状の描画を開始します。
       beginShape();
 
-      // Add the first anchor point.
+      // 最初のアンカーポイントを追加します。
       vertex(30, 20);
 
-      // Add the Bézier vertex.
+      // ベジエ頂点を追加します。
       bezierVertex(80, 0, 80, 75, 30, 75);
 
-      // Stop drawing the shape.
+      // 形状の描画を停止します。
       endShape();
 
-      // Draw red lines from the anchor points to the control points.
+      // アンカーポイントから制御点への赤い線を描画します。
       stroke(255, 0, 0);
       line(30, 20, 80, 0);
       line(30, 75, 80, 75);
 
       describe(
-        'A gray square with three curves. A black curve has two straight, red lines that extend from its ends. The endpoints of all the curves are marked with dots.'
+        '3つの曲線がある灰色の正方形。黒い曲線の端から2本の赤い直線が伸びています。すべての曲線の端点は点でマークされています。'
       );
     }
     </code>
@@ -166,8 +123,8 @@ example:
 
     <div>
     <code>
-    // Click the mouse near the red dot in the top-right corner
-    // and drag to change the curve's shape.
+    // 右上隅の赤い点の近くでマウスをクリックし、
+    // ドラッグして曲線の形を変更します。
 
     let x2 = 80;
     let y2 = 0;
@@ -176,61 +133,59 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe(
-        'A gray square with three curves. A black curve has two straight, red lines that extend from its ends. The endpoints of all the curves are marked with dots.'
-      );
+      describe('灰色の背景に黒いC曲線。ユーザーがマウスをドラッグすると、曲線の形が変化します。');
     }
 
     function draw() {
       background(200);
 
-      // Draw the anchor points in black.
+      // アンカーポイントを黒で描画します。
       stroke(0);
       strokeWeight(5);
       point(30, 20);
       point(30, 75);
 
-      // Draw the control points in red.
+      // 制御点を赤で描画します。
       stroke(255, 0, 0);
       point(x2, y2);
       point(80, 75);
 
-      // Style the shape.
+      // 形状のスタイルを設定します。
       noFill();
       stroke(0);
       strokeWeight(1);
 
-      // Start drawing the shape.
+      // 形状の描画を開始します。
       beginShape();
 
-      // Add the first anchor point.
+      // 最初のアンカーポイントを追加します。
       vertex(30, 20);
 
-      // Add the Bézier vertex.
+      // ベジエ頂点を追加します。
       bezierVertex(x2, y2, 80, 75, 30, 75);
 
-      // Stop drawing the shape.
+      // 形状の描画を停止します。
       endShape();
 
-      // Draw red lines from the anchor points to the control points.
+      // アンカーポイントから制御点への赤い線を描画します。
       stroke(255, 0, 0);
       line(30, 20, x2, y2);
       line(30, 75, 80, 75);
     }
 
-    // Start changing the first control point if the user clicks near it.
+    // ユーザーが制御点の近くでクリックした場合、変更を開始します。
     function mousePressed() {
       if (dist(mouseX, mouseY, x2, y2) < 20) {
         isChanging = true;
       }
     }
 
-    // Stop changing the first control point when the user releases the mouse.
+    // ユーザーがマウスを離したときに変更を停止します。
     function mouseReleased() {
       isChanging = false;
     }
 
-    // Update the first control point while the user drags the mouse.
+    // ユーザーがマウスをドラッグしている間、最初の制御点を更新します。
     function mouseDragged() {
       if (isChanging === true) {
         x2 = mouseX;
@@ -247,52 +202,52 @@ example:
 
       background(200);
 
-      // Start drawing the shape.
+      // 形状の描画を開始します。
       beginShape();
 
-      // Add the first anchor point.
+      // 最初のアンカーポイントを追加します。
       vertex(30, 20);
 
-      // Add the Bézier vertices.
+      // ベジエ頂点を追加します。
       bezierVertex(80, 0, 80, 75, 30, 75);
       bezierVertex(50, 80, 60, 25, 30, 20);
 
-      // Stop drawing the shape.
+      // 形状の描画を停止します。
       endShape();
 
-      describe('A crescent moon shape drawn in white on a gray background.');
+      describe('灰色の背景に白い三日月形が描かれています。');
     }
     </code>
     </div>
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // クリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A crescent moon shape drawn in white on a blue background. When the user drags the mouse, the scene rotates and a second moon is revealed.');
+      describe('青い背景に白い三日月形が描かれています。ユーザーがマウスをドラッグすると、シーンが回転し、2つ目の三日月が現れます。');
     }
 
     function draw() {
       background('midnightblue');
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Style the moons.
+      // 三日月のスタイルを設定します。
       noStroke();
       fill('lemonchiffon');
 
-      // Draw the first moon.
+      // 最初の三日月を描画します。
       beginShape();
       vertex(-20, -30, 0);
       bezierVertex(30, -50, 0, 30, 25, 0, -20, 25, 0);
       bezierVertex(0, 30, 0, 10, -25, 0, -20, -30, 0);
       endShape();
 
-      // Draw the second moon.
+      // 2つ目の三日月を描画します。
       beginShape();
       vertex(-20, -30, -20);
       bezierVertex(30, -50, -20, 30, 25, -20, -20, 25, -20);
@@ -307,27 +262,27 @@ overloads:
     params:
       - name: x2
         description: |
-          <p>x-coordinate of the first control point.</p>
+          <p>最初の制御点のx座標。</p>
         type: Number
       - name: y2
         description: |
-          <p>y-coordinate of the first control point.</p>
+          <p>最初の制御点のy座標。</p>
         type: Number
       - name: x3
         description: |
-          <p>x-coordinate of the second control point.</p>
+          <p>2番目の制御点のx座標。</p>
         type: Number
       - name: y3
         description: |
-          <p>y-coordinate of the second control point.</p>
+          <p>2番目の制御点のy座標。</p>
         type: Number
       - name: x4
         description: |
-          <p>x-coordinate of the anchor point.</p>
+          <p>アンカーポイントのx座標。</p>
         type: Number
       - name: y4
         description: |
-          <p>y-coordinate of the anchor point.</p>
+          <p>アンカーポイントのy座標。</p>
         type: Number
     chainable: 1
   - line: 792
@@ -340,7 +295,7 @@ overloads:
         type: Number
       - name: z2
         description: |
-          <p>z-coordinate of the first control point.</p>
+          <p>最初の制御点のz座標。</p>
         type: Number
       - name: x3
         description: ''
@@ -350,7 +305,7 @@ overloads:
         type: Number
       - name: z3
         description: |
-          <p>z-coordinate of the second control point.</p>
+          <p>2番目の制御点のz座標。</p>
         type: Number
       - name: x4
         description: ''
@@ -360,7 +315,7 @@ overloads:
         type: Number
       - name: z4
         description: |
-          <p>z-coordinate of the anchor point.</p>
+          <p>アンカーポイントのz座標。</p>
         type: Number
     chainable: 1
 chainable: true
@@ -368,3 +323,4 @@ chainable: true
 
 
 # bezierVertex
+

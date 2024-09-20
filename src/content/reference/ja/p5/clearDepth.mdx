@@ -4,35 +4,29 @@ module: Rendering
 submodule: Rendering
 file: src/core/rendering.js
 description: >
-  <p>Clears the depth buffer in WebGL mode.</p>
+  <p>WebGLモードでデプスバッファをクリアします。</p>
 
-  <p><code>clearDepth()</code> clears information about how far objects are from
-  the camera
+  <p><code>clearDepth()</code>は、3D空間でオブジェクトがカメラからどれだけ離れているかについての情報をクリアします。
 
-  in 3D space. This information is stored in an object called the
+  この情報は<em>デプスバッファ</em>と呼ばれるオブジェクトに格納されています。
 
-  <em>depth buffer</em>. Clearing the depth buffer ensures new objects aren't
-  drawn
+  デプスバッファをクリアすることで、新しいオブジェクトが古いオブジェクトの後ろに
 
-  behind old ones. Doing so can be useful for feedback effects in which the
+  描画されないようにします。これは、前のフレームが現在のフレームの背景として
 
-  previous frame serves as the background for the current frame.</p>
+  機能するフィードバック効果に役立ちます。</p>
 
-  <p>The parameter, <code>depth</code>, is optional. If a number is passed, as
-  in
+  <p>パラメータ<code>depth</code>はオプションです。<code>clearDepth(0.5)</code>のように
 
-  <code>clearDepth(0.5)</code>, it determines the range of objects to clear from
-  the
+  数値が渡された場合、デプスバッファからクリアするオブジェクトの範囲を決定します。
 
-  depth buffer. 0 doesn't clear any depth information, 0.5 clears depth
+  0はデプス情報をクリアしません、0.5はニアクリッピング面とファークリッピング面の
 
-  information halfway between the near and far clipping planes, and 1 clears
+  中間までのデプス情報をクリアし、1はファークリッピング面までのすべてのデプス情報を
 
-  depth information all the way to the far clipping plane. By default,
+  クリアします。デフォルトでは、<code>depth</code>は1です。</p>
 
-  <code>depth</code> is 1.</p>
-
-  <p>Note: <code>clearDepth()</code> can only be used in WebGL mode.</p>
+  <p>注意：<code>clearDepth()</code>はWebGLモードでのみ使用できます。</p>
 line: 635
 isConstructor: false
 itemtype: method
@@ -47,36 +41,36 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create the p5.Framebuffer objects.
+      // p5.Framebufferオブジェクトを作成します。
       previous = createFramebuffer({ format: FLOAT });
       current = createFramebuffer({ format: FLOAT });
 
       describe(
-        'A multicolor box drifts from side to side on a white background. It leaves a trail that fades over time.'
+        '白い背景の上で、マルチカラーの箱が左右に漂います。時間とともに薄れていく軌跡を残します。'
       );
     }
 
     function draw() {
-      // Swap the previous p5.Framebuffer and the
-      // current one so it can be used as a texture.
+      // 前のp5.Framebufferと現在のp5.Framebufferを
+      // スワップして、テクスチャとして使用できるようにします。
       [previous, current] = [current, previous];
 
-      // Start drawing to the current p5.Framebuffer.
+      // 現在のp5.Framebufferへの描画を開始します。
       current.begin();
 
-      // Paint the background.
+      // 背景を描画します。
       background(255);
 
-      // Draw the previous p5.Framebuffer.
-      // Clear the depth buffer so the previous
-      // frame doesn't block the current one.
+      // 前のp5.Framebufferを描画します。
+      // デプスバッファをクリアして、前のフレームが
+      // 現在のフレームをブロックしないようにします。
       push();
       tint(255, 250);
       image(previous, -50, -50);
       clearDepth();
       pop();
 
-      // Draw the box on top of the previous frame.
+      // 前のフレームの上に箱を描画します。
       push();
       let x = 25 * sin(frameCount * 0.01);
       let y = 25 * sin(frameCount * 0.02);
@@ -87,10 +81,10 @@ example:
       box(12);
       pop();
 
-      // Stop drawing to the current p5.Framebuffer.
+      // 現在のp5.Framebufferへの描画を終了します。
       current.end();
 
-      // Display the current p5.Framebuffer.
+      // 現在のp5.Framebufferを表示します。
       image(current, -50, -50);
     }
     </code>
@@ -99,8 +93,8 @@ class: p5
 params:
   - name: depth
     description: |
-      <p>amount of the depth buffer to clear between 0
-                              (none) and 1 (far clipping plane). Defaults to 1.</p>
+      <p>クリアするデプスバッファの量。0（なし）から1（ファークリッピング面）
+                              の間の値。デフォルトは1です。</p>
     type: Number
     optional: true
 chainable: false
@@ -108,3 +102,4 @@ chainable: false
 
 
 # clearDepth
+

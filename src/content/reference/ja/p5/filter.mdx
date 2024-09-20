@@ -3,161 +3,66 @@ title: filter
 module: Image
 submodule: Pixels
 file: src/image/pixels.js
-description: >-
-  <p>キャンバスにフィルターを適用します。</p>
+description: >
+  <p>キャンバスに画像フィルターを適用します。</p>
 
-  <p>プリセットオプションは以下の通りです:</p>
-
-  <p>THRESHOLD 画像を、ピクセルが level
-  パラメーターで定義された閾値より上か下かによって、白黒のピクセルに変換します。パラメーターは0.0(黒)から1.0(白)の間でなければなりません。level
-  が指定されていない場合、0.5が使用されます。</p>
-
-  <p>GRAY 画像内のすべての色をグレースケールに変換します。パラメーターは使用されません。</p>
-
-  <p>OPAQUE アルファチャンネルを完全に不透明に設定します。パラメーターは使用されません。</p>
-
-  <p>INVERT 各ピクセルをその反転値に設定します。パラメーターは使用されません。</p>
-
-  <p>POSTERIZE
-  画像の各チャンネルを、パラメーターとして指定された色数に制限します。パラメーターは2から255の間の値に設定できますが、低い範囲で結果が最も目立ちます。</p>
-
-  <p>BLUR
-  レベルパラメーターでぼかしの範囲を指定したガウシアンブラーを実行します。パラメーターが使用されていない場合、ブラーは半径1のガウシアンブラーに相当します。値が大きいほど、ぼかしが増えます。</p>
-
-  <p>ERODE 明るい領域を減少させます。パラメーターは使用されません。</p>
-
-  <p>DILATE 明るい領域を増加させます。パラメーターは使用されません。</p>
-
-  <p>filter() は WebGL モードでは動作しません。WebGL モードではカスタムシェーダーを使用して類似の効果を実現できます。Adam
-  Ferriss は、フィルターの例にある多くの効果を含む <a
-  href="https://github.com/aferriss/p5jsShaderExamples"
-  target='_blank'>シェーダーの例の選択</a> を書いています。</p>
-
-  <p>/// todo ///</p>
-
-  <p>Applies an image filter to the canvas. The preset options are:</p>
-
-  <p><code>INVERT</code> Inverts the colors in the image. No parameter is
-  used.</p>
-
-  <p><code>GRAY</code> Converts the image to grayscale. No parameter is
-  used.</p>
-
-  <p><code>THRESHOLD</code> Converts the image to black and white. Pixels with a
-  grayscale value above a given threshold are converted to white. The rest are
-  converted to black. The threshold must be between 0.0 (black) and 1.0 (white).
-  If no value is specified, 0.5 is used.</p>
-
-  <p><code>OPAQUE</code> Sets the alpha channel to entirely opaque. No parameter
-  is used.</p>
-
-  <p><code>POSTERIZE</code> Limits the number of colors in the image. Each color
-  channel is limited to the number of colors specified. Values between 2 and 255
-  are valid, but results are most noticeable with lower values. The default
-  value is 4.</p>
-
-  <p><code>BLUR</code> Blurs the image. The level of blurring is specified by a
-  blur radius. Larger values increase the blur. The default value is 4. A
-  gaussian blur is used in <code>P2D</code> mode. A box blur is used in
-  <code>WEBGL</code> mode.</p>
-
-  <p><code>ERODE</code> Reduces the light areas. No parameter is used.</p>
-
-  <p><code>DILATE</code> Increases the light areas. No parameter is used.</p>
-
-  <p><code>filter()</code> uses WebGL in the background by default because it's
-  faster. This can be disabled in <code>P2D</code> mode by adding a
-  <code>false</code> argument, as in <code>filter(BLUR, false)</code>. This may
-  be useful to keep computation off the GPU or to work around a lack of WebGL
-  support.</p>
-
-  <p>In <code>WEBGL</code> mode, <code>filter()</code> can also use custom
-  shaders. See <a href="#/p5/createFilterShader">createFilterShader()</a> for
-  more information.</p>
-
-
-  <hr/>
-
-  <p>Applies an image filter to the canvas.</p>
-
-  <p>The preset options are:</p>
+  <p>プリセットのオプションは以下の通りです：</p>
 
   <p><code>INVERT</code>
 
-  Inverts the colors in the image. No parameter is used.</p>
+  画像の色を反転させます。パラメータは使用しません。</p>
 
   <p><code>GRAY</code>
 
-  Converts the image to grayscale. No parameter is used.</p>
+  画像をグレースケールに変換します。パラメータは使用しません。</p>
 
   <p><code>THRESHOLD</code>
 
-  Converts the image to black and white. Pixels with a grayscale value
+  画像を白黒に変換します。指定された閾値よりも高いグレースケール値を持つピクセルは
 
-  above a given threshold are converted to white. The rest are converted to
+  白に変換されます。残りは黒に変換されます。閾値は0.0（黒）から1.0（白）の間でなければ
 
-  black. The threshold must be between 0.0 (black) and 1.0 (white). If no
-
-  value is specified, 0.5 is used.</p>
+  なりません。値が指定されていない場合、0.5が使用されます。</p>
 
   <p><code>OPAQUE</code>
 
-  Sets the alpha channel to entirely opaque. No parameter is used.</p>
+  アルファチャンネルを完全に不透明に設定します。パラメータは使用しません。</p>
 
   <p><code>POSTERIZE</code>
 
-  Limits the number of colors in the image. Each color channel is limited to
+  画像の色数を制限します。各色チャンネルは指定された色数に制限されます。
 
-  the number of colors specified. Values between 2 and 255 are valid, but
-
-  results are most noticeable with lower values. The default value is 4.</p>
+  2から255の間の値が有効ですが、低い値ほど結果が顕著になります。デフォルト値は4です。</p>
 
   <p><code>BLUR</code>
 
-  Blurs the image. The level of blurring is specified by a blur radius. Larger
+  画像をぼかします。ぼかしのレベルはぼかし半径によって指定されます。大きな
 
-  values increase the blur. The default value is 4. A gaussian blur is used
+  値ほどぼかしが強くなります。デフォルト値は4です。<code>P2D</code>モードではガウシアンブラーが
 
-  in <code>P2D</code> mode. A box blur is used in <code>WEBGL</code> mode.</p>
+  使用されます。<code>WEBGL</code>モードではボックスブラーが使用されます。</p>
 
   <p><code>ERODE</code>
 
-  Reduces the light areas. No parameter is used.</p>
+  明るい領域を縮小します。パラメータは使用しません。</p>
 
   <p><code>DILATE</code>
 
-  Increases the light areas. No parameter is used.</p>
+  明るい領域を拡大します。パラメータは使用しません。</p>
 
-  <p><code>filter()</code> uses WebGL in the background by default because it's
-  faster.
+  <p><code>filter()</code>はデフォルトで高速化のためにバックグラウンドでWebGLを使用します。
 
-  This can be disabled in <code>P2D</code> mode by adding a <code>false</code>
-  argument, as in
+  これは<code>P2D</code>モードで<code>false</code>引数を追加することで無効にできます。
 
-  <code>filter(BLUR, false)</code>. This may be useful to keep computation off
-  the GPU
+  例えば<code>filter(BLUR, false)</code>のようにします。これは計算をGPUから離すために
 
-  or to work around a lack of WebGL support.</p>
+  有用かもしれません。またはWebGLサポートがない場合に対処するためにも使えます。</p>
 
-  <p>In WebgL mode, <code>filter()</code> can also use custom shaders. See
+  <p>WebGLモードでは、<code>filter()</code>はカスタムシェーダーも使用できます。詳細については
 
-  <a href="/reference/p5/createFilterShader/">createFilterShader()</a> for more
+  <a href="/reference/p5/createFilterShader/">createFilterShader()</a>を
 
-  information.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "filterType": "Constant: THRESHOLD, GRAY, OPAQUE, INVERT,  POSTERIZE, BLUR, ERODE, DILATE, BLUR のいずれか。",
-      "filterParam": "Number: (オプション) 各フィルタに固有のオプションパラメーター。",
-      "useWebGL": "Boolean: (Optional) flag to control whether to use fast  WebGL filters (GPU) or original image  filters (CPU); defaults to <code>true</code>.",
-      "shaderFilter": "p5.Shader: shader that's been loaded, with the  frag shader using a <code>tex0</code> uniform."
-  }
-
-  </pre>
+  参照してください。</p>
 line: 442
 isConstructor: false
 itemtype: method
@@ -168,7 +73,7 @@ example:
     <code>
     let img;
 
-    // Load the image.
+    // 画像を読み込みます。
     function preload() {
       img = loadImage('/assets/bricks.jpg');
     }
@@ -176,13 +81,13 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Display the image.
+      // 画像を表示します。
       image(img, 0, 0);
 
-      // Apply the INVERT filter.
+      // INVERTフィルターを適用します。
       filter(INVERT);
 
-      describe('A blue brick wall.');
+      describe('青いレンガの壁。');
     }
     </code>
     </div>
@@ -191,7 +96,7 @@ example:
     <code>
     let img;
 
-    // Load the image.
+    // 画像を読み込みます。
     function preload() {
       img = loadImage('/assets/bricks.jpg');
     }
@@ -199,13 +104,13 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Display the image.
+      // 画像を表示します。
       image(img, 0, 0);
 
-      // Apply the GRAY filter.
+      // GRAYフィルターを適用します。
       filter(GRAY);
 
-      describe('A brick wall drawn in grayscale.');
+      describe('グレースケールで描かれたレンガの壁。');
     }
     </code>
     </div>
@@ -214,7 +119,7 @@ example:
     <code>
     let img;
 
-    // Load the image.
+    // 画像を読み込みます。
     function preload() {
       img = loadImage('/assets/bricks.jpg');
     }
@@ -222,13 +127,13 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Display the image.
+      // 画像を表示します。
       image(img, 0, 0);
 
-      // Apply the THRESHOLD filter.
+      // THRESHOLDフィルターを適用します。
       filter(THRESHOLD);
 
-      describe('A brick wall drawn in black and white.');
+      describe('白黒で描かれたレンガの壁。');
     }
     </code>
     </div>
@@ -237,7 +142,7 @@ example:
     <code>
     let img;
 
-    // Load the image.
+    // 画像を読み込みます。
     function preload() {
       img = loadImage('/assets/bricks.jpg');
     }
@@ -245,13 +150,13 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Display the image.
+      // 画像を表示します。
       image(img, 0, 0);
 
-      // Apply the OPAQUE filter.
+      // OPAQUEフィルターを適用します。
       filter(OPAQUE);
 
-      describe('A red brick wall.');
+      describe('赤いレンガの壁。');
     }
     </code>
     </div>
@@ -260,7 +165,7 @@ example:
     <code>
     let img;
 
-    // Load the image.
+    // 画像を読み込みます。
     function preload() {
       img = loadImage('/assets/bricks.jpg');
     }
@@ -268,13 +173,13 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Display the image.
+      // 画像を表示します。
       image(img, 0, 0);
 
-      // Apply the POSTERIZE filter.
+      // POSTERIZEフィルターを適用します。
       filter(POSTERIZE, 3);
 
-      describe('An image of a red brick wall drawn with limited color palette.');
+      describe('限られた色パレットで描かれた赤いレンガの壁の画像。');
     }
     </code>
     </div>
@@ -283,7 +188,7 @@ example:
     <code>
     let img;
 
-    // Load the image.
+    // 画像を読み込みます。
     function preload() {
       img = loadImage('/assets/bricks.jpg');
     }
@@ -291,13 +196,13 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Display the image.
+      // 画像を表示します。
       image(img, 0, 0);
 
-      // Apply the BLUR filter.
+      // BLURフィルターを適用します。
       filter(BLUR, 3);
 
-      describe('A blurry image of a red brick wall.');
+      describe('ぼやけた赤いレンガの壁の画像。');
     }
     </code>
     </div>
@@ -306,7 +211,7 @@ example:
     <code>
     let img;
 
-    // Load the image.
+    // 画像を読み込みます。
     function preload() {
       img = loadImage('/assets/bricks.jpg');
     }
@@ -314,13 +219,13 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Display the image.
+      // 画像を表示します。
       image(img, 0, 0);
 
-      // Apply the DILATE filter.
+      // DILATEフィルターを適用します。
       filter(DILATE);
 
-      describe('A red brick wall with bright lines between each brick.');
+      describe('各レンガの間に明るい線がある赤いレンガの壁。');
     }
     </code>
     </div>
@@ -329,7 +234,7 @@ example:
     <code>
     let img;
 
-    // Load the image.
+    // 画像を読み込みます。
     function preload() {
       img = loadImage('/assets/bricks.jpg');
     }
@@ -337,13 +242,13 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Display the image.
+      // 画像を表示します。
       image(img, 0, 0);
 
-      // Apply the ERODE filter.
+      // ERODEフィルターを適用します。
       filter(ERODE);
 
-      describe('A red brick wall with faint lines between each brick.');
+      describe('各レンガの間に薄い線がある赤いレンガの壁。');
     }
     </code>
     </div>
@@ -352,7 +257,7 @@ example:
     <code>
     let img;
 
-    // Load the image.
+    // 画像を読み込みます。
     function preload() {
       img = loadImage('/assets/bricks.jpg');
     }
@@ -360,14 +265,14 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Display the image.
+      // 画像を表示します。
       image(img, 0, 0);
 
-      // Apply the BLUR filter.
-      // Don't use WebGL.
+      // BLURフィルターを適用します。
+      // WebGLを使用しません。
       filter(BLUR, 3, false);
 
-      describe('A blurry image of a red brick wall.');
+      describe('ぼやけた赤いレンガの壁の画像。');
     }
     </code>
     </div>
@@ -377,19 +282,19 @@ overloads:
     params:
       - name: filterType
         description: |
-          <p>either THRESHOLD, GRAY, OPAQUE, INVERT,
-                                         POSTERIZE, BLUR, ERODE, DILATE or BLUR.</p>
+          <p>THRESHOLD、GRAY、OPAQUE、INVERT、
+                                         POSTERIZE、BLUR、ERODE、DILATEまたはBLURのいずれか。</p>
         type: Constant
       - name: filterParam
         description: |
-          <p>parameter unique to each filter.</p>
+          <p>各フィルター固有のパラメータ。</p>
         type: Number
         optional: true
       - name: useWebGL
         description: |
-          <p>flag to control whether to use fast
-                                         WebGL filters (GPU) or original image
-                                         filters (CPU); defaults to <code>true</code>.</p>
+          <p>高速なWebGLフィルター（GPU）を使用するか、
+                                         オリジナルの画像フィルター（CPU）を使用するかを
+                                         制御するフラグ。デフォルトは<code>true</code>。</p>
         type: Boolean
         optional: true
   - line: 715
@@ -405,11 +310,12 @@ overloads:
     params:
       - name: shaderFilter
         description: |
-          <p>shader that's been loaded, with the
-                                            frag shader using a <code>tex0</code> uniform.</p>
+          <p>フラグシェーダーで<code>tex0</code>ユニフォームを
+                                            使用して読み込まれたシェーダー。</p>
         type: p5.Shader
 chainable: false
 ---
 
 
 # filter
+

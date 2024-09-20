@@ -4,119 +4,71 @@ module: Shape
 submodule: Vertex
 file: src/core/shape/vertex.js
 description: >
-  <p><a href="#/p5/beginShape">beginShape()</a> 関数と <a
-  href="#/p5/endShape">endShape()</a> 関数を使用することで、より複雑な形状を作成できます。</p>
+  <p>カスタム形状に頂点の追加を開始します。</p>
 
-  <p><a href="#/p5/beginShape">beginShape()</a> は、形状の頂点を記録するために使用され、<a
-  href="#/p5/endShape">endShape()</a> は記録を停止します。kind
-  パラメーターの値によって、提供された頂点からどのタイプの形状を作成するかを指定できます。モードが指定されていない場合、形状は任意の不規則なポリゴンである可能性があります。</p>
+  <p><code>beginShape()</code>と<a
+  href="/reference/p5/endShape/">endShape()</a>関数は、
 
-  <p><a href="#/p5/beginShape">beginShape()</a> 関数で利用可能なパラメーターは次のとおりです:</p>
+  2Dまたは3Dでカスタム形状を作成することができます。<code>beginShape()</code>は
 
-  <p>POINTS: 点のシリーズを描画します。</p>
+  カスタム形状への頂点の追加を開始し、<a
+  href="/reference/p5/endShape/">endShape()</a>は
 
-  <p>LINES: つながっていない線分のシリーズを描画します。</p>
+  その追加を停止します。</p>
 
-  <p>TRIANGLES: 別々の三角形のシリーズを描画します。</p>
+  <p>パラメータ<code>kind</code>は、作成する形状の種類を設定します。デフォルトでは、
 
-  <p>TRIANGLE_FAN: ファンのように、最初の頂点を共有する接続された三角形のシリーズを描画します。</p>
-
-  <p>TRIANGLE_STRIP: ストリップ状に接続された三角形のシリーズを描画します。</p>
-
-  <p>QUADS: 別々の四角形のシリーズを描画します。</p>
-
-  <p>QUAD_STRIP: 隣接する辺を使用して次の四角形を形成する四角形ストリップを描画します。</p>
-
-  <p>TESS (WebGL のみ): 曲線を埋めるための不規則なポリゴンを、明示的なテッセレーションで制御します。</p>
-
-  <p><a href="#/p5/beginShape">beginShape()</a> 関数を呼び出した後、一連の <a
-  href="#/p5/vertex">vertex()</a> コマンドが続きます。図形の描画を停止するには、<a
-  href="#/p5/endShape">endShape()</a>
-  を呼び出します。各図形は現在のストロークカラーで輪郭が描かれ、塗りつぶしカラーで塗りつぶされます。</p>
-
-  <p><a href="#/p5/translate">translate()</a>、<a
-  href="#/p5/rotate">rotate()</a>、<a href="#/p5/scale">scale()</a> などの変換は <a
-  href="#/p5/beginShape">beginShape()</a> 内では機能しません。<a
-  href="#/p5/ellipse">ellipse()</a> や <a href="#/p5/rect">rect()</a> などの他の図形も、<a
-  href="#/p5/beginShape">beginShape()</a> 内では使用できません。</p>
-
-
-  <hr/>
-
-  <p>Begins adding vertices to a custom shape.</p>
-
-  <p>The <code>beginShape()</code> and <a
-  href="/reference/p5/endShape/">endShape()</a> functions
-
-  allow for creating custom shapes in 2D or 3D. <code>beginShape()</code> begins
-  adding
-
-  vertices to a custom shape and <a href="/reference/p5/endShape/">endShape()</a>
-  stops
-
-  adding them.</p>
-
-  <p>The parameter, <code>kind</code>, sets the kind of shape to make. By
-  default, any
-
-  irregular polygon can be drawn. The available modes for kind are:</p>
+  任意の不規則な多角形を描画できます。kindに使用できるモードは以下の通りです：</p>
 
   <ul>
 
-  <li><code>POINTS</code> to draw a series of points.</li>
+  <li><code>POINTS</code>：一連の点を描画します。</li>
 
-  <li><code>LINES</code> to draw a series of unconnected line segments.</li>
+  <li><code>LINES</code>：一連の接続されていない線分を描画します。</li>
 
-  <li><code>TRIANGLES</code> to draw a series of separate triangles.</li>
+  <li><code>TRIANGLES</code>：一連の個別の三角形を描画します。</li>
 
-  <li><code>TRIANGLE_FAN</code> to draw a series of connected triangles sharing
-  the first vertex in a fan-like fashion.</li>
+  <li><code>TRIANGLE_FAN</code>：最初の頂点を共有する一連の接続された三角形をファン状に描画します。</li>
 
-  <li><code>TRIANGLE_STRIP</code> to draw a series of connected triangles in
-  strip fashion.</li>
+  <li><code>TRIANGLE_STRIP</code>：一連の接続された三角形をストリップ状に描画します。</li>
 
-  <li><code>QUADS</code> to draw a series of separate quadrilaterals
-  (quads).</li>
+  <li><code>QUADS</code>：一連の個別の四辺形（クアッド）を描画します。</li>
 
-  <li><code>QUAD_STRIP</code> to draw quad strip using adjacent edges to form
-  the next quad.</li>
+  <li><code>QUAD_STRIP</code>：隣接する辺を使用して次のクアッドを形成するクアッドストリップを描画します。</li>
 
-  <li><code>TESS</code> to create a filling curve by explicit tessellation
-  (WebGL only).</li>
+  <li><code>TESS</code>：明示的なテッセレーションによって塗りつぶし曲線を作成します（WebGLのみ）。</li>
 
   </ul>
 
-  <p>After calling <code>beginShape()</code>, shapes can be built by calling
+  <p><code>beginShape()</code>を呼び出した後、
 
-  <a href="/reference/p5/vertex/">vertex()</a>,
+  <a href="/reference/p5/vertex/">vertex()</a>、
 
-  <a href="/reference/p5/bezierVertex/">bezierVertex()</a>,
+  <a href="/reference/p5/bezierVertex/">bezierVertex()</a>、
 
-  <a href="/reference/p5/quadraticVertex/">quadraticVertex()</a>, and/or
+  <a href="/reference/p5/quadraticVertex/">quadraticVertex()</a>、および/または
 
-  <a href="/reference/p5/curveVertex/">curveVertex()</a>. Calling
+  <a href="/reference/p5/curveVertex/">curveVertex()</a>を呼び出すことで形状を構築できます。
 
-  <a href="/reference/p5/endShape/">endShape()</a> will stop adding vertices to
-  the
+  <a href="/reference/p5/endShape/">endShape()</a>を呼び出すと、形状への頂点の
 
-  shape. Each shape will be outlined with the current stroke color and filled
+  追加が停止します。各形状は現在のストロークカラーで輪郭が描かれ、
 
-  with the current fill color.</p>
+  現在のフィルカラーで塗りつぶされます。</p>
 
-  <p>Transformations such as <a href="/reference/p5/translate/">translate()</a>,
+  <p><a href="/reference/p5/translate/">translate()</a>、
 
-  <a href="/reference/p5/rotate/">rotate()</a>, and
+  <a href="/reference/p5/rotate/">rotate()</a>、
 
-  <a href="/reference/p5/scale/">scale()</a> don't work between
-  <code>beginShape()</code> and
+  <a href="/reference/p5/scale/">scale()</a>などの変換は、<code>beginShape()</code>と
 
-  <a href="/reference/p5/endShape/">endShape()</a>. It's also not possible to use
+  <a href="/reference/p5/endShape/">endShape()</a>の間では機能しません。また、
 
-  other shapes, such as <a href="/reference/p5/ellipse/">ellipse()</a> or
+  <a href="/reference/p5/ellipse/">ellipse()</a>や
 
-  <a href="/reference/p5/rect/">rect()</a>, between <code>beginShape()</code> and
+  <a href="/reference/p5/rect/">rect()</a>などの他の形状を<code>beginShape()</code>と
 
-  <a href="/reference/p5/endShape/">endShape()</a>.</p>
+  <a href="/reference/p5/endShape/">endShape()</a>の間で使用することもできません。</p>
 line: 129
 isConstructor: false
 itemtype: method
@@ -130,19 +82,19 @@ example:
 
       background(200);
 
-      // Start drawing the shape.
+      // 形状の描画を開始します。
       beginShape();
 
-      // Add vertices.
+      // 頂点を追加します。
       vertex(30, 20);
       vertex(85, 20);
       vertex(85, 75);
       vertex(30, 75);
 
-      // Stop drawing the shape.
+      // 形状の描画を停止します。
       endShape(CLOSE);
 
-      describe('A white square on a gray background.');
+      describe('灰色の背景に白い正方形。');
     }
     </code>
     </div>
@@ -154,20 +106,20 @@ example:
 
       background(200);
 
-      // Start drawing the shape.
-      // Only draw the vertices (points).
+      // 形状の描画を開始します。
+      // 頂点（点）のみを描画します。
       beginShape(POINTS);
 
-      // Add vertices.
+      // 頂点を追加します。
       vertex(30, 20);
       vertex(85, 20);
       vertex(85, 75);
       vertex(30, 75);
 
-      // Stop drawing the shape.
+      // 形状の描画を停止します。
       endShape();
 
-      describe('Four black dots that form a square are drawn on a gray background.');
+      describe('灰色の背景に正方形を形成する4つの黒い点が描かれています。');
     }
     </code>
     </div>
@@ -179,20 +131,20 @@ example:
 
       background(200);
 
-      // Start drawing the shape.
-      // Only draw lines between alternating pairs of vertices.
+      // 形状の描画を開始します。
+      // 交互の頂点のペアの間に線のみを描画します。
       beginShape(LINES);
 
-      // Add vertices.
+      // 頂点を追加します。
       vertex(30, 20);
       vertex(85, 20);
       vertex(85, 75);
       vertex(30, 75);
 
-      // Stop drawing the shape.
+      // 形状の描画を停止します。
       endShape();
 
-      describe('Two horizontal black lines on a gray background.');
+      describe('灰色の背景に2本の水平な黒い線。');
     }
     </code>
     </div>
@@ -204,22 +156,22 @@ example:
 
       background(200);
 
-      // Style the shape.
+      // 形状のスタイルを設定します。
       noFill();
 
-      // Start drawing the shape.
+      // 形状の描画を開始します。
       beginShape();
 
-      // Add vertices.
+      // 頂点を追加します。
       vertex(30, 20);
       vertex(85, 20);
       vertex(85, 75);
       vertex(30, 75);
 
-      // Stop drawing the shape.
+      // 形状の描画を停止します。
       endShape();
 
-      describe('Three black lines form a sideways U shape on a gray background.');
+      describe('灰色の背景に横向きのU字形を形成する3本の黒い線。');
     }
     </code>
     </div>
@@ -231,23 +183,23 @@ example:
 
       background(200);
 
-      // Style the shape.
+      // 形状のスタイルを設定します。
       noFill();
 
-      // Start drawing the shape.
+      // 形状の描画を開始します。
       beginShape();
 
-      // Add vertices.
+      // 頂点を追加します。
       vertex(30, 20);
       vertex(85, 20);
       vertex(85, 75);
       vertex(30, 75);
 
-      // Stop drawing the shape.
-      // Connect the first and last vertices.
+      // 形状の描画を停止します。
+      // 最初と最後の頂点を接続します。
       endShape(CLOSE);
 
-      describe('A black outline of a square drawn on a gray background.');
+      describe('灰色の背景に描かれた正方形の黒い輪郭。');
     }
     </code>
     </div>
@@ -259,24 +211,24 @@ example:
 
       background(200);
 
-      // Start drawing the shape.
-      // Draw a series of triangles.
+      // 形状の描画を開始します。
+      // 一連の三角形を描画します。
       beginShape(TRIANGLES);
 
-      // Left triangle.
+      // 左の三角形。
       vertex(30, 75);
       vertex(40, 20);
       vertex(50, 75);
 
-      // Right triangle.
+      // 右の三角形。
       vertex(60, 20);
       vertex(70, 75);
       vertex(80, 20);
 
-      // Stop drawing the shape.
+      // 形状の描画を停止します。
       endShape();
 
-      describe('Two white triangles drawn on a gray background.');
+      describe('灰色の背景に描かれた2つの白い三角形。');
     }
     </code>
     </div>
@@ -288,11 +240,11 @@ example:
 
       background(200);
 
-      // Start drawing the shape.
-      // Draw a series of triangles.
+      // 形状の描画を開始します。
+      // 一連の三角形を描画します。
       beginShape(TRIANGLE_STRIP);
 
-      // Add vertices.
+      // 頂点を追加します。
       vertex(30, 75);
       vertex(40, 20);
       vertex(50, 75);
@@ -301,10 +253,10 @@ example:
       vertex(80, 20);
       vertex(90, 75);
 
-      // Stop drawing the shape.
+      // 形状の描画を停止します。
       endShape();
 
-      describe('Five white triangles that are interleaved drawn on a gray background.');
+      describe('灰色の背景に描かれた5つの白い三角形が交互に配置されています。');
     }
     </code>
     </div>
@@ -316,11 +268,11 @@ example:
 
       background(200);
 
-      // Start drawing the shape.
-      // Draw a series of triangles that share their first vertex.
+      // 形状の描画を開始します。
+      // 最初の頂点を共有する一連の三角形を描画します。
       beginShape(TRIANGLE_FAN);
 
-      // Add vertices.
+      // 頂点を追加します。
       vertex(57.5, 50);
       vertex(57.5, 15);
       vertex(92, 50);
@@ -328,10 +280,10 @@ example:
       vertex(22, 50);
       vertex(57.5, 15);
 
-      // Stop drawing the shape.
+      // 形状の描画を停止します。
       endShape();
 
-      describe('Four white triangles form a square are drawn on a gray background.');
+      describe('灰色の背景に正方形を形成する4つの白い三角形が描かれています。');
     }
     </code>
     </div>
@@ -343,26 +295,29 @@ example:
 
       background(200);
 
-      // Start drawing the shape.
-      // Draw a series of quadrilaterals.
+      // 形状の描画を開始します。
+      // 一連の四辺形を描画します。
       beginShape(QUADS);
 
-      // Left rectangle.
+      // 左の長方形。
       vertex(30, 20);
       vertex(30, 75);
       vertex(50, 75);
       vertex(50, 20);
 
-      // Right rectangle.
+      // 右の長方形。
       vertex(65, 20);
       vertex(65, 75);
       vertex(85, 75);
       vertex(85, 20);
 
-      // Stop drawing the shape.
+      // 形状の描画を停止します。
+      vertex(85, 20);
+
+      // 形状の描画を停止します。
       endShape();
 
-      describe('Two white rectangles drawn on a gray background.');
+      describe('灰色の背景に描かれた2つの白い長方形。');
     }
     </code>
     </div>
@@ -374,11 +329,11 @@ example:
 
       background(200);
 
-      // Start drawing the shape.
-      // Draw a series of quadrilaterals.
+      // 形状の描画を開始します。
+      // 一連の四辺形を描画します。
       beginShape(QUAD_STRIP);
 
-      // Add vertices.
+      // 頂点を追加します。
       vertex(30, 20);
       vertex(30, 75);
       vertex(50, 20);
@@ -388,10 +343,10 @@ example:
       vertex(85, 20);
       vertex(85, 75);
 
-      // Stop drawing the shape.
+      // 形状の描画を停止します。
       endShape();
 
-      describe('Three white rectangles that share edges are drawn on a gray background.');
+      describe('灰色の背景に辺を共有する3つの白い長方形が描かれています。');
     }
     </code>
     </div>
@@ -403,11 +358,11 @@ example:
 
       background(200);
 
-      // Start drawing the shape.
-      // Draw a series of quadrilaterals.
+      // 形状の描画を開始します。
+      // 一連の四辺形を描画します。
       beginShape(TESS);
 
-      // Add the vertices.
+      // 頂点を追加します。
       vertex(-30, -30, 0);
       vertex(30, -30, 0);
       vertex(30, -10, 0);
@@ -417,36 +372,36 @@ example:
       vertex(30, 30, 0);
       vertex(-30, 30, 0);
 
-      // Stop drawing the shape.
-      // Connect the first and last vertices.
+      // 形状の描画を停止します。
+      // 最初と最後の頂点を接続します。
       endShape(CLOSE);
 
-      describe('A blocky C shape drawn in white on a gray background.');
+      describe('灰色の背景に白で描かれたブロック状のC形。');
     }
     </code>
     </div>
 
     <div>
     <code>
-    // Click and drag with the mouse to view the scene from different angles.
+    // クリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A blocky C shape drawn in red, blue, and green on a gray background.');
+      describe('灰色の背景に赤、青、緑で描かれたブロック状のC形。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Start drawing the shape.
-      // Draw a series of quadrilaterals.
+      // 形状の描画を開始します。
+      // 一連の四辺形を描画します。
       beginShape(TESS);
 
-      // Add the vertices.
+      // 頂点を追加します。
       fill('red');
       stroke('red');
       vertex(-30, -30, 0);
@@ -462,8 +417,8 @@ example:
       vertex(30, 30, 0);
       vertex(-30, 30, 0);
 
-      // Stop drawing the shape.
-      // Connect the first and last vertices.
+      // 形状の描画を停止します。
+      // 最初と最後の頂点を接続します。
       endShape(CLOSE);
     }
     </code>
@@ -471,12 +426,9 @@ example:
 class: p5
 params:
   - name: kind
-    description: >
-      <p>(オプション) POINTS, LINES, TRIANGLES, TRIANGLE_FAN, TRIANGLE_STRIP, QUADS,
-      QUAD_STRIP, TESS のいずれか</p>
-
-      <p>either POINTS, LINES, TRIANGLES, TRIANGLE_FAN
-                                     TRIANGLE_STRIP, QUADS, QUAD_STRIP or TESS.</p>
+    description: |
+      <p>POINTS、LINES、TRIANGLES、TRIANGLE_FAN、
+                                     TRIANGLE_STRIP、QUADS、QUAD_STRIP、またはTESSのいずれか。</p>
     type: Constant
     optional: true
 chainable: true
@@ -484,3 +436,4 @@ chainable: true
 
 
 # beginShape
+

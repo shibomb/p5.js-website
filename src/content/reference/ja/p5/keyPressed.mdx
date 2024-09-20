@@ -4,27 +4,6 @@ module: Events
 submodule: Keyboard
 file: src/events/keyboard.js
 description: >
-  <p><a href="#/p5/keyPressed">keyPressed()</a> 関数は、キーが押されるたびに1回呼び出されます。</p>
-
-  <p>押されたキーの keyCode は、<a href="#/p5/keyCode">keyCode</a> 変数に格納されます。</p>
-
-  <p>非 ASCII キーの場合は、keyCode 変数を使用してください。keyCode が
-  BACKSPACE、DELETE、ENTER、RETURN、TAB、ESCAPE、SHIFT、CONTROL、OPTION、ALT、UP_ARROW、DOWN_ARROW、LEFT_ARROW、RIGHT_ARROW
-  に等しいかどうかを確認できます。</p>
-
-  <p>ASCII キーの場合、押されたキーは key 変数に格納されます。ただし、大文字と小文字は区別されません。このため、変数の大文字と小文字を区別する
-  keyTyped() を使用して key 変数を読み取ることが推奨されます。<a href="#/p5/keyTyped">keyTyped()</a>
-  を参照してください。</p>
-
-  <p>オペレーティングシステムがキーのリピートを処理する方法のため、キーを押し続けると、<a
-  href="#/p5/keyTyped">keyTyped()</a>（および <a
-  href="#/p5/keyReleased">keyReleased()</a>
-  も）が複数回呼び出される場合があります。リピートの速度は、オペレーティングシステムと各コンピューターの設定によって決まります。ブラウザーは、さまざまなキーイベントに対してデフォルトの動作をもつ場合があります。このイベントのデフォルト動作を防ぐには、「return
-  false」をメソッドの最後に追加してください。</p>
-
-
-  <hr/>
-
   <p>A function that's called once when any key is pressed.</p>
 
   <p>Declaring the function <code>keyPressed()</code> sets a code block to run
@@ -60,7 +39,7 @@ description: >
   <p>The parameter, <code>event</code>, is optional. <code>keyPressed()</code>
   is always passed a
 
-  <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent"
+  <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/"
   target="_blank">KeyboardEvent</a>
 
   object with properties that describe the key press event:</p>
@@ -200,7 +179,6 @@ class: p5
 params:
   - name: event
     description: |
-      <p>(オプション) オプションの KeyboardEvent コールバック引数。</p>
       <p>optional <code>KeyboardEvent</code> callback argument.</p>
     type: KeyboardEvent
     optional: true

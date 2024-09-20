@@ -4,17 +4,9 @@ module: Events
 submodule: Acceleration
 file: src/events/acceleration.js
 description: >
-  <p>システム変数 accelerationY には、常にデバイスの y 軸に沿った加速度が格納されます。</p>
+  <p>システム変数accelerationYは常にデバイスのy軸方向の加速度を含んでいます。
 
-  <p>値は、メートル毎秒の二乗で表されます。</p>
-
-
-  <hr/>
-
-  <p>The system variable accelerationY always contains the acceleration of the
-
-  device along the y axis. Value is represented as meters per second
-  squared.</p>
+  値は1秒あたりのメートル単位で表されます。</p>
 line: 45
 isConstructor: false
 itemtype: property
@@ -23,13 +15,13 @@ example:
 
     <div>
     <code>
-    // Move a touchscreen device to register
-    // acceleration changes.
+    // タッチスクリーンデバイスを動かして
+    // 加速度の変化を登録します。
     function draw() {
       background(220, 50);
       fill('magenta');
       ellipse(width / 2, height / 2, accelerationY);
-      describe('Magnitude of device acceleration is displayed as ellipse size');
+      describe('デバイスの加速度の大きさが楕円の大きさとして表示されます');
     }
     </code>
     </div>

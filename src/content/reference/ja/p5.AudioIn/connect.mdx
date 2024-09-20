@@ -4,10 +4,6 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
-  <p>オーディオユニットに接続します。</p>
-  <p>パラメーターが提供されない場合は、メイン出力（スピーカー）に接続します。<br/></p>
-
-  <hr/>
   <p>Connect to an audio unit. If no parameter is provided, will
   connect to the main output (i.e. your speakers).<br/></p>
 line: 6191
@@ -17,7 +13,6 @@ class: p5.AudioIn
 params:
   - name: unit
     description: |
-      <p>(オプション) FFT など、オーディオ入力を受け入れるオブジェクト</p>
       <p>An object that accepts audio input,
                               such as an FFT</p>
     type: Object

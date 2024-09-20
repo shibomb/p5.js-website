@@ -4,66 +4,20 @@ module: Environment
 submodule: Environment
 file: src/accessibility/describe.js
 description: >
-  <p>キャンバスにスクリーンリーダー対応の説明を作成します。</p>
+  <p>キャンバスのスクリーンリーダーでアクセス可能な説明を作成します。</p>
 
-  <p>最初のパラメーターは、キャンバスの説明を示す文字列である必要があります。2つ目のパラメーターはオプションです。指定された場合、説明の表示方法が決まります。</p>
+  <p>最初のパラメータ <code>text</code> は、キャンバスの説明です。</p>
 
-  <p><code class="language-javascript">describe(text, LABEL)</code> は、キャンバスに隣接する
-  div 内にある <a href="https://en.wikipedia.org/wiki/Museum_label"
-  target="_blank">キャプションパネル</a> として、すべてのユーザーに説明を表示します。CSS で好みのスタイルに変更できます。</p>
+  <p>2番目のパラメータ <code>display</code> はオプションです。説明の表示方法を決定します。
+  <code>LABEL</code> が渡された場合、例えば
+  <code>describe('説明文。', LABEL)</code> のように、説明はキャンバスの隣の
+  div要素に表示されます。<code>FALLBACK</code> が渡された場合、例えば
+  <code>describe('説明文。', FALLBACK)</code> のように、説明はスクリーンリーダーにのみ
+  表示されます。これがデフォルトのモードです。</p>
 
-  <p><code class="language-javascript">describe(text, FALLBACK)</code> は、<a
-  href="https://developer.mozilla.org/ja/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility"
-  target="_blank">キャンバス要素内のサブ DOM</a>
-  で、スクリーンリーダーユーザーのみが説明を利用できるようにします。2つ目のパラメーターが指定されていない場合、デフォルトで説明はスクリーンリーダーユーザーにのみ利用可能です。</p>
-
-  <p>/// todo ///</p>
-
-  <p>Creates a screen reader-accessible description for the canvas.</p>
-
-  <p>The first parameter, <code>text</code>, is the description of the
-  canvas.</p>
-
-  <p>The second parameter, <code>display</code>, is optional. It determines how
-  the description is displayed. If <code>LABEL</code> is passed, as in
-  <code>describe('A description.', LABEL)</code>, the description will be
-  visible in a div element next to the canvas. If <code>FALLBACK</code> is
-  passed, as in <code>describe('A description.', FALLBACK)</code>, the
-  description will only be visible to screen readers. This is the default
-  mode.</p>
-
-  <p>Read <a href="/learn/labeling-canvases.html">How to label your p5.js
-  code</a> to learn more about making sketches accessible.</p>
-
-
-  <hr/>
-
-  <p>Creates a screen reader-accessible description of the canvas.</p>
-
-  <p>The first parameter, <code>text</code>, is the description of the
-  canvas.</p>
-
-  <p>The second parameter, <code>display</code>, is optional. It determines how
-  the
-
-  description is displayed. If <code>LABEL</code> is passed, as in
-
-  <code>describe('A description.', LABEL)</code>, the description will be
-  visible in
-
-  a div element next to the canvas. If <code>FALLBACK</code> is passed, as in
-
-  <code>describe('A description.', FALLBACK)</code>, the description will only
-  be
-
-  visible to screen readers. This is the default mode.</p>
-
-  <p>Read
-
-  <a href="/learn/accessible-labels.html">Writing accessible canvas
-  descriptions</a>
-
-  to learn more about making sketches accessible.</p>
+  <p>スケッチをアクセシブルにする方法について詳しく学ぶには、
+  <a href="/learn/accessible-labels.html">アクセシブルなキャンバスの説明を書く</a>
+  をお読みください。</p>
 line: 18
 isConstructor: false
 itemtype: method
@@ -75,15 +29,15 @@ example:
     function setup() {
       background('pink');
 
-      // Draw a heart.
+      // ハートを描く。
       fill('red');
       noStroke();
       circle(67, 67, 20);
       circle(83, 67, 20);
       triangle(91, 73, 75, 95, 59, 73);
 
-      // Add a general description of the canvas.
-      describe('A pink square with a red heart in the bottom-right corner.');
+      // キャンバスの一般的な説明を追加する。
+      describe('右下隅に赤いハートがある、ピンク色の正方形。');
     }
     </code>
     </div>
@@ -93,16 +47,16 @@ example:
     function setup() {
       background('pink');
 
-      // Draw a heart.
+      // ハートを描く。
       fill('red');
       noStroke();
       circle(67, 67, 20);
       circle(83, 67, 20);
       triangle(91, 73, 75, 95, 59, 73);
 
-      // Add a general description of the canvas
-      // and display it for debugging.
-      describe('A pink square with a red heart in the bottom-right corner.', LABEL);
+      // キャンバスの一般的な説明を追加し、
+      // デバッグ用に表示する。
+      describe('右下隅に赤いハートがある、ピンク色の正方形。', LABEL);
     }
     </code>
     </div>
@@ -112,18 +66,18 @@ example:
     function draw() {
       background(200);
 
-      // The expression
+      // 式
       // frameCount % 100
-      // causes x to increase from 0
-      // to 99, then restart from 0.
+      // は、xを0から99まで増加させ、
+      // その後0から再開させる。
       let x = frameCount % 100;
 
-      // Draw the circle.
+      // 円を描く。
       fill(0, 255, 0);
       circle(x, 50, 40);
 
-      // Add a general description of the canvas.
-      describe(`A green circle at (${x}, 50) moves from left to right on a gray square.`);
+      // キャンバスの一般的な説明を追加する。
+      describe(`灰色の正方形上で、(${x}, 50)の位置にある緑の円が左から右に移動する。`);
     }
     </code>
     </div>
@@ -133,19 +87,19 @@ example:
     function draw() {
       background(200);
 
-      // The expression
+      // 式
       // frameCount % 100
-      // causes x to increase from 0
-      // to 99, then restart from 0.
+      // は、xを0から99まで増加させ、
+      // その後0から再開させる。
       let x = frameCount % 100;
 
-      // Draw the circle.
+      // 円を描く。
       fill(0, 255, 0);
       circle(x, 50, 40);
 
-      // Add a general description of the canvas
-      // and display it for debugging.
-      describe(`A green circle at (${x}, 50) moves from left to right on a gray square.`, LABEL);
+      // キャンバスの一般的な説明を追加し、
+      // デバッグ用に表示する。
+      describe(`灰色の正方形上で、(${x}, 50)の位置にある緑の円が左から右に移動する。`, LABEL);
     }
     </code>
     </div>
@@ -153,13 +107,11 @@ class: p5
 params:
   - name: text
     description: |
-      <p>キャンバスの説明</p>
-      <p>description of the canvas.</p>
+      <p>キャンバスの説明。</p>
     type: String
   - name: display
     description: |
-      <p>(オプション) LABEL または FALLBACK のいずれか</p>
-      <p>either LABEL or FALLBACK.</p>
+      <p>LABELまたはFALLBACK。</p>
     type: Constant
     optional: true
 chainable: false
@@ -167,3 +119,4 @@ chainable: false
 
 
 # describe
+

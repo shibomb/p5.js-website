@@ -3,15 +3,7 @@ title: setInput
 module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
-description: >
-  <p>このエンベロープによって制御されるパラメーターを割り当てます。</p>
-
-  <p>p5.Sound オブジェクトが指定された場合、p5.Envelope はその出力ゲインを制御します。複数の入力が指定された場合、env
-  はそれらすべてを制御します。</p>
-
-
-  <hr/>
-
+description: |
   <p>Assign a parameter to be controlled by this envelope.
   If a p5.Sound object is given, then the p5.Envelope will control its
   output gain. If multiple inputs are provided, the env will
@@ -23,7 +15,6 @@ class: p5.Envelope
 params:
   - name: inputs
     description: |
-      <p>(オプション) p5.sound オブジェクトまたは Web Audio Param。</p>
       <p>A p5.sound object or
                                     Web Audio Param.</p>
     type: Object

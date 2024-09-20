@@ -4,22 +4,15 @@ module: Rendering
 submodule: Rendering
 file: src/core/p5.Graphics.js
 description: >
-  <p>グラフィックスバッファオブジェクトで自動的にリセットされない、変換カテゴリやライトカテゴリの関数によって変更された値などをリセットします。</p>
+  <p>グラフィックスバッファの変換と照明をリセットします。</p>
 
-  <p><a href='#/p5/draw'>draw()</a> でこれを呼び出すと、標準キャンバスの動作がコピーされます。</p>
+  <p>デフォルトでは、メインキャンバスは<a href="/reference/p5/draw/">draw()</a>が実行されるたびに
 
+  特定の変換と照明の値をリセットします。<code>p5.Graphics</code>
 
-  <hr/>
+  オブジェクトは、<code>myGraphics.reset()</code>を呼び出すことで
 
-  <p>Resets the graphics buffer's transformations and lighting.</p>
-
-  <p>By default, the main canvas resets certain transformation and lighting
-
-  values each time <a href="/reference/p5/draw/">draw()</a> executes.
-  <code>p5.Graphics</code>
-
-  objects must reset these values manually by calling
-  <code>myGraphics.reset()</code>.</p>
+  これらの値を手動でリセットする必要があります。</p>
 line: 153
 isConstructor: false
 itemtype: method
@@ -33,33 +26,33 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create a p5.Graphics object.
+      // p5.Graphicsオブジェクトを作成します。
       pg = createGraphics(60, 60);
 
-      describe('A white circle moves downward slowly within a dark square. The circle resets at the top of the dark square when the user presses the mouse.');
+      describe('白い円が暗い正方形の中をゆっくりと下に移動します。ユーザーがマウスを押すと、円は暗い正方形の上部にリセットされます。');
     }
 
     function draw() {
       background(200);
 
-      // Translate the p5.Graphics object's coordinate system.
-      // The translation accumulates; the white circle moves.
+      // p5.Graphicsオブジェクトの座標系を変換します。
+      // 変換は蓄積されるため、白い円が移動します。
       pg.translate(0, 0.1);
 
-      // Draw to the p5.Graphics object.
+      // p5.Graphicsオブジェクトに描画します。
       pg.background(100);
       pg.circle(30, 0, 10);
 
-      // Display the p5.Graphics object.
+      // p5.Graphicsオブジェクトを表示します。
       image(pg, 20, 20);
 
-      // Translate the main canvas' coordinate system.
-      // The translation doesn't accumulate; the dark
-      // square is always in the same place.
+      // メインキャンバスの座標系を変換します。
+      // 変換は蓄積されないため、暗い正方形は
+      // 常に同じ場所にあります。
       translate(0, 0.1);
 
-      // Reset the p5.Graphics object when the
-      // user presses the mouse.
+      // ユーザーがマウスを押したときに
+      // p5.Graphicsオブジェクトをリセットします。
       if (mouseIsPressed === true) {
         pg.reset();
       }
@@ -74,26 +67,26 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create a p5.Graphics object.
+      // p5.Graphicsオブジェクトを作成します。
       pg = createGraphics(60, 60);
 
-      describe('A white circle at the center of a dark gray square. The image is drawn on a light gray background.');
+      describe('暗いグレーの正方形の中心に白い円があります。画像は薄いグレーの背景に描かれています。');
     }
 
     function draw() {
       background(200);
 
-      // Translate the p5.Graphics object's coordinate system.
+      // p5.Graphicsオブジェクトの座標系を変換します。
       pg.translate(30, 30);
 
-      // Draw to the p5.Graphics object.
+      // p5.Graphicsオブジェクトに描画します。
       pg.background(100);
       pg.circle(0, 0, 10);
 
-      // Display the p5.Graphics object.
+      // p5.Graphicsオブジェクトを表示します。
       image(pg, 20, 20);
 
-      // Reset the p5.Graphics object automatically.
+      // p5.Graphicsオブジェクトを自動的にリセットします。
       pg.reset();
     }
     </code>
@@ -106,33 +99,33 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create a p5.Graphics object using WebGL mode.
+      // WebGLモードを使用してp5.Graphicsオブジェクトを作成します。
       pg = createGraphics(100, 100, WEBGL);
 
-      describe("A sphere lit from above with a red light. The sphere's surface becomes glossy while the user clicks and holds the mouse.");
+      describe("上から赤い光で照らされた球体。ユーザーがマウスをクリックして押し続けている間、球体の表面が光沢を帯びます。");
     }
 
     function draw() {
       background(200);
 
-      // Add a red point light from the top-right.
+      // 右上から赤いポイントライトを追加します。
       pg.pointLight(255, 0, 0, 50, -100, 50);
 
-      // Style the sphere.
-      // It should appear glossy when the
-      // lighting values are reset.
+      // 球体のスタイルを設定します。
+      // 照明の値がリセットされると
+      // 光沢が現れるはずです。
       pg.noStroke();
       pg.specularMaterial(255);
       pg.shininess(100);
 
-      // Draw the sphere.
+      // 球体を描画します。
       pg.sphere(30);
 
-      // Display the p5.Graphics object.
+      // p5.Graphicsオブジェクトを表示します。
       image(pg, -50, -50);
 
-      // Reset the p5.Graphics object when
-      // the user presses the mouse.
+      // ユーザーがマウスを押したときに
+      // p5.Graphicsオブジェクトをリセットします。
       if (mouseIsPressed === true) {
         pg.reset();
       }
@@ -147,30 +140,30 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create a p5.Graphics object using WebGL mode.
+      // WebGLモードを使用してp5.Graphicsオブジェクトを作成します。
       pg = createGraphics(100, 100, WEBGL);
 
-      describe('A sphere with a glossy surface is lit from the top-right by a red light.');
+      describe('光沢のある表面を持つ球体が、右上からの赤い光で照らされています。');
     }
 
     function draw() {
       background(200);
 
-      // Add a red point light from the top-right.
+      // 右上から赤いポイントライトを追加します。
       pg.pointLight(255, 0, 0, 50, -100, 50);
 
-      // Style the sphere.
+      // 球体のスタイルを設定します。
       pg.noStroke();
       pg.specularMaterial(255);
       pg.shininess(100);
 
-      // Draw the sphere.
+      // 球体を描画します。
       pg.sphere(30);
 
-      // Display the p5.Graphics object.
+      // p5.Graphicsオブジェクトを表示します。
       image(pg, 0, 0);
 
-      // Reset the p5.Graphics object automatically.
+      // p5.Graphicsオブジェクトを自動的にリセットします。
       pg.reset();
     }
     </code>
@@ -181,3 +174,4 @@ chainable: false
 
 
 # reset
+

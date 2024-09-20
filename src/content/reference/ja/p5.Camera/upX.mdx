@@ -4,12 +4,9 @@ module: 3D
 submodule: Camera
 file: src/webgl/p5.Camera.js
 description: |
-  <p>カメラから見た上方向の x 成分。</p>
-
-  <hr/>
-  <p>The x-component of the camera's "up" vector.</p>
-  <p>The camera's "up" vector orients its y-axis. By default, the "up" vector is
-  <code>(0, 1, 0)</code>, so its x-component is 0 in "local" space.</p>
+  <p>カメラの「上」ベクトルのx成分。</p>
+  <p>カメラの「上」ベクトルはそのy軸の向きを決定します。デフォルトでは、「上」ベクトルは
+  <code>(0, 1, 0)</code>なので、「ローカル」空間ではそのx成分は0です。</p>
 line: 1525
 isConstructor: false
 itemtype: property
@@ -21,7 +18,7 @@ example:
     let cam;
     let font;
 
-    // Load a font and create a p5.Font object.
+    // フォントを読み込み、p5.Fontオブジェクトを作成します。
     function preload() {
       font = loadFont('/assets/inconsolata.otf');
     }
@@ -29,35 +26,35 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Camera object.
+      // p5.Cameraオブジェクトを作成します。
       cam = createCamera();
 
-      // Place the camera at the top-right: (100, -400, 800)
-      // Point it at the origin: (0, 0, 0)
-      // Set its "up" vector: (0, 1, 0).
+      // カメラを右上に配置: (100, -400, 800)
+      // 原点を向くように設定: (0, 0, 0)
+      // 「上」ベクトルを設定: (0, 1, 0)
       cam.camera(100, -400, 800, 0, 0, 0, 0, 1, 0);
 
       describe(
-        'A white cube on a gray background. The text "upX: 0" is written in black beneath it.'
+        '灰色の背景に白い立方体。その下に黒字で "upX: 0" と書かれています。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Style the box.
+      // 箱のスタイルを設定します。
       fill(255);
 
-      // Draw the box.
+      // 箱を描画します。
       box();
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER);
       textSize(16);
       textFont(font);
       fill(0);
 
-      // Display the value of upX, rounded to the nearest tenth.
+      // upXの値を小数点第1位まで四捨五入して表示します。
       text(`upX: ${round(cam.upX, 1)}`, 0, 55);
     }
     </code>
@@ -68,7 +65,7 @@ example:
     let cam;
     let font;
 
-    // Load a font and create a p5.Font object.
+    // フォントを読み込み、p5.Fontオブジェクトを作成します。
     function preload() {
       font = loadFont('/assets/inconsolata.otf');
     }
@@ -76,41 +73,41 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Camera object.
+      // p5.Cameraオブジェクトを作成します。
       cam = createCamera();
 
-      // Place the camera at the top-right: (100, -400, 800)
-      // Point it at the origin: (0, 0, 0)
-      // Set its "up" vector: (0, 1, 0).
+      // カメラを右上に配置: (100, -400, 800)
+      // 原点を向くように設定: (0, 0, 0)
+      // 「上」ベクトルを設定: (0, 1, 0)
       cam.camera(100, -400, 800, 0, 0, 0, 0, 1, 0);
 
       describe(
-        'A white cube on a gray background. The cube appears to rock back and forth. The text "upX: X" is written in black beneath it. X oscillates between -1 and 1.'
+        '灰色の背景に白い立方体。立方体が前後に揺れているように見えます。その下に黒字で "upX: X" と書かれています。Xは-1から1の間で振動します。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Style the box.
+      // 箱のスタイルを設定します。
       fill(255);
 
-      // Draw the box.
+      // 箱を描画します。
       box();
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER);
       textSize(16);
       textFont(font);
       fill(0);
 
-      // Calculate the x-component.
+      // x成分を計算します。
       let x = sin(frameCount * 0.01);
 
-      // Update the camera's "up" vector.
+      // カメラの「上」ベクトルを更新します。
       cam.camera(100, -400, 800, 0, 0, 0, x, 1, 0);
 
-      // Display the value of upX, rounded to the nearest tenth.
+      // upXの値を小数点第1位まで四捨五入して表示します。
       text(`upX: ${round(cam.upX, 1)}`, 0, 55);
     }
     </code>
@@ -121,3 +118,4 @@ type: Number
 
 
 # upX
+

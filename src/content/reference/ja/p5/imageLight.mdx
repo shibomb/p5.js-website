@@ -4,45 +4,24 @@ module: 3D
 submodule: Lights
 file: src/webgl/light.js
 description: >
-  <p>Creates an image light with the given image.。</p>
+  <p>画像から環境光を作成します。</p>
 
-  <p>The image light simulates light from all the directions. This is done by
-  using the image as a texture for an infinitely large sphere light. This sphere
-  contains or encapsulates the whole scene/drawing. It will have different
-  effect for varying shininess of the object in the drawing. Under the hood it
-  is mainly doing 2 types of calculations, the first one is creating an
-  irradiance map the environment map of the input image. The second one is
-  managing reflections based on the shininess or roughness of the material used
-  in the scene.</p>
+  <p><code>imageLight()</code>はあらゆる方向から光が当たっているようにシミュレートします。
+  その効果は
 
-  <p>Note: The image's diffuse light will be affected by fill() and the specular
-  reflections will be affected by specularMaterial() and shininess().</p>
+  スケッチを巨大な球体の中心に置き、その球体がその画像を
 
-  <p>/// todo ///</p>
+  テクスチャとして使用しているようなものです。画像の拡散光は
 
+  <a href="/reference/p5/fill/">fill()</a>の影響を受け、鏡面反射は
 
-  <hr/>
+  <a href="/reference/p5/specularMaterial/">specularMaterial()</a>と
 
-  <p>Creates an ambient light from an image.</p>
+  <a href="/reference/p5/shininess/">shininess()</a>の影響を受けます。</p>
 
-  <p><code>imageLight()</code> simulates a light shining from all directions.
-  The effect is
+  <p>パラメータ<code>img</code>は、光源として使用する
+  <a href="/reference/p5/p5.Image">p5.Image</a>オブジェクトです。</p>
 
-  like placing the sketch at the center of a giant sphere that uses the image
-
-  as its texture. The image's diffuse light will be affected by
-
-  <a href="/reference/p5/fill/">fill()</a> and the specular reflections will be
-
-  affected by <a href="/reference/p5/specularMaterial/">specularMaterial()</a>
-  and
-
-  <a href="/reference/p5/shininess/">shininess()</a>.</p>
-
-  <p>The parameter, <code>img</code>, is the <a
-  href="/reference/p5/p5.Image">p5.Image</a> object to
-
-  use as the light source.</p>
 line: 955
 isConstructor: false
 itemtype: method
@@ -51,11 +30,11 @@ example:
 
     <div class="notest">
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // クリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     let img;
 
-    // Load an image and create a p5.Image object.
+    // 画像を読み込み、p5.Imageオブジェクトを作成します。
     function preload() {
       img = loadImage('/assets/outdoor_spheremap.jpg');
     }
@@ -63,28 +42,28 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A sphere floating above a landscape. The surface of the sphere reflects the landscape.');
+      describe('風景の上に浮かぶ球体。球体の表面には風景が反射しています。');
     }
 
     function draw() {
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Draw the image as a panorama (360˚ background).
+      // 画像をパノラマ（360度背景）として描画します。
       panorama(img);
 
-      // Add a soft ambient light.
+      // ソフトな環境光を追加します。
       ambientLight(50);
 
-      // Add light from the image.
+      // 画像から光を追加します。
       imageLight(img);
 
-      // Style the sphere.
+      // 球体のスタイルを設定します。
       specularMaterial(20);
       shininess(100);
       noStroke();
 
-      // Draw the sphere.
+      // 球体を描画します。
       sphere(30);
     }
     </code>
@@ -93,11 +72,11 @@ class: p5
 params:
   - name: img
     description: |
-      <p>image for the background /// todo /// </p>
-      <p>image to use as the light source.</p>
+      <p>光源として使用する画像。</p>
     type: p5.image
 chainable: false
 ---
 
 
 # imageLight
+

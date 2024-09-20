@@ -4,46 +4,31 @@ module: Rendering
 submodule: ''
 file: src/webgl/p5.Framebuffer.js
 description: >
-  <p>フレームバッファの色情報が入ったテクスチャ。</p>
+  <p>フレームバッファのカラーデータを格納するオブジェクトです。</p>
 
-  <p>これを（またはフレームバッファ自体を）<a href="#/p5/texture">texture()</a> に渡してキャンバスに描画するか、<a
-  href="#/p5.Shader/setUniform">setUniform()</a> に渡すことでそのデータを読み取ることができます。</p>
+  <p>各フレームバッファは内部的に
 
-  <p>フレームバッファは WebGL によって管理されているため、y
-  座標は画像やビデオと比較して反転して保存されています。フレームバッファのテクスチャでテクスチャリングをするときに、垂直に反転させたい場合は
-  <code>plane(framebuffer.width, -framebuffer.height)</code> のようにしてみてください。</p>
-
-
-  <hr/>
-
-  <p>An object that stores the framebuffer's color data.</p>
-
-  <p>Each framebuffer uses a
-
-  <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGLTexture"
+  <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGLTexture/"
   target="_blank">WebGLTexture</a>
 
-  object internally to store its color data. The <code>myBuffer.color</code>
-  property
+  オブジェクトを使用してカラーデータを格納します。<code>myBuffer.color</code>
+  プロパティは
 
-  makes it possible to pass this data directly to other functions. For
+  このデータを他の関数に直接渡すことを可能にします。例えば、
 
-  example, calling <code>texture(myBuffer.color)</code> or
+  <code>texture(myBuffer.color)</code>や
 
-  <code>myShader.setUniform('colorTexture', myBuffer.color)</code>  may be
-  helpful for
+  <code>myShader.setUniform('colorTexture', myBuffer.color)</code>を呼び出すことは、
 
-  advanced use cases.</p>
+  高度な使用例に役立つかもしれません。</p>
 
-  <p>Note: By default, a framebuffer's y-coordinates are flipped compared to
+  <p>注意：デフォルトでは、フレームバッファのy座標は画像やビデオと比べて反転しています。
 
-  images and videos. It's easy to flip a framebuffer's y-coordinates as
+  必要に応じてフレームバッファのy座標を反転させるのは簡単です。例えば、
 
-  needed when applying it as a texture. For example, calling
-
-  <code>plane(myBuffer.width, -myBuffer.height)</code> will flip the
-  framebuffer.</p>
-line: 1700
+  <code>plane(myBuffer.width, -myBuffer.height)</code>を呼び出すと、
+  フレームバッファが反転します。</p>
+line: 1701
 isConstructor: false
 itemtype: property
 example:
@@ -56,27 +41,27 @@ example:
 
       background(200);
 
-      // Create a p5.Framebuffer object.
+      // p5.Framebufferオブジェクトを作成します。
       let myBuffer = createFramebuffer();
 
-      // Start drawing to the p5.Framebuffer object.
+      // p5.Framebufferオブジェクトへの描画を開始します。
       myBuffer.begin();
 
       triangle(-25, 25, 0, -25, 25, 25);
 
-      // Stop drawing to the p5.Framebuffer object.
+      // p5.Framebufferオブジェクトへの描画を終了します。
       myBuffer.end();
 
-      // Use the p5.Framebuffer object's WebGLTexture.
+      // p5.FramebufferオブジェクトのWebGLTextureを使用します。
       texture(myBuffer.color);
 
-      // Style the plane.
+      // 平面のスタイルを設定します。
       noStroke();
 
-      // Draw the plane.
+      // 平面を描画します。
       plane(myBuffer.width, myBuffer.height);
 
-      describe('A white triangle on a gray background.');
+      describe('灰色の背景に白い三角形。');
     }
     </code>
     </div>
@@ -86,3 +71,4 @@ type: p5.FramebufferTexture
 
 
 # color
+

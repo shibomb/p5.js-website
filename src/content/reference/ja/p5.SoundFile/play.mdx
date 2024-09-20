@@ -4,10 +4,6 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
-  <p>p5.SoundFile を再生します。</p>
-  <p></p>
-
-  <hr/>
   <p>Play the p5.SoundFile</p>
 line: 1679
 isConstructor: false
@@ -16,32 +12,27 @@ class: p5.SoundFile
 params:
   - name: startTime
     description: |
-      <p>(オプション) 再生をスケジュールする時刻（現在時刻からの秒数）</p>
       <p>(optional) schedule playback to start (in seconds from now).</p>
     type: Number
     optional: true
   - name: rate
     description: |
-      <p>(オプション) 再生速度</p>
       <p>(optional) playback rate</p>
     type: Number
     optional: true
   - name: amp
     description: |
-      <p>(オプション) 再生のボリューム</p>
       <p>(optional) amplitude (volume)
                                           of playback</p>
     type: Number
     optional: true
   - name: cueStart
     description: |
-      <p>(オプション) キューの開始時刻（秒）</p>
       <p>(optional) cue start time in seconds</p>
     type: Number
     optional: true
   - name: duration
     description: |
-      <p>(オプション) 再生の長さ（秒）</p>
       <p>(optional) duration of playback in seconds</p>
     type: Number
     optional: true

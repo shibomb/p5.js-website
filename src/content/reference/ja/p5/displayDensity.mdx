@@ -4,14 +4,8 @@ module: Environment
 submodule: Environment
 file: src/core/environment.js
 description: |
-  <p>スケッチが実行されている現在のディスプレイのピクセル密度を返します。</p>
-  <p></p>
-  <p>/// todo ///</p>
-  <p>Returns the display's current pixel density.</p>
-
-  <hr/>
-  <p>Returns the display's current pixel density.</p>
-line: 1069
+  <p>ディスプレイの現在のピクセル密度を返します。</p>
+line: 1078
 isConstructor: false
 itemtype: method
 example:
@@ -20,28 +14,28 @@ example:
     <div>
     <code>
     function setup() {
-      // Set the pixel density to 1.
+      // ピクセル密度を1に設定します。
       pixelDensity(1);
 
-      // Create a canvas and draw
-      // a circle.
+      // キャンバスを作成し、
+      // 円を描画します。
       createCanvas(100, 100);
       background(200);
       circle(50, 50, 70);
 
-      describe('A fuzzy white circle drawn on a gray background. The circle becomes sharper when the mouse is pressed.');
+      describe('灰色の背景に描かれたぼやけた白い円。マウスが押されると円がシャープになります。');
     }
 
     function mousePressed() {
-      // Get the current display density.
+      // 現在のディスプレイ密度を取得します。
       let d = displayDensity();
 
-      // Use the display density to set
-      // the sketch's pixel density.
+      // ディスプレイ密度を使用して
+      // スケッチのピクセル密度を設定します。
       pixelDensity(d);
 
-      // Paint the background and
-      // draw a circle.
+      // 背景を塗り、
+      // 円を描画します。
       background(200);
       circle(50, 50, 70);
     }
@@ -49,12 +43,11 @@ example:
     </div>
 class: p5
 return:
-  description: |-
-    ディスプレイの現在のピクセル密度
-    current pixel density of the display.
+  description: ディスプレイの現在のピクセル密度。
   type: Number
 chainable: false
 ---
 
 
 # displayDensity
+

@@ -3,23 +3,11 @@ title: findRows
 module: IO
 submodule: Table
 file: src/io/p5.Table.js
-description: >
-  <p>提供された値を含む行をテーブルから検索し、これらの行への参照を返します。</p>
-
-  <p>配列が返されるため、例のように for ループを使用してすべての行を反復処理する必要があります。検索する列は、ID
-  またはタイトルで指定できます。</p>
-
-
-  <hr/>
-
+description: |
   <p>Finds the rows in the Table that contain the value
-
   provided, and returns references to those rows. Returns an
-
   Array, so for must be used to iterate through all the rows,
-
   as shown in the example above. The column to search may be
-
   specified by either its ID or title.</p>
 line: 351
 isConstructor: false
@@ -63,19 +51,15 @@ class: p5.Table
 params:
   - name: value
     description: |
-      <p>マッチする値</p>
       <p>The value to match</p>
     type: String
   - name: column
     description: |
-      <p>検索する列の ID 番号またはタイトル</p>
       <p>ID number or title of the
                                      column to search</p>
     type: Integer|String
 return:
-  description: |-
-    <a href="#/p5.TableRow">p5.TableRow</a> オブジェクトの配列
-    An Array of TableRow objects
+  description: An Array of TableRow objects
   type: 'p5.TableRow[]'
 chainable: false
 ---

@@ -3,93 +3,23 @@ title: get
 module: Image
 submodule: Image
 file: src/image/p5.Image.js
-description: >-
-  <p>画像からピクセルの領域を取得します。</p>
+description: >
+  <p>画像の一部または全体のピクセルデータを取得します。</p>
 
-  <p></p>
+  <p>引数なしで呼び出すと、画像全体のピクセルデータを含む
 
-  <p>パラメーターが指定されていない場合、全体の画像が返されます。x と y
-  だけが渡された場合、単一のピクセルが抽出されます。すべてのパラメーターが渡された場合、矩形領域が抽出され、<a
-  href="#/p5.Image">p5.Image</a> が返されます。</p>
+  <a href="/reference/p5/p5.Image">p5.Image</a> オブジェクトを返します。</p>
 
-  <p>/// todo ///</p>
+  <p>2つの数値引数 <code>x</code> と <code>y</code> を指定すると、その座標にある
 
-  <p>Gets a pixel or a region of pixels from a <a href="#/p5.Image">p5.Image</a>
-  object.</p>
+  単一ピクセルの色を配列 <code>[R, G, B, A]</code> として返します。</p>
 
-  <p><code>img.get()</code> is easy to use but it's not as fast as <a
-  href="#/p5.Image/pixels">img.pixels</a>. Use <a
-  href="#/p5.Image/pixels">img.pixels</a> to read many pixel values.</p>
+  <p>4つの数値引数 <code>x</code>、<code>y</code>、<code>w</code>、<code>h</code> を指定すると、
 
-  <p>The version of <code>img.get()</code> with no parameters returns the entire
-  image.</p>
+  指定された矩形領域のピクセルデータを含む <a href="/reference/p5/p5.Image">p5.Image</a>
 
-  <p>The version of <code>img.get()</code> with two parameters interprets them
-  as coordinates. It returns an array with the <code>[R, G, B, A]</code> values
-  of the pixel at the given point.</p>
-
-  <p>The version of <code>img.get()</code> with four parameters interprets them
-  as coordinates and dimensions. It returns a subsection of the canvas as a <a
-  href="#/p5.Image">p5.Image</a> object. The first two parameters are the
-  coordinates for the upper-left corner of the subsection. The last two
-  parameters are the width and height of the subsection.</p>
-
-  <p>Use <a href="#/p5.Image/get">img.get()</a> to work directly with <a
-  href="#/p5.Image">p5.Image</a> objects.</p>
-
-
-  <hr/>
-
-  <p>Gets a pixel or a region of pixels from the image.</p>
-
-  <p><code>img.get()</code> is easy to use but it's not as fast as
-
-  <a href="/reference/p5.Image/pixels/">img.pixels</a>. Use
-
-  <a href="/reference/p5.Image/pixels/">img.pixels</a> to read many pixel
-  values.</p>
-
-  <p>The version of <code>img.get()</code> with no parameters returns the entire
-  image.</p>
-
-  <p>The version of <code>img.get()</code> with two parameters, as in
-  <code>img.get(10, 20)</code>,
-
-  interprets them as coordinates. It returns an array with the
-
-  <code>[R, G, B, A]</code> values of the pixel at the given point.</p>
-
-  <p>The version of <code>img.get()</code> with four parameters, as in
-
-  <code>img,get(10, 20, 50, 90)</code>, interprets them as
-
-  coordinates and dimensions. The first two parameters are the coordinates
-
-  of the upper-left corner of the subsection. The last two parameters are
-
-  the width and height of the subsection. It returns a subsection of the
-
-  canvas in a new <a href="/reference/p5/p5.Image/">p5.Image</a> object.</p>
-
-  <p>Use <code>img.get()</code> instead of <a href="/reference/p5/get/">get()</a>
-  to work directly
-
-  with images.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "x": "Number:ピクセルの x 座標",
-      "y": "Number:ピクセルの y 座標",
-      "w": "Number: width of the subsection to be returned. /// todo /// Number:幅",
-      "h": "Number: height of the subsection to be returned. /// todo /// Number:高さ"
-  }
-
-  </pre>
-line: 563
+  オブジェクトを返します。</p>
+line: 1893
 isConstructor: false
 itemtype: method
 example:
@@ -99,7 +29,7 @@ example:
     <code>
     let img;
 
-    // Load the image.
+    // 画像を読み込みます。
     function preload() {
       img = loadImage('/assets/rockies.jpg');
     }
@@ -107,18 +37,16 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      background(200);
-
-      // Display the image.
+      // 画像を表示します。
       image(img, 0, 0);
 
-      // Copy the image.
-      let img2 = get();
+      // 画像の一部を取得します。
+      let cropped = img.get(0, 0, 50, 50);
 
-      // Display the copied image on the right.
-      image(img2, 50, 0);
+      // 切り取った画像を表示します。
+      image(cropped, 50, 50);
 
-      describe('Two identical mountain landscapes shown side-by-side.');
+      describe('山の風景の画像。右下に同じ画像の左上部分が表示されています。');
     }
     </code>
     </div>
@@ -127,7 +55,7 @@ example:
     <code>
     let img;
 
-    // Load the image.
+    // 画像を読み込みます。
     function preload() {
       img = loadImage('/assets/rockies.jpg');
     }
@@ -135,97 +63,62 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Display the image.
+      // 画像を表示します。
       image(img, 0, 0);
 
-      // Get a pixel's color.
-      let c = img.get(50, 90);
+      // 画像の中央のピクセルの色を取得します。
+      let c = img.get(50, 50);
 
-      // Style the square using the pixel's color.
+      // 取得した色で円を描画します。
       fill(c);
-      noStroke();
+      circle(80, 80, 30);
 
-      // Draw the square.
-      square(25, 25, 50);
-
-      describe('A mountain landscape with an olive green square in its center.');
-    }
-    </code>
-    </div>
-
-    <div>
-    <code>
-    let img;
-
-    // Load the image.
-    function preload() {
-      img = loadImage('/assets/rockies.jpg');
-    }
-
-    function setup() {
-      createCanvas(100, 100);
-
-      // Display the image.
-      image(img, 0, 0);
-
-      // Copy half of the image.
-      let img2 = img.get(0, 0, img.width / 2, img.height / 2);
-
-      // Display half of the image.
-      image(img2, 50, 50);
-
-      describe('A mountain landscape drawn on top of another mountain landscape.');
+      describe('山の風景の画像。右下に画像の中央の色で塗られた円があります。');
     }
     </code>
     </div>
 class: p5.Image
-return:
-  description: >-
-    subsection as a <a href="#/p5.Image">p5.Image</a> object. /// todo ///
-    p5.Image: 矩形 <a href="#/p5.Image">p5.Image</a>。
-
-    subsection as a <a href="#/p5.Image">p5.Image</a> object.
-  type: p5.Image
 overloads:
-  - line: 563
+  - line: 1893
+    params: []
+    return:
+      description: 画像全体のピクセルデータを含む<a href="/reference/p5/p5.Image">p5.Image</a>オブジェクト
+      type: p5.Image
+  - line: 1938
     params:
       - name: x
         description: |
-          <p>x-coordinate of the pixel.</p>
+          <p>ピクセルのx座標</p>
+        type: Number
+      - name: y
+        description: |
+          <p>ピクセルのy座標</p>
+        type: Number
+    return:
+      description: '[R, G, B, A]形式の色の配列'
+      type: 'Number[]'
+  - line: 1949
+    params:
+      - name: x
+        description: |
+          <p>矩形領域の左上隅のx座標</p>
         type: Number
       - name: 'y'
         description: |
-          <p>y-coordinate of the pixel.</p>
+          <p>矩形領域の左上隅のy座標</p>
         type: Number
       - name: w
         description: |
-          <p>width of the subsection to be returned.</p>
+          <p>矩形領域の幅</p>
         type: Number
       - name: h
         description: |
-          <p>height of the subsection to be returned.</p>
+          <p>矩形領域の高さ</p>
         type: Number
     return:
-      description: subsection as a <a href="#/p5.Image">p5.Image</a> object.
+      description: 指定された矩形領域のピクセルデータを含む<a href="/reference/p5/p5.Image">p5.Image</a>オブジェクト
       type: p5.Image
-  - line: 678
-    params: []
-    return:
-      description: whole <a href="#/p5.Image">p5.Image</a>
-      type: p5.Image
-  - line: 682
-    params:
-      - name: x
-        description: ''
-        type: Number
-      - name: 'y'
-        description: ''
-        type: Number
-    return:
-      description: 'color of the pixel at (x, y) in array format `[R, G, B, A]`.'
-      type: 'Number[]'
 chainable: false
 ---
-
 
 # get

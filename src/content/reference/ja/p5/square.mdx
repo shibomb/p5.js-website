@@ -4,50 +4,13 @@ module: Shape
 submodule: 2D Primitives
 file: src/core/shape/2d_primitives.js
 description: >
-  <p>キャンバスに四角形を描きます。</p>
+  <p>正方形を描画します。</p>
 
-  <p>四角形は、角度がすべて90度で、辺の長さが等しい四辺形です。デフォルトでは、最初の2つのパラメーターは四角形の左上の位置を設定します。3番目のパラメーターはその辺の大きさを設定します。これらのパラメーターの解釈方法は、<a
-  href="#/p5/rectMode">rectMode()</a> 関数を使用して変更できます。</p>
+  <p>正方形は、<code>x</code>、<code>y</code>、および<code>s</code>のパラメーターで定義される四辺形です。<code>x</code>と<code>y</code>はその左上隅の位置を設定し、<code>s</code>はその幅と高さを設定します。正方形のすべての角度は90˚であり、すべての辺の長さは同じです。正方形を定義する他の方法については、<a href="/reference/p5/rectMode/">rectMode()</a>を参照してください。</p>
 
-  <p>4つのパラメーターをもつ <code>square()</code>
-  のバージョンでは、丸みを帯びた四角形が作成されます。4番目のパラメーターはすべての角の半径値として使用されます。</p>
+  <p>4つのパラメーターを持つ<code>square()</code>のバージョンは、角が丸い正方形を作成します。4番目のパラメーターは、4つの角すべての半径を設定します。</p>
 
-  <p>7つのパラメーターをもつ <code>square()</code>
-  のバージョンでも、丸みを帯びた四角形が作成されます。7つのパラメーターを使うと、後ろの4つは各角の弧の半径を別々に設定します。半径は左上の角から始まり、四角形を時計回りに移動します。これらのパラメーターが省略された場合、最後に指定した角の半径の値に設定されます。</p>
-
-
-  <hr/>
-
-  <p>Draws a square.</p>
-
-  <p>A square is a four-sided shape defined by the <code>x</code>,
-  <code>y</code>, and <code>s</code>
-
-  parameters. <code>x</code> and <code>y</code> set the location of its top-left
-  corner. <code>s</code> sets
-
-  its width and height. Every angle in the square measures 90˚ and all its
-
-  sides are the same length. See <a
-  href="/reference/p5/rectMode/">rectMode()</a> for
-
-  other ways to define squares.</p>
-
-  <p>The version of <code>square()</code> with four parameters creates a rounded
-  square.
-
-  The fourth parameter sets the radius for all four corners.</p>
-
-  <p>The version of <code>square()</code> with seven parameters also creates a
-  rounded
-
-  square. Each of the last four parameters set the radius of a corner. The
-
-  radii start with the top-left corner and move clockwise around the
-
-  square. If any of these parameters are omitted, they are set to the
-
-  value of the last radius that was set.</p>
+  <p>7つのパラメーターを持つ<code>square()</code>のバージョンも、角が丸い正方形を作成します。最後の4つのパラメーターはそれぞれの角の半径を設定します。半径は左上の角から始まり、時計回りに正方形を回ります。これらのパラメーターのいずれかが省略された場合、それらは最後に設定された半径の値に設定されます。</p>
 line: 1223
 isConstructor: false
 itemtype: method
@@ -63,7 +26,7 @@ example:
 
       square(30, 20, 55);
 
-      describe('A white square with a black outline in on a gray canvas.');
+      describe('灰色のキャンバスに黒い輪郭の白い正方形。');
     }
     </code>
     </div>
@@ -75,11 +38,11 @@ example:
 
       background(200);
 
-      // Give all corners a radius of 20.
+      // すべての角に半径20を与える。
       square(30, 20, 55, 20);
 
       describe(
-        'A white square with a black outline and round edges on a gray canvas.'
+        '灰色のキャンバスに黒い輪郭と丸い角を持つ白い正方形。'
       );
     }
     </code>
@@ -92,10 +55,10 @@ example:
 
       background(200);
 
-      // Give each corner a unique radius.
+      // 各角に異なる半径を与える。
       square(30, 20, 55, 20, 15, 10, 5);
 
-      describe('A white square with a black outline and round edges of different radii.');
+      describe('灰色のキャンバスに黒い輪郭と異なる半径の丸い角を持つ白い正方形。');
     }
     </code>
     </div>
@@ -109,7 +72,7 @@ example:
 
       square(-20, -30, 55);
 
-      describe('A white square with a black outline in on a gray canvas.');
+      describe('灰色のキャンバスに黒い輪郭の白い正方形。');
     }
     </code>
     </div>
@@ -119,16 +82,16 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white square spins around on gray canvas.');
+      describe('灰色のキャンバスに白い正方形が回転する。');
     }
 
     function draw() {
       background(200);
 
-      // Rotate around the y-axis.
+      // y軸を中心に回転する。
       rotateY(frameCount * 0.01);
 
-      // Draw the square.
+      // 正方形を描く。
       square(-20, -30, 55);
     }
     </code>
@@ -137,41 +100,34 @@ class: p5
 params:
   - name: x
     description: |
-      <p>正方形の x 座標</p>
-      <p>x-coordinate of the square.</p>
+      <p>正方形のx座標。</p>
     type: Number
   - name: 'y'
     description: |
-      <p>正方形の y 座標</p>
-      <p>y-coordinate of the square.</p>
+      <p>正方形のy座標。</p>
     type: Number
   - name: s
     description: |
-      <p>正方形の辺の長さ</p>
-      <p>side size of the square.</p>
+      <p>正方形の辺の長さ。</p>
     type: Number
   - name: tl
     description: |
-      <p>(オプション) 左上の角の半径</p>
-      <p>optional radius of top-left corner.</p>
+      <p>左上の角の半径（オプション）。</p>
     type: Number
     optional: true
   - name: tr
     description: |
-      <p>(オプション) 右上の角の半径</p>
-      <p>optional radius of top-right corner.</p>
+      <p>右上の角の半径（オプション）。</p>
     type: Number
     optional: true
   - name: br
     description: |
-      <p>(オプション) 右下の角の半径</p>
-      <p>optional radius of bottom-right corner.</p>
+      <p>右下の角の半径（オプション）。</p>
     type: Number
     optional: true
   - name: bl
     description: |
-      <p>(オプション) 左下の角の半径</p>
-      <p>optional radius of bottom-left corner.</p>
+      <p>左下の角の半径（オプション）。</p>
     type: Number
     optional: true
 chainable: true

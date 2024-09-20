@@ -4,18 +4,11 @@ module: Image
 submodule: Loading & Displaying
 file: src/image/loading_displaying.js
 description: >
-  <p>画像の表示に使用する現在の塗りつぶし値を削除し、元の色相で画像を表示するように戻します。</p>
+  <p>画像の着色を無効にします。</p>
 
-  <p></p>
-
-
-  <hr/>
-
-  <p>Removes the current tint set by <a
-  href="/reference/p5/tint/">tint()</a>.</p>
-
-  <p><code>noTint()</code> restores images to their original colors.</p>
-line: 1345
+  <p><code>tint()</code>は、後続の全ての<code>image()</code>呼び出しに影響します。
+  <code>noTint()</code>を呼び出すと、画像は元の色で表示されます。</p>
+line: 1
 isConstructor: false
 itemtype: method
 example:
@@ -25,7 +18,7 @@ example:
     <code>
     let img;
 
-    // Load the image.
+    // 画像を読み込みます。
     function preload() {
       img = loadImage('/assets/laDefense.jpg');
     }
@@ -33,23 +26,43 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Left.
-      // Tint with a CSS color string.
-      tint('red');
       image(img, 0, 0);
-
-      // Right.
-      // Remove the tint.
-      noTint();
+      tint(0, 153, 204);  // 青色の色合い
       image(img, 50, 0);
 
-      describe('Two images of an umbrella and a ceiling side-by-side. The image on the left has a red tint.');
+      describe('2つの画像。左側は元の画像で、右側は青色の色合いがかかっています。');
+    }
+    </code>
+    </div>
+
+    <div>
+    <code>
+    let img;
+
+    // 画像を読み込みます。
+    function preload() {
+      img = loadImage('/assets/laDefense.jpg');
+    }
+
+    function setup() {
+      createCanvas(100, 100);
+    }
+
+    function draw() {
+      image(img, 0, 0);
+      if (mouseIsPressed) {
+        tint(0, 153, 204);  // 青色の色合い
+      } else {
+        noTint();
+      }
+      image(img, 50, 0);
+
+      describe('2つの画像。左側は元の画像で、右側はマウスが押されたときに青色の色合いがかかります。');
     }
     </code>
     </div>
 class: p5
-chainable: false
+chainable: true
 ---
-
 
 # noTint

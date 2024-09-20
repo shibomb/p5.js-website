@@ -4,12 +4,8 @@ module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
 description: |
-  <p>呼び出された瞬間の単一の Amplitude 読み取り値を返します。</p>
-  <p>連続した読み取りを行う場合は、draw ループで実行します。</p>
-
-  <hr/>
-  <p>Returns a single Amplitude reading at the moment it is called.
-  For continuous readings, run in the draw loop.</p>
+  <p>呼び出された瞬間の単一の振幅値を返します。
+  連続的な読み取りを行うには、draw ループ内で実行してください。</p>
 line: 3209
 isConstructor: false
 itemtype: method
@@ -30,7 +26,7 @@ example:
     function draw() {
       background(220, 150);
       textAlign(CENTER);
-      text('tap to play', width/2, 20);
+      text('タップして再生', width/2, 20);
 
       let level = amplitude.getLevel();
       let size = map(level, 0, 1, 0, 200);
@@ -49,14 +45,11 @@ class: p5.Amplitude
 params:
   - name: channel
     description: |
-      <p>(オプション) チャンネル0（左）または1（右）だけを返すようにオプションで指定できます。</p>
-      <p>Optionally return only channel 0 (left) or 1 (right)</p>
+      <p>オプションでチャンネル0（左）または1（右）のみを返します</p>
     type: Number
     optional: true
 return:
-  description: |-
-    0.0から1.0の範囲内の Amplitude
-    Amplitude as a number between 0.0 and 1.0
+  description: 0.0から1.0の間の数値として表される振幅
   type: Number
 chainable: false
 ---

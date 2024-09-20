@@ -3,25 +3,13 @@ title: lights
 module: 3D
 submodule: Lights
 file: src/webgl/light.js
-description: >
-  <p>シーンにアンビエントライトとディレクショナルライトを配置します。</p>
-
-  <p>ライトは、ambientLight(128, 128, 128)および directionalLight(128, 128, 128, 0, 0,
-  -1)に設定されます。</p>
-
-  <p>注: ループプログラム内でライトを持続させるためには、draw() 内でライトを呼び出す必要があります（直接または間接的に）。setup()
-  に配置すると、ループの最初の通過でのみ効果があります。</p>
-
-
-  <hr/>
-
-  <p>Places an ambient and directional light in the scene.
-  The lights are set to ambientLight(128, 128, 128) and
-  directionalLight(128, 128, 128, 0, 0, -1).</p>
-  <p>Note: lights need to be called (whether directly or indirectly)
-  within draw() to remain persistent in a looping program.
-  Placing them in setup() will cause them to only have an effect
-  the first time through the loop.</p>
+description: |
+  <p>シーンに環境光と指向性ライトを配置します。
+  ライトは ambientLight(128, 128, 128) と
+  directionalLight(128, 128, 128, 0, 0, -1) に設定されます。</p>
+  <p>注意：ライトはループするプログラムで持続させるために、
+  draw() 内で（直接的または間接的に）呼び出す必要があります。
+  setup() 内に配置すると、ループの最初の1回だけ効果があります。</p>
 line: 1076
 isConstructor: false
 itemtype: method
@@ -30,33 +18,33 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
-    // Double-click to turn on the lights.
+    // クリックしてドラッグすると、異なる角度からシーンを見ることができます。
+    // ダブルクリックするとライトがオンになります。
 
     let isLit = false;
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white box drawn against a gray background. The quality of the light changes when the user double-clicks.');
+      describe('グレーの背景に描かれた白い箱。ユーザーがダブルクリックすると、光の質が変化します。');
     }
 
     function draw() {
       background(50);
 
-      // Enable orbiting with the mouse.
+      // マウスで軌道制御を有効にします。
       orbitControl();
 
-      // Control the lights.
+      // ライトを制御します。
       if (isLit === true) {
         lights();
       }
 
-      // Draw the box.
+      // 箱を描画します。
       box();
     }
 
-    // Turn on the lights when the user double-clicks.
+    // ユーザーがダブルクリックするとライトがオンになります。
     function doubleClicked() {
       isLit = true;
     }
@@ -65,25 +53,25 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // クリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      describe('A white box drawn against a gray background.');
+      describe('グレーの背景に描かれた白い箱。');
     }
 
     function draw() {
       background(50);
 
-      // Enable orbiting with the mouse.
+      // マウスで軌道制御を有効にします。
       orbitControl();
 
-      // Turn on the lights.
+      // ライトをオンにします。
       ambientLight(128, 128, 128);
       directionalLight(128, 128, 128, 0, 0, -1);
 
-      // Draw the box.
+      // 箱を描画します。
       box();
     }
     </code>
@@ -94,3 +82,4 @@ chainable: true
 
 
 # lights
+

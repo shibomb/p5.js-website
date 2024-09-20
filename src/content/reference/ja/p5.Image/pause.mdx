@@ -3,26 +3,9 @@ title: pause
 module: Image
 submodule: Image
 file: src/image/p5.Image.js
-description: >
-  <p>アニメーション GIF を一時停止します。</p>
-
-  <p></p>
-
-  <p>/// todo ///</p>
-
-  <p>Pauses an animated GIF. The GIF can be resumed by calling <a
-  href="#/p5.Image/play">img.play()</a>.</p>
-
-
-  <hr/>
-
-  <p>Pauses an animated GIF.</p>
-
-  <p>The GIF can be resumed by calling
-
-  <a href="/reference/p5.Image/play/">img.play()</a>.</p>
-line: 1903
-isConstructor: false
+description: |
+  <p>アニメーションGIFの再生を一時停止します。</p>
+line: 1744
 itemtype: method
 example:
   - |-
@@ -30,39 +13,43 @@ example:
     <div>
     <code>
     let gif;
+    let playing = true;
 
-    // Load the image.
     function preload() {
-      gif = loadImage('/assets/nancy-liang-wind-loop-forever.gif');
+      gif = loadImage('/assets/arnott-wallace-eye-loop-forever.gif');
     }
 
     function setup() {
       createCanvas(100, 100);
-
-      describe('A drawing of a child with hair blowing in the wind. The animation freezes when clicked and resumes when released.');
     }
 
     function draw() {
       background(255);
 
-      // Display the image.
+      // GIFを表示します。
       image(gif, 0, 0);
+
+      // 再生状態を表示します。
+      textAlign(CENTER);
+      textSize(16);
+      text(playing ? 'Playing' : 'Paused', 50, 90);
+
+      describe('アニメーションGIF。クリックすると一時停止/再生します。');
     }
 
-    // Pause the GIF when the user presses the mouse.
+    // キャンバスをクリックすると一時停止/再生を切り替えます。
     function mousePressed() {
-      gif.pause();
-    }
-
-    // Play the GIF when the user presses the mouse.
-    function mouseReleased() {
-      gif.play();
+      if (playing) {
+        gif.pause();
+        playing = false;
+      } else {
+        gif.play();
+        playing = true;
+      }
     }
     </code>
     </div>
 class: p5.Image
-chainable: false
 ---
-
 
 # pause

@@ -4,114 +4,47 @@ module: Image
 submodule: Pixels
 file: src/image/pixels.js
 description: >
-  <p>ディスプレイウィンドウ内のすべてのピクセルの値を含む <a
-  href='https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray'
-  target='_blank'>Uint8ClampedArray</a> です。</p>
+  <p>キャンバス上の各ピクセルの色を含む配列。</p>
 
-  <p>これらの値は数値です。この配列は、ディスプレイウィンドウのサイズ（<a
-  href="#/p5/pixelDensity">pixelDensity</a> の適切な係数を含む）x4 で、各ピクセルの R、G、B、A
-  の値を左から右へ、各行から下へ移動しながら順番に表現しています。Retina
-  やその他の高密度ディスプレイは、ピクセル密度の二乗の係数であるピクセル[]を持っています。たとえば、画像が100 ×
-  100ピクセルの場合、40,000になります。Retina ディスプレイでは160,000になります。</p>
+  <p>色は赤、緑、青、アルファ（RGBA）の値を表す数値として格納されます。
 
-  <p>配列の最初の4つの値（インデックス0-3）は、ピクセル(0, 0)の R、G、B、A の値です。次の4つの値（インデックス4-7）は、ピクセル(1,
-  0)の R、G、B、A の値が含まれます。一般的には、(x, y)のピクセルの値を設定するには、次のようにします:<pre><code
-  class="language-javascript">let d = pixelDensity(); for (let i = 0; i < d;
-  i++) {  for (let j = 0; j < d; j++) {  // loop over  index = 4 * ((y * d + j)
-  * width * d + (x * d + i));  pixels[index] = r;  pixels[index+1] = g; 
-  pixels[index+2] = b;  pixels[index+3] = a;  } } </code></pre></p>
+  <code>pixels</code>はパフォーマンス上の理由から一次元配列です。</p>
 
-  <p>上記の方法は複雑ですが、任意の pixelDensity で動作する柔軟性があります。<a href="#/p5/set">set()</a>
-  は、任意の pixelDensity で指定された(x, y)に対して <a href="#/p5/pixels">pixels[]</a>
-  内の適切な値を自動的に設定しますが、ピクセル配列に多くの変更が加えられるとパフォーマンスが低下することがあります。</p>
+  <p>各ピクセルは<code>pixels</code>配列の4つの要素を占め、それぞれRGBA値を
 
-  <p>この配列にアクセスする前に、<a href="#/p5/loadPixels">loadPixels()</a>
-  関数でデータをロードする必要があります。配列データが変更された後、<a
-  href="#/p5/updatePixels">updatePixels()</a> 関数を実行して変更を更新する必要があります。</p>
+  表します。例えば、座標(0, 0)のピクセルはそのRGBA値を
 
-  <p>これは標準的な JavaScript の配列ではないことに注意してください。これは、<a href="#/p5/slice">slice()</a>
-  や <a href="#/p5/arrayCopy">arrayCopy()</a> などの標準的な JavaScript
-  関数が動作しないことを意味します。</p>
+  <code>pixels[0]</code>、<code>pixels[1]</code>、<code>pixels[2]</code>、<code>pixels[3]</code>に
 
-  <p>/// todo ///</p>
+  それぞれ格納します。次の座標(1, 0)のピクセルはそのRGBA値を<code>pixels[4]</code>、
 
-  <p>An array containing the color of each pixel on the canvas. Colors are
-  stored as numbers representing red, green, blue, and alpha (RGBA) values.
-  <code>pixels</code> is a one-dimensional array for performance reasons.</p>
+  <code>pixels[5]</code>、<code>pixels[6]</code>、<code>pixels[7]</code>に格納します。
 
-  <p>Each pixel occupies four elements in the <code>pixels</code> array, one for
-  each RGBA value. For example, the pixel at coordinates (0, 0) stores its RGBA
-  values at <code>pixels[0]</code>, <code>pixels[1]</code>,
-  <code>pixels[2]</code>, and <code>pixels[3]</code>, respectively. The next
-  pixel at coordinates (1, 0) stores its RGBA values at <code>pixels[4]</code>,
-  <code>pixels[5]</code>, <code>pixels[6]</code>, and <code>pixels[7]</code>.
-  And so on. The <code>pixels</code> array for a 100×100 canvas has 100 × 100 ×
-  4 = 40,000 elements.</p>
+  このように続きます。100×100のキャンバスの<code>pixels</code>配列は
 
-  <p>Some displays use several smaller pixels to set the color at a single
-  point. The <a href="#/p5/pixelDensity">pixelDensity()</a> function returns the
-  pixel density of the canvas. High density displays often have a <a
-  href="#/p5/pixelDensity">pixelDensity()</a> of 2. On such a display, the
-  <code>pixels</code> array for a 100×100 canvas has 200 × 200 × 4 = 160,000
-  elements.</p>
+  100 × 100 × 4 = 40,000個の要素を持ちます。</p>
 
-  <p>Accessing the RGBA values for a point on the canvas requires a little math
-  as shown below. The <a href="#/p5/loadPixels">loadPixels()</a> function must
-  be called before accessing the <code>pixels</code> array. The <a
-  href="#/p5/updatePixels">updatePixels()</a> function must be called after any
-  changes are made.</p>
+  <p>一部のディスプレイでは、1つの点の色を設定するために複数の小さなピクセルを
 
+  使用します。<a href="/reference/p5/pixelDensity/">pixelDensity()</a>関数は
 
-  <hr/>
+  キャンバスのピクセル密度を返します。高密度ディスプレイでは多くの場合、
 
-  <p>An array containing the color of each pixel on the canvas.</p>
+  <a href="/reference/p5/pixelDensity/">pixelDensity()</a>は2を返します。
 
-  <p>Colors are stored as numbers representing red, green, blue, and alpha
+  そのようなディスプレイでは、100×100のキャンバスの<code>pixels</code>配列は
 
-  (RGBA) values. <code>pixels</code> is a one-dimensional array for performance
-  reasons.</p>
+  200 × 200 × 4 = 160,000個の要素を持ちます。</p>
 
-  <p>Each pixel occupies four elements in the <code>pixels</code> array, one for
-  each RGBA
+  <p>キャンバス上の点のRGBA値にアクセスするには、以下に示すように少し計算が
 
-  value. For example, the pixel at coordinates (0, 0) stores its RGBA values
+  必要です。<code>pixels</code>配列にアクセスする前に
 
-  at <code>pixels[0]</code>, <code>pixels[1]</code>, <code>pixels[2]</code>, and
-  <code>pixels[3]</code>, respectively.
+  <a href="/reference/p5/loadPixels/">loadPixels()</a>関数を呼び出す必要があります。
 
-  The next pixel at coordinates (1, 0) stores its RGBA values at
-  <code>pixels[4]</code>,
+  変更を加えた後は<a href="/reference/p5/updatePixels/">updatePixels()</a>関数を
 
-  <code>pixels[5]</code>, <code>pixels[6]</code>, and <code>pixels[7]</code>.
-  And so on. The <code>pixels</code> array
-
-  for a 100×100 canvas has 100 × 100 × 4 = 40,000 elements.</p>
-
-  <p>Some displays use several smaller pixels to set the color at a single
-
-  point. The <a href="/reference/p5/pixelDensity/">pixelDensity()</a> function
-  returns
-
-  the pixel density of the canvas. High density displays often have a
-
-  <a href="/reference/p5/pixelDensity/">pixelDensity()</a> of 2. On such a
-  display, the
-
-  <code>pixels</code> array for a 100×100 canvas has 200 × 200 × 4 =
-
-  160,000 elements.</p>
-
-  <p>Accessing the RGBA values for a point on the canvas requires a little math
-
-  as shown below. The <a href="/reference/p5/loadPixels/">loadPixels()</a>
-  function
-
-  must be called before accessing the <code>pixels</code> array. The
-
-  <a href="/reference/p5/updatePixels/">updatePixels()</a> function must be
-  called
-
-  after any changes are made.</p>
+  呼び出す必要があります。</p>
 line: 12
 isConstructor: false
 itemtype: property
@@ -123,35 +56,35 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Load the pixels array.
+      // ピクセル配列を読み込む
       loadPixels();
 
-      // Set the dot's coordinates.
+      // ドットの座標を設定
       let x = 50;
       let y = 50;
 
-      // Get the pixel density.
+      // ピクセル密度を取得
       let d = pixelDensity();
 
-      // Set the pixel(s) at the center of the canvas black.
+      // キャンバスの中心にあるピクセルを黒に設定
       for (let i = 0; i < d; i += 1) {
         for (let j = 0; j < d; j += 1) {
           let index = 4 * ((y * d + j) * width * d + (x * d + i));
-          // Red.
+          // 赤
           pixels[index] = 0;
-          // Green.
+          // 緑
           pixels[index + 1] = 0;
-          // Blue.
+          // 青
           pixels[index + 2] = 0;
-          // Alpha.
+          // アルファ
           pixels[index + 3] = 255;
         }
       }
 
-      // Update the canvas.
+      // キャンバスを更新
       updatePixels();
 
-      describe('A black dot in the middle of a gray rectangle.');
+      describe('灰色の長方形の中央に黒い点がある。');
     }
     </code>
     </div>
@@ -161,31 +94,31 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Load the pixels array.
+      // ピクセル配列を読み込む
       loadPixels();
 
-      // Get the pixel density.
+      // ピクセル密度を取得
       let d = pixelDensity();
 
-      // Calculate the halfway index in the pixels array.
+      // ピクセル配列の半分のインデックスを計算
       let halfImage = 4 * (d * width) * (d * height / 2);
 
-      // Make the top half of the canvas red.
+      // キャンバスの上半分を赤にする
       for (let i = 0; i < halfImage; i += 4) {
-        // Red.
+        // 赤
         pixels[i] = 255;
-        // Green.
+        // 緑
         pixels[i + 1] = 0;
-        // Blue.
+        // 青
         pixels[i + 2] = 0;
-        // Alpha.
+        // アルファ
         pixels[i + 3] = 255;
       }
 
-      // Update the canvas.
+      // キャンバスを更新
       updatePixels();
 
-      describe('A red rectangle drawn above a gray rectangle.');
+      describe('灰色の長方形の上に赤い長方形が描かれている。');
     }
     </code>
     </div>
@@ -195,19 +128,19 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create a p5.Color object.
+      // p5.Colorオブジェクトを作成
       let pink = color(255, 102, 204);
 
-      // Load the pixels array.
+      // ピクセル配列を読み込む
       loadPixels();
 
-      // Get the pixel density.
+      // ピクセル密度を取得
       let d = pixelDensity();
 
-      // Calculate the halfway index in the pixels array.
+      // ピクセル配列の半分のインデックスを計算
       let halfImage = 4 * (d * width) * (d * height / 2);
 
-      // Make the top half of the canvas red.
+      // キャンバスの上半分をピンクにする
       for (let i = 0; i < halfImage; i += 4) {
         pixels[i] = red(pink);
         pixels[i + 1] = green(pink);
@@ -215,10 +148,10 @@ example:
         pixels[i + 3] = alpha(pink);
       }
 
-      // Update the canvas.
+      // キャンバスを更新
       updatePixels();
 
-      describe('A pink rectangle drawn above a gray rectangle.');
+      describe('灰色の長方形の上にピンクの長方形が描かれている。');
     }
     </code>
     </div>
@@ -228,3 +161,4 @@ type: 'Number[]'
 
 
 # pixels
+

@@ -3,34 +3,11 @@ title: textLeading
 module: Typography
 submodule: Attributes
 file: src/typography/attributes.js
-description: >-
-  <p>テキストの行間をピクセル単位で設定/取得します。</p>
-
-  <p>この設定は、以降の <a href="#/p5/text">text()</a> 関数の呼び出しで使用されます。</p>
-
-
-  <hr/>
-
-  <p>Sets the spacing between lines of text when
-
-  <a href="/reference/p5/text/">text()</a> is called.</p>
-
-  <p>Note: Spacing is measured in pixels.</p>
-
-  <p>Calling <code>textLeading()</code> without an argument returns the current
-  spacing.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "leading": "Number: spacing between lines of text in units of pixels. /// todo /// Number: 行間のピクセル単位のサイズ"
-  }
-
-  </pre>
-line: 107
+description: |
+  <p>テキストの行間を設定します。
+  この値は、ベースラインからベースラインまでの
+  距離をピクセル単位で測定します。</p>
+line: 453
 isConstructor: false
 itemtype: method
 example:
@@ -38,41 +15,33 @@ example:
 
     <div>
     <code>
-    function setup() {
-      createCanvas(100, 100);
+    // テキスト
+    let lines = 'L1\nL2\nL3';
 
-      background(200);
+    textSize(12);
 
-      // "\n" starts a new line of text.
-      let lines = 'one\ntwo';
+    // 行間を10ピクセルに設定
+    textLeading(10);
+    text(lines, 10, 25);
 
-      // Left.
-      text(lines, 10, 25);
+    // 行間を20ピクセルに設定
+    textLeading(20);
+    text(lines, 50, 25);
 
-      // Right.
-      textLeading(30);
-      text(lines, 70, 25);
+    // 行間を30ピクセルに設定
+    textLeading(30);
+    text(lines, 90, 25);
 
-      describe('The words "one" and "two" written on separate lines twice. The words on the left have less vertical spacing than the words on the right.');
-    }
+    describe('3つの列に"L1 L2 L3"と表示されています。左の列は行間が狭く、中央の列は中程度、右の列は広くなっています。');
     </code>
     </div>
 class: p5
-overloads:
-  - line: 107
-    params:
-      - name: leading
-        description: |
-          <p>spacing between lines of text in units of pixels.</p>
-        type: Number
-    chainable: 1
-  - line: 142
-    params: []
-    return:
-      description: ''
-      type: Number
+params:
+  - name: leading
+    description: |
+      <p>ベースラインからベースラインまでの距離（ピクセル単位）</p>
+    type: Number
 chainable: true
 ---
-
 
 # textLeading

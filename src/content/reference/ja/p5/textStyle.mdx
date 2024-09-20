@@ -3,40 +3,9 @@ title: textStyle
 module: Typography
 submodule: Attributes
 file: src/typography/attributes.js
-description: >-
-  <p>システムフォントのテキストスタイルを NORMAL、ITALIC、BOLD、または BOLDITALIC に設定/取得します。</p>
-
-  <p>注意: これは CSS
-  のスタイル設定によって上書きされる場合があります。非システムフォント（オープンタイプ、トゥルータイプなど）の場合は、代わりにスタイル付きフォントを読み込んでください。</p>
-
-
-  <hr/>
-
-  <p>Sets the style for system fonts when
-
-  <a href="/reference/p5/text/">text()</a> is called.</p>
-
-  <p>The parameter, <code>style</code>, can be either <code>NORMAL</code>,
-  <code>ITALIC</code>, <code>BOLD</code>, or
-
-  <code>BOLDITALIC</code>.</p>
-
-  <p><code>textStyle()</code> may be overridden by CSS styling. This function
-  doesn't
-
-  affect fonts loaded with <a href="/reference/p5/loadFont/">loadFont()</a>.</p>
-
-
-  <pre>
-
-  todo: update overloads.
-
-  {
-      "style": "Constant: テキストのスタイル。NORMAL、ITALIC、BOLD、BOLDITALIC"
-  }
-
-  </pre>
-line: 197
+description: |
+  <p>テキストのスタイルを設定します。</p>
+line: 557
 isConstructor: false
 itemtype: method
 example:
@@ -44,52 +13,24 @@ example:
 
     <div>
     <code>
-    function setup() {
-      createCanvas(100, 100);
-
-      background(200);
-
-      // Style the text.
-      textSize(12);
-      textAlign(CENTER);
-
-      // First row.
-      textStyle(NORMAL);
-      text('Normal', 50, 15);
-
-      // Second row.
-      textStyle(ITALIC);
-      text('Italic', 50, 40);
-
-      // Third row.
-      textStyle(BOLD);
-      text('Bold', 50, 65);
-
-      // Fourth row.
-      textStyle(BOLDITALIC);
-      text('Bold Italic', 50, 90);
-
-      describe('The words "Normal" displayed normally, "Italic" in italic, "Bold" in bold, and "Bold Italic" in bold italics.');
-    }
+    strokeWeight(0);
+    textSize(12);
+    textStyle(NORMAL);
+    text('Font Style Normal', 10, 30);
+    textStyle(ITALIC);
+    text('Font Style Italic', 10, 60);
+    textStyle(BOLD);
+    text('Font Style Bold', 10, 90);
+    describe('3行のテキストが表示されています。上から順に、通常、イタリック、太字のスタイルで表示されています。');
     </code>
     </div>
 class: p5
-overloads:
-  - line: 197
-    params:
-      - name: style
-        description: |
-          <p>styling for text, either NORMAL,
-                                     ITALIC, BOLD or BOLDITALIC.</p>
-        type: Constant
-    chainable: 1
-  - line: 244
-    params: []
-    return:
-      description: ''
-      type: String
+params:
+  - name: style
+    description: |
+      <p>テキストのスタイル。NORMAL、ITALIC、BOLD、BOLDITALIC のいずれか</p>
+    type: Constant
 chainable: true
 ---
-
 
 # textStyle

@@ -3,197 +3,60 @@ title: set
 module: Image
 submodule: Image
 file: src/image/p5.Image.js
-description: >
-  <p>単一のピクセルの色を設定するか、この <a href="#/p5.Image">p5.Image</a> に画像を書き込みます。</p>
-
-  <p></p>
-
-  <p>多数のピクセルを扱う場合、pixels 配列を直接操作し、<a
-  href="#/p5.Image/updatePixels">updatePixels()</a> を呼び出す方が高速です。</p>
-
-  <p>/// todo ///</p>
-
-  <p>Sets the color of one or more pixels within a <a
-  href="#/p5.Image">p5.Image</a> object.</p>
-
-  <p><code>img.set()</code> is easy to use but it's not as fast as <a
-  href="#/p5.Image/pixels">img.pixels</a>. Use <a
-  href="#/p5.Image/pixels">img.pixels</a> to set many pixel values.</p>
-
-  <p><code>img.set()</code> interprets the first two parameters as x- and
-  y-coordinates. It interprets the last parameter as a grayscale value, a
-  <code>[R, G, B, A]</code> pixel array, a <a href="#/p5.Color">p5.Color</a>
-  object, or another <a href="#/p5.Image">p5.Image</a> object.</p>
-
-  <p><a href="#/p5.Image/updatePixels">img.updatePixels()</a> must be called
-  after using <code>img.set()</code> for changes to appear.</p>
-
-
-  <hr/>
-
-  <p>Sets the color of one or more pixels within an image.</p>
-
-  <p><code>img.set()</code> is easy to use but it's not as fast as
-
-  <a href="/reference/p5.Image/pixels/">img.pixels</a>. Use
-
-  <a href="/reference/p5.Image/pixels/">img.pixels</a> to set many pixel
-  values.</p>
-
-  <p><code>img.set()</code> interprets the first two parameters as x- and
-  y-coordinates. It
-
-  interprets the last parameter as a grayscale value, a <code>[R, G, B,
-  A]</code> pixel
-
-  array, a <a href="/reference/p5/p5.Color/">p5.Color</a> object, or another
-
-  <a href="/reference/p5/p5.Image/">p5.Image</a> object.</p>
-
-  <p><a href="/reference/p5.Image/updatePixels/">img.updatePixels()</a> must be
-  called
-
-  after using <code>img.set()</code> for changes to appear.</p>
-line: 697
-isConstructor: false
+description: |
+  <p>画像の特定の位置にピクセルまたは画像を設定します。</p>
+  <p>この関数は、画像の特定の位置（x, y）にピクセルの色または別の画像を設定します。
+  色は、グレースケール値、[R, G, B]配列、[R, G, B, A]配列、
+  p5.Colorオブジェクト、またはCSSカラー文字列として指定できます。</p>
+  <p>この関数を使用した後、変更を適用するために
+  <a href="#/p5.Image/updatePixels">updatePixels()</a>を呼び出す必要があります。</p>
+line: 2025
+params:
+  - name: x
+    description: |
+      <p>ピクセルのx座標。</p>
+    type: Number
+  - name: y
+    description: |
+      <p>ピクセルのy座標。</p>
+    type: Number
+  - name: a
+    description: |
+      <p>グレースケール値、カラー配列、p5.Color、CSS文字列、またはp5.Image。</p>
+    type: 'Number|Number[]|Object'
 itemtype: method
 example:
   - |-
 
     <div>
     <code>
-    function setup() {
-      createCanvas(100, 100);
-
-      background(200);
-
-      // Create a p5.Image object.
-      let img = createImage(100, 100);
-
-      // Set four pixels to black.
-      img.set(30, 20, 0);
-      img.set(85, 20, 0);
-      img.set(85, 75, 0);
-      img.set(30, 75, 0);
-
-      // Update the image.
-      img.updatePixels();
-
-      // Display the image.
-      image(img, 0, 0);
-
-      describe('Four black dots arranged in a square drawn on a gray background.');
-    }
-    </code>
-    </div>
-
-    <div>
-    <code>
-    function setup() {
-      createCanvas(100, 100);
-
-      background(200);
-
-      // Create a p5.Image object.
-      let img = createImage(100, 100);
-
-      // Create a p5.Color object.
-      let black = color(0);
-
-      // Set four pixels to black.
-      img.set(30, 20, black);
-      img.set(85, 20, black);
-      img.set(85, 75, black);
-      img.set(30, 75, black);
-
-      // Update the image.
-      img.updatePixels();
-
-      // Display the image.
-      image(img, 0, 0);
-
-      describe('Four black dots arranged in a square drawn on a gray background.');
-    }
-    </code>
-    </div>
-
-    <div>
-    <code>
-    function setup() {
-      createCanvas(100, 100);
-
-      background(200);
-
-      // Create a p5.Image object.
-      let img = createImage(66, 66);
-
-      // Draw a color gradient.
-      for (let x = 0; x < img.width; x += 1) {
-        for (let y = 0; y < img.height; y += 1) {
-          let c = map(x, 0, img.width, 0, 255);
-          img.set(x, y, c);
-        }
-      }
-
-      // Update the image.
-      img.updatePixels();
-
-      // Display the image.
-      image(img, 17, 17);
-
-      describe('A square with a horiztonal color gradient from black to white drawn on a gray background.');
-    }
-    </code>
-    </div>
-
-    <div>
-    <code>
     let img;
 
-    // Load the image.
     function preload() {
       img = loadImage('/assets/rockies.jpg');
     }
 
     function setup() {
       createCanvas(100, 100);
+      background(200);
 
-      // Create a p5.Image object.
-      let img2 = createImage(100, 100);
+      // 画像を表示します。
+      image(img, 0, 0, width, height);
 
-      // Set the blank image's pixels using the landscape.
-      img2.set(0, 0, img);
+      // 画像の中央に赤いピクセルを設定します。
+      let x = img.width / 2;
+      let y = img.height / 2;
+      img.set(x, y, 'red');
+      img.updatePixels();
 
-      // Display the second image.
-      image(img2, 0, 0);
+      // 更新された画像を表示します。
+      image(img, 0, 0, width, height);
 
-      describe('An image of a mountain landscape.');
+      describe('山の風景の画像。中央に赤いピクセルがあります。');
     }
     </code>
     </div>
 class: p5.Image
-params:
-  - name: x
-    description: |
-      <p>Number:ピクセルの x 座標</p>
-      <p>x-coordinate of the pixel.</p>
-    type: Number
-  - name: 'y'
-    description: |
-      <p>Number:ピクセルの y 座標</p>
-      <p>y-coordinate of the pixel.</p>
-    type: Number
-  - name: a
-    description: >
-      <p>グレースケール値 | ピクセル配列 | <a href="#/p5.Color">p5.Color</a> | コピーする <a
-      href="#/p5.Image">p5.Image</a></p>
-
-      <p>grayscale value | pixel array |
-                                        <a href="#/p5.Color">p5.Color</a> object |
-                                        <a href="#/p5.Image">p5.Image</a> to copy.</p>
-    type: 'Number|Number[]|Object'
-chainable: false
 ---
-
 
 # set

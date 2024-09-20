@@ -4,14 +4,6 @@ module: IO
 submodule: Output
 file: src/io/files.js
 description: >
-  <p><a href="#/p5.Table">Table</a> オブジェクトの内容をファイルに書き込みます。</p>
-
-  <p>デフォルトでは、カンマ区切りの値（'csv'）を含むテキストファイルですが、タブ区切り（'tsv'）を使用することもできますし、HTML
-  テーブル（'html'）を生成することもできます。ファイルの保存プロセスと保存されたファイルの場所は、ウェブブラウザー間で異なります。</p>
-
-
-  <hr/>
-
   <p>Writes the contents of a <a href="/reference/p5/p5.Table">Table</a> object
   to a file. Defaults to a
 
@@ -57,17 +49,14 @@ class: p5
 params:
   - name: Table
     description: |
-      <p>ファイルに保存する <a href="#/p5.Table">Table</a> オブジェクト</p>
       <p>the <a href="#/p5.Table">Table</a> object to save to a file</p>
     type: p5.Table
   - name: filename
     description: |
-      <p>Table が保存されるべきファイル名</p>
       <p>the filename to which the Table should be saved</p>
     type: String
   - name: options
     description: |
-      <p>(オプション) "tsv"、"csv"、"html"のいずれか</p>
       <p>can be one of "tsv", "csv", or "html"</p>
     type: String
     optional: true

@@ -4,62 +4,38 @@ module: Shape
 submodule: 3D Primitives
 file: src/webgl/p5.Geometry.js
 description: >
-  <p>Flips the geometry’s texture v-coordinates.</p>
+  <p>ジオメトリのテクスチャのv座標を反転させます。</p>
 
-  <p>In order for <a href="/reference/p5/texture/">texture()</a> to work, the
-  geometry
+  <p><a href="/reference/p5/texture/">texture()</a>が機能するためには、ジオメトリは
+  その表面上の点を長方形の画像のピクセルにマッピングする方法が
+  必要です。この長方形の画像がテクスチャとして使用されます。ジオメトリの
+  座標<code>(x, y, z)</code>の頂点は、テクスチャ画像の座標<code>(u, v)</code>の
+  ピクセルにマッピングされます。</p>
 
-  needs a way to map the points on its surface to the pixels in a rectangular
+  <p><a href="/reference/p5.Geometry/uvs/">myGeometry.uvs</a>配列は、
+  ジオメトリに追加された順序で各頂点の<code>(u, v)</code>座標を
+  格納します。<code>myGeometry.flipV()</code>を呼び出すと、ジオメトリの
+  v座標が反転し、テクスチャが垂直方向に鏡像反転して表示されます。</p>
 
-  image that's used as a texture. The geometry's vertex at coordinates
+  <p>例えば、平面の4つの頂点は左上の角から時計回りに追加されます。
+  以下は<code>myGeometry.flipV()</code>を呼び出すことで、平面のテクスチャ
+  座標がどのように変化するかを示しています：</p>
 
-  <code>(x, y, z)</code> maps to the texture image's pixel at coordinates
-  <code>(u, v)</code>.</p>
-
-  <p>The <a href="/reference/p5.Geometry/uvs/">myGeometry.uvs</a> array stores
-  the
-
-  <code>(u, v)</code> coordinates for each vertex in the order it was added to
-  the
-
-  geometry. Calling <code>myGeometry.flipV()</code> flips a geometry's
-  v-coordinates
-
-  so that the texture appears mirrored vertically.</p>
-
-  <p>For example, a plane's four vertices are added clockwise starting from the
-
-  top-left corner. Here's how calling <code>myGeometry.flipV()</code> would
-  change a
-
-  plane's texture coordinates:</p>
-
-  <pre><code class="language-js">// Print the original texture coordinates.
-
-  // Output: [0, 0, 1, 0, 0, 1, 1, 1]
-
+  <pre><code class="language-js">// 元のテクスチャ座標を表示します。
+  // 出力: [0, 0, 1, 0, 0, 1, 1, 1]
   console.log(myGeometry.uvs);
 
-
-  // Flip the v-coordinates.
-
+  // v座標を反転させます。
   myGeometry.flipV();
 
-
-  // Print the flipped texture coordinates.
-
-  // Output: [0, 1, 1, 1, 0, 0, 1, 0]
-
+  // 反転後のテクスチャ座標を表示します。
+  // 出力: [0, 1, 1, 1, 0, 0, 1, 0]
   console.log(myGeometry.uvs);
 
-
-  // Notice the swaps:
-
-  // Left vertices: [0, 0] <--> [1, 0]
-
-  // Right vertices: [1, 0] <--> [1, 1]
-
-  </--></--></code></pre>
+  // 以下の入れ替えに注目してください：
+  // 左側の頂点: [0, 0] <--> [1, 0]
+  // 右側の頂点: [1, 0] <--> [1, 1]
+  </code></pre>
 line: 1245
 isConstructor: false
 itemtype: method
@@ -79,14 +55,14 @@ example:
 
       background(200);
 
-      // Create p5.Geometry objects.
+      // p5.Geometryオブジェクトを作成します。
       let geom1 = buildGeometry(createShape);
       let geom2 = buildGeometry(createShape);
 
-      // Flip geom2's V texture coordinates.
+      // geom2のVテクスチャ座標を反転させます。
       geom2.flipV();
 
-      // Left (original).
+      // 左側（元のもの）。
       push();
       translate(-25, 0, 0);
       texture(img);
@@ -94,7 +70,7 @@ example:
       model(geom1);
       pop();
 
-      // Right (flipped).
+      // 右側（反転したもの）。
       push();
       translate(25, 0, 0);
       texture(img);
@@ -103,7 +79,7 @@ example:
       pop();
 
       describe(
-        'Two photos of a ceiling on a gray background. The photos are mirror images of each other.'
+        '灰色の背景に2つの天井の写真。写真は互いに鏡像関係にあります。'
       );
     }
 
@@ -118,3 +94,4 @@ chainable: false
 
 
 # flipV
+

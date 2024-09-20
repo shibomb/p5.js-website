@@ -4,128 +4,74 @@ module: Rendering
 submodule: Rendering
 file: src/core/rendering.js
 description: >
-  <p>定義されたモードにしたがって、ディスプレイウィンドウ内のピクセルをブレンドします。</p>
+  <p>キャンバスに色を追加する際の混合方法を設定します。</p>
 
-  <p>ソースピクセル（A）をディスプレイウィンドウ内の既存のピクセル（B）とブレンドするために、次のモードを選択できます。: <ul>
-  <li><code>BLEND</code> - 色の線形補間:C = A*factor +
-  B。<b>これがデフォルトのブレンドモードです。</b></li> <li><code>ADD</code> - A と B の和</li>
-  <li><code>DARKEST</code> - 最も暗い色だけが成功:C = min(A*factor, B)。</li>
-  <li><code>LIGHTEST</code> - 最も明るい色だけが成功:C = max(A*factor, B)。</li>
-  <li><code>DIFFERENCE</code> - 背景画像から色を減算します。<em>(2D)</em></li>
-  <li><code>EXCLUSION</code> - <code>DIFFERENCE</code>
-  に似ていますが、それほど極端ではありません。</li> <li><code>MULTIPLY</code> -
-  色を乗算し、結果は常に暗くなります。</li> <li><code>SCREEN</code> - 乗算の反対で、色の逆数を使用します。</li>
-  <li><code>REPLACE</code> - ピクセルは他のピクセルと完全に置き換えられ、アルファ（透明度）値を使用しません。</li>
-  <li><code>REMOVE</code> - A のアルファ強度で B からピクセルを削除します。</li>
-  <li><code>OVERLAY</code> - <code>MULTIPLY</code> と <code>SCREEN </code>
-  のミックス。暗い値を乗算し、明るい値をスクリーンにします。<em>(2D)</em></li> <li><code>HARD_LIGHT</code> -
-  50%以上の灰色の場合は <code>SCREEN</code>、それ以下の場合は
-  <code>MULTIPLY</code>。<em>(2D)</em></li> <li><code>SOFT_LIGHT</code> -
-  <code>DARKEST</code> と <code>LIGHTEST</code> のミックス。<code>OVERLAY</code>
-  のように機能しますが、それほど厳しくありません。<em>(2D)</em></li> <li><code>DODGE</code> -
-  明るいトーンを明るくし、コントラストを高め、暗い部分を無視します。<em>(2D)</em></li> <li><code>BURN</code> -
-  暗い領域が適用され、コントラストが増加し、ライトを無視します。<em>(2D)</em></li> <li><code>SUBTRACT</code> -
-  A と B の残差 <em>(3D)</em></li> </ul></p>
+  <p>デフォルトでは、単色で描画すると、キャンバス上の現在のピクセル値の上に
 
-  <p><em>(2D)</em> は、このブレンドモードが <b>2D レンダラーのみ</b> で動作することを示します。<em>(3D)</em>
-  は、このブレンドモードが <b>WebGL レンダラーのみ</b> で動作することを示します。</p>
+  塗り重ねられます。<code>blendMode()</code>は色を混合するための多くのオプションを提供します。</p>
 
+  <p>形状、画像、テキストをキャンバスに描画するためのソースとして使用できます。
 
-  <hr/>
+  ソースピクセルは、描画される場所のキャンバスピクセルの色を変更します。
 
-  <p>Sets the way colors blend when added to the canvas.</p>
+  最終的な色は、ソースピクセルの色とキャンバスピクセルの色を
 
-  <p>By default, drawing with a solid color paints over the current pixel values
+  ブレンドした結果です。ソースとキャンバスのピクセルのRGB色値が
 
-  on the canvas. <code>blendMode()</code> offers many options for blending
-  colors.</p>
+  比較され、加算、減算、乗算、除算されて異なる効果を
 
-  <p>Shapes, images, and text can be used as sources for drawing to the canvas.
+  生み出します。赤は赤と、緑は緑と、青は青と比較されます。</p>
 
-  A source pixel changes the color of the canvas pixel where it's drawn. The
+  <p>パラメータ<code>mode</code>はブレンドモードを設定します。例えば、
 
-  final color results from blending the source pixel's color with the canvas
-
-  pixel's color. RGB color values from the source and canvas pixels are
-
-  compared, added, subtracted, multiplied, and divided to create different
-
-  effects. Red values with red values, greens with greens, and blues with
-
-  blues.</p>
-
-  <p>The parameter, <code>mode</code>, sets the blend mode. For example, calling
-
-  <code>blendMode(ADD)</code> sets the blend mode to <code>ADD</code>. The
-  following blend modes
-
-  are available in both 2D and WebGL mode:</p>
+  <code>blendMode(ADD)</code>を呼び出すとブレンドモードを<code>ADD</code>に設定します。
+  以下のブレンドモードは2DモードとWebGLモードの両方で利用可能です：</p>
 
   <ul>
 
-  <li><code>BLEND</code>: color values from the source overwrite the canvas.
-  This is the default mode.</li>
+  <li><code>BLEND</code>: ソースの色値がキャンバスの値を上書きします。これがデフォルトモードです。</li>
 
-  <li><code>ADD</code>: color values from the source are added to values from
-  the canvas.</li>
+  <li><code>ADD</code>: ソースの色値がキャンバスの値に加算されます。</li>
 
-  <li><code>DARKEST</code>: keeps the darkest color value.</li>
+  <li><code>DARKEST</code>: 最も暗い色値を保持します。</li>
 
-  <li><code>LIGHTEST</code>: keeps the lightest color value.</li>
+  <li><code>LIGHTEST</code>: 最も明るい色値を保持します。</li>
 
-  <li><code>EXCLUSION</code>: similar to <code>DIFFERENCE</code> but with less
-  contrast.</li>
+  <li><code>EXCLUSION</code>: <code>DIFFERENCE</code>に似ていますが、コントラストが低くなります。</li>
 
-  <li><code>MULTIPLY</code>: color values from the source are multiplied with
-  values from the canvas. The result is always darker.</li>
+  <li><code>MULTIPLY</code>: ソースの色値がキャンバスの値と乗算されます。結果は常に暗くなります。</li>
 
-  <li><code>SCREEN</code>: all color values are inverted, then multiplied, then
-  inverted again. The result is always lighter. (Opposite of
-  <code>MULTIPLY</code>)</li>
+  <li><code>SCREEN</code>: すべての色値が反転され、乗算され、再び反転されます。結果は常に明るくなります。（<code>MULTIPLY</code>の反対）</li>
 
-  <li><code>REPLACE</code>: the last source drawn completely replaces the rest
-  of the canvas.</li>
+  <li><code>REPLACE</code>: 最後に描画されたソースがキャンバスの残りの部分を完全に置き換えます。</li>
 
-  <li><code>REMOVE</code>: overlapping pixels are removed by making them
-  completely transparent.</li>
+  <li><code>REMOVE</code>: 重なり合うピクセルが完全に透明になることで削除されます。</li>
 
   </ul>
 
-  <p>The following blend modes are only available in 2D mode:</p>
+  <p>以下のブレンドモードは2Dモードでのみ利用可能です：</p>
 
   <ul>
 
-  <li><code>DIFFERENCE</code>: color values from the source are subtracted from
-  the values from the canvas. If the difference is a negative number, it's made
-  positive.</li>
+  <li><code>DIFFERENCE</code>: ソースの色値がキャンバスの値から減算されます。差が負の数になる場合は正の数に変換されます。</li>
 
-  <li><code>OVERLAY</code>: combines <code>MULTIPLY</code> and
-  <code>SCREEN</code>. Dark values in the canvas get darker and light values get
-  lighter.</li>
+  <li><code>OVERLAY</code>: <code>MULTIPLY</code>と<code>SCREEN</code>を組み合わせます。キャンバスの暗い値はより暗くなり、明るい値はより明るくなります。</li>
 
-  <li><code>HARD_LIGHT</code>: combines <code>MULTIPLY</code> and
-  <code>SCREEN</code>. Dark values in the source get darker and light values get
-  lighter.</li>
+  <li><code>HARD_LIGHT</code>: <code>MULTIPLY</code>と<code>SCREEN</code>を組み合わせます。ソースの暗い値はより暗くなり、明るい値はより明るくなります。</li>
 
-  <li><code>SOFT_LIGHT</code>: a softer version of <code>HARD_LIGHT</code>.</li>
+  <li><code>SOFT_LIGHT</code>: <code>HARD_LIGHT</code>のソフトバージョンです。</li>
 
-  <li><code>DODGE</code>: lightens light tones and increases contrast. Divides
-  the canvas color values by the inverted color values from the source.</li>
+  <li><code>DODGE</code>: 明るい色調を明るくし、コントラストを増加させます。キャンバスの色値をソースの反転した色値で除算します。</li>
 
-  <li><code>BURN</code>: darkens dark tones and increases contrast. Divides the
-  source color values by the inverted color values from the canvas, then inverts
-  the result.</li>
+  <li><code>BURN</code>: 暗い色調を暗くし、コントラストを増加させます。ソースの色値をキャンバスの反転した色値で除算し、結果を反転します。</li>
 
   </ul>
 
-  <p>The following blend modes are only available in WebGL mode:</p>
+  <p>以下のブレンドモードはWebGLモードでのみ利用可能です：</p>
 
   <ul>
 
-  <li><code>SUBTRACT</code>: RGB values from the source are subtracted from the
-  values from the canvas. If the difference is a negative number, it's made
-  positive. Alpha (transparency) values from the source and canvas are
-  added.</li>
+  <li><code>SUBTRACT</code>: ソースのRGB値がキャンバスの値から減算されます。差が負の数になる場合は正の数に変換されます。ソースとキャンバスのアルファ（透明度）値は加算されます。</li>
 
   </ul>
 line: 720
@@ -141,21 +87,21 @@ example:
 
       background(200);
 
-      // Use the default blend mode.
+      // デフォルトのブレンドモードを使用します。
       blendMode(BLEND);
 
-      // Style the lines.
+      // 線のスタイルを設定します。
       strokeWeight(30);
 
-      // Draw the blue line.
+      // 青い線を描画します。
       stroke('blue');
       line(25, 25, 75, 75);
 
-      // Draw the red line.
+      // 赤い線を描画します。
       stroke('red');
       line(75, 25, 25, 75);
 
-      describe('A blue line and a red line form an X on a gray background.');
+      describe('灰色の背景に青い線と赤い線がXを形成しています。');
     }
     </code>
     </div>
@@ -167,21 +113,21 @@ example:
 
       background(200);
 
-      // Set the blend mode.
+      // ブレンドモードを設定します。
       blendMode(ADD);
 
-      // Style the lines.
+      // 線のスタイルを設定します。
       strokeWeight(30);
 
-      // Draw the blue line.
+      // 青い線を描画します。
       stroke('blue');
       line(25, 25, 75, 75);
 
-      // Draw the red line.
+      // 赤い線を描画します。
       stroke('red');
       line(75, 25, 25, 75);
 
-      describe('A faint blue line and a faint red line form an X on a gray background. The area where they overlap is faint magenta.');
+      describe('灰色の背景に薄い青い線と薄い赤い線がXを形成しています。重なっている部分は薄いマゼンタ色になっています。');
     }
     </code>
     </div>
@@ -193,21 +139,21 @@ example:
 
       background(200);
 
-      // Set the blend mode.
+      // ブレンドモードを設定します。
       blendMode(DARKEST);
 
-      // Style the lines.
+      // 線のスタイルを設定します。
       strokeWeight(30);
 
-      // Draw the blue line.
+      // 青い線を描画します。
       stroke('blue');
       line(25, 25, 75, 75);
 
-      // Draw the red line.
+      // 赤い線を描画します。
       stroke('red');
       line(75, 25, 25, 75);
 
-      describe('A blue line and a red line form an X on a gray background. The area where they overlap is black.');
+      describe('灰色の背景に青い線と赤い線がXを形成しています。重なっている部分は黒くなっています。');
     }
     </code>
     </div>
@@ -219,21 +165,21 @@ example:
 
       background(200);
 
-      // Set the blend mode.
+      // ブレンドモードを設定します。
       blendMode(LIGHTEST);
 
-      // Style the lines.
+      // 線のスタイルを設定します。
       strokeWeight(30);
 
-      // Draw the blue line.
+      // 青い線を描画します。
       stroke('blue');
       line(25, 25, 75, 75);
 
-      // Draw the red line.
+      // 赤い線を描画します。
       stroke('red');
       line(75, 25, 25, 75);
 
-      describe('A faint blue line and a faint red line form an X on a gray background. The area where they overlap is faint magenta.');
+      describe('灰色の背景に薄い青い線と薄い赤い線がXを形成しています。重なっている部分は薄いマゼンタ色になっています。');
     }
     </code>
     </div>
@@ -245,21 +191,21 @@ example:
 
       background(200);
 
-      // Set the blend mode.
+      // ブレンドモードを設定します。
       blendMode(EXCLUSION);
 
-      // Style the lines.
+      // 線のスタイルを設定します。
       strokeWeight(30);
 
-      // Draw the blue line.
+      // 青い線を描画します。
       stroke('blue');
       line(25, 25, 75, 75);
 
-      // Draw the red line.
+      // 赤い線を描画します。
       stroke('red');
       line(75, 25, 25, 75);
 
-      describe('A yellow line and a cyan line form an X on a gray background. The area where they overlap is green.');
+      describe('灰色の背景に黄色い線とシアン色の線がXを形成しています。重なっている部分は緑色になっています。');
     }
     </code>
     </div>
@@ -271,21 +217,21 @@ example:
 
       background(200);
 
-      // Set the blend mode.
+      // ブレンドモードを設定します。
       blendMode(MULTIPLY);
 
-      // Style the lines.
+      // 線のスタイルを設定します。
       strokeWeight(30);
 
-      // Draw the blue line.
+      // 青い線を描画します。
       stroke('blue');
       line(25, 25, 75, 75);
 
-      // Draw the red line.
+      // 赤い線を描画します。
       stroke('red');
       line(75, 25, 25, 75);
 
-      describe('A blue line and a red line form an X on a gray background. The area where they overlap is black.');
+      describe('灰色の背景に青い線と赤い線がXを形成しています。重なっている部分は黒くなっています。');
     }
     </code>
     </div>
@@ -297,21 +243,21 @@ example:
 
       background(200);
 
-      // Set the blend mode.
+      // ブレンドモードを設定します。
       blendMode(SCREEN);
 
-      // Style the lines.
+      // 線のスタイルを設定します。
       strokeWeight(30);
 
-      // Draw the blue line.
+      // 青い線を描画します。
       stroke('blue');
       line(25, 25, 75, 75);
 
-      // Draw the red line.
+      // 赤い線を描画します。
       stroke('red');
       line(75, 25, 25, 75);
 
-      describe('A faint blue line and a faint red line form an X on a gray background. The area where they overlap is faint magenta.');
+      describe('灰色の背景に薄い青い線と薄い赤い線がXを形成しています。重なっている部分は薄いマゼンタ色になっています。');
     }
     </code>
     </div>
@@ -323,21 +269,21 @@ example:
 
       background(200);
 
-      // Set the blend mode.
+      // ブレンドモードを設定します。
       blendMode(REPLACE);
 
-      // Style the lines.
+      // 線のスタイルを設定します。
       strokeWeight(30);
 
-      // Draw the blue line.
+      // 青い線を描画します。
       stroke('blue');
       line(25, 25, 75, 75);
 
-      // Draw the red line.
+      // 赤い線を描画します。
       stroke('red');
       line(75, 25, 25, 75);
 
-      describe('A diagonal red line.');
+      describe('対角線上の赤い線。');
     }
     </code>
     </div>
@@ -349,21 +295,21 @@ example:
 
       background(200);
 
-      // Set the blend mode.
+      // ブレンドモードを設定します。
       blendMode(REMOVE);
 
-      // Style the lines.
+      // 線のスタイルを設定します。
       strokeWeight(30);
 
-      // Draw the blue line.
+      // 青い線を描画します。
       stroke('blue');
       line(25, 25, 75, 75);
 
-      // Draw the red line.
+      // 赤い線を描画します。
       stroke('red');
       line(75, 25, 25, 75);
 
-      describe('The silhouette of an X is missing from a gray background.');
+      describe('灰色の背景からXの形のシルエットが欠けています。');
     }
     </code>
     </div>
@@ -375,21 +321,21 @@ example:
 
       background(200);
 
-      // Set the blend mode.
+      // ブレンドモードを設定します。
       blendMode(DIFFERENCE);
 
-      // Style the lines.
+      // 線のスタイルを設定します。
       strokeWeight(30);
 
-      // Draw the blue line.
+      // 青い線を描画します。
       stroke('blue');
       line(25, 25, 75, 75);
 
-      // Draw the red line.
+      // 赤い線を描画します。
       stroke('red');
       line(75, 25, 25, 75);
 
-      describe('A yellow line and a cyan line form an X on a gray background. The area where they overlap is green.');
+      describe('灰色の背景に黄色い線とシアン色の線がXを形成しています。重なっている部分は緑色になっています。');
     }
     </code>
     </div>
@@ -401,21 +347,21 @@ example:
 
       background(200);
 
-      // Set the blend mode.
+      // ブレンドモードを設定します。
       blendMode(OVERLAY);
 
-      // Style the lines.
+      // 線のスタイルを設定します。
       strokeWeight(30);
 
-      // Draw the blue line.
+      // 青い線を描画します。
       stroke('blue');
       line(25, 25, 75, 75);
 
-      // Draw the red line.
+      // 赤い線を描画します。
       stroke('red');
       line(75, 25, 25, 75);
 
-      describe('A faint blue line and a faint red line form an X on a gray background. The area where they overlap is bright magenta.');
+      describe('灰色の背景に薄い青い線と薄い赤い線がXを形成しています。重なっている部分は明るいマゼンタ色になっています。');
     }
     </code>
     </div>
@@ -427,21 +373,21 @@ example:
 
       background(200);
 
-      // Set the blend mode.
+      // ブレンドモードを設定します。
       blendMode(HARD_LIGHT);
 
-      // Style the lines.
+      // 線のスタイルを設定します。
       strokeWeight(30);
 
-      // Draw the blue line.
+      // 青い線を描画します。
       stroke('blue');
       line(25, 25, 75, 75);
 
-      // Draw the red line.
+      // 赤い線を描画します。
       stroke('red');
       line(75, 25, 25, 75);
 
-      describe('A blue line and a red line form an X on a gray background.');
+      describe('灰色の背景に青い線と赤い線がXを形成しています。');
     }
     </code>
     </div>
@@ -453,116 +399,21 @@ example:
 
       background(200);
 
-      // Set the blend mode.
+      // ブレンドモードを設定します。
       blendMode(SOFT_LIGHT);
 
-      // Style the lines.
+      // 線のスタイルを設定します。
       strokeWeight(30);
 
-      // Draw the blue line.
+      // 青い線を描画します。
       stroke('blue');
       line(25, 25, 75, 75);
 
-      // Draw the red line.
+      // 赤い線を描画します。
       stroke('red');
       line(75, 25, 25, 75);
 
-      describe('A faint blue line and a faint red line form an X on a gray background. The area where they overlap is violet.');
+      describe('灰色の背景に薄い青い線と薄い赤い線がXを形成しています。重なっている部分は紫色になっています。');
     }
     </code>
-    </div>
-
-    <div>
-    <code>
-    function setup() {
-      createCanvas(100, 100);
-
-      background(200);
-
-      // Set the blend mode.
-      blendMode(DODGE);
-
-      // Style the lines.
-      strokeWeight(30);
-
-      // Draw the blue line.
-      stroke('blue');
-      line(25, 25, 75, 75);
-
-      // Draw the red line.
-      stroke('red');
-      line(75, 25, 25, 75);
-
-      describe('A faint blue line and a faint red line form an X on a gray background. The area where they overlap is faint violet.');
-    }
-    </code>
-    </div>
-
-    <div>
-    <code>
-    function setup() {
-      createCanvas(100, 100);
-
-      background(200);
-
-      // Set the blend mode.
-      blendMode(BURN);
-
-      // Style the lines.
-      strokeWeight(30);
-
-      // Draw the blue line.
-      stroke('blue');
-      line(25, 25, 75, 75);
-
-      // Draw the red line.
-      stroke('red');
-      line(75, 25, 25, 75);
-
-      describe('A blue line and a red line form an X on a gray background. The area where they overlap is black.');
-    }
-    </code>
-    </div>
-
-    <div>
-    <code>
-    function setup() {
-      createCanvas(100, 100);
-
-      background(200);
-
-      // Set the blend mode.
-      blendMode(SUBTRACT);
-
-      // Style the lines.
-      strokeWeight(30);
-
-      // Draw the blue line.
-      stroke('blue');
-      line(25, 25, 75, 75);
-
-      // Draw the red line.
-      stroke('red');
-      line(75, 25, 25, 75);
-
-      describe('A yellow line and a turquoise line form an X on a gray background. The area where they overlap is green.');
-    }
-    </code>
-    </div>
-class: p5
-params:
-  - name: mode
-    description: >
-      <p>キャンバスに設定するブレンドモードの定数。BLEND、DARKEST、LIGHTEST、DIFFERENCE、MULTIPLY、EXCLUSION、SCREEN、REPLACE、OVERLAY、HARD_LIGHT、SOFT_LIGHT、DODGE、BURN、ADD、REMOVE、SUBTRACT
-      のいずれか。</p>
-
-      <p>blend mode to set.
-                     either BLEND, DARKEST, LIGHTEST, DIFFERENCE, MULTIPLY,
-                     EXCLUSION, SCREEN, REPLACE, OVERLAY, HARD_LIGHT,
-                     SOFT_LIGHT, DODGE, BURN, ADD, REMOVE or SUBTRACT</p>
-    type: Constant
-chainable: false
----
-
-
-# blendMode
+    

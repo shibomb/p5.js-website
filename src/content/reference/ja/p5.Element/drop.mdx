@@ -4,19 +4,6 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>要素にドロップされたファイルがすべて読み込まれるたびに呼び出されるコールバックを登録します。</p>
-
-  <p>p5 は、ドロップされたすべてのファイルをメモリーに読み込み、p5.File
-  オブジェクトとしてコールバックに渡します。同時にドロップされた複数のファイルは、コールバックが複数回呼び出される結果となります。</p>
-
-  <p>必要に応じて、2つ目のコールバックを渡すこともできます。これは、生の <a
-  href="https://developer.mozilla.org/ja/docs/Web/Events/drop">drop</a>
-  イベントに登録されます。そのため、コールバックは元の <a
-  href="https://developer.mozilla.org/ja/docs/Web/API/DragEvent">DragEvent</a>
-  が提供されます。同時に複数のファイルをドロップすると、2つ目のコールバックは1回のドロップごとにトリガーされますが、最初のコールバックはロードされたファイルごとにトリガーされます。</p>
-
-  <hr/>
-
   <p>Calls a function when the user drops a file on the element.</p>
 
   <p>The first parameter, <code>callback</code>, is a function to call once the
@@ -137,17 +124,11 @@ example:
 class: p5.Element
 params:
   - name: callback
-    description: >
-      <p>called when a file loads. Called once for each file dropped. /// todo
-      /// Function: 読み込まれたファイルを受け取るコールバックで、ドロップされた各ファイルに対して呼び出されます。</p>
-
+    description: |
       <p>called when a file loads. Called once for each file dropped.</p>
     type: Function
   - name: fxn
-    description: >
-      <p>(Optional) called once when any files are dropped. /// todo ///
-      Function: (オプション) ファイルがドロップされたときに、ドロップイベントでトリガーされるコールバック。</p>
-
+    description: |
       <p>called once when any files are dropped.</p>
     type: Function
     optional: true

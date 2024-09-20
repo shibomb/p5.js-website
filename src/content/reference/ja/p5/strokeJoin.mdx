@@ -4,35 +4,15 @@ module: Shape
 submodule: Attributes
 file: src/core/shape/attributes.js
 description: >
-  <p>ラインセグメントを接続するジョイントのスタイルを設定します。</p>
+  <p>線分を接続する接合部のスタイルを設定します。</p>
 
-  <p>これらのジョイントは、ミター（<code>MITER</code>）、ビベル（<code>BEVEL</code>）、またはラウンド（<code>ROUND</code>）のいずれかです。デフォルトのジョイントは
-  2D モードでは<code>MITER</code>、WebGL モードでは<code>ROUND</code>です。</p>
+  <p>接合部は、マイター接合（<code>MITER</code>）、ベベル接合（<code>BEVEL</code>）、
+  または丸接合（<code>ROUND</code>）のいずれかです。デフォルトの接合は2Dモードでは
+  <code>MITER</code>、WebGLモードでは<code>ROUND</code>です。</p>
 
-  <p><code>strokeJoin()</code> に渡す引数は、定数
-  <code>MITER</code>、<code>BEVEL</code>、<code>ROUND</code>
-  がこのように定義されているため、すべて大文字で記述する必要があります。 JavaScript は大文字と小文字を区別する言語です。</p>
-
-
-  <hr/>
-
-  <p>Sets the style of the joints that connect line segments.</p>
-
-  <p>Joints are either mitered (<code>MITER</code>), beveled
-  (<code>BEVEL</code>), or rounded
-
-  (<code>ROUND</code>). The default joint is <code>MITER</code> in 2D mode and
-  <code>ROUND</code> in WebGL
-
-  mode.</p>
-
-  <p>The argument passed to <code>strokeJoin()</code> must be written in ALL
-  CAPS because
-
-  the constants <code>MITER</code>, <code>BEVEL</code>, and <code>ROUND</code>
-  are defined this way.
-
-  JavaScript is a case-sensitive language.</p>
+  <p><code>strokeJoin()</code>に渡される引数は、すべて大文字で書く必要があります。
+  これは、<code>MITER</code>、<code>BEVEL</code>、<code>ROUND</code>という定数が
+  このように定義されているためです。JavaScriptは大文字と小文字を区別する言語です。</p>
 line: 441
 isConstructor: false
 itemtype: method
@@ -46,19 +26,19 @@ example:
 
       background(200);
 
-      // Style the line.
+      // 線のスタイルを設定します。
       noFill();
       strokeWeight(10);
       strokeJoin(MITER);
 
-      // Draw the line.
+      // 線を描画します。
       beginShape();
       vertex(35, 20);
       vertex(65, 50);
       vertex(35, 80);
       endShape();
 
-      describe('A right-facing arrowhead shape with a pointed tip in center of canvas.');
+      describe('キャンバスの中央に尖った先端を持つ右向きの矢印の形。');
     }
     </code>
     </div>
@@ -70,19 +50,19 @@ example:
 
       background(200);
 
-      // Style the line.
+      // 線のスタイルを設定します。
       noFill();
       strokeWeight(10);
       strokeJoin(BEVEL);
 
-      // Draw the line.
+      // 線を描画します。
       beginShape();
       vertex(35, 20);
       vertex(65, 50);
       vertex(35, 80);
       endShape();
 
-      describe('A right-facing arrowhead shape with a flat tip in center of canvas.');
+      describe('キャンバスの中央に平らな先端を持つ右向きの矢印の形。');
     }
     </code>
     </div>
@@ -94,19 +74,19 @@ example:
 
       background(200);
 
-      // Style the line.
+      // 線のスタイルを設定します。
       noFill();
       strokeWeight(10);
       strokeJoin(ROUND);
 
-      // Draw the line.
+      // 線を描画します。
       beginShape();
       vertex(35, 20);
       vertex(65, 50);
       vertex(35, 80);
       endShape();
 
-      describe('A right-facing arrowhead shape with a rounded tip in center of canvas.');
+      describe('キャンバスの中央に丸い先端を持つ右向きの矢印の形。');
     }
     </code>
     </div>
@@ -114,8 +94,7 @@ class: p5
 params:
   - name: join
     description: |
-      <p>MITER、BEVEL、ROUND のいずれか</p>
-      <p>either MITER, BEVEL, or ROUND</p>
+      <p>MITER、BEVEL、またはROUNDのいずれか</p>
     type: Constant
 chainable: true
 ---

@@ -3,16 +3,7 @@ title: triggerAttack
 module: p5.sound
 submodule: p5.sound
 file: lib/addons/p5.sound.js
-description: >
-  <p>Attack と Decay の部分をトリガーします。</p>
-
-  <p>ピアノのキーを押し続けるのと似ていますが、解放するまでサステインレベルを保持します。入力は、p5.sound オブジェクトまたは <a
-  href="http://docs.webplatform.org/wiki/apis/webaudio/AudioParam">Web Audio
-  Param</a> のいずれかです。</p>
-
-
-  <hr/>
-
+description: |
   <p>Trigger the Attack, and Decay portion of the Envelope.
   Similar to holding down a key on a piano, but it will
   hold the sustain level until you let go. Input can be
@@ -69,12 +60,10 @@ class: p5.Envelope
 params:
   - name: unit
     description: |
-      <p>p5.sound オブジェクトまたは Web Audio Param</p>
       <p>p5.sound Object or Web Audio Param</p>
     type: Object
   - name: secondsFromNow
     description: |
-      <p>今から何秒後にトリガーするか（秒単位）</p>
       <p>time from now (in seconds)</p>
     type: Number
 chainable: false

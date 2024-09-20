@@ -4,35 +4,24 @@ module: 3D
 submodule: Material
 file: src/webgl/material.js
 description: >
-  <p>Sets the amount of "metalness" of a
+  <p><a href="/reference/p5/specularMaterial/">specularMaterial()</a>の「金属性」の量を設定します。</p>
 
-  <a href="/reference/p5/specularMaterial/">specularMaterial()</a>.</p>
+  <p><code>metalness()</code>は、材料をより金属的に見せることができます。これは、
+  材料が光源を反射する方法に影響を与えます。以下の光源の反射に影響します：
 
-  <p><code>metalness()</code> can make materials appear more metallic. It
-  affects the way
+  <a href="/reference/p5/directionalLight/">directionalLight()</a>、
 
-  materials reflect light sources including
+  <a href="/reference/p5/pointLight/">pointLight()</a>、
 
-  affects the way materials reflect light sources including
+  <a href="/reference/p5/spotLight/">spotLight()</a>、そして
 
-  <a href="/reference/p5/directionalLight/">directionalLight()</a>,
+  <a href="/reference/p5/imageLight/">imageLight()</a>。</p>
 
-  <a href="/reference/p5/pointLight/">pointLight()</a>,
+  <p>パラメータ<code>metallic</code>は、金属性の量を設定する数値です。
+  <code>metallic</code>は1より大きくなければなりません（1がデフォルト値です）。
+  <code>metalness(100)</code>のようなより高い値は、鏡面反射材料をより
+  金属的に見せます。</p>
 
-  <a href="/reference/p5/spotLight/">spotLight()</a>, and
-
-  <a href="/reference/p5/imageLight/">imageLight()</a>.</p>
-
-  <p>The parameter, <code>metallic</code>, is a number that sets the amount of
-  metalness.
-
-  <code>metallic</code> must be greater than 1, which is its default value.
-  Higher
-
-  values, such as <code>metalness(100)</code>, make specular materials appear
-  more
-
-  metallic.</p>
 line: 2214
 isConstructor: false
 itemtype: method
@@ -45,35 +34,35 @@ example:
       createCanvas(100, 100, WEBGL);
 
       describe(
-        'Two blue spheres drawn on a gray background. White light reflects from their surfaces as the mouse moves. The right sphere is more metallic than the left sphere.'
+        '灰色の背景に2つの青い球体が描かれています。マウスが動くと、その表面に白い光が反射します。右の球体は左の球体よりも金属性が高くなっています。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Turn on an ambient light.
+      // 環境光をオンにします。
       ambientLight(200);
 
-      // Get the mouse's coordinates.
+      // マウスの座標を取得します。
       let mx = mouseX - 50;
       let my = mouseY - 50;
 
-      // Turn on a white point light that follows the mouse.
+      // マウスに追従する白い点光源をオンにします。
       pointLight(255, 255, 255, mx, my, 50);
 
-      // Style the spheres.
+      // 球体のスタイルを設定します。
       noStroke();
       fill(30, 30, 255);
       specularMaterial(255);
       shininess(20);
 
-      // Draw the left sphere with low metalness.
+      // 低い金属性で左の球体を描画します。
       translate(-25, 0, 0);
       metalness(1);
       sphere(20);
 
-      // Draw the right sphere with high metalness.
+      // 高い金属性で右の球体を描画します。
       translate(50, 0, 0);
       metalness(50);
       sphere(20);
@@ -83,7 +72,7 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // クリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     let img;
 
@@ -95,31 +84,31 @@ example:
       createCanvas(100 ,100 ,WEBGL);
 
       describe(
-        'Two spheres floating above a landscape. The surface of the spheres reflect the landscape. The right sphere is more reflective than the left sphere.'
+        '風景の上に浮かぶ2つの球体。球体の表面には風景が反射しています。右の球体は左の球体よりも反射率が高くなっています。'
       );
     }
 
     function draw() {
-      // Add the panorama.
+      // パノラマを追加します。
       panorama(img);
 
-      // Enable orbiting with the mouse.
+      // マウスでの軌道制御を有効にします。
       orbitControl();
 
-      // Use the image as a light source.
+      // 画像を光源として使用します。
       imageLight(img);
 
-      // Style the spheres.
+      // 球体のスタイルを設定します。
       noStroke();
       specularMaterial(50);
       shininess(200);
 
-      // Draw the left sphere with low metalness.
+      // 低い金属性で左の球体を描画します。
       translate(-25, 0, 0);
       metalness(1);
       sphere(20);
 
-      // Draw the right sphere with high metalness.
+      // 高い金属性で右の球体を描画します。
       translate(50, 0, 0);
       metalness(50);
       sphere(20);
@@ -130,10 +119,11 @@ class: p5
 params:
   - name: metallic
     description: |
-      <p>amount of metalness.</p>
+      <p>金属性の量。</p>
     type: Number
 chainable: false
 ---
 
 
 # metalness
+
