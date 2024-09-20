@@ -245,6 +245,10 @@ section,
       }
     }
   }
+
+  a > h3 {
+    text-decoration: underline #ddd;
+  }
 }
 
 .astro-code,
