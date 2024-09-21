@@ -4,9 +4,8 @@ module: IO
 submodule: Table
 file: src/io/p5.Table.js
 description: |
-  <p>Retrieves all table data and returns as an object. If a column name is
-  passed in, each row object will be stored with that attribute as its
-  title.</p>
+  <p>テーブルのすべてのデータを取得し、オブジェクトとして返します。列名が
+  渡された場合、各行オブジェクトはその属性をタイトルとして保存されます。</p>
 line: 1223
 isConstructor: false
 itemtype: method
@@ -15,8 +14,8 @@ example:
 
     <div class="norender">
     <code>
-    // Given the CSV file "mammals.csv"
-    // in the project's "assets" folder:
+    // プロジェクトの "assets" フォルダにある
+    // "mammals.csv" ファイルが与えられた場合：
     //
     // id,species,name
     // 0,Capra hircus,Goat
@@ -26,8 +25,8 @@ example:
     let table;
 
     function preload() {
-      //my table is comma separated value "csv"
-      //and has a header specifying the columns labels
+      //テーブルはカンマ区切り値 "csv" で
+      //列ラベルを指定するヘッダーがあります
       table = loadTable('/assets/mammals.csv', 'csv', 'header');
     }
 
@@ -35,9 +34,9 @@ example:
       let tableObject = table.getObject();
 
       print(tableObject);
-      //outputs an object
+      //オブジェクトを出力します
 
-      describe('no image displayed');
+      describe('画像は表示されません');
     }
     </code>
     </div>
@@ -45,8 +44,7 @@ class: p5.Table
 params:
   - name: headerColumn
     description: |
-      <p>Name of the column which should be used to
-                                   title each row object (optional)</p>
+      <p>各行オブジェクトのタイトルとして使用される列の名前（オプション）</p>
     type: String
     optional: true
 return:
@@ -57,3 +55,4 @@ chainable: false
 
 
 # getObject
+

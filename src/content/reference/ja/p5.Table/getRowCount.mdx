@@ -4,7 +4,7 @@ module: IO
 submodule: Table
 file: src/io/p5.Table.js
 description: |
-  <p>Returns the total number of rows in a Table.</p>
+  <p>Tableの総行数を返します。</p>
 line: 716
 isConstructor: false
 itemtype: method
@@ -13,7 +13,7 @@ example:
 
      <div>
      <code>
-     // given the cvs file "blobs.csv" in /assets directory
+     // /assets ディレクトリにある "blobs.csv" ファイルが与えられた場合
      //
      // ID, Name, Flavor, Shape, Color
      // Blob1, Blobby, Sweet, Blob, Pink
@@ -32,16 +32,17 @@ example:
      }
 
      function draw() {
-     text('There are ' + table.getRowCount() + ' rows in the table.', 100, 50);
+     text('テーブルには ' + table.getRowCount() + ' 行あります。', 100, 50);
      }
      </code>
      </div>
 class: p5.Table
 return:
-  description: Number of rows in this table
+  description: このテーブルの行数
   type: Integer
 chainable: false
 ---
 
 
 # getRowCount
+

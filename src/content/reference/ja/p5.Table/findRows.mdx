@@ -4,11 +4,10 @@ module: IO
 submodule: Table
 file: src/io/p5.Table.js
 description: |
-  <p>Finds the rows in the Table that contain the value
-  provided, and returns references to those rows. Returns an
-  Array, so for must be used to iterate through all the rows,
-  as shown in the example above. The column to search may be
-  specified by either its ID or title.</p>
+  <p>テーブル内で指定された値を含む行を見つけ、それらの行への参照を返します。
+  配列を返すので、上記の例のように、すべての行を反復処理するには
+  forを使用する必要があります。検索する列は、IDまたはタイトルで
+  指定できます。</p>
 line: 351
 isConstructor: false
 itemtype: method
@@ -17,8 +16,8 @@ example:
 
      <div class="norender">
      <code>
-     // Given the CSV file "mammals.csv"
-     // in the project's "assets" folder:
+     // プロジェクトの "assets" フォルダにある
+     // CSV ファイル "mammals.csv" が与えられた場合：
      //
      // id,species,name
      // 0,Capra hircus,Goat
@@ -28,22 +27,22 @@ example:
      let table;
 
      function preload() {
-     //my table is comma separated value "csv"
-     //and has a header specifying the columns labels
+     //私のテーブルはカンマ区切り値 "csv" で
+     //列ラベルを指定するヘッダーがあります
      table = loadTable('/assets/mammals.csv', 'csv', 'header');
      }
 
      function setup() {
-     //add another goat
+     //別のヤギを追加
      let newRow = table.addRow();
      newRow.setString('id', table.getRowCount() - 1);
      newRow.setString('species', 'Scape Goat');
      newRow.setString('name', 'Goat');
 
-     //find the rows containing animals named Goat
+     //名前が Goat の動物を含む行を見つける
      let rows = table.findRows('Goat', 'name');
-     print(rows.length + ' Goats found');
-     describe('no image displayed');
+     print(rows.length + ' 匹のヤギが見つかりました');
+     describe('画像は表示されません');
      }
      </code>
      </div>
@@ -51,18 +50,19 @@ class: p5.Table
 params:
   - name: value
     description: |
-      <p>The value to match</p>
+      <p>一致させる値</p>
     type: String
   - name: column
     description: |
-      <p>ID number or title of the
-                                     column to search</p>
+      <p>検索する列のID番号または
+                                     タイトル</p>
     type: Integer|String
 return:
-  description: An Array of TableRow objects
+  description: TableRowオブジェクトの配列
   type: 'p5.TableRow[]'
 chainable: false
 ---
 
 
 # findRows
+

@@ -4,10 +4,9 @@ module: IO
 submodule: Table
 file: src/io/p5.Table.js
 description: |
-  <p>Trims leading and trailing whitespace, such as spaces and tabs,
-  from String table values. If no column is specified, then the
-  values in all columns and rows are trimmed. A specific column
-  may be referenced by either its ID or title.</p>
+  <p>文字列テーブル値から、スペースやタブなどの先頭と末尾の空白を削除します。
+  列が指定されていない場合、すべての列と行の値がトリムされます。
+  特定の列は、IDまたはタイトルで参照できます。</p>
 line: 824
 isConstructor: false
 itemtype: method
@@ -33,7 +32,7 @@ example:
      print(table.getArray());
      }
 
-     // prints:
+     // 出力:
      //  0  "Lion"   "Mamal"
      //  1  "Snake"  "Reptile"
      </code></div>
@@ -41,8 +40,8 @@ class: p5.Table
 params:
   - name: column
     description: |
-      <p>Column ID (number)
-                                       or name (string)</p>
+      <p>列ID（数値）
+                                       または名前（文字列）</p>
     type: String|Integer
     optional: true
 chainable: false
@@ -50,3 +49,4 @@ chainable: false
 
 
 # trim
+

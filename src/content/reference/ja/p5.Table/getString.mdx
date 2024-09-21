@@ -4,9 +4,9 @@ module: IO
 submodule: Table
 file: src/io/p5.Table.js
 description: |
-  <p>Retrieves a String value from the Table's specified row and column.
-  The row is specified by its ID, while the column may be specified by
-  either its ID or title.</p>
+  <p>テーブルの指定された行と列から文字列値を取得します。
+  行はIDで指定され、列はIDまたはタイトルで
+  指定することができます。</p>
 line: 1173
 isConstructor: false
 itemtype: method
@@ -15,8 +15,8 @@ example:
 
     <div class="norender">
     <code>
-    // Given the CSV file "mammals.csv"
-    // in the project's "assets" folder:
+    // プロジェクトの "assets" フォルダにある
+    // "mammals.csv" ファイルが与えられた場合：
     //
     // id,species,name
     // 0,Capra hircus,Goat
@@ -26,8 +26,8 @@ example:
     let table;
 
     function preload() {
-      // table is comma separated value "CSV"
-      // and has specifiying header for column labels
+      // テーブルはカンマ区切り値 "CSV" で、
+      // 列ラベルのヘッダーが指定されています
       table = loadTable('/assets/mammals.csv', 'csv', 'header');
     }
 
@@ -41,7 +41,7 @@ example:
       print(table.getString(2, 0)); // 2
       print(table.getString(2, 1)); // Equus zebra
       print(table.getString(2, 2)); // Zebra
-      describe('no image displayed');
+      describe('画像は表示されません');
     }
     </code>
     </div>
@@ -49,12 +49,12 @@ class: p5.Table
 params:
   - name: row
     description: |
-      <p>row ID</p>
+      <p>行ID</p>
     type: Integer
   - name: column
     description: |
-      <p>columnName (string) or
-                                        ID (number)</p>
+      <p>列名（文字列）または
+                                        ID（数値）</p>
     type: String|Integer
 return:
   description: ''
@@ -64,3 +64,4 @@ chainable: false
 
 
 # getString
+

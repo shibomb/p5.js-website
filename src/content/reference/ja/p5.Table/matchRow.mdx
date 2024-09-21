@@ -4,11 +4,9 @@ module: IO
 submodule: Table
 file: src/io/p5.Table.js
 description: |
-  <p>Finds the first row in the Table that matches the regular
-  expression provided, and returns a reference to that row.
-  Even if multiple rows are possible matches, only the first
-  matching row is returned. The column to search may be
-  specified by either its ID or title.</p>
+  <p>提供された正規表現に一致するTableの最初の行を見つけ、その行への参照を返します。
+  複数の行が一致する可能性がある場合でも、最初に一致した行のみが返されます。
+  検索する列は、IDまたはタイトルのいずれかで指定できます。</p>
 line: 417
 isConstructor: false
 itemtype: method
@@ -17,8 +15,8 @@ example:
 
     <div class="norender">
     <code>
-    // Given the CSV file "mammals.csv"
-    // in the project's "assets" folder:
+    // プロジェクトの "assets" フォルダにある
+    // "mammals.csv" ファイルが与えられた場合：
     //
     // id,species,name
     // 0,Capra hircus,Goat
@@ -28,16 +26,16 @@ example:
     let table;
 
     function preload() {
-      //my table is comma separated value "csv"
-      //and has a header specifying the columns labels
+      //私のテーブルはカンマ区切り値 "csv" で
+      //列ラベルを指定するヘッダーがあります
       table = loadTable('/assets/mammals.csv', 'csv', 'header');
     }
 
     function setup() {
-      //Search using specified regex on a given column, return TableRow object
+      //指定された正規表現を使用して特定の列を検索し、TableRowオブジェクトを返します
       let mammal = table.matchRow(new RegExp('ant'), 1);
       print(mammal.getString(1));
-      //Output "Panthera pardus"
+      //出力 "Panthera pardus"
     }
     </code>
     </div>
@@ -45,18 +43,19 @@ class: p5.Table
 params:
   - name: regexp
     description: |
-      <p>The regular expression to match</p>
+      <p>一致させる正規表現</p>
     type: String|RegExp
   - name: column
     description: |
-      <p>The column ID (number) or
-                                       title (string)</p>
+      <p>列ID（数字）または
+                                       タイトル（文字列）</p>
     type: String|Integer
 return:
-  description: TableRow object
+  description: TableRowオブジェクト
   type: p5.TableRow
 chainable: false
 ---
 
 
 # matchRow
+

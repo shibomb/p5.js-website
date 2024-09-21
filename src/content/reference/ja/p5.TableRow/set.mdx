@@ -4,8 +4,8 @@ module: IO
 submodule: Table
 file: src/io/p5.TableRow.js
 description: |
-  <p>Stores a value in the TableRow's specified column.
-  The column may be specified by either its ID or title.</p>
+  <p>TableRowの指定された列に値を格納します。
+  列はIDまたはタイトルで指定することができます。</p>
 line: 36
 isConstructor: false
 itemtype: method
@@ -13,7 +13,7 @@ example:
   - |2-
 
      <div class="norender"><code>
-     // Given the CSV file "mammals.csv" in the project's "assets" folder:
+     // プロジェクトの "assets" フォルダにある "mammals.csv" ファイルが与えられた場合：
      //
      // id,species,name
      // 0,Capra hircus,Goat
@@ -23,8 +23,8 @@ example:
      let table;
 
      function preload() {
-     //my table is comma separated value "csv"
-     //and has a header specifying the columns labels
+     //私のテーブルはカンマ区切り値 "csv" で
+     //列ラベルを指定するヘッダーがあります
      table = loadTable('/assets/mammals.csv', 'csv', 'header');
      }
 
@@ -34,25 +34,26 @@ example:
        rows[r].set('name', 'Unicorn');
      }
 
-     //print the results
+     //結果を表示
      print(table.getArray());
 
-     describe('no image displayed');
+     describe('画像は表示されません');
      }
      </code></div>
 class: p5.TableRow
 params:
   - name: column
     description: |
-      <p>Column ID (Number)
-                                    or Title (String)</p>
+      <p>列ID（数値）
+                                    またはタイトル（文字列）</p>
     type: String|Integer
   - name: value
     description: |
-      <p>The value to be stored</p>
+      <p>格納される値</p>
     type: String|Number
 chainable: false
 ---
 
 
 # set
+

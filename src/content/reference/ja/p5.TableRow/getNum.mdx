@@ -4,9 +4,8 @@ module: IO
 submodule: Table
 file: src/io/p5.TableRow.js
 description: |
-  <p>Retrieves a Float value from the TableRow's specified
-  column. The column may be specified by either its ID or
-  title.</p>
+  <p>TableRowの指定された列からFloat値を取得します。
+  列はIDまたはタイトルで指定することができます。</p>
 line: 231
 isConstructor: false
 itemtype: method
@@ -14,7 +13,7 @@ example:
   - |2-
 
      <div class="norender"><code>
-     // Given the CSV file "mammals.csv" in the project's "assets" folder:
+     // プロジェクトの "assets" フォルダにある "mammals.csv" ファイルが与えられた場合：
      //
      // id,species,name
      // 0,Capra hircus,Goat
@@ -24,8 +23,8 @@ example:
      let table;
 
      function preload() {
-     //my table is comma separated value "csv"
-     //and has a header specifying the columns labels
+     //私のテーブルはカンマ区切り値 "csv" で
+     //列ラベルを指定するヘッダーがあります
      table = loadTable('/assets/mammals.csv', 'csv', 'header');
      }
 
@@ -38,22 +37,23 @@ example:
        minId = min(minId, id);
        maxId = min(maxId, id);
      }
-     print('minimum id = ' + minId + ', maximum id = ' + maxId);
-     describe('no image displayed');
+     print('最小id = ' + minId + '、最大id = ' + maxId);
+     describe('画像は表示されません');
      }
      </code></div>
 class: p5.TableRow
 params:
   - name: column
     description: |
-      <p>columnName (string) or
-                                       ID (number)</p>
+      <p>columnName（文字列）または
+                                       ID（数値）</p>
     type: String|Integer
 return:
-  description: Float Floating point number
+  description: Float 浮動小数点数
   type: Number
 chainable: false
 ---
 
 
 # getNum
+

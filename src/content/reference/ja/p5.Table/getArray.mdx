@@ -4,7 +4,7 @@ module: IO
 submodule: Table
 file: src/io/p5.Table.js
 description: |
-  <p>Retrieves all table data and returns it as a multidimensional array.</p>
+  <p>テーブルのすべてのデータを取得し、多次元配列として返します。</p>
 line: 1285
 isConstructor: false
 itemtype: method
@@ -13,8 +13,8 @@ example:
 
     <div class="norender">
     <code>
-    // Given the CSV file "mammals.csv"
-    // in the project's "assets" folder
+    // プロジェクトの "assets" フォルダにある
+    // "mammals.csv" ファイルが与えられた場合
     //
     // id,species,name
     // 0,Capra hircus,Goat
@@ -24,8 +24,8 @@ example:
     let table;
 
     function preload() {
-      // table is comma separated value "CSV"
-      // and has specifiying header for column labels
+      // テーブルはカンマ区切り値 "CSV" で、
+      // 列ラベルのヘッダーを指定しています
       table = loadTable('/assets/mammals.csv', 'csv', 'header');
     }
 
@@ -34,7 +34,7 @@ example:
       for (let i = 0; i < tableArray.length; i++) {
         print(tableArray[i]);
       }
-      describe('no image displayed');
+      describe('画像は表示されません');
     }
     </code>
     </div>
@@ -47,3 +47,4 @@ chainable: false
 
 
 # getArray
+

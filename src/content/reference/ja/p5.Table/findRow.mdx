@@ -4,11 +4,9 @@ module: IO
 submodule: Table
 file: src/io/p5.Table.js
 description: |
-  <p>Finds the first row in the Table that contains the value
-  provided, and returns a reference to that row. Even if
-  multiple rows are possible matches, only the first matching
-  row is returned. The column to search may be specified by
-  either its ID or title.</p>
+  <p>テーブル内で指定された値を含む最初の行を見つけ、その行への参照を返します。
+  複数の行が一致する可能性がある場合でも、最初に一致した行のみが返されます。
+  検索する列は、IDまたはタイトルで指定できます。</p>
 line: 289
 isConstructor: false
 itemtype: method
@@ -17,8 +15,8 @@ example:
 
      <div class="norender">
      <code>
-     // Given the CSV file "mammals.csv"
-     // in the project's "assets" folder:
+     // プロジェクトの "assets" フォルダにある
+     // "mammals.csv" ファイルが与えられた場合：
      //
      // id,species,name
      // 0,Capra hircus,Goat
@@ -28,17 +26,17 @@ example:
      let table;
 
      function preload() {
-     //my table is comma separated value "csv"
-     //and has a header specifying the columns labels
+     //私のテーブルはカンマ区切り値 "csv" で
+     //列ラベルを指定するヘッダーがあります
      table = loadTable('/assets/mammals.csv', 'csv', 'header');
      }
 
      function setup() {
-     //find the animal named zebra
+     //Zebraという名前の動物を見つける
      let row = table.findRow('Zebra', 'name');
-     //find the corresponding species
+     //対応する種を見つける
      print(row.getString('species'));
-     describe('no image displayed');
+     describe('画像は表示されません');
      }
      </code>
      </div>
@@ -46,12 +44,11 @@ class: p5.Table
 params:
   - name: value
     description: |
-      <p>The value to match</p>
+      <p>一致させる値</p>
     type: String
   - name: column
     description: |
-      <p>ID number or title of the
-                                     column to search</p>
+      <p>検索する列のID番号またはタイトル</p>
     type: Integer|String
 return:
   description: ''
@@ -61,3 +58,4 @@ chainable: false
 
 
 # findRow
+
