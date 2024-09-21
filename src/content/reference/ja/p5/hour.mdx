@@ -4,7 +4,7 @@ module: IO
 submodule: Time & Date
 file: src/utilities/time_date.js
 description: |
-  <p>Returns the current hour as a number from 0–23.</p>
+  <p>現在の時間を0から23の数値で返します。</p>
 line: 44
 isConstructor: false
 itemtype: method
@@ -18,27 +18,28 @@ example:
 
       background(200);
 
-      // Get the current hour.
+      // 現在の時間を取得します。
       let h = hour();
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(LEFT, CENTER);
       textSize(12);
       textFont('Courier New');
 
-      // Display the hour.
-      text(`Current hour: ${h}`, 20, 50, 60);
+      // 時間を表示します。
+      text(`現在の時間: ${h}`, 20, 50, 60);
 
-      describe(`The text 'Current hour: ${h}' written in black on a gray background.`);
+      describe(`灰色の背景に黒字で '現在の時間: ${h}' と書かれたテキスト。`);
     }
     </code>
     </div>
 class: p5
 return:
-  description: current hour between 0 and 23.
+  description: 0から23の間の現在の時間。
   type: Integer
 chainable: false
 ---
 
 
 # hour
+

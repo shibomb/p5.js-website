@@ -4,16 +4,11 @@ module: Foundation
 submodule: Foundation
 file: src/core/reference.js
 description: >
-  <p>A number that can be positive, negative, or zero.</p>
+  <p>正、負、またはゼロの値を取ることができる数値。</p>
 
-  <p>The <code>Number</code> data type is useful for describing values such as
-  position,
-
-  size, and color. A number can be an integer such as 20 or a decimal number
-
-  such as 12.34. For example, a circle's position and size can be described
-
-  by three numbers:</p>
+  <p><code>Number</code>データ型は、位置、サイズ、色などの値を表現するのに便利です。
+  数値は20のような整数や、12.34のような小数点数になります。例えば、円の位置とサイズは
+  3つの数値で表現できます：</p>
 
   <pre><code class="language-js">circle(50, 50, 20);
 
@@ -23,84 +18,62 @@ description: >
 
   </code></pre>
 
-  <p>Numbers support basic arithmetic and follow the standard order of
+  <p>数値は基本的な算術演算をサポートし、標準的な演算順序に従います：
+  括弧、指数、乗算、除算、加算、減算（PEMDAS）。例えば、p5.jsの数値型のシステム変数と
+  算術演算子を組み合わせて使用するのが一般的です：</p>
 
-  operations: Parentheses, Exponents, Multiplication, Division, Addition,
-
-  and Subtraction (PEMDAS). For example, it's common to use arithmetic
-
-  operators with p5.js' system variables that are numbers:</p>
-
-  <pre><code class="language-js">// Draw a circle at the center.
-
+  <pre><code class="language-js">// 中心に円を描く
   circle(width / 2, height / 2, 20);
 
   </code></pre>
 
-  <pre><code class="language-js">// Draw a circle that moves from left to right.
-
+  <pre><code class="language-js">// 左から右に移動する円を描く
   circle(frameCount * 0.01, 50, 20);
 
   </code></pre>
 
-  <p>Here's a quick overview of the arithmetic operators:</p>
+  <p>以下は算術演算子の簡単な概要です：</p>
 
-  <pre><code class="language-js">1 + 2 // Add
-
-  1 - 2 // Subtract
-
-  1 * 2 // Multiply
-
-  1 / 2 // Divide
-
-  1 % 2 // Remainder
-
-  1 ** 2 // Exponentiate
+  <pre><code class="language-js">1 + 2 // 加算
+  1 - 2 // 減算
+  1 * 2 // 乗算
+  1 / 2 // 除算
+  1 % 2 // 剰余
+  1 ** 2 // べき乗
 
   </code></pre>
 
-  <p>It's common to update a number variable using arithmetic. For example, an
-
-  object's location can be updated like so:</p>
+  <p>算術を使用して数値変数を更新するのは一般的です。例えば、オブジェクトの位置は
+  次のように更新できます：</p>
 
   <pre><code class="language-js">x = x + 1;
 
   </code></pre>
 
-  <p>The statement above adds 1 to a variable <code>x</code> using the
-  <code>+</code> operator. The
-
-  addition assignment operator <code>+=</code> expresses the same idea:</p>
+  <p>上記の文は<code>+</code>演算子を使用して変数<code>x</code>に1を加えています。
+  加算代入演算子<code>+=</code>は同じ意味を表現します：</p>
 
   <pre><code class="language-js">x += 1;
 
   </code></pre>
 
-  <p>Here's a quick overview of the assignment operators:</p>
+  <p>以下は代入演算子の簡単な概要です：</p>
 
-  <pre><code class="language-js">x += 2 // Addition assignment
-
-  x -= 2 // Subtraction assignment
-
-  x *= 2 // Multiplication assignment
-
-  x /= 2 // Division assignment
-
-  x %= 2 // Remainder assignment
+  <pre><code class="language-js">x += 2 // 加算代入
+  x -= 2 // 減算代入
+  x *= 2 // 乗算代入
+  x /= 2 // 除算代入
+  x %= 2 // 剰余代入
 
   </code></pre>
 
-  <p>Numbers can be compared using the
-
+  <p>数値は
   <a
   href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#relational_operators"
-  target="_blank">relational operators</a>
-
+  target="_blank">関係演算子</a>
   <code>></code>, <code><< code="">, <code>>=</code>, <code><=< code="">,
-  <code>===</code>, and <code>!==</code>.  For example, a sketch's
-
-  <a href="/reference/p5/frameCount/">frameCount</a> can be used as a
-  timer:</=<></code></<></code></p>
+  <code>===</code>, <code>!==</code>を使用して比較できます。例えば、スケッチの
+  <a href="/reference/p5/frameCount/">frameCount</a>をタイマーとして使用できます：</=<></code></<></code></p>
 
   <pre><code class="language-js">if (frameCount > 1000) {
     text('Game over!', 50, 50);
@@ -108,50 +81,31 @@ description: >
 
   </code></pre>
 
-  <p>An expression such as <code>frameCount > 1000</code> evaluates to a
-  <code>Boolean</code> value
-
-  that's either <code>true</code> or <code>false</code>. The relational
-  operators all produce
-
-  <code>Boolean</code> values:</p>
+  <p><code>frameCount > 1000</code>のような式は<code>true</code>または<code>false</code>の
+  <code>Boolean</code>値に評価されます。関係演算子はすべて<code>Boolean</code>値を生成します：</p>
 
   <pre><code class="language-js">2 > 1 // true
-
   2 < 1 // false
-
   2 >= 2 // true
-
   2 <= 2="" true="" !="=" false="" <="" code=""/></code></pre>
 
-  <p>See <a href="/reference/p5/Boolean/">Boolean</a> for more information about
-  comparisons and conditions.</p>
+  <p>比較と条件についての詳細は<a href="/reference/p5/Boolean/">Boolean</a>を参照してください。</p>
 
-  <p>Note: There are also <code>==</code> and <code>!=</code> operators with one
-  fewer <code>=</code>. Don't use them.</p>
+  <p>注意：<code>==</code>と<code>!=</code>演算子も存在しますが、<code>=</code>が1つ少ないです。これらは使用しないでください。</p>
 
-  <p>Expressions with numbers can also produce special values when something
-
-  goes wrong:</p>
+  <p>数値を含む式は、何か問題が発生した場合に特別な値を生成することもあります：</p>
 
   <pre><code class="language-js">sqrt(-1) // NaN
-
   1 / 0 // Infinity
 
   </code></pre>
 
-  <p>The value <code>NaN</code> stands for
-
+  <p><code>NaN</code>は
   <a
   href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN/"
-  target="_blank">Not-A-Number</a>.
-
-  <code>NaN</code> appears when calculations or conversions don't work.
-  <code>Infinity</code> is a
-
-  value that's larger than any number. It appears during certain
-
-  calculations.</p>
+  target="_blank">Not-A-Number（非数）</a>
+  を表します。<code>NaN</code>は計算や変換が機能しない場合に現れます。
+  <code>Infinity</code>はどの数よりも大きい値です。特定の計算で現れます。</p>
 line: 853
 isConstructor: false
 itemtype: property
@@ -165,13 +119,13 @@ example:
 
       background(200);
 
-      // Draw a circle at the center.
+      // 中心に円を描く
       circle(50, 50, 70);
 
-      // Draw a smaller circle at the center.
+      // 中心により小さい円を描く
       circle(width / 2, height / 2, 30);
 
-      describe('Two concentric, white circles drawn on a gray background.');
+      describe('灰色の背景に描かれた2つの同心円の白い円。');
     }
     </code>
     </div>
@@ -181,7 +135,7 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('A white circle travels from left to right on a gray background.');
+      describe('灰色の背景上を左から右に移動する白い円。');
     }
 
     function draw() {
@@ -196,3 +150,4 @@ class: p5
 
 
 # Number
+

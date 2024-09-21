@@ -4,41 +4,39 @@ module: IO
 submodule: Output
 file: src/core/main.js
 description: >
-  <p>This is the p5 instance constructor.</p>
+  <p>これはp5インスタンスのコンストラクタです。</p>
 
-  <p>A p5 instance holds all the properties and methods related to
+  <p>p5インスタンスは、p5スケッチに関連するすべてのプロパティとメソッドを保持します。
 
-  a p5 sketch.  It expects an incoming sketch closure and it can also
+  入力されるスケッチクロージャを期待し、オプションでノードパラメータを取ることもできます。
 
-  take an optional node parameter for attaching the generated p5 canvas
+  このノードパラメータは、生成されたp5キャンバスを特定のノードに添付するためのものです。
 
-  to a node.  The sketch closure takes the newly created p5 instance as
+  スケッチクロージャは、新しく作成されたp5インスタンスを唯一の引数として受け取り、
 
-  its sole argument and may optionally set <a
-  href="/reference/p5/preload/">preload()</a>,
+  オプションで<a href="/reference/p5/preload/">preload()</a>、
 
-  <a href="/reference/p5/setup/">setup()</a>, and/or
+  <a href="/reference/p5/setup/">setup()</a>、および/または
 
-  <a href="/reference/p5/draw/">draw()</a> properties on it for running a
-  sketch.</p>
+  <a href="/reference/p5/draw/">draw()</a>プロパティをスケッチ実行のために設定することができます。</p>
 
-  <p>A p5 sketch can run in "global" or "instance" mode:
+  <p>p5スケッチは「グローバル」モードまたは「インスタンス」モードで実行できます：
 
-  "global"   - all properties and methods are attached to the window
+  「グローバル」 - すべてのプロパティとメソッドがwindowにアタッチされます
 
-  "instance" - all properties and methods are bound to this p5 object</p>
+  「インスタンス」 - すべてのプロパティとメソッドがこのp5オブジェクトにバインドされます</p>
 line: 12
 isConstructor: true
 params:
   - name: sketch
     description: |
-      <p>a closure that can set optional <a href="#/p5/preload">preload()</a>,
-                                   <a href="#/p5/setup">setup()</a>, and/or <a href="#/p5/draw">draw()</a> properties on the
-                                   given p5 instance</p>
+      <p>オプションの<a href="#/p5/preload">preload()</a>、
+                                   <a href="#/p5/setup">setup()</a>、および/または<a href="#/p5/draw">draw()</a>プロパティを
+                                   与えられたp5インスタンスに設定できるクロージャ</p>
     type: Function(p5)
   - name: node
     description: |
-      <p>element to attach canvas to</p>
+      <p>キャンバスを添付する要素</p>
     type: HTMLElement
     optional: true
 chainable: false
@@ -46,3 +44,4 @@ chainable: false
 
 
 # p5
+

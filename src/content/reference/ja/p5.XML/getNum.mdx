@@ -4,30 +4,21 @@ module: IO
 submodule: Input
 file: src/io/p5.XML.js
 description: >
-  <p>Return an attribute's value as a <code>Number</code>.</p>
+  <p>属性の値を<code>Number</code>として返します。</p>
 
-  <p>The first parameter, <code>name</code>, is a string with the name of the
-  attribute
+  <p>最初のパラメータ<code>name</code>は、チェックする属性の名前を示す文字列です。
+  例えば、<code>myXML.getNum('id')</code>を呼び出すと、要素の<code>id</code>属性を
+  数値として返します。</p>
 
-  being checked. For example, calling <code>myXML.getNum('id')</code> returns
-  the
+  <p>2番目のパラメータ<code>defaultValue</code>はオプションです。数値が渡された場合、
+  例えば<code>myXML.getNum('id', -1)</code>のように、属性が存在しないか
+  数値に変換できない場合にこの値が返されます。</p>
 
-  element's <code>id</code> attribute as a number.</p>
+  <p>注意：属性の値を返すには、
 
-  <p>The second parameter, <code>defaultValue</code>, is optional. If a number
-  is passed,
+  <a href="/reference/p5.XML/getString/">myXML.getString()</a>または
 
-  as in <code>myXML.getNum('id', -1)</code>, it will be returned if the
-  attribute
-
-  doesn't exist or can't be converted to a number.</p>
-
-  <p>Note: Use
-
-  <a href="/reference/p5.XML/getString/">myXML.getString()</a> or
-
-  <a href="/reference/p5.XML/getNum/">myXML.getNum()</a> to return an
-  attribute's value.</p>
+  <a href="/reference/p5.XML/getNum/">myXML.getNum()</a>を使用してください。</p>
 line: 884
 isConstructor: false
 itemtype: method
@@ -38,7 +29,7 @@ example:
     <code>
     let myXML;
 
-    // Load the XML and create a p5.XML object.
+    // XMLをロードしてp5.XMLオブジェクトを作成します。
     function preload() {
       myXML = loadXML('/assets/animals.xml');
     }
@@ -48,24 +39,24 @@ example:
 
       background(200);
 
-      // Get the first reptile child element.
+      // 最初のreptile子要素を取得します。
       let reptile = myXML.getChild('reptile');
 
-      // Get the reptile's content.
+      // reptileのコンテンツを取得します。
       let content = reptile.getContent();
 
-      // Get the reptile's ID.
+      // reptileのIDを取得します。
       let id = reptile.getNum('id');
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(LEFT, CENTER);
       textFont('Courier New');
       textSize(14);
 
-      // Display the ID attribute.
+      // ID属性を表示します。
       text(`${content} is ${id + 1}th`, 5, 50, 90);
 
-      describe(`The text "${content} is ${id + 1}th" written in black on a gray background.`);
+      describe(`灰色の背景に黒で "${content} is ${id + 1}th" と書かれたテキスト。`);
     }
     </code>
     </div>
@@ -74,7 +65,7 @@ example:
     <code>
     let myXML;
 
-    // Load the XML and create a p5.XML object.
+    // XMLをロードしてp5.XMLオブジェクトを作成します。
     function preload() {
       myXML = loadXML('/assets/animals.xml');
     }
@@ -84,25 +75,25 @@ example:
 
       background(200);
 
-      // Get the first reptile child element.
+      // 最初のreptile子要素を取得します。
       let reptile = myXML.getChild('reptile');
 
-      // Get the reptile's content.
+      // reptileのコンテンツを取得します。
       let content = reptile.getContent();
 
-      // Get the reptile's size.
+      // reptileのサイズを取得します。
       let weight = reptile.getNum('weight', 135);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(LEFT, CENTER);
       textFont('Courier New');
       textSize(14);
 
-      // Display the ID attribute.
+      // ID属性を表示します。
       text(`${content} is ${weight}kg`, 5, 50, 90);
 
       describe(
-        `The text "${content} is ${weight}kg" written in black on a gray background.`
+        `灰色の背景に黒で "${content} is ${weight}kg" と書かれたテキスト。`
       );
     }
     </code>
@@ -111,18 +102,19 @@ class: p5.XML
 params:
   - name: name
     description: |
-      <p>name of the attribute to be checked.</p>
+      <p>チェックする属性の名前。</p>
     type: String
   - name: defaultValue
     description: |
-      <p>value to return if the attribute doesn't exist.</p>
+      <p>属性が存在しない場合に返す値。</p>
     type: Number
     optional: true
 return:
-  description: attribute value as a number.
+  description: 数値としての属性値。
   type: Number
 chainable: false
 ---
 
 
 # getNum
+

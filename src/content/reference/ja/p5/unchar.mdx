@@ -4,19 +4,13 @@ module: Data
 submodule: Conversion
 file: src/utilities/conversion.js
 description: >
-  <p>Converts a single-character <code>String</code> to a
-  <code>Number</code>.</p>
+  <p>単一文字の<code>String</code>を<code>Number</code>に変換します。</p>
 
-  <p><code>unchar()</code> converts single-character strings to their
-  corresponding
+  <p><code>unchar()</code>は単一文字の文字列を対応する整数（整数）に変換します。</p>
 
-  integer (whole number).</p>
+  <p>パラメータ<code>n</code>は変換する文字です。例えば、<code>unchar('A')</code>は数字65を返します。
 
-  <p>The parameter, <code>n</code>, is the character to convert. For example,
-
-  <code>unchar('A')</code>, returns the number 65. If an array is passed, as in
-
-  <code>unchar(['A', 'B', 'C'])</code>, an array of integers is returned.</p>
+  配列が渡された場合、例えば<code>unchar(['A', 'B', 'C'])</code>のように、整数の配列が返されます。</p>
 line: 731
 isConstructor: false
 itemtype: method
@@ -30,20 +24,20 @@ example:
 
       background(200);
 
-      // Create a string variable.
+      // 文字列変数を作成します。
       let original = 'A';
 
-      // Convert the string to a number.
+      // 文字列を数値に変換します。
       let converted = unchar(original);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textSize(16);
 
-      // Display the original and converted values.
+      // 元の値と変換後の値を表示します。
       text(`${original} : ${converted}`, 50, 50);
 
-      describe('The text "A : 65" written in black on a gray background.');
+      describe('灰色の背景に黒で書かれた "A : 65" というテキスト。');
     }
     </code>
     </div>
@@ -55,57 +49,58 @@ example:
 
       background(200);
 
-      // Create an array of characters.
+      // 文字の配列を作成します。
       let original = ['A', 'B', 'C'];
 
-      // Convert the string to a number.
+      // 文字列を数値に変換します。
       let converted = unchar(original);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textSize(16);
 
-      // Iterate over elements of the converted array.
+      // 変換された配列の要素を反復処理します。
       for (let i = 0; i < converted.length; i += 1) {
 
-        // Calculate the y-coordinate.
+        // y座標を計算します。
         let y = (i + 1) * 25;
 
-        // Display the original and converted values.
+        // 元の値と変換後の値を表示します。
         text(`${original[i]} : ${converted[i]}`, 50, y);
       }
 
       describe(
-        'The text "A : 65", "B : 66", and "C :67" written on three separate lines. The text is in black on a gray background.'
+        '3行に分けて書かれた "A : 65"、"B : 66"、"C :67" というテキスト。テキストは灰色の背景に黒で書かれています。'
       );
     }
     </code>
     </div>
 class: p5
 return:
-  description: converted number.
+  description: 変換された数値。
   type: Number
 overloads:
   - line: 731
     params:
       - name: 'n'
         description: |
-          <p>value to convert.</p>
+          <p>変換する値。</p>
         type: String
     return:
-      description: converted number.
+      description: 変換された数値。
       type: Number
   - line: 805
     params:
       - name: ns
         description: |
-          <p>values to convert.</p>
+          <p>変換する値。</p>
         type: 'String[]'
     return:
-      description: converted numbers.
+      description: 変換された数値。
       type: 'Number[]'
 chainable: false
 ---
 
 
 # unchar
+

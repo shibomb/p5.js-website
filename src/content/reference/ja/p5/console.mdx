@@ -4,43 +4,40 @@ module: Foundation
 submodule: Foundation
 file: src/core/reference.js
 description: >
-  <p>Prints a message to the web browser's console.</p>
+  <p>ウェブブラウザのコンソールにメッセージを出力します。</p>
 
-  <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/console/"
+  <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/console/"
   target="_blank">console</a>
 
-  object is helpful for printing messages while debugging. For example, it's
+  オブジェクトは、デバッグ中にメッセージを出力するのに役立ちます。例えば、
 
-  common to add a <code>console.log()</code> statement while studying how a
-  section of
+  コードのセクションがどのように動作するかを調べる際に、<code>console.log()</code>文を
 
-  code works:</p>
+  追加するのが一般的です：</p>
 
   <pre><code class="language-js">if (isPlaying === true) {
-    // Add a console.log() statement to make sure this block of code runs.
-    console.log('Got here!');
+    // このコードブロックが実行されることを確認するために、console.log()文を追加します。
+    console.log('ここまで来ました！');
 
-    // Game logic.
+    // ゲームのロジック
   }
 
   </code></pre>
 
-  <p><code>console.error()</code> is helpful for tracking errors because it
-  prints
+  <p><code>console.error()</code>は、フォーマットされたメッセージを出力するため、
 
-  formatted messages. For example, it's common to encounter errors when
+  エラーの追跡に役立ちます。例えば、メディアアセットの読み込み時にエラーに
 
-  loading media assets:</p>
+  遭遇することがよくあります：</p>
 
-  <pre><code class="language-js">// Logs an error message with special
-  formatting.
+  <pre><code class="language-js">// 特別なフォーマットでエラーメッセージを記録します。
 
   function handleFailure(error) {
-    console.error('Oops!', error);
+    console.error('おっと！', error);
   }
 
 
-  // Try to load an image and call handleError() if it fails.
+  // 画像の読み込みを試み、失敗した場合はhandleError()を呼び出します。
 
   loadImage('https://example.com/cat.jpg', handleImage, handleError);
 
@@ -56,7 +53,7 @@ example:
     function setup() {
       noCanvas();
 
-      // Prints "Hello!" to the console.
+      // コンソールに "Hello!" と出力します。
       console.log('Hello!');
     }
     </code>
@@ -69,23 +66,23 @@ example:
 
       background(200);
 
-      // Try to load an image from a fake URL.
-      // Call handleError() if the image fails to load.
+      // 偽のURLから画像を読み込もうとします。
+      // 画像の読み込みに失敗した場合、handleError()を呼び出します。
       loadImage('https://example.com/cat.jpg', handleImage, handleError);
     }
 
-    // Displays the image.
+    // 画像を表示します。
     function handleImage(img) {
       image(img, 0, 0);
 
-      describe('A cat on a gray background.');
+      describe('灰色の背景に猫が表示されています。');
     }
 
-    // Prints the error.
+    // エラーを出力します。
     function handleError(error) {
-      console.error('Oops!', error);
+      console.error('おっと！', error);
 
-      describe('A gray square.');
+      describe('灰色の正方形。');
     }
     </code>
     </div>
@@ -94,3 +91,4 @@ class: p5
 
 
 # console
+

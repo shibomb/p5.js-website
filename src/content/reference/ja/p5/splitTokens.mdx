@@ -4,39 +4,31 @@ module: Data
 submodule: String Functions
 file: src/utilities/string_functions.js
 description: >
-  <p>Splits a <code>String</code> into pieces and returns an array containing
-  the pieces.</p>
+  <p><code>String</code>を分割し、分割された部分を含む配列を返します。</p>
 
-  <p><code>splitTokens()</code> is an enhanced version of
+  <p><code>splitTokens()</code>は
 
-  <a href="/reference/p5/split/">split()</a>. It can split a string when any
-  characters
+  <a href="/reference/p5/split/">split()</a>の拡張版です。リストから任意の文字が
 
-  from a list are detected.</p>
+  検出されたときに文字列を分割できます。</p>
 
-  <p>The first parameter, <code>value</code>, is the string to split.</p>
+  <p>最初のパラメータ<code>value</code>は、分割する文字列です。</p>
 
-  <p>The second parameter, <code>delim</code>, is optional. It sets the
-  character(s) that
+  <p>2番目のパラメータ<code>delim</code>はオプションです。文字列を分割するために
 
-  should be used to split the string. <code>delim</code> can be a single string,
-  as in
+  使用する文字を設定します。<code>delim</code>は単一の文字列（例：
 
-  <code>splitTokens('rock...paper...scissors...shoot', '...')</code>, or an
-  array of
+  <code>splitTokens('rock...paper...scissors...shoot', '...')</code>）または
 
-  strings, as in
+  文字列の配列（例：
 
-  <code>splitTokens('rock;paper,scissors...shoot, [';', ',', '...'])</code>. By
-  default,
+  <code>splitTokens('rock;paper,scissors...shoot, [';', ',', '...'])</code>）にすることができます。
 
-  if no <code>delim</code> characters are specified, then any whitespace
-  character is
+  デフォルトでは、<code>delim</code>文字が指定されていない場合、
 
-  used to split. Whitespace characters include tab (<code>\t</code>), line feed
-  (<code>\n</code>),
+  任意の空白文字が分割に使用されます。空白文字にはタブ（<code>\t</code>）、改行（<code>\n</code>）、
 
-  carriage return (<code>\r</code>), form feed (<code>\f</code>), and space.</p>
+  キャリッジリターン（<code>\r</code>）、フォームフィード（<code>\f</code>）、スペースが含まれます。</p>
 line: 744
 isConstructor: false
 itemtype: method
@@ -50,32 +42,32 @@ example:
 
       background(200);
 
-      // Create a string variable.
+      // 文字列変数を作成します。
       let string = 'rock paper scissors shoot';
 
-      // Split the string at each space.
+      // 各スペースで文字列を分割します。
       let words = splitTokens(string);
 
-      // Print the array to the console.
+      // 配列をコンソールに出力します。
       print(words);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textFont('Courier New');
       textSize(12);
 
-      // Iterate over the words array.
+      // words配列を反復処理します。
       for (let i = 0; i < words.length; i += 1) {
 
-        // Calculate the y-coordinate.
+        // y座標を計算します。
         let y = (i + 1) * 20;
 
-        // Display the word.
+        // 単語を表示します。
         text(words[i], 50, y);
       }
 
       describe(
-        'The words "rock", "paper", "scissors", and "shoot" written on separate lines. The text is black on a gray background.'
+        '「rock」、「paper」、「scissors」、「shoot」という単語が別々の行に書かれています。テキストは灰色の背景に黒で表示されています。'
       );
     }
     </code>
@@ -88,32 +80,32 @@ example:
 
       background(200);
 
-      // Create a string variable.
+      // 文字列変数を作成します。
       let string = 'rock...paper...scissors...shoot';
 
-      // Split the string at each ...
+      // 各 ... で文字列を分割します。
       let words = splitTokens(string, '...');
 
-      // Print the array to the console.
+      // 配列をコンソールに出力します。
       print(words);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textFont('Courier New');
       textSize(12);
 
-      // Iterate over the words array.
+      // words配列を反復処理します。
       for (let i = 0; i < words.length; i += 1) {
 
-        // Calculate the y-coordinate.
+        // y座標を計算します。
         let y = (i + 1) * 20;
 
-        // Display the word.
+        // 単語を表示します。
         text(words[i], 50, y);
       }
 
       describe(
-        'The words "rock", "paper", "scissors", and "shoot" written on separate lines. The text is black on a gray background.'
+        '「rock」、「paper」、「scissors」、「shoot」という単語が別々の行に書かれています。テキストは灰色の背景に黒で表示されています。'
       );
     }
     </code>
@@ -126,32 +118,32 @@ example:
 
       background(200);
 
-      // Create a string variable.
+      // 文字列変数を作成します。
       let string = 'rock;paper,scissors...shoot';
 
-      // Split the string at each semicolon, comma, or ...
+      // セミコロン、カンマ、または ... で文字列を分割します。
       let words = splitTokens(string, [';', ',', '...']);
 
-      // Print the array to the console.
+      // 配列をコンソールに出力します。
       print(words);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textFont('Courier New');
       textSize(12);
 
-      // Iterate over the words array.
+      // words配列を反復処理します。
       for (let i = 0; i < words.length; i += 1) {
 
-        // Calculate the y-coordinate.
+        // y座標を計算します。
         let y = (i + 1) * 20;
 
-        // Display the word.
+        // 単語を表示します。
         text(words[i], 50, y);
       }
 
       describe(
-        'The words "rock", "paper", "scissors", and "shoot" written on separate lines. The text is black on a gray background.'
+        '「rock」、「paper」、「scissors」、「shoot」という単語が別々の行に書かれています。テキストは灰色の背景に黒で表示されています。'
       );
     }
     </code>
@@ -160,18 +152,19 @@ class: p5
 params:
   - name: value
     description: |
-      <p>string to split.</p>
+      <p>分割する文字列。</p>
     type: String
   - name: delim
     description: |
-      <p>character(s) to use for splitting the string.</p>
+      <p>文字列の分割に使用する文字。</p>
     type: String
     optional: true
 return:
-  description: separated strings.
+  description: 分割された文字列。
   type: 'String[]'
 chainable: false
 ---
 
 
 # splitTokens
+

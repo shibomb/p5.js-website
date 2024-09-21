@@ -4,60 +4,56 @@ module: IO
 submodule: Table
 file: src/io/p5.TableRow.js
 description: |
-  <p>A TableRow object represents a single row of data values,
-  stored in columns, from a table.</p>
-  <p>A Table Row contains both an ordered array, and an unordered
-  JSON object.</p>
+  <p>p5.TableRowオブジェクトは、テーブルから列に格納された単一の行のデータ値を表します。</p>
+  <p>テーブル行には、順序付き配列と順序なしJSONオブジェクトの両方が含まれています。</p>
 line: 9
 isConstructor: true
 params:
   - name: str
     description: |
-      <p>optional: populate the row with a
-                                  string of values, separated by the
-                                  separator</p>
+      <p>オプション: 区切り文字で区切られた値の文字列で
+                                  行を埋めます</p>
     type: String
     optional: true
   - name: separator
     description: |
-      <p>comma separated values (csv) by default</p>
+      <p>デフォルトではカンマ区切り値（csv）</p>
     type: String
     optional: true
 methods:
   set:
     description: |
-      <p>Stores a value in the TableRow's specified column.
-      The column may be specified by either its ID or title.</p>
+      <p>TableRowの指定された列に値を格納します。
+      列はIDまたはタイトルで指定できます。</p>
     path: p5.TableRow/set
   setNum:
     description: |
-      <p>Stores a Float value in the TableRow's specified column.
-      The column may be specified by either its ID or title.</p>
+      <p>TableRowの指定された列にFloat値を格納します。
+      列はIDまたはタイトルで指定できます。</p>
     path: p5.TableRow/setNum
   setString:
     description: |
-      <p>Stores a String value in the TableRow's specified column.
-      The column may be specified by either its ID or title.</p>
+      <p>TableRowの指定された列にString値を格納します。
+      列はIDまたはタイトルで指定できます。</p>
     path: p5.TableRow/setString
   get:
     description: |
-      <p>Retrieves a value from the TableRow's specified column.
-      The column may be specified by either its ID or title.</p>
+      <p>TableRowの指定された列から値を取得します。
+      列はIDまたはタイトルで指定できます。</p>
     path: p5.TableRow/get
   getNum:
     description: |
-      <p>Retrieves a Float value from the TableRow's specified
-      column. The column may be specified by either its ID or
-      title.</p>
+      <p>TableRowの指定された列からFloat値を取得します。
+      列はIDまたはタイトルで指定できます。</p>
     path: p5.TableRow/getNum
   getString:
     description: |
-      <p>Retrieves an String value from the TableRow's specified
-      column. The column may be specified by either its ID or
-      title.</p>
+      <p>TableRowの指定された列からString値を取得します。
+      列はIDまたはタイトルで指定できます。</p>
     path: p5.TableRow/getString
 chainable: false
 ---
 
 
 # p5.TableRow
+

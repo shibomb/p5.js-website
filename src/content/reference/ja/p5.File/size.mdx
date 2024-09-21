@@ -4,7 +4,7 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: |
-  <p>The number of bytes in the file.</p>
+  <p>ファイルのバイト数。</p>
 line: 5716
 isConstructor: false
 itemtype: property
@@ -13,27 +13,27 @@ example:
 
     <div>
     <code>
-    // Use the file input to load a file and display its info.
+    // ファイル入力を使用してファイルを読み込み、その情報を表示します。
 
     function setup() {
       createCanvas(100, 100);
 
       background(200);
 
-      // Create a file input and place it beneath the canvas.
-      // Call displaySize() when the file loads.
+      // ファイル入力を作成し、キャンバスの下に配置します。
+      // ファイルが読み込まれたらdisplaySize()を呼び出します。
       let input = createFileInput(displaySize);
       input.position(0, 100);
 
-      describe('A gray square with a file input beneath it. If the user loads a file, its size in bytes is written in black.');
+      describe('グレーの正方形と、その下にファイル入力があります。ユーザーがファイルを読み込むと、そのサイズがバイト単位で黒字で書かれます。');
     }
 
-    // Display the p5.File's size in bytes once it loads.
+    // ファイルが読み込まれたら、p5.Fileのサイズをバイト単位で表示します。
     function displaySize(file) {
       background(200);
 
-      // Display the p5.File's size.
-      text(`This is file has ${file.size} bytes.`, 10, 10, 80, 80);
+      // p5.Fileのサイズを表示します。
+      text(`このファイルは ${file.size} バイトです。`, 10, 10, 80, 80);
     }
     </code>
     </div>
@@ -42,3 +42,4 @@ class: p5.File
 
 
 # size
+

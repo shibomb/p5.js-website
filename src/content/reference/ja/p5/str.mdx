@@ -4,30 +4,21 @@ module: Data
 submodule: Conversion
 file: src/utilities/conversion.js
 description: >
-  <p>Converts a <code>Boolean</code> or <code>Number</code> to
-  <code>String</code>.</p>
+  <p><code>Boolean</code>または<code>Number</code>を<code>String</code>に変換します。</p>
 
-  <p><code>str()</code> converts values to strings. See the
+  <p><code>str()</code>は値を文字列に変換します。テンプレートリテラルの使用に関するガイダンスについては、
 
-  <a href="/reference/p5/String/">String</a> reference page for guidance on
-  using
+  <a href="/reference/p5/String/">String</a>のリファレンスページを参照してください。</p>
 
-  template literals instead.</p>
+  <p>パラメータ<code>n</code>は変換する値です。<code>n</code>がBooleanの場合、例えば
 
-  <p>The parameter, <code>n</code>, is the value to convert. If <code>n</code>
-  is a Boolean, as in
+  <code>str(false)</code>または<code>str(true)</code>のように、値は文字列として返されます。
 
-  <code>str(false)</code> or <code>str(true)</code>, then the value will be
-  returned as a string,
+  つまり<code>'false'</code>または<code>'true'</code>となります。<code>n</code>が数値の場合、例えば<code>str(123)</code>のように、その
 
-  as in <code>'false'</code> or <code>'true'</code>. If <code>n</code> is a
-  number, as in <code>str(123)</code>, then its
+  値は文字列として返されます。つまり<code>'123'</code>となります。配列が渡された場合、
 
-  value will be returned as a string, as in <code>'123'</code>. If an array is
-  passed,
-
-  as in <code>str([12.34, 56.78])</code>, then an array of strings will be
-  returned.</p>
+  例えば<code>str([12.34, 56.78])</code>のように、文字列の配列が返されます。</p>
 line: 232
 isConstructor: false
 itemtype: method
@@ -41,20 +32,20 @@ example:
 
       background(200);
 
-      // Create a Boolean variable.
+      // Boolean変数を作成します。
       let original = false;
 
-      // Convert the Boolean to a string.
+      // BooleanをStringに変換します。
       let converted = str(original);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textSize(16);
 
-      // Display the original and converted values.
+      // 元の値と変換後の値を表示します。
       text(`${original} : ${converted}`, 50, 50);
 
-      describe('The text "false : false" written in black on a gray background.');
+      describe('グレーの背景に黒で "false : false" というテキストが書かれています。');
     }
     </code>
     </div>
@@ -66,20 +57,20 @@ example:
 
       background(200);
 
-      // Create a number variable.
+      // 数値変数を作成します。
       let original = 123;
 
-      // Convert the number to a string.
+      // 数値をStringに変換します。
       let converted = str(original);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textSize(16);
 
-      // Display the original and converted values.
+      // 元の値と変換後の値を表示します。
       text(`${original} = ${converted}`, 50, 50);
 
-      describe('The text "123 = 123" written in black on a gray background.');
+      describe('グレーの背景に黒で "123 = 123" というテキストが書かれています。');
     }
     </code>
     </div>
@@ -91,28 +82,28 @@ example:
 
       background(200);
 
-      // Create an array of numbers.
+      // 数値の配列を作成します。
       let original = [12, 34, 56];
 
-      // Convert the numbers to strings.
+      // 数値を文字列に変換します。
       let strings = str(original);
 
-      // Create an empty string variable.
+      // 空の文字列変数を作成します。
       let final = '';
 
-      // Concatenate all the strings.
+      // すべての文字列を連結します。
       for (let s of strings) {
         final += s;
       }
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textSize(16);
 
-      // Display the concatenated string.
+      // 連結された文字列を表示します。
       text(final, 50, 50);
 
-      describe('The text "123456" written in black on a gray background.');
+      describe('グレーの背景に黒で "123456" というテキストが書かれています。');
     }
     </code>
     </div>
@@ -120,13 +111,14 @@ class: p5
 params:
   - name: 'n'
     description: |
-      <p>value to convert.</p>
+      <p>変換する値。</p>
     type: String|Boolean|Number
 return:
-  description: converted string.
+  description: 変換された文字列。
   type: String
 chainable: false
 ---
 
 
 # str
+

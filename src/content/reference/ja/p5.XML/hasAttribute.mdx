@@ -4,20 +4,16 @@ module: IO
 submodule: Input
 file: src/io/p5.XML.js
 description: >
-  <p>Returns <code>true</code> if the element has a given attribute and
-  <code>false</code> if not.</p>
+  <p>要素が指定された属性を持っている場合は <code>true</code> を、持っていない場合は
+  <code>false</code> を返します。</p>
 
-  <p>The parameter, <code>name</code>, is a string with the name of the
-  attribute being
+  <p>パラメータ <code>name</code> は、チェックする属性の名前を表す文字列です。</p>
 
-  checked.</p>
+  <p>注意：属性の値を取得するには
 
-  <p>Note: Use
+  <a href="/reference/p5.XML/getString/">myXML.getString()</a> または
 
-  <a href="/reference/p5.XML/getString/">myXML.getString()</a> or
-
-  <a href="/reference/p5.XML/getNum/">myXML.getNum()</a> to return an
-  attribute's value.</p>
+  <a href="/reference/p5.XML/getNum/">myXML.getNum()</a> を使用してください。</p>
 line: 821
 isConstructor: false
 itemtype: method
@@ -28,7 +24,7 @@ example:
     <code>
     let myXML;
 
-    // Load the XML and create a p5.XML object.
+    // XMLを読み込み、p5.XMLオブジェクトを作成します。
     function preload() {
       myXML = loadXML('/assets/animals.xml');
     }
@@ -38,26 +34,25 @@ example:
 
       background(200);
 
-      // Get the first mammal child element.
+      // 最初のmammal子要素を取得します。
       let mammal = myXML.getChild('mammal');
 
-      // Check whether the element has an
-      // species attribute.
+      // 要素がspecies属性を持っているかチェックします。
       let hasSpecies = mammal.hasAttribute('species');
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textFont('Courier New');
       textSize(14);
 
-      // Display whether the element has a species attribute.
+      // 要素がspecies属性を持っているかどうかを表示します。
       if (hasSpecies === true) {
         text('Species', 50, 50);
       } else {
         text('No species', 50, 50);
       }
 
-      describe('The text "Species" written in black on a gray background.');
+      describe('灰色の背景に黒で "Species" と書かれたテキスト。');
     }
     </code>
     </div>
@@ -65,13 +60,14 @@ class: p5.XML
 params:
   - name: name
     description: |
-      <p>name of the attribute to be checked.</p>
+      <p>チェックする属性の名前。</p>
     type: String
 return:
-  description: whether the element has the attribute.
+  description: 要素が属性を持っているかどうか。
   type: Boolean
 chainable: false
 ---
 
 
 # hasAttribute
+

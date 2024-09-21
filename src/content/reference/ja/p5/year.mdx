@@ -4,7 +4,7 @@ module: IO
 submodule: Time & Date
 file: src/utilities/time_date.js
 description: |
-  <p>Returns the current year as a number such as 1999.</p>
+  <p>現在の年を1999のような数字で返します。</p>
 line: 311
 isConstructor: false
 itemtype: method
@@ -18,27 +18,28 @@ example:
 
       background(200);
 
-      // Get the current year.
+      // 現在の年を取得します。
       let y = year();
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(LEFT, CENTER);
       textSize(12);
       textFont('Courier New');
 
-      // Display the year.
+      // 年を表示します。
       text(`Current year: ${y}`, 10, 50, 80);
 
-      describe(`The text 'Current year: ${y}' written in black on a gray background.`);
+      describe(`灰色の背景に黒字で'Current year: ${y}'というテキストが書かれています。`);
     }
     </code>
     </div>
 class: p5
 return:
-  description: current year.
+  description: 現在の年。
   type: Integer
 chainable: false
 ---
 
 
 # year
+

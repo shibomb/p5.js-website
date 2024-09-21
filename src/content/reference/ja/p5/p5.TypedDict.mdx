@@ -4,60 +4,58 @@ module: Data
 submodule: Dictionary
 file: src/data/p5.TypedDict.js
 description: |
-  <p>Base class for all p5.Dictionary types. Specifically
-   typed Dictionary classes inherit from this class.</p>
+  <p>すべてのp5.Dictionary型の基本クラスです。特定の
+   型付けされたDictionaryクラスはこのクラスを継承します。</p>
 line: 82
 isConstructor: true
 methods:
   size:
     description: >
-      <p>Returns the number of key-value pairs currently stored in the
-      Dictionary.</p>
+      <p>現在Dictionaryに格納されているキーと値のペアの数を返します。</p>
     path: p5.TypedDict/size
   hasKey:
     description: |
-      <p>Returns true if the given key exists in the Dictionary,
-      otherwise returns false.</p>
+      <p>指定されたキーがDictionaryに存在する場合はtrueを返し、
+      そうでない場合はfalseを返します。</p>
     path: p5.TypedDict/hasKey
   get:
     description: |
-      <p>Returns the value stored at the given key.</p>
+      <p>指定されたキーに格納されている値を返します。</p>
     path: p5.TypedDict/get
   set:
     description: >
-      <p>Updates the value associated with the given key in case it already
-      exists
-
-      in the Dictionary. Otherwise a new key-value pair is added.</p>
+      <p>指定されたキーに関連付けられた値を更新します（既にDictionaryに
+      存在する場合）。そうでない場合は、新しいキーと値のペアが追加されます。</p>
     path: p5.TypedDict/set
   create:
     description: |
-      <p>Creates a new key-value pair in the Dictionary.</p>
+      <p>Dictionaryに新しいキーと値のペアを作成します。</p>
     path: p5.TypedDict/create
   clear:
     description: |
-      <p>Removes all previously stored key-value pairs from the Dictionary.</p>
+      <p>以前に格納されたすべてのキーと値のペアをDictionaryから削除します。</p>
     path: p5.TypedDict/clear
   remove:
     description: >
-      <p>Removes the key-value pair stored at the given key from the
-      Dictionary.</p>
+      <p>指定されたキーに格納されているキーと値のペアをDictionaryから
+      削除します。</p>
     path: p5.TypedDict/remove
   print:
     description: >
-      <p>Logs the set of items currently stored in the Dictionary to the
-      console.</p>
+      <p>現在Dictionaryに格納されているアイテムのセットをコンソールに
+      ログ出力します。</p>
     path: p5.TypedDict/print
   saveTable:
     description: |
-      <p>Converts the Dictionary into a CSV file for local download.</p>
+      <p>DictionaryをCSVファイルに変換してローカルにダウンロードします。</p>
     path: p5.TypedDict/saveTable
   saveJSON:
     description: |
-      <p>Converts the Dictionary into a JSON file for local download.</p>
+      <p>DictionaryをJSONファイルに変換してローカルにダウンロードします。</p>
     path: p5.TypedDict/saveJSON
 chainable: false
 ---
 
 
 # p5.TypedDict
+

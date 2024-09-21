@@ -4,53 +4,45 @@ module: IO
 submodule: Input
 file: src/io/files.js
 description: >
-  <p>Loads a text file to create an <code>Array</code>.</p>
+  <p>テキストファイルを読み込んで<code>Array</code>を作成します。</p>
 
-  <p>The first parameter, <code>path</code>, is always a string with the path to
-  the file.
+  <p>最初のパラメータ<code>path</code>は、常にファイルへのパスを示す文字列です。
 
-  Paths to local files should be relative, as in
+  ローカルファイルへのパスは相対パスにする必要があります。例えば、
 
-  <code>loadStrings('/assets/data.txt')</code>. URLs such as
+  <code>loadStrings('/assets/data.txt')</code>のようにします。
 
-  <code>'https://example.com/data.txt'</code> may be blocked due to browser
-  security.</p>
+  <code>'https://example.com/data.txt'</code>のようなURLは、ブラウザのセキュリティにより
 
-  <p>The second parameter, <code>successCallback</code>, is optional. If a
-  function is
+  ブロックされる可能性があります。</p>
 
-  passed, as in <code>loadStrings('/assets/data.txt', handleData)</code>, then
-  the
+  <p>2番目のパラメータ<code>successCallback</code>はオプションです。関数が
 
-  <code>handleData()</code> function will be called once the data loads. The
-  array
+  渡された場合、例えば<code>loadStrings('/assets/data.txt', handleData)</code>のように、
 
-  created from the text data will be passed to <code>handleData()</code> as its
-  only
+  データが読み込まれると<code>handleData()</code>関数が呼び出されます。
 
-  argument.</p>
+  テキストデータから作成された配列が<code>handleData()</code>の唯一の
 
-  <p>The third parameter, <code>failureCallback</code>, is also optional. If a
-  function is
+  引数として渡されます。</p>
 
-  passed, as in <code>loadStrings('/assets/data.txt', handleData,
-  handleFailure)</code>,
+  <p>3番目のパラメータ<code>failureCallback</code>もオプションです。関数が
 
-  then the <code>handleFailure()</code> function will be called if an error
-  occurs while
+  渡された場合、例えば<code>loadStrings('/assets/data.txt', handleData, handleFailure)</code>のように、
 
-  loading. The <code>Error</code> object will be passed to
-  <code>handleFailure()</code> as its only
+  読み込み中にエラーが発生すると<code>handleFailure()</code>関数が呼び出されます。
 
-  argument.</p>
+  <code>Error</code>オブジェクトが<code>handleFailure()</code>の唯一の
 
-  <p>Note: Data can take time to load. Calling <code>loadStrings()</code> within
+  引数として渡されます。</p>
 
-  <a href="/reference/p5/preload/">preload()</a> ensures data loads before it's
-  used in
+  <p>注意：データの読み込みには時間がかかる場合があります。<code>loadStrings()</code>を
 
-  <a href="/reference/p5/setup/">setup()</a> or <a
-  href="/reference/p5/draw/">draw()</a>.</p>
+  <a href="/reference/p5/preload/">preload()</a>内で呼び出すことで、
+
+  <a href="/reference/p5/setup/">setup()</a>や<a href="/reference/p5/draw/">draw()</a>で使用される前に
+
+  データが確実に読み込まれます。</p>
 line: 309
 isConstructor: false
 itemtype: method
@@ -62,7 +54,7 @@ example:
     <code>
     let myData;
 
-    // Load the text and create an array.
+    // テキストを読み込み、配列を作成します。
     function preload() {
       myData = loadStrings('/assets/test.txt');
     }
@@ -72,18 +64,18 @@ example:
 
       background(200);
 
-      // Select a random line from the text.
+      // テキストからランダムな行を選択します。
       let phrase = random(myData);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(LEFT, CENTER);
       textFont('Courier New');
       textSize(12);
 
-      // Display the text.
+      // テキストを表示します。
       text(phrase, 10, 50, 90);
 
-      describe(`The text "${phrase}" written in black on a gray background.`);
+      describe(`灰色の背景に黒で "${phrase}" というテキストが書かれています。`);
     }
     </code>
     </div>
@@ -92,7 +84,7 @@ example:
     <code>
     let lastLine;
 
-    // Load the text and preprocess it.
+    // テキストを読み込み、前処理を行います。
     function preload() {
       loadStrings('/assets/test.txt', handleData);
     }
@@ -102,18 +94,18 @@ example:
 
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(LEFT, CENTER);
       textFont('Courier New');
       textSize(12);
 
-      // Display the text.
+      // テキストを表示します。
       text(lastLine, 10, 50, 90);
 
-      describe('The text "I talk like an orange" written in black on a gray background.');
+      describe('灰色の背景に黒で "I talk like an orange" というテキストが書かれています。');
     }
 
-    // Select the last line from the text.
+    // テキストから最後の行を選択します。
     function handleData(data) {
       lastLine = data[data.length - 1];
     }
@@ -124,7 +116,7 @@ example:
     <code>
     let lastLine;
 
-    // Load the text and preprocess it.
+    // テキストを読み込み、前処理を行います。
     function preload() {
       loadStrings('/assets/test.txt', handleData, handleError);
     }
@@ -134,25 +126,25 @@ example:
 
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(LEFT, CENTER);
       textFont('Courier New');
       textSize(12);
 
-      // Display the text.
+      // テキストを表示します。
       text(lastLine, 10, 50, 90);
 
-      describe('The text "I talk like an orange" written in black on a gray background.');
+      describe('灰色の背景に黒で "I talk like an orange" というテキストが書かれています。');
     }
 
-    // Select the last line from the text.
+    // テキストから最後の行を選択します。
     function handleData(data) {
       lastLine = data[data.length - 1];
     }
 
-    // Log any errors to the console.
+    // エラーをコンソールに記録します。
     function handleError(error) {
-      console.error('Oops!', error);
+      console.error('おっと！', error);
     }
     </code>
     </div>
@@ -160,26 +152,27 @@ class: p5
 params:
   - name: path
     description: |
-      <p>path of the text file to be loaded.</p>
+      <p>読み込むテキストファイルのパス。</p>
     type: String
   - name: successCallback
     description: |
-      <p>function to call once the data is
-                                           loaded. Will be passed the array.</p>
+      <p>データが読み込まれた後に呼び出される関数。
+                                           配列が渡されます。</p>
     type: Function
     optional: true
   - name: errorCallback
     description: |
-      <p>function to call if the data fails to
-                                         load. Will be passed an <code>Error</code> event
-                                         object.</p>
+      <p>データの読み込みに失敗した場合に呼び出される関数。
+                                         <code>Error</code>イベントオブジェクトが
+                                         渡されます。</p>
     type: Function
     optional: true
 return:
-  description: new array containing the loaded text.
+  description: 読み込まれたテキストを含む新しい配列。
   type: 'String[]'
 chainable: false
 ---
 
 
 # loadStrings
+

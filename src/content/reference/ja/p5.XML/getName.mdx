@@ -4,12 +4,12 @@ module: IO
 submodule: Input
 file: src/io/p5.XML.js
 description: >
-  <p>Returns the element's name as a <code>String</code>.</p>
+  <p>要素の名前を<code>String</code>として返します。</p>
 
-  <p>An XML element's name is given by its tag. For example, the element
+  <p>XML要素の名前はそのタグによって与えられます。例えば、
 
-  <code><language>JavaScript</language></code> has the name
-  <code>language</code>.</p>
+  <code><language>JavaScript</language></code>という要素の名前は
+  <code>language</code>です。</p>
 line: 128
 isConstructor: false
 itemtype: method
@@ -20,7 +20,7 @@ example:
     <code>
     let myXML;
 
-    // Load the XML and create a p5.XML object.
+    // XMLを読み込み、p5.XMLオブジェクトを作成します。
     function preload() {
       myXML = loadXML('/assets/animals.xml');
     }
@@ -30,33 +30,34 @@ example:
 
       background(200);
 
-      // Get an array with all mammal elements.
+      // 全てのmammal要素を含む配列を取得します。
       let mammals = myXML.getChildren('mammal');
 
-      // Get the first mammal element.
+      // 最初のmammal要素を取得します。
       let firstMammal = mammals[0];
 
-      // Get the mammal element's name.
+      // mammal要素の名前を取得します。
       let name = firstMammal.getName();
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textFont('Courier New');
       textSize(14);
 
-      // Display the element's name.
+      // 要素の名前を表示します。
       text(name, 50, 50);
 
-      describe('The word "mammal" written in black on a gray background.');
+      describe('灰色の背景に黒で書かれた "mammal" という単語。');
     }
     </code>
     </div>
 class: p5.XML
 return:
-  description: name of the element.
+  description: 要素の名前。
   type: String
 chainable: false
 ---
 
 
 # getName
+

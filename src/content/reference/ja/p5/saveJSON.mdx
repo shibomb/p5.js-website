@@ -4,48 +4,42 @@ module: IO
 submodule: Output
 file: src/io/files.js
 description: >
-  <p>Saves an <code>Object</code> or <code>Array</code> to a JSON file.</p>
+  <p><code>Object</code>または<code>Array</code>をJSONファイルに保存します。</p>
 
   <p>JavaScript Object Notation
 
-  (<a href="https://developer.mozilla.org/en-US/docs/Glossary/JSON/"
-  target="_blank">JSON</a>)
+  （<a href="https://developer.mozilla.org/en-US/docs/Glossary/JSON/"
+  target="_blank">JSON</a>）
 
-  is a standard format for sending data between applications. The format is
+  はアプリケーション間でデータを送信するための標準フォーマットです。
 
-  based on JavaScript objects which have keys and values. JSON files store
+  このフォーマットはキーと値を持つJavaScriptオブジェクトに基づいています。JSONファイルは
 
-  data in an object with strings as keys. Values can be strings, numbers,
+  文字列をキーとするオブジェクトにデータを格納します。値は文字列、数値、
 
-  Booleans, arrays, <code>null</code>, or other objects.</p>
+  ブール値、配列、<code>null</code>、または他のオブジェクトにすることができます。</p>
 
-  <p>The first parameter, <code>json</code>, is the data to save. The data can
-  be an array,
+  <p>最初のパラメータ<code>json</code>は保存するデータです。データは配列
 
-  as in <code>[1, 2, 3]</code>, or an object, as in
+  （<code>[1, 2, 3]</code>など）またはオブジェクト
 
-  <code>{ x: 50, y: 50, color: 'deeppink' }</code>.</p>
+  （<code>{ x: 50, y: 50, color: 'deeppink' }</code>など）にすることができます。</p>
 
-  <p>The second parameter, <code>filename</code>, is a string that sets the
-  file's name.
+  <p>2番目のパラメータ<code>filename</code>は、ファイルの名前を設定する文字列です。
 
-  For example, calling <code>saveJSON([1, 2, 3], 'data.json')</code> saves the
-  array
+  例えば、<code>saveJSON([1, 2, 3], 'data.json')</code>を呼び出すと、配列
 
-  <code>[1, 2, 3]</code> to a file called <code>data.json</code> on the user's
-  computer.</p>
+  <code>[1, 2, 3]</code>をユーザーのコンピューター上の<code>data.json</code>という名前のファイルに保存します。</p>
 
-  <p>The third parameter, <code>optimize</code>, is optional. If
-  <code>true</code> is passed, as in
+  <p>3番目のパラメータ<code>optimize</code>はオプションです。<code>true</code>を渡すと、
 
-  <code>saveJSON([1, 2, 3], 'data.json', true)</code>, then all unneeded
-  whitespace will
+  <code>saveJSON([1, 2, 3], 'data.json', true)</code>のように、
 
-  be removed to reduce the file size.</p>
+  不要な空白がすべて削除され、ファイルサイズが縮小されます。</p>
 
-  <p>Note: The browser will either save the file immediately or prompt the user
+  <p>注意：ブラウザはファイルを即座に保存するか、
 
-  with a dialogue window.</p>
+  ダイアログウィンドウでユーザーにプロンプトを表示します。</p>
 line: 1979
 isConstructor: false
 itemtype: method
@@ -59,24 +53,24 @@ example:
 
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(LEFT, CENTER);
       textFont('Courier New');
       textSize(12);
 
-      // Display instructions.
+      // 指示を表示します。
       text('Double-click to save', 5, 50, 90);
 
-      describe('The text "Double-click to save" written in black on a gray background.');
+      describe('灰色の背景に黒で "Double-click to save" というテキストが書かれています。');
     }
 
-    // Save the file when the user double-clicks.
+    // ユーザーがダブルクリックしたときにファイルを保存します。
     function doubleClicked() {
       if (mouseX > 0 && mouseX < 100 && mouseY > 0 && mouseY < 100) {
-        // Create an array.
+        // 配列を作成します。
         let data = [1, 2, 3];
 
-        // Save the JSON file.
+        // JSONファイルを保存します。
         saveJSON(data, 'numbers.json');
       }
     }
@@ -90,24 +84,24 @@ example:
 
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(LEFT, CENTER);
       textFont('Courier New');
       textSize(12);
 
-      // Display instructions.
+      // 指示を表示します。
       text('Double-click to save', 5, 50, 90);
 
-      describe('The text "Double-click to save" written in black on a gray background.');
+      describe('灰色の背景に黒で "Double-click to save" というテキストが書かれています。');
     }
 
-    // Save the file when the user double-clicks.
+    // ユーザーがダブルクリックしたときにファイルを保存します。
     function doubleClicked() {
       if (mouseX > 0 && mouseX < 100 && mouseY > 0 && mouseY < 100) {
-        // Create an object.
+        // オブジェクトを作成します。
         let data = { x: mouseX, y: mouseY };
 
-        // Save the JSON file.
+        // JSONファイルを保存します。
         saveJSON(data, 'state.json');
       }
     }
@@ -121,24 +115,24 @@ example:
 
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(LEFT, CENTER);
       textFont('Courier New');
       textSize(12);
 
-      // Display instructions.
+      // 指示を表示します。
       text('Double-click to save', 5, 50, 90);
 
-      describe('The text "Double-click to save" written in black on a gray background.');
+      describe('灰色の背景に黒で "Double-click to save" というテキストが書かれています。');
     }
 
-    // Save the file when the user double-clicks.
+    // ユーザーがダブルクリックしたときにファイルを保存します。
     function doubleClicked() {
       if (mouseX > 0 && mouseX < 100 && mouseY > 0 && mouseY < 100) {
-        // Create an object.
+        // オブジェクトを作成します。
         let data = { x: mouseX, y: mouseY };
 
-        // Save the JSON file and reduce its size.
+        // JSONファイルを保存し、そのサイズを縮小します。
         saveJSON(data, 'state.json', true);
       }
     }
@@ -148,16 +142,16 @@ class: p5
 params:
   - name: json
     description: |
-      <p>data to save.</p>
+      <p>保存するデータ。</p>
     type: Array|Object
   - name: filename
     description: |
-      <p>name of the file to be saved.</p>
+      <p>保存するファイルの名前。</p>
     type: String
   - name: optimize
     description: |
-      <p>whether to trim unneeded whitespace. Defaults
-                                   to <code>true</code>.</p>
+      <p>不要な空白を削除するかどうか。デフォルトは
+                                   <code>true</code>です。</p>
     type: Boolean
     optional: true
 chainable: false
@@ -165,3 +159,4 @@ chainable: false
 
 
 # saveJSON
+

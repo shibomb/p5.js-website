@@ -4,20 +4,19 @@ module: Events
 submodule: Acceleration
 file: src/events/acceleration.js
 description: >
-  <p>The system variable pRotationX always contains the rotation of the
+  <p>システム変数pRotationXは、常に現在のフレームの前のフレームにおける
 
-  device along the x axis in the frame previous to the current frame.
+  デバイスのx軸に沿った回転を含んでいます。
 
-  If the sketch <a href="/reference/p5/angleMode/"> angleMode()</a> is set to
-  DEGREES,
+  スケッチの<a href="/reference/p5/angleMode/">angleMode()</a>がDEGREESに設定されている場合、
 
-  the value will be -180 to 180. If it is set to RADIANS, the value will
+  値は-180から180になります。RADIANSに設定されている場合、値は
 
-  be -PI to PI.</p>
+  -PIからPIになります。</p>
 
-  <p>pRotationX can also be used with rotationX to determine the rotate
+  <p>pRotationXは、rotationXと共に使用して、デバイスのX軸に沿った
 
-  direction of the device along the X-axis.</p>
+  回転方向を判断することもできます。</p>
 line: 234
 isConstructor: false
 itemtype: property
@@ -26,18 +25,17 @@ example:
 
     <div class='norender'>
     <code>
-    // A simple if statement looking at whether
-    // rotationX - pRotationX < 0 is true or not will be
-    // sufficient for determining the rotate direction
-    // in most cases.
+    // rotationX - pRotationX < 0が真かどうかを
+    // 単純にif文で確認するだけで、ほとんどの場合
+    // 回転方向を判断するのに十分です。
 
-    // Some extra logic is needed to account for cases where
-    // the angles wrap around.
+    // 角度が一周する場合に対応するために
+    // 追加のロジックが必要です。
     let rotateDirection = 'clockwise';
 
-    // Simple range conversion to make things simpler.
-    // This is not absolutely necessary but the logic
-    // will be different in that case.
+    // 物事を単純化するための簡単な範囲変換。
+    // これは絶対に必要ではありませんが、
+    // そうでない場合はロジックが異なります。
 
     let rX = rotationX + 180;
     let pRX = pRotationX + 180;
@@ -49,7 +47,7 @@ example:
     }
 
     print(rotateDirection);
-    describe('no image to display.');
+    describe('表示する画像はありません。');
     </code>
     </div>
 class: p5
@@ -58,3 +56,4 @@ type: Number
 
 
 # pRotationX
+

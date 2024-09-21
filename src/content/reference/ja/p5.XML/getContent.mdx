@@ -4,15 +4,13 @@ module: IO
 submodule: Input
 file: src/io/p5.XML.js
 description: >
-  <p>Returns the element's content as a <code>String</code>.</p>
+  <p>要素の内容を<code>String</code>として返します。</p>
 
-  <p>The parameter, <code>defaultValue</code>, is optional. If a string is
-  passed, as in
+  <p>パラメータ<code>defaultValue</code>はオプションです。文字列が渡された場合、
 
-  <code>myXML.getContent('???')</code>, it will be returned if the element has
-  no
+  例えば<code>myXML.getContent('???')</code>のように、要素に内容がない場合に
 
-  content.</p>
+  それが返されます。</p>
 line: 1153
 isConstructor: false
 itemtype: method
@@ -23,7 +21,7 @@ example:
     <code>
     let myXML;
 
-    // Load the XML and create a p5.XML object.
+    // XMLを読み込み、p5.XMLオブジェクトを作成します。
     function preload() {
       myXML = loadXML('/assets/animals.xml');
     }
@@ -33,21 +31,21 @@ example:
 
       background(200);
 
-      // Get the first reptile child element.
+      // 最初のreptile子要素を取得します。
       let reptile = myXML.getChild('reptile');
 
-      // Get the reptile's content.
+      // reptileの内容を取得します。
       let content = reptile.getContent();
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textFont('Courier New');
       textSize(14);
 
-      // Display the element's content.
+      // 要素の内容を表示します。
       text(content, 5, 50, 90);
 
-      describe(`The text "${content}" written in green on a gray background.`);
+      describe(`灰色の背景に緑色で"${content}"というテキストが書かれています。`);
     }
     </code>
     </div>
@@ -59,21 +57,21 @@ example:
 
       background(200);
 
-      // Create a p5.XML object.
+      // p5.XMLオブジェクトを作成します。
       let blankSpace = new p5.XML();
 
-      // Get the element's content and use a default value.
+      // 要素の内容を取得し、デフォルト値を使用します。
       let content = blankSpace.getContent('Your name');
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textFont('Courier New');
       textSize(14);
 
-      // Display the element's content.
+      // 要素の内容を表示します。
       text(content, 5, 50, 90);
 
-      describe(`The text "${content}" written in green on a gray background.`);
+      describe(`灰色の背景に緑色で"${content}"というテキストが書かれています。`);
     }
     </code>
     </div>
@@ -81,15 +79,15 @@ class: p5.XML
 params:
   - name: defaultValue
     description: |
-      <p>value to return if the element has no
-                                     content.</p>
+      <p>要素に内容がない場合に返す値。</p>
     type: String
     optional: true
 return:
-  description: element's content as a string.
+  description: 要素の内容を文字列として返します。
   type: String
 chainable: false
 ---
 
 
 # getContent
+

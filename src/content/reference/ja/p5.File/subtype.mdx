@@ -4,15 +4,15 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>The file subtype as a string.</p>
+  <p>ファイルのサブタイプを文字列として表します。</p>
 
-  <p>For example, a file with an <code>'image'</code>
+  <p>例えば、<code>'image'</code>の
 
   <a
   href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/"
-  target="_blank">MIME type</a>
+  target="_blank">MIMEタイプ</a>
 
-  may have a subtype such as <code>png</code> or <code>jpeg</code>.</p>
+  を持つファイルは、<code>png</code>や<code>jpeg</code>などのサブタイプを持つ場合があります。</p>
 line: 5642
 isConstructor: false
 itemtype: property
@@ -21,28 +21,28 @@ example:
 
     <div>
     <code>
-    // Use the file input to load a
-    // file and display its info.
+    // ファイル入力を使用して
+    // ファイルを読み込み、その情報を表示します。
 
     function setup() {
       createCanvas(100, 100);
 
       background(200);
 
-      // Create a file input and place it beneath the canvas.
-      // Call displaySubtype() when the file loads.
+      // ファイル入力を作成し、キャンバスの下に配置します。
+      // ファイルが読み込まれたらdisplaySubtype()を呼び出します。
       let input = createFileInput(displaySubtype);
       input.position(0, 100);
 
-      describe('A gray square with a file input beneath it. If the user loads a file, its subtype is written in black.');
+      describe('グレーの正方形と、その下にファイル入力があります。ユーザーがファイルを読み込むと、そのサブタイプが黒字で書かれます。');
     }
 
-    // Display the p5.File's type once it loads.
+    // ファイルが読み込まれたらp5.Fileのタイプを表示します。
     function displaySubtype(file) {
       background(200);
 
-      // Display the p5.File's subtype.
-      text(`This is file's subtype is: ${file.subtype}`, 10, 10, 80, 80);
+      // p5.Fileのサブタイプを表示します。
+      text(`このファイルのサブタイプは: ${file.subtype}`, 10, 10, 80, 80);
     }
     </code>
     </div>
@@ -51,3 +51,4 @@ class: p5.File
 
 
 # subtype
+

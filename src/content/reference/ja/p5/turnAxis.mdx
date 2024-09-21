@@ -4,13 +4,10 @@ module: Events
 submodule: Acceleration
 file: src/events/acceleration.js
 description: >
-  <p>When a device is rotated, the axis that triggers the <a
-  href="/reference/p5/deviceTurned/">deviceTurned()</a>
-
-  method is stored in the turnAxis variable. The turnAxis variable is only
-  defined within
-
-  the scope of deviceTurned().</p>
+  <p>デバイスが回転したとき、<a href="/reference/p5/deviceTurned/">deviceTurned()</a>
+  メソッドをトリガーする軸がturnAxis変数に格納されます。
+  turnAxis変数は
+  deviceTurned()のスコープ内でのみ定義されます。</p>
 line: 378
 isConstructor: false
 itemtype: property
@@ -19,18 +16,18 @@ example:
 
     <div>
     <code>
-    // Run this example on a mobile device
-    // Rotate the device by 90 degrees in the
-    // X-axis to change the value.
+    // このサンプルをモバイルデバイスで実行してください
+    // X軸で90度デバイスを回転させると
+    // 値が変化します。
 
     let value = 0;
     function draw() {
       fill(value);
       rect(25, 25, 50, 50);
-      describe(`50-by-50 black rect in center of canvas.
-        turns white on mobile when device turns`);
-      describe(`50-by-50 black rect in center of canvas.
-        turns white on mobile when x-axis turns`);
+      describe(`キャンバスの中央に50x50の黒い四角形。
+        モバイルでデバイスを回転させると白くなる`);
+      describe(`キャンバスの中央に50x50の黒い四角形。
+        モバイルでx軸を回転させると白くなる`);
     }
     function deviceTurned() {
       if (turnAxis === 'X') {
@@ -49,3 +46,4 @@ type: String
 
 
 # turnAxis
+

@@ -4,36 +4,35 @@ module: Data
 submodule: LocalStorage
 file: src/data/local_storage.js
 description: >
-  <p>Removes an item from the web browser's local storage.</p>
+  <p>ウェブブラウザのローカルストレージからアイテムを削除します。</p>
 
-  <p>Web browsers can save small amounts of data using the built-in
+  <p>ウェブブラウザは、組み込みの
 
   <a
   href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage/"
-  target="_blank">localStorage object</a>.
+  target="_blank">localStorage オブジェクト</a>を使用して
 
-  Data stored in <code>localStorage</code> can be retrieved at any point, even
-  after
+  少量のデータを保存できます。<code>localStorage</code>に保存されたデータは、
 
-  refreshing a page or restarting the browser. Data are stored as key-value
+  ページの更新やブラウザの再起動後でも、いつでも取得できます。データは
 
-  pairs.</p>
+  キーと値のペアとして保存されます。</p>
 
-  <p><a href="/reference/p5/storeItem/">storeItem()</a> makes it easy to store
-  values in
+  <p><a href="/reference/p5/storeItem/">storeItem()</a>を使用すると、
 
-  <code>localStorage</code> and <code>removeItem()</code> makes it easy to
-  delete them.</p>
+  <code>localStorage</code>に値を簡単に保存でき、<code>removeItem()</code>を使用すると
 
-  <p>The parameter, <code>key</code>, is the name of the value to remove as a
-  string. For
+  簡単に削除できます。</p>
 
-  example, calling <code>removeItem('size')</code> removes the item with the key
-  <code>size</code>.</p>
+  <p>パラメータ<code>key</code>は、削除する値の名前を文字列で指定します。
 
-  <p>Note: Sensitive data such as passwords or personal information shouldn't be
+  例えば、<code>removeItem('size')</code>を呼び出すと、キーが<code>size</code>の
 
-  stored in <code>localStorage</code>.</p>
+  アイテムが削除されます。</p>
+
+  <p>注意：パスワードや個人情報などの機密データは、<code>localStorage</code>に
+
+  保存しないでください。</p>
 line: 380
 isConstructor: false
 itemtype: method
@@ -42,40 +41,40 @@ example:
 
     <div>
     <code>
-    // Double-click to remove an item from localStorage.
+    // ダブルクリックしてlocalStorageからアイテムを削除します。
 
     function setup() {
       createCanvas(100, 100);
 
-      // Store the player's name.
+      // プレイヤーの名前を保存します。
       storeItem('name', 'Feist');
 
-      // Store the player's score.
+      // プレイヤーのスコアを保存します。
       storeItem('score', 1234);
 
       describe(
-        'The text "Feist: 1234" written in black on a gray background. The text "Feist: null" appears when the user double-clicks.'
+        'グレーの背景に黒で "Feist: 1234" と書かれたテキスト。ユーザーがダブルクリックすると "Feist: null" と表示されます。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textSize(14);
 
-      // Retrieve the name.
+      // 名前を取得します。
       let name = getItem('name');
 
-      // Retrieve the score.
+      // スコアを取得します。
       let score = getItem('score');
 
-      // Display the score.
+      // スコアを表示します。
       text(`${name}: ${score}`, 50, 50);
     }
 
-    // Remove the word from localStorage when the user double-clicks.
+    // ユーザーがダブルクリックしたときにlocalStorageから単語を削除します。
     function doubleClicked() {
       removeItem('score');
     }
@@ -85,10 +84,11 @@ class: p5
 params:
   - name: key
     description: |
-      <p>name of the value to remove.</p>
+      <p>削除する値の名前。</p>
     type: String
 chainable: false
 ---
 
 
 # removeItem
+

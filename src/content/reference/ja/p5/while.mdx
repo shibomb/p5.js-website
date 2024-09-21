@@ -4,87 +4,58 @@ module: Foundation
 submodule: Foundation
 file: src/core/reference.js
 description: >
-  <p>A way to repeat a block of code.</p>
+  <p>コードのブロックを繰り返す方法。</p>
 
-  <p><code>while</code> loops are helpful for repeating statements while a
-  condition is
+  <p><code>while</code>ループは、条件が<code>true</code>である間、文を繰り返すのに役立ちます。
+  これは繰り返される<code>if</code>文のようなものです。例えば、<code>while</code>
+  ループを使うと、「複数の線を描く」というアイデアを次のように簡単に表現できます：</p>
 
-  <code>true</code>. They're like <code>if</code> statements that repeat. For
-  example, a <code>while</code>
-
-  loop makes it easy to express the idea "draw several lines" like so:</p>
-
-  <pre><code class="language-js">// Declare a variable to keep track of
-  iteration.
-
+  <pre><code class="language-js">// 繰り返しを追跡する変数を宣言する
   let x = 10;
 
 
-  // Repeat as long as x < 100
-
+  // x < 100である限り繰り返す
   while (x < 100) {
     line(x, 25, x, 75);
 
-    // Increment by 20.
+    // 20ずつ増加させる
     x += 20;
   }
 
   </code></pre>
 
-  <p>The loop's header begins with the keyword <code>while</code>. Loops
-  generally count up
+  <p>ループのヘッダーは<code>while</code>キーワードで始まります。ループは一般的に、
+  繰り返しまたは反復するにつれて、カウントアップまたはカウントダウンします。
+  括弧内の文<code>x < 100</code>は、ループが各反復で確認する条件です。
+  条件が<code>true</code>の場合、ループは中括弧<code>{}</code>の間のコードを実行します。
+  中括弧の間のコードはループの本体と呼ばれます。条件が<code>false</code>の場合、
+  本体はスキップされ、ループは停止します。</p>
 
-  or count down as they repeat, or iterate. The statement in parentheses
+  <p>誤って無限ループを作成することはよくあります。例えば、
+  次のループはカウントアップしないため、決して反復を停止しません：</p>
 
-  <code>x < 100</code> is a condition the loop checks each time it iterates. If
-  the
-
-  condition is <code>true</code>, the loop runs the code between the curly
-  braces <code>{}</code>,
-
-  The code between the curly braces is called the loop's body. If the
-
-  condition is <code>false</code>, the body is skipped and the loop is
-  stopped.</p>
-
-  <p>It's common to create infinite loops accidentally. For example, the
-
-  following loop never stops iterating because it doesn't count up:</p>
-
-  <pre><code class="language-js">// Declare a variable to keep track of
-  iteration.
-
+  <pre><code class="language-js">// 繰り返しを追跡する変数を宣言する
   let x = 10;
 
 
-  // Repeat as long as x < 100
-
+  // x < 100である限り繰り返す
   while (x < 100) {
     line(x, 25, x, 75);
   }
 
 
-  // This should be in the loop's body!
-
+  // これはループの本体内にあるべきです！
   x += 20;
 
   </code></pre>
 
-  <p>The statement <code>x += 20</code> appears after the loop's body. That
-  means the
+  <p>文<code>x += 20</code>がループの本体の後に表示されています。これは、
+  変数<code>x</code>が<code>10</code>のままで、常に<code>100</code>未満であることを意味します。</p>
 
-  variable <code>x</code> is stuck at <code>10</code>,  which is always less
-  than <code>100</code>.</p>
-
-  <p><code>while</code> loops are useful when the number of iterations isn't
-  known in
-
-  advance. For example, concentric circles could be drawn at random
-
-  increments:</p>
+  <p><code>while</code>ループは、反復回数が事前にわからない場合に便利です。
+  例えば、同心円をランダムな間隔で描くことができます：</p>
 
   <pre><code class="language-js">let d = 100;
-
   let minSize = 5;
 
 
@@ -105,20 +76,20 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('Five black vertical lines on a gray background.');
+      describe('灰色の背景に5本の黒い垂直線。');
     }
 
     function draw() {
       background(200);
 
-      // Declare a variable to keep track of iteration.
+      // 繰り返しを追跡する変数を宣言する
       let x = 10;
 
-      // Repeat as long as x < 100
+      // x < 100である限り繰り返す
       while (x < 100) {
         line(x, 25, x, 75);
 
-        // Increment by 20.
+        // 20ずつ増加させる
         x += 20;
       }
     }
@@ -130,11 +101,11 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Slow the frame rate.
+      // フレームレートを遅くする
       frameRate(5);
 
       describe(
-        "A gray square with several concentric circles at the center. The circles' sizes decrease at random increments."
+        "中央に複数の同心円がある灰色の正方形。円のサイズはランダムな間隔で小さくなる。"
       );
     }
 
@@ -156,3 +127,4 @@ class: p5
 
 
 # while
+

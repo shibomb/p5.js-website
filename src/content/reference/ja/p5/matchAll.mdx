@@ -4,42 +4,31 @@ module: Data
 submodule: String Functions
 file: src/utilities/string_functions.js
 description: >
-  <p>Applies a regular expression to a string and returns an array of
-  matches.</p>
+  <p>文字列に正規表現を適用し、マッチした結果の配列を返します。</p>
 
-  <p><code>match()</code> uses regular expressions (regex) to match patterns in
-  text. For
+  <p><code>match()</code>は正規表現（regex）を使用してテキスト内のパターンを照合します。
 
-  example, the regex <code>abc</code> can be used to search a string for the
-  exact
+  例えば、正規表現<code>abc</code>は文字列内の正確な
 
-  sequence of characters <code>abc</code>. See
+  文字列<code>abc</code>を検索するのに使用できます。正規表現についての
 
-  <a
+  詳細は<a
   href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#tools"
-  target="_blank">MDN</a>.
+  target="_blank">MDN</a>を参照してください。
 
-  for more information about regexes. <code>matchAll()</code> is different from
+  <code>matchAll()</code>は<a href="/reference/p5/match/">match()</a>とは異なり、
 
-  <a href="/reference/p5/match/">match()</a> because it returns every match, not
-  just
+  最初のマッチだけでなく、すべてのマッチを返します。</p>
 
-  the first.</p>
+  <p>最初のパラメータ<code>str</code>は、検索対象の文字列です。</p>
 
-  <p>The first parameter, <code>str</code>, is the string to search.</p>
+  <p>2番目のパラメータ<code>regex</code>は、適用する正規表現を含む文字列です。
 
-  <p>The second parameter, <code>regex</code>, is a string with the regular
-  expression to
+  例えば、<code>matchAll('p5*js is easier than abc123', '[a-z][0-9]')</code>を呼び出すと、
 
-  apply. For example, calling
+  2次元配列<code>[['p5'], ['c1']]</code>が返されます。</p>
 
-  <code>matchAll('p5*js is easier than abc123', '[a-z][0-9]')</code> would
-  return the
-
-  2D array <code>[['p5'], ['c1']]</code>.</p>
-
-  <p>Note: If no matches are found, an empty array <code>[]</code> is
-  returned.</p>
+  <p>注意：マッチが見つからない場合、空の配列<code>[]</code>が返されます。</p>
 line: 119
 isConstructor: false
 itemtype: method
@@ -53,33 +42,33 @@ example:
 
       background(200);
 
-      // Create a string variable.
+      // 文字列変数を作成します。
       let string = 'p5*js is easier than abc123';
 
-      // Match the character sequences that are
-      // lowercase letters followed by digits.
+      // 小文字の後に数字が続く文字列を
+      // マッチさせます。
       let matches = matchAll(string, '[a-z][0-9]');
 
-      // Print the matches array to the console:
+      // マッチした配列をコンソールに表示します：
       // [['p5'], ['c1']]
       print(matches);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textSize(16);
 
-      // Iterate over the matches array.
+      // マッチした配列をイテレートします。
       for (let i = 0; i < matches.length; i += 1) {
 
-        // Calculate the y-coordainate.
+        // y座標を計算します。
         let y = (i + 1) * 33;
 
-        // Display the match.
+        // マッチした結果を表示します。
         text(matches[i], 50, y);
       }
 
       describe(
-        'The text "p5" and "c1" written on separate lines. The text is black on a gray background.'
+        '別々の行に書かれた"p5"と"c1"のテキスト。テキストは灰色の背景に黒で表示されています。'
       );
     }
     </code>
@@ -88,17 +77,18 @@ class: p5
 params:
   - name: str
     description: |
-      <p>string to search.</p>
+      <p>検索対象の文字列。</p>
     type: String
   - name: regexp
     description: |
-      <p>regular expression to match.</p>
+      <p>マッチさせる正規表現。</p>
     type: String
 return:
-  description: matches found.
+  description: 見つかったマッチ。
   type: 'String[]'
 chainable: false
 ---
 
 
 # matchAll
+

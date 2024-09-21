@@ -4,50 +4,39 @@ module: IO
 submodule: Output
 file: src/io/files.js
 description: >
-  <p>Saves an <code>Array</code> of <code>String</code>s to a file, one per
-  line.</p>
+  <p><code>String</code>の<code>Array</code>を1行ずつファイルに保存します。</p>
 
-  <p>The first parameter, <code>list</code>, is an array with the strings to
-  save.</p>
+  <p>最初のパラメータ<code>list</code>は、保存する文字列の配列です。</p>
 
-  <p>The second parameter, <code>filename</code>, is a string that sets the
-  file's name.
+  <p>2番目のパラメータ<code>filename</code>は、ファイルの名前を設定する文字列です。
 
-  For example, calling <code>saveStrings(['0', '01', '011'], 'data.txt')</code>
-  saves
+  例えば、<code>saveStrings(['0', '01', '011'], 'data.txt')</code>を呼び出すと、
 
-  the array <code>['0', '01', '011']</code> to a file called
-  <code>data.txt</code> on the user's
+  配列<code>['0', '01', '011']</code>がユーザーのコンピューター上の
 
-  computer.</p>
+  <code>data.txt</code>というファイルに保存されます。</p>
 
-  <p>The third parameter, <code>extension</code>, is optional. If a string is
-  passed, as in
+  <p>3番目のパラメータ<code>extension</code>はオプションです。文字列が渡された場合、
 
-  <code>saveStrings(['0', '01', '0</code>1'], 'data', 'txt')`, the second
-  parameter will
+  <code>saveStrings(['0', '01', '011'], 'data', 'txt')</code>のように、2番目の
 
-  be interpreted as the file name and the third parameter as the extension.</p>
+  パラメータがファイル名として、3番目のパラメータが拡張子として解釈されます。</p>
 
-  <p>The fourth parameter, <code>isCRLF</code>, is also optional, If
-  <code>true</code> is passed, as
+  <p>4番目のパラメータ<code>isCRLF</code>もオプションです。<code>true</code>が渡された場合、
 
-  in <code>saveStrings(['0', '01', '011'], 'data', 'txt', true)</code>, then two
+  <code>saveStrings(['0', '01', '011'], 'data', 'txt', true)</code>のように、
 
-  characters, <code>\r\n</code> , will be added to the end of each string to
-  create new
+  2つの文字<code>\r\n</code>が各文字列の末尾に追加され、保存されたファイルに
 
-  lines in the saved file. <code>\r</code> is a carriage return (CR) and
-  <code>\n</code> is a line
+  新しい行が作成されます。<code>\r</code>はキャリッジリターン（CR）、<code>\n</code>は
 
-  feed (LF). By default, only <code>\n</code> (line feed) is added to each
-  string in
+  ラインフィード（LF）です。デフォルトでは、新しい行を作成するために
 
-  order to create new lines.</p>
+  各文字列の末尾に<code>\n</code>（ラインフィード）のみが追加されます。</p>
 
-  <p>Note: The browser will either save the file immediately or prompt the user
+  <p>注意：ブラウザはファイルを即座に保存するか、ダイアログウィンドウで
 
-  with a dialogue window.</p>
+  ユーザーにプロンプトを表示します。</p>
 line: 2118
 isConstructor: false
 itemtype: method
@@ -61,24 +50,24 @@ example:
 
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(LEFT, CENTER);
       textFont('Courier New');
       textSize(12);
 
-      // Display instructions.
-      text('Double-click to save', 5, 50, 90);
+      // 指示を表示します。
+      text('ダブルクリックで保存', 5, 50, 90);
 
-      describe('The text "Double-click to save" written in black on a gray background.');
+      describe('グレーの背景に黒で書かれた「ダブルクリックで保存」というテキスト。');
     }
 
-    // Save the file when the user double-clicks.
+    // ユーザーがダブルクリックしたときにファイルを保存します。
     function doubleClicked() {
       if (mouseX > 0 && mouseX < 100 && mouseY > 0 && mouseY < 100) {
-        // Create an array.
+        // 配列を作成します。
         let data = ['0', '01', '011'];
 
-        // Save the text file.
+        // テキストファイルを保存します。
         saveStrings(data, 'data.txt');
       }
     }
@@ -92,26 +81,26 @@ example:
 
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(LEFT, CENTER);
       textFont('Courier New');
       textSize(12);
 
-      // Display instructions.
-      text('Double-click to save', 5, 50, 90);
+      // 指示を表示します。
+      text('ダブルクリックで保存', 5, 50, 90);
 
-      describe('The text "Double-click to save" written in black on a gray background.');
+      describe('グレーの背景に黒で書かれた「ダブルクリックで保存」というテキスト。');
     }
 
-    // Save the file when the user double-clicks.
+    // ユーザーがダブルクリックしたときにファイルを保存します。
     function doubleClicked() {
       if (mouseX > 0 && mouseX < 100 && mouseY > 0 && mouseY < 100) {
-        // Create an array.
-        // ASCII art courtesy Wikipedia:
+        // 配列を作成します。
+        // ASCIIアートはWikipediaより提供:
         // https://en.wikipedia.org/wiki/ASCII_art
         let data = [' (\\_/) ', "(='.'=)", '(")_(")'];
 
-        // Save the text file.
+        // テキストファイルを保存します。
         saveStrings(data, 'cat', 'txt');
       }
     }
@@ -125,21 +114,21 @@ example:
 
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(LEFT, CENTER);
       textFont('Courier New');
       textSize(12);
 
-      // Display instructions.
-      text('Double-click to save', 5, 50, 90);
+      // 指示を表示します。
+      text('ダブルクリックで保存', 5, 50, 90);
 
-      describe('The text "Double-click to save" written in black on a gray background.');
+      describe('グレーの背景に黒で書かれた「ダブルクリックで保存」というテキスト。');
     }
 
-    // Save the file when the user double-clicks.
+    // ユーザーがダブルクリックしたときにファイルを保存します。
     function doubleClicked() {
       if (mouseX > 0 && mouseX < 100 && mouseY > 0 && mouseY < 100) {
-        // Create an array.
+        // 配列を作成します。
         //   +--+
         //  /  /|
         // +--+ +
@@ -147,8 +136,8 @@ example:
         // +--+
         let data = ['  +--+', ' /  /|', '+--+ +', '|  |/', '+--+'];
 
-        // Save the text file.
-        // Use CRLF for line endings.
+        // テキストファイルを保存します。
+        // CRLFを行末に使用します。
         saveStrings(data, 'box', 'txt', true);
       }
     }
@@ -158,21 +147,21 @@ class: p5
 params:
   - name: list
     description: |
-      <p>data to save.</p>
+      <p>保存するデータ。</p>
     type: 'String[]'
   - name: filename
     description: |
-      <p>name of file to be saved.</p>
+      <p>保存するファイルの名前。</p>
     type: String
   - name: extension
     description: |
-      <p>format to use for the file.</p>
+      <p>ファイルに使用する形式。</p>
     type: String
     optional: true
   - name: isCRLF
     description: |
-      <p>whether to add <code>\r\n</code> to the end of each
-                                  string. Defaults to <code>false</code>.</p>
+      <p>各文字列の末尾に<code>\r\n</code>を追加するかどうか。
+                                  デフォルトは<code>false</code>です。</p>
     type: Boolean
     optional: true
 chainable: false
@@ -180,3 +169,4 @@ chainable: false
 
 
 # saveStrings
+

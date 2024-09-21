@@ -4,58 +4,37 @@ module: Data
 submodule: String Functions
 file: src/utilities/string_functions.js
 description: >
-  <p>Converts a positive <code>Number</code> into a <code>String</code> with an
-  extra space in front.</p>
+  <p>正の<code>Number</code>を前に余分なスペースを付けた<code>String</code>に変換します。</p>
 
-  <p><code>nfs()</code> converts positive numbers such as 123.45 into strings
-  formatted
+  <p><code>nfs()</code>は123.45のような正の数を、' 123.45'のように前に余分なスペースを付けた
 
-  with an extra space in front, as in ' 123.45'. Doing so can be helpful for
+  文字列に変換します。これは正の数と負の数を整列させるのに役立ちます。</p>
 
-  aligning positive and negative numbers.</p>
+  <p>最初のパラメータ<code>num</code>は、文字列に変換する数値です。
 
-  <p>The first parameter, <code>num</code>, is the number to convert to a
-  string. For
+  例えば、<code>nfs(123.45)</code>を呼び出すと、文字列<code>' 123.45'</code>が返されます。</p>
 
-  example, calling <code>nfs(123.45)</code> returns the string <code>'
-  123.45'</code>.</p>
+  <p>2番目のパラメータ<code>left</code>はオプションです。数値が渡された場合、
 
-  <p>The second parameter, <code>left</code>, is optional. If a number is
-  passed, as in
+  例えば<code>nfs(123.45, 4)</code>のように、小数点の左側に含める最小桁数を設定します。
 
-  <code>nfs(123.45, 4)</code>, it sets the minimum number of digits to include
-  to the
+  <code>left</code>が<code>num</code>の桁数より大きい場合、未使用の桁は0で埋められます。
 
-  left of the decimal place. If <code>left</code> is larger than the number of
-  digits in
+  例えば、<code>nfs(123.45, 4)</code>を呼び出すと、文字列<code>' 0123.45'</code>が返されます。</p>
 
-  <code>num</code>, then unused digits will be set to 0. For example, calling
+  <p>3番目のパラメータ<code>right</code>もオプションです。数値が渡された場合、
 
-  <code>nfs(123.45, 4)</code> returns the string <code>' 0123.45'</code>.</p>
+  例えば<code>nfs(123.45, 4, 1)</code>のように、小数点の右側に含める最小桁数を設定します。
 
-  <p>The third parameter, <code>right</code>, is also optional. If a number is
-  passed, as
+  <code>right</code>が<code>num</code>の小数点以下の桁数より小さい場合、<code>num</code>は指定された
 
-  in <code>nfs(123.45, 4, 1)</code>, it sets the minimum number of digits to
-  include to
+  小数点以下の桁数に丸められます。例えば、<code>nfs(123.45, 4, 1)</code>を呼び出すと、
 
-  the right of the decimal place. If <code>right</code> is smaller than the
-  number of
+  文字列<code>' 0123.5'</code>が返されます。<code>right</code>が<code>num</code>の小数点以下の桁数より
 
-  decimal places in <code>num</code>, then <code>num</code> will be rounded to
-  the given number of
+  大きい場合、未使用の小数点以下の桁は0で埋められます。例えば、
 
-  decimal places.  For example, calling <code>nfs(123.45, 4, 1)</code> returns
-  the
-
-  string <code>' 0123.5'</code>. If <code>right</code> is larger than the number
-  of decimal places
-
-  in <code>num</code>, then unused decimal places will be set to 0.  For
-  example,
-
-  calling <code>nfs(123.45, 4, 3)</code> returns the string <code>'
-  0123.450'</code>.</p>
+  <code>nfs(123.45, 4, 3)</code>を呼び出すと、文字列<code>' 0123.450'</code>が返されます。</p>
 line: 566
 isConstructor: false
 itemtype: method
@@ -69,24 +48,24 @@ example:
 
       background(200);
 
-      // Create number variables.
+      // 数値変数を作成します。
       let positive = 123;
       let negative = -123;
 
-      // Convert the positive number to a formatted string.
+      // 正の数をフォーマットされた文字列に変換します。
       let formatted = nfs(positive);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textFont('Courier New');
       textSize(16);
 
-      // Display the negative number and the formatted positive number.
+      // 負の数とフォーマットされた正の数を表示します。
       text(negative, 50, 33);
       text(formatted, 50, 67);
 
       describe(
-        'The numbers -123 and 123 written on separate lines. The numbers align vertically. The text is in black on a gray background.'
+        '別々の行に書かれた数字-123と123。数字は垂直に整列しています。テキストは灰色の背景に黒で表示されています。'
       );
     }
     </code>
@@ -99,61 +78,58 @@ example:
 
       background(200);
 
-      // Create a number variable.
+      // 数値変数を作成します。
       let number = 123.45;
 
-      // Convert the positive number to a formatted string.
-      // Use four digits to the left of the decimal and
-      // one digit to the right.
+      // 正の数をフォーマットされた文字列に変換します。
+      // 小数点の左に4桁、右に1桁を使用します。
       let formatted = nfs(number, 4, 1);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textFont('Courier New');
       textSize(16);
 
-      // Display a negative version of the number and
-      // the formatted positive version.
+      // 数値の負のバージョンと
+      // フォーマットされた正のバージョンを表示します。
       text('-0123.5', 50, 33);
       text(formatted, 50, 67);
 
       describe(
-        'The numbers "-0123.5" and "0123.5" written on separate lines. The numbers align vertically. The text is in black on a gray background.'
+        '別々の行に書かれた数字"-0123.5"と"0123.5"。数字は垂直に整列しています。テキストは灰色の背景に黒で表示されています。'
       );
     }
     </code>
     </div>
 class: p5
 return:
-  description: formatted string.
+  description: フォーマットされた文字列。
   type: String
 overloads:
   - line: 566
     params:
       - name: num
         description: |
-          <p>number to format.</p>
+          <p>フォーマットする数値。</p>
         type: Number
       - name: left
         description: |
-          <p>number of digits to include to the left of the
-                                  decimal point.</p>
+          <p>小数点の左側に含める桁数。</p>
         type: Integer
         optional: true
       - name: right
         description: |
-          <p>number of digits to include to the right of the
-                                   decimal point.</p>
+          <p>小数点の右側に含める桁数。</p>
         type: Integer
         optional: true
     return:
-      description: formatted string.
+      description: フォーマットされた文字列。
       type: String
   - line: 662
     params:
       - name: nums
         description: |
-          <p>numbers to format.</p>
+          <p>フォーマットする数値の配列。</p>
         type: Array
       - name: left
         description: ''
@@ -164,10 +140,11 @@ overloads:
         type: Integer
         optional: true
     return:
-      description: formatted strings.
+      description: フォーマットされた文字列の配列。
       type: 'String[]'
 chainable: false
 ---
 
 
 # nfs
+

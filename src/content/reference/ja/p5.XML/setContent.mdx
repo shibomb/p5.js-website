@@ -4,15 +4,14 @@ module: IO
 submodule: Input
 file: src/io/p5.XML.js
 description: >
-  <p>Sets the element's content.</p>
+  <p>要素のコンテンツを設定します。</p>
 
-  <p>An element's content is the text between its tags. For example, the element
+  <p>要素のコンテンツとは、タグの間にあるテキストのことです。例えば、要素
 
-  <code><language>JavaScript</language></code> has the content
-  <code>JavaScript</code>.</p>
+  <code><language>JavaScript</language></code> のコンテンツは
+  <code>JavaScript</code> です。</p>
 
-  <p>The parameter, <code>content</code>, is a string with the element's new
-  content.</p>
+  <p>パラメータ <code>content</code> は、要素の新しいコンテンツを表す文字列です。</p>
 line: 1232
 isConstructor: false
 itemtype: method
@@ -23,7 +22,7 @@ example:
     <code>
     let myXML;
 
-    // Load the XML and create a p5.XML object.
+    // XMLを読み込み、p5.XMLオブジェクトを作成します。
     function preload() {
       myXML = loadXML('/assets/animals.xml');
     }
@@ -33,28 +32,28 @@ example:
 
       background(200);
 
-      // Get the first reptile child element.
+      // 最初のreptile子要素を取得します。
       let reptile = myXML.getChild('reptile');
 
-      // Get the reptile's original content.
+      // reptileの元のコンテンツを取得します。
       let oldContent = reptile.getContent();
 
-      // Set the reptile's content.
+      // reptileのコンテンツを設定します。
       reptile.setContent('Loggerhead');
 
-      // Get the reptile's new content.
+      // reptileの新しいコンテンツを取得します。
       let newContent = reptile.getContent();
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textFont('Courier New');
       textSize(14);
 
-      // Display the element's old and new content.
+      // 要素の古いコンテンツと新しいコンテンツを表示します。
       text(`${oldContent}: ${newContent}`, 5, 50, 90);
 
       describe(
-        `The text "${oldContent}: ${newContent}" written in green on a gray background.`
+        `灰色の背景に緑色で "${oldContent}: ${newContent}" というテキストが書かれています。`
       );
     }
     </code>
@@ -63,10 +62,11 @@ class: p5.XML
 params:
   - name: content
     description: |
-      <p>new content for the element.</p>
+      <p>要素の新しいコンテンツ。</p>
     type: String
 chainable: false
 ---
 
 
 # setContent
+

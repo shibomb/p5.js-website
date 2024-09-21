@@ -4,22 +4,21 @@ module: Constants
 submodule: Constants
 file: src/core/constants.js
 description: >
-  <p>A <code>Number</code> constant that's approximately 6.2382.</p>
+  <p><code>Number</code>型の定数で、約6.2382の値です。</p>
 
-  <p><code>TAU</code> is twice the value of the mathematical constant π. It's
-  useful for
+  <p><code>TAU</code>は数学定数πの2倍の値です。回転や振動に関連する多くのタスクに
+  
+  有用です。例えば、<code>rotate(TAU)</code>を呼び出すと、座標系を<code>TAU</code>
+  
+  ラジアン（1周分、360˚）回転させます。<code>TAU</code>と<code>TWO_PI</code>は
+  
+  等しい値です。</p>
 
-  many tasks that involve rotation and oscillation. For example, calling
-
-  <code>rotate(TAU)</code> rotates the coordinate system <code>TAU</code>
-  radians, which is one
-
-  full turn (360˚). <code>TAU</code> and <code>TWO_PI</code> are equal.</p>
-
-  <p>Note: <code>TAU</code> radians equals 360˚, <code>PI</code> radians equals
-  180˚, <code>HALF_PI</code>
-
-  radians equals 90˚, and <code>QUARTER_PI</code> radians equals 45˚.</p>
+  <p>注意：<code>TAU</code>ラジアンは360˚、<code>PI</code>ラジアンは180˚、
+  
+  <code>HALF_PI</code>ラジアンは90˚、<code>QUARTER_PI</code>ラジアンは45˚に
+  
+  相当します。</p>
 line: 357
 isConstructor: false
 itemtype: property
@@ -33,10 +32,10 @@ example:
 
       background(200);
 
-      // Draw an arc from 0 to TAU.
+      // 0からTAUまでの弧を描く
       arc(50, 50, 80, 80, 0, TAU);
 
-      describe('A white circle drawn on a gray background.');
+      describe('灰色の背景に描かれた白い円。');
     }
     </code>
     </div>
@@ -48,23 +47,23 @@ example:
 
       background(200);
 
-      // Translate the origin to the center.
+      // 原点を中心に移動
       translate(50, 50);
 
-      // Draw a line.
+      // 線を描く
       line(0, 0, 40, 0);
 
-      // Rotate a full turn.
+      // 1周回転
       rotate(TAU);
 
-      // Style the second line.
+      // 2本目の線のスタイルを設定
       strokeWeight(5);
 
-      // Draw the same line, shorter and rotated.
+      // 同じ線を、より短く回転させて描く
       line(0, 0, 20, 0);
 
       describe(
-        'Two horizontal black lines on a gray background. A thick line extends from the center toward the right. A thin line extends from the end of the thick line.'
+        '灰色の背景に2本の黒い水平線。太い線が中心から右に伸び、細い線が太い線の端から伸びている。'
       );
     }
     </code>
@@ -76,28 +75,28 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'A red circle with a blue center oscillates from left to right on a gray background.'
+        '灰色の背景上で、青い中心を持つ赤い円が左右に振動している。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Translate the origin to the center.
+      // 原点を中心に移動
       translate(50, 50);
 
-      // Calculate the x-coordinates.
+      // x座標を計算
       let x1 = 40 * sin(frameCount * 0.05);
       let x2 = 40 * sin(frameCount * 0.05 + TAU);
 
-      // Style the oscillators.
+      // 振動体のスタイルを設定
       noStroke();
 
-      // Draw the red oscillator.
+      // 赤い振動体を描く
       fill(255, 0, 0);
       circle(x1, 0, 20);
 
-      // Draw the blue oscillator, smaller.
+      // 青い振動体を、より小さく描く
       fill(0, 0, 255);
       circle(x2, 0, 10);
     }
@@ -109,3 +108,4 @@ type: Number
 
 
 # TAU
+

@@ -4,25 +4,20 @@ module: Data
 submodule: LocalStorage
 file: src/data/local_storage.js
 description: >
-  <p>Removes all items in the web browser's local storage.</p>
+  <p>ウェブブラウザのローカルストレージにある全てのアイテムを削除します。</p>
 
-  <p>Web browsers can save small amounts of data using the built-in
-
+  <p>ウェブブラウザは、組み込みの
   <a
   href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage/"
-  target="_blank">localStorage object</a>.
+  target="_blank">localStorage オブジェクト</a>
+  を使用して少量のデータを保存できます。
+  <code>localStorage</code>に保存されたデータは、ページの更新やブラウザの再起動後でも
+  いつでも取得できます。データはキーと値のペアとして保存されます。
+  <code>clearStorage()</code>を呼び出すと、<code>localStorage</code>から
+  全てのデータが削除されます。</p>
 
-  Data stored in <code>localStorage</code> can be retrieved at any point, even
-  after
-
-  refreshing a page or restarting the browser. Data are stored as key-value
-
-  pairs. Calling <code>clearStorage()</code> removes all data from
-  <code>localStorage</code>.</p>
-
-  <p>Note: Sensitive data such as passwords or personal information shouldn't be
-
-  stored in <code>localStorage</code>.</p>
+  <p>注意：パスワードや個人情報などの機密データは<code>localStorage</code>に
+  保存すべきではありません。</p>
 line: 313
 isConstructor: false
 itemtype: method
@@ -31,48 +26,16 @@ example:
 
     <div>
     <code>
-    // Double-click to clear localStorage.
+    // ダブルクリックでlocalStorageをクリアします。
 
     function setup() {
       createCanvas(100, 100);
 
-      // Store the player's name.
+      // プレイヤーの名前を保存します。
       storeItem('name', 'Feist');
 
-      // Store the player's score.
+      // プレイヤーのスコアを保存します。
       storeItem('score', 1234);
 
       describe(
-        'The text "Feist: 1234" written in black on a gray background. The text "null: null" appears when the user double-clicks.'
-      );
-    }
-
-    function draw() {
-      background(200);
-
-      // Style the text.
-      textAlign(CENTER, CENTER);
-      textSize(14);
-
-      // Retrieve the name.
-      let name = getItem('name');
-
-      // Retrieve the score.
-      let score = getItem('score');
-
-      // Display the score.
-      text(`${name}: ${score}`, 50, 50);
-    }
-
-    // Clear localStorage when the user double-clicks.
-    function doubleClicked() {
-      clearStorage();
-    }
-    </code>
-    </div>
-class: p5
-chainable: false
----
-
-
-# clearStorage
+        'グレーの背景に黒で "Feist: 

@@ -4,12 +4,13 @@ module: Data
 submodule: Array Functions
 file: src/utilities/array_functions.js
 description: |
-  <p>Inserts a value or an array of values into an existing array. The first
-  parameter specifies the initial array to be modified, and the second
-  parameter defines the data to be inserted. The third parameter is an index
-  value which specifies the array position from which to insert data.
-  (Remember that array index numbering starts at zero, so the first position
-  is 0, the second position is 1, and so on.)</p>
+  <p>既存の配列に値または値の配列を挿入します。
+  最初の
+  パラメータは変更される元の配列を指定し、2番目の
+  パラメータは挿入されるデータを定義します。3番目のパラメータはインデックス
+  値で、データを挿入する配列の位置を指定します。
+  （配列のインデックス番号は0から始まることを覚えておいてください。つまり、最初の位置は
+  0、2番目の位置は1、というようになります。）</p>
 line: 346
 isConstructor: false
 itemtype: method
@@ -31,21 +32,20 @@ class: p5
 params:
   - name: list
     description: |
-      <p>Array to splice into</p>
+      <p>挿入先の配列</p>
     type: Array
   - name: value
     description: |
-      <p>value to be spliced in</p>
+      <p>挿入される値</p>
     type: Any
   - name: position
     description: |
-      <p>in the array from which to insert data</p>
+      <p>データを挿入する配列内の位置</p>
     type: Integer
 return:
-  description: the list
+  description: リスト
   type: Array
 chainable: false
 ---
-
 
 # splice

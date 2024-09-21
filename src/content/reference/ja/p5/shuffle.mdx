@@ -4,25 +4,21 @@ module: Data
 submodule: Array Functions
 file: src/utilities/array_functions.js
 description: >
-  <p>Shuffles the elements of an array.</p>
+  <p>配列の要素をシャッフルします。</p>
 
-  <p>The first parameter, <code>array</code>, is the array to be shuffled. For
-  example,
+  <p>最初のパラメータ<code>array</code>は、シャッフルする配列です。例えば、
 
-  calling <code>shuffle(myArray)</code> will shuffle the elements of
-  <code>myArray</code>. By
+  <code>shuffle(myArray)</code>を呼び出すと、<code>myArray</code>の要素が
 
-  default, the original array won’t be modified. Instead, a copy will be
+  シャッフルされます。デフォルトでは、元の配列は変更されません。代わりに、
 
-  created, shuffled, and returned.</p>
+  コピーが作成され、シャッフルされて返されます。</p>
 
-  <p>The second parameter, <code>modify</code>, is optional. If
-  <code>true</code> is passed, as in
+  <p>2番目のパラメータ<code>modify</code>はオプションです。<code>true</code>を渡すと、
 
-  <code>shuffle(myArray, true)</code>, then the array will be shuffled in place
-  without
+  <code>shuffle(myArray, true)</code>のように、配列はコピーを作成せずに
 
-  making a copy.</p>
+  その場でシャッフルされます。</p>
 line: 185
 isConstructor: false
 itemtype: method
@@ -36,40 +32,40 @@ example:
 
       background(200);
 
-      // Create an array of colors.
+      // 色の配列を作成します。
       let colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
 
-      // Create a shuffled copy of the array.
+      // 配列のシャッフルされたコピーを作成します。
       let shuffledColors = shuffle(colors);
 
-      // Draw  a row of circles using the original array.
+      // 元の配列を使用して円の列を描画します。
       for (let i = 0; i < colors.length; i += 1) {
-        // Calculate the x-coordinate.
+        // x座標を計算します。
         let x = (i + 1) * 12.5;
 
-        // Style the circle.
+        // 円のスタイルを設定します。
         let c = colors[i];
         fill(c);
 
-        // Draw the circle.
+        // 円を描画します。
         circle(x, 33, 10);
       }
 
-      // Draw  a row of circles using the original array.
+      // シャッフルされた配列を使用して円の列を描画します。
       for (let i = 0; i < shuffledColors.length; i += 1) {
-        // Calculate the x-coordinate.
+        // x座標を計算します。
         let x = (i + 1) * 12.5;
 
-        // Style the circle.
+        // 円のスタイルを設定します。
         let c = shuffledColors[i];
         fill(c);
 
-        // Draw the circle.
+        // 円を描画します。
         circle(x, 67, 10);
       }
 
       describe(
-        'Two rows of circles on a gray background. The top row follows the color sequence ROYGBIV. The bottom row has all the same colors but they are shuffled.'
+        '灰色の背景に2列の円があります。上の列は色の順序がROYGBIVに従っています。下の列は同じ色ですが、シャッフルされています。'
       );
     }
     </code>
@@ -82,27 +78,27 @@ example:
 
       background(200);
 
-      // Create an array of colors.
+      // 色の配列を作成します。
       let colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
 
-      // Shuffle the array.
+      // 配列をシャッフルします。
       shuffle(colors, true);
 
-      // Draw  a row of circles using the original array.
+      // 元の配列を使用して円の列を描画します。
       for (let i = 0; i < colors.length; i += 1) {
-        // Calculate the x-coordinate.
+        // x座標を計算します。
         let x = (i + 1) * 12.5;
 
-        // Style the circle.
+        // 円のスタイルを設定します。
         let c = colors[i];
         fill(c);
 
-        // Draw the circle.
+        // 円を描画します。
         circle(x, 50, 10);
       }
 
       describe(
-        'A row of colorful circles on a gray background. Their sequence changes each time the sketch runs.'
+        '灰色の背景にカラフルな円の列があります。スケッチを実行するたびに順序が変わります。'
       );
     }
     </code>
@@ -111,19 +107,19 @@ class: p5
 params:
   - name: array
     description: |
-      <p>array to shuffle.</p>
+      <p>シャッフルする配列。</p>
     type: Array
   - name: bool
     description: >
-      <p>if <code>true</code>, shuffle the original array in place. Defaults to
-      <code>false</code>.</p>
+      <p><code>true</code>の場合、元の配列をその場でシャッフルします。デフォルトは<code>false</code>です。</p>
     type: Boolean
     optional: true
 return:
-  description: shuffled array.
+  description: シャッフルされた配列。
   type: Array
 chainable: false
 ---
 
 
 # shuffle
+

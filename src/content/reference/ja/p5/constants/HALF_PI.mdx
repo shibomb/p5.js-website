@@ -4,22 +4,17 @@ module: Constants
 submodule: Constants
 file: src/core/constants.js
 description: >
-  <p>A <code>Number</code> constant that's approximately 1.5708.</p>
+  <p>約1.5708の値を持つ<code>Number</code>定数です。</p>
 
-  <p><code>HALF_PI</code> is half the value of the mathematical constant π. It's
-  useful for
+  <p><code>HALF_PI</code>は数学定数πの半分の値です。回転や振動に関連する多くのタスクで
 
-  many tasks that involve rotation and oscillation. For example, calling
+  有用です。例えば、<code>rotate(HALF_PI)</code>を呼び出すと、座標系を
 
-  <code>rotate(HALF_PI)</code> rotates the coordinate system
-  <code>HALF_PI</code> radians, which is
+  <code>HALF_PI</code>ラジアン（四分の一回転、つまり90˚）回転させます。</p>
 
-  a quarter turn (90˚).</p>
+  <p>注意：<code>TWO_PI</code>ラジアンは360˚、<code>PI</code>ラジアンは180˚、<code>HALF_PI</code>
 
-  <p>Note: <code>TWO_PI</code> radians equals 360˚, <code>PI</code> radians
-  equals 180˚, <code>HALF_PI</code>
-
-  radians equals 90˚, and <code>QUARTER_PI</code> radians equals 45˚.</p>
+  ラジアンは90˚、<code>QUARTER_PI</code>ラジアンは45˚に相当します。</p>
 line: 88
 isConstructor: false
 itemtype: property
@@ -33,10 +28,10 @@ example:
 
       background(200);
 
-      // Draw an arc from 0 to HALF_PI.
+      // 0からHALF_PIまでの弧を描画します。
       arc(50, 50, 80, 80, 0, HALF_PI);
 
-      describe('The bottom-right quarter of a circle drawn in white on a gray background.');
+      describe('灰色の背景に白で描かれた円の右下4分の1。');
     }
     </code>
     </div>
@@ -48,19 +43,19 @@ example:
 
       background(200);
 
-      // Translate the origin to the center.
+      // 原点を中心に移動します。
       translate(50, 50);
 
-      // Draw a line.
+      // 線を描画します。
       line(0, 0, 40, 0);
 
-      // Rotate a quarter turn.
+      // 4分の1回転させます。
       rotate(HALF_PI);
 
-      // Draw the same line, rotated.
+      // 同じ線を回転させて描画します。
       line(0, 0, 40, 0);
 
-      describe('Two black lines on a gray background. One line extends from the center to the right. The other line extends from the center to the bottom.');
+      describe('灰色の背景に2本の黒い線。1本の線は中心から右に伸び、もう1本の線は中心から下に伸びています。');
     }
     </code>
     </div>
@@ -71,28 +66,28 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'A red circle and a blue circle oscillate from left to right on a gray background. The red circle appears to chase the blue circle.'
+        '灰色の背景上で、赤い円と青い円が左右に振動しています。赤い円が青い円を追いかけているように見えます。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Translate the origin to the center.
+      // 原点を中心に移動します。
       translate(50, 50);
 
-      // Calculate the x-coordinates.
+      // x座標を計算します。
       let x1 = 40 * sin(frameCount * 0.05);
       let x2 = 40 * sin(frameCount * 0.05 + HALF_PI);
 
-      // Style the oscillators.
+      // 振動子のスタイルを設定します。
       noStroke();
 
-      // Draw the red oscillator.
+      // 赤い振動子を描画します。
       fill(255, 0, 0);
       circle(x1, 0, 20);
 
-      // Draw the blue oscillator.
+      // 青い振動子を描画します。
       fill(0, 0, 255);
       circle(x2, 0, 20);
     }
@@ -104,3 +99,4 @@ type: Number
 
 
 # HALF\_PI
+

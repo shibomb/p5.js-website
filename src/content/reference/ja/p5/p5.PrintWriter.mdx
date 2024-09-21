@@ -4,29 +4,20 @@ module: IO
 submodule: Output
 file: src/io/files.js
 description: >
-  <p>A class to describe a print stream.</p>
+  <p>プリントストリームを記述するクラスです。</p>
 
-  <p>Each <code>p5.PrintWriter</code> object provides a way to save a sequence
-  of text
+  <p>各 <code>p5.PrintWriter</code> オブジェクトは、<em>プリントストリーム</em>と呼ばれる
+  一連のテキストデータをユーザーのコンピュータに保存する方法を提供します。
+  これはテキスト出力の精密な制御を可能にする低レベルのオブジェクトです。
+  <a href="/reference/p5/saveStrings/">saveStrings()</a> や
+  <a href="/reference/p5/saveJSON/">saveJSON()</a> などの関数は、
+  単純なファイル保存にはより使いやすいです。</p>
 
-  data, called the <em>print stream</em>, to the user's computer. It's a
-  low-level
-
-  object that enables precise control of text output. Functions such as
-
-  <a href="/reference/p5/saveStrings/">saveStrings()</a> and
-
-  <a href="/reference/p5/saveJSON/">saveJSON()</a> are easier to use for simple
-  file
-
-  saving.</p>
-
-  <p>Note: <a href="/reference/p5/createWriter/">createWriter()</a> is the
-  recommended way
-
-  to make an instance of this class.</p>
+  <p>注意: このクラスのインスタンスを作成するには、
+  <a href="/reference/p5/createWriter/">createWriter()</a> を使用することをお勧めします。</p>
 line: 1565
 ---
 
 
 # p5.PrintWriter
+

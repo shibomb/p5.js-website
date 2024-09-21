@@ -4,12 +4,12 @@ module: IO
 submodule: Input
 file: src/io/files.js
 description: >
-  <p>Method for executing an HTTP POST request. If data type is not specified,
+  <p>HTTP POSTリクエストを実行するためのメソッドです。
+  データ型が指定されていない場合、
 
-  p5 will try to guess based on the URL, defaulting to text. This is equivalent
-  to
+  p5はURLに基づいて推測を試み、デフォルトではテキストとなります。これは
 
-  calling <code>httpDo(path, 'POST')</code>.</p>
+  <code>httpDo(path, 'POST')</code>を呼び出すのと同等です。</p>
 line: 1119
 isConstructor: false
 itemtype: method
@@ -20,13 +20,12 @@ example:
 
     <code>
 
-    // Examples use jsonplaceholder.typicode.com for a Mock Data API
+    // 例ではMockデータAPIとしてjsonplaceholder.typicode.comを使用しています
 
 
     let url = 'https://jsonplaceholder.typicode.com/posts';
 
-    let postData = { userId: 1, title: 'p5 Clicked!', body: 'p5.js is very
-    cool.' };
+    let postData = { userId: 1, title: 'p5がクリックされました！', body: 'p5.jsはとてもクールです。' };
 
 
     function setup() {
@@ -49,9 +48,9 @@ example:
 
     <div><code>
 
-    let url = 'ttps://invalidURL'; // A bad URL that will cause errors
+    let url = 'ttps://invalidURL'; // エラーを引き起こす不正なURL
 
-    let postData = { title: 'p5 Clicked!', body: 'p5.js is very cool.' };
+    let postData = { title: 'p5がクリックされました！', body: 'p5.jsはとてもクールです。' };
 
 
     function setup() {
@@ -66,7 +65,7 @@ example:
         'json',
         postData,
         function(result) {
-          // ... won't be called
+          // ... 呼び出されません
         },
         function(error) {
           strokeWeight(2);
@@ -79,47 +78,43 @@ example:
 class: p5
 return:
   description: |-
-    A promise that resolves with the data when the operation
-                      completes successfully or rejects with the error after
-                      one occurs.
+    操作が正常に完了したときにデータで解決するか、
+                      エラーが発生した後にエラーで拒否するPromise。
   type: Promise
 overloads:
   - line: 1119
     params:
       - name: path
         description: |
-          <p>name of the file or url to load</p>
+          <p>読み込むファイルまたはURLの名前</p>
         type: String
       - name: datatype
         description: |
-          <p>"json", "jsonp", "xml", or "text".
-                                             If omitted, <a href="#/p5/httpPost">httpPost()</a> will guess.</p>
+          <p>"json"、"jsonp"、"xml"、または"text"。
+                                             省略された場合、<a href="#/p5/httpPost">httpPost()</a>が推測します。</p>
         type: String
         optional: true
       - name: data
         description: |
-          <p>param data passed sent with request</p>
+          <p>リクエストと共に送信されるパラメータデータ</p>
         type: Object|Boolean
         optional: true
       - name: callback
         description: |
-          <p>function to be executed after
-                                             <a href="#/p5/httpPost">httpPost()</a> completes, data is passed in
-                                             as first argument</p>
+          <p><a href="#/p5/httpPost">httpPost()</a>が完了した後に実行される関数、
+                                             データは最初の引数として渡されます</p>
         type: Function
         optional: true
       - name: errorCallback
         description: |
-          <p>function to be executed if
-                                             there is an error, response is passed
-                                             in as first argument</p>
+          <p>エラーがある場合に実行される関数、
+                                             レスポンスは最初の引数として渡されます</p>
         type: Function
         optional: true
     return:
       description: |-
-        A promise that resolves with the data when the operation
-                          completes successfully or rejects with the error after
-                          one occurs.
+        操作が正常に完了したときにデータで解決するか、
+                          エラーが発生した後にエラーで拒否するPromise。
       type: Promise
   - line: 1186
     params:
@@ -160,3 +155,4 @@ chainable: false
 
 
 # httpPost
+

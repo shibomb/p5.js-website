@@ -4,16 +4,15 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>The file
+  <p>ファイルの
 
   <a
   href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/"
-  target="_blank">MIME type</a>
+  target="_blank">MIMEタイプ</a>
 
-  as a string.</p>
+  を文字列として表します。</p>
 
-  <p>For example, <code>'image'</code> and <code>'text'</code> are both MIME
-  types.</p>
+  <p>例えば、<code>'image'</code>と<code>'text'</code>はどちらもMIMEタイプです。</p>
 line: 5604
 isConstructor: false
 itemtype: property
@@ -22,27 +21,27 @@ example:
 
     <div>
     <code>
-    // Use the file input to load a file and display its info.
+    // ファイル入力を使用してファイルを読み込み、その情報を表示します。
 
     function setup() {
       createCanvas(100, 100);
 
       background(200);
 
-      // Create a file input and place it beneath the canvas.
-      // Call displayType() when the file loads.
+      // ファイル入力を作成し、キャンバスの下に配置します。
+      // ファイルが読み込まれたらdisplayType()を呼び出します。
       let input = createFileInput(displayType);
       input.position(0, 100);
 
-      describe('A gray square with a file input beneath it. If the user loads a file, its type is written in black.');
+      describe('グレーの正方形とその下にファイル入力があります。ユーザーがファイルを読み込むと、そのタイプが黒字で書かれます。');
     }
 
-    // Display the p5.File's type once it loads.
+    // ファイルが読み込まれたらp5.Fileのタイプを表示します。
     function displayType(file) {
       background(200);
 
-      // Display the p5.File's type.
-      text(`This is file's type is: ${file.type}`, 10, 10, 80, 80);
+      // p5.Fileのタイプを表示します。
+      text(`このファイルのタイプは: ${file.type}`, 10, 10, 80, 80);
     }
     </code>
     </div>
@@ -51,3 +50,4 @@ class: p5.File
 
 
 # type
+

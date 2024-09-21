@@ -1,12 +1,17 @@
 ---
-title: listChildren
+title: listAttributes
 module: IO
 submodule: Input
 file: src/io/p5.XML.js
-description: |
-  <p>Returns an array with the names of the element's child elements as
-  <code>String</code>s.</p>
-line: 287
+description: >
+  <p>要素の属性名を含む<code>Array</code>を返します。</p>
+
+  <p>注意: 属性の値を取得するには、
+
+  <a href="/reference/p5.XML/getString/">myXML.getString()</a>または
+
+  <a href="/reference/p5.XML/getNum/">myXML.getNum()</a>を使用してください。</p>
+line: 767
 isConstructor: false
 itemtype: method
 example:
@@ -16,7 +21,7 @@ example:
     <code>
     let myXML;
 
-    // Load the XML and create a p5.XML object.
+    // XMLを読み込み、p5.XMLオブジェクトを作成します。
     function preload() {
       myXML = loadXML('/assets/animals.xml');
     }
@@ -26,36 +31,31 @@ example:
 
       background(200);
 
-      // Get the names of the element's children as an array.
-      let children = myXML.listChildren();
+      // 最初の子要素を取得します。
+      let first = myXML.getChild(0);
 
-      // Style the text.
-      textAlign(LEFT, CENTER);
+      // 属性の数を取得します。
+      let attributes = first.listAttributes();
+
+      // テキストのスタイルを設定します。
+      textAlign(CENTER, CENTER);
       textFont('Courier New');
       textSize(14);
 
-      // Iterate over the array.
-      for (let i = 0; i < children.length; i += 1) {
+      // 要素の属性を表示します。
+      text(attributes, 50, 50);
 
-        // Calculate the y-coordinate.
-        let y = (i + 1) * 25;
-
-        // Display the child element's name.
-        text(children[i], 10, y);
-      }
-
-      describe(
-        'The words "mammal", "mammal", "mammal", and "reptile" written on separate lines. The text is black on a gray background.'
-      );
+      describe('灰色の背景に黒で書かれた "id,species" というテキスト。');
     }
     </code>
     </div>
 class: p5.XML
 return:
-  description: names of the child elements.
+  description: 属性名。
   type: 'String[]'
 chainable: false
 ---
 
 
-# listChildren
+# listAttributes
+

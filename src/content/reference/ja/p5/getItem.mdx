@@ -4,41 +4,29 @@ module: Data
 submodule: LocalStorage
 file: src/data/local_storage.js
 description: >
-  <p>Returns a value in the web browser's local storage.</p>
+  <p>ウェブブラウザのローカルストレージから値を取得します。</p>
 
-  <p>Web browsers can save small amounts of data using the built-in
-
+  <p>ウェブブラウザは、組み込みの
   <a
   href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage/"
-  target="_blank">localStorage object</a>.
+  target="_blank">localStorage オブジェクト</a>
+  を使用して少量のデータを保存できます。
+  <code>localStorage</code>に保存されたデータは、
+  ページの更新やブラウザの再起動後でも、いつでも取得できます。データはキーと値のペアとして保存されます。</p>
 
-  Data stored in <code>localStorage</code> can be retrieved at any point, even
-  after
+  <p><a href="/reference/p5/storeItem/">storeItem()</a>を使用すると
+  <code>localStorage</code>に値を簡単に保存でき、<code>getItem()</code>を使用すると
+  簡単に取得できます。</p>
 
-  refreshing a page or restarting the browser. Data are stored as key-value
+  <p>最初のパラメータ<code>key</code>は、保存される値の名前を
+  文字列として指定します。</p>
 
-  pairs.</p>
+  <p>2番目のパラメータ<code>value</code>は、取得する値を
+  文字列として指定します。例えば、<code>getItem('size')</code>を呼び出すと、
+  キー<code>size</code>に関連付けられた値を取得します。</p>
 
-  <p><a href="/reference/p5/storeItem/">storeItem()</a> makes it easy to store
-  values in
-
-  <code>localStorage</code> and <code>getItem()</code> makes it easy to retrieve
-  them.</p>
-
-  <p>The first parameter, <code>key</code>, is the name of the value to be
-  stored as a
-
-  string.</p>
-
-  <p>The second parameter, <code>value</code>, is the value to be retrieved a
-  string. For
-
-  example, calling <code>getItem('size')</code> retrieves the value with the key
-  <code>size</code>.</p>
-
-  <p>Note: Sensitive data such as passwords or personal information shouldn't be
-
-  stored in <code>localStorage</code>.</p>
+  <p>注意：パスワードや個人情報などの機密データは
+  <code>localStorage</code>に保存しないでください。</p>
 line: 164
 isConstructor: false
 itemtype: method
@@ -50,29 +38,29 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Store the player's name.
+      // プレイヤーの名前を保存します。
       storeItem('name', 'Feist');
 
-      // Store the player's score.
+      // プレイヤーのスコアを保存します。
       storeItem('score', 1234);
 
-      describe('The text "Feist: 1234" written in black on a gray background.');
+      describe('灰色の背景に黒で "Feist: 1234" と書かれたテキスト。');
     }
 
     function draw() {
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textSize(14);
 
-      // Retrieve the name.
+      // 名前を取得します。
       let name = getItem('name');
 
-      // Retrieve the score.
+      // スコアを取得します。
       let score = getItem('score');
 
-      // Display the score.
+      // スコアを表示します。
       text(`${name}: ${score}`, 50, 50);
     }
     </code>
@@ -83,22 +71,22 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create an object.
+      // オブジェクトを作成します。
       let p = { x: 50, y: 50 };
 
-      // Store the object.
+      // オブジェクトを保存します。
       storeItem('position', p);
 
-      describe('A white circle on a gray background.');
+      describe('灰色の背景に白い円。');
     }
 
     function draw() {
       background(200);
 
-      // Retrieve the object.
+      // オブジェクトを取得します。
       let p = getItem('position');
 
-      // Draw the circle.
+      // 円を描画します。
       circle(p.x, p.y, 30);
     }
     </code>
@@ -109,25 +97,25 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create a p5.Color object.
+      // p5.Color オブジェクトを作成します。
       let c = color('deeppink');
 
-      // Store the object.
+      // オブジェクトを保存します。
       storeItem('color', c);
 
-      describe('A pink circle on a gray background.');
+      describe('灰色の背景にピンクの円。');
     }
 
     function draw() {
       background(200);
 
-      // Retrieve the object.
+      // オブジェクトを取得します。
       let c = getItem('color');
 
-      // Style the circle.
+      // 円のスタイルを設定します。
       fill(c);
 
-      // Draw the circle.
+      // 円を描画します。
       circle(50, 50, 30);
     }
     </code>
@@ -136,13 +124,14 @@ class: p5
 params:
   - name: key
     description: |
-      <p>name of the value.</p>
+      <p>値の名前。</p>
     type: String
 return:
-  description: stored item.
+  description: 保存されたアイテム。
   type: String|Number|Boolean|Object|Array
 chainable: false
 ---
 
 
 # getItem
+

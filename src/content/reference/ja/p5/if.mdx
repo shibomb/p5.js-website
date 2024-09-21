@@ -4,15 +4,11 @@ module: Foundation
 submodule: Foundation
 file: src/core/reference.js
 description: >
-  <p>A way to choose whether to run a block of code.</p>
+  <p>コードのブロックを実行するかどうかを選択する方法。</p>
 
-  <p><code>if</code> statements are helpful for running a block of code based on
-  a
-
-  condition. For example, an <code>if</code> statement makes it easy to express
-  the
-
-  idea "Draw a circle if the mouse is pressed.":</p>
+  <p><code>if</code>文は、条件に基づいてコードのブロックを実行するのに役立ちます。
+  例えば、<code>if</code>文を使うと、「マウスが押されたら円を描く」という
+  アイデアを簡単に表現できます：</p>
 
   <pre><code class="language-js">if (mouseIsPressed === true) {
     circle(mouseX, mouseY, 20);
@@ -20,25 +16,14 @@ description: >
 
   </code></pre>
 
-  <p>The statement header begins with the keyword <code>if</code>. The
-  expression in
+  <p>文のヘッダーは<code>if</code>キーワードで始まります。括弧内の式
+  <code>mouseIsPressed === true</code>は、<code>true</code>または<code>false</code>の
+  <code>Boolean</code>式です。中括弧<code>{}</code>の間のコードが
+  if文の本体です。本体は<code>Boolean</code>式が<code>true</code>の場合にのみ実行されます。</p>
 
-  parentheses <code>mouseIsPressed === true</code> is a <code>Boolean</code>
-  expression that's
-
-  either <code>true</code> or <code>false</code>. The code between the curly
-  braces <code>{}</code> is the if
-
-  statement's body. The body only runs if the <code>Boolean</code> expression is
-  <code>true</code>.</p>
-
-  <p>The <a href="/reference/p5/mouseIsPressed/">mouseIsPressed</a> system
-  variable is
-
-  always <code>true</code> or <code>false</code>, so the code snippet above
-  could also be written
-
-  as follows:</p>
+  <p><a href="/reference/p5/mouseIsPressed/">mouseIsPressed</a>システム変数は
+  常に<code>true</code>または<code>false</code>なので、上記のコードスニペットは
+  次のように書くこともできます：</p>
 
   <pre><code class="language-js">if (mouseIsPressed) {
     circle(mouseX, mouseY, 20);
@@ -46,44 +31,30 @@ description: >
 
   </code></pre>
 
-  <p>An <code>if</code>-<code>else</code> statement adds a block of code that
-  runs if the <code>Boolean</code>
-
-  expression is <code>false</code>. For example, here's an
-  <code>if</code>-<code>else</code> statement that
-
-  expresses the idea "Draw a circle if the mouse is pressed. Otherwise,
-
-  display a message.":</p>
+  <p><code>if</code>-<code>else</code>文は、<code>Boolean</code>式が<code>false</code>の場合に
+  実行されるコードのブロックを追加します。例えば、以下は
+  「マウスが押されたら円を描く。そうでなければメッセージを表示する。」
+  というアイデアを表現する<code>if</code>-<code>else</code>文です：</p>
 
   <pre><code class="language-js">if (mouseIsPressed === true) {
-    // When true.
+    // trueの場合
     circle(mouseX, mouseY, 20);
   } else {
-    // When false.
-    text('Click me!', 50, 50);
+    // falseの場合
+    text('クリックしてください！', 50, 50);
   }
 
   </code></pre>
 
-  <p>There are two possible paths, or branches, in this code snippet. The
+  <p>このコードスニペットには2つの可能なパス、つまりブランチがあります。
+  プログラムは必ずどちらかのブランチを実行します。</p>
 
-  program must follow one branch or the other.</p>
-
-  <p>An <code>else</code>-<code>if</code> statement makes it possible to add
-  more branches.
-
-  <code>else</code>-<code>if</code> statements run different blocks of code
-  under different
-
-  conditions. For example, an <code>else</code>-<code>if</code> statement makes
-  it easy to express
-
-  the idea "If the mouse is on the left, paint the canvas white. If the mouse
-
-  is in the middle, paint the canvas gray. Otherwise, paint the canvas
-
-  black.":</p>
+  <p><code>else</code>-<code>if</code>文を使うと、さらにブランチを追加することができます。
+  <code>else</code>-<code>if</code>文は、異なる条件下で異なるコードブロックを
+  実行します。例えば、<code>else</code>-<code>if</code>文を使うと、
+  「マウスが左側にある場合はキャンバスを白く塗る。マウスが中央にある場合は
+  キャンバスをグレーに塗る。それ以外の場合はキャンバスを黒く塗る。」
+  というアイデアを簡単に表現できます：</p>
 
   <pre><code class="language-js">if (mouseX < 33) {
     background(255);
@@ -95,55 +66,39 @@ description: >
 
   </code></pre>
 
-  <p><code>if</code> statements can add as many
-  <code>else</code>-<code>if</code> statements as needed. However,
+  <p><code>if</code>文には必要な数だけ<code>else</code>-<code>if</code>文を追加できます。ただし、
+  <code>else</code>文は1つだけで、最後に配置する必要があります。</p>
 
-  there can only be one <code>else</code> statement and it must be last.</p>
-
-  <p><code>if</code> statements can also check for multiple conditions at once.
-  For
-
-  example, the <code>Boolean</code> operator <code>&&</code> (AND) checks
-  whether two expressions
-
-  are both <code>true</code>:</p>
+  <p><code>if</code>文は複数の条件を同時にチェックすることもできます。
+  例えば、<code>Boolean</code>演算子<code>&&</code>（AND）は2つの式が
+  両方とも<code>true</code>かどうかをチェックします：</p>
 
   <pre><code class="language-js">if (keyIsPressed === true && key === 'p') {
-    text('You pressed the "p" key!', 50, 50);
+    text('あなたは"p"キーを押しました！', 50, 50);
   }
 
   </code></pre>
 
-  <p>If the user is pressing a key AND that key is <code>'p'</code>, then a
-  message will
+  <p>ユーザーがキーを押していて、かつそのキーが<code>'p'</code>である場合、
+  メッセージが表示されます。</p>
 
-  display.</p>
+  <p><code>Boolean</code>演算子<code>||</code>（OR）は、2つの式のうち
+  少なくとも1つが<code>true</code>かどうかをチェックします：</p>
 
-  <p>The <code>Boolean</code> operator <code>||</code> (OR) checks whether at
-  least one of two
-
-  expressions is <code>true</code>:</p>
-
-  <pre><code class="language-js">if (keyIsPressed === true || mouseIsPressed ===
-  true) {
-    text('You did something!', 50, 50);
+  <pre><code class="language-js">if (keyIsPressed === true || mouseIsPressed === true) {
+    text('何かしました！', 50, 50);
   }
 
   </code></pre>
 
-  <p>If the user presses a key, or presses a mouse button, or both, then a
+  <p>ユーザーがキーを押すか、マウスボタンを押すか、またはその両方を行った場合、
+  メッセージが表示されます。</p>
 
-  message will display.</p>
-
-  <p>The body of an <code>if</code> statement can contain another
-  <code>if</code> statement. This is
-
-  called a "nested <code>if</code> statement." For example, nested
-  <code>if</code> statements make
-
-  it easy to express the idea "If a key is pressed, then check if the key is
-
-  <code>'r'</code>. If it is, then set the fill to red.":</p>
+  <p><code>if</code>文の本体には、別の<code>if</code>文を含めることができます。
+  これを「ネストされた<code>if</code>文」と呼びます。例えば、ネストされた<code>if</code>文を
+  使うと、「キーが押された場合、そのキーが<code>'r'</code>かどうかをチェックする。
+  もしそうなら、塗りつぶし色を赤に設定する。」というアイデアを
+  簡単に表現できます：</p>
 
   <pre><code class="language-js">if (keyIsPressed === true) {
     if (key === 'r') {
@@ -153,10 +108,9 @@ description: >
 
   </code></pre>
 
-  <p>See <a href="/reference/p5/Boolean/">Boolean</a> and <a
-  href="/reference/p5/Number/">Number</a>
-
-  to learn more about these data types and the operations they support.</p>
+  <p>これらのデータ型とそれらがサポートする操作について詳しく学ぶには、
+  <a href="/reference/p5/Boolean/">Boolean</a>と<a href="/reference/p5/Number/">Number</a>
+  を参照してください。</p>
 line: 110
 isConstructor: false
 itemtype: property
@@ -165,13 +119,13 @@ example:
 
     <div>
     <code>
-    // Click the mouse to show the circle.
+    // マウスをクリックして円を表示します。
 
     function setup() {
       createCanvas(100, 100);
 
       describe(
-        'A white circle on a gray background. The circle follows the mouse user clicks on the canvas.'
+        'グレーの背景に白い円。ユーザーがキャンバスをクリックすると、円がマウスに従います。'
       );
     }
 
@@ -187,13 +141,13 @@ example:
 
     <div>
     <code>
-    // Click the mouse to show different shapes.
+    // マウスをクリックして異なる形を表示します。
 
     function setup() {
       createCanvas(100, 100);
 
       describe(
-        'A white ellipse on a gray background. The ellipse becomes a circle when the user presses the mouse.'
+        'グレーの背景に白い楕円。ユーザーがマウスを押すと、楕円が円になります。'
       );
     }
 
@@ -211,13 +165,13 @@ example:
 
     <div>
     <code>
-    // Move the mouse to change the background color.
+    // マウスを動かして背景色を変更します。
 
     function setup() {
       createCanvas(100, 100);
 
       describe(
-        'A square changes color from white to black as the user moves the mouse from left to right.'
+        '四角形の色が、ユーザーがマウスを左から右に動かすにつれて白から黒に変化します。'
       );
     }
 
@@ -235,13 +189,13 @@ example:
 
     <div>
     <code>
-    // Click on the canvas to begin detecting key presses.
+    // キャンバスをクリックしてキー押下の検出を開始します。
 
     function setup() {
       createCanvas(100, 100);
 
       describe(
-        'A white circle drawn on a gray background. The circle changes color to red when the user presses the "r" key.'
+        'グレーの背景に白い円が描かれています。ユーザーが"r"キーを押すと、円の色が赤に変わります。'
       );
     }
 
@@ -263,3 +217,4 @@ class: p5
 
 
 # if
+

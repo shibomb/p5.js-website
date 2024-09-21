@@ -4,7 +4,7 @@ module: Data
 submodule: Dictionary
 file: src/data/p5.TypedDict.js
 description: |
-  <p>Return the lowest key currently used in the Dictionary.</p>
+  <p>辞書内で現在使用されている最小のキーを返します。</p>
 line: 629
 isConstructor: false
 itemtype: method
@@ -15,7 +15,7 @@ example:
     <code>
     function setup() {
       let myDictionary = createNumberDict({ 2: 4, 4: 6, 1.2: 3 });
-      let lowestKey = myDictionary.minKey(); // value is 1.2
+      let lowestKey = myDictionary.minKey(); // 値は1.2
       print(lowestKey);
     }
     </code></div>
@@ -25,6 +25,5 @@ return:
   type: Number
 chainable: false
 ---
-
 
 # minKey

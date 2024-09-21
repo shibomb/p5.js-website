@@ -4,11 +4,10 @@ module: Events
 submodule: Acceleration
 file: src/events/acceleration.js
 description: >
-  <p>The <a href="/reference/p5/setMoveThreshold/">setMoveThreshold()</a>
-  function is used to set the movement threshold for
+  <p><a href="/reference/p5/setMoveThreshold/">setMoveThreshold()</a>関数は、
 
-  the <a href="/reference/p5/deviceMoved/">deviceMoved()</a> function. The
-  default threshold is set to 0.5.</p>
+  <a href="/reference/p5/deviceMoved/">deviceMoved()</a>関数の動きの閾値を設定するために使用されます。
+  デフォルトの閾値は0.5に設定されています。</p>
 line: 417
 isConstructor: false
 itemtype: method
@@ -17,9 +16,9 @@ example:
 
     <div class="norender">
     <code>
-    // Run this example on a mobile device
-    // You will need to move the device incrementally further
-    // the closer the square's color gets to white in order to change the value.
+    // このサンプルをモバイルデバイスで実行してください
+    // 四角形の色が白に近づくにつれて、値を変更するには
+    // デバイスをより大きく動かす必要があります
 
     let value = 0;
     let threshold = 0.5;
@@ -29,8 +28,8 @@ example:
     function draw() {
       fill(value);
       rect(25, 25, 50, 50);
-      describe(`50-by-50 black rect in center of canvas.
-        turns white on mobile when device moves`);
+      describe(`キャンバスの中央に50x50の黒い四角形。
+        モバイルでデバイスを動かすと白くなる`);
     }
     function deviceMoved() {
       value = value + 5;
@@ -47,10 +46,9 @@ class: p5
 params:
   - name: value
     description: |
-      <p>The threshold value</p>
+      <p>閾値</p>
     type: Number
 chainable: false
 ---
-
 
 # setMoveThreshold

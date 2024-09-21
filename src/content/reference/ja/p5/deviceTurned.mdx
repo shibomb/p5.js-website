@@ -4,19 +4,17 @@ module: Events
 submodule: Acceleration
 file: src/events/acceleration.js
 description: >
-  <p>The <a href="/reference/p5/deviceTurned/">deviceTurned()</a> function is
-  called when the device rotates by
+  <p><a href="/reference/p5/deviceTurned/">deviceTurned()</a>関数は、デバイスが
 
-  more than 90 degrees continuously.</p>
+  90度以上連続して回転したときに呼び出されます。</p>
 
-  <p>The axis that triggers the <a
-  href="/reference/p5/deviceTurned/">deviceTurned()</a> method is stored in the
-  turnAxis
+  <p><a href="/reference/p5/deviceTurned/">deviceTurned()</a>メソッドをトリガーする軸は
 
-  variable. The <a href="/reference/p5/deviceTurned/">deviceTurned()</a> method
-  can be locked to trigger on any axis:
+  turnAxis変数に格納されます。<a href="/reference/p5/deviceTurned/">deviceTurned()</a>メソッドは
 
-  X, Y or Z by comparing the turnAxis variable to 'X', 'Y' or 'Z'.</p>
+  X、Y、Z軸のいずれかでトリガーするようにロックできます。
+
+  turnAxis変数を'X'、'Y'、'Z'と比較することで設定できます。</p>
 line: 531
 isConstructor: false
 itemtype: method
@@ -25,16 +23,16 @@ example:
 
     <div class="norender">
     <code>
-    // Run this example on a mobile device
-    // Rotate the device by 90 degrees
-    // to change the value.
+    // このサンプルをモバイルデバイスで実行してください
+    // デバイスを90度回転させて
+    // 値を変更します。
 
     let value = 0;
     function draw() {
       fill(value);
       rect(25, 25, 50, 50);
-      describe(`50-by-50 black rect in center of canvas.
-        turns white on mobile when device turns`);
+      describe(`キャンバスの中央に50x50の黒い四角形。
+        モバイルでデバイスを回転させると白に変わります`);
     }
     function deviceTurned() {
       if (value === 0) {
@@ -47,16 +45,16 @@ example:
     </div>
     <div>
     <code>
-    // Run this example on a mobile device
-    // Rotate the device by 90 degrees in the
-    // X-axis to change the value.
+    // このサンプルをモバイルデバイスで実行してください
+    // X軸で90度デバイスを回転させて
+    // 値を変更します。
 
     let value = 0;
     function draw() {
       fill(value);
       rect(25, 25, 50, 50);
-      describe(`50-by-50 black rect in center of canvas.
-        turns white on mobile when x-axis turns`);
+      describe(`キャンバスの中央に50x50の黒い四角形。
+        モバイルでX軸を回転させると白に変わります`);
     }
     function deviceTurned() {
       if (turnAxis === 'X') {
@@ -75,3 +73,4 @@ chainable: false
 
 
 # deviceTurned
+

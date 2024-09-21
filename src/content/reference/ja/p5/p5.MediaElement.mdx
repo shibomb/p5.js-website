@@ -4,25 +4,24 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>A class to handle audio and video.</p>
+  <p>オーディオとビデオを扱うためのクラスです。</p>
 
-  <p><code>p5.MediaElement</code> extends <a
-  href="/reference/p5/p5.Element">p5.Element</a> with
+  <p><code>p5.MediaElement</code>は<a
+  href="/reference/p5/p5.Element">p5.Element</a>を拡張し、
 
-  methods to handle audio and video. <code>p5.MediaElement</code> objects are
-  created by
+  オーディオとビデオを扱うためのメソッドを提供します。<code>p5.MediaElement</code>オブジェクトは
 
-  calling <a href="/reference/p5/createVideo/">createVideo</a>,
+  <a href="/reference/p5/createVideo/">createVideo</a>、
 
-  <a href="/reference/p5/createAudio/">createAudio</a>, and
+  <a href="/reference/p5/createAudio/">createAudio</a>、
 
-  <a href="/reference/p5/createCapture/">createCapture</a>.</p>
+  <a href="/reference/p5/createCapture/">createCapture</a>を呼び出すことで作成されます。</p>
 line: 4081
 isConstructor: true
 params:
   - name: elt
     description: |
-      <p>DOM node that is wrapped</p>
+      <p>ラップされるDOMノード</p>
     type: String
 example:
   - |-
@@ -34,15 +33,15 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create a p5.MediaElement using createCapture().
+      // createCapture()を使用してp5.MediaElementを作成します。
       capture = createCapture(VIDEO);
       capture.hide();
 
-      describe('A webcam feed with inverted colors.');
+      describe('色が反転したウェブカメラのフィード。');
     }
 
     function draw() {
-      // Display the video stream and invert the colors.
+      // ビデオストリームを表示し、色を反転させます。
       image(capture, 0, 0, width, width * capture.height / capture.width);
       filter(INVERT);
     }
@@ -51,205 +50,179 @@ example:
 methods:
   play:
     description: |
-      <p>Plays audio or video from a media element.</p>
+      <p>メディア要素からオーディオまたはビデオを再生します。</p>
     path: p5.MediaElement/play
   stop:
     description: >
-      <p>Stops a media element and sets its current time to 0.</p>
+      <p>メディア要素を停止し、その現在の時間を0に設定します。</p>
 
-      <p>Calling <code>media.play()</code> will restart playing audio/video from
-      the beginning.</p>
+      <p><code>media.play()</code>を呼び出すと、オーディオ/ビデオの再生が最初から再開されます。</p>
     path: p5.MediaElement/stop
   pause:
     description: >
-      <p>Pauses a media element.</p>
+      <p>メディア要素を一時停止します。</p>
 
-      <p>Calling <code>media.play()</code> will resume playing audio/video from
-      the moment it paused.</p>
+      <p><code>media.play()</code>を呼び出すと、一時停止した瞬間からオーディオ/ビデオの再生が再開されます。</p>
     path: p5.MediaElement/pause
   loop:
     description: |
-      <p>Plays the audio/video repeatedly in a loop.</p>
+      <p>オーディオ/ビデオをループで繰り返し再生します。</p>
     path: p5.MediaElement/loop
   noLoop:
     description: |
-      <p>Stops the audio/video from playing in a loop.</p>
-      <p>The media will stop when it finishes playing.</p>
+      <p>オーディオ/ビデオのループ再生を停止します。</p>
+      <p>メディアは再生が終了すると停止します。</p>
     path: p5.MediaElement/noLoop
   autoplay:
     description: >
-      <p>Sets the audio/video to play once it's loaded.</p>
+      <p>オーディオ/ビデオが読み込まれたら自動再生するように設定します。</p>
 
-      <p>The parameter, <code>shouldAutoplay</code>, is optional. Calling
+      <p>パラメータ<code>shouldAutoplay</code>はオプションです。引数なしで
 
-      <code>media.autoplay()</code> without an argument causes the media to play
+      <code>media.autoplay()</code>を呼び出すと、メディアは自動的に再生されます。
 
-      automatically. If <code>true</code> is passed, as in
-      <code>media.autoplay(true)</code>, the
+      <code>media.autoplay(true)</code>のように<code>true</code>を渡すと、
 
-      media will automatically play. If <code>false</code> is passed, as in
+      メディアは自動的に再生されます。<code>media.autoPlay(false)</code>のように
 
-      <code>media.autoPlay(false)</code>, it won't play automatically.</p>
+      <code>false</code>を渡すと、自動再生されません。</p>
     path: p5.MediaElement/autoplay
   volume:
     description: >
-      <p>Sets the audio/video volume.</p>
+      <p>オーディオ/ビデオの音量を設定します。</p>
 
-      <p>Calling <code>media.volume()</code> without an argument returns the
-      current volume
+      <p>引数なしで<code>media.volume()</code>を呼び出すと、現在の音量を
 
-      as a number in the range 0 (off) to 1 (maximum).</p>
+      0（オフ）から1（最大）の範囲の数値として返します。</p>
 
-      <p>The parameter, <code>val</code>, is optional. It's a number that sets
-      the volume
+      <p>パラメータ<code>val</code>はオプションです。0（オフ）から1（最大）の範囲の
 
-      from 0 (off) to 1 (maximum). For example, calling
-      <code>media.volume(0.5)</code>
+      数値で音量を設定します。例えば、<code>media.volume(0.5)</code>を呼び出すと、
 
-      sets the volume to half of its maximum.</p>
+      音量が最大の半分に設定されます。</p>
     path: p5.MediaElement/volume
   speed:
     description: >
-      <p>Sets the audio/video playback speed.</p>
+      <p>オーディオ/ビデオの再生速度を設定します。</p>
 
-      <p>The parameter, <code>val</code>, is optional. It's a number that sets
-      the playback
+      <p>パラメータ<code>val</code>はオプションです。再生速度を設定する数値です。
 
-      speed. 1 plays the media at normal speed, 0.5 plays it at half speed, 2
+      1は通常速度で再生、0.5は半分の速度、2は2倍の速度で再生します。
 
-      plays it at double speed, and so on. -1 plays the media at normal speed
+      -1は通常速度で逆再生します。</p>
 
-      in reverse.</p>
+      <p><code>media.speed()</code>を呼び出すと、現在の速度を数値として返します。</p>
 
-      <p>Calling <code>media.speed()</code> returns the current speed as a
-      number.</p>
+      <p>注意：すべてのブラウザが逆再生をサポートしているわけではありません。
 
-      <p>Note: Not all browsers support backward playback. Even if they do,
-
-      playback might not be smooth.</p>
+      サポートしていても、再生がスムーズでない場合があります。</p>
     path: p5.MediaElement/speed
   time:
     description: >
-      <p>Sets the media element's playback time.</p>
+      <p>メディア要素の再生時間を設定します。</p>
 
-      <p>The parameter, <code>time</code>, is optional. It's a number that
-      specifies the
+      <p>パラメータ<code>time</code>はオプションです。再生開始時にジャンプする
 
-      time, in seconds, to jump to when playback begins.</p>
+      時間を秒単位で指定する数値です。</p>
 
-      <p>Calling <code>media.time()</code> without an argument returns the
-      number of seconds
+      <p>引数なしで<code>media.time()</code>を呼び出すと、オーディオ/ビデオが
 
-      the audio/video has played.</p>
+      再生された秒数を返します。</p>
 
-      <p>Note: Time resets to 0 when looping media restarts.</p>
+      <p>注意：ループするメディアが再開すると、時間は0にリセットされます。</p>
     path: p5.MediaElement/time
   duration:
     description: |
-      <p>Returns the audio/video's duration in seconds.</p>
+      <p>オーディオ/ビデオの長さを秒単位で返します。</p>
     path: p5.MediaElement/duration
   onended:
     description: >
-      <p>Calls a function when the audio/video reaches the end of its
-      playback.</p>
+      <p>オーディオ/ビデオの再生が終了したときに呼び出される関数を設定します。</p>
 
-      <p>The element is passed as an argument to the callback function.</p>
+      <p>要素がコールバック関数の引数として渡されます。</p>
 
-      <p>Note: The function won't be called if the media is looping.</p>
+      <p>注意：メディアがループしている場合、この関数は呼び出されません。</p>
     path: p5.MediaElement/onended
   connect:
     description: >
-      <p>Sends the element's audio to an output.</p>
+      <p>要素のオーディオを出力に送ります。</p>
 
-      <p>The parameter, <code>audioNode</code>, can be an <code>AudioNode</code>
-      or an object from the
+      <p>パラメータ<code>audioNode</code>は、<code>AudioNode</code>または
 
-      <code>p5.sound</code> library.</p>
+      <code>p5.sound</code>ライブラリのオブジェクトを指定できます。</p>
 
-      <p>If no element is provided, as in <code>myElement.connect()</code>, the
-      element
+      <p><code>myElement.connect()</code>のように要素が提供されない場合、
 
-      connects to the main output. All connections are removed by the
+      要素はメイン出力に接続されます。すべての接続は
 
-      <code>.disconnect()</code> method.</p>
+      <code>.disconnect()</code>メソッドで解除されます。</p>
 
-      <p>Note: This method is meant to be used with the p5.sound.js addon
-      library.</p>
+      <p>注意：このメソッドはp5.sound.jsアドオンライブラリと一緒に使用することを想定しています。</p>
     path: p5.MediaElement/connect
   disconnect:
     description: >
-      <p>Disconnect all Web Audio routing, including to the main output.</p>
+      <p>メイン出力を含むすべてのWeb Audioルーティングを切断します。</p>
 
-      <p>This is useful if you want to re-route the output through audio
-      effects,
+      <p>これは、例えばオーディオエフェクトを通して出力を再ルーティングしたい場合に
 
-      for example.</p>
+      便利です。</p>
     path: p5.MediaElement/disconnect
   showControls:
     description: >
-      <p>Show the default
+      <p>デフォルトの
 
       <a
       href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/"
       target="_blank">HTMLMediaElement</a>
 
-      controls.</p>
+      コントロールを表示します。</p>
 
-      <p>Note: The controls vary between web browsers.</p>
+      <p>注意：コントロールはWebブラウザによって異なります。</p>
     path: p5.MediaElement/showControls
   hideControls:
     description: >
-      <p>Hide the default
+      <p>デフォルトの
 
       <a
       href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/"
       target="_blank">HTMLMediaElement</a>
 
-      controls.</p>
+      コントロールを非表示にします。</p>
     path: p5.MediaElement/hideControls
   addCue:
     description: >
-      <p>Schedules a function to call when the audio/video reaches a specific
-      time
+      <p>オーディオ/ビデオの再生中に特定の時間に関数を呼び出すようにスケジュールします。</p>
 
-      during its playback.</p>
+      <p>最初のパラメータ<code>time</code>は、関数を実行する時間を秒単位で指定します。
 
-      <p>The first parameter, <code>time</code>, is the time, in seconds, when
-      the function
+      この値は<code>callback</code>の最初の引数として渡されます。</p>
 
-      should run. This value is passed to <code>callback</code> as its first
-      argument.</p>
+      <p>2番目のパラメータ<code>callback</code>は、指定されたキュー時間に呼び出す関数です。</p>
 
-      <p>The second parameter, <code>callback</code>, is the function to call at
-      the specified
+      <p>3番目のパラメータ<code>value</code>はオプションで、任意の型の値を指定できます。
 
-      cue time.</p>
+      <code>value</code>は<code>callback</code>に渡されます。</p>
 
-      <p>The third parameter, <code>value</code>, is optional and can be any
-      type of value.
+      <p><code>media.addCue()</code>を呼び出すと、文字列としてIDが返されます。これは
 
-      <code>value</code> is passed to <code>callback</code>.</p>
-
-      <p>Calling <code>media.addCue()</code> returns an ID as a string. This is
-      useful for
-
-      removing the cue later.</p>
+      後でキューを削除する際に便利です。</p>
     path: p5.MediaElement/addCue
   removeCue:
     description: |
-      <p>Removes a callback based on its ID.</p>
+      <p>IDに基づいてコールバックを削除します。</p>
     path: p5.MediaElement/removeCue
   clearCues:
     description: |
-      <p>Removes all functions scheduled with <code>media.addCue()</code>.</p>
+      <p><code>media.addCue()</code>でスケジュールされたすべての関数を削除します。</p>
     path: p5.MediaElement/clearCues
 properties:
   src:
     description: |
-      <p>Path to the media element's source as a string.</p>
+      <p>メディア要素のソースへのパスを文字列として表します。</p>
     path: p5.MediaElement/src
 chainable: false
 ---
 
 
 # p5.MediaElement
+

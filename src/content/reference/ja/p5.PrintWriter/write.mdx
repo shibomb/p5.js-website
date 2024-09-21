@@ -4,18 +4,13 @@ module: IO
 submodule: Output
 file: src/io/files.js
 description: >
-  <p>Writes data to the print stream without adding new lines.</p>
+  <p>改行を追加せずにデータをプリントストリームに書き込みます。</p>
 
-  <p>The parameter, <code>data</code>, is the data to write. <code>data</code>
-  can be a number or
-
-  string, as in <code>myWriter.write('hi')</code>, or an array of numbers and
-  strings,
-
-  as in <code>myWriter.write([1, 2, 3])</code>. A comma will be inserted between
-  array
-
-  array elements when they're added to the print stream.</p>
+  <p>パラメータ<code>data</code>は書き込むデータです。<code>data</code>は
+  <code>myWriter.write('hi')</code>のように数値または文字列、
+  あるいは<code>myWriter.write([1, 2, 3])</code>のように数値と文字列の
+  配列にすることができます。配列要素がプリントストリームに追加される際、
+  要素間にカンマが挿入されます。</p>
 line: 1622
 isConstructor: false
 itemtype: method
@@ -29,27 +24,27 @@ example:
 
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(LEFT, CENTER);
       textFont('Courier New');
       textSize(12);
 
-      // Display instructions.
-      text('Double-click to save', 5, 50, 90);
+      // 指示を表示します。
+      text('ダブルクリックで保存', 5, 50, 90);
 
-      describe('The text "Double-click to save" written in black on a gray background.');
+      describe('灰色の背景に黒字で「ダブルクリックで保存」というテキストが書かれています。');
     }
 
-    // Save the file when the user double-clicks.
+    // ユーザーがダブルクリックしたときにファイルを保存します。
     function doubleClicked() {
-      // Create a p5.PrintWriter object.
+      // p5.PrintWriterオブジェクトを作成します。
       let myWriter = createWriter('numbers.txt');
 
-      // Add some data to the print stream.
+      // プリントストリームにデータを追加します。
       myWriter.write('1,2,3,');
       myWriter.write(['4', '5', '6']);
 
-      // Save the file and close the print stream.
+      // ファイルを保存し、プリントストリームを閉じます。
       myWriter.close();
     }
     </code>
@@ -58,11 +53,12 @@ class: p5.PrintWriter
 params:
   - name: data
     description: |
-      <p>data to be written as a string, number,
-                                        or array of strings and numbers.</p>
+      <p>文字列、数値、または文字列と数値の配列として
+                                        書き込まれるデータ。</p>
     type: String|Number|Array
 chainable: false
 ---
 
 
 # write
+

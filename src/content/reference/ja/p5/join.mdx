@@ -4,20 +4,15 @@ module: Data
 submodule: String Functions
 file: src/utilities/string_functions.js
 description: >
-  <p>Combines an array of strings into one string.</p>
+  <p>文字列の配列を1つの文字列に結合します。</p>
 
-  <p>The first parameter, <code>list</code>, is the array of strings to
-  join.</p>
+  <p>最初のパラメータ<code>list</code>は、結合する文字列の配列です。</p>
 
-  <p>The second parameter, <code>separator</code>, is the character(s) that
-  should be used
+  <p>2番目のパラメータ<code>separator</code>は、結合された文字列を区切るために使用される文字（複数可）です。
 
-  to separate the combined strings. For example, calling
+  例えば、<code>join(myWords, ' : ')</code>を呼び出すと、各単語がコロンとスペースで
 
-  <code>join(myWords, ' : ')</code> would return a string of words each
-  separated by a
-
-  colon and spaces.</p>
+  区切られた文字列が返されます。</p>
 line: 15
 isConstructor: false
 itemtype: method
@@ -31,19 +26,19 @@ example:
 
       background(200);
 
-      // Create an array of strings.
+      // 文字列の配列を作成します。
       let myWords = ['one', 'two', 'three'];
 
-      // Create a combined string
+      // 結合された文字列を作成します
       let combined = join(myWords, ' : ');
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
 
-      // Display the combined string.
+      // 結合された文字列を表示します。
       text(combined, 50, 50);
 
-      describe('The text "one : two : three" written in black on a gray canvas.');
+      describe('グレーのキャンバスに黒で書かれた "one : two : three" というテキスト。');
     }
     </code>
     </div>
@@ -51,17 +46,18 @@ class: p5
 params:
   - name: list
     description: |
-      <p>array of strings to combine.</p>
+      <p>結合する文字列の配列。</p>
     type: Array
   - name: separator
     description: |
-      <p>character(s) to place between strings when they're combined.</p>
+      <p>文字列を結合する際に文字列間に配置する文字（複数可）。</p>
     type: String
 return:
-  description: combined string.
+  description: 結合された文字列。
   type: String
 chainable: false
 ---
 
 
 # join
+

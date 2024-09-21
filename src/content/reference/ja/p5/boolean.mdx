@@ -4,28 +4,21 @@ module: Data
 submodule: Conversion
 file: src/utilities/conversion.js
 description: >
-  <p>Converts a <code>String</code> or <code>Number</code> to a
-  <code>Boolean</code>.</p>
+  <p><code>String</code>または<code>Number</code>を<code>Boolean</code>に変換します。</p>
 
-  <p><code>boolean()</code> converts values to <code>true</code> or
-  <code>false</code>.</p>
+  <p><code>boolean()</code>は値を<code>true</code>または<code>false</code>に変換します。</p>
 
-  <p>The parameter, <code>n</code>, is the value to convert. If <code>n</code>
-  is a string, then
+  <p>パラメータ<code>n</code>は変換する値です。<code>n</code>が文字列の場合、
 
-  <code>boolean('true')</code> will return <code>true</code> and every other
-  string value will
+  <code>boolean('true')</code>は<code>true</code>を返し、それ以外の文字列値は
 
-  return <code>false</code>. If <code>n</code> is a number, then
-  <code>boolean(0)</code> will return <code>false</code>
+  <code>false</code>を返します。<code>n</code>が数値の場合、<code>boolean(0)</code>は<code>false</code>を返し、
 
-  and every other numeric value will return <code>true</code>. If an array is
-  passed, as
+  それ以外の数値はすべて<code>true</code>を返します。配列が渡された場合、
 
-  <code>in boolean([0, 1, 'true', 'blue'])</code>, then an array of Boolean
-  values will
+  <code>boolean([0, 1, 'true', 'blue'])</code>のように、Boolean値の配列が
 
-  be returned.</p>
+  返されます。</p>
 line: 341
 isConstructor: false
 itemtype: method
@@ -39,23 +32,23 @@ example:
 
       background(200);
 
-      // Create a number variable.
+      // 数値変数を作成します。
       let original = 0;
 
-      // Convert the number to a Boolean value.
+      // 数値をBoolean値に変換します。
       let converted = boolean(original);
 
-      // Style the circle based on the converted value.
+      // 変換された値に基づいて円のスタイルを設定します。
       if (converted === true) {
         fill('blue');
       } else {
         fill('red');
       }
 
-      // Draw the circle.
+      // 円を描画します。
       circle(50, 50, 40);
 
-      describe('A red circle on a gray background.');
+      describe('灰色の背景に赤い円。');
     }
     </code>
     </div>
@@ -67,23 +60,23 @@ example:
 
       background(200);
 
-      // Create a string variable.
+      // 文字列変数を作成します。
       let original = 'true';
 
-      // Convert the string to a Boolean value.
+      // 文字列をBoolean値に変換します。
       let converted = boolean(original);
 
-      // Style the circle based on the converted value.
+      // 変換された値に基づいて円のスタイルを設定します。
       if (converted === true) {
         fill('blue');
       } else {
         fill('red');
       }
 
-      // Draw the circle.
+      // 円を描画します。
       circle(50, 50, 40);
 
-      describe('A blue circle on a gray background.');
+      describe('灰色の背景に青い円。');
     }
     </code>
     </div>
@@ -95,60 +88,61 @@ example:
 
       background(200);
 
-      // Create an array of values.
+      // 値の配列を作成します。
       let original = [0, 'hi', 123, 'true'];
 
-      // Convert the array to a Boolean values.
+      // 配列をBoolean値に変換します。
       let converted = boolean(original);
 
-      // Iterate over the array of converted Boolean values.
+      // 変換されたBoolean値の配列を反復処理します。
       for (let i = 0; i < converted.length; i += 1) {
 
-        // Style the circle based on the converted value.
+        // 変換された値に基づいて円のスタイルを設定します。
         if (converted[i] === true) {
           fill('blue');
         } else {
           fill('red');
         }
 
-        // Calculate the x-coordinate.
+        // x座標を計算します。
         let x = (i + 1) * 20;
 
-        // Draw the circle.
+        // 円を描画します。
         circle(x, 50, 15);
       }
 
       describe(
-        'A row of circles on a gray background. The two circles on the left are red and the two on the right are blue.'
+        '灰色の背景に円の列。左の2つの円は赤で、右の2つの円は青。'
       );
     }
     </code>
     </div>
 class: p5
 return:
-  description: converted Boolean value.
+  description: 変換されたBoolean値。
   type: Boolean
 overloads:
   - line: 341
     params:
       - name: 'n'
         description: |
-          <p>value to convert.</p>
+          <p>変換する値。</p>
         type: String|Boolean|Number
     return:
-      description: converted Boolean value.
+      description: 変換されたBoolean値。
       type: Boolean
   - line: 451
     params:
       - name: ns
         description: |
-          <p>values to convert.</p>
+          <p>変換する値。</p>
         type: Array
     return:
-      description: converted Boolean values.
+      description: 変換されたBoolean値。
       type: 'Boolean[]'
 chainable: false
 ---
 
 
 # boolean
+

@@ -4,36 +4,32 @@ module: IO
 submodule: Input
 file: src/io/files.js
 description: >
-  <p>Reads the contents of a file or URL and creates a <a
-  href="/reference/p5/p5.Table">p5.Table</a> object with
+  <p>ファイルまたはURLの内容を読み込み、その値で<a
+  href="/reference/p5/p5.Table">p5.Table</a>オブジェクトを作成します。
 
-  its values. If a file is specified, it must be located in the sketch's
+  ファイルが指定された場合、スケッチの「data」フォルダに配置されている必要があります。
 
-  "data" folder. The filename parameter can also be a URL to a file found
+  filenameパラメータには、オンラインで見つかるファイルへのURLも指定できます。
 
-  online. By default, the file is assumed to be comma-separated (in CSV
+  デフォルトでは、ファイルはカンマ区切り（CSV形式）であると想定されます。
 
-  format). Table only looks for a header row if the 'header' option is
+  'header'オプションが含まれている場合のみ、Tableはヘッダー行を探します。</p>
 
-  included.</p>
+  <p>このメソッドは非同期であり、スケッチの次の行が実行される前に
 
-  <p>This method is asynchronous, meaning it may not finish before the next
+  完了しない可能性があります。<a href="/reference/p5/preload/">preload()</a>内で
 
-  line in your sketch is executed. Calling <a
-  href="/reference/p5/loadTable/">loadTable()</a> inside <a
-  href="/reference/p5/preload/">preload()</a>
+  <a href="/reference/p5/loadTable/">loadTable()</a>を呼び出すことで、
 
-  guarantees to complete the operation before <a
-  href="/reference/p5/setup/">setup()</a> and <a
-  href="/reference/p5/draw/">draw()</a> are called.
+  <a href="/reference/p5/setup/">setup()</a>と<a href="/reference/p5/draw/">draw()</a>が呼び出される前に
 
-  Outside of <a href="/reference/p5/preload/">preload()</a>, you may supply a
-  callback function to handle the
+  操作が完了することが保証されます。
 
-  object:</p>
+  <a href="/reference/p5/preload/">preload()</a>の外部では、オブジェクトを処理するために
 
-  <p>All files loaded and saved use UTF-8 encoding. This method is suitable for
-  fetching files up to size of 64MB.</p>
+  コールバック関数を提供することができます：</p>
+
+  <p>読み込まれて保存されるすべてのファイルはUTF-8エンコーディングを使用します。このメソッドは64MBまでのサイズのファイルを取得するのに適しています。</p>
 line: 505
 isConstructor: false
 itemtype: method
@@ -42,8 +38,8 @@ example:
 
     <div class='norender'>
     <code>
-    // Given the following CSV file called "mammals.csv"
-    // located in the project's "assets" folder:
+    // プロジェクトの "assets" フォルダにある
+    // 以下のCSVファイル "mammals.csv" が与えられた場合：
     //
     // id,species,name
     // 0,Capra hircus,Goat
@@ -53,29 +49,29 @@ example:
     let table;
 
     function preload() {
-      //my table is comma separated value "csv"
-      //and has a header specifying the columns labels
+      //私のテーブルはカンマ区切り値 "csv" で
+      //列ラベルを指定するヘッダーがあります
       table = loadTable('/assets/mammals.csv', 'csv', 'header');
-      //the file can be remote
+      //ファイルはリモートでも可能です
       //table = loadTable("http://p5js.org/reference//assets/mammals.csv",
       //                  "csv", "header");
     }
 
     function setup() {
-      //count the columns
-      print(table.getRowCount() + ' total rows in table');
-      print(table.getColumnCount() + ' total columns in table');
+      //列をカウントします
+      print(table.getRowCount() + ' テーブル内の総行数');
+      print(table.getColumnCount() + ' テーブル内の総列数');
 
       print(table.getColumn('name'));
       //["Goat", "Leopard", "Zebra"]
 
-      //cycle through the table
+      //テーブルを巡回します
       for (let r = 0; r < table.getRowCount(); r++)
         for (let c = 0; c < table.getColumnCount(); c++) {
           print(table.getString(r, c));
         }
-      describe(`randomly generated text from a file,
-        for example "i smell like butter"`);
+      describe(`ファイルからランダムに生成されたテキスト、
+        例えば "私はバターの匂いがする"`);
     }
     </code>
     </div>
@@ -83,39 +79,39 @@ class: p5
 params:
   - name: filename
     description: |
-      <p>name of the file or URL to load</p>
+      <p>読み込むファイルまたはURLの名前</p>
     type: String
   - name: extension
     description: |
-      <p>parse the table by comma-separated values "csv", semicolon-separated
-                                           values "ssv", or tab-separated values "tsv"</p>
+      <p>テーブルをカンマ区切り値 "csv"、セミコロン区切り値 "ssv"、
+                                           またはタブ区切り値 "tsv" で解析します</p>
     type: String
     optional: true
   - name: header
     description: |
-      <p>"header" to indicate table has header row</p>
+      <p>テーブルにヘッダー行があることを示す "header"</p>
     type: String
     optional: true
   - name: callback
     description: |
-      <p>function to be executed after
-                                           <a href="#/p5/loadTable">loadTable()</a> completes. On success, the
-                                           <a href="#/p5.Table">Table</a> object is passed in as the
-                                           first argument.</p>
+      <p><a href="#/p5/loadTable">loadTable()</a>が完了した後に
+                                           実行される関数。成功した場合、
+                                           <a href="#/p5.Table">Table</a>オブジェクトが
+                                           最初の引数として渡されます。</p>
     type: Function
     optional: true
   - name: errorCallback
     description: |
-      <p>function to be executed if
-                                           there is an error, response is passed
-                                           in as first argument</p>
+      <p>エラーがある場合に実行される関数、
+                                           レスポンスが最初の引数として渡されます</p>
     type: Function
     optional: true
 return:
-  description: <a href="#/p5.Table">Table</a> object containing data
+  description: データを含む<a href="#/p5.Table">Table</a>オブジェクト
   type: Object
 chainable: false
 ---
 
 
 # loadTable
+

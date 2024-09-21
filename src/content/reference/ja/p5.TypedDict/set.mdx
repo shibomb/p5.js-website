@@ -4,8 +4,8 @@ module: Data
 submodule: Dictionary
 file: src/data/p5.TypedDict.js
 description: |
-  <p>Updates the value associated with the given key in case it already exists
-  in the Dictionary. Otherwise a new key-value pair is added.</p>
+  <p>既に辞書に存在するキーに関連付けられた値を更新します。
+  キーが存在しない場合は、新しいキーと値のペアが追加されます。</p>
 line: 171
 isConstructor: false
 itemtype: method
@@ -17,7 +17,7 @@ example:
     function setup() {
       let myDictionary = createStringDict('p5', 'js');
       myDictionary.set('p5', 'JS');
-      myDictionary.print(); // logs "key: p5 - value: JS" to console
+      myDictionary.print(); // "key: p5 - value: JS" をコンソールに記録します
     }
     </code></div>
 class: p5.TypedDict
@@ -33,3 +33,4 @@ chainable: false
 
 
 # set
+

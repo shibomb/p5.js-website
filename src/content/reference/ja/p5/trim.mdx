@@ -4,26 +4,22 @@ module: Data
 submodule: String Functions
 file: src/utilities/string_functions.js
 description: >
-  <p>Removes whitespace from the start and end of a <code>String</code> without
-  changing the middle.</p>
+  <p><code>String</code>の先頭と末尾から空白を削除し、中間部分は変更しません。</p>
 
-  <p><code>trim()</code> trims
+  <p><code>trim()</code>は
 
   <a href="https://developer.mozilla.org/en-US/docs/Glossary/whitespace/"
-  target="_blank">whitespace characters</a>
+  target="_blank">空白文字</a>
 
-  such as spaces, carriage returns, tabs, Unicode "nbsp" character.</p>
+  （スペース、キャリッジリターン、タブ、Unicodeの"nbsp"文字など）を削除します。</p>
 
-  <p>The parameter, <code>str</code>, is the string to trim. If a single string
-  is passed,
+  <p>パラメータ<code>str</code>は、トリムする文字列です。単一の文字列が渡された場合
 
-  as in <code>trim('   pad   ')</code>, a single string is returned. If an array
-  of
+  （<code>trim('   pad   ')</code>など）、単一の文字列が返されます。文字列の配列が
 
-  strings is passed, as in <code>trim(['    pad   ', '\n space \n'])</code>, an
-  array of
+  渡された場合（<code>trim(['    pad   ', '\n space \n'])</code>など）、文字列の
 
-  strings is returned.</p>
+  配列が返されます。</p>
 line: 909
 isConstructor: false
 itemtype: method
@@ -37,20 +33,20 @@ example:
 
       background(200);
 
-      // Create a string variable.
+      // 文字列変数を作成します。
       let string = '   p5*js   ';
 
-      // Trim the whitespace.
+      // 空白をトリムします。
       let trimmed = trim(string);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textSize(16);
 
-      // Display the text.
+      // テキストを表示します。
       text(`Hello, ${trimmed}!`, 50, 50);
 
-      describe('The text "Hello, p5*js!" written in black on a gray background.');
+      describe('灰色の背景に黒で書かれた "Hello, p5*js!" というテキスト。');
     }
     </code>
     </div>
@@ -62,49 +58,50 @@ example:
 
       background(200);
 
-      // Create an array of strings.
+      // 文字列の配列を作成します。
       let strings = ['   wide  ', '\n  open  ', '\n spaces  '];
 
-      // Trim the whitespace.
+      // 空白をトリムします。
       let trimmed = trim(strings);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textFont('Courier New');
       textSize(10);
 
-      // Display the text.
+      // テキストを表示します。
       text(`${trimmed[0]} ${trimmed[1]} ${trimmed[2]}`, 50, 50);
 
-      describe('The text "wide open spaces" written in black on a gray background.');
+      describe('灰色の背景に黒で書かれた "wide open spaces" というテキスト。');
     }
     </code>
     </div>
 class: p5
 return:
-  description: trimmed string.
+  description: トリムされた文字列。
   type: String
 overloads:
   - line: 909
     params:
       - name: str
         description: |
-          <p>string to trim.</p>
+          <p>トリムする文字列。</p>
         type: String
     return:
-      description: trimmed string.
+      description: トリムされた文字列。
       type: String
   - line: 977
     params:
       - name: strs
         description: |
-          <p>strings to trim.</p>
+          <p>トリムする文字列。</p>
         type: 'String[]'
     return:
-      description: trimmed strings.
+      description: トリムされた文字列。
       type: 'String[]'
 chainable: false
 ---
 
 
 # trim
+

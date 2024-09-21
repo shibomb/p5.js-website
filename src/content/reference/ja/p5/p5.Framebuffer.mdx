@@ -3,145 +3,96 @@ title: p5.Framebuffer
 module: Rendering
 file: src/webgl/p5.Framebuffer.js
 description: >
-  <p>A class to describe a high-performance drawing surface for textures.</p>
+  <p>テクスチャのための高性能描画サーフェスを記述するクラスです。</p>
 
-  <p>Each <code>p5.Framebuffer</code> object provides a dedicated drawing
-  surface called
+  <p>各 <code>p5.Framebuffer</code> オブジェクトは、<em>フレームバッファ</em>と呼ばれる
+  専用の描画サーフェスを提供します。これらは
+  <a href="/reference/p5/p5.Graphics">p5.Graphics</a> オブジェクトに似ていますが、
+  はるかに高速に動作します。
+  フレームバッファが作成に使用されたキャンバスと同じWebGL
+  コンテキストを共有しているため、パフォーマンスが向上します。</p>
 
-  a <em>framebuffer</em>. They're similar to
+  <p><code>p5.Framebuffer</code> オブジェクトは、メイン
+  キャンバスのすべての描画機能を持っています。フレームバッファ用の描画命令は、
+  <a href="/reference/p5.Framebuffer/begin/">myBuffer.begin()</a> と
+  <a href="/reference/p5.Framebuffer/end/">myBuffer.end()</a> の呼び出しの間に
+  配置する必要があります。結果の画像
+  は、<code>p5.Framebuffer</code> オブジェクトを
+  <a href="/reference/p5/texture/">texture()</a> 関数に渡すことで、
+  テクスチャとして適用できます（例：<code>texture(myBuffer)</code>）。
+  また、<a href="/reference/p5/image/">image()</a> 関数に渡すことで、
+  メインキャンバスに表示することもできます（例：<code>image(myBuffer, 0, 0)</code>）。</p>
 
-  <a href="/reference/p5/p5.Graphics">p5.Graphics</a> objects but can run much
-  faster.
-
-  Performance is improved because the framebuffer shares the same WebGL
-
-  context as the canvas used to create it.</p>
-
-  <p><code>p5.Framebuffer</code> objects have all the drawing features of the
-  main
-
-  canvas. Drawing instructions meant for the framebuffer must be placed
-
-  between calls to
-
-  <a href="/reference/p5.Framebuffer/begin/">myBuffer.begin()</a> and
-
-  <a href="/reference/p5.Framebuffer/end/">myBuffer.end()</a>. The resulting
-  image
-
-  can be applied as a texture by passing the <code>p5.Framebuffer</code> object
-  to the
-
-  <a href="/reference/p5/texture/">texture()</a> function, as in
-  <code>texture(myBuffer)</code>.
-
-  It can also be displayed on the main canvas by passing it to the
-
-  <a href="/reference/p5/image/">image()</a> function, as in
-  <code>image(myBuffer, 0, 0)</code>.</p>
-
-  <p>Note: <a href="/reference/p5/createFramebuffer/">createFramebuffer()</a> is
-  the
-
-  recommended way to create an instance of this class.</p>
+  <p>注意：<a href="/reference/p5/createFramebuffer/">createFramebuffer()</a> が
+  このクラスのインスタンスを作成する推奨される方法です。</p>
 line: 76
 isConstructor: true
 params:
   - name: target
     description: |
-      <p>sketch instance or
+      <p>スケッチインスタンスまたは
                                      <a href="#/p5.Graphics">p5.Graphics</a>
-                                     object.</p>
+                                     オブジェクト。</p>
     type: p5.Graphics|p5
   - name: settings
     description: |
-      <p>configuration options.</p>
+      <p>設定オプション。</p>
     type: Object
     optional: true
 methods:
   resize:
     description: >
-      <p>Resizes the framebuffer to a given width and height.</p>
+      <p>フレームバッファを指定された幅と高さにリサイズします。</p>
 
-      <p>The parameters, <code>width</code> and <code>height</code>, set the
-      dimensions of the
-
-      framebuffer. For example, calling <code>myBuffer.resize(300, 500)</code>
-      resizes
-
-      the framebuffer to 300×500 pixels, then sets <code>myBuffer.width</code>
-      to 300
-
-      and <code>myBuffer.height</code> 500.</p>
+      <p>パラメータ <code>width</code> と <code>height</code> は、フレームバッファの
+      寸法を設定します。例えば、<code>myBuffer.resize(300, 500)</code> を呼び出すと、
+      フレームバッファを300×500ピクセルにリサイズし、その後 <code>myBuffer.width</code>
+      を300に、<code>myBuffer.height</code> を500に設定します。</p>
     path: p5.Framebuffer/resize
   pixelDensity:
     description: >
-      <p>Sets the framebuffer's pixel density or returns its current
-      density.</p>
+      <p>フレームバッファのピクセル密度を設定するか、現在の密度を返します。</p>
 
-      <p>Computer displays are grids of little lights called pixels. A display's
+      <p>コンピューターディスプレイは、ピクセルと呼ばれる小さな光の格子です。ディスプレイの
+      ピクセル密度は、ある領域にどれだけのピクセルが詰め込まれているかを表します。
+      より小さなピクセルを持つディスプレイは、より高いピクセル密度を持ち、より鮮明な
+      画像を作成します。</p>
 
-      pixel density describes how many pixels it packs into an area. Displays
+      <p>パラメータ <code>density</code> はオプションです。数値が渡された場合、
+      例えば <code>myBuffer.pixelDensity(1)</code> のように、フレームバッファのピクセル密度を
+      設定します。デフォルトでは、フレームバッファのピクセル密度は、作成された
+      キャンバスのピクセル密度と一致します。すべてのキャンバスは、デフォルトでディスプレイの
+      ピクセル密度と一致します。</p>
 
-      with smaller pixels have a higher pixel density and create sharper
-
-      images.</p>
-
-      <p>The parameter, <code>density</code>, is optional. If a number is
-      passed, as in
-
-      <code>myBuffer.pixelDensity(1)</code>, it sets the framebuffer's pixel
-      density. By
-
-      default, the framebuffer's pixel density will match that of the canvas
-
-      where it was created. All canvases default to match the display's pixel
-
-      density.</p>
-
-      <p>Calling <code>myBuffer.pixelDensity()</code> without an argument
-      returns its current
-
-      pixel density.</p>
+      <p>引数なしで <code>myBuffer.pixelDensity()</code> を呼び出すと、現在の
+      ピクセル密度を返します。</p>
     path: p5.Framebuffer/pixelDensity
   autoSized:
     description: >
-      <p>Toggles the framebuffer's autosizing mode or returns the current
-      mode.</p>
+      <p>フレームバッファの自動サイズ調整モードを切り替えるか、現在のモードを返します。</p>
 
-      <p>By default, the framebuffer automatically resizes to match the canvas
+      <p>デフォルトでは、フレームバッファは自動的にサイズを調整して、作成した
+      キャンバスに合わせます。<code>myBuffer.autoSized(false)</code> を呼び出すと
+      この動作を無効にし、<code>myBuffer.autoSized(true)</code> を呼び出すと
+      再び有効にします。</p>
 
-      that created it. Calling <code>myBuffer.autoSized(false)</code> disables
-      this
-
-      behavior and calling <code>myBuffer.autoSized(true)</code> re-enables
-      it.</p>
-
-      <p>Calling <code>myBuffer.autoSized()</code> without an argument returns
-      <code>true</code> if
-
-      the framebuffer automatically resizes and <code>false</code> if not.</p>
+      <p>引数なしで <code>myBuffer.autoSized()</code> を呼び出すと、フレームバッファが
+      自動的にサイズ調整される場合は <code>true</code> を、そうでない場合は <code>false</code> を返します。</p>
     path: p5.Framebuffer/autoSized
   createCamera:
     description: >
-      <p>Creates a new
+      <p>フレームバッファで使用する新しい
+      <a href="/reference/p5/p5.Camera">p5.Camera</a> オブジェクトを作成します。</p>
 
-      <a href="/reference/p5/p5.Camera">p5.Camera</a> object to use with the
-      framebuffer.</p>
+      <p>新しいカメラは、デフォルトの位置 <code>(0, 0, 800)</code> と
+      デフォルトの透視投影で初期化されます。その属性は
+      <a href="/reference/p5/p5.Camera">p5.Camera</a> メソッド（例：<code>myCamera.lookAt(0, 0, 0)</code>）
+      で制御できます。</p>
 
-      <p>The new camera is initialized with a default position <code>(0, 0,
-      800)</code> and a
-
-      default perspective projection. Its properties can be controlled with
-
-      <a href="/reference/p5/p5.Camera">p5.Camera</a> methods such as
-      <code>myCamera.lookAt(0, 0, 0)</code>.</p>
-
-      <p>Framebuffer cameras should be created between calls to
-
-      <a href="/reference/p5.Framebuffer/begin/">myBuffer.begin()</a> and
-
-      <a href="/reference/p5.Framebuffer/end/">myBuffer.end()</a> like so:</p>
+      <p>フレームバッファのカメラは、
+      <a href="/reference/p5.Framebuffer/begin/">myBuffer.begin()</a> と
+      <a href="/reference/p5.Framebuffer/end/">myBuffer.end()</a> の呼び出しの間に
+      作成する必要があります：</p>
 
       <pre><code class="language-js">let myCamera;
 
@@ -149,8 +100,7 @@ methods:
       myBuffer.begin();
 
 
-      // Create the camera for the framebuffer.
-
+      // フレームバッファ用のカメラを作成します。
       myCamera = myBuffer.createCamera();
 
 
@@ -158,29 +108,23 @@ methods:
 
       </code></pre>
 
-      <p>Calling <a href="/reference/p5/setCamera/">setCamera()</a> updates the
-
-      framebuffer's projection using the camera.
-
-      <a href="/reference/p5/resetMatrix/">resetMatrix()</a> must also be called
-      for the
-
-      view to change properly:</p>
+      <p><a href="/reference/p5/setCamera/">setCamera()</a> を呼び出すと、
+      カメラを使用してフレームバッファの投影を更新します。
+      ビューを適切に変更するには、<a href="/reference/p5/resetMatrix/">resetMatrix()</a>
+      も呼び出す必要があります：</p>
 
       <pre><code class="language-js">myBuffer.begin();
 
 
-      // Set the camera for the framebuffer.
-
+      // フレームバッファ用のカメラを設定します。
       setCamera(myCamera);
 
 
-      // Reset all transformations.
-
+      // すべての変換をリセットします。
       resetMatrix();
 
 
-      // Draw stuff...
+      // 何かを描画します...
 
 
       myBuffer.end();
@@ -189,252 +133,158 @@ methods:
     path: p5.Framebuffer/createCamera
   remove:
     description: >
-      <p>Deletes the framebuffer from GPU memory.</p>
+      <p>フレームバッファをGPUメモリから削除します。</p>
 
-      <p>Calling <code>myBuffer.remove()</code> frees the GPU memory used by the
-      framebuffer.
+      <p><code>myBuffer.remove()</code> を呼び出すと、フレームバッファが使用していた
+      GPUメモリを解放します。フレームバッファはCPU上でも少量のメモリを使用しており、
+      これは以下のように解放できます：</p>
 
-      The framebuffer also uses a bit of memory on the CPU which can be freed
-
-      like so:</p>
-
-      <pre><code class="language-js">// Delete the framebuffer from GPU memory.
-
+      <pre><code class="language-js">// フレームバッファをGPUメモリから削除します。
       myBuffer.remove();
 
 
-      // Delete the framebuffer from CPU memory.
-
+      // フレームバッファをCPUメモリから削除します。
       myBuffer = undefined;
 
       </code></pre>
 
-      <p>Note: All variables that reference the framebuffer must be assigned
-
-      the value <code>undefined</code> to delete the framebuffer from CPU
-      memory. If any
-
-      variable still refers to the framebuffer, then it won't be garbage
-
-      collected.</p>
+      <p>注意：フレームバッファをCPUメモリから削除するには、フレームバッファを
+      参照するすべての変数に <code>undefined</code> 値を割り当てる必要があります。
+      変数がまだフレームバッファを参照している場合、ガベージコレクションの
+      対象にはなりません。</p>
     path: p5.Framebuffer/remove
   begin:
     description: >
-      <p>Begins drawing shapes to the framebuffer.</p>
+      <p>フレームバッファへの図形の描画を開始します。</p>
 
-      <p><code>myBuffer.begin()</code> and <a
-      href="/reference/p5.Framebuffer/end/">myBuffer.end()</a>
-
-      allow shapes to be drawn to the framebuffer. <code>myBuffer.begin()</code>
-      begins
-
-      drawing to the framebuffer and
-
-      <a href="/reference/p5.Framebuffer/end/">myBuffer.end()</a> stops drawing
-      to the
-
-      framebuffer. Changes won't be visible until the framebuffer is displayed
-
-      as an image or texture.</p>
+      <p><code>myBuffer.begin()</code> と <a href="/reference/p5.Framebuffer/end/">myBuffer.end()</a>
+      を使用すると、フレームバッファに図形を描画できます。<code>myBuffer.begin()</code> は
+      フレームバッファへの描画を開始し、
+      <a href="/reference/p5.Framebuffer/end/">myBuffer.end()</a> はフレームバッファへの
+      描画を停止します。変更は、フレームバッファが画像またはテクスチャとして
+      表示されるまで見えません。</p>
     path: p5.Framebuffer/begin
   end:
     description: >
-      <p>Stops drawing shapes to the framebuffer.</p>
+      <p>フレームバッファへの図形の描画を停止します。</p>
 
-      <p><a href="/reference/p5.Framebuffer/begin/">myBuffer.begin()</a> and
-      <code>myBuffer.end()</code>
-
-      allow shapes to be drawn to the framebuffer.
-
-      <a href="/reference/p5.Framebuffer/begin/">myBuffer.begin()</a> begins
-      drawing to
-
-      the framebuffer and <code>myBuffer.end()</code> stops drawing to the
-      framebuffer.
-
-      Changes won't be visible until the framebuffer is displayed as an image
-
-      or texture.</p>
+      <p><a href="/reference/p5.Framebuffer/begin/">myBuffer.begin()</a> と <code>myBuffer.end()</code>
+      を使用すると、フレームバッファに図形を描画できます。
+      <a href="/reference/p5.Framebuffer/begin/">myBuffer.begin()</a> は
+      フレームバッファへの描画を開始し、<code>myBuffer.end()</code> はフレームバッファへの
+      描画を停止します。変更は、フレームバッファが画像または
+      テクスチャとして表示されるまで見えません。</p>
     path: p5.Framebuffer/end
   draw:
     description: >
-      <p>Draws to the framebuffer by calling a function that contains drawing
+      <p>描画命令を含む関数を呼び出してフレームバッファに描画します。</p>
 
-      instructions.</p>
-
-      <p>The parameter, <code>callback</code>, is a function with the drawing
-      instructions
-
-      for the framebuffer. For example, calling
-      <code>myBuffer.draw(myFunction)</code>
-
-      will call a function named <code>myFunction()</code> to draw to the
-      framebuffer.
-
-      Doing so has the same effect as the following:</p>
+      <p>パラメータ <code>callback</code> は、フレームバッファの描画命令を
+      含む関数です。例えば、<code>myBuffer.draw(myFunction)</code> を呼び出すと、
+      <code>myFunction()</code> という名前の関数を呼び出してフレームバッファに
+      描画します。これは以下と同じ効果があります：</p>
 
       <pre><code class="language-js">myBuffer.begin();
-
       myFunction();
-
       myBuffer.end();
-
       </code></pre>
     path: p5.Framebuffer/draw
   loadPixels:
     description: >
-      <p>Loads the current value of each pixel in the framebuffer into its
+      <p>フレームバッファ内の各ピクセルの現在の値を
+      <a href="/reference/p5.Framebuffer/pixels/">pixels</a> 配列に読み込みます。</p>
 
-      <a href="/reference/p5.Framebuffer/pixels/">pixels</a> array.</p>
-
-      <p><code>myBuffer.loadPixels()</code> must be called before reading from
-      or writing to
-
-      <a href="/reference/p5.Framebuffer/pixels/">myBuffer.pixels</a>.</p>
+      <p><code>myBuffer.loadPixels()</code> は、
+      <a href="/reference/p5.Framebuffer/pixels/">myBuffer.pixels</a> から読み取りまたは
+      書き込みを行う前に呼び出す必要があります。</p>
     path: p5.Framebuffer/loadPixels
   get:
     description: >
-      <p>Gets a pixel or a region of pixels from the framebuffer.</p>
+      <p>フレームバッファからピクセルまたはピクセル領域を取得します。</p>
 
-      <p><code>myBuffer.get()</code> is easy to use but it's not as fast as
+      <p><code>myBuffer.get()</code> は使いやすいですが、
+      <a href="/reference/p5.Framebuffer/pixels/">myBuffer.pixels</a> ほど
+      高速ではありません。多くのピクセル値を読み取るには
+      <a href="/reference/p5.Framebuffer/pixels/">myBuffer.pixels</a> を
+      使用してください。</p>
 
-      <a href="/reference/p5.Framebuffer/pixels/">myBuffer.pixels</a>. Use
+      <p>パラメータなしの <code>myBuffer.get()</code> バージョンは、フレームバッファ全体を
+      <a href="/reference/p5/p5.Image">p5.Image</a> オブジェクトとして返します。</p>
 
-      <a href="/reference/p5.Framebuffer/pixels/">myBuffer.pixels</a> to read
-      many pixel
+      <p>2つのパラメータを持つ <code>myBuffer.get()</code> バージョンは、それらを
+      座標として解釈します。指定された点のピクセルの <code>[R, G, B, A]</code> 値を
+      含む配列を返します。</p>
 
-      values.</p>
-
-      <p>The version of <code>myBuffer.get()</code> with no parameters returns
-      the entire
-
-      framebuffer as a a <a href="/reference/p5/p5.Image">p5.Image</a>
-      object.</p>
-
-      <p>The version of <code>myBuffer.get()</code> with two parameters
-      interprets them as
-
-      coordinates. It returns an array with the <code>[R, G, B, A]</code> values
-      of the
-
-      pixel at the given point.</p>
-
-      <p>The version of <code>myBuffer.get()</code> with four parameters
-      interprets them as
-
-      coordinates and dimensions. It returns a subsection of the framebuffer as
-
-      a <a href="/reference/p5/p5.Image">p5.Image</a> object. The first two
-      parameters are
-
-      the coordinates for the upper-left corner of the subsection. The last two
-
-      parameters are the width and height of the subsection.</p>
+      <p>4つのパラメータを持つ <code>myBuffer.get()</code> バージョンは、それらを
+      座標と寸法として解釈します。フレームバッファのサブセクションを
+      <a href="/reference/p5/p5.Image">p5.Image</a> オブジェクトとして返します。最初の2つの
+      パラメータはサブセクションの左上隅の座標です。最後の2つの
+      パラメータはサブセクションの幅と高さです。</p>
     path: p5.Framebuffer/get
   updatePixels:
     description: >
-      <p>Updates the framebuffer with the RGBA values in the
+      <p><a href="/reference/p5.Framebuffer/pixels/">pixels</a> 配列のRGBA値で
+      フレームバッファを更新します。</p>
 
-      <a href="/reference/p5.Framebuffer/pixels/">pixels</a> array.</p>
-
-      <p><code>myBuffer.updatePixels()</code> only needs to be called after
-      changing values
-
-      in the <a href="/reference/p5.Framebuffer/pixels/">myBuffer.pixels</a>
-      array. Such
-
-      changes can be made directly after calling
-
-      <a
-      href="/reference/p5.Framebuffer/loadPixels/">myBuffer.loadPixels()</a>.</p>
+      <p><code>myBuffer.updatePixels()</code> は、
+      <a href="/reference/p5.Framebuffer/pixels/">myBuffer.pixels</a> 配列の値を
+      変更した後にのみ呼び出す必要があります。このような変更は、
+      <a href="/reference/p5.Framebuffer/loadPixels/">myBuffer.loadPixels()</a>
+      を呼び出した直後に直接行うことができます。</p>
     path: p5.Framebuffer/updatePixels
 properties:
   pixels:
     description: >
-      <p>An array containing the color of each pixel in the framebuffer.</p>
+      <p>フレームバッファ内の各ピクセルの色を含む配列です。</p>
 
-      <p><a
-      href="/reference/p5.Framebuffer/loadPixels/">myBuffer.loadPixels()</a>
-      must be
+      <p><a href="/reference/p5.Framebuffer/loadPixels/">myBuffer.loadPixels()</a>
+      は <code>myBuffer.pixels</code> 配列にアクセスする前に
+      呼び出す必要があります。
+      <a href="/reference/p5.Framebuffer/updatePixels/">myBuffer.updatePixels()</a>
+      は変更を加えた後に呼び出す必要があります。</p>
 
-      called before accessing the <code>myBuffer.pixels</code> array.
-
-      <a
-      href="/reference/p5.Framebuffer/updatePixels/">myBuffer.updatePixels()</a>
-
-      must be called after any changes are made.</p>
-
-      <p>Note: Updating pixels via this property is slower than drawing to the
-
-      framebuffer directly. Consider using a
-
-      <a href="/reference/p5/p5.Shader">p5.Shader</a> object instead of looping
-      over
-
-      <code>myBuffer.pixels</code>.</p>
+      <p>注意：このプロパティを介してピクセルを更新することは、フレームバッファに
+      直接描画するよりも遅くなります。<code>myBuffer.pixels</code> をループする代わりに
+      <a href="/reference/p5/p5.Shader">p5.Shader</a> オブジェクトの使用を
+      検討してください。</p>
     path: p5.Framebuffer/pixels
   color:
     description: >
-      <p>An object that stores the framebuffer's color data.</p>
+      <p>フレームバッファの色データを格納するオブジェクトです。</p>
 
-      <p>Each framebuffer uses a
+      <p>各フレームバッファは内部で
+      <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGLTexture/" target="_blank">WebGLTexture</a>
+      オブジェクトを使用して色データを格納します。<code>myBuffer.color</code> プロパティ
+      を使用すると、このデータを他の関数に直接渡すことができます。
+      例えば、<code>texture(myBuffer.color)</code> や
+      <code>myShader.setUniform('colorTexture', myBuffer.color)</code> を呼び出すことは、
+      高度な使用例で役立つかもしれません。</p>
 
-      <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGLTexture/"
-      target="_blank">WebGLTexture</a>
-
-      object internally to store its color data. The <code>myBuffer.color</code>
-      property
-
-      makes it possible to pass this data directly to other functions. For
-
-      example, calling <code>texture(myBuffer.color)</code> or
-
-      <code>myShader.setUniform('colorTexture', myBuffer.color)</code>  may be
-      helpful for
-
-      advanced use cases.</p>
-
-      <p>Note: By default, a framebuffer's y-coordinates are flipped compared to
-
-      images and videos. It's easy to flip a framebuffer's y-coordinates as
-
-      needed when applying it as a texture. For example, calling
-
-      <code>plane(myBuffer.width, -myBuffer.height)</code> will flip the
-      framebuffer.</p>
+      <p>注意：デフォルトでは、フレームバッファのy座標は画像やビデオと比べて
+      反転しています。必要に応じてフレームバッファのy座標を反転させるのは
+      簡単です。例えば、<code>plane(myBuffer.width, -myBuffer.height)</code> を
+      呼び出すとフレームバッファが反転します。</p>
     path: p5.Framebuffer/color
   depth:
     description: >
-      <p>An object that stores the framebuffer's dpeth data.</p>
+      <p>フレームバッファの深度データを格納するオブジェクトです。</p>
 
-      <p>Each framebuffer uses a
+      <p>各フレームバッファは内部で
+      <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGLTexture/" target="_blank">WebGLTexture</a>
+      オブジェクトを使用して深度データを格納します。<code>myBuffer.depth</code> プロパティ
+      を使用すると、このデータを他の関数に直接渡すことができます。
+      例えば、<code>texture(myBuffer.depth)</code> や
+      <code>myShader.setUniform('depthTexture', myBuffer.depth)</code> を呼び出すことは、
+      高度な使用例で役立つかもしれません。</p>
 
-      <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGLTexture/"
-      target="_blank">WebGLTexture</a>
-
-      object internally to store its depth data. The <code>myBuffer.depth</code>
-      property
-
-      makes it possible to pass this data directly to other functions. For
-
-      example, calling <code>texture(myBuffer.depth)</code> or
-
-      <code>myShader.setUniform('depthTexture', myBuffer.depth)</code>  may be
-      helpful for
-
-      advanced use cases.</p>
-
-      <p>Note: By default, a framebuffer's y-coordinates are flipped compared to
-
-      images and videos. It's easy to flip a framebuffer's y-coordinates as
-
-      needed when applying it as a texture. For example, calling
-
-      <code>plane(myBuffer.width, -myBuffer.height)</code> will flip the
-      framebuffer.</p>
+      <p>注意：デフォルトでは、フレームバッファのy座標は画像やビデオと比べて
+      反転しています。必要に応じてフレームバッファのy座標を反転させるのは
+      簡単です。例えば、<code>plane(myBuffer.width, -myBuffer.height)</code> を
+      呼び出すとフレームバッファが反転します。</p>
     path: p5.Framebuffer/depth
 chainable: false
 ---
 
 
 # p5.Framebuffer
+

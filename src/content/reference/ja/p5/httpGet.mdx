@@ -4,16 +4,16 @@ module: IO
 submodule: Input
 file: src/io/files.js
 description: >
-  <p>Method for executing an HTTP GET request. If data type is not specified,
+  <p>HTTP GETリクエストを実行するためのメソッドです。
+  データ型が指定されていない場合、
 
-  p5 will try to guess based on the URL, defaulting to text. This is equivalent
-  to
+  p5はURLに基づいて推測を試み、デフォルトではテキストになります。これは
 
-  calling <code>httpDo(path, 'GET')</code>. The 'binary' datatype will return
+  <code>httpDo(path, 'GET')</code>を呼び出すのと同等です。'binary'データ型は
 
-  a Blob object, and the 'arrayBuffer' datatype will return an ArrayBuffer
+  Blobオブジェクトを返し、'arrayBuffer'データ型は型付き配列（Uint8Arrayなど）の
 
-  which can be used to initialize typed arrays (such as Uint8Array).</p>
+  初期化に使用できるArrayBufferを返します。</p>
 line: 1043
 isConstructor: false
 itemtype: method
@@ -21,28 +21,27 @@ example:
   - |-
 
     <div class='norender'><code>
-    // Examples use USGS Earthquake API:
+    // 例ではUSGS地震APIを使用しています：
     //   https://earthquake.usgs.gov/fdsnws/event/1/#methods
     let earthquakes;
     function preload() {
-      // Get the most recent earthquake in the database
+      // データベース内の最新の地震を取得
       let url =
        'https://earthquake.usgs.gov/fdsnws/event/1/query?' +
         'format=geojson&limit=1&orderby=time';
       httpGet(url, 'jsonp', false, function(response) {
-        // when the HTTP request completes, populate the variable that holds the
-        // earthquake data used in the visualization.
+        // HTTPリクエストが完了したら、視覚化に使用される地震データを保持する変数に値を設定します。
         earthquakes = response;
       });
     }
 
     function draw() {
       if (!earthquakes) {
-        // Wait until the earthquake data has loaded before drawing.
+        // 地震データが読み込まれるまで描画を待機します。
         return;
       }
       background(200);
-      // Get the magnitude and name of the earthquake out of the loaded JSON
+      // 読み込まれたJSONから地震のマグニチュードと名前を取得
       let earthquakeMag = earthquakes.features[0].properties.mag;
       let earthquakeName = earthquakes.features[0].properties.place;
       ellipse(width / 2, height / 2, earthquakeMag * 10, earthquakeMag * 10);
@@ -54,47 +53,43 @@ example:
 class: p5
 return:
   description: |-
-    A promise that resolves with the data when the operation
-                      completes successfully or rejects with the error after
-                      one occurs.
+    操作が正常に完了したときにデータで解決するか、
+                      エラーが発生した後に拒否するPromise。
   type: Promise
 overloads:
   - line: 1043
     params:
       - name: path
         description: |
-          <p>name of the file or url to load</p>
+          <p>読み込むファイルまたはURLの名前</p>
         type: String
       - name: datatype
         description: |
-          <p>"json", "jsonp", "binary", "arrayBuffer",
-                                             "xml", or "text"</p>
+          <p>"json"、"jsonp"、"binary"、"arrayBuffer"、
+                                             "xml"、または"text"</p>
         type: String
         optional: true
       - name: data
         description: |
-          <p>param data passed sent with request</p>
+          <p>リクエストと共に送信されるパラメータデータ</p>
         type: Object|Boolean
         optional: true
       - name: callback
         description: |
-          <p>function to be executed after
-                                             <a href="#/p5/httpGet">httpGet()</a> completes, data is passed in
-                                             as first argument</p>
+          <p><a href="#/p5/httpGet">httpGet()</a>が完了した後に実行される関数、
+                                             データは最初の引数として渡されます</p>
         type: Function
         optional: true
       - name: errorCallback
         description: |
-          <p>function to be executed if
-                                             there is an error, response is passed
-                                             in as first argument</p>
+          <p>エラーがある場合に実行される関数、
+                                             レスポンスは最初の引数として渡されます</p>
         type: Function
         optional: true
     return:
       description: |-
-        A promise that resolves with the data when the operation
-                          completes successfully or rejects with the error after
-                          one occurs.
+        操作が正常に完了したときにデータで解決するか、
+                          エラーが発生した後に拒否するPromise。
       type: Promise
   - line: 1097
     params:
@@ -135,3 +130,4 @@ chainable: false
 
 
 # httpGet
+

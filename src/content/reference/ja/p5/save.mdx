@@ -4,36 +4,29 @@ module: IO
 submodule: Output
 file: src/io/files.js
 description: >
-  <p>Saves a given element(image, text, json, csv, wav, or html) to the client's
+  <p>指定された要素（画像、テキスト、JSON、CSV、WAV、またはHTML）をクライアントの
 
-  computer. The first parameter can be a pointer to element we want to save.
+  コンピュータに保存します。最初のパラメータは、保存したい要素へのポインタです。
 
-  The element can be one of <a href="/reference/p5/p5.Element">p5.Element</a>,an
-  Array of
+  要素は<a href="/reference/p5/p5.Element">p5.Element</a>、文字列の配列、
 
-  Strings, an Array of JSON, a JSON object, a <a
-  href="/reference/p5/p5.Table">p5.Table
+  JSONの配列、JSONオブジェクト、<a href="/reference/p5/p5.Table">p5.Table
 
-  </a>, a <a href="/reference/p5/p5.Image">p5.Image</a>, or a p5.SoundFile
-  (requires
+  </a>、<a href="/reference/p5/p5.Image">p5.Image</a>、またはp5.SoundFile（p5.sound
 
-  p5.sound). The second parameter is a filename (including extension).The
+  が必要）のいずれかです。2番目のパラメータはファイル名（拡張子を含む）です。
 
-  third parameter is for options specific to this type of object. This method
+  3番目のパラメータは、この種類のオブジェクトに特有のオプションです。このメソッドは
 
-  will save a file that fits the given parameters.
+  指定されたパラメータに合うファイルを保存します。
 
-  If it is called without specifying an element, by default it will save the
+  要素を指定せずに呼び出された場合、デフォルトでキャンバス全体を画像ファイルとして
 
-  whole canvas as an image file. You can optionally specify a filename as
+  保存します。そのような場合、最初のパラメータとしてファイル名を任意で指定できます。
 
-  the first parameter in such a case.
+  <strong>draw内でこのメソッドを呼び出すことは推奨されません。
 
-  <strong>Note that it is not recommended to
-
-  call this method within draw, as it will open a new save dialog on every
-
-  render.</strong></p>
+  レンダリングのたびに新しい保存ダイアログが開くためです。</strong></p>
 line: 1835
 isConstructor: false
 itemtype: method
@@ -41,93 +34,89 @@ example:
   - |2-
 
      <div class="norender"><code>
-     // Saves the canvas as an image
+     // キャンバスを画像として保存
      cnv = createCanvas(300, 300);
      save(cnv, 'myCanvas.jpg');
 
-     // Saves the canvas as an image by default
+     // デフォルトでキャンバスを画像として保存
      save('myCanvas.jpg');
-     describe('An example for saving a canvas as an image.');
+     describe('キャンバスを画像として保存する例。');
      </code></div>
 
      <div class="norender"><code>
-     // Saves p5.Image as an image
+     // p5.Imageを画像として保存
      img = createImage(10, 10);
      save(img, 'myImage.png');
-     describe('An example for saving a p5.Image element as an image.');
+     describe('p5.Image要素を画像として保存する例。');
      </code></div>
 
      <div class="norender"><code>
-     // Saves p5.Renderer object as an image
+     // p5.Rendererオブジェクトを画像として保存
      obj = createGraphics(100, 100);
      save(obj, 'myObject.png');
-     describe('An example for saving a p5.Renderer element.');
+     describe('p5.Renderer要素を保存する例。');
      </code></div>
 
      <div class="norender"><code>
      let myTable = new p5.Table();
-     // Saves table as html file
+     // テーブルをHTMLファイルとして保存
      save(myTable, 'myTable.html');
 
-     // Comma Separated Values
+     // カンマ区切り値
      save(myTable, 'myTable.csv');
 
-     // Tab Separated Values
+     // タブ区切り値
      save(myTable, 'myTable.tsv');
 
-     describe(`An example showing how to save a table in formats of
-     HTML, CSV and TSV.`);
+     describe(`テーブルをHTML、CSV、TSV形式で保存する例。`);
      </code></div>
 
      <div class="norender"><code>
      let myJSON = { a: 1, b: true };
 
-     // Saves pretty JSON
+     // 整形されたJSONを保存
      save(myJSON, 'my.json');
 
-     // Optimizes JSON filesize
+     // JSONのファイルサイズを最適化
      save(myJSON, 'my.json', true);
 
-     describe('An example for saving JSON to a txt file with some extra arguments.');
+     describe('JSONをテキストファイルに保存する例（追加の引数あり）。');
      </code></div>
 
      <div class="norender"><code>
-     // Saves array of strings to text file with line breaks after each item
+     // 文字列の配列を各項目の後に改行を入れてテキストファイルに保存
      let arrayOfStrings = ['a', 'b'];
      save(arrayOfStrings, 'my.txt');
-     describe(`An example for saving an array of strings to text file
-     with line breaks.`);
+     describe(`文字列の配列を改行付きでテキストファイルに保存する例。`);
      </code></div>
 class: p5
 params:
   - name: objectOrFilename
     description: |
-      <p>If filename is provided, will
-                                                 save canvas as an image with
-                                                 either png or jpg extension
-                                                 depending on the filename.
-                                                 If object is provided, will
-                                                 save depending on the object
-                                                 and filename (see examples
-                                                 above).</p>
+      <p>ファイル名が提供された場合、キャンバスを
+                                                 ファイル名に応じてpngまたはjpg
+                                                 拡張子の画像として保存します。
+                                                 オブジェクトが提供された場合、
+                                                 オブジェクトとファイル名に応じて
+                                                 保存します（上記の例を参照）。</p>
     type: Object|String
     optional: true
   - name: filename
     description: |
-      <p>If an object is provided as the first
-                                   parameter, then the second parameter
-                                   indicates the filename,
-                                   and should include an appropriate
-                                   file extension (see examples above).</p>
+      <p>最初のパラメータとしてオブジェクトが
+                                   提供された場合、2番目のパラメータは
+                                   ファイル名を示し、適切な
+                                   ファイル拡張子を含める必要があります
+                                   （上記の例を参照）。</p>
     type: String
     optional: true
   - name: options
     description: |
-      <p>Additional options depend on
-                                filetype. For example, when saving JSON,
-                                <code>true</code> indicates that the
-                                output will be optimized for filesize,
-                                rather than readability.</p>
+      <p>追加のオプションはファイルタイプに
+                                依存します。例えば、JSONを保存する際、
+                                <code>true</code>は出力が読みやすさよりも
+                                ファイルサイズに最適化されることを
+                                示します。</p>
     type: Boolean|String
     optional: true
 chainable: false
@@ -135,3 +124,4 @@ chainable: false
 
 
 # save
+

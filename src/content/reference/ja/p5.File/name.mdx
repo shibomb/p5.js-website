@@ -4,7 +4,7 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: |
-  <p>The file name as a string.</p>
+  <p>ファイル名を文字列として表します。</p>
 line: 5681
 isConstructor: false
 itemtype: property
@@ -13,28 +13,28 @@ example:
 
     <div>
     <code>
-    // Use the file input to load a
-    // file and display its info.
+    // ファイル入力を使用して
+    // ファイルを読み込み、その情報を表示します。
 
     function setup() {
       createCanvas(100, 100);
 
       background(200);
 
-      // Create a file input and place it beneath the canvas.
-      // Call displayName() when the file loads.
+      // ファイル入力を作成し、キャンバスの下に配置します。
+      // ファイルが読み込まれたらdisplayName()を呼び出します。
       let input = createFileInput(displayName);
       input.position(0, 100);
 
-      describe('A gray square with a file input beneath it. If the user loads a file, its name is written in black.');
+      describe('グレーの正方形とその下にファイル入力があります。ユーザーがファイルを読み込むと、その名前が黒字で書かれます。');
     }
 
-    // Display the p5.File's name once it loads.
+    // p5.Fileの名前を読み込み後に表示します。
     function displayName(file) {
       background(200);
 
-      // Display the p5.File's name.
-      text(`This is file's name is: ${file.name}`, 10, 10, 80, 80);
+      // p5.Fileの名前を表示します。
+      text(`このファイルの名前は: ${file.name}`, 10, 10, 80, 80);
     }
     </code>
     </div>
@@ -43,3 +43,4 @@ class: p5.File
 
 
 # name
+

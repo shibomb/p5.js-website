@@ -4,10 +4,7 @@ module: IO
 submodule: Input
 file: src/io/p5.XML.js
 description: >
-  <p>Returns the element's parent element as a new <a
-  href="/reference/p5/p5.XML">p5.XML</a>
-
-  object.</p>
+  <p>要素の親要素を新しい <a href="/reference/p5/p5.XML">p5.XML</a> オブジェクトとして返します。</p>
 line: 77
 isConstructor: false
 itemtype: method
@@ -18,7 +15,7 @@ example:
     <code>
     let myXML;
 
-    // Load the XML and create a p5.XML object.
+    // XMLを読み込み、p5.XMLオブジェクトを作成します。
     function preload() {
       myXML = loadXML('/assets/animals.xml');
     }
@@ -28,36 +25,37 @@ example:
 
       background(200);
 
-      // Get an array with all mammal elements.
+      // 全てのmammal要素を含む配列を取得します。
       let mammals = myXML.getChildren('mammal');
 
-      // Get the first mammal element.
+      // 最初のmammal要素を取得します。
       let firstMammal = mammals[0];
 
-      // Get the parent element.
+      // 親要素を取得します。
       let parent = firstMammal.getParent();
 
-      // Get the parent element's name.
+      // 親要素の名前を取得します。
       let name = parent.getName();
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textFont('Courier New');
       textSize(14);
 
-      // Display the parent element's name.
+      // 親要素の名前を表示します。
       text(name, 50, 50);
 
-      describe('The word "animals" written in black on a gray background.');
+      describe('灰色の背景に黒で書かれた"animals"という単語。');
     }
     </code>
     </div>
 class: p5.XML
 return:
-  description: parent element.
+  description: 親要素。
   type: p5.XML
 chainable: false
 ---
 
 
 # getParent
+

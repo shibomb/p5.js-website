@@ -4,28 +4,28 @@ module: Data
 submodule: Array Functions
 file: src/utilities/array_functions.js
 description: >
-  <p>Copies an array (or part of an array) to another array. The src array is
+  <p>配列（または配列の一部）を別の配列にコピーします。
+  src配列は
 
-  copied to the dst array, beginning at the position specified by
+  dst配列にコピーされ、srcPositionで指定された位置から開始し、
 
-  srcPosition and into the position specified by dstPosition. The number of
+  dstPositionで指定された位置に挿入されます。コピーする要素の数は
 
-  elements to copy is determined by length. Note that copying values
+  lengthによって決定されます。コピーした値は
 
-  overwrites existing values in the destination array. To append values
+  コピー先の配列の既存の値を上書きすることに注意してください。値を上書きせずに
 
-  instead of overwriting them, use <a
-  href="/reference/p5/concat/">concat()</a>.</p>
+  追加したい場合は、<a href="/reference/p5/concat/">concat()</a>を使用してください。</p>
 
-  <p>The simplified version with only two arguments, arrayCopy(src, dst),
+  <p>引数が2つだけの簡略版、arrayCopy(src, dst)は、
 
-  copies an entire array to another of the same size. It is equivalent to
+  配列全体を同じサイズの別の配列にコピーします。これは
 
-  arrayCopy(src, 0, dst, 0, src.length).</p>
+  arrayCopy(src, 0, dst, 0, src.length)と同等です。</p>
 
-  <p>Using this function is far more efficient for copying array data than
+  <p>この関数を使用することは、for()ループを使用して各要素を
 
-  iterating through a for() loop and copying each element individually.</p>
+  個別にコピーするよりもはるかに効率的です。</p>
 line: 35
 isConstructor: false
 itemtype: method
@@ -51,23 +51,23 @@ overloads:
     params:
       - name: src
         description: |
-          <p>the source Array</p>
+          <p>ソース配列</p>
         type: Array
       - name: srcPosition
         description: |
-          <p>starting position in the source Array</p>
+          <p>ソース配列の開始位置</p>
         type: Integer
       - name: dst
         description: |
-          <p>the destination Array</p>
+          <p>コピー先の配列</p>
         type: Array
       - name: dstPosition
         description: |
-          <p>starting position in the destination Array</p>
+          <p>コピー先の配列の開始位置</p>
         type: Integer
       - name: length
         description: |
-          <p>number of Array elements to be copied</p>
+          <p>コピーする配列要素の数</p>
         type: Integer
   - line: 73
     params:
@@ -86,3 +86,4 @@ chainable: false
 
 
 # arrayCopy
+

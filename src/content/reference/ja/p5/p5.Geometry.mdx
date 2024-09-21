@@ -4,63 +4,41 @@ module: Shape
 submodule: 3D Primitives
 file: src/webgl/p5.Geometry.js
 description: >
-  <p>A class to describe a 3D shape.</p>
+  <p>3D形状を記述するクラス。</p>
 
-  <p>Each <code>p5.Geometry</code> object represents a 3D shape as a set of
-  connected
+  <p>各<code>p5.Geometry</code>オブジェクトは、<em>頂点</em>と呼ばれる接続された点の集合として
+  3D形状を表現します。すべての3D形状は、頂点を接続して三角形を形成し、
+  それらを縫い合わせて作られます。形状の表面上の各三角形のパッチは
+  <em>面</em>と呼ばれます。ジオメトリは、照明やテクスチャマッピングなどの
+  効果に使用するために、頂点と面に関する情報を保存します。</p>
 
-  points called <em>vertices</em>. All 3D shapes are made by connecting vertices
-  to
+  <p>最初のパラメータ<code>detailX</code>はオプションです。数値が渡された場合、
+  例えば<code>new p5.Geometry(24)</code>のように、ジオメトリのx軸に沿って使用する
+  三角形の分割数を設定します。デフォルトでは、<code>detailX</code>は1です。</p>
 
-  form triangles that are stitched together. Each triangular patch on the
+  <p>2番目のパラメータ<code>detailY</code>もオプションです。数値が渡された場合、
+  例えば<code>new p5.Geometry(24, 16)</code>のように、ジオメトリのy軸に沿って使用する
+  三角形の分割数を設定します。デフォルトでは、<code>detailY</code>は1です。</p>
 
-  geometry's surface is called a <em>face</em>. The geometry stores information
-
-  about its vertices and faces for use with effects such as lighting and
-
-  texture mapping.</p>
-
-  <p>The first parameter, <code>detailX</code>, is optional. If a number is
-  passed, as in
-
-  <code>new p5.Geometry(24)</code>, it sets the number of triangle subdivisions
-  to use
-
-  along the geometry's x-axis. By default, <code>detailX</code> is 1.</p>
-
-  <p>The second parameter, <code>detailY</code>, is also optional. If a number
-  is passed,
-
-  as in <code>new p5.Geometry(24, 16)</code>, it sets the number of triangle
-
-  subdivisions to use along the geometry's y-axis. By default,
-  <code>detailX</code> is
-
-  1.</p>
-
-  <p>The third parameter, <code>callback</code>, is also optional. If a function
-  is passed,
-
-  as in <code>new p5.Geometry(24, 16, createShape)</code>, it will be called
-  once to add
-
-  vertices to the new 3D shape.</p>
+  <p>3番目のパラメータ<code>callback</code>もオプションです。関数が渡された場合、
+  例えば<code>new p5.Geometry(24, 16, createShape)</code>のように、新しい3D形状に
+  頂点を追加するために一度呼び出されます。</p>
 line: 13
 isConstructor: true
 params:
   - name: detailX
     description: |
-      <p>number of vertices along the x-axis.</p>
+      <p>x軸に沿った頂点の数。</p>
     type: Integer
     optional: true
   - name: detailY
     description: |
-      <p>number of vertices along the y-axis.</p>
+      <p>y軸に沿った頂点の数。</p>
     type: Integer
     optional: true
   - name: callback
     description: |
-      <p>function to call once the geometry is created.</p>
+      <p>ジオメトリが作成された後に呼び出される関数。</p>
     type: Function
     optional: true
 example:
@@ -68,34 +46,34 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     let myGeometry;
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Geometry object.
+      // p5.Geometryオブジェクトを作成します。
       myGeometry = new p5.Geometry();
 
-      // Create p5.Vector objects to position the vertices.
+      // 頂点の位置を決めるp5.Vectorオブジェクトを作成します。
       let v0 = createVector(-40, 0, 0);
       let v1 = createVector(0, -40, 0);
       let v2 = createVector(40, 0, 0);
 
-      // Add the vertices to the p5.Geometry object's vertices array.
+      // p5.Geometryオブジェクトの頂点配列に頂点を追加します。
       myGeometry.vertices.push(v0, v1, v2);
 
-      describe('A white triangle drawn on a gray background.');
+      describe('灰色の背景に描かれた白い三角形。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスで軌道制御を有効にします。
       orbitControl();
 
-      // Draw the p5.Geometry object.
+      // p5.Geometryオブジェクトを描画します。
       model(myGeometry);
     }
     </code>
@@ -103,43 +81,42 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     let myGeometry;
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Geometry object using a callback function.
+      // コールバック関数を使用してp5.Geometryオブジェクトを作成します。
       myGeometry = new p5.Geometry(1, 1, createShape);
 
-      describe('A white triangle drawn on a gray background.');
+      describe('灰色の背景に描かれた白い三角形。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスで軌道制御を有効にします。
       orbitControl();
 
-      // Draw the p5.Geometry object.
+      // p5.Geometryオブジェクトを描画します。
       model(myGeometry);
     }
 
     function createShape() {
-      // Create p5.Vector objects to position the vertices.
+      // 頂点の位置を決めるp5.Vectorオブジェクトを作成します。
       let v0 = createVector(-40, 0, 0);
       let v1 = createVector(0, -40, 0);
       let v2 = createVector(40, 0, 0);
 
-      // "this" refers to the p5.Geometry object being created.
+      // "this"は作成中のp5.Geometryオブジェクトを指します。
 
-      // Add the vertices to the p5.Geometry object's vertices array.
+      // p5.Geometryオブジェクトの頂点配列に頂点を追加します。
       this.vertices.push(v0, v1, v2);
 
-      // Add an array to list which vertices belong to the face.
-      // Vertices are listed in clockwise "winding" order from
-      // left to top to right.
+      // 面に属する頂点をリストする配列を追加します。
+      // 頂点は左から上、右へと時計回りの「巻き順」でリストされます。
       this.faces.push([0, 1, 2]);
     }
     </code>
@@ -147,46 +124,45 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
     let myGeometry;
 
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create a p5.Geometry object using a callback function.
+      // コールバック関数を使用してp5.Geometryオブジェクトを作成します。
       myGeometry = new p5.Geometry(1, 1, createShape);
 
-      describe('A white triangle drawn on a gray background.');
+      describe('灰色の背景に描かれた白い三角形。');
     }
 
     function draw() {
       background(200);
 
-      // Enable orbiting with the mouse.
+      // マウスで軌道制御を有効にします。
       orbitControl();
 
-      // Draw the p5.Geometry object.
+      // p5.Geometryオブジェクトを描画します。
       model(myGeometry);
     }
 
     function createShape() {
-      // Create p5.Vector objects to position the vertices.
+      // 頂点の位置を決めるp5.Vectorオブジェクトを作成します。
       let v0 = createVector(-40, 0, 0);
       let v1 = createVector(0, -40, 0);
       let v2 = createVector(40, 0, 0);
 
-      // "this" refers to the p5.Geometry object being created.
+      // "this"は作成中のp5.Geometryオブジェクトを指します。
 
-      // Add the vertices to the p5.Geometry object's vertices array.
+      // p5.Geometryオブジェクトの頂点配列に頂点を追加します。
       this.vertices.push(v0, v1, v2);
 
-      // Add an array to list which vertices belong to the face.
-      // Vertices are listed in clockwise "winding" order from
-      // left to top to right.
+      // 面に属する頂点をリストする配列を追加します。
+      // 頂点は左から上、右へと時計回りの「巻き順」でリストされます。
       this.faces.push([0, 1, 2]);
 
-      // Compute the surface normals to help with lighting.
+      // 照明を助けるために表面法線を計算します。
       this.computeNormals();
     }
     </code>
@@ -194,9 +170,9 @@ example:
 
     <div>
     <code>
-    // Click and drag the mouse to view the scene from different angles.
+    // マウスをクリックしてドラッグすると、異なる角度からシーンを見ることができます。
 
-    // Adapted from Paul Wheeler's wonderful p5.Geometry tutorial.
+    // Paul Wheelerの素晴らしいp5.Geometryチュートリアルから適応しました。
     // https://www.paulwheeler.us/articles/custom-3d-geometry-in-p5js/
     // CC-BY-SA 4.0
 
@@ -205,32 +181,32 @@ example:
     function setup() {
       createCanvas(100, 100, WEBGL);
 
-      // Create the p5.Geometry object.
-      // Set detailX to 48 and detailY to 2.
-      // >>> try changing them.
+      // p5.Geometryオブジェクトを作成します。
+      // detailXを48に、detailYを2に設定します。
+      // >>> 変更してみてください。
       myGeometry = new p5.Geometry(48, 2, createShape);
     }
 
     function draw() {
       background(50);
 
-      // Enable orbiting with the mouse.
+      // マウスで軌道制御を有効にします。
       orbitControl();
 
-      // Turn on the lights.
+      // ライトをオンにします。
       lights();
 
-      // Style the p5.Geometry object.
+      // p5.Geometryオブジェクトのスタイルを設定します。
       strokeWeight(0.2);
 
-      // Draw the p5.Geometry object.
+      // p5.Geometryオブジェクトを描画します。
       model(myGeometry);
     }
 
     function createShape() {
-      // "this" refers to the p5.Geometry object being created.
+      // "this"は作成中のp5.Geometryオブジェクトを指します。
 
-      // Define the Möbius strip with a few parameters.
+      // メビウスの帯をいくつかのパラメータで定義します。
       let spread = 0.1;
       let radius = 30;
       let stripWidth = 15;
@@ -239,14 +215,14 @@ example:
       let yInterval = stripWidth / this.detailY;
 
       for (let j = 0; j <= this.detailY; j += 1) {
-        // Calculate the "vertical" point along the strip.
+        // 帯に沿った「垂直」点を計算します。
         let v = yOffset + yInterval * j;
 
         for (let i = 0; i <= this.detailX; i += 1) {
-          // Calculate the angle of rotation around the strip.
+          // 帯の周りの回転角を計算します。
           let u = i * xInterval;
 
-          // Calculate the coordinates of the vertex.
+          // 頂点の座標を計算します。
           let x = (radius + v * cos(u / 2)) * cos(u) - sin(u / 2) * 2 * spread;
           let y = (radius + v * cos(u / 2)) * sin(u);
           if (u < TWO_PI) {
@@ -256,18 +232,18 @@ example:
           }
           let z = v * sin(u / 2) + sin(u / 4) * 4 * spread;
 
-          // Create a p5.Vector object to position the vertex.
+          // 頂点の位置を決めるp5.Vectorオブジェクトを作成します。
           let vert = createVector(x, y, z);
 
-          // Add the vertex to the p5.Geometry object's vertices array.
+          // p5.Geometryオブジェクトの頂点配列に頂点を追加します。
           this.vertices.push(vert);
         }
       }
 
-      // Compute the faces array.
+      // 面配列を計算します。
       this.computeFaces();
 
-      // Compute the surface normals to help with lighting.
+      // 照明を助けるために表面法線を計算します。
       this.computeNormals();
     }
     </code>
@@ -275,52 +251,46 @@ example:
 methods:
   calculateBoundingBox:
     description: >
-      <p>Calculates the position and size of the smallest box that contains the
-      geometry.</p>
+      <p>ジオメトリを含む最小の箱の位置とサイズを計算します。</p>
 
-      <p>A bounding box is the smallest rectangular prism that contains the
-      entire
+      <p>バウンディングボックスは、ジオメトリ全体を含む最小の直方体です。
+      各軸に沿ったボックスの最小座標と最大座標、およびサイズ（長さ）と
+      オフセット（中心）によって定義されます。</p>
 
-      geometry. It's defined by the box's minimum and maximum coordinates along
+      <p><code>myGeometry.calculateBoundingBox()</code>を呼び出すと、バウンディングボックスを
+      記述する4つのプロパティを持つオブジェクトが返されます：</p>
 
-      each axis, as well as the size (length) and offset (center).</p>
-
-      <p>Calling <code>myGeometry.calculateBoundingBox()</code> returns an
-      object with four
-
-      properties that describe the bounding box:</p>
-
-      <pre><code class="language-js">// Get myGeometry's bounding box.
+      <pre><code class="language-js">// myGeometryのバウンディングボックスを取得します。
 
       let bbox = myGeometry.calculateBoundingBox();
 
 
-      // Print the bounding box to the console.
+      // バウンディングボックスをコンソールに出力します。
 
       console.log(bbox);
 
 
       // {
 
-      //  // The minimum coordinate along each axis.
+      //  // 各軸に沿った最小座標。
 
       //  min: { x: -1, y: -2, z: -3 },
 
       //
 
-      //  // The maximum coordinate along each axis.
+      //  // 各軸に沿った最大座標。
 
       //  max: { x: 1, y: 2, z: 3},
 
       //
 
-      //  // The size (length) along each axis.
+      //  // 各軸に沿ったサイズ（長さ）。
 
       //  size: { x: 2, y: 4, z: 6},
 
       //
 
-      //  // The offset (center) along each axis.
+      //  // 各軸に沿ったオフセット（中心）。
 
       //  offset: { x: 0, y: 0, z: 0}
 
@@ -330,461 +300,245 @@ methods:
     path: p5.Geometry/calculateBoundingBox
   clearColors:
     description: >
-      <p>Removes the geometry’s internal colors.</p>
+      <p>ジオメトリの内部カラーを削除します。</p>
 
-      <p><code>p5.Geometry</code> objects can be created with "internal colors"
-      assigned to
-
-      vertices or the entire shape. When a geometry has internal colors,
-
-      <a href="/reference/p5/fill/">fill()</a> has no effect. Calling
-
-      <code>myGeometry.clearColors()</code> allows the
-
-      <a href="/reference/p5/fill/">fill()</a> function to apply color to the
-      geometry.</p>
+      <p><code>p5.Geometry</code>オブジェクトは、頂点または形状全体に割り当てられた
+      「内部カラー」で作成できます。ジオメトリに内部カラーがある場合、
+      <a href="/reference/p5/fill/">fill()</a>は効果がありません。
+      <code>myGeometry.clearColors()</code>を呼び出すことで、
+      <a href="/reference/p5/fill/">fill()</a>関数がジオメトリに色を適用できるようになります。</p>
     path: p5.Geometry/clearColors
   saveObj:
     description: >
-      <p>The <code>saveObj()</code> function exports <code>p5.Geometry</code>
-      objects as
+      <p><code>saveObj()</code>関数は、<code>p5.Geometry</code>オブジェクトを
+      Wavefront .objファイル形式で3Dモデルとしてエクスポートします。
+      これにより、p5.jsで作成した3D形状を他のソフトウェアで
+      レンダリング、アニメーション、3Dプリントなどに使用できます。</p>
 
-      3D models in the Wavefront .obj file format.
-
-      This way, you can use the 3D shapes you create in p5.js in other software
-
-      for rendering, animation, 3D printing, or more.</p>
-
-      <p>The exported .obj file will include the faces and vertices of the
-      <code>p5.Geometry</code>,
-
-      as well as its texture coordinates and normals, if it has them.</p>
+      <p>エクスポートされた.objファイルには、<code>p5.Geometry</code>の面と頂点、
+      およびテクスチャ座標と法線（存在する場合）が含まれます。</p>
     path: p5.Geometry/saveObj
   saveStl:
     description: >
-      <p>The <code>saveStl()</code> function exports <code>p5.Geometry</code>
-      objects as
+      <p><code>saveStl()</code>関数は、<code>p5.Geometry</code>オブジェクトを
+      STLステレオリソグラフィファイル形式で3Dモデルとしてエクスポートします。
+      これにより、p5.jsで作成した3D形状を他のソフトウェアで
+      レンダリング、アニメーション、3Dプリントなどに使用できます。</p>
 
-      3D models in the STL stereolithography file format.
+      <p>エクスポートされた.stlファイルには、<code>p5.Geometry</code>の面、頂点、および法線が含まれます。</p>
 
-      This way, you can use the 3D shapes you create in p5.js in other software
-
-      for rendering, animation, 3D printing, or more.</p>
-
-      <p>The exported .stl file will include the faces, vertices, and normals of
-      the <code>p5.Geometry</code>.</p>
-
-      <p>By default, this method saves a text-based .stl file. Alternatively,
-      you can save a more compact
-
-      but less human-readable binary .stl file by passing <code>{ binary: true
-      }</code> as a second parameter.</p>
+      <p>デフォルトでは、このメソッドはテキストベースの.stlファイルを保存します。
+      あるいは、2番目のパラメータとして<code>{ binary: true }</code>を渡すことで、
+      より小さいが人間が読みにくいバイナリ.stlファイルを保存することもできます。</p>
     path: p5.Geometry/saveStl
   flipU:
     description: >
-      <p>Flips the geometry’s texture u-coordinates.</p>
+      <p>ジオメトリのテクスチャu座標を反転します。</p>
 
-      <p>In order for <a href="/reference/p5/texture/">texture()</a> to work,
-      the geometry
+      <p><a href="/reference/p5/texture/">texture()</a>が機能するためには、
+      ジオメトリはその表面上の点を長方形の画像（テクスチャとして使用される）の
+      ピクセルにマッピングする方法が必要です。座標<code>(x, y, z)</code>のジオメトリの頂点は、
+      座標<code>(u, v)</code>のテクスチャ画像のピクセルにマッピングされます。</p>
 
-      needs a way to map the points on its surface to the pixels in a
-      rectangular
+      <p><a href="/reference/p5.Geometry/uvs/">myGeometry.uvs</a>配列は、
+      ジオメトリに追加された順序で各頂点の<code>(u, v)</code>座標を保存します。
+      <code>myGeometry.flipU()</code>を呼び出すと、ジオメトリのu座標が反転され、
+      テクスチャが水平方向に鏡像反転して表示されます。</p>
 
-      image that's used as a texture. The geometry's vertex at coordinates
+      <p>例えば、平面の4つの頂点は左上の角から時計回りに追加されます。
+      以下は<code>myGeometry.flipU()</code>を呼び出すことで平面のテクスチャ座標が
+      どのように変化するかを示しています：</p>
 
-      <code>(x, y, z)</code> maps to the texture image's pixel at coordinates
-      <code>(u, v)</code>.</p>
-
-      <p>The <a href="/reference/p5.Geometry/uvs/">myGeometry.uvs</a> array
-      stores the
-
-      <code>(u, v)</code> coordinates for each vertex in the order it was added
-      to the
-
-      geometry. Calling <code>myGeometry.flipU()</code> flips a geometry's
-      u-coordinates
-
-      so that the texture appears mirrored horizontally.</p>
-
-      <p>For example, a plane's four vertices are added clockwise starting from
-      the
-
-      top-left corner. Here's how calling <code>myGeometry.flipU()</code> would
-      change a
-
-      plane's texture coordinates:</p>
-
-      <pre><code class="language-js">// Print the original texture coordinates.
-
-      // Output: [0, 0, 1, 0, 0, 1, 1, 1]
-
+      <pre><code class="language-js">// 元のテクスチャ座標を出力します。
+      // 出力: [0, 0, 1, 0, 0, 1, 1, 1]
       console.log(myGeometry.uvs);
 
-
-      // Flip the u-coordinates.
-
+      // u座標を反転します。
       myGeometry.flipU();
 
-
-      // Print the flipped texture coordinates.
-
-      // Output: [1, 0, 0, 0, 1, 1, 0, 1]
-
+      // 反転されたテクスチャ座標を出力します。
+      // 出力: [1, 0, 0, 0, 1, 1, 0, 1]
       console.log(myGeometry.uvs);
 
-
-      // Notice the swaps:
-
-      // Top vertices: [0, 0, 1, 0] --> [1, 0, 0, 0]
-
-      // Bottom vertices: [0, 1, 1, 1] --> [1, 1, 0, 1]
-
+      // 注目すべき変更点：
+      // 上部の頂点: [0, 0, 1, 0] --> [1, 0, 0, 0]
+      // 下部の頂点: [0, 1, 1, 1] --> [1, 1, 0, 1]
       </code></pre>
     path: p5.Geometry/flipU
   flipV:
     description: >
-      <p>Flips the geometry’s texture v-coordinates.</p>
+      <p>ジオメトリのテクスチャv座標を反転します。</p>
 
-      <p>In order for <a href="/reference/p5/texture/">texture()</a> to work,
-      the geometry
+      <p><a href="/reference/p5/texture/">texture()</a>が機能するためには、
+      ジオメトリはその表面上の点を長方形の画像（テクスチャとして使用される）の
+      ピクセルにマッピングする方法が必要です。座標<code>(x, y, z)</code>のジオメトリの頂点は、
+      座標<code>(u, v)</code>のテクスチャ画像のピクセルにマッピングされます。</p>
 
-      needs a way to map the points on its surface to the pixels in a
-      rectangular
+      <p><a href="/reference/p5.Geometry/uvs/">myGeometry.uvs</a>配列は、
+      ジオメトリに追加された順序で各頂点の<code>(u, v)</code>座標を保存します。
+      <code>myGeometry.flipV()</code>を呼び出すと、ジオメトリのv座標が反転され、
+      テクスチャが垂直方向に鏡像反転して表示されます。</p>
 
-      image that's used as a texture. The geometry's vertex at coordinates
+      <p>例えば、平面の4つの頂点は左上の角から時計回りに追加されます。
+      以下は<code>myGeometry.flipV()</code>を呼び出すことで平面のテクスチャ座標が
+      どのように変化するかを示しています：</p>
 
-      <code>(x, y, z)</code> maps to the texture image's pixel at coordinates
-      <code>(u, v)</code>.</p>
-
-      <p>The <a href="/reference/p5.Geometry/uvs/">myGeometry.uvs</a> array
-      stores the
-
-      <code>(u, v)</code> coordinates for each vertex in the order it was added
-      to the
-
-      geometry. Calling <code>myGeometry.flipV()</code> flips a geometry's
-      v-coordinates
-
-      so that the texture appears mirrored vertically.</p>
-
-      <p>For example, a plane's four vertices are added clockwise starting from
-      the
-
-      top-left corner. Here's how calling <code>myGeometry.flipV()</code> would
-      change a
-
-      plane's texture coordinates:</p>
-
-      <pre><code class="language-js">// Print the original texture coordinates.
-
-      // Output: [0, 0, 1, 0, 0, 1, 1, 1]
-
+      <pre><code class="language-js">// 元のテクスチャ座標を出力します。
+      // 出力: [0, 0, 1, 0, 0, 1, 1, 1]
       console.log(myGeometry.uvs);
 
-
-      // Flip the v-coordinates.
-
+      // v座標を反転します。
       myGeometry.flipV();
 
-
-      // Print the flipped texture coordinates.
-
-      // Output: [0, 1, 1, 1, 0, 0, 1, 0]
-
+      // 反転されたテクスチャ座標を出力します。
+      // 出力: [0, 1, 1, 1, 0, 0, 1, 0]
       console.log(myGeometry.uvs);
 
-
-      // Notice the swaps:
-
-      // Left vertices: [0, 0] <--> [1, 0]
-
-      // Right vertices: [1, 0] <--> [1, 1]
-
-      </--></--></code></pre>
+      // 注目すべき変更点：
+      // 左側の頂点: [0, 0] <--> [1, 0]
+      // 右側の頂点: [1, 0] <--> [1, 1]
+      </code></pre>
     path: p5.Geometry/flipV
   computeFaces:
     description: >
-      <p>Computes the geometry's faces using its vertices.</p>
+      <p>頂点を使用してジオメトリの面を計算します。</p>
 
-      <p>All 3D shapes are made by connecting sets of points called
-      <em>vertices</em>. A
+      <p>すべての3D形状は、<em>頂点</em>と呼ばれる点の集合を接続して作られます。
+      ジオメトリの表面は、頂点を接続して三角形を形成し、それらを縫い合わせて
+      作られます。ジオメトリの表面上の各三角形のパッチは<em>面</em>と呼ばれます。
+      <code>myGeometry.computeFaces()</code>は、頂点間の距離に基づいて
+      各面を定義するために必要な計算を実行します。</p>
 
-      geometry's surface is formed by connecting vertices to form triangles that
+      <p>ジオメトリの頂点は、<a href="/reference/p5.Geometry/vertices/">myGeometry.vertices</a>
+      配列に<a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトとして
+      保存されています。ジオメトリの最初の頂点は<code>myGeometry.vertices[0]</code>の
+      <a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクト、
+      2番目の頂点は<code>myGeometry.vertices[1]</code>、3番目の頂点は
+      <code>myGeometry.vertices[2]</code>、というようになっています。</p>
 
-      are stitched together. Each triangular patch on the geometry's surface is
+      <p><code>myGeometry.computeFaces()</code>を呼び出すと、
+      <a href="/reference/p5.Geometry/faces/">myGeometry.faces</a>配列に
+      各面を形成する頂点をリストする3要素の配列が追加されます。例えば、
+      長方形から作られたジオメトリは2つの面を持ちます（長方形は2つの三角形を
+      結合して作られるため）。長方形の<a href="/reference/p5.Geometry/faces/">myGeometry.faces</a>は
+      2次元配列<code>[[0, 1, 2], [2, 1, 3]]</code>になります。最初の面、
+      <code>myGeometry.faces[0]</code>は配列<code>[0, 1, 2]</code>です。これは
+      <code>myGeometry.vertices[0]</code>、<code>myGeometry.vertices[1]</code>、
+      <code>myGeometry.vertices[2]</code>を接続して形成されるためです。2番目の面、
+      <code>myGeometry.faces[1]</code>は配列<code>[2, 1, 3]</code>です。これは
+      <code>myGeometry.vertices[2]</code>、<code>myGeometry.vertices[1]</code>、
+      <code>myGeometry.vertices[3]</code>を接続して形成されるためです。</p>
 
-      called a <em>face</em>. <code>myGeometry.computeFaces()</code> performs
-      the math needed to
-
-      define each face based on the distances between vertices.</p>
-
-      <p>The geometry's vertices are stored as <a
-      href="/reference/p5/p5.Vector">p5.Vector</a>
-
-      objects in the <a
-      href="/reference/p5.Geometry/vertices/">myGeometry.vertices</a>
-
-      array. The geometry's first vertex is the
-
-      <a href="/reference/p5/p5.Vector">p5.Vector</a> object at
-      <code>myGeometry.vertices[0]</code>,
-
-      its second vertex is <code>myGeometry.vertices[1]</code>, its third vertex
-      is
-
-      <code>myGeometry.vertices[2]</code>, and so on.</p>
-
-      <p>Calling <code>myGeometry.computeFaces()</code> fills the
-
-      <a href="/reference/p5.Geometry/faces/">myGeometry.faces</a> array with
-      three-element
-
-      arrays that list the vertices that form each face. For example, a geometry
-
-      made from a rectangle has two faces because a rectangle is made by joining
-
-      two triangles. <a
-      href="/reference/p5.Geometry/faces/">myGeometry.faces</a> for a
-
-      rectangle would be the two-dimensional array
-
-      <code>[[0, 1, 2], [2, 1, 3]]</code>. The first face,
-      <code>myGeometry.faces[0]</code>, is the
-
-      array <code>[0, 1, 2]</code> because it's formed by connecting
-
-      <code>myGeometry.vertices[0]</code>,
-      <code>myGeometry.vertices[1]</code>,and
-
-      <code>myGeometry.vertices[2]</code>. The second face,
-      <code>myGeometry.faces[1]</code>, is the
-
-      array <code>[2, 1, 3]</code> because it's formed by connecting
-
-      <code>myGeometry.vertices[2]</code>, <code>myGeometry.vertices[1]</code>,
-      and
-
-      <code>myGeometry.vertices[3]</code>.</p>
-
-      <p>Note: <code>myGeometry.computeFaces()</code> only works when geometries
-      have four or more vertices.</p>
+      <p>注意：<code>myGeometry.computeFaces()</code>は、ジオメトリが4つ以上の頂点を
+      持つ場合にのみ機能します。</p>
     path: p5.Geometry/computeFaces
   computeNormals:
     description: >
-      <p>Calculates the normal vector for each vertex on the geometry.</p>
+      <p>ジオメトリ上の各頂点の法線ベクトルを計算します。</p>
 
-      <p>All 3D shapes are made by connecting sets of points called
-      <em>vertices</em>. A
+      <p>すべての3D形状は、<em>頂点</em>と呼ばれる点の集合を接続して作られます。
+      ジオメトリの表面は、頂点を接続して三角形を作り、それらを縫い合わせて
+      形成されます。ジオメトリの表面上の各三角形のパッチは<em>面</em>と呼ばれます。
+      <code>myGeometry.computeNormals()</code>は、各面の向きを決めるために
+      必要な計算を実行します。向きは照明やその他の効果に重要です。</p>
 
-      geometry's surface is formed by connecting vertices to create triangles
+      <p>面の向きは、その<em>法線ベクトル</em>によって定義されます。法線ベクトルは
+      面から外向きに伸び、表面に垂直（法線）です。<code>myGeometry.computeNormals()</code>を
+      呼び出すと、まず各面の法線ベクトルが計算されます。次に、各頂点の法線ベクトルが、
+      その頂点を囲む面の法線ベクトルを平均化して計算されます。頂点の法線は
+      <a href="/reference/p5.Geometry/vertexNormals/">myGeometry.vertexNormals</a>配列に
+      <a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトとして保存されます。</p>
 
-      that are stitched together. Each triangular patch on the geometry's
+      <p>最初のパラメータ<code>shadingType</code>はオプションです。定数<code>FLAT</code>を
+      渡すと、例えば<code>myGeometry.computeNormals(FLAT)</code>のように、隣接する面に
+      共有する頂点の独自のコピーが提供されます。表面はフラットシェーディングで
+      タイル状に表示されます。定数<code>SMOOTH</code>を渡すと、例えば
+      <code>myGeometry.computeNormals(SMOOTH)</code>のように、隣接する面が共有する頂点を
+      再利用します。表面はスムースシェーディングでより滑らかに表示されます。
+      デフォルトでは、<code>shadingType</code>は<code>FLAT</code>です。</p>
 
-      surface is called a <em>face</em>.
-      <code>myGeometry.computeNormals()</code> performs the
-
-      math needed to orient each face. Orientation is important for lighting
-
-      and other effects.</p>
-
-      <p>A face's orientation is defined by its <em>normal vector</em> which
-      points out
-
-      of the face and is normal (perpendicular) to the surface. Calling
-
-      <code>myGeometry.computeNormals()</code> first calculates each face's
-      normal vector.
-
-      Then it calculates the normal vector for each vertex by averaging the
-
-      normal vectors of the faces surrounding the vertex. The vertex normals
-
-      are stored as <a href="/reference/p5/p5.Vector">p5.Vector</a> objects in
-      the
-
-      <a
-      href="/reference/p5.Geometry/vertexNormals/">myGeometry.vertexNormals</a>
-      array.</p>
-
-      <p>The first parameter, <code>shadingType</code>, is optional. Passing the
-      constant
-
-      <code>FLAT</code>, as in <code>myGeometry.computeNormals(FLAT)</code>,
-      provides neighboring
-
-      faces with their own copies of the vertices they share. Surfaces appear
-
-      tiled with flat shading. Passing the constant <code>SMOOTH</code>, as in
-
-      <code>myGeometry.computeNormals(SMOOTH)</code>, makes neighboring faces
-      reuse their
-
-      shared vertices. Surfaces appear smoother with smooth shading. By
-
-      default, <code>shadingType</code> is <code>FLAT</code>.</p>
-
-      <p>The second parameter, <code>options</code>, is also optional. If an
-      object with a
-
-      <code>roundToPrecision</code> property is passed, as in
-
-      <code>myGeometry.computeNormals(SMOOTH, { roundToPrecision: 5 })</code>,
-      it sets the
-
-      number of decimal places to use for calculations. By default,
-
-      <code>roundToPrecision</code> uses 3 decimal places.</p>
+      <p>2番目のパラメータ<code>options</code>もオプションです。<code>roundToPrecision</code>
+      プロパティを持つオブジェクトが渡された場合、例えば
+      <code>myGeometry.computeNormals(SMOOTH, { roundToPrecision: 5 })</code>のように、
+      計算に使用する小数点以下の桁数を設定します。デフォルトでは、
+      <code>roundToPrecision</code>は3桁の小数点を使用します。</p>
     path: p5.Geometry/computeNormals
   normalize:
     description: >
-      <p>Transforms the geometry's vertices to fit snugly within a 100×100×100
-      box
+      <p>ジオメトリの頂点を変換して、原点を中心とする100×100×100の箱に
+      ぴったりと収まるようにします。</p>
 
-      centered at the origin.</p>
+      <p><code>myGeometry.normalize()</code>を呼び出すと、ジオメトリの頂点が
+      原点<code>(0, 0, 0)</code>を中心に移動します。次に、頂点を100×100×100の箱に
+      収まるようにスケーリングします。結果として、小さなジオメトリは
+      大きくなり、大きなジオメトリは小さくなります。</p>
 
-      <p>Calling <code>myGeometry.normalize()</code> translates the geometry's
-      vertices so that
-
-      they're centered at the origin <code>(0, 0, 0)</code>. Then it scales the
-      vertices so
-
-      that they fill a 100×100×100 box. As a result, small geometries will grow
-
-      and large geometries will shrink.</p>
-
-      <p>Note: <code>myGeometry.normalize()</code> only works when called in the
-
-      <a href="/reference/p5/setup/">setup()</a> function.</p>
+      <p>注意：<code>myGeometry.normalize()</code>は、<a href="/reference/p5/setup/">setup()</a>
+      関数内で呼び出された場合にのみ機能します。</p>
     path: p5.Geometry/normalize
 properties:
   vertices:
     description: >
-      <p>An array with the geometry's vertices.</p>
+      <p>ジオメトリの頂点を含む配列。</p>
 
-      <p>The geometry's vertices are stored as
-
-      <a href="/reference/p5/p5.Vector">p5.Vector</a> objects in the
-      <code>myGeometry.vertices</code>
-
-      array. The geometry's first vertex is the
-
-      <a href="/reference/p5/p5.Vector">p5.Vector</a> object at
-      <code>myGeometry.vertices[0]</code>,
-
-      its second vertex is <code>myGeometry.vertices[1]</code>, its third vertex
-      is
-
-      <code>myGeometry.vertices[2]</code>, and so on.</p>
+      <p>ジオメトリの頂点は、<code>myGeometry.vertices</code>配列に
+      <a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトとして
+      保存されています。ジオメトリの最初の頂点は<code>myGeometry.vertices[0]</code>の
+      <a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクト、
+      2番目の頂点は<code>myGeometry.vertices[1]</code>、3番目の頂点は
+      <code>myGeometry.vertices[2]</code>、というようになっています。</p>
     path: p5.Geometry/vertices
   vertexNormals:
     description: >
-      <p>An array with the vectors that are normal to the geometry's
-      vertices.</p>
+      <p>ジオメトリの頂点に垂直なベクトルを含む配列。</p>
 
-      <p>A face's orientation is defined by its <em>normal vector</em> which
-      points out
-
-      of the face and is normal (perpendicular) to the surface. Calling
-
-      <code>myGeometry.computeNormals()</code> first calculates each face's
-      normal
-
-      vector. Then it calculates the normal vector for each vertex by
-
-      averaging the normal vectors of the faces surrounding the vertex. The
-
-      vertex normals are stored as <a
-      href="/reference/p5/p5.Vector">p5.Vector</a>
-
-      objects in the <code>myGeometry.vertexNormals</code> array.</p>
+      <p>面の向きは、その<em>法線ベクトル</em>によって定義されます。法線ベクトルは
+      面から外向きに伸び、表面に垂直（法線）です。<code>myGeometry.computeNormals()</code>を
+      呼び出すと、まず各面の法線ベクトルが計算されます。次に、各頂点の法線ベクトルが、
+      その頂点を囲む面の法線ベクトルを平均化して計算されます。頂点の法線は
+      <code>myGeometry.vertexNormals</code>配列に<a href="/reference/p5/p5.Vector">p5.Vector</a>
+      オブジェクトとして保存されます。</p>
     path: p5.Geometry/vertexNormals
   faces:
     description: >
-      <p>An array that lists which of the geometry's vertices form each of its
+      <p>ジオメトリの各面を形成する頂点をリストする配列。</p>
 
-      faces.</p>
+      <p>すべての3D形状は、<em>頂点</em>と呼ばれる点の集合を接続して作られます。
+      ジオメトリの表面は、頂点を接続して三角形を形成し、それらを縫い合わせて
+      作られます。ジオメトリの表面上の各三角形のパッチは<em>面</em>と呼ばれます。</p>
 
-      <p>All 3D shapes are made by connecting sets of points called
-      <em>vertices</em>. A
+      <p>ジオメトリの頂点は、<a href="/reference/p5.Geometry/vertices/">myGeometry.vertices</a>
+      配列に<a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクトとして
+      保存されています。ジオメトリの最初の頂点は<code>myGeometry.vertices[0]</code>の
+      <a href="/reference/p5/p5.Vector">p5.Vector</a>オブジェクト、
+      2番目の頂点は<code>myGeometry.vertices[1]</code>、3番目の頂点は
+      <code>myGeometry.vertices[2]</code>、というようになっています。</p>
 
-      geometry's surface is formed by connecting vertices to form triangles
-
-      that are stitched together. Each triangular patch on the geometry's
-
-      surface is called a <em>face</em>.</p>
-
-      <p>The geometry's vertices are stored as
-
-      <a href="/reference/p5/p5.Vector">p5.Vector</a> objects in the
-
-      <a href="/reference/p5.Geometry/vertices/">myGeometry.vertices</a> array.
-      The
-
-      geometry's first vertex is the <a
-      href="/reference/p5/p5.Vector">p5.Vector</a>
-
-      object at <code>myGeometry.vertices[0]</code>, its second vertex is
-
-      <code>myGeometry.vertices[1]</code>, its third vertex is
-      <code>myGeometry.vertices[2]</code>,
-
-      and so on.</p>
-
-      <p>For example, a geometry made from a rectangle has two faces because a
-
-      rectangle is made by joining two triangles. <code>myGeometry.faces</code>
-      for a
-
-      rectangle would be the two-dimensional array <code>[[0, 1, 2], [2, 1,
-      3]]</code>.
-
-      The first face, <code>myGeometry.faces[0]</code>, is the array <code>[0,
-      1, 2]</code> because
-
-      it's formed by connecting <code>myGeometry.vertices[0]</code>,
-
-      <code>myGeometry.vertices[1]</code>,and
-      <code>myGeometry.vertices[2]</code>. The second face,
-
-      <code>myGeometry.faces[1]</code>, is the array <code>[2, 1, 3]</code>
-      because it's formed by
-
-      connecting <code>myGeometry.vertices[2]</code>,
-      <code>myGeometry.vertices[1]</code>,and
-
-      <code>myGeometry.vertices[3]</code>.</p>
+      <p>例えば、長方形から作られたジオメトリは2つの面を持ちます（長方形は2つの三角形を
+      結合して作られるため）。長方形の<code>myGeometry.faces</code>は
+      2次元配列<code>[[0, 1, 2], [2, 1, 3]]</code>になります。最初の面、
+      <code>myGeometry.faces[0]</code>は配列<code>[0, 1, 2]</code>です。これは
+      <code>myGeometry.vertices[0]</code>、<code>myGeometry.vertices[1]</code>、
+      <code>myGeometry.vertices[2]</code>を接続して形成されるためです。2番目の面、
+      <code>myGeometry.faces[1]</code>は配列<code>[2, 1, 3]</code>です。これは
+      <code>myGeometry.vertices[2]</code>、<code>myGeometry.vertices[1]</code>、
+      <code>myGeometry.vertices[3]</code>を接続して形成されるためです。</p>
     path: p5.Geometry/faces
   uvs:
     description: >
-      <p>An array that lists the texture coordinates for each of the geometry's
+      <p>ジオメトリの各頂点のテクスチャ座標をリストする配列。</p>
 
-      vertices.</p>
+      <p><a href="/reference/p5/texture/">texture()</a>が機能するためには、
+      ジオメトリはその表面上の点を長方形の画像（テクスチャとして使用される）の
+      ピクセルにマッピングする方法が必要です。座標<code>(x, y, z)</code>のジオメトリの頂点は、
+      座標<code>(u, v)</code>のテクスチャ画像のピクセルにマッピングされます。</p>
 
-      <p>In order for <a href="/reference/p5/texture/">texture()</a> to work,
-      the geometry
-
-      needs a way to map the points on its surface to the pixels in a
-
-      rectangular image that's used as a texture. The geometry's vertex at
-
-      coordinates <code>(x, y, z)</code> maps to the texture image's pixel at
-      coordinates
-
-      <code>(u, v)</code>.</p>
-
-      <p>The <code>myGeometry.uvs</code> array stores the <code>(u, v)</code>
-      coordinates for each
-
-      vertex in the order it was added to the geometry. For example, the
-
-      first vertex, <code>myGeometry.vertices[0]</code>, has its <code>(u,
-      v)</code> coordinates
-
-      stored at <code>myGeometry.uvs[0]</code> and
-      <code>myGeometry.uvs[1]</code>.</p>
+      <p><code>myGeometry.uvs</code>配列は、ジオメトリに追加された順序で
+      各頂点の<code>(u, v)</code>座標を保存します。例えば、最初の頂点、
+      <code>myGeometry.vertices[0]</code>の<code>(u, v)</code>座標は
+      <code>myGeometry.uvs[0]</code>と<code>myGeometry.uvs[1]</code>に保存されます。</p>
     path: p5.Geometry/uvs
 chainable: false
 ---
-
 
 # p5.Geometry

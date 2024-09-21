@@ -4,25 +4,19 @@ module: Data
 submodule: Conversion
 file: src/utilities/conversion.js
 description: >
-  <p>Converts a <code>String</code> with a hexadecimal value to a 
-  <code>Number</code>.</p>
+  <p>16進数の値を持つ<code>String</code>を<code>Number</code>に変換します。</p>
 
-  <p><code>unhex()</code> converts a string with its hexadecimal number value to
-  a number.
+  <p><code>unhex()</code>は16進数の値を持つ文字列を数値に変換します。
 
-  Hexadecimal (hex) numbers are base-16, which means there are 16 unique
+  16進数（hex）は16進数で、16個のユニークな数字があることを意味します。16進数は0〜9の数字をA〜Fの文字で拡張します。例えば、
 
-  digits. Hex extends the numbers 0–9 with the letters A–F. For example, the
+  10進数の<code>11</code>（11）は16進数では文字<code>B</code>と表記されます。</p>
 
-  number <code>11</code> (eleven) in base-10 is written as the letter
-  <code>B</code> in hex.</p>
+  <p>最初のパラメータ<code>n</code>は変換する16進数の文字列です。例えば、
 
-  <p>The first parameter, <code>n</code>, is the hex string to convert. For
-  example,
+  <code>unhex('FF')</code>は数値255を返します。配列が渡された場合、
 
-  <code>unhex('FF')</code>, returns the number 255. If an array is passed, as in
-
-  <code>unhex(['00', '80', 'FF'])</code>, an array of numbers is returned.</p>
+  <code>unhex(['00', '80', 'FF'])</code>のように、数値の配列が返されます。</p>
 line: 956
 isConstructor: false
 itemtype: method
@@ -36,20 +30,20 @@ example:
 
       background(200);
 
-      // Create a a hex string variable
+      // 16進数の文字列変数を作成
       let original = 'FF';
 
-      // Convert the hex string to a number.
+      // 16進数の文字列を数値に変換
       let converted = unhex(original);
 
-      // Style the text.
+      // テキストのスタイルを設定
       textAlign(CENTER, CENTER);
       textSize(16);
 
-      // Display the original and converted values.
+      // 元の値と変換後の値を表示
       text(`${original} = ${converted}`, 50, 50);
 
-      describe('The text "FF = 255" written in black on a gray background.');
+      describe('グレーの背景に黒で "FF = 255" と書かれたテキスト。');
     }
     </code>
     </div>
@@ -61,58 +55,59 @@ example:
 
       background(200);
 
-      // Create an array of numbers.
+      // 数値の配列を作成
       let original = ['00', '80', 'FF'];
 
-      // Convert the numbers to hex strings.
-      // Only use two hex digits.
+      // 数値を16進数の文字列に変換
+      // 2桁の16進数のみを使用
       let converted = unhex(original, 2);
 
-      // Style the text.
+      // テキストのスタイルを設定
       textAlign(RIGHT, CENTER);
       textSize(16);
 
-      // Iterate over the converted values.
+      // 変換された値を繰り返し処理
       for (let i = 0; i < converted.length; i += 1) {
 
-        // Calculate the y-coordinate.
+        // y座標を計算
         let y = (i + 1) * 25;
 
-        // Display the original and converted values.
+        // 元の値と変換後の値を表示
         text(`${ original[i]} = ${converted[i]}`, 80, y);
       }
 
       describe(
-        'The text "00 = 0", "80 = 128", and "FF = 255" written on three separate lines. The text is in black on a gray background.'
+        '3行に分けて書かれた "00 = 0"、"80 = 128"、"FF = 255" のテキスト。テキストはグレーの背景に黒で書かれています。'
       );
     }
     </code>
     </div>
 class: p5
 return:
-  description: converted number.
+  description: 変換された数値。
   type: Number
 overloads:
   - line: 956
     params:
       - name: 'n'
         description: |
-          <p>value to convert.</p>
+          <p>変換する値。</p>
         type: String
     return:
-      description: converted number.
+      description: 変換された数値。
       type: Number
   - line: 1033
     params:
       - name: ns
         description: |
-          <p>values to convert.</p>
+          <p>変換する値。</p>
         type: 'String[]'
     return:
-      description: converted numbers.
+      description: 変換された数値。
       type: 'Number[]'
 chainable: false
 ---
 
 
 # unhex
+

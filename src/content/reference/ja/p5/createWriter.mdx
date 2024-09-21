@@ -4,42 +4,26 @@ module: IO
 submodule: Output
 file: src/io/files.js
 description: >
-  <p>Creates a new <a href="/reference/p5/p5.PrintWriter">p5.PrintWriter</a>
-  object.</p>
+  <p>新しい<a href="/reference/p5/p5.PrintWriter">p5.PrintWriter</a>オブジェクトを作成します。</p>
 
-  <p><a href="/reference/p5/p5.PrintWriter">p5.PrintWriter</a> objects provide a
-  way to
+  <p><a href="/reference/p5/p5.PrintWriter">p5.PrintWriter</a>オブジェクトは、
+  <em>プリントストリーム</em>と呼ばれるテキストデータの連続をユーザーの
+  コンピューターに保存する方法を提供します。これらは低レベルのオブジェクトで、
+  テキスト出力の精密な制御を可能にします。
+  <a href="/reference/p5/saveStrings/">saveStrings()</a>や
+  <a href="/reference/p5/saveJSON/">saveJSON()</a>などの関数は、
+  単純なファイル保存にはより使いやすいです。</p>
 
-  save a sequence of text data, called the <em>print stream</em>, to the user's
+  <p>最初のパラメータ<code>filename</code>は、書き込むファイルの名前です。
+  <code>createWriter('words.txt')</code>のように文字列が渡された場合、
+  <code>words.txt</code>という名前のファイルに書き込む新しい
+  <a href="/reference/p5/p5.PrintWriter">p5.PrintWriter</a>オブジェクトが
+  作成されます。</p>
 
-  computer. They're low-level objects that enable precise control of text
-
-  output. Functions such as
-
-  <a href="/reference/p5/saveStrings/">saveStrings()</a> and
-
-  <a href="/reference/p5/saveJSON/">saveJSON()</a> are easier to use for simple
-  file
-
-  saving.</p>
-
-  <p>The first parameter, <code>filename</code>, is the name of the file to be
-  written. If
-
-  a string is passed, as in <code>createWriter('words.txt')</code>, a new
-
-  <a href="/reference/p5/p5.PrintWriter">p5.PrintWriter</a> object will be
-  created that
-
-  writes to a file named <code>words.txt</code>.</p>
-
-  <p>The second parameter, <code>extension</code>, is optional. If a string is
-  passed, as
-
-  in <code>createWriter('words', 'csv')</code>, the first parameter will be
-  interpreted
-
-  as the file name and the second parameter as the extension.</p>
+  <p>2番目のパラメータ<code>extension</code>はオプションです。
+  <code>createWriter('words', 'csv')</code>のように文字列が渡された場合、
+  最初のパラメータはファイル名として、2番目のパラメータは拡張子として
+  解釈されます。</p>
 line: 1444
 isConstructor: false
 itemtype: method
@@ -53,29 +37,29 @@ example:
 
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(LEFT, CENTER);
       textFont('Courier New');
       textSize(12);
 
-      // Display instructions.
+      // 指示を表示します。
       text('Double-click to save', 5, 50, 90);
 
-      describe('The text "Double-click to save" written in black on a gray background.');
+      describe('グレーの背景に黒で書かれた "Double-click to save" というテキスト。');
     }
 
-    // Save the file when the user double-clicks.
+    // ユーザーがダブルクリックしたときにファイルを保存します。
     function doubleClicked() {
       if (mouseX > 0 && mouseX < 100 && mouseY > 0 && mouseY < 100) {
-        // Create a p5.PrintWriter object.
+        // p5.PrintWriterオブジェクトを作成します。
         let myWriter = createWriter('xo.txt');
 
-        // Add some lines to the print stream.
+        // プリントストリームにいくつかの行を追加します。
         myWriter.print('XOO');
         myWriter.print('OXO');
         myWriter.print('OOX');
 
-        // Save the file and close the print stream.
+        // ファイルを保存し、プリントストリームを閉じます。
         myWriter.close();
       }
     }
@@ -89,25 +73,25 @@ example:
 
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(LEFT, CENTER);
       textFont('Courier New');
       textSize(12);
 
-      // Display instructions.
+      // 指示を表示します。
       text('Double-click to save', 5, 50, 90);
 
-      describe('The text "Double-click to save" written in black on a gray background.');
+      describe('グレーの背景に黒で書かれた "Double-click to save" というテキスト。');
     }
 
-    // Save the file when the user double-clicks.
+    // ユーザーがダブルクリックしたときにファイルを保存します。
     function doubleClicked() {
       if (mouseX > 0 && mouseX < 100 && mouseY > 0 && mouseY < 100) {
-        // Create a p5.PrintWriter object.
-        // Use the file format .csv.
+        // p5.PrintWriterオブジェクトを作成します。
+        // ファイル形式として.csvを使用します。
         let myWriter = createWriter('mauna_loa_co2', 'csv');
 
-        // Add some lines to the print stream.
+        // プリントストリームにいくつかの行を追加します。
         myWriter.print('date,ppm_co2');
         myWriter.print('1960-01-01,316.43');
         myWriter.print('1970-01-01,325.06');
@@ -116,7 +100,7 @@ example:
         myWriter.print('2000-01-01,369.45');
         myWriter.print('2020-01-01,413.61');
 
-        // Save the file and close the print stream.
+        // ファイルを保存し、プリントストリームを閉じます。
         myWriter.close();
       }
     }
@@ -126,18 +110,19 @@ class: p5
 params:
   - name: name
     description: |
-      <p>name of the file to create.</p>
+      <p>作成するファイルの名前。</p>
     type: String
   - name: extension
     description: |
-      <p>format to use for the file.</p>
+      <p>ファイルに使用する形式。</p>
     type: String
     optional: true
 return:
-  description: stream for writing data.
+  description: データを書き込むためのストリーム。
   type: p5.PrintWriter
 chainable: false
 ---
 
 
 # createWriter
+

@@ -4,33 +4,29 @@ module: Foundation
 submodule: Foundation
 file: src/core/reference.js
 description: >
-  <p>A sequence of text characters.</p>
+  <p>文字の並び。</p>
 
-  <p>The <code>String</code> data type is helpful for working with text. For
-  example, a
+  <p><code>String</code>データ型はテキストを扱うのに役立ちます。例えば、
+  文字列にはウェルカムメッセージを含めることができます：</p>
 
-  string could contain a welcome message:</p>
-
-  <pre><code class="language-js">// Use a string literal.
+  <pre><code class="language-js">// 文字列リテラルを使用する。
 
   text('Hello!', 10, 10);
 
   </code></pre>
 
-  <pre><code class="language-js">// Create a string variable.
+  <pre><code class="language-js">// 文字列変数を作成する。
 
   let message = 'Hello!';
 
 
-  // Use the string variable.
+  // 文字列変数を使用する。
 
   text(message, 10, 10);
 
   </code></pre>
 
-  <p>The most common way to create strings is to use some form of quotations as
-
-  follows:</p>
+  <p>文字列を作成する最も一般的な方法は、以下のようにいくつかの形式の引用符を使用することです：</p>
 
   <pre><code class="language-js">text("hi", 50, 50);
 
@@ -44,21 +40,13 @@ description: >
 
   </code></pre>
 
-  <p><code>"hi"</code>, <code>'hi'</code>, and <code>hi</code> are all string
-  literals. A "literal" means a
+  <p><code>"hi"</code>、<code>'hi'</code>、そして<code>`hi`</code>はすべて文字列リテラルです。「リテラル」とは、
+  <code>text('hi', 50, 50)</code>のように実際に値が書かれていることを意味します。対照的に、
+  <code>text(message, 50, 50)</code>は変数<code>message</code>を使用しているため、
+  文字列リテラルではありません。</p>
 
-  value was actually written, as in <code>text('hi', 50, 50)</code>. By
-  contrast,
-
-  <code>text(message, 50, 50)</code> uses the variable <code>message</code>, so
-  it isn't a string
-
-  literal.</p>
-
-  <p>Single quotes <code>''</code> and double quotes <code>""</code> mean the
-  same thing. It's nice to
-
-  have the option for cases when a string contains one type of quote:</p>
+  <p>シングルクォート<code>''</code>とダブルクォート<code>""</code>は同じ意味を持ちます。
+  文字列に一方の種類の引用符が含まれている場合に選択肢があるのは便利です：</p>
 
   <pre><code class="language-js">text("What's up?", 50, 50);
 
@@ -69,18 +57,14 @@ description: >
 
   </code></pre>
 
-  <p>Backticks <code>``</code> create template literals. Template literals have
-  many uses.
-
-  For example, they can contain both single and double quotes as needed:</p>
+  <p>バッククォート<code>``</code>はテンプレートリテラルを作成します。テンプレートリテラルには多くの用途があります。
+  例えば、必要に応じてシングルクォートとダブルクォートの両方を含めることができます：</p>
 
   <pre><code class="language-js">text(`"Don't you forget about me"`,  10, 10);
 
   </code></pre>
 
-  <p>Template literals are helpful when strings are created from variables like
-
-  so:</p>
+  <p>テンプレートリテラルは、次のように変数から文字列を作成する際に役立ちます：</p>
 
   <pre><code class="language-js">let size = random(10, 20);
 
@@ -91,16 +75,9 @@ description: >
 
   </code></pre>
 
-  <p>The <code>size</code> variable's value will replace <code>${size}</code>
-  when the string is
-
-  created. <code>${}</code> is a placeholder for any value. That means an
-  expression can
-
-  be used, as in <code>${round(PI, 3)}</code>. All of the following are valid
-  template
-
-  literals:</p>
+  <p><code>size</code>変数の値は、文字列が作成されるときに<code>${size}</code>に置き換えられます。
+  <code>${}</code>は任意の値のプレースホルダーです。つまり、<code>${round(PI, 3)}</code>のように
+  式を使用することができます。以下はすべて有効なテンプレートリテラルです：</p>
 
   <pre><code class="language-js">text(`π is about ${round(PI, 2)} pixels.`,  10,
   10);
@@ -110,7 +87,7 @@ description: >
 
   </code></pre>
 
-  <p>Template literals can include several variables:</p>
+  <p>テンプレートリテラルには複数の変数を含めることができます：</p>
 
   <pre><code class="language-js">let x = random(0, 100);
 
@@ -125,8 +102,7 @@ description: >
 
   </code></pre>
 
-  <p>Template literals are also helpful for creating multi-line text like
-  so:</p>
+  <p>テンプレートリテラルは、次のように複数行のテキストを作成する際にも役立ちます：</p>
 
   <pre><code class="language-js">let poem = `My sketch doesn't run;
 
@@ -142,9 +118,10 @@ line: 710
 isConstructor: false
 itemtype: property
 example:
-  - "\n<div>\n<code>\nfunction setup() {\n  createCanvas(100, 100);\n\n  background(200);\n\n  // Style the text.\n  textAlign(CENTER, CENTER);\n  textSize(20);\n\n  // Display a welcome message.\n  text('Hello!', 50, 50);\n\n  describe('The text \"Hello!\" written on a gray background.');\n}\n</code>\n</div>\n\n<div>\n<code>\nfunction setup() {\n  createCanvas(100, 100);\n\n  background(200);\n\n  // Style the text.\n  textAlign(CENTER, CENTER);\n  textSize(20);\n\n  // Create a string variable.\n  let world = '\U0001F30D';\n\n  // Display a welcome message using a template string.\n  text(`Hello, ${world}!`, 50, 50);\n\n  describe('The text \"Hello, \U0001F30D!\" written on a gray background.');\n}\n</code>\n</div>"
+  - "\n<div>\n<code>\nfunction setup() {\n  createCanvas(100, 100);\n\n  background(200);\n\n  // テキストのスタイルを設定する。\n  textAlign(CENTER, CENTER);\n  textSize(20);\n\n  // ウェルカムメッセージを表示する。\n  text('Hello!', 50, 50);\n\n  describe('灰色の背景に「Hello!」というテキストが書かれている。');\n}\n</code>\n</div>\n\n<div>\n<code>\nfunction setup() {\n  createCanvas(100, 100);\n\n  background(200);\n\n  // テキストのスタイルを設定する。\n  textAlign(CENTER, CENTER);\n  textSize(20);\n\n  // 文字列変数を作成する。\n  let world = '\U0001F30D';\n\n  // テンプレート文字列を使用してウェルカムメッセージを表示する。\n  text(`Hello, ${world}!`, 50, 50);\n\n  describe('灰色の背景に「Hello, \U0001F30D!」というテキストが書かれている。');\n}\n</code>\n</div>"
 class: p5
 ---
 
 
 # String
+

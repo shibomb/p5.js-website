@@ -4,9 +4,8 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: |
-  <p>A string containing the file's data.</p>
-  <p>Data can be either image data, text contents, or a parsed object in the
-  case of JSON and <a href="/reference/p5/p5.XML">p5.XML</a> objects.</p>
+  <p>ファイルのデータを含む文字列です。</p>
+  <p>データは画像データ、テキストの内容、または JSON や <a href="/reference/p5/p5.XML">p5.XML</a> オブジェクトの場合はパースされたオブジェクトである可能性があります。</p>
 line: 5751
 isConstructor: false
 itemtype: property
@@ -15,26 +14,26 @@ example:
 
     <div>
     <code>
-    // Use the file input to load a file and display its info.
+    // ファイル入力を使用してファイルをロードし、その情報を表示します。
 
     function setup() {
       createCanvas(100, 100);
 
       background(200);
 
-      // Create a file input and place it beneath the canvas.
-      // Call displayData() when the file loads.
+      // ファイル入力を作成し、キャンバスの下に配置します。
+      // ファイルがロードされたら displayData() を呼び出します。
       let input = createFileInput(displayData);
       input.position(0, 100);
 
-      describe('A gray square with a file input beneath it. If the user loads a file, its data is written in black.');
+      describe('グレーの正方形と、その下にファイル入力があります。ユーザーがファイルをロードすると、そのデータが黒字で書かれます。');
     }
 
-    // Display the p5.File's data once it loads.
+    // p5.File のデータがロードされたら表示します。
     function displayData(file) {
       background(200);
 
-      // Display the p5.File's data, which looks like a random string of characters.
+      // p5.File のデータを表示します。ランダムな文字列のように見えます。
       text(file.data, 10, 10, 80, 80);
     }
     </code>
@@ -44,3 +43,4 @@ class: p5.File
 
 
 # data
+

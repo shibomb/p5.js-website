@@ -4,35 +4,21 @@ module: Data
 submodule: Conversion
 file: src/utilities/conversion.js
 description: >
-  <p>Converts a <code>Boolean</code>, <code>String</code>, or decimal
-  <code>Number</code> to an integer.</p>
+  <p><code>Boolean</code>、<code>String</code>、または小数点付きの<code>Number</code>を整数に変換します。</p>
 
-  <p><code>int()</code> converts values to integers. Integers are positive or
-  negative
+  <p><code>int()</code>は値を整数に変換します。整数は小数点のない正または負の
+  数字です。元の値に小数点がある場合（例：-34.56）、
+  小数点以下が削除されて整数（例：-34）になります。</p>
 
-  numbers without decimals. If the original value has decimals, as in -34.56,
+  <p>パラメータ<code>n</code>は変換する値です。<code>n</code>がBoolean型の場合、
+  <code>int(false)</code>または<code>int(true)</code>のように、数字の0（<code>false</code>）
+  または1（<code>true</code>）が返されます。<code>n</code>が文字列または数字の場合、
+  <code>int('45')</code>や<code>int(67.89)</code>のように、整数が返されます。
+  配列が渡された場合、<code>int([12.34, 56.78])</code>のように、整数の配列が
+  返されます。</p>
 
-  they're removed to produce an integer such as -34.</p>
-
-  <p>The parameter, <code>n</code>, is the value to convert. If <code>n</code>
-  is a Boolean, as in
-
-  <code>int(false)</code> or <code>int(true)</code>, then the number 0
-  (<code>false</code>) or 1 (<code>true</code>) will
-
-  be returned. If <code>n</code> is a string or number, as in
-  <code>int('45')</code> or
-
-  <code>int(67.89)</code>, then an integer will be returned. If an array is
-  passed, as
-
-  in <code>int([12.34, 56.78])</code>, then an array of integers will be
-  returned.</p>
-
-  <p>Note: If a value can't be converted to a number, as in
-  <code>int('giraffe')</code>,
-
-  then the value <code>NaN</code> (not a number) will be returned.</p>
+  <p>注意：<code>int('giraffe')</code>のように、数字に変換できない値の場合、
+  <code>NaN</code>（非数）が返されます。</p>
 line: 92
 isConstructor: false
 itemtype: method
@@ -46,20 +32,20 @@ example:
 
       background(200);
 
-      // Create a Boolean variable.
+      // Boolean変数を作成する
       let original = false;
 
-      // Convert the Boolean to an integer.
+      // BooleanをIntegerに変換する
       let converted = int(original);
 
-      // Style the text.
+      // テキストのスタイルを設定する
       textAlign(CENTER, CENTER);
       textSize(16);
 
-      // Display the original and converted values.
+      // 元の値と変換後の値を表示する
       text(`${original} : ${converted}`, 50, 50);
 
-      describe('The text "false : 0" written in black on a gray background.');
+      describe('グレーの背景に黒で書かれた "false : 0" というテキスト。');
     }
     </code>
     </div>
@@ -71,20 +57,20 @@ example:
 
       background(200);
 
-      // Create a string variable.
+      // 文字列変数を作成する
       let original = '12.34';
 
-      // Convert the string to an integer.
+      // 文字列をIntegerに変換する
       let converted = int(original);
 
-      // Style the text.
+      // テキストのスタイルを設定する
       textAlign(CENTER, CENTER);
       textSize(14);
 
-      // Display the original and converted values.
+      // 元の値と変換後の値を表示する
       text(`${original} ≈ ${converted}`, 50, 50);
 
-      describe('The text "12.34 ≈ 12" written in black on a gray background.');
+      describe('グレーの背景に黒で書かれた "12.34 ≈ 12" というテキスト。');
     }
     </code>
     </div>
@@ -96,20 +82,20 @@ example:
 
       background(200);
 
-      // Create a decimal number variable.
+      // 小数点付きの数値変数を作成する
       let original = 12.34;
 
-      // Convert the decimal number to an integer.
+      // 小数点付きの数値をIntegerに変換する
       let converted = int(original);
 
-      // Style the text.
+      // テキストのスタイルを設定する
       textAlign(CENTER, CENTER);
       textSize(14);
 
-      // Display the original and converted values.
+      // 元の値と変換後の値を表示する
       text(`${original} ≈ ${converted}`, 50, 50);
 
-      describe('The text "12.34 ≈ 12" written in black on a gray background.');
+      describe('グレーの背景に黒で書かれた "12.34 ≈ 12" というテキスト。');
     }
     </code>
     </div>
@@ -121,46 +107,47 @@ example:
 
       background(200);
 
-      // Create an array of strings.
+      // 文字列の配列を作成する
       let original = ['60', '30', '15'];
 
-      // Convert the strings to integers.
+      // 文字列をIntegerに変換する
       let diameters = int(original);
 
       for (let d of diameters) {
-        // Draw a circle.
+        // 円を描く
         circle(50, 50, d);
       }
 
-      describe('Three white, concentric circles on a gray background.');
+      describe('グレーの背景に3つの白い同心円。');
     }
     </code>
     </div>
 class: p5
 return:
-  description: converted number.
+  description: 変換された数値。
   type: Number
 overloads:
   - line: 92
     params:
       - name: 'n'
         description: |
-          <p>value to convert.</p>
+          <p>変換する値。</p>
         type: String|Boolean|Number
     return:
-      description: converted number.
+      description: 変換された数値。
       type: Number
   - line: 211
     params:
       - name: ns
         description: |
-          <p>values to convert.</p>
+          <p>変換する値。</p>
         type: Array
     return:
-      description: converted numbers.
+      description: 変換された数値。
       type: 'Number[]'
 chainable: false
 ---
 
 
 # int
+

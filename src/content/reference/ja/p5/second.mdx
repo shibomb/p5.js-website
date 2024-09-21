@@ -4,7 +4,7 @@ module: IO
 submodule: Time & Date
 file: src/utilities/time_date.js
 description: |
-  <p>Returns the current second as a number from 0–59.</p>
+  <p>現在の秒を0から59の数値として返します。</p>
 line: 277
 isConstructor: false
 itemtype: method
@@ -18,27 +18,28 @@ example:
 
       background(200);
 
-      // Get the current second.
+      // 現在の秒を取得します。
       let s = second();
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(LEFT, CENTER);
       textSize(12);
       textFont('Courier New');
 
-      // Display the second.
-      text(`Current second: ${s}`, 10, 50, 80);
+      // 秒を表示します。
+      text(`現在の秒: ${s}`, 10, 50, 80);
 
-      describe(`The text 'Current second: ${s}' written in black on a gray background.`);
+      describe(`灰色の背景に黒字で '現在の秒: ${s}' と書かれたテキスト。`);
     }
     </code>
     </div>
 class: p5
 return:
-  description: current second between 0 and 59.
+  description: 0から59の間の現在の秒。
   type: Integer
 chainable: false
 ---
 
 
 # second
+

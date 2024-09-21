@@ -4,62 +4,29 @@ module: Data
 submodule: String Functions
 file: src/utilities/string_functions.js
 description: >
-  <p>Converts a <code>Number</code> into a <code>String</code> with a plus or
-  minus sign.</p>
+  <p><code>Number</code>を正負の符号付きの<code>String</code>に変換します。</p>
 
-  <p><code>nfp()</code> converts numbers such as 123 into strings formatted with
-  a <code>+</code> or
+  <p><code>nfp()</code>は123のような数値を、<code>'+123'</code>のように正負を示す
+  <code>+</code>または<code>-</code>記号を付けた文字列に変換します。</p>
 
-  <code>-</code> symbol to mark whether they're positive or negative, as in
-  <code>'+123'</code>.</p>
+  <p>最初のパラメータ<code>num</code>は、文字列に変換する数値です。
+  例えば、<code>nfp(123.45)</code>を呼び出すと、文字列<code>'+123.45'</code>が返されます。
+  数値の配列が渡された場合、例えば<code>nfp([123.45, -6.78])</code>のように、
+  フォーマットされた文字列の配列が返されます。</p>
 
-  <p>The first parameter, <code>num</code>, is the number to convert to a
-  string. For
+  <p>2番目のパラメータ<code>left</code>はオプションです。数値が渡された場合、
+  例えば<code>nfp(123.45, 4)</code>のように、小数点の左側に含める最小桁数を設定します。
+  <code>left</code>が<code>num</code>の桁数より大きい場合、未使用の桁は0で埋められます。
+  例えば、<code>nfp(123.45, 4)</code>を呼び出すと、文字列<code>'+0123.45'</code>が返されます。</p>
 
-  example, calling <code>nfp(123.45)</code> returns the string
-  <code>'+123.45'</code>. If an array
-
-  of numbers is passed, as in <code>nfp([123.45, -6.78])</code>, an array of
-  formatted
-
-  strings will be returned.</p>
-
-  <p>The second parameter, <code>left</code>, is optional. If a number is
-  passed, as in
-
-  <code>nfp(123.45, 4)</code>, it sets the minimum number of digits to include
-  to the
-
-  left of the decimal place. If <code>left</code> is larger than the number of
-  digits in
-
-  <code>num</code>, then unused digits will be set to 0. For example, calling
-
-  <code>nfp(123.45, 4)</code> returns the string <code>'+0123.45'</code>.</p>
-
-  <p>The third parameter, <code>right</code>, is also optional. If a number is
-  passed, as
-
-  in <code>nfp(123.45, 4, 1)</code>, it sets the minimum number of digits to
-  include to
-
-  the right of the decimal place. If <code>right</code> is smaller than the
-  number of
-
-  decimal places in <code>num</code>, then <code>num</code> will be rounded to
-  the given number of
-
-  decimal places.  For example, calling <code>nfp(123.45, 4, 1)</code> returns
-  the
-
-  string <code>'+0123.5'</code>. If <code>right</code> is larger than the number
-  of decimal places
-
-  in <code>num</code>, then unused decimal places will be set to 0.  For
-  example,
-
-  calling <code>nfp(123.45, 4, 3)</code> returns the string
-  <code>'+0123.450'</code>.</p>
+  <p>3番目のパラメータ<code>right</code>もオプションです。数値が渡された場合、
+  例えば<code>nfp(123.45, 4, 1)</code>のように、小数点の右側に含める最小桁数を設定します。
+  <code>right</code>が<code>num</code>の小数点以下の桁数より小さい場合、<code>num</code>は
+  指定された小数点以下の桁数に丸められます。例えば、<code>nfp(123.45, 4, 1)</code>を
+  呼び出すと、文字列<code>'+0123.5'</code>が返されます。<code>right</code>が
+  <code>num</code>の小数点以下の桁数より大きい場合、未使用の小数点以下の桁は0で埋められます。
+  例えば、<code>nfp(123.45, 4, 3)</code>を呼び出すと、文字列<code>'+0123.450'</code>が
+  返されます。</p>
 line: 440
 isConstructor: false
 itemtype: method
@@ -73,28 +40,27 @@ example:
 
       background(200);
 
-      // Create number variables.
+      // 数値変数を作成します。
       let positive = 123;
       let negative = -123;
 
-      // Convert the positive number to a formatted string.
+      // 正の数をフォーマットされた文字列に変換します。
       let p = nfp(positive);
 
-      // Convert the negative number to a formatted string
-      // with four digits to the left of the decimal
-      // and two digits to the right of the decimal.
+      // 負の数をフォーマットされた文字列に変換します
+      // 小数点の左側に4桁、右側に2桁を設定します。
       let n = nfp(negative, 4, 2);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textSize(14);
 
-      // Display the original and formatted numbers.
+      // 元の数値とフォーマットされた数値を表示します。
       text(`${positive} : ${p}`, 50, 33);
       text(`${negative} : ${n}`, 50, 67);
 
       describe(
-        'The text "123 : +123" and "-123 : -123.00" written on separate lines. The text is in black on a gray background.'
+        '別々の行に書かれた "123 : +123" と "-123 : -123.00" というテキスト。テキストは灰色の背景に黒で書かれています。'
       );
     }
     </code>
@@ -107,65 +73,62 @@ example:
 
       background(200);
 
-      // Create number variables.
+      // 数値変数を作成します。
       let numbers = [123, -4.56];
 
-      // Convert the numbers to formatted strings
-      // with four digits to the left of the decimal
-      // and one digit to the right of the decimal.
+      // 数値をフォーマットされた文字列に変換します
+      // 小数点の左側に4桁、右側に1桁を設定します。
       let formatted = nfp(numbers, 4, 1);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textSize(14);
 
-      // Iterate over the array.
+      // 配列を反復処理します。
       for (let i = 0; i < formatted.length; i += 1) {
 
-        // Calculate the y-coordinate.
+        // y座標を計算します。
         let y = (i + 1) * 33;
 
-        // Display the original and formatted numbers.
+        // 元の数値とフォーマットされた数値を表示します。
         text(`${numbers[i]} : ${formatted[i]}`, 50, y);
       }
 
       describe(
-        'The text "123 : +0123.0" and "-4.56 : 00-4.6" written on separate lines. The text is in black on a gray background.'
+        '別々の行に書かれた "123 : +0123.0" と "-4.56 : 00-4.6" というテキスト。テキストは灰色の背景に黒で書かれています。'
       );
     }
     </code>
     </div>
 class: p5
 return:
-  description: formatted string.
+  description: フォーマットされた文字列。
   type: String
 overloads:
   - line: 440
     params:
       - name: num
         description: |
-          <p>number to format.</p>
+          <p>フォーマットする数値。</p>
         type: Number
       - name: left
         description: |
-          <p>number of digits to include to the left of the
-                                  decimal point.</p>
+          <p>小数点の左側に含める桁数。</p>
         type: Integer
         optional: true
       - name: right
         description: |
-          <p>number of digits to include to the right of the
-                                   decimal point.</p>
+          <p>小数点の右側に含める桁数。</p>
         type: Integer
         optional: true
     return:
-      description: formatted string.
+      description: フォーマットされた文字列。
       type: String
   - line: 545
     params:
       - name: nums
         description: |
-          <p>numbers to format.</p>
+          <p>フォーマットする数値の配列。</p>
         type: 'Number[]'
       - name: left
         description: ''
@@ -176,10 +139,11 @@ overloads:
         type: Integer
         optional: true
     return:
-      description: formatted strings.
+      description: フォーマットされた文字列の配列。
       type: 'String[]'
 chainable: false
 ---
 
 
 # nfp
+

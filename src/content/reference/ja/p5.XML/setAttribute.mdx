@@ -4,20 +4,13 @@ module: IO
 submodule: Input
 file: src/io/p5.XML.js
 description: >
-  <p>Sets an attribute to a given value.</p>
+  <p>属性に指定された値を設定します。</p>
 
-  <p>The first parameter, <code>name</code>, is a string with the name of the
-  attribute
+  <p>最初のパラメータ<code>name</code>は、設定する属性の名前を示す文字列です。</p>
 
-  being set.</p>
-
-  <p>The second parameter, <code>value</code>, is the attribute's new value. For
-  example,
-
-  calling <code>myXML.setAttribute('id', 123)</code> sets the <code>id</code>
-  attribute to the
-
-  value 123.</p>
+  <p>2番目のパラメータ<code>value</code>は、属性の新しい値です。例えば、
+  <code>myXML.setAttribute('id', 123)</code>を呼び出すと、<code>id</code>
+  属性の値が123に設定されます。</p>
 line: 1093
 isConstructor: false
 itemtype: method
@@ -28,7 +21,7 @@ example:
     <code>
     let myXML;
 
-    // Load the XML and create a p5.XML object.
+    // XMLを読み込み、p5.XMLオブジェクトを作成します。
     function preload() {
       myXML = loadXML('/assets/animals.xml');
     }
@@ -38,28 +31,28 @@ example:
 
       background(200);
 
-      // Get the first reptile child element.
+      // 最初のreptile子要素を取得します。
       let reptile = myXML.getChild('reptile');
 
-      // Set the reptile's color.
+      // reptileの色を設定します。
       reptile.setAttribute('color', 'green');
 
-      // Get the reptile's content.
+      // reptileのコンテンツを取得します。
       let content = reptile.getContent();
 
-      // Get the reptile's color.
+      // reptileの色を取得します。
       let attribute = reptile.getString('color');
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(LEFT, CENTER);
       textFont('Courier New');
       textSize(14);
 
-      // Display the element's content.
+      // 要素のコンテンツを表示します。
       text(`${content} is ${attribute}`, 5, 50, 90);
 
       describe(
-        `The text "${content} is ${attribute}" written in green on a gray background.`
+        `"${content} is ${attribute}"というテキストが灰色の背景に緑色で書かれています。`
       );
     }
     </code>
@@ -68,14 +61,15 @@ class: p5.XML
 params:
   - name: name
     description: |
-      <p>name of the attribute to be set.</p>
+      <p>設定する属性の名前。</p>
     type: String
   - name: value
     description: |
-      <p>attribute's new value.</p>
+      <p>属性の新しい値。</p>
     type: Number|String|Boolean
 chainable: false
 ---
 
 
 # setAttribute
+

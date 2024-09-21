@@ -4,8 +4,8 @@ module: Data
 submodule: Dictionary
 file: src/data/p5.TypedDict.js
 description: |
-  <p>Divide the given number with the value currently stored at the given key.
-  The quotient then replaces the value previously stored in the Dictionary.</p>
+  <p>指定されたキーに現在格納されている値を、与えられた数で割ります。
+  その商が、以前に辞書に格納されていた値と置き換わります。</p>
 line: 516
 isConstructor: false
 itemtype: method
@@ -17,21 +17,22 @@ example:
     function setup() {
       let myDictionary = createNumberDict(2, 8);
       myDictionary.div(2, 2);
-      print(myDictionary.get(2)); // logs 4 to console.
+      print(myDictionary.get(2)); // コンソールに4を出力します。
     }
     </code></div>
 class: p5.NumberDict
 params:
   - name: Key
     description: |
-      <p>for value you wish to divide</p>
+      <p>割りたい値のキー</p>
     type: Number
   - name: Amount
     description: |
-      <p>to divide the value by</p>
+      <p>値を割る数</p>
     type: Number
 chainable: false
 ---
 
 
 # div
+

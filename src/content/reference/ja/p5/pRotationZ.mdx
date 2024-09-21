@@ -4,20 +4,19 @@ module: Events
 submodule: Acceleration
 file: src/events/acceleration.js
 description: >
-  <p>The system variable pRotationZ always contains the rotation of the
+  <p>システム変数pRotationZは、常に現在のフレームの前のフレームにおける
 
-  device along the z axis in the frame previous to the current frame.
+  デバイスのz軸周りの回転を含んでいます。
 
-  If the sketch <a href="/reference/p5/angleMode/"> angleMode()</a> is set to
-  DEGREES,
+  スケッチの<a href="/reference/p5/angleMode/">angleMode()</a>がDEGREESに設定されている場合、
 
-  the value will be 0 to 360. If it is set to RADIANS, the value will
+  値は0から360になります。RADIANSに設定されている場合、値は
 
-  be 0 to 2*PI.</p>
+  0から2*PIになります。</p>
 
-  <p>pRotationZ can also be used with rotationZ to determine the rotate
+  <p>pRotationZはrotationZと共に使用して、デバイスのZ軸周りの回転
 
-  direction of the device along the Z-axis.</p>
+  方向を判断することもできます。</p>
 line: 321
 isConstructor: false
 itemtype: property
@@ -26,13 +25,12 @@ example:
 
     <div class='norender'>
     <code>
-    // A simple if statement looking at whether
-    // rotationZ - pRotationZ < 0 is true or not will be
-    // sufficient for determining the rotate direction
-    // in most cases.
+    // rotationZ - pRotationZ < 0 が真かどうかを
+    // 単純にif文で確認するだけで、ほとんどの場合
+    // 回転方向を判断するのに十分です。
 
-    // Some extra logic is needed to account for cases where
-    // the angles wrap around.
+    // 角度が一周する場合に対応するために
+    // 追加のロジックが必要です。
     let rotateDirection = 'clockwise';
 
     if (
@@ -44,7 +42,7 @@ example:
       rotateDirection = 'counter-clockwise';
     }
     print(rotateDirection);
-    describe('no image to display.');
+    describe('表示する画像はありません。');
     </code>
     </div>
 class: p5
@@ -53,3 +51,4 @@ type: Number
 
 
 # pRotationZ
+

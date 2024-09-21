@@ -4,27 +4,11 @@ module: IO
 submodule: Time & Date
 file: src/utilities/time_date.js
 description: >
-  <p>Returns the number of milliseconds since a sketch started running.</p>
+  <p>スケッチが実行を開始してからのミリ秒数を返します。</p>
 
-  <p><code>millis()</code> keeps track of how long a sketch has been running in
+  <p><code>millis()</code>は、スケッチが実行されている時間をミリ秒単位（1秒の1000分の1）で追跡します。この情報は、イベントやアニメーションのタイミングを計るのに役立つことがよくあります。</p>
 
-  milliseconds (thousandths of a second). This information is often
-
-  helpful for timing events and animations.</p>
-
-  <p>If a sketch has a
-
-  <a href="/reference/p5/setup/">setup()</a> function, then
-  <code>millis()</code> begins tracking
-
-  time before the code in <a href="/reference/p5/setup/">setup()</a> runs. If a
-
-  sketch includes a <a href="/reference/p5/preload/">preload()</a> function,
-  then
-
-  <code>millis()</code> begins tracking time as soon as the code in
-
-  <a href="/reference/p5/preload/">preload()</a> starts running.</p>
+  <p>スケッチに<a href="/reference/p5/setup/">setup()</a>関数がある場合、<code>millis()</code>は<a href="/reference/p5/setup/">setup()</a>内のコードが実行される前に時間の追跡を開始します。スケッチに<a href="/reference/p5/preload/">preload()</a>関数が含まれている場合、<code>millis()</code>は<a href="/reference/p5/preload/">preload()</a>内のコードが実行を開始するとすぐに時間の追跡を開始します。</p>
 line: 112
 isConstructor: false
 itemtype: method
@@ -38,19 +22,19 @@ example:
 
       background(200);
 
-      // Get the number of milliseconds the sketch has run.
+      // スケッチが実行されているミリ秒数を取得します。
       let ms = millis();
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(LEFT, CENTER);
       textSize(10);
       textFont('Courier New');
 
-      // Display how long it took setup() to be called.
+      // setup()が呼び出されるまでにかかった時間を表示します。
       text(`Startup time: ${round(ms, 2)} ms`, 5, 50, 90);
 
       describe(
-        `The text 'Startup time: ${round(ms, 2)} ms' written in black on a gray background.`
+        `灰色の背景に黒で'Startup time: ${round(ms, 2)} ms'というテキストが書かれています。`
       );
     }
     </code>
@@ -61,21 +45,21 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('The text "Running time: S sec" written in black on a gray background. The number S increases as the sketch runs.');
+      describe('灰色の背景に黒で"Running time: S sec"というテキストが書かれています。スケッチの実行時間とともに数字Sが増加します。');
     }
 
     function draw() {
       background(200);
 
-      // Get the number of seconds the sketch has run.
+      // スケッチが実行されている秒数を取得します。
       let s = millis() / 1000;
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(LEFT, CENTER);
       textSize(10);
       textFont('Courier New');
 
-      // Display how long the sketch has run.
+      // スケッチが実行されている時間を表示します。
       text(`Running time: ${nf(s, 1, 1)} sec`, 5, 50, 90);
     }
     </code>
@@ -86,19 +70,19 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      describe('A white circle oscillates left and right on a gray background.');
+      describe('灰色の背景上で白い円が左右に振動しています。');
     }
 
     function draw() {
       background(200);
 
-      // Get the number of seconds the sketch has run.
+      // スケッチが実行されている秒数を取得します。
       let s = millis() / 1000;
 
-      // Calculate an x-coordinate.
+      // x座標を計算します。
       let x = 30 * sin(s) + 50;
 
-      // Draw the circle.
+      // 円を描画します。
       circle(x, 50, 30);
     }
     </code>
@@ -106,7 +90,7 @@ example:
 
     <div>
     <code>
-    // Load the GeoJSON.
+    // GeoJSONを読み込みます。
     function preload() {
       loadJSON('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson');
     }
@@ -116,29 +100,30 @@ example:
 
       background(200);
 
-      // Get the number of milliseconds the sketch has run.
+      // スケッチが実行されているミリ秒数を取得します。
       let ms = millis();
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(LEFT, CENTER);
       textFont('Courier New');
       textSize(11);
 
-      // Display how long it took to load the data.
+      // データの読み込みにかかった時間を表示します。
       text(`It took ${round(ms, 2)} ms to load the data`, 5, 50, 100);
 
       describe(
-        `The text "It took ${round(ms, 2)} ms to load the data" written in black on a gray background.`
+        `灰色の背景に黒で"It took ${round(ms, 2)} ms to load the data"というテキストが書かれています。`
       );
     }
     </code>
     </div>
 class: p5
 return:
-  description: number of milliseconds since starting the sketch.
+  description: スケッチの開始からのミリ秒数。
   type: Number
 chainable: false
 ---
 
 
 # millis
+

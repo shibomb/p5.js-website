@@ -4,18 +4,11 @@ module: IO
 submodule: Input
 file: src/io/p5.XML.js
 description: >
-  <p>Returns the first matching child element as a new
+  <p>最初に一致する子要素を新しい<a href="/reference/p5/p5.XML">p5.XML</a>オブジェクトとして返します。</p>
 
-  <a href="/reference/p5/p5.XML">p5.XML</a> object.</p>
-
-  <p>The parameter, <code>name</code>, is optional. If a string is passed, as in
-
-  <code>myXML.getChild('cat')</code>, then the first child element with the tag
-
-  <code><cat></code> will be returned. If a number is passed, as in
-
-  <code>myXML.getChild(1)</code>, then the child element at that index will be
-  returned.</p>
+  <p>パラメータ<code>name</code>はオプションです。文字列が渡された場合（例：<code>myXML.getChild('cat')</code>）、
+  タグ<code><cat></code>を持つ最初の子要素が返されます。数値が渡された場合（例：<code>myXML.getChild(1)</code>）、
+  そのインデックスの子要素が返されます。</p>
 line: 448
 isConstructor: false
 itemtype: method
@@ -26,7 +19,7 @@ example:
     <code>
     let myXML;
 
-    // Load the XML and create a p5.XML object.
+    // XMLを読み込み、p5.XMLオブジェクトを作成します。
     function preload() {
       myXML = loadXML('/assets/animals.xml');
     }
@@ -36,21 +29,21 @@ example:
 
       background(200);
 
-      // Get the first child element that is a mammal.
+      // 哺乳類の最初の子要素を取得します。
       let goat = myXML.getChild('mammal');
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textFont('Courier New');
       textSize(14);
 
-      // Get the child element's content.
+      // 子要素のコンテンツを取得します。
       let content = goat.getContent();
 
-      // Display the child element's content.
+      // 子要素のコンテンツを表示します。
       text(content, 50, 50);
 
-      describe('The word "Goat" written in black on a gray background.');
+      describe('灰色の背景に黒で「Goat」という単語が書かれています。');
     }
     </code>
     </div>
@@ -59,7 +52,7 @@ example:
     <code>
     let myXML;
 
-    // Load the XML and create a p5.XML object.
+    // XMLを読み込み、p5.XMLオブジェクトを作成します。
     function preload() {
       myXML = loadXML('/assets/animals.xml');
     }
@@ -69,21 +62,21 @@ example:
 
       background(200);
 
-      // Get the child element at index 1.
+      // インデックス1の子要素を取得します。
       let leopard = myXML.getChild(1);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textFont('Courier New');
       textSize(14);
 
-      // Get the child element's content.
+      // 子要素のコンテンツを取得します。
       let content = leopard.getContent();
 
-      // Display the child element's content.
+      // 子要素のコンテンツを表示します。
       text(content, 50, 50);
 
-      describe('The word "Leopard" written in black on a gray background.');
+      describe('灰色の背景に黒で「Leopard」という単語が書かれています。');
     }
     </code>
     </div>
@@ -91,13 +84,14 @@ class: p5.XML
 params:
   - name: name
     description: |
-      <p>element name or index.</p>
+      <p>要素名またはインデックス。</p>
     type: String|Integer
 return:
-  description: child element.
+  description: 子要素。
   type: p5.XML
 chainable: false
 ---
 
 
 # getChild
+

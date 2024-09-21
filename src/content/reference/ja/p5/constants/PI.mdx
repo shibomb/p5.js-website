@@ -4,21 +4,17 @@ module: Constants
 submodule: Constants
 file: src/core/constants.js
 description: >
-  <p>A <code>Number</code> constant that's approximately 3.1416.</p>
+  <p><code>Number</code>型の定数で、約3.1416の値を持ちます。</p>
 
-  <p><code>PI</code> is the mathematical constant π. It's useful for many tasks
-  that
+  <p><code>PI</code>は数学定数πです。回転や振動に関連する多くのタスクに役立ちます。
 
-  involve rotation and oscillation. For example, calling <code>rotate(PI)</code>
-  rotates
+  例えば、<code>rotate(PI)</code>を呼び出すと、座標系を<code>PI</code>ラジアン
 
-  the coordinate system <code>PI</code> radians, which is a half turn
-  (180˚).</p>
+  （半回転、180˚）回転させます。</p>
 
-  <p>Note: <code>TWO_PI</code> radians equals 360˚, <code>PI</code> radians
-  equals 180˚, <code>HALF_PI</code>
+  <p>注意：<code>TWO_PI</code>ラジアンは360˚、<code>PI</code>ラジアンは180˚、<code>HALF_PI</code>
 
-  radians equals 90˚, and <code>QUARTER_PI</code> radians equals 45˚.</p>
+  ラジアンは90˚、<code>QUARTER_PI</code>ラジアンは45˚に相当します。</p>
 line: 178
 isConstructor: false
 itemtype: property
@@ -32,10 +28,10 @@ example:
 
       background(200);
 
-      // Draw an arc from 0 to PI.
+      // 0からPIまでの弧を描く
       arc(50, 50, 80, 80, 0, PI);
 
-      describe('The bottom half of a circle drawn in white on a gray background.');
+      describe('灰色の背景に白で描かれた円の下半分。');
     }
     </code>
     </div>
@@ -47,19 +43,19 @@ example:
 
       background(200);
 
-      // Translate the origin to the center.
+      // 原点を中心に移動
       translate(50, 50);
 
-      // Draw a line.
+      // 線を描く
       line(0, 0, 40, 0);
 
-      // Rotate a half turn.
+      // 半回転させる
       rotate(PI);
 
-      // Draw the same line, rotated.
+      // 同じ線を回転させて描く
       line(0, 0, 40, 0);
 
-      describe('A horizontal black line on a gray background.');
+      describe('灰色の背景に黒い水平線。');
     }
     </code>
     </div>
@@ -70,28 +66,28 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'A red circle and a blue circle oscillate from left to right on a gray background. The circles drift apart, then meet in the middle, over and over again.'
+        '灰色の背景上で、赤い円と青い円が左右に振動しています。円は離れたり中央で出会ったりを繰り返します。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Translate the origin to the center.
+      // 原点を中心に移動
       translate(50, 50);
 
-      // Calculate the x-coordinates.
+      // x座標を計算
       let x1 = 40 * sin(frameCount * 0.05);
       let x2 = 40 * sin(frameCount * 0.05 + PI);
 
-      // Style the oscillators.
+      // 振動子のスタイルを設定
       noStroke();
 
-      // Draw the red oscillator.
+      // 赤い振動子を描く
       fill(255, 0, 0);
       circle(x1, 0, 20);
 
-      // Draw the blue oscillator.
+      // 青い振動子を描く
       fill(0, 0, 255);
       circle(x2, 0, 20);
     }
@@ -103,3 +99,4 @@ type: Number
 
 
 # PI
+

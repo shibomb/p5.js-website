@@ -4,12 +4,12 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>Underlying
+  <p>基礎となる
 
   <a href="https://developer.mozilla.org/en-US/docs/Web/API/File/"
   target="_blank">File</a>
 
-  object. All <code>File</code> properties and methods are accessible.</p>
+  オブジェクト。すべての<code>File</code>プロパティとメソッドにアクセスできます。</p>
 line: 5555
 isConstructor: false
 itemtype: property
@@ -18,33 +18,33 @@ example:
 
     <div>
     <code>
-    // Use the file input to load a
-    // file and display its info.
+    // ファイル入力を使用して
+    // ファイルを読み込み、その情報を表示します。
 
     function setup() {
       createCanvas(100, 100);
 
       background(200);
 
-      // Create a file input and place it beneath the canvas.
-      // Call displayInfo() when the file loads.
+      // ファイル入力を作成し、キャンバスの下に配置します。
+      // ファイルが読み込まれたらdisplayInfo()を呼び出します。
       let input = createFileInput(displayInfo);
       input.position(0, 100);
 
-      describe('A gray square with a file input beneath it. If the user loads a file, its info is written in black.');
+      describe('グレーの正方形と、その下にファイル入力があります。ユーザーがファイルを読み込むと、その情報が黒字で書かれます。');
     }
 
-    // Use the p5.File once it loads.
+    // p5.Fileが読み込まれたら使用します。
     function displayInfo(file) {
       background(200);
 
-      // Display the p5.File's name.
+      // p5.Fileの名前を表示します。
       text(file.name, 10, 10, 80, 40);
 
-      // Display the p5.File's type and subtype.
+      // p5.Fileのタイプとサブタイプを表示します。
       text(`${file.type}/${file.subtype}`, 10, 70);
 
-      // Display the p5.File's size in bytes.
+      // p5.Fileのサイズをバイト単位で表示します。
       text(file.size, 10, 90);
     }
     </code>
@@ -54,3 +54,4 @@ class: p5.File
 
 
 # file
+

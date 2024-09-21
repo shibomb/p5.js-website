@@ -4,7 +4,7 @@ module: IO
 submodule: Input
 file: src/io/files.js
 description: |
-  <p>This method is suitable for fetching files up to size of 64MB.</p>
+  <p>このメソッドは、最大64MBまでのサイズのファイルを取得するのに適しています。</p>
 line: 986
 isConstructor: false
 itemtype: method
@@ -22,29 +22,27 @@ example:
       for (let i = 0; i < 5; i++) {
         console.log(data.bytes[i].toString(16));
       }
-      describe('no image displayed');
+      describe('画像は表示されません');
     }
     </code></div>
 class: p5
 params:
   - name: file
     description: |
-      <p>name of the file or URL to load</p>
+      <p>読み込むファイルの名前またはURL</p>
     type: String
   - name: callback
     description: |
-      <p>function to be executed after <a href="#/p5/loadBytes">loadBytes()</a>
-                                         completes</p>
+      <p><a href="#/p5/loadBytes">loadBytes()</a>が完了した後に実行される関数</p>
     type: Function
     optional: true
   - name: errorCallback
     description: |
-      <p>function to be executed if there
-                                         is an error</p>
+      <p>エラーが発生した場合に実行される関数</p>
     type: Function
     optional: true
 return:
-  description: an object whose 'bytes' property will be the loaded buffer
+  description: bytesプロパティが読み込まれたバッファーになるオブジェクト
   type: Object
 chainable: false
 ---

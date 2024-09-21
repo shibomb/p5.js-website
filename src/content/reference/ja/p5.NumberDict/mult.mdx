@@ -4,8 +4,8 @@ module: Data
 submodule: Dictionary
 file: src/data/p5.TypedDict.js
 description: |
-  <p>Multiply the given number with the value currently stored at the given key.
-  The product then replaces the value previously stored in the Dictionary.</p>
+  <p>指定されたキーに現在格納されている値に、与えられた数を掛けます。
+  その積が、以前に辞書に格納されていた値を置き換えます。</p>
 line: 489
 isConstructor: false
 itemtype: method
@@ -17,21 +17,20 @@ example:
     function setup() {
       let myDictionary = createNumberDict(2, 4);
       myDictionary.mult(2, 2);
-      print(myDictionary.get(2)); // logs 8 to console.
+      print(myDictionary.get(2)); // コンソールに8を出力します。
     }
     </code></div>
 class: p5.NumberDict
 params:
   - name: Key
     description: |
-      <p>for value you wish to multiply</p>
+      <p>掛け算したい値のキー</p>
     type: Number
   - name: Amount
     description: |
-      <p>to multiply the value by</p>
+      <p>値に掛ける数</p>
     type: Number
 chainable: false
 ---
-
 
 # mult

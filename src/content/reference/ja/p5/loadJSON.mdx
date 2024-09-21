@@ -4,63 +4,52 @@ module: IO
 submodule: Input
 file: src/io/files.js
 description: >
-  <p>Loads a JSON file to create an <code>Object</code>.</p>
+  <p><code>Object</code>を作成するためにJSONファイルを読み込みます。</p>
 
   <p>JavaScript Object Notation
 
   (<a href="https://developer.mozilla.org/en-US/docs/Glossary/JSON/"
   target="_blank">JSON</a>)
 
-  is a standard format for sending data between applications. The format is
+  はアプリケーション間でデータを送信するための標準フォーマットです。このフォーマットは
 
-  based on JavaScript objects which have keys and values. JSON files store
+  キーと値を持つJavaScriptオブジェクトに基づいています。JSONファイルは
 
-  data in an object with strings as keys. Values can be strings, numbers,
+  文字列をキーとするオブジェクトにデータを格納します。値は文字列、数値、
 
-  Booleans, arrays, <code>null</code>, or other objects.</p>
+  ブール値、配列、<code>null</code>、または他のオブジェクトになります。</p>
 
-  <p>The first parameter, <code>path</code>, is always a string with the path to
-  the file.
+  <p>最初のパラメータ<code>path</code>は、常にファイルへのパスを示す文字列です。
 
-  Paths to local files should be relative, as in
+  ローカルファイルへのパスは相対パスにする必要があります。例えば
 
-  <code>loadJSON('/assets/data.json')</code>. URLs such as
+  <code>loadJSON('/assets/data.json')</code>のようにします。
 
-  <code>'https://example.com/data.json'</code> may be blocked due to browser
-  security.</p>
+  <code>'https://example.com/data.json'</code>のようなURLは、ブラウザの
+  セキュリティにより遮断される可能性があります。</p>
 
-  <p>The second parameter, <code>successCallback</code>, is optional. If a
-  function is
+  <p>2番目のパラメータ<code>successCallback</code>はオプションです。関数が
 
-  passed, as in <code>loadJSON('/assets/data.json', handleData)</code>, then the
+  渡された場合、例えば<code>loadJSON('/assets/data.json', handleData)</code>のように、
 
-  <code>handleData()</code> function will be called once the data loads. The
-  object
+  データが読み込まれると<code>handleData()</code>関数が呼び出されます。
 
-  created from the JSON data will be passed to <code>handleData()</code> as its
-  only argument.</p>
+  JSONデータから作成されたオブジェクトが<code>handleData()</code>の唯一の引数として渡されます。</p>
 
-  <p>The third parameter, <code>failureCallback</code>, is also optional. If a
-  function is
+  <p>3番目のパラメータ<code>failureCallback</code>もオプションです。関数が
 
-  passed, as in <code>loadJSON('/assets/data.json', handleData,
-  handleFailure)</code>,
+  渡された場合、例えば<code>loadJSON('/assets/data.json', handleData, handleFailure)</code>のように、
 
-  then the <code>handleFailure()</code> function will be called if an error
-  occurs while
+  読み込み中にエラーが発生すると<code>handleFailure()</code>関数が呼び出されます。
 
-  loading. The <code>Error</code> object will be passed to
-  <code>handleFailure()</code> as its only
+  <code>Error</code>オブジェクトが<code>handleFailure()</code>の唯一の引数として渡されます。</p>
 
-  argument.</p>
+  <p>注意：データの読み込みには時間がかかる場合があります。<code>loadJSON()</code>を
 
-  <p>Note: Data can take time to load. Calling <code>loadJSON()</code> within
+  <a href="/reference/p5/preload/">preload()</a>内で呼び出すことで、
 
-  <a href="/reference/p5/preload/">preload()</a> ensures data loads before it's
-  used in
-
-  <a href="/reference/p5/setup/">setup()</a> or <a
-  href="/reference/p5/draw/">draw()</a>.</p>
+  <a href="/reference/p5/setup/">setup()</a>や<a href="/reference/p5/draw/">draw()</a>で使用される前に
+  データが確実に読み込まれます。</p>
 line: 17
 isConstructor: false
 itemtype: method
@@ -72,7 +61,7 @@ example:
     <code>
     let myData;
 
-    // Load the JSON and create an object.
+    // JSONを読み込んでオブジェクトを作成します。
     function preload() {
       myData = loadJSON('/assets/data.json');
     }
@@ -82,14 +71,14 @@ example:
 
       background(200);
 
-      // Style the circle.
+      // 円のスタイルを設定します。
       fill(myData.color);
       noStroke();
 
-      // Draw the circle.
+      // 円を描画します。
       circle(myData.x, myData.y, myData.d);
 
-      describe('A pink circle on a gray background.');
+      describe('灰色の背景にピンクの円。');
     }
     </code>
     </div>
@@ -98,7 +87,7 @@ example:
     <code>
     let myData;
 
-    // Load the JSON and create an object.
+    // JSONを読み込んでオブジェクトを作成します。
     function preload() {
       myData = loadJSON('/assets/data.json');
     }
@@ -108,21 +97,21 @@ example:
 
       background(200);
 
-      // Create a p5.Color object and make it transparent.
+      // p5.Colorオブジェクトを作成し、透明にします。
       let c = color(myData.color);
       c.setAlpha(80);
 
-      // Style the circles.
+      // 円のスタイルを設定します。
       fill(c);
       noStroke();
 
-      // Iterate over the myData.bubbles array.
+      // myData.bubbles配列を反復処理します。
       for (let b of myData.bubbles) {
-        // Draw a circle for each bubble.
+        // 各バブルに対して円を描画します。
         circle(b.x, b.y, b.d);
       }
 
-      describe('Several pink bubbles floating in a blue sky.');
+      describe('青い空に浮かぶいくつかのピンクの泡。');
     }
     </code>
     </div>
@@ -131,7 +120,7 @@ example:
     <code>
     let myData;
 
-    // Load the GeoJSON and create an object.
+    // GeoJSONを読み込んでオブジェクトを作成します。
     function preload() {
       myData = loadJSON('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson');
     }
@@ -141,21 +130,21 @@ example:
 
       background(200);
 
-      // Get data about the most recent earthquake.
+      // 最新の地震に関するデータを取得します。
       let quake = myData.features[0].properties;
 
-      // Draw a circle based on the earthquake's magnitude.
+      // 地震のマグニチュードに基づいて円を描画します。
       circle(50, 50, quake.mag * 10);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(LEFT, CENTER);
       textFont('Courier New');
       textSize(11);
 
-      // Display the earthquake's location.
+      // 地震の場所を表示します。
       text(quake.place, 5, 80, 100);
 
-      describe(`A white circle on a gray background. The text "${quake.place}" is written beneath the circle.`);
+      describe(`灰色の背景に白い円。円の下に"${quake.place}"というテキストが書かれています。`);
     }
     </code>
     </div>
@@ -164,7 +153,7 @@ example:
     <code>
     let bigQuake;
 
-    // Load the GeoJSON and preprocess it.
+    // GeoJSONを読み込んで前処理します。
     function preload() {
       loadJSON(
         'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson',
@@ -177,27 +166,27 @@ example:
 
       background(200);
 
-      // Draw a circle based on the earthquake's magnitude.
+      // 地震のマグニチュードに基づいて円を描画します。
       circle(50, 50, bigQuake.mag * 10);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(LEFT, CENTER);
       textFont('Courier New');
       textSize(11);
 
-      // Display the earthquake's location.
+      // 地震の場所を表示します。
       text(bigQuake.place, 5, 80, 100);
 
-      describe(`A white circle on a gray background. The text "${bigQuake.place}" is written beneath the circle.`);
+      describe(`灰色の背景に白い円。円の下に"${bigQuake.place}"というテキストが書かれています。`);
     }
 
-    // Find the biggest recent earthquake.
+    // 最大の最近の地震を見つけます。
     function handleData(data) {
       let maxMag = 0;
-      // Iterate over the earthquakes array.
+      // 地震の配列を反復処理します。
       for (let quake of data.features) {
-        // Reassign bigQuake if a larger
-        // magnitude quake is found.
+        // より大きなマグニチュードの地震が
+        // 見つかった場合、bigQuakeを再割り当てします。
         if (quake.properties.mag > maxMag) {
           bigQuake = quake.properties;
         }
@@ -210,7 +199,7 @@ example:
     <code>
     let bigQuake;
 
-    // Load the GeoJSON and preprocess it.
+    // GeoJSONを読み込んで前処理します。
     function preload() {
       loadJSON(
         'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson',
@@ -224,36 +213,36 @@ example:
 
       background(200);
 
-      // Draw a circle based on the earthquake's magnitude.
+      // 地震のマグニチュードに基づいて円を描画します。
       circle(50, 50, bigQuake.mag * 10);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(LEFT, CENTER);
       textFont('Courier New');
       textSize(11);
 
-      // Display the earthquake's location.
+      // 地震の場所を表示します。
       text(bigQuake.place, 5, 80, 100);
 
-      describe(`A white circle on a gray background. The text "${bigQuake.place}" is written beneath the circle.`);
+      describe(`灰色の背景に白い円。円の下に"${bigQuake.place}"というテキストが書かれています。`);
     }
 
-    // Find the biggest recent earthquake.
+    // 最大の最近の地震を見つけます。
     function handleData(data) {
       let maxMag = 0;
-      // Iterate over the earthquakes array.
+      // 地震の配列を反復処理します。
       for (let quake of data.features) {
-        // Reassign bigQuake if a larger
-        // magnitude quake is found.
+        // より大きなマグニチュードの地震が
+        // 見つかった場合、bigQuakeを再割り当てします。
         if (quake.properties.mag > maxMag) {
           bigQuake = quake.properties;
         }
       }
     }
 
-    // Log any errors to the console.
+    // エラーをコンソールに記録します。
     function handleError(error) {
-      console.log('Oops!', error);
+      console.log('おっと！', error);
     }
     </code>
     </div>
@@ -261,25 +250,24 @@ class: p5
 params:
   - name: path
     description: |
-      <p>path of the JSON file to be loaded.</p>
+      <p>読み込むJSONファイルのパス。</p>
     type: String
   - name: successCallback
     description: >
-      <p>function to call once the data is loaded. Will be passed the
-      object.</p>
+      <p>データが読み込まれた後に呼び出される関数。オブジェクトが渡されます。</p>
     type: Function
     optional: true
   - name: errorCallback
     description: >
-      <p>function to call if the data fails to load. Will be passed an
-      <code>Error</code> event object.</p>
+      <p>データの読み込みに失敗した場合に呼び出される関数。<code>Error</code>イベントオブジェクトが渡されます。</p>
     type: Function
     optional: true
 return:
-  description: object containing the loaded data.
+  description: 読み込まれたデータを含むオブジェクト。
   type: Object
 chainable: false
 ---
 
 
 # loadJSON
+

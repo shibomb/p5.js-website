@@ -4,9 +4,8 @@ module: Data
 submodule: Dictionary
 file: src/data/p5.TypedDict.js
 description: >
-  <p>Creates a new instance of <a
-  href="/reference/p5/p5.NumberDict">p5.NumberDict</a> using the key-value pair
-   or object you provide.</p>
+  <p><a href="/reference/p5/p5.NumberDict">p5.NumberDict</a>の新しいインスタンスを、
+  提供されたキーと値のペアまたはオブジェクトを使用して作成します。</p>
 line: 48
 isConstructor: false
 itemtype: method
@@ -17,9 +16,9 @@ example:
      <code>
      function setup() {
        let myDictionary = createNumberDict(100, 42);
-       print(myDictionary.hasKey(100)); // logs true to console
+       print(myDictionary.hasKey(100)); // コンソールにtrueを出力
       let anotherDictionary = createNumberDict({ 200: 84 });
-       print(anotherDictionary.hasKey(200)); // logs true to console
+       print(anotherDictionary.hasKey(200)); // コンソールにtrueを出力
      }
      </code></div>
 class: p5
@@ -42,7 +41,7 @@ overloads:
     params:
       - name: object
         description: |
-          <p>object</p>
+          <p>オブジェクト</p>
         type: Object
     return:
       description: ''
@@ -52,3 +51,4 @@ chainable: false
 
 
 # createNumberDict
+

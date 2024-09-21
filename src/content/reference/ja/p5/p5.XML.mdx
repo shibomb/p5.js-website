@@ -4,24 +4,17 @@ module: IO
 submodule: Input
 file: src/io/p5.XML.js
 description: >
-  <p>A class to describe an XML object.</p>
+  <p>XMLオブジェクトを記述するクラスです。</p>
 
-  <p>Each <code>p5.XML</code> object provides an easy way to interact with XML
-  data.
+  <p>各<code>p5.XML</code>オブジェクトは、XMLデータと簡単に対話する方法を提供します。
+  拡張可能なマークアップ言語
+  （<a href="https://developer.mozilla.org/en-US/docs/Web/XML/XML_introduction/"
+  target="_blank">XML</a>）
+  は、アプリケーション間でデータを送信するための標準フォーマットです。HTMLと同様に、
+  XMLフォーマットはタグと属性に基づいています。例えば、
+  <code><time units="s">1234</time></code>のようになります。</p>
 
-  Extensible Markup Language
-
-  (<a href="https://developer.mozilla.org/en-US/docs/Web/XML/XML_introduction/"
-  target="_blank">XML</a>)
-
-  is a standard format for sending data between applications. Like HTML, the
-
-  XML format is based on tags and attributes, as in
-
-  <code><time units="s">1234</time></code>.</p>
-
-  <p>Note: Use <a href="/reference/p5/loadXML/">loadXML()</a> to load external
-  XML files.</p>
+  <p>注意：外部XMLファイルを読み込むには<a href="/reference/p5/loadXML/">loadXML()</a>を使用してください。</p>
 line: 9
 isConstructor: true
 example:
@@ -31,7 +24,7 @@ example:
     <code>
     let myXML;
 
-    // Load the XML and create a p5.XML object.
+    // XMLを読み込み、p5.XMLオブジェクトを作成します。
     function preload() {
       myXML = loadXML('/assets/animals.xml');
     }
@@ -41,29 +34,29 @@ example:
 
       background(200);
 
-      // Get an array with all mammal tags.
+      // すべてのmammalタグを含む配列を取得します。
       let mammals = myXML.getChildren('mammal');
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(LEFT, CENTER);
       textFont('Courier New');
       textSize(14);
 
-      // Iterate over the mammals array.
+      // mammals配列を反復処理します。
       for (let i = 0; i < mammals.length; i += 1) {
 
-        // Calculate the y-coordinate.
+        // y座標を計算します。
         let y = (i + 1) * 25;
 
-        // Get the mammal's common name.
+        // 哺乳類の一般名を取得します。
         let name = mammals[i].getContent();
 
-        // Display the mammal's name.
+        // 哺乳類の名前を表示します。
         text(name, 20, y);
       }
 
       describe(
-        'The words "Goat", "Leopard", and "Zebra" written on three separate lines. The text is black on a gray background.'
+        '3行に分かれて書かれた「Goat」、「Leopard」、「Zebra」という単語。テキストは灰色の背景に黒で書かれています。'
       );
     }
     </code>
@@ -71,248 +64,164 @@ example:
 methods:
   getParent:
     description: >
-      <p>Returns the element's parent element as a new <a
-      href="/reference/p5/p5.XML">p5.XML</a>
-
-      object.</p>
+      <p>要素の親要素を新しい<a href="/reference/p5/p5.XML">p5.XML</a>
+      オブジェクトとして返します。</p>
     path: p5.XML/getParent
   getName:
     description: >
-      <p>Returns the element's name as a <code>String</code>.</p>
+      <p>要素の名前を<code>String</code>として返します。</p>
 
-      <p>An XML element's name is given by its tag. For example, the element
-
-      <code><language>JavaScript</language></code> has the name
-      <code>language</code>.</p>
+      <p>XML要素の名前はそのタグによって与えられます。例えば、
+      <code><language>JavaScript</language></code>という要素の名前は
+      <code>language</code>です。</p>
     path: p5.XML/getName
   setName:
     description: >
-      <p>Sets the element's tag name.</p>
+      <p>要素のタグ名を設定します。</p>
 
-      <p>An XML element's name is given by its tag. For example, the element
+      <p>XML要素の名前はそのタグによって与えられます。例えば、
+      <code><language>JavaScript</language></code>という要素の名前は
+      <code>language</code>です。</p>
 
-      <code><language>JavaScript</language></code> has the name
-      <code>language</code>.</p>
-
-      <p>The parameter, <code>name</code>, is the element's new name as a
-      string. For example,
-
-      calling <code>myXML.setName('planet')</code> will make the element's new
-      tag name
-
-      <code><planet></planet></code>.</p>
+      <p>パラメータ<code>name</code>は、要素の新しい名前を文字列で指定します。例えば、
+      <code>myXML.setName('planet')</code>を呼び出すと、要素の新しいタグ名が
+      <code><planet></planet></code>になります。</p>
     path: p5.XML/setName
   hasChildren:
     description: >
-      <p>Returns <code>true</code> if the element has child elements and
-      <code>false</code> if not.</p>
+      <p>要素に子要素がある場合は<code>true</code>を、ない場合は<code>false</code>を返します。</p>
     path: p5.XML/hasChildren
   listChildren:
     description: |
-      <p>Returns an array with the names of the element's child elements as
-      <code>String</code>s.</p>
+      <p>要素の子要素の名前を<code>String</code>の配列として返します。</p>
     path: p5.XML/listChildren
   getChildren:
     description: >
-      <p>Returns an array with the element's child elements as new
+      <p>要素の子要素を新しい<a href="/reference/p5/p5.XML">p5.XML</a>オブジェクトの配列として返します。</p>
 
-      <a href="/reference/p5/p5.XML">p5.XML</a> objects.</p>
-
-      <p>The parameter, <code>name</code>, is optional. If a string is passed,
-      as in
-
-      <code>myXML.getChildren('cat')</code>, then the method will only return
-      child elements
-
-      with the tag <code><cat></code>.</p>
+      <p>パラメータ<code>name</code>はオプションです。文字列が渡された場合、
+      例えば<code>myXML.getChildren('cat')</code>のように、
+      <code><cat></code>タグを持つ子要素のみを返します。</p>
     path: p5.XML/getChildren
   getChild:
     description: >
-      <p>Returns the first matching child element as a new
+      <p>最初に一致する子要素を新しい<a href="/reference/p5/p5.XML">p5.XML</a>オブジェクトとして返します。</p>
 
-      <a href="/reference/p5/p5.XML">p5.XML</a> object.</p>
-
-      <p>The parameter, <code>name</code>, is optional. If a string is passed,
-      as in
-
-      <code>myXML.getChild('cat')</code>, then the first child element with the
-      tag
-
-      <code><cat></code> will be returned. If a number is passed, as in
-
-      <code>myXML.getChild(1)</code>, then the child element at that index will
-      be returned.</p>
+      <p>パラメータ<code>name</code>はオプションです。文字列が渡された場合、
+      例えば<code>myXML.getChild('cat')</code>のように、
+      <code><cat></code>タグを持つ最初の子要素が返されます。数値が渡された場合、
+      例えば<code>myXML.getChild(1)</code>のように、そのインデックスの子要素が返されます。</p>
     path: p5.XML/getChild
   addChild:
     description: >
-      <p>Adds a new child element and returns a reference to it.</p>
+      <p>新しい子要素を追加し、その参照を返します。</p>
 
-      <p>The parameter, <code>child</code>, is the <a
-      href="/reference/p5/p5.XML">p5.XML</a> object to add
-
-      as a child element. For example, calling
-      <code>myXML.addChild(otherXML)</code> inserts
-
-      <code>otherXML</code> as a child element of <code>myXML</code>.</p>
+      <p>パラメータ<code>child</code>は、子要素として追加する<a href="/reference/p5/p5.XML">p5.XML</a>オブジェクトです。
+      例えば、<code>myXML.addChild(otherXML)</code>を呼び出すと、
+      <code>otherXML</code>が<code>myXML</code>の子要素として挿入されます。</p>
     path: p5.XML/addChild
   removeChild:
     description: >
-      <p>Removes the first matching child element.</p>
+      <p>最初に一致する子要素を削除します。</p>
 
-      <p>The parameter, <code>name</code>, is the child element to remove. If a
-      string is
-
-      passed, as in <code>myXML.removeChild('cat')</code>, then the first child
-      element
-
-      with the tag <code><cat></code> will be removed. If a number is passed, as
-      in
-
-      <code>myXML.removeChild(1)</code>, then the child element at that index
-      will be
-
-      removed.</p>
+      <p>パラメータ<code>name</code>は、削除する子要素です。文字列が渡された場合、
+      例えば<code>myXML.removeChild('cat')</code>のように、
+      <code><cat></code>タグを持つ最初の子要素が削除されます。数値が渡された場合、
+      例えば<code>myXML.removeChild(1)</code>のように、そのインデックスの子要素が
+      削除されます。</p>
     path: p5.XML/removeChild
   getAttributeCount:
     description: |
-      <p>Returns the number of attributes the element has.</p>
+      <p>要素が持つ属性の数を返します。</p>
     path: p5.XML/getAttributeCount
   listAttributes:
     description: >
-      <p>Returns an <code>Array</code> with the names of the element's
-      attributes.</p>
+      <p>要素の属性名を<code>Array</code>として返します。</p>
 
-      <p>Note: Use
-
-      <a href="/reference/p5.XML/getString/">myXML.getString()</a> or
-
-      <a href="/reference/p5.XML/getNum/">myXML.getNum()</a> to return an
-      attribute's value.</p>
+      <p>注意：属性の値を返すには
+      <a href="/reference/p5.XML/getString/">myXML.getString()</a>または
+      <a href="/reference/p5.XML/getNum/">myXML.getNum()</a>を使用してください。</p>
     path: p5.XML/listAttributes
   hasAttribute:
     description: >
-      <p>Returns <code>true</code> if the element has a given attribute and
-      <code>false</code> if not.</p>
+      <p>要素が指定された属性を持っている場合は<code>true</code>を、持っていない場合は<code>false</code>を返します。</p>
 
-      <p>The parameter, <code>name</code>, is a string with the name of the
-      attribute being
+      <p>パラメータ<code>name</code>は、チェックする属性の名前を文字列で指定します。</p>
 
-      checked.</p>
-
-      <p>Note: Use
-
-      <a href="/reference/p5.XML/getString/">myXML.getString()</a> or
-
-      <a href="/reference/p5.XML/getNum/">myXML.getNum()</a> to return an
-      attribute's value.</p>
+      <p>注意：属性の値を返すには
+      <a href="/reference/p5.XML/getString/">myXML.getString()</a>または
+      <a href="/reference/p5.XML/getNum/">myXML.getNum()</a>を使用してください。</p>
     path: p5.XML/hasAttribute
   getNum:
     description: >
-      <p>Return an attribute's value as a <code>Number</code>.</p>
+      <p>属性の値を<code>Number</code>として返します。</p>
 
-      <p>The first parameter, <code>name</code>, is a string with the name of
-      the attribute
+      <p>最初のパラメータ<code>name</code>は、チェックする属性の名前を文字列で指定します。
+      例えば、<code>myXML.getNum('id')</code>を呼び出すと、要素の<code>id</code>属性を
+      数値として返します。</p>
 
-      being checked. For example, calling <code>myXML.getNum('id')</code>
-      returns the
+      <p>2番目のパラメータ<code>defaultValue</code>はオプションです。数値が渡された場合、
+      例えば<code>myXML.getNum('id', -1)</code>のように、属性が存在しないか
+      数値に変換できない場合に返されます。</p>
 
-      element's <code>id</code> attribute as a number.</p>
-
-      <p>The second parameter, <code>defaultValue</code>, is optional. If a
-      number is passed,
-
-      as in <code>myXML.getNum('id', -1)</code>, it will be returned if the
-      attribute
-
-      doesn't exist or can't be converted to a number.</p>
-
-      <p>Note: Use
-
-      <a href="/reference/p5.XML/getString/">myXML.getString()</a> or
-
-      <a href="/reference/p5.XML/getNum/">myXML.getNum()</a> to return an
-      attribute's value.</p>
+      <p>注意：属性の値を返すには
+      <a href="/reference/p5.XML/getString/">myXML.getString()</a>または
+      <a href="/reference/p5.XML/getNum/">myXML.getNum()</a>を使用してください。</p>
     path: p5.XML/getNum
   getString:
     description: >
-      <p>Return an attribute's value as a string.</p>
+      <p>属性の値を文字列として返します。</p>
 
-      <p>The first parameter, <code>name</code>, is a string with the name of
-      the attribute
+      <p>最初のパラメータ<code>name</code>は、チェックする属性の名前を文字列で指定します。
+      例えば、<code>myXML.getString('color')</code>を呼び出すと、要素の<code>color</code>属性を
+      文字列として返します。</p>
 
-      being checked. For example, calling <code>myXML.getString('color')</code>
-      returns the
+      <p>2番目のパラメータ<code>defaultValue</code>はオプションです。文字列が渡された場合、
+      例えば<code>myXML.getString('color', 'deeppink')</code>のように、属性が存在しない場合に
+      返されます。</p>
 
-      element's <code>id</code> attribute as a string.</p>
-
-      <p>The second parameter, <code>defaultValue</code>, is optional. If a
-      string is passed,
-
-      as in <code>myXML.getString('color', 'deeppink')</code>, it will be
-      returned if the
-
-      attribute doesn't exist.</p>
-
-      <p>Note: Use
-
-      <a href="/reference/p5.XML/getString/">myXML.getString()</a> or
-
-      <a href="/reference/p5.XML/getNum/">myXML.getNum()</a> to return an
-      attribute's value.</p>
+      <p>注意：属性の値を返すには
+      <a href="/reference/p5.XML/getString/">myXML.getString()</a>または
+      <a href="/reference/p5.XML/getNum/">myXML.getNum()</a>を使用してください。</p>
     path: p5.XML/getString
   setAttribute:
     description: >
-      <p>Sets an attribute to a given value.</p>
+      <p>属性に指定された値を設定します。</p>
 
-      <p>The first parameter, <code>name</code>, is a string with the name of
-      the attribute
+      <p>最初のパラメータ<code>name</code>は、設定する属性の名前を文字列で指定します。</p>
 
-      being set.</p>
-
-      <p>The second parameter, <code>value</code>, is the attribute's new value.
-      For example,
-
-      calling <code>myXML.setAttribute('id', 123)</code> sets the
-      <code>id</code> attribute to the
-
-      value 123.</p>
+      <p>2番目のパラメータ<code>value</code>は、属性の新しい値です。例えば、
+      <code>myXML.setAttribute('id', 123)</code>を呼び出すと、<code>id</code>属性の値を
+      123に設定します。</p>
     path: p5.XML/setAttribute
   getContent:
     description: >
-      <p>Returns the element's content as a <code>String</code>.</p>
+      <p>要素のコンテンツを<code>String</code>として返します。</p>
 
-      <p>The parameter, <code>defaultValue</code>, is optional. If a string is
-      passed, as in
-
-      <code>myXML.getContent('???')</code>, it will be returned if the element
-      has no
-
-      content.</p>
+      <p>パラメータ<code>defaultValue</code>はオプションです。文字列が渡された場合、
+      例えば<code>myXML.getContent('???')</code>のように、要素にコンテンツがない場合に
+      返されます。</p>
     path: p5.XML/getContent
   setContent:
     description: >
-      <p>Sets the element's content.</p>
+      <p>要素のコンテンツを設定します。</p>
 
-      <p>An element's content is the text between its tags. For example, the
-      element
+      <p>要素のコンテンツは、そのタグの間のテキストです。例えば、
+      <code><language>JavaScript</language></code>という要素のコンテンツは
+      <code>JavaScript</code>です。</p>
 
-      <code><language>JavaScript</language></code> has the content
-      <code>JavaScript</code>.</p>
-
-      <p>The parameter, <code>content</code>, is a string with the element's new
-      content.</p>
+      <p>パラメータ<code>content</code>は、要素の新しいコンテンツを文字列で指定します。</p>
     path: p5.XML/setContent
   serialize:
     description: >
-      <p>Returns the element as a <code>String</code>.</p>
+      <p>要素を<code>String</code>として返します。</p>
 
-      <p><code>myXML.serialize()</code> is useful for sending the element over
-      the network or
-
-      saving it to a file.</p>
+      <p><code>myXML.serialize()</code>は、要素をネットワーク経由で送信したり
+      ファイルに保存したりする際に便利です。</p>
     path: p5.XML/serialize
 chainable: false
 ---
 
 
 # p5.XML
+

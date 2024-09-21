@@ -4,50 +4,50 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: |
-  <p>A class to describe a file.</p>
-  <p><code>p5.File</code> objects are used by
-  <a href="/reference/p5.Element/drop/">myElement.drop()</a> and
-  created by
-  <a href="/reference/p5/createFileInput/">createFileInput</a>.</p>
+  <p>ファイルを記述するクラスです。</p>
+  <p><code>p5.File</code>オブジェクトは
+  <a href="/reference/p5.Element/drop/">myElement.drop()</a>で使用され、
+  <a href="/reference/p5/createFileInput/">createFileInput</a>によって
+  作成されます。</p>
 line: 5464
 isConstructor: true
 params:
   - name: file
     description: |
-      <p>wrapped file.</p>
+      <p>ラップされたファイル。</p>
     type: File
 example:
   - |-
 
     <div>
     <code>
-    // Use the file input to load a
-    // file and display its info.
+    // ファイル入力を使用して
+    // ファイルをロードし、その情報を表示します。
 
     function setup() {
       createCanvas(100, 100);
 
       background(200);
 
-      // Create a file input and place it beneath the canvas.
-      // Call displayInfo() when the file loads.
+      // ファイル入力を作成し、キャンバスの下に配置します。
+      // ファイルがロードされたらdisplayInfo()を呼び出します。
       let input = createFileInput(displayInfo);
       input.position(0, 100);
 
-      describe('A gray square with a file input beneath it. If the user loads a file, its info is written in black.');
+      describe('グレーの正方形と、その下にファイル入力があります。ユーザーがファイルをロードすると、その情報が黒字で書かれます。');
     }
 
-    // Display the p5.File's info once it loads.
+    // p5.Fileの情報をロード後に表示します。
     function displayInfo(file) {
       background(200);
 
-      // Display the p5.File's name.
+      // p5.Fileの名前を表示します。
       text(file.name, 10, 10, 80, 40);
 
-      // Display the p5.File's type and subtype.
+      // p5.Fileのタイプとサブタイプを表示します。
       text(`${file.type}/${file.subtype}`, 10, 70);
 
-      // Display the p5.File's size in bytes.
+      // p5.Fileのサイズをバイト単位で表示します。
       text(file.size, 10, 90);
     }
     </code>
@@ -55,38 +55,38 @@ example:
 
     <div>
     <code>
-    // Use the file input to select an image to
-    // load and display.
+    // ファイル入力を使用して、ロードして表示する
+    // 画像を選択します。
     let img;
 
     function setup() {
       createCanvas(100, 100);
 
-      // Create a file input and place it beneath the canvas.
-      // Call handleImage() when the file image loads.
+      // ファイル入力を作成し、キャンバスの下に配置します。
+      // 画像ファイルがロードされたらhandleImage()を呼び出します。
       let input = createFileInput(handleImage);
       input.position(0, 100);
 
-      describe('A gray square with a file input beneath it. If the user selects an image file to load, it is displayed on the square.');
+      describe('グレーの正方形と、その下にファイル入力があります。ユーザーがロードする画像ファイルを選択すると、その画像が正方形に表示されます。');
     }
 
     function draw() {
       background(200);
 
-      // Draw the image if it's ready.
+      // 画像が準備できたら描画します。
       if (img) {
         image(img, 0, 0, width, height);
       }
     }
 
-    // Use the p5.File's data once it loads.
+    // p5.Fileのデータがロードされたら使用します。
     function handleImage(file) {
-      // Check the p5.File's type.
+      // p5.Fileのタイプをチェックします。
       if (file.type === 'image') {
-        // Create an image using using the p5.File's data.
+        // p5.Fileのデータを使用して画像を作成します。
         img = createImg(file.data, '');
 
-        // Hide the image element so it doesn't appear twice.
+        // 画像要素を非表示にして、2回表示されないようにします。
         img.hide();
       } else {
         img = null;
@@ -97,54 +97,53 @@ example:
 properties:
   file:
     description: >
-      <p>Underlying
+      <p>基礎となる
 
       <a href="https://developer.mozilla.org/en-US/docs/Web/API/File/"
       target="_blank">File</a>
 
-      object. All <code>File</code> properties and methods are accessible.</p>
+      オブジェクト。すべての<code>File</code>プロパティとメソッドにアクセスできます。</p>
     path: p5.File/file
   type:
     description: >
-      <p>The file
+      <p>ファイルの
 
       <a
       href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/"
-      target="_blank">MIME type</a>
+      target="_blank">MIMEタイプ</a>
 
-      as a string.</p>
+      を文字列で表します。</p>
 
-      <p>For example, <code>'image'</code> and <code>'text'</code> are both MIME
-      types.</p>
+      <p>例えば、<code>'image'</code>と<code>'text'</code>はどちらもMIMEタイプです。</p>
     path: p5.File/type
   subtype:
     description: >
-      <p>The file subtype as a string.</p>
+      <p>ファイルのサブタイプを文字列で表します。</p>
 
-      <p>For example, a file with an <code>'image'</code>
+      <p>例えば、<code>'image'</code>の
 
       <a
       href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/"
-      target="_blank">MIME type</a>
+      target="_blank">MIMEタイプ</a>
 
-      may have a subtype such as <code>png</code> or <code>jpeg</code>.</p>
+      を持つファイルは、<code>png</code>や<code>jpeg</code>などのサブタイプを持つ場合があります。</p>
     path: p5.File/subtype
   name:
     description: |
-      <p>The file name as a string.</p>
+      <p>ファイル名を文字列で表します。</p>
     path: p5.File/name
   size:
     description: |
-      <p>The number of bytes in the file.</p>
+      <p>ファイルのバイト数です。</p>
     path: p5.File/size
   data:
     description: |
-      <p>A string containing the file's data.</p>
-      <p>Data can be either image data, text contents, or a parsed object in the
-      case of JSON and <a href="/reference/p5/p5.XML">p5.XML</a> objects.</p>
+      <p>ファイルのデータを含む文字列です。</p>
+      <p>データは画像データ、テキストの内容、またはJSONや<a href="/reference/p5/p5.XML">p5.XML</a>オブジェクトの場合はパースされたオブジェクトである場合があります。</p>
     path: p5.File/data
 chainable: false
 ---
 
 
 # p5.File
+

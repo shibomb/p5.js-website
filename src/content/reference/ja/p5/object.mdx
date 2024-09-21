@@ -3,7 +3,7 @@ title: Object
 module: Foundation
 submodule: Foundation
 file: src/core/reference.js
-description: "<p>A container for data that's stored as key-value pairs.</p>\n<p>Objects help to organize related data of any type, including other objects.\nA value stored in an object can be accessed by name, called its key. Each\nkey-value pair is called a \"property.\" Objects are similar to dictionaries\nin Python and maps in Java and Ruby.</p>\n<p>For example, an object could contain the location, size, and appearance of\na dog:</p>\n<pre><code class=\"language-js\">// Declare the dog variable and assign it an object.\nlet dog = { x: 50, y: 50, size: 20, emoji: '\U0001F436' };\n\n// Style the text.\ntextAlign(CENTER, CENTER);\ntextSize(dog.size);\n\n// Draw the dog.\ntext(dog.emoji, dog.x, dog.y);\n</code></pre>\n<p>The variable <code>dog</code> is assigned an object with four properties. Objects\nare declared with curly braces <code>{}</code>. Values can be accessed using the dot\noperator, as in <code>dog.size</code>. In the example above, the key <code>size</code>\ncorresponds to the value <code>20</code>. Objects can also be empty to start:</p>\n<pre><code class=\"language-js\">// Declare a cat variable and assign it an empty object.\nlet cat = {};\n\n// Add properties to the object.\ncat.x = 50;\ncat.y = 50;\ncat.size = 20;\ncat.emoji = '\U0001F431';\n\n// Style the text.\ntextAlign(CENTER, CENTER);\ntextSize(cat.size);\n\n// Draw the cat.\ntext(cat.emoji, cat.x, cat.y);\n</code></pre>\n<p>An object's data can be updated while a sketch runs. For example, the <code>cat</code>\ncould run away from the <code>dog</code> by updating its location:</p>\n<pre><code class=\"language-js\">// Run to the right.\ncat.x += 5;\n</code></pre>\n<p>If needed, an object's values can be accessed using square brackets <code>[]</code>\nand strings instead of dot notation:</p>\n<pre><code class=\"language-js\">// Run to the right.\ncat[\"x\"] += 5;\n</code></pre>\n<p>This syntax can be helpful when the key's name has spaces, as in\n<code>cat['height (m)']</code>.</p>\n"
+description: "<p>データをキーと値のペアとして格納するコンテナです。</p>\n<p>オブジェクトは、他のオブジェクトを含む任意の型の関連データを整理するのに役立ちます。\nオブジェクトに格納された値は、キーと呼ばれる名前でアクセスできます。各\nキーと値のペアは「プロパティ」と呼ばれます。オブジェクトはPythonの辞書や\nJavaやRubyのマップに似ています。</p>\n<p>例えば、オブジェクトは犬の位置、サイズ、外見を含むことができます：</p>\n<pre><code class=\"language-js\">// dog変数を宣言し、オブジェクトを割り当てる。\nlet dog = { x: 50, y: 50, size: 20, emoji: '\U0001F436' };\n\n// テキストのスタイルを設定する。\ntextAlign(CENTER, CENTER);\ntextSize(dog.size);\n\n// 犬を描く。\ntext(dog.emoji, dog.x, dog.y);\n</code></pre>\n<p><code>dog</code>変数には4つのプロパティを持つオブジェクトが割り当てられています。オブジェクト\nは中括弧<code>{}</code>で宣言されます。値にはドット演算子を使ってアクセスできます\n（<code>dog.size</code>のように）。上の例では、キー<code>size</code>は\n値<code>20</code>に対応しています。オブジェクトは最初は空にすることもできます：</p>\n<pre><code class=\"language-js\">// cat変数を宣言し、空のオブジェクトを割り当てる。\nlet cat = {};\n\n// オブジェクトにプロパティを追加する。\ncat.x = 50;\ncat.y = 50;\ncat.size = 20;\ncat.emoji = '\U0001F431';\n\n// テキストのスタイルを設定する。\ntextAlign(CENTER, CENTER);\ntextSize(cat.size);\n\n// 猫を描く。\ntext(cat.emoji, cat.x, cat.y);\n</code></pre>\n<p>オブジェクトのデータはスケッチの実行中に更新できます。例えば、<code>cat</code>は\n<code>dog</code>から逃げるために位置を更新することができます：</p>\n<pre><code class=\"language-js\">// 右に走る。\ncat.x += 5;\n</code></pre>\n<p>必要に応じて、オブジェクトの値には角括弧<code>[]</code>と文字列を使用して\nドット記法の代わりにアクセスすることもできます：</p>\n<pre><code class=\"language-js\">// 右に走る。\ncat[\"x\"] += 5;\n</code></pre>\n<p>この構文は、<code>cat['height (m)']</code>のように、キーの名前にスペースが含まれている場合に\n役立ちます。</p>\n"
 line: 999
 isConstructor: false
 itemtype: property
@@ -12,19 +12,19 @@ example:
 
     <div>
     <code>
-    // Declare the variable data and assign it an object with three properties.
+    // data変数を宣言し、3つのプロパティを持つオブジェクトを割り当てる。
     let data = { x: 50, y: 50, d: 20 };
 
     function setup() {
       createCanvas(100, 100);
 
-      describe('A white circle on a gray background.');
+      describe('灰色の背景に白い円。');
     }
 
     function draw() {
       background(200);
 
-      // Access the object's values using the . operator.
+      // .演算子を使用してオブジェクトの値にアクセスする。
       circle(data.x, data.y, data.d);
     }
     </code>
@@ -32,22 +32,22 @@ example:
 
     <div>
     <code>
-    // Declare the variable data and assign it an object with three properties.
+    // data変数を宣言し、3つのプロパティを持つオブジェクトを割り当てる。
     let data = { x: 50, y: 50, d: 20 };
 
-    // Add another property for color.
+    // 色のための別のプロパティを追加する。
     data.color = 'deeppink';
 
     function setup() {
       createCanvas(100, 100);
 
-      describe('A pink circle on a gray background.');
+      describe('灰色の背景にピンクの円。');
     }
 
     function draw() {
       background(200);
 
-      // Access the object's values using the . operator.
+      // .演算子を使用してオブジェクトの値にアクセスする。
       fill(data.color);
       circle(data.x, data.y, data.d);
     }
@@ -56,26 +56,26 @@ example:
 
     <div>
     <code>
-    // Declare the variable data and assign it an object with three properties.
+    // data変数を宣言し、3つのプロパティを持つオブジェクトを割り当てる。
     let data = { x: 50, y: 50, d: 20 };
 
-    // Add another property for color.
+    // 色のための別のプロパティを追加する。
     data.color = 'deeppink';
 
     function setup() {
       createCanvas(100, 100);
 
-      describe('A white circle on a gray background.');
+      describe('灰色の背景に白い円。');
     }
 
     function draw() {
       background(200);
 
-      // Access the object's values using the . operator.
+      // .演算子を使用してオブジェクトの値にアクセスする。
       fill(data.color);
       circle(data.x, data.y, data.d);
 
-      // Update the object's x and y properties.
+      // オブジェクトのxとyプロパティを更新する。
       data.x += random(-1, 1);
       data.y += random(-1, 1);
     }
@@ -86,3 +86,4 @@ class: p5
 
 
 # Object
+

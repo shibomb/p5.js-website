@@ -4,36 +4,32 @@ module: Foundation
 submodule: Foundation
 file: src/core/reference.js
 description: >
-  <p>Declares a new variable.</p>
+  <p>新しい変数を宣言します。</p>
 
-  <p>A variable is a container for a value. For example, a variable might
+  <p>変数は値を格納するコンテナです。例えば、変数は生き物のx座標を<code>Number</code>として、
 
-  contain a creature's x-coordinate as a <code>Number</code> or its name as a
+  または名前を<code>String</code>として格納することができます。変数は以下のように再代入することで
 
-  <code>String</code>. Variables can change value by reassigning them as
-  follows:</p>
+  値を変更できます：</p>
 
-  <pre><code class="language-js">// Declare the variable x and assign it the
-  value 10.
+  <pre><code class="language-js">// 変数xを宣言し、値10を代入します。
 
   let x = 10;
 
 
-  // Reassign x to 50.
+  // xを50に再代入します。
 
   x = 50;
 
   </code></pre>
 
-  <p>Variables have block scope. When a variable is declared between curly
+  <p>変数はブロックスコープを持ちます。変数が中括弧<code>{}</code>の間で宣言されると、
 
-  braces <code>{}</code>, it only exists within the block defined by those
-  braces. For
+  それらの中括弧で定義されたブロック内でのみ存在します。
 
-  example, the following code would throw a <code>ReferenceError</code> because
-  <code>x</code> is
+  例えば、以下のコードは<code>ReferenceError</code>をスローします。なぜなら<code>x</code>は
 
-  declared within the <code>setup()</code> function's block:</p>
+  <code>setup()</code>関数のブロック内で宣言されているからです：</p>
 
   <pre><code class="language-js">function setup() {
     createCanvas(100, 100);
@@ -45,18 +41,15 @@ description: >
   function draw() {
     background(200);
 
-    // x was declared in setup(), so it can't be referenced here.
+    // xはsetup()内で宣言されたため、ここで参照することはできません。
     circle(x, 50, 20);
   }
 
   </code></pre>
 
-  <p>Variables declared outside of all curly braces <code>{}</code> are in the
-  global
+  <p>すべての中括弧<code>{}</code>の外で宣言された変数はグローバルスコープにあります。
 
-  scope. A variable that's in the global scope can be used and changed
-
-  anywhere in a sketch:</p>
+  グローバルスコープにある変数は、スケッチのどこでも使用および変更することができます：</p>
 
   <pre><code class="language-js">let x = 50;
 
@@ -69,7 +62,7 @@ description: >
   function draw() {
     background(200);
 
-    // Change the value of x.
+    // xの値を変更します。
     x += 10;
 
     circle(x, 50, 20);
@@ -80,9 +73,10 @@ line: 7
 isConstructor: false
 itemtype: property
 example:
-  - "\n<div>\n<code>\nfunction setup() {\n  createCanvas(100, 100);\n\n  background(220);\n\n  // Style the text.\n  textAlign(CENTER);\n  textSize(16);\n\n  // Create the message variable.\n  let message = 'Hello, \U0001F30D!';\n\n  // Display the message.\n  text(message, 50, 50);\n\n  describe('The text \"Hello, \U0001F30D!\" written on a gray background.');\n}\n</code>\n</div>\n\n<div>\n<code>\nlet x = 0;\n\nfunction setup() {\n  createCanvas(100, 100);\n\n  describe('A white circle moves from left to right against a gray background.');\n}\n\nfunction draw() {\n  background(220);\n\n  // Change the value of x.\n  x += 1;\n\n  circle(x, 50, 20);\n}\n</code>\n</div>"
+  - "\n<div>\n<code>\nfunction setup() {\n  createCanvas(100, 100);\n\n  background(220);\n\n  // テキストのスタイルを設定します。\n  textAlign(CENTER);\n  textSize(16);\n\n  // message変数を作成します。\n  let message = 'Hello, \U0001F30D!';\n\n  // メッセージを表示します。\n  text(message, 50, 50);\n\n  describe('灰色の背景に「Hello, \U0001F30D!」というテキストが書かれています。');\n}\n</code>\n</div>\n\n<div>\n<code>\nlet x = 0;\n\nfunction setup() {\n  createCanvas(100, 100);\n\n  describe('灰色の背景に白い円が左から右へ移動します。');\n}\n\nfunction draw() {\n  background(220);\n\n  // xの値を変更します。\n  x += 1;\n\n  circle(x, 50, 20);\n}\n</code>\n</div>"
 class: p5
 ---
 
 
 # let
+

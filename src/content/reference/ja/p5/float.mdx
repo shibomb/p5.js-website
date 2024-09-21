@@ -4,29 +4,19 @@ module: Data
 submodule: Conversion
 file: src/utilities/conversion.js
 description: >
-  <p>Converts a <code>String</code> to a floating point (decimal)
-  <code>Number</code>.</p>
+  <p><code>String</code>を浮動小数点（小数）の<code>Number</code>に変換します。</p>
 
-  <p><code>float()</code> converts strings that resemble numbers, such as
-  <code>'12.34'</code>, into
+  <p><code>float()</code>は<code>'12.34'</code>のような数字に似た文字列を数値に変換します。</p>
 
-  numbers.</p>
+  <p>パラメータ<code>str</code>は変換する文字列値です。例えば、<code>float('12.34')</code>を呼び出すと、
 
-  <p>The parameter, <code>str</code>, is the string value to convert. For
-  example, calling
+  数値<code>12.34</code>が返されます。文字列の配列が渡された場合、例えば<code>float(['12.34', '56.78'])</code>のように、
 
-  <code>float('12.34')</code> returns the number <code>12.34</code>.  If an
-  array of strings is
+  数値の配列が返されます。</p>
 
-  passed, as in <code>float(['12.34', '56.78'])</code>, then an array of numbers
-  will be
+  <p>注意：<code>float('giraffe')</code>のように、文字列を数値に変換できない場合、
 
-  returned.</p>
-
-  <p>Note: If a string can't be converted to a number, as in
-  <code>float('giraffe')</code>,
-
-  then the value <code>NaN</code> (not a number) will be returned.</p>
+  <code>NaN</code>（非数）値が返されます。</p>
 line: 10
 isConstructor: false
 itemtype: method
@@ -40,23 +30,23 @@ example:
 
       background(200);
 
-      // Create a string variable.
+      // 文字列変数を作成
       let original = '12.3';
 
-      // Convert the string to a number.
+      // 文字列を数値に変換
       let converted = float(original);
 
-      // Double the converted value.
+      // 変換された値を2倍にする
       let twice = converted * 2;
 
-      // Style the text.
+      // テキストのスタイルを設定
       textAlign(CENTER, CENTER);
       textSize(12);
 
-      // Display the original and converted values.
+      // 元の値と変換された値を表示
       text(`${original} × 2 = ${twice}`, 50, 50);
 
-      describe('The text "12.3 × 2 = 24.6" written in black on a gray background.');
+      describe('灰色の背景に黒で "12.3 × 2 = 24.6" と書かれたテキスト。');
     }
     </code>
     </div>
@@ -68,46 +58,47 @@ example:
 
       background(200);
 
-      // Create an array of strings.
+      // 文字列の配列を作成
       let original = ['60', '30', '15'];
 
-      // Convert the strings to numbers.
+      // 文字列を数値に変換
       let diameters = float(original);
 
       for (let d of diameters) {
-        // Draw a circle.
+        // 円を描画
         circle(50, 50, d);
       }
 
-      describe('Three white, concentric circles on a gray background.');
+      describe('灰色の背景に3つの白い同心円。');
     }
     </code>
     </div>
 class: p5
 return:
-  description: converted number.
+  description: 変換された数値。
   type: Number
 overloads:
   - line: 10
     params:
       - name: str
         description: |
-          <p>string to convert.</p>
+          <p>変換する文字列。</p>
         type: String
     return:
-      description: converted number.
+      description: 変換された数値。
       type: Number
   - line: 80
     params:
       - name: ns
         description: |
-          <p>array of strings to convert.</p>
+          <p>変換する文字列の配列。</p>
         type: 'String[]'
     return:
-      description: converted numbers.
+      description: 変換された数値。
       type: 'Number[]'
 chainable: false
 ---
 
 
 # float
+

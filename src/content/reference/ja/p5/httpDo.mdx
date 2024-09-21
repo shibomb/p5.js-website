@@ -4,18 +4,17 @@ module: IO
 submodule: Input
 file: src/io/files.js
 description: >
-  <p>Method for executing an HTTP request. If data type is not specified,
+  <p>HTTP リクエストを実行するためのメソッドです。
+  データ型が指定されていない場合、
 
-  p5 will try to guess based on the URL, defaulting to text.<br><br>
+  p5 は URL に基づいて推測しようとし、デフォルトではテキストになります。<br><br>
 
-  For more advanced use, you may also pass in the path as the first argument
+  より高度な使用法として、最初の引数としてパスを渡し、2番目の引数としてオブジェクトを
 
-  and a object as the second argument, the signature follows the one specified
+  渡すこともできます。シグネチャは Fetch API 仕様で指定されているものに従います。
 
-  in the Fetch API specification.
-
-  This method is suitable for fetching files up to size of 64MB when "GET" is
-  used.</br></br></p>
+  このメソッドは、"GET" が使用される場合、最大 64MB のサイズのファイルを取得するのに
+  適しています。</br></br></p>
 line: 1208
 isConstructor: false
 itemtype: method
@@ -24,10 +23,10 @@ example:
 
     <div>
     <code>
-    // Examples use USGS Earthquake API:
+    // 例では USGS 地震 API を使用しています:
     // https://earthquake.usgs.gov/fdsnws/event/1/#methods
 
-    // displays an animation of all USGS earthquakes
+    // USGS の全地震のアニメーションを表示します
     let earthquakes;
     let eqFeatureIndex = 0;
 
@@ -37,7 +36,7 @@ example:
         url,
         {
           method: 'GET',
-          // Other Request options, like special headers for apis
+          // その他のリクエストオプション、API用の特別なヘッダーなど
           headers: { authorization: 'Bearer secretKey' }
         },
         function(res) {
@@ -47,7 +46,7 @@ example:
     }
 
     function draw() {
-      // wait until the data is loaded
+      // データがロードされるまで待機
       if (!earthquakes || !earthquakes.features[eqFeatureIndex]) {
         return;
       }
@@ -70,52 +69,48 @@ example:
 class: p5
 return:
   description: |-
-    A promise that resolves with the data when the operation
-                      completes successfully or rejects with the error after
-                      one occurs.
+    操作が正常に完了したときにデータで解決するか、
+                      エラーが発生した後に拒否される Promise。
   type: Promise
 overloads:
   - line: 1208
     params:
       - name: path
         description: |
-          <p>name of the file or url to load</p>
+          <p>ロードするファイルまたは URL の名前</p>
         type: String
       - name: method
         description: |
-          <p>either "GET", "POST", or "PUT",
-                                             defaults to "GET"</p>
+          <p>"GET"、"POST"、または "PUT"、
+                                             デフォルトは "GET"</p>
         type: String
         optional: true
       - name: datatype
         description: |
-          <p>"json", "jsonp", "xml", or "text"</p>
+          <p>"json"、"jsonp"、"xml"、または "text"</p>
         type: String
         optional: true
       - name: data
         description: |
-          <p>param data passed sent with request</p>
+          <p>リクエストと共に送信されるパラメータデータ</p>
         type: Object
         optional: true
       - name: callback
         description: |
-          <p>function to be executed after
-                                             <a href="#/p5/httpGet">httpGet()</a> completes, data is passed in
-                                             as first argument</p>
+          <p><a href="#/p5/httpGet">httpGet()</a> 完了後に実行される関数、
+                                             データは最初の引数として渡されます</p>
         type: Function
         optional: true
       - name: errorCallback
         description: |
-          <p>function to be executed if
-                                             there is an error, response is passed
-                                             in as first argument</p>
+          <p>エラーがある場合に実行される関数、
+                                             レスポンスは最初の引数として渡されます</p>
         type: Function
         optional: true
     return:
       description: |-
-        A promise that resolves with the data when the operation
-                          completes successfully or rejects with the error after
-                          one occurs.
+        操作が正常に完了したときにデータで解決するか、
+                          エラーが発生した後に拒否される Promise。
       type: Promise
   - line: 1279
     params:
@@ -124,10 +119,10 @@ overloads:
         type: String
       - name: options
         description: >
-          <p>Request object options as documented in the
-                                             "fetch" API
+          <p>"fetch" API
           <a
-          href="https://developer.mozilla.org/en/docs/Web/API/Fetch_API">reference</a></p>
+          href="https://developer.mozilla.org/en/docs/Web/API/Fetch_API">リファレンス</a>
+          に記載されているリクエストオブジェクトオプション</p>
         type: Object
       - name: callback
         description: ''
@@ -145,3 +140,4 @@ chainable: false
 
 
 # httpDo
+

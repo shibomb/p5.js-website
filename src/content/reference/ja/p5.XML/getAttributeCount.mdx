@@ -4,7 +4,7 @@ module: IO
 submodule: Input
 file: src/io/p5.XML.js
 description: |
-  <p>Returns the number of attributes the element has.</p>
+  <p>要素が持つ属性の数を返します。</p>
 line: 723
 isConstructor: false
 itemtype: method
@@ -15,7 +15,7 @@ example:
     <code>
     let myXML;
 
-    // Load the XML and create a p5.XML object.
+    // XMLを読み込み、p5.XMLオブジェクトを作成します。
     function preload() {
       myXML = loadXML('/assets/animals.xml');
     }
@@ -25,30 +25,31 @@ example:
 
       background(200);
 
-      // Get the first child element.
+      // 最初の子要素を取得します。
       let first = myXML.getChild(0);
 
-      // Get the number of attributes.
+      // 属性の数を取得します。
       let numAttributes = first.getAttributeCount();
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textFont('Courier New');
       textSize(14);
 
-      // Display the number of attributes.
+      // 属性の数を表示します。
       text(numAttributes, 50, 50);
 
-      describe('The number "2" written in black on a gray background.');
+      describe('灰色の背景に黒で書かれた数字"2"。');
     }
     </code>
     </div>
 class: p5.XML
 return:
-  description: number of attributes.
+  description: 属性の数。
   type: Integer
 chainable: false
 ---
 
 
 # getAttributeCount
+

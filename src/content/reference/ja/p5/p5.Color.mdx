@@ -4,110 +4,101 @@ module: Color
 submodule: Creating & Reading
 file: src/color/p5.Color.js
 description: >
-  <p>A class to describe a color.</p>
+  <p>色を表現するクラスです。</p>
 
-  <p>Each <code>p5.Color</code> object stores the color mode
+  <p>各 <code>p5.Color</code> オブジェクトは、その構築時にアクティブだった色モードと
 
-  and level maxes that were active during its construction. These values are
+  レベルの最大値を保存します。これらの値は
 
-  used to interpret the arguments passed to the object's constructor. They
+  オブジェクトのコンストラクタに渡された引数を解釈するために使用されます。また、
 
-  also determine output formatting such as when
+  <a href="/reference/p5/saturation/">saturation()</a> が呼び出されたときなどの出力フォーマットも
 
-  <a href="/reference/p5/saturation/">saturation()</a> is called.</p>
+  決定します。</p>
 
-  <p>Color is stored internally as an array of ideal RGBA values in floating
+  <p>色は内部的に、0から1に正規化された浮動小数点形式の
 
-  point form, normalized from 0 to 1. These values are used to calculate the
+  理想的なRGBA値の配列として保存されます。これらの値は
 
-  closest screen colors, which are RGBA levels from 0 to 255. Screen colors
+  最も近い画面の色を計算するために使用され、それらは0から255のRGBAレベルです。画面の色は
 
-  are sent to the renderer.</p>
+  レンダラーに送られます。</p>
 
-  <p>When different color representations are calculated, the results are cached
+  <p>異なる色の表現が計算されると、パフォーマンスのためにその結果がキャッシュ
 
-  for performance. These values are normalized, floating-point numbers.</p>
+  されます。これらの値は正規化された浮動小数点数です。</p>
 
-  <p>Note: <a href="/reference/p5/color/">color()</a> is the recommended way to
-  create an
+  <p>注意: このクラスのインスタンスを作成するには、<a href="/reference/p5/color/">color()</a> を使用することを
 
-  instance of this class.</p>
+  推奨します。</p>
 line: 318
 isConstructor: true
 params:
   - name: pInst
     description: |
-      <p>pointer to p5 instance.</p>
+      <p>p5インスタンスへのポインタ。</p>
     type: P5
     optional: true
   - name: vals
     description: |
-      <p>an array containing the color values
-                                               for red, green, blue and alpha channel
-                                               or CSS color.</p>
+      <p>赤、緑、青、アルファチャンネルの
+                                               色値を含む配列、
+                                               またはCSS色。</p>
     type: 'Number[]|String'
 methods:
   toString:
     description: >
-      <p>Returns the color formatted as a <code>String</code>.</p>
+      <p>色を <code>String</code> としてフォーマットして返します。</p>
 
-      <p>Calling <code>myColor.toString()</code> can be useful for debugging, as
-      in
+      <p><code>myColor.toString()</code> を呼び出すことは、デバッグに役立ちます。例えば、
 
-      <code>print(myColor.toString())</code>. It's also helpful for using p5.js
-      with other
+      <code>print(myColor.toString())</code> のように使用できます。また、p5.jsを他の
 
-      libraries.</p>
+      ライブラリと一緒に使用する際にも役立ちます。</p>
 
-      <p>The parameter, <code>format</code>, is optional. If a format string is
-      passed, as in
+      <p>パラメータ <code>format</code> はオプションです。フォーマット文字列が渡された場合、
 
-      <code>myColor.toString('#rrggbb')</code>, it will determine how the color
-      string is
+      <code>myColor.toString('#rrggbb')</code> のように、色文字列のフォーマット方法を
 
-      formatted. By default, color strings are formatted as <code>'rgba(r, g, b,
-      a)'</code>.</p>
+      決定します。デフォルトでは、色文字列は <code>'rgba(r, g, b, a)'</code> としてフォーマットされます。</p>
     path: p5.Color/toString
   setRed:
     description: >
-      <p>Sets the red component of a color.</p>
+      <p>色の赤成分を設定します。</p>
 
-      <p>The range depends on the <a
-      href="/reference/p5/colorMode/">colorMode()</a>. In the
+      <p>範囲は <a href="/reference/p5/colorMode/">colorMode()</a> に依存します。
 
-      default RGB mode it's between 0 and 255.</p>
+      デフォルトのRGBモードでは0から255の間です。</p>
     path: p5.Color/setRed
   setGreen:
     description: >
-      <p>Sets the green component of a color.</p>
+      <p>色の緑成分を設定します。</p>
 
-      <p>The range depends on the <a
-      href="/reference/p5/colorMode/">colorMode()</a>. In the
+      <p>範囲は <a href="/reference/p5/colorMode/">colorMode()</a> に依存します。
 
-      default RGB mode it's between 0 and 255.</p>
+      デフォルトのRGBモードでは0から255の間です。</p>
     path: p5.Color/setGreen
   setBlue:
     description: >
-      <p>Sets the blue component of a color.</p>
+      <p>色の青成分を設定します。</p>
 
-      <p>The range depends on the <a
-      href="/reference/p5/colorMode/">colorMode()</a>. In the
+      <p>範囲は <a href="/reference/p5/colorMode/">colorMode()</a> に依存します。
 
-      default RGB mode it's between 0 and 255.</p>
+      デフォルトのRGBモードでは0から255の間です。</p>
     path: p5.Color/setBlue
   setAlpha:
     description: >
-      <p>Sets the alpha (transparency) value of a color.</p>
+      <p>色のアルファ（透明度）値を設定します。</p>
 
-      <p>The range depends on the
+      <p>範囲は
 
-      <a href="/reference/p5/colorMode/">colorMode()</a>. In the default RGB
-      mode it's
+      <a href="/reference/p5/colorMode/">colorMode()</a> に依存します。デフォルトのRGBモードでは
 
-      between 0 and 255.</p>
+      0から255の間です。</p>
     path: p5.Color/setAlpha
 chainable: false
 ---
 
 
 # p5.Color
+

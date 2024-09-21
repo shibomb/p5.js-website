@@ -4,15 +4,14 @@ module: IO
 submodule: Input
 file: src/io/p5.XML.js
 description: >
-  <p>Adds a new child element and returns a reference to it.</p>
+  <p>新しい子要素を追加し、その参照を返します。</p>
 
-  <p>The parameter, <code>child</code>, is the <a
-  href="/reference/p5/p5.XML">p5.XML</a> object to add
+  <p>パラメータ<code>child</code>は、子要素として追加する<a
+  href="/reference/p5/p5.XML">p5.XML</a>オブジェクトです。
 
-  as a child element. For example, calling <code>myXML.addChild(otherXML)</code>
-  inserts
+  例えば、<code>myXML.addChild(otherXML)</code>を呼び出すと、
 
-  <code>otherXML</code> as a child element of <code>myXML</code>.</p>
+  <code>otherXML</code>が<code>myXML</code>の子要素として挿入されます。</p>
 line: 538
 isConstructor: false
 itemtype: method
@@ -23,7 +22,7 @@ example:
     <code>
     let myXML;
 
-    // Load the XML and create a p5.XML object.
+    // XMLをロードしてp5.XMLオブジェクトを作成します。
     function preload() {
       myXML = loadXML('/assets/animals.xml');
     }
@@ -33,33 +32,33 @@ example:
 
       background(200);
 
-      // Create a new p5.XML object.
+      // 新しいp5.XMLオブジェクトを作成します。
       let newAnimal = new p5.XML();
 
-      // Set its properties.
+      // プロパティを設定します。
       newAnimal.setName('hydrozoa');
       newAnimal.setAttribute('id', 4);
       newAnimal.setAttribute('species', 'Physalia physalis');
       newAnimal.setContent('Bluebottle');
 
-      // Add the child element.
+      // 子要素を追加します。
       myXML.addChild(newAnimal);
 
-      // Get the first child element that is a hydrozoa.
+      // hydrozoaである最初の子要素を取得します。
       let blueBottle = myXML.getChild('hydrozoa');
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textFont('Courier New');
       textSize(14);
 
-      // Get the child element's content.
+      // 子要素のコンテンツを取得します。
       let content = blueBottle.getContent();
 
-      // Display the child element's content.
+      // 子要素のコンテンツを表示します。
       text(content, 50, 50);
 
-      describe('The word "Bluebottle" written in black on a gray background.');
+      describe('灰色の背景に黒で「Bluebottle」という単語が書かれています。');
     }
     </code>
     </div>
@@ -67,13 +66,14 @@ class: p5.XML
 params:
   - name: child
     description: |
-      <p>child element to add.</p>
+      <p>追加する子要素。</p>
     type: p5.XML
 return:
-  description: added child element.
+  description: 追加された子要素。
   type: p5.XML
 chainable: false
 ---
 
 
 # addChild
+

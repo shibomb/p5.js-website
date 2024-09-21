@@ -4,35 +4,27 @@ module: Data
 submodule: String Functions
 file: src/utilities/string_functions.js
 description: >
-  <p>Applies a regular expression to a string and returns an array with the
+  <p>文字列に正規表現を適用し、最初の一致を含む配列を返します。</p>
 
-  first match.</p>
+  <p><code>match()</code>は正規表現（regex）を使用してテキスト内のパターンを照合します。
 
-  <p><code>match()</code> uses regular expressions (regex) to match patterns in
-  text. For
+  例えば、正規表現<code>abc</code>は文字列内の正確な
 
-  example, the regex <code>abc</code> can be used to search a string for the
-  exact
+  文字列<code>abc</code>を検索するのに使用できます。正規表現についての
 
-  sequence of characters <code>abc</code>. See
-
-  <a
+  詳細は<a
   href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#tools"
-  target="_blank">MDN</a>.
+  target="_blank">MDN</a>を参照してください。</p>
 
-  for more information about regexes.</p>
+  <p>最初のパラメータ<code>str</code>は検索対象の文字列です。</p>
 
-  <p>The first parameter, <code>str</code>, is the string to search.</p>
+  <p>2番目のパラメータ<code>regex</code>は適用する正規表現を含む文字列です。
 
-  <p>The second parameter, <code>regex</code>, is a string with the regular
-  expression to
+  例えば、<code>match('Hello, p5*js!', '[a-z][0-9]')</code>を呼び出すと、
 
-  apply. For example, calling <code>match('Hello, p5*js!', '[a-z][0-9]')</code>
-  would
+  配列<code>['p5']</code>が返されます。</p>
 
-  return the array <code>['p5']</code>.</p>
-
-  <p>Note: If no matches are found, <code>null</code> is returned.</p>
+  <p>注意：一致するものが見つからない場合、<code>null</code>が返されます。</p>
 line: 60
 isConstructor: false
 itemtype: method
@@ -46,25 +38,25 @@ example:
 
       background(200);
 
-      // Create a string variable.
+      // 文字列変数を作成します。
       let string = 'Hello, p5*js!';
 
-      // Match the characters that are lowercase
-      // letters followed by digits.
+      // 小文字の後に数字が続く文字を
+      // マッチングします。
       let matches = match(string, '[a-z][0-9]');
 
-      // Print the matches array to the console:
+      // マッチした配列をコンソールに表示します：
       // ['p5']
       print(matches);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textSize(16);
 
-      // Display the matches.
+      // マッチした結果を表示します。
       text(matches, 50, 50);
 
-      describe('The text "p5" written in black on a gray canvas.');
+      describe('灰色のキャンバスに黒で書かれた "p5" というテキスト。');
     }
     </code>
     </div>
@@ -72,17 +64,18 @@ class: p5
 params:
   - name: str
     description: |
-      <p>string to search.</p>
+      <p>検索対象の文字列。</p>
     type: String
   - name: regexp
     description: |
-      <p>regular expression to match.</p>
+      <p>マッチングする正規表現。</p>
     type: String
 return:
-  description: match if found.
+  description: 一致が見つかった場合、その結果。
   type: 'String[]'
 chainable: false
 ---
 
 
 # match
+

@@ -4,8 +4,8 @@ module: Data
 submodule: Dictionary
 file: src/data/p5.TypedDict.js
 description: |
-  <p>Add the given number to the value currently stored at the given key.
-  The sum then replaces the value previously stored in the Dictionary.</p>
+  <p>与えられた数値を、指定されたキーに現在格納されている値に加算します。
+  その合計が、以前にDictionaryに格納されていた値を置き換えます。</p>
 line: 439
 isConstructor: false
 itemtype: method
@@ -17,21 +17,22 @@ example:
     function setup() {
       let myDictionary = createNumberDict(2, 5);
       myDictionary.add(2, 2);
-      print(myDictionary.get(2)); // logs 7 to console.
+      print(myDictionary.get(2)); // コンソールに7を出力します。
     }
     </code></div>
 class: p5.NumberDict
 params:
   - name: Key
     description: |
-      <p>for the value you wish to add to</p>
+      <p>加算したい値のキー</p>
     type: Number
   - name: Number
     description: |
-      <p>to add to the value</p>
+      <p>値に加算する数値</p>
     type: Number
 chainable: false
 ---
 
 
 # add
+

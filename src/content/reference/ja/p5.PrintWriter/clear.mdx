@@ -4,7 +4,7 @@ module: IO
 submodule: Output
 file: src/io/files.js
 description: |
-  <p>Clears all data from the print stream.</p>
+  <p>プリントストリームからすべてのデータをクリアします。</p>
 line: 1722
 isConstructor: false
 itemtype: method
@@ -18,29 +18,29 @@ example:
 
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(LEFT, CENTER);
       textFont('Courier New');
       textSize(12);
 
-      // Display instructions.
-      text('Double-click to save', 5, 50, 90);
+      // 指示を表示します。
+      text('ダブルクリックで保存', 5, 50, 90);
 
-      describe('The text "Double-click to save" written in black on a gray background.');
+      describe('グレーの背景に黒で書かれた "ダブルクリックで保存" というテキスト。');
     }
 
-    // Save the file when the user double-clicks.
+    // ユーザーがダブルクリックしたときにファイルを保存します。
     function doubleClicked() {
-      // Create a p5.PrintWriter object.
+      // p5.PrintWriterオブジェクトを作成します。
       let myWriter = createWriter('numbers.txt');
 
-      // Add some data to the print stream.
+      // プリントストリームにデータを追加します。
       myWriter.print('Hello p5*js!');
 
-      // Clear the print stream.
+      // プリントストリームをクリアします。
       myWriter.clear();
 
-      // Save the file and close the print stream.
+      // ファイルを保存し、プリントストリームを閉じます。
       myWriter.close();
     }
     </code>
@@ -51,3 +51,4 @@ chainable: false
 
 
 # clear
+

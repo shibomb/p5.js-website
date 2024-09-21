@@ -4,11 +4,10 @@ module: Events
 submodule: Acceleration
 file: src/events/acceleration.js
 description: >
-  <p>The <a href="/reference/p5/setShakeThreshold/">setShakeThreshold()</a>
-  function is used to set the movement threshold for
+  <p><a href="/reference/p5/setShakeThreshold/">setShakeThreshold()</a>関数は、
 
-  the <a href="/reference/p5/deviceShaken/">deviceShaken()</a> function. The
-  default threshold is set to 30.</p>
+  <a href="/reference/p5/deviceShaken/">deviceShaken()</a>関数の動作閾値を設定するために使用されます。
+  デフォルトの閾値は30に設定されています。</p>
 line: 459
 isConstructor: false
 itemtype: method
@@ -17,9 +16,9 @@ example:
 
     <div class="norender">
     <code>
-    // Run this example on a mobile device
-    // You will need to shake the device more firmly
-    // the closer the box's fill gets to white in order to change the value.
+    // このサンプルをモバイルデバイスで実行してください
+    // ボックスの塗りつぶしが白に近づくほど、値を変更するには
+    // デバイスをより強く振る必要があります。
 
     let value = 0;
     let threshold = 30;
@@ -29,8 +28,8 @@ example:
     function draw() {
       fill(value);
       rect(25, 25, 50, 50);
-      describe(`50-by-50 black rect in center of canvas.
-        turns white on mobile when device is being shaked`);
+      describe(`キャンバスの中央に50x50の黒い四角形。
+        モバイルでデバイスを振ると白くなります`);
     }
     function deviceMoved() {
       value = value + 5;
@@ -47,10 +46,9 @@ class: p5
 params:
   - name: value
     description: |
-      <p>The threshold value</p>
+      <p>閾値</p>
     type: Number
 chainable: false
 ---
-
 
 # setShakeThreshold

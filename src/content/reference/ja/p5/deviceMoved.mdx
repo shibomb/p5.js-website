@@ -4,13 +4,8 @@ module: Events
 submodule: Acceleration
 file: src/events/acceleration.js
 description: >
-  <p>The <a href="/reference/p5/deviceMoved/">deviceMoved()</a> function is
-  called when the device is moved by more than
-
-  the threshold value along X, Y or Z axis. The default threshold is set to 0.5.
-
-  The threshold value can be changed using <a
-  href="https://p5js.org/reference/#/p5/setMoveThreshold/">setMoveThreshold()</a>.</p>
+  <p><a href="/reference/p5/deviceMoved/">deviceMoved()</a>関数は、デバイスがX、Y、またはZ軸に沿って閾値以上に動かされたときに呼び出されます。
+  デフォルトの閾値は0.5に設定されています。閾値は<a href="https://p5js.org/reference/#/p5/setMoveThreshold/">setMoveThreshold()</a>を使用して変更できます。</p>
 line: 501
 isConstructor: false
 itemtype: method
@@ -19,16 +14,16 @@ example:
 
     <div class="norender">
     <code>
-    // Run this example on a mobile device
-    // Move the device around
-    // to change the value.
+    // このサンプルをモバイルデバイスで実行してください
+    // デバイスを動かして
+    // 値を変更します。
 
     let value = 0;
     function draw() {
       fill(value);
       rect(25, 25, 50, 50);
-      describe(`50-by-50 black rect in center of canvas.
-        turns white on mobile when device moves`);
+      describe(`キャンバスの中央に50x50の黒い四角形。
+        モバイルでデバイスを動かすと白くなります`);
     }
     function deviceMoved() {
       value = value + 5;
@@ -44,3 +39,4 @@ chainable: false
 
 
 # deviceMoved
+

@@ -4,22 +4,17 @@ module: Constants
 submodule: Constants
 file: src/core/constants.js
 description: >
-  <p>A <code>Number</code> constant that's approximately 0.7854.</p>
+  <p>約0.7854の値を持つ<code>Number</code>定数です。</p>
 
-  <p><code>QUARTER_PI</code> is one-fourth the value of the mathematical
-  constant π. It's
+  <p><code>QUARTER_PI</code>は数学定数πの4分の1の値です。回転や振動に関連する多くのタスクに
 
-  useful for many tasks that involve rotation and oscillation. For example,
+  有用です。例えば、<code>rotate(QUARTER_PI)</code>を呼び出すと、座標系を
 
-  calling <code>rotate(QUARTER_PI)</code> rotates the coordinate system
-  <code>QUARTER_PI</code>
+  <code>QUARTER_PI</code>ラジアン（1/8回転または45˚）回転させます。</p>
 
-  radians, which is an eighth of a turn (45˚).</p>
+  <p>注意：<code>TWO_PI</code>ラジアンは360˚、<code>PI</code>ラジアンは180˚、<code>HALF_PI</code>
 
-  <p>Note: <code>TWO_PI</code> radians equals 360˚, <code>PI</code> radians
-  equals 180˚, <code>HALF_PI</code>
-
-  radians equals 90˚, and <code>QUARTER_PI</code> radians equals 45˚.</p>
+  ラジアンは90˚、<code>QUARTER_PI</code>ラジアンは45˚に相当します。</p>
 line: 267
 isConstructor: false
 itemtype: property
@@ -33,10 +28,10 @@ example:
 
       background(200);
 
-      // Draw an arc from 0 to QUARTER_PI.
+      // 0からQUARTER_PIまでの弧を描画します。
       arc(50, 50, 80, 80, 0, QUARTER_PI);
 
-      describe('A one-eighth slice of a circle drawn in white on a gray background.');
+      describe('灰色の背景に白で描かれた円の8分の1のスライス。');
     }
     </code>
     </div>
@@ -48,19 +43,19 @@ example:
 
       background(200);
 
-      // Translate the origin to the center.
+      // 原点を中心に移動します。
       translate(50, 50);
 
-      // Draw a line.
+      // 線を描画します。
       line(0, 0, 40, 0);
 
-      // Rotate an eighth turn.
+      // 8分の1回転させます。
       rotate(QUARTER_PI);
 
-      // Draw the same line, rotated.
+      // 同じ線を回転させて描画します。
       line(0, 0, 40, 0);
 
-      describe('Two black lines that form a "V" opening towards the bottom-right corner of a gray square.');
+      describe('灰色の正方形の右下隅に向かって開いている「V」字型を形成する2本の黒い線。');
     }
     </code>
     </div>
@@ -71,28 +66,28 @@ example:
       createCanvas(100, 100);
 
       describe(
-        'A red circle and a blue circle oscillate from left to right on a gray background. The red circle appears to chase the blue circle.'
+        '灰色の背景上で赤い円と青い円が左右に振動しています。赤い円が青い円を追いかけているように見えます。'
       );
     }
 
     function draw() {
       background(200);
 
-      // Translate the origin to the center.
+      // 原点を中心に移動します。
       translate(50, 50);
 
-      // Calculate the x-coordinates.
+      // x座標を計算します。
       let x1 = 40 * sin(frameCount * 0.05);
       let x2 = 40 * sin(frameCount * 0.05 + QUARTER_PI);
 
-      // Style the oscillators.
+      // 振動子のスタイルを設定します。
       noStroke();
 
-      // Draw the red oscillator.
+      // 赤い振動子を描画します。
       fill(255, 0, 0);
       circle(x1, 0, 20);
 
-      // Draw the blue oscillator.
+      // 青い振動子を描画します。
       fill(0, 0, 255);
       circle(x2, 0, 20);
     }
@@ -104,3 +99,4 @@ type: Number
 
 
 # QUARTER\_PI
+

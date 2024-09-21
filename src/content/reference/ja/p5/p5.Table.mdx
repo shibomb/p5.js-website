@@ -4,207 +4,180 @@ module: IO
 submodule: Table
 file: src/io/p5.Table.js
 description: >
-  <p><a href="/reference/p5/p5.Table">Table</a> objects store data with multiple
-  rows and columns, much
-
-  like in a traditional spreadsheet. Tables can be generated from
-
-  scratch, dynamically, or using data from an existing file.</p>
+  <p><a href="/reference/p5/p5.Table">Table</a>オブジェクトは、従来のスプレッドシートのように、
+  複数の行と列でデータを保存します。テーブルは、
+  ゼロから動的に、または既存のファイルからデータを使用して
+  生成することができます。</p>
 line: 33
 isConstructor: true
 params:
   - name: rows
     description: |
-      <p>An array of p5.TableRow objects</p>
+      <p>p5.TableRowオブジェクトの配列</p>
     type: 'p5.TableRow[]'
     optional: true
 methods:
   addRow:
     description: >
-      <p>Use <a href="/reference/p5/addRow/">addRow()</a> to add a new row of
-      data to a <a href="/reference/p5/p5.Table">p5.Table</a> object. By
-      default,
+      <p><a href="/reference/p5/addRow/">addRow()</a>を使用して、<a href="/reference/p5/p5.Table">p5.Table</a>オブジェクトに新しいデータ行を
+      追加します。デフォルトでは、
+      空の行が作成されます。通常、新しい行への参照を
+      TableRowオブジェクトに保存し（上の例のnewRowを参照）、
+      その後<a href="/reference/p5/set/">set()</a>を使用して個々の値を設定します。</p>
 
-      an empty row is created. Typically, you would store a reference to
-
-      the new row in a TableRow object (see newRow in the example above),
-
-      and then set individual values using <a
-      href="/reference/p5/set/">set()</a>.</p>
-
-      <p>If a <a href="/reference/p5/p5.TableRow">p5.TableRow</a> object is
-      included as a parameter, then that row is
-
-      duplicated and added to the table.</p>
+      <p><a href="/reference/p5/p5.TableRow">p5.TableRow</a>オブジェクトがパラメータとして含まれている場合、
+      その行が複製されてテーブルに追加されます。</p>
     path: p5.Table/addRow
   removeRow:
     description: |
-      <p>Removes a row from the table object.</p>
+      <p>テーブルオブジェクトから行を削除します。</p>
     path: p5.Table/removeRow
   getRow:
     description: >
-      <p>Returns a reference to the specified <a
-      href="/reference/p5/p5.TableRow">p5.TableRow</a>. The reference
-
-      can then be used to get and set values of the selected row.</p>
+      <p>指定された<a href="/reference/p5/p5.TableRow">p5.TableRow</a>への参照を返します。この参照は
+      選択された行の値を取得および設定するために使用できます。</p>
     path: p5.Table/getRow
   getRows:
     description: >
-      <p>Gets all rows from the table. Returns an array of <a
-      href="/reference/p5/p5.TableRow">p5.TableRow</a>s.</p>
+      <p>テーブルからすべての行を取得します。<a href="/reference/p5/p5.TableRow">p5.TableRow</a>の配列を返します。</p>
     path: p5.Table/getRows
   findRow:
     description: |
-      <p>Finds the first row in the Table that contains the value
-      provided, and returns a reference to that row. Even if
-      multiple rows are possible matches, only the first matching
-      row is returned. The column to search may be specified by
-      either its ID or title.</p>
+      <p>提供された値を含むテーブルの最初の行を見つけ、
+      その行への参照を返します。複数の行が一致する可能性がある場合でも、
+      最初に一致した行のみが返されます。検索する列は、
+      IDまたはタイトルのいずれかで指定できます。</p>
     path: p5.Table/findRow
   findRows:
     description: |
-      <p>Finds the rows in the Table that contain the value
-      provided, and returns references to those rows. Returns an
-      Array, so for must be used to iterate through all the rows,
-      as shown in the example above. The column to search may be
-      specified by either its ID or title.</p>
+      <p>提供された値を含むテーブルの行を見つけ、
+      それらの行への参照を返します。配列を返すため、
+      上の例に示すように、forを使用してすべての行を
+      反復処理する必要があります。検索する列は、
+      IDまたはタイトルのいずれかで指定できます。</p>
     path: p5.Table/findRows
   matchRow:
     description: |
-      <p>Finds the first row in the Table that matches the regular
-      expression provided, and returns a reference to that row.
-      Even if multiple rows are possible matches, only the first
-      matching row is returned. The column to search may be
-      specified by either its ID or title.</p>
+      <p>提供された正規表現に一致するテーブルの最初の行を見つけ、
+      その行への参照を返します。複数の行が一致する可能性がある場合でも、
+      最初に一致した行のみが返されます。検索する列は、
+      IDまたはタイトルのいずれかで指定できます。</p>
     path: p5.Table/matchRow
   matchRows:
     description: |
-      <p>Finds the rows in the Table that match the regular expression provided,
-      and returns references to those rows. Returns an array, so for must be
-      used to iterate through all the rows, as shown in the example. The
-      column to search may be specified by either its ID or title.</p>
+      <p>提供された正規表現に一致するテーブルの行を見つけ、
+      それらの行への参照を返します。配列を返すため、
+      例に示すように、forを使用してすべての行を反復処理する必要があります。
+      検索する列は、IDまたはタイトルのいずれかで指定できます。</p>
     path: p5.Table/matchRows
   getColumn:
     description: |
-      <p>Retrieves all values in the specified column, and returns them
-      as an array. The column may be specified by either its ID or title.</p>
+      <p>指定された列のすべての値を取得し、それらを配列として返します。
+      列はIDまたはタイトルのいずれかで指定できます。</p>
     path: p5.Table/getColumn
   clearRows:
     description: |
-      <p>Removes all rows from a Table. While all rows are removed,
-      columns and column titles are maintained.</p>
+      <p>テーブルからすべての行を削除します。すべての行が削除されますが、
+      列と列のタイトルは維持されます。</p>
     path: p5.Table/clearRows
   addColumn:
     description: >
-      <p>Use <a href="/reference/p5/addColumn/">addColumn()</a> to add a new
-      column to a <a href="/reference/p5/p5.Table">Table</a> object.
-
-      Typically, you will want to specify a title, so the column
-
-      may be easily referenced later by name. (If no title is
-
-      specified, the new column's title will be null.)</p>
+      <p><a href="/reference/p5/addColumn/">addColumn()</a>を使用して、<a href="/reference/p5/p5.Table">Table</a>オブジェクトに新しい列を
+      追加します。通常、タイトルを指定して、後で列を
+      名前で簡単に参照できるようにしたいでしょう。（タイトルが
+      指定されていない場合、新しい列のタイトルはnullになります。）</p>
     path: p5.Table/addColumn
   getColumnCount:
     description: |
-      <p>Returns the total number of columns in a Table.</p>
+      <p>テーブルの総列数を返します。</p>
     path: p5.Table/getColumnCount
   getRowCount:
     description: |
-      <p>Returns the total number of rows in a Table.</p>
+      <p>テーブルの総行数を返します。</p>
     path: p5.Table/getRowCount
   removeTokens:
     description: |
-      <p>Removes any of the specified characters (or "tokens").</p>
-      <p>If no column is specified, then the values in all columns and
-      rows are processed. A specific column may be referenced by
-      either its ID or title.</p>
+      <p>指定された文字（または「トークン」）を削除します。</p>
+      <p>列が指定されていない場合、すべての列と行の値が
+      処理されます。特定の列は、IDまたはタイトルの
+      いずれかで参照できます。</p>
     path: p5.Table/removeTokens
   trim:
     description: |
-      <p>Trims leading and trailing whitespace, such as spaces and tabs,
-      from String table values. If no column is specified, then the
-      values in all columns and rows are trimmed. A specific column
-      may be referenced by either its ID or title.</p>
+      <p>文字列テーブル値の先頭と末尾の空白（スペースやタブなど）を
+      トリムします。列が指定されていない場合、すべての列と行の
+      値がトリムされます。特定の列は、IDまたはタイトルの
+      いずれかで参照できます。</p>
     path: p5.Table/trim
   removeColumn:
     description: >
-      <p>Use <a href="/reference/p5/removeColumn/">removeColumn()</a> to remove
-      an existing column from a Table
-
-      object. The column to be removed may be identified by either
-
-      its title (a String) or its index value (an int).
-
-      removeColumn(0) would remove the first column, removeColumn(1)
-
-      would remove the second column, and so on.</p>
+      <p><a href="/reference/p5/removeColumn/">removeColumn()</a>を使用して、Tableオブジェクトから
+      既存の列を削除します。削除する列は、
+      タイトル（文字列）またはインデックス値（整数）の
+      いずれかで識別できます。
+      removeColumn(0)は最初の列を削除し、removeColumn(1)は
+      2番目の列を削除し、以下同様です。</p>
     path: p5.Table/removeColumn
   set:
     description: |
-      <p>Stores a value in the Table's specified row and column.
-      The row is specified by its ID, while the column may be specified
-      by either its ID or title.</p>
+      <p>テーブルの指定された行と列に値を格納します。
+      行はIDで指定され、列はIDまたはタイトルの
+      いずれかで指定できます。</p>
     path: p5.Table/set
   setNum:
     description: |
-      <p>Stores a Float value in the Table's specified row and column.
-      The row is specified by its ID, while the column may be specified
-      by either its ID or title.</p>
+      <p>テーブルの指定された行と列にFloat値を格納します。
+      行はIDで指定され、列はIDまたはタイトルの
+      いずれかで指定できます。</p>
     path: p5.Table/setNum
   setString:
     description: |
-      <p>Stores a String value in the Table's specified row and column.
-      The row is specified by its ID, while the column may be specified
-      by either its ID or title.</p>
+      <p>テーブルの指定された行と列に文字列値を格納します。
+      行はIDで指定され、列はIDまたはタイトルの
+      いずれかで指定できます。</p>
     path: p5.Table/setString
   get:
     description: |
-      <p>Retrieves a value from the Table's specified row and column.
-      The row is specified by its ID, while the column may be specified by
-      either its ID or title.</p>
+      <p>テーブルの指定された行と列から値を取得します。
+      行はIDで指定され、列はIDまたはタイトルの
+      いずれかで指定できます。</p>
     path: p5.Table/get
   getNum:
     description: |
-      <p>Retrieves a Float value from the Table's specified row and column.
-      The row is specified by its ID, while the column may be specified by
-      either its ID or title.</p>
+      <p>テーブルの指定された行と列からFloat値を取得します。
+      行はIDで指定され、列はIDまたはタイトルの
+      いずれかで指定できます。</p>
     path: p5.Table/getNum
   getString:
     description: |
-      <p>Retrieves a String value from the Table's specified row and column.
-      The row is specified by its ID, while the column may be specified by
-      either its ID or title.</p>
+      <p>テーブルの指定された行と列から文字列値を取得します。
+      行はIDで指定され、列はIDまたはタイトルの
+      いずれかで指定できます。</p>
     path: p5.Table/getString
   getObject:
     description: |
-      <p>Retrieves all table data and returns as an object. If a column name is
-      passed in, each row object will be stored with that attribute as its
-      title.</p>
+      <p>すべてのテーブルデータを取得し、オブジェクトとして返します。列名が
+      渡された場合、各行オブジェクトはその属性をタイトルとして
+      保存されます。</p>
     path: p5.Table/getObject
   getArray:
     description: >
-      <p>Retrieves all table data and returns it as a multidimensional
-      array.</p>
+      <p>すべてのテーブルデータを取得し、多次元配列として返します。</p>
     path: p5.Table/getArray
 properties:
   columns:
     description: >
-      <p>An array containing the names of the columns in the table, if the
-      "header" the table is
-
-      loaded with the "header" parameter.</p>
+      <p>テーブルが「ヘッダー」パラメータで読み込まれた場合、
+      テーブルの列名を含む配列。</p>
     path: p5.Table/columns
   rows:
     description: >
-      <p>An array containing the <a
-      href="/reference/p5/p5.Table">p5.TableRow</a> objects that make up the
-
-      rows of the table. The same result as calling <a
-      href="/reference/p5/getRows/">getRows()</a></p>
+      <p>テーブルの行を構成する<a href="/reference/p5/p5.Table">p5.TableRow</a>オブジェクトを含む配列。
+      <a href="/reference/p5/getRows/">getRows()</a>を呼び出した場合と同じ結果です。</p>
     path: p5.Table/rows
 chainable: false
 ---
 
 
 # p5.Table
+

@@ -4,12 +4,11 @@ module: IO
 submodule: Input
 file: src/io/p5.XML.js
 description: >
-  <p>Returns the element as a <code>String</code>.</p>
+  <p>要素を<code>String</code>として返します。</p>
 
-  <p><code>myXML.serialize()</code> is useful for sending the element over the
-  network or
+  <p><code>myXML.serialize()</code>は、要素をネットワーク経由で送信したり、
 
-  saving it to a file.</p>
+  ファイルに保存したりする際に便利です。</p>
 line: 1291
 isConstructor: false
 itemtype: method
@@ -20,7 +19,7 @@ example:
     <code>
     let myXML;
 
-    // Load the XML and create a p5.XML object.
+    // XMLを読み込み、p5.XMLオブジェクトを作成します。
     function preload() {
       myXML = loadXML('/assets/animals.xml');
     }
@@ -30,40 +29,41 @@ example:
 
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(LEFT, CENTER);
       textFont('Courier New');
       textSize(12);
 
-      // Display instructions.
-      text('Double-click to save', 5, 50, 90);
+      // 指示を表示します。
+      text('ダブルクリックで保存', 5, 50, 90);
 
-      describe('The text "Double-click to save" written in black on a gray background.');
+      describe('灰色の背景に黒字で「ダブルクリックで保存」と書かれたテキスト。');
     }
 
-    // Save the file when the user double-clicks.
+    // ユーザーがダブルクリックしたときにファイルを保存します。
     function doubleClicked() {
-      // Create a p5.PrintWriter object.
-      // Use the file format .xml.
+      // p5.PrintWriterオブジェクトを作成します。
+      // ファイル形式として.xmlを使用します。
       let myWriter = createWriter('animals', 'xml');
 
-      // Serialize the XML data to a string.
+      // XMLデータを文字列にシリアライズします。
       let data = myXML.serialize();
 
-      // Write the data to the print stream.
+      // データをプリントストリームに書き込みます。
       myWriter.write(data);
 
-      // Save the file and close the print stream.
+      // ファイルを保存し、プリントストリームを閉じます。
       myWriter.close();
     }
     </code>
     </div>
 class: p5.XML
 return:
-  description: element as a string.
+  description: 要素を文字列として。
   type: String
 chainable: false
 ---
 
 
 # serialize
+

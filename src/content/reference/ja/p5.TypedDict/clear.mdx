@@ -4,7 +4,7 @@ module: Data
 submodule: Dictionary
 file: src/data/p5.TypedDict.js
 description: |
-  <p>Removes all previously stored key-value pairs from the Dictionary.</p>
+  <p>辞書から以前に保存されたすべてのキーと値のペアを削除します。</p>
 line: 245
 isConstructor: false
 itemtype: method
@@ -15,15 +15,14 @@ example:
     <code>
     function setup() {
       let myDictionary = createStringDict('p5', 'js');
-      print(myDictionary.hasKey('p5')); // prints 'true'
+      print(myDictionary.hasKey('p5')); // 'true'を出力
       myDictionary.clear();
-      print(myDictionary.hasKey('p5')); // prints 'false'
+      print(myDictionary.hasKey('p5')); // 'false'を出力
     }
     </code>
     </div>
 class: p5.TypedDict
 chainable: false
 ---
-
 
 # clear

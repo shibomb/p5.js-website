@@ -4,15 +4,13 @@ module: IO
 submodule: Input
 file: src/io/p5.XML.js
 description: >
-  <p>Returns an <code>Array</code> with the names of the element's
-  attributes.</p>
+  <p>要素の属性名を含む<code>Array</code>を返します。</p>
 
-  <p>Note: Use
+  <p>注意: 属性の値を取得するには、
 
-  <a href="/reference/p5.XML/getString/">myXML.getString()</a> or
+  <a href="/reference/p5.XML/getString/">myXML.getString()</a>または
 
-  <a href="/reference/p5.XML/getNum/">myXML.getNum()</a> to return an
-  attribute's value.</p>
+  <a href="/reference/p5.XML/getNum/">myXML.getNum()</a>を使用してください。</p>
 line: 767
 isConstructor: false
 itemtype: method
@@ -23,7 +21,7 @@ example:
     <code>
     let myXML;
 
-    // Load the XML and create a p5.XML object.
+    // XMLを読み込み、p5.XMLオブジェクトを作成します。
     function preload() {
       myXML = loadXML('/assets/animals.xml');
     }
@@ -33,30 +31,31 @@ example:
 
       background(200);
 
-      // Get the first child element.
+      // 最初の子要素を取得します。
       let first = myXML.getChild(0);
 
-      // Get the number of attributes.
+      // 属性の数を取得します。
       let attributes = first.listAttributes();
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textFont('Courier New');
       textSize(14);
 
-      // Display the element's attributes.
+      // 要素の属性を表示します。
       text(attributes, 50, 50);
 
-      describe('The text "id,species" written in black on a gray background.');
+      describe('灰色の背景に黒で書かれた "id,species" というテキスト。');
     }
     </code>
     </div>
 class: p5.XML
 return:
-  description: attribute names.
+  description: 属性名。
   type: 'String[]'
 chainable: false
 ---
 
 
 # listAttributes
+

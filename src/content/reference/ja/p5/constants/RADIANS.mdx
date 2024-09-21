@@ -4,26 +4,19 @@ module: Constants
 submodule: Constants
 file: src/core/constants.js
 description: >
-  <p>A <code>String</code> constant that's used to set the
+  <p><a href="/reference/p5/angleMode/">angleMode()</a>を設定するために使用される<code>String</code>定数です。</p>
 
-  <a href="/reference/p5/angleMode/">angleMode()</a>.</p>
+  <p>デフォルトでは、<a href="/reference/p5/rotate/">rotate()</a>や
 
-  <p>By default, functions such as <a href="/reference/p5/rotate/">rotate()</a>
-  and
+  <a href="/reference/p5/sin/">sin()</a>などの関数は、ラジアン単位で測定された角度を想定しています。
 
-  <a href="/reference/p5/sin/">sin()</a> expect angles measured in units of
-  radians.
+  <code>angleMode(RADIANS)</code>を呼び出すことで、角度がラジアン単位で測定されることを確認します。
 
-  Calling <code>angleMode(RADIANS)</code> ensures that angles are measured in
-  units of
+  これは、<a href="/reference/p5/angleMode/">angleMode()</a>が
 
-  radians. Doing so can be useful if the
+  <a href="/reference/p5/DEGREES/">DEGREES</a>に設定されている場合に便利です。</p>
 
-  <a href="/reference/p5/angleMode/">angleMode()</a> has been set to
-
-  <a href="/reference/p5/DEGREES/">DEGREES</a>.</p>
-
-  <p>Note: <code>TWO_PI</code> radians equals 360˚.</p>
+  <p>注意：<code>TWO_PI</code>ラジアンは360˚に等しいです。</p>
 line: 587
 isConstructor: false
 itemtype: property
@@ -37,21 +30,21 @@ example:
 
       background(200);
 
-      // Use degrees.
+      // 度数を使用する
       angleMode(DEGREES);
 
-      // Draw a red arc from 0˚ to 90˚.
+      // 0˚から90˚までの赤い弧を描く
       fill(255, 0, 0);
       arc(50, 50, 80, 80, 0, 90);
 
-      // Use radians.
+      // ラジアンを使用する
       angleMode(RADIANS);
 
-      // Draw a blue arc from HALF_PI to PI.
+      // HALF_PIからPIまでの青い弧を描く
       fill(0, 0, 255);
       arc(50, 50, 80, 80, HALF_PI, PI);
 
-      describe('The bottom half of a circle drawn on a gray background. The bottom-right quarter is red. The bottom-left quarter is blue.');
+      describe('灰色の背景に描かれた円の下半分。右下の4分の1は赤色。左下の4分の1は青色。');
     }
     </code>
     </div>
@@ -61,3 +54,4 @@ type: String
 
 
 # RADIANS
+

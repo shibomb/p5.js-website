@@ -4,13 +4,12 @@ module: Events
 submodule: Acceleration
 file: src/events/acceleration.js
 description: |
-  <p>The system variable rotationY always contains the rotation of the
-  device along the y axis. If the sketch <a href="/reference/p5/angleMode/">
-  angleMode()</a> is set to DEGREES, the value will be -90 to 90. If
-  it is set to RADIANS, the value will be -PI/2 to PI/2.</p>
-  <p>Note: The order the rotations are called is important, ie. if used
-  together, it must be called in the order Z-X-Y or there might be
-  unexpected behaviour.</p>
+  <p>システム変数rotationYは、常にデバイスのY軸に沿った回転を含んでいます。
+  スケッチの<a href="/reference/p5/angleMode/">
+  angleMode()</a>がDEGREESに設定されている場合、値は-90から90になります。
+  RADIANSに設定されている場合、値は-PI/2からPI/2になります。</p>
+  <p>注意：回転が呼び出される順序は重要です。つまり、一緒に使用する場合は、
+  Z-X-Yの順序で呼び出す必要があります。そうでないと、予期しない動作が発生する可能性があります。</p>
 line: 164
 isConstructor: false
 itemtype: property
@@ -29,8 +28,8 @@ example:
       //rotateX(radians(rotationX));
       rotateY(radians(rotationY));
       box(200, 200, 200);
-      describe(`red horizontal line right, green vertical line bottom.
-        black background.`);
+      describe(`赤い水平線が右に、緑の垂直線が下に。
+        黒い背景。`);
     }
     </code>
     </div>
@@ -40,3 +39,4 @@ type: Number
 
 
 # rotationY
+

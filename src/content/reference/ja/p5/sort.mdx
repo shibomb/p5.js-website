@@ -4,11 +4,8 @@ module: Data
 submodule: Array Functions
 file: src/utilities/array_functions.js
 description: |
-  <p>Sorts an array of numbers from smallest to largest, or puts an array of
-  words in alphabetical order. The original array is not modified; a
-  re-ordered array is returned. The count parameter states the number of
-  elements to sort. For example, if there are 12 elements in an array and
-  count is set to 5, only the first 5 elements in the array will be sorted.</p>
+  <p>配列内の数値を最小から最大へ、または単語の配列をアルファベット順に並べ替えます。
+  元の配列は変更されず、並べ替えられた新しい配列が返されます。countパラメータは並べ替える要素の数を指定します。例えば、配列に12個の要素があり、countが5に設定されている場合、配列の最初の5つの要素のみが並べ替えられます。</p>
 line: 300
 isConstructor: false
 itemtype: method
@@ -19,7 +16,7 @@ example:
     function setup() {
       let words = ['banana', 'apple', 'pear', 'lime'];
       print(words); // ['banana', 'apple', 'pear', 'lime']
-      let count = 4; // length of array
+      let count = 4; // 配列の長さ
 
       words = sort(words, count);
       print(words); // ['apple', 'banana', 'lime', 'pear']
@@ -29,7 +26,7 @@ example:
     function setup() {
       let numbers = [2, 6, 1, 5, 14, 9, 8, 12];
       print(numbers); // [2, 6, 1, 5, 14, 9, 8, 12]
-      let count = 5; // Less than the length of the array
+      let count = 5; // 配列の長さより少ない
 
       numbers = sort(numbers, count);
       print(numbers); // [1,2,5,6,14,9,8,12]
@@ -39,18 +36,17 @@ class: p5
 params:
   - name: list
     description: |
-      <p>Array to sort</p>
+      <p>並べ替える配列</p>
     type: Array
   - name: count
     description: |
-      <p>number of elements to sort, starting from 0</p>
+      <p>並べ替える要素の数（0から開始）</p>
     type: Integer
     optional: true
 return:
-  description: the sorted list
+  description: 並べ替えられたリスト
   type: Array
 chainable: false
 ---
-
 
 # sort

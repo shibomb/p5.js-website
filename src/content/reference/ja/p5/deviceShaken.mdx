@@ -4,15 +4,15 @@ module: Events
 submodule: Acceleration
 file: src/events/acceleration.js
 description: >
-  <p>The <a href="/reference/p5/deviceShaken/">deviceShaken()</a> function is
-  called when the device total acceleration
+  <p><a href="/reference/p5/deviceShaken/">deviceShaken()</a>関数は、
 
-  changes of accelerationX and accelerationY values is more than
+  デバイスの加速度X値と加速度Y値の合計の変化が
 
-  the threshold value. The default threshold is set to 30.
+  閾値を超えたときに呼び出されます。
+  デフォルトの閾値は30に設定されています。
 
-  The threshold value can be changed using <a
-  href="https://p5js.org/reference/#/p5/setShakeThreshold/">setShakeThreshold()</a>.</p>
+  閾値は<a
+  href="https://p5js.org/reference/#/p5/setShakeThreshold/">setShakeThreshold()</a>を使用して変更できます。</p>
 line: 589
 isConstructor: false
 itemtype: method
@@ -21,15 +21,15 @@ example:
 
     <div class="norender">
     <code>
-    // Run this example on a mobile device
-    // Shake the device to change the value.
+    // このサンプルはモバイルデバイスで実行してください
+    // デバイスを振って値を変更します。
 
     let value = 0;
     function draw() {
       fill(value);
       rect(25, 25, 50, 50);
-      describe(`50-by-50 black rect in center of canvas.
-        turns white on mobile when device shakes`);
+      describe(`キャンバスの中央に50x50の黒い四角形。
+        モバイルでデバイスを振ると白くなります`);
     }
     function deviceShaken() {
       value = value + 5;
@@ -45,3 +45,4 @@ chainable: false
 
 
 # deviceShaken
+

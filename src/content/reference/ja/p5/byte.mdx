@@ -4,36 +4,25 @@ module: Data
 submodule: Conversion
 file: src/utilities/conversion.js
 description: >
-  <p>Converts a <code>Boolean</code>, <code>String</code>, or
-  <code>Number</code> to its byte value.</p>
+  <p><code>Boolean</code>、<code>String</code>、または<code>Number</code>をバイト値に変換します。</p>
 
-  <p><code>byte()</code> converts a value to an integer (whole number) between
-  -128 and
+  <p><code>byte()</code>は値を-128から127の間の整数（全数）に変換します。127より大きい値は
 
-  127. Values greater than 127 wrap around while negative values are
+  ラップアラウンドしますが、負の値は変更されません。例えば、128は-128になり、-129はそのままです。</p>
 
-  unchanged. For example, 128 becomes -128 and -129 remains the same.</p>
+  <p>パラメータ<code>n</code>は変換する値です。<code>n</code>がブール値の場合、
 
-  <p>The parameter, <code>n</code>, is the value to convert. If <code>n</code>
-  is a Boolean, as in
+  <code>byte(false)</code>または<code>byte(true)</code>のように、数値0（<code>false</code>）または1（<code>true</code>）が
 
-  <code>byte(false)</code> or <code>byte(true)</code>, the number 0
-  (<code>false</code>) or 1 (<code>true</code>) will be
+  返されます。<code>n</code>が文字列または数値の場合、<code>byte('256')</code>または<code>byte(256)</code>のように、
 
-  returned. If <code>n</code> is a string or number, as in
-  <code>byte('256')</code> or <code>byte(256)</code>,
+  バイト値が返されます。小数点以下の値は無視されます。配列が渡された場合、
 
-  then the byte value will be returned. Decimal values are ignored. If an
+  <code>byte([true, 123, '456'])</code>のように、バイト値の配列が返されます。</p>
 
-  array is passed, as in <code>byte([true, 123, '456'])</code>, then an array of
-  byte
+  <p>注意：<code>byte('giraffe')</code>のように、数値に変換できない値の場合、
 
-  values will be returned.</p>
-
-  <p>Note: If a value can't be converted to a number, as in
-  <code>byte('giraffe')</code>,
-
-  then the value <code>NaN</code> (not a number) will be returned.</p>
+  <code>NaN</code>（非数）が返されます。</p>
 line: 468
 isConstructor: false
 itemtype: method
@@ -47,20 +36,20 @@ example:
 
       background(200);
 
-      // Create a Boolean variable.
+      // ブール値の変数を作成します。
       let original = true;
 
-      // Convert the Boolean to its byte value.
+      // ブール値をバイト値に変換します。
       let converted = byte(original);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textSize(16);
 
-      // Display the original and converted values.
+      // 元の値と変換後の値を表示します。
       text(`${original} : ${converted}`, 50, 50);
 
-      describe('The text "true : 1" written in black on a gray background.');
+      describe('グレーの背景に黒で "true : 1" と書かれたテキスト。');
     }
     </code>
     </div>
@@ -72,20 +61,20 @@ example:
 
       background(200);
 
-      // Create a string variable.
+      // 文字列の変数を作成します。
       let original = '256';
 
-      // Convert the string to its byte value.
+      // 文字列をバイト値に変換します。
       let converted = byte(original);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textSize(16);
 
-      // Display the original and converted values.
+      // 元の値と変換後の値を表示します。
       text(`${original} : ${converted}`, 50, 50);
 
-      describe('The text "256 : 0" written in black on a gray background.');
+      describe('グレーの背景に黒で "256 : 0" と書かれたテキスト。');
     }
     </code>
     </div>
@@ -97,20 +86,20 @@ example:
 
       background(200);
 
-      // Create a number variable.
+      // 数値の変数を作成します。
       let original = 256;
 
-      // Convert the number to its byte value.
+      // 数値をバイト値に変換します。
       let converted = byte(original);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER, CENTER);
       textSize(16);
 
-      // Display the original and converted values.
+      // 元の値と変換後の値を表示します。
       text(`${original} : ${converted}`, 50, 50);
 
-      describe('The text "256 : 0" written in black on a gray background.');
+      describe('グレーの背景に黒で "256 : 0" と書かれたテキスト。');
     }
     </code>
     </div>
@@ -122,56 +111,57 @@ example:
 
       background(200);
 
-      // Create an array of values.
+      // 値の配列を作成します。
       let original = [false, '64', 383];
 
-      // Convert the array elements to their byte values.
+      // 配列の要素をバイト値に変換します。
       let converted = byte(original);
 
-      // Iterate over the converted array elements.
+      // 変換された配列の要素を反復処理します。
       for (let i = 0; i < converted.length; i += 1) {
 
-        // Style the circle.
+        // 円のスタイルを設定します。
         fill(converted[i]);
 
-        // Calculate the x-coordinate.
+        // x座標を計算します。
         let x = (i + 1) * 25;
 
-        // Draw the circle.
+        // 円を描画します。
         circle(x, 50, 20);
       }
 
       describe(
-        'Three gray circles on a gray background. The circles get lighter from left to right.'
+        'グレーの背景に3つのグレーの円。円は左から右に向かって明るくなります。'
       );
     }
     </code>
     </div>
 class: p5
 return:
-  description: converted byte value.
+  description: 変換されたバイト値。
   type: Number
 overloads:
   - line: 468
     params:
       - name: 'n'
         description: |
-          <p>value to convert.</p>
+          <p>変換する値。</p>
         type: String|Boolean|Number
     return:
-      description: converted byte value.
+      description: 変換されたバイト値。
       type: Number
   - line: 598
     params:
       - name: ns
         description: |
-          <p>values to convert.</p>
+          <p>変換する値。</p>
         type: Array
     return:
-      description: converted byte values.
+      description: 変換されたバイト値。
       type: 'Number[]'
 chainable: false
 ---
 
 
 # byte
+
