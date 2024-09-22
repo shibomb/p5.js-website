@@ -4,9 +4,9 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: |
-  <p>Calls a function when the audio/video reaches the end of its playback.</p>
-  <p>The element is passed as an argument to the callback function.</p>
-  <p>Note: The function won't be called if the media is looping.</p>
+  <p>オーディオ/ビデオの再生が終了したときに関数を呼び出します。</p>
+  <p>要素がコールバック関数に引数として渡されます。</p>
+  <p>注意：メディアがループしている場合、この関数は呼び出されません。</p>
 line: 5006
 isConstructor: false
 itemtype: method
@@ -22,33 +22,33 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create a p5.MediaElement using createAudio().
+      // createAudio()を使用してp5.MediaElementを作成します。
       beat = createAudio('/assets/beat.mp3');
 
-      // Call handleEnd() when the beat finishes.
+      // ビートが終了したらhandleEnd()を呼び出します。
       beat.onended(handleEnd);
 
-      describe('The text "Click to play" written in black on a gray square. A beat plays when the user clicks. The text "Done!" appears when the beat finishes playing.');
+      describe('グレーの四角形に黒字で「クリックして再生」と書かれています。ユーザーがクリックするとビートが再生されます。ビートの再生が終わると「完了！」というテキストが表示されます。');
     }
 
     function draw() {
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER);
       textSize(16);
 
-      // Display different messages based on playback.
+      // 再生状態に基づいて異なるメッセージを表示します。
       if (isDone === true) {
-        text('Done!', 50, 50);
+        text('完了！', 50, 50);
       } else if (isPlaying === false) {
-        text('Click to play', 50, 50);
+        text('クリックして再生', 50, 50);
       } else {
-        text('Playing...', 50, 50);
+        text('再生中...', 50, 50);
       }
     }
 
-    // Play the beat when the user presses the mouse.
+    // ユーザーがマウスを押したらビートを再生します。
     function mousePressed() {
       if (isPlaying === false) {
         isPlaying = true;
@@ -56,7 +56,7 @@ example:
       }
     }
 
-    // Set isDone when playback ends.
+    // 再生が終了したらisDoneを設定します。
     function handleEnd() {
       isDone = false;
     }
@@ -66,12 +66,13 @@ class: p5.MediaElement
 params:
   - name: callback
     description: |
-      <p>function to call when playback ends.
-                                  The <code>p5.MediaElement</code> is passed as
-                                  the argument.</p>
+      <p>再生が終了したときに呼び出す関数。
+                                  <code>p5.MediaElement</code>が引数として
+                                  渡されます。</p>
     type: Function
 chainable: true
 ---
 
 
 # onended
+

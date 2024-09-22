@@ -4,10 +4,9 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>Pauses a media element.</p>
+  <p>メディア要素を一時停止します。</p>
 
-  <p>Calling <code>media.play()</code> will resume playing audio/video from the
-  moment it paused.</p>
+  <p><code>media.play()</code>を呼び出すと、一時停止した時点からオーディオ/ビデオの再生が再開されます。</p>
 line: 4322
 isConstructor: false
 itemtype: method
@@ -22,37 +21,37 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create a p5.MediaElement using createAudio().
+      // createAudio()を使用してp5.MediaElementを作成します。
       beat = createAudio('/assets/beat.mp3');
 
-      describe('The text "Click to play" written in black on a gray background. The beat plays or pauses when the user clicks the square.');
+      describe('灰色の背景に黒で書かれた「クリックして再生」というテキスト。ユーザーが四角をクリックするとビートが再生または一時停止します。');
     }
 
     function draw() {
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER);
       textSize(16);
 
-      // Display different instructions based on playback.
+      // 再生状態に基づいて異なる指示を表示します。
       if (isPaused === true) {
-        text('Click to play', 50, 50);
+        text('クリックして再生', 50, 50);
       } else {
-        text('Click to pause', 50, 50);
+        text('クリックして一時停止', 50, 50);
       }
     }
 
-    // Adjust playback when the user presses the mouse.
+    // ユーザーがマウスを押したときに再生を調整します。
     function mousePressed() {
       if (isPaused === true) {
-        // If the beat is paused,
-        // play it.
+        // ビートが一時停止している場合、
+        // 再生します。
         beat.play();
         isPaused = false;
       } else {
-        // If the beat is playing,
-        // pause it.
+        // ビートが再生中の場合、
+        // 一時停止します。
         beat.pause();
         isPaused = true;
       }
@@ -65,3 +64,4 @@ chainable: true
 
 
 # pause
+

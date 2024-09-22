@@ -4,30 +4,21 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>Sets the element's position.</p>
+  <p>要素の位置を設定します。</p>
 
-  <p>The first two parameters, <code>x</code> and <code>y</code>, set the
-  element's position relative
+  <p>最初の2つのパラメータ、<code>x</code>と<code>y</code>は、
+  ウェブページの左上隅を基準にした要素の位置を設定します。</p>
 
-  to the top-left corner of the web page.</p>
-
-  <p>The third parameter, <code>positionType</code>, is optional. It sets the
-  element's
-
+  <p>3番目のパラメータ<code>positionType</code>はオプションです。これは要素の
   <a target="_blank"
-  href="https://developer.mozilla.org/en-US/docs/Web/CSS/position/">positioning
-  scheme</a>.
+  href="https://developer.mozilla.org/en-US/docs/Web/CSS/position/">配置方法</a>
+  を設定します。
+  <code>positionType</code>は文字列で、<code>'static'</code>、<code>'fixed'</code>、
+  <code>'relative'</code>、<code>'sticky'</code>、<code>'initial'</code>、または
+  <code>'inherit'</code>のいずれかを指定できます。</p>
 
-  <code>positionType</code> is a string that can be either
-  <code>'static'</code>, <code>'fixed'</code>,
-
-  <code>'relative'</code>, <code>'sticky'</code>, <code>'initial'</code>, or
-  <code>'inherit'</code>.</p>
-
-  <p>If no arguments passed, as in <code>myElement.position()</code>, the method
-  returns
-
-  the element's position in an object, as in <code>{ x: 0, y: 0 }</code>.</p>
+  <p>引数が渡されない場合、例えば<code>myElement.position()</code>のように、このメソッドは
+  要素の位置を<code>{ x: 0, y: 0 }</code>のようなオブジェクトで返します。</p>
 line: 2962
 isConstructor: false
 itemtype: method
@@ -41,11 +32,11 @@ example:
 
       background(200);
 
-      // Positions the canvas 50px to the right and 100px
-      // below the top-left corner of the window.
+      // キャンバスをウィンドウの左上隅から右に50px、
+      // 下に100pxの位置に配置します。
       cnv.position(50, 100);
 
-      describe('A gray square that is 50 pixels to the right and 100 pixels down from the top-left corner of the web page.');
+      describe('ウェブページの左上隅から右に50ピクセル、下に100ピクセルの位置にある灰色の正方形。');
     }
     </code>
     </div>
@@ -57,40 +48,39 @@ example:
 
       background(200);
 
-      // Positions the canvas at the top-left corner
-      // of the window with a 'fixed' position type.
+      // キャンバスをウィンドウの左上隅に
+      // 'fixed'の位置タイプで配置します。
       cnv.position(0, 0, 'fixed');
 
-      describe('A gray square in the top-left corner of the web page.');
+      describe('ウェブページの左上隅にある灰色の正方形。');
     }
     </code>
     </div>
 class: p5.Element
 return:
-  description: 'object of form `{ x: 0, y: 0 }` containing the element''s position.'
+  description: '要素の位置を含む `{ x: 0, y: 0 }` 形式のオブジェクト。'
   type: Object
 overloads:
   - line: 2962
     params: []
     return:
-      description: 'object of form `{ x: 0, y: 0 }` containing the element''s position.'
+      description: '要素の位置を含む `{ x: 0, y: 0 }` 形式のオブジェクト。'
       type: Object
   - line: 3013
     params:
       - name: x
         description: |
-          <p>x-position relative to top-left of window (optional)</p>
+          <p>ウィンドウの左上を基準としたx位置（オプション）</p>
         type: Number
         optional: true
       - name: 'y'
         description: |
-          <p>y-position relative to top-left of window (optional)</p>
+          <p>ウィンドウの左上を基準としたy位置（オプション）</p>
         type: Number
         optional: true
       - name: positionType
         description: >
-          <p>it can be static, fixed, relative, sticky, initial or inherit
-          (optional)</p>
+          <p>static、fixed、relative、sticky、initial、inheritのいずれかを指定できます（オプション）</p>
         type: String
         optional: true
     chainable: 1
@@ -99,3 +89,4 @@ chainable: false
 
 
 # position
+

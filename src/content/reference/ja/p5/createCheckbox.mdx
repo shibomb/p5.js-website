@@ -4,25 +4,25 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>Creates a checkbox <code><input></input></code> element.</p>
+  <p>チェックボックス <code><input></input></code> 要素を作成します。</p>
 
-  <p>Checkboxes extend the <a href="/reference/p5/p5.Element">p5.Element</a>
-  class with a
+  <p>チェックボックスは <a href="/reference/p5/p5.Element">p5.Element</a>
+  クラスを拡張し、
 
-  <code>checked()</code> method. Calling <code>myBox.checked()</code> returns
-  <code>true</code> if it the box
+  <code>checked()</code> メソッドを持ちます。<code>myBox.checked()</code> を呼び出すと、
+  ボックスが
 
-  is checked and <code>false</code> if not.</p>
+  チェックされている場合は <code>true</code> を、そうでない場合は <code>false</code> を返します。</p>
 
-  <p>The first parameter, <code>label</code>, is optional. It's a string that
-  sets the label
+  <p>最初のパラメータ <code>label</code> はオプションです。チェックボックスの横に
+  表示するラベルを
 
-  to display next to the checkbox.</p>
+  設定する文字列です。</p>
 
-  <p>The second parameter, <code>value</code>, is also optional. It's a boolean
-  that sets the
+  <p>2番目のパラメータ <code>value</code> もオプションです。チェックボックスの値を
+  設定する
 
-  checkbox's value.</p>
+  ブール値です。</p>
 line: 1008
 isConstructor: false
 itemtype: method
@@ -36,15 +36,15 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create a checkbox and place it beneath the canvas.
+      // チェックボックスを作成し、キャンバスの下に配置します。
       checkbox = createCheckbox();
       checkbox.position(0, 100);
 
-      describe('A black square with a checkbox beneath it. The square turns white when the box is checked.');
+      describe('黒い正方形とその下にチェックボックスがあります。ボックスがチェックされると正方形が白くなります。');
     }
 
     function draw() {
-      // Use the checkbox to set the background color.
+      // チェックボックスを使用して背景色を設定します。
       if (checkbox.checked()) {
         background(255);
       } else {
@@ -61,16 +61,16 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create a checkbox and place it beneath the canvas.
-      // Label the checkbox "white".
+      // チェックボックスを作成し、キャンバスの下に配置します。
+      // チェックボックスに "white" というラベルを付けます。
       checkbox = createCheckbox(' white');
       checkbox.position(0, 100);
 
-      describe('A black square with a checkbox labeled "white" beneath it. The square turns white when the box is checked.');
+      describe('黒い正方形とその下に "white" とラベル付けされたチェックボックスがあります。ボックスがチェックされると正方形が白くなります。');
     }
 
     function draw() {
-      // Use the checkbox to set the background color.
+      // チェックボックスを使用して背景色を設定します。
       if (checkbox.checked()) {
         background(255);
       } else {
@@ -87,16 +87,16 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create a checkbox and place it beneath the canvas.
-      // Label the checkbox "white" and set its value to true.
+      // チェックボックスを作成し、キャンバスの下に配置します。
+      // チェックボックスに "white" というラベルを付け、値を true に設定します。
       checkbox = createCheckbox(' white', true);
       checkbox.position(0, 100);
 
-      describe('A white square with a checkbox labeled "white" beneath it. The square turns black when the box is unchecked.');
+      describe('白い正方形とその下に "white" とラベル付けされたチェックボックスがあります。ボックスのチェックが外れると正方形が黒くなります。');
     }
 
     function draw() {
-      // Use the checkbox to set the background color.
+      // チェックボックスを使用して背景色を設定します。
       if (checkbox.checked()) {
         background(255);
       } else {
@@ -109,20 +109,21 @@ class: p5
 params:
   - name: label
     description: |
-      <p>label displayed after the checkbox.</p>
+      <p>チェックボックスの後に表示されるラベル。</p>
     type: String
     optional: true
   - name: value
     description: >
-      <p>value of the checkbox. Checked is <code>true</code> and unchecked is
-      <code>false</code>.</p>
+      <p>チェックボックスの値。チェックされている場合は <code>true</code>、チェックされていない場合は
+      <code>false</code>。</p>
     type: Boolean
     optional: true
 return:
-  description: new <a href="#/p5.Element">p5.Element</a> object.
+  description: 新しい <a href="#/p5.Element">p5.Element</a> オブジェクト。
   type: p5.Element
 chainable: false
 ---
 
 
 # createCheckbox
+

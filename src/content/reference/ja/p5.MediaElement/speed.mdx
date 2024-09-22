@@ -4,23 +4,19 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>Sets the audio/video playback speed.</p>
+  <p>オーディオ/ビデオの再生速度を設定します。</p>
 
-  <p>The parameter, <code>val</code>, is optional. It's a number that sets the
-  playback
+  <p>パラメータ<code>val</code>はオプションです。これは再生速度を設定する数値です。
 
-  speed. 1 plays the media at normal speed, 0.5 plays it at half speed, 2
+  1は通常速度でメディアを再生し、0.5は半分の速度、2は倍速で再生します。
 
-  plays it at double speed, and so on. -1 plays the media at normal speed
+  -1は通常速度で逆再生します。</p>
 
-  in reverse.</p>
+  <p><code>media.speed()</code>を呼び出すと、現在の速度を数値で返します。</p>
 
-  <p>Calling <code>media.speed()</code> returns the current speed as a
-  number.</p>
+  <p>注意：すべてのブラウザが逆再生をサポートしているわけではありません。
 
-  <p>Note: Not all browsers support backward playback. Even if they do,
-
-  playback might not be smooth.</p>
+  サポートしていても、再生がスムーズでない場合があります。</p>
 line: 4673
 isConstructor: false
 itemtype: method
@@ -34,53 +30,53 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create a p5.MediaElement using createAudio().
+      // createAudio()を使用してp5.MediaElementを作成します。
       dragon = createAudio('/assets/lucky_dragons.mp3');
 
-      // Show the default media controls.
+      // デフォルトのメディアコントロールを表示します。
       dragon.showControls();
 
-      describe('The text "Speed: S" on a gray square with media controls beneath it. The number "S" oscillates between 0 and 1 as the music plays.');
+      describe('グレーの四角形の上に "Speed: S" というテキストがあり、その下にメディアコントロールがあります。音楽が再生されると、数字 "S" が0から1の間で振動します。');
     }
 
     function draw() {
       background(200);
 
-      // Produce a number between 0 and 2.
+      // 0から2の間の数値を生成します。
       let n = sin(frameCount * 0.01) + 1;
 
-      // Use n to set the playback speed.
+      // nを使用して再生速度を設定します。
       dragon.speed(n);
 
-      // Get the current speed and display it.
+      // 現在の速度を取得して表示します。
       let s = dragon.speed();
 
-      // Round s to 1 decimal place for display.
+      // 表示用にsを小数点以下1桁に丸めます。
       s = round(s, 1);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER);
       textSize(16);
 
-      // Display the speed.
+      // 速度を表示します。
       text(`Speed: ${s}`, 50, 50);
     }
     </code>
 class: p5.MediaElement
 return:
-  description: current playback speed.
+  description: 現在の再生速度。
   type: Number
 overloads:
   - line: 4673
     params: []
     return:
-      description: current playback speed.
+      description: 現在の再生速度。
       type: Number
   - line: 4731
     params:
       - name: speed
         description: |
-          <p>speed multiplier for playback.</p>
+          <p>再生の速度倍率。</p>
         type: Number
     chainable: 1
 chainable: false
@@ -88,3 +84,4 @@ chainable: false
 
 
 # speed
+

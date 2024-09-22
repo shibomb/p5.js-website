@@ -4,17 +4,12 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>Creates a new <a href="/reference/p5/p5.Element">p5.Element</a> object.</p>
+  <p>新しい<a href="/reference/p5/p5.Element">p5.Element</a>オブジェクトを作成します。</p>
 
-  <p>The first parameter, <code>tag</code>, is a string an HTML tag such as
-  <code>'h5'</code>.</p>
+  <p>最初のパラメータ<code>tag</code>は、<code>'h5'</code>のようなHTML要素を表す文字列です。</p>
 
-  <p>The second parameter, <code>content</code>, is optional. It's a string that
-  sets the
-
-  HTML content to insert into the new element. New elements have no content
-
-  by default.</p>
+  <p>2番目のパラメータ<code>content</code>はオプションです。新しい要素に挿入するHTML
+  コンテンツを設定する文字列です。デフォルトでは、新しい要素にはコンテンツがありません。</p>
 line: 2475
 isConstructor: false
 itemtype: method
@@ -28,10 +23,10 @@ example:
 
       background(200);
 
-      // Create an h5 element with nothing in it.
+      // 何も入っていないh5要素を作成します。
       createElement('h5');
 
-      describe('A gray square.');
+      describe('灰色の正方形。');
     }
     </code>
     </div>
@@ -43,14 +38,14 @@ example:
 
       background(200);
 
-      // Create an h5 element with the content "p5*js".
+      // "p5*js"というコンテンツを持つh5要素を作成します。
       let h5 = createElement('h5', 'p5*js');
 
-      // Set the element's style and position.
+      // 要素のスタイルと位置を設定します。
       h5.style('color', 'deeppink');
       h5.position(30, 15);
 
-      describe('The text "p5*js" written in pink in the middle of a gray square.');
+      describe('灰色の正方形の中央にピンク色で書かれた"p5*js"というテキスト。');
     }
     </code>
     </div>
@@ -58,18 +53,19 @@ class: p5
 params:
   - name: tag
     description: |
-      <p>tag for the new element.</p>
+      <p>新しい要素のタグ。</p>
     type: String
   - name: content
     description: |
-      <p>HTML content to insert into the element.</p>
+      <p>要素に挿入するHTMLコンテンツ。</p>
     type: String
     optional: true
 return:
-  description: new <a href="#/p5.Element">p5.Element</a> object.
+  description: 新しい<a href="#/p5.Element">p5.Element</a>オブジェクト。
   type: p5.Element
 chainable: false
 ---
 
 
 # createElement
+

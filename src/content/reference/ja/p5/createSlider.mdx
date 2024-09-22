@@ -4,29 +4,20 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>Creates a slider <code><input></input></code> element.</p>
+  <p>スライダー <code><input></input></code> 要素を作成します。</p>
 
-  <p>Range sliders are useful for quickly selecting numbers from a given
-  range.</p>
+  <p>レンジスライダーは、与えられた範囲から素早く数値を選択するのに便利です。</p>
 
-  <p>The first two parameters, <code>min</code> and <code>max</code>, are
-  numbers that set the
+  <p>最初の2つのパラメータ、<code>min</code> と <code>max</code> は、
+  スライダーの最小値と最大値を設定する数値です。</p>
 
-  slider's minimum and maximum.</p>
+  <p>3番目のパラメータ、<code>value</code> はオプションです。これはスライダーの
+  デフォルト値を設定する数値です。</p>
 
-  <p>The third parameter, <code>value</code>, is optional. It's a number that
-  sets the
-
-  slider's default value.</p>
-
-  <p>The fourth parameter, <code>step</code>, is also optional. It's a number
-  that sets the
-
-  spacing between each value in the slider's range. Setting <code>step</code> to
-  0
-
-  allows the slider to move smoothly from <code>min</code> to
-  <code>max</code>.</p>
+  <p>4番目のパラメータ、<code>step</code> もオプションです。これはスライダーの範囲内の
+  各値の間隔を設定する数値です。<code>step</code> を0に設定すると、
+  スライダーは <code>min</code> から <code>max</code> までスムーズに
+  移動できます。</p>
 line: 789
 isConstructor: false
 itemtype: method
@@ -40,16 +31,16 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create a slider and place it at the top of the canvas.
+      // スライダーを作成し、キャンバスの上部に配置します。
       slider = createSlider(0, 255);
       slider.position(10, 10);
       slider.size(80);
 
-      describe('A dark gray square with a range slider at the top. The square changes color when the slider is moved.');
+      describe('上部にレンジスライダーがある暗灰色の正方形。スライダーを動かすと正方形の色が変わります。');
     }
 
     function draw() {
-      // Use the slider as a grayscale value.
+      // スライダーをグレースケール値として使用します。
       let g = slider.value();
       background(g);
     }
@@ -63,17 +54,17 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create a slider and place it at the top of the canvas.
-      // Set its default value to 0.
+      // スライダーを作成し、キャンバスの上部に配置します。
+      // デフォルト値を0に設定します。
       slider = createSlider(0, 255, 0);
       slider.position(10, 10);
       slider.size(80);
 
-      describe('A black square with a range slider at the top. The square changes color when the slider is moved.');
+      describe('上部にレンジスライダーがある黒い正方形。スライダーを動かすと正方形の色が変わります。');
     }
 
     function draw() {
-      // Use the slider as a grayscale value.
+      // スライダーをグレースケール値として使用します。
       let g = slider.value();
       background(g);
     }
@@ -87,18 +78,18 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create a slider and place it at the top of the canvas.
-      // Set its default value to 0.
-      // Set its step size to 50.
+      // スライダーを作成し、キャンバスの上部に配置します。
+      // デフォルト値を0に設定します。
+      // ステップサイズを50に設定します。
       slider = createSlider(0, 255, 0, 50);
       slider.position(10, 10);
       slider.size(80);
 
-      describe('A black square with a range slider at the top. The square changes color when the slider is moved.');
+      describe('上部にレンジスライダーがある黒い正方形。スライダーを動かすと正方形の色が変わります。');
     }
 
     function draw() {
-      // Use the slider as a grayscale value.
+      // スライダーをグレースケール値として使用します。
       let g = slider.value();
       background(g);
     }
@@ -112,18 +103,18 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create a slider and place it at the top of the canvas.
-      // Set its default value to 0.
-      // Set its step size to 0 so that it moves smoothly.
+      // スライダーを作成し、キャンバスの上部に配置します。
+      // デフォルト値を0に設定します。
+      // ステップサイズを0に設定してスムーズに動くようにします。
       slider = createSlider(0, 255, 0, 0);
       slider.position(10, 10);
       slider.size(80);
 
-      describe('A black square with a range slider at the top. The square changes color when the slider is moved.');
+      describe('上部にレンジスライダーがある黒い正方形。スライダーを動かすと正方形の色が変わります。');
     }
 
     function draw() {
-      // Use the slider as a grayscale value.
+      // スライダーをグレースケール値として使用します。
       let g = slider.value();
       background(g);
     }
@@ -133,27 +124,26 @@ class: p5
 params:
   - name: min
     description: |
-      <p>minimum value of the slider.</p>
+      <p>スライダーの最小値。</p>
     type: Number
   - name: max
     description: |
-      <p>maximum value of the slider.</p>
+      <p>スライダーの最大値。</p>
     type: Number
   - name: value
     description: |
-      <p>default value of the slider.</p>
+      <p>スライダーのデフォルト値。</p>
     type: Number
     optional: true
   - name: step
     description: |
-      <p>size for each step in the slider's range.</p>
+      <p>スライダーの範囲内の各ステップのサイズ。</p>
     type: Number
     optional: true
 return:
-  description: new <a href="#/p5.Element">p5.Element</a> object.
+  description: 新しい <a href="#/p5.Element">p5.Element</a> オブジェクト。
   type: p5.Element
 chainable: false
 ---
-
 
 # createSlider

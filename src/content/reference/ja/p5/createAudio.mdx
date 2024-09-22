@@ -4,38 +4,33 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>Creates a hidden <code><audio></code> element for simple audio
-  playback.</p>
+  <p>シンプルな音声再生のために、隠れた <code><audio></code> 要素を作成します。</p>
 
-  <p><code>createAudio()</code> returns a new
+  <p><code>createAudio()</code> は新しい
 
-  <a href="/reference/p5/p5.MediaElement">p5.MediaElement</a> object.</p>
+  <a href="/reference/p5/p5.MediaElement">p5.MediaElement</a> オブジェクトを返します。</p>
 
-  <p>The first parameter, <code>src</code>, is the path the video. If a single
-  string is
+  <p>最初のパラメータ <code>src</code> は、音声へのパスです。単一の文字列が
 
-  passed, as in <code>'/assets/video.mp4'</code>, a single video is loaded. An
-  array
+  渡された場合（例：<code>'/assets/audio.mp3'</code>）、1つの音声がロードされます。文字列の
 
-  of strings can be used to load the same video in different formats. For
+  配列を使用して、同じ音声を異なる形式でロードすることもできます。
 
-  example, <code>['/assets/video.mp4', '/assets/video.ogv',
-  '/assets/video.webm']</code>.
+  例えば、<code>['/assets/audio.mp4', '/assets/audio.ogg', '/assets/audio.webm']</code>
 
-  This is useful for ensuring that the video can play across different
+  のようにします。これは、異なる機能を持つ様々なブラウザで音声を
 
-  browsers with different capabilities. See
+  再生できるようにするのに役立ちます。サポートされている形式の詳細については、
 
   <a
   href="https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats/"
   target="_blank">MDN</a>
 
-  for more information about supported formats.</p>
+  をご覧ください。</p>
 
-  <p>The second parameter, <code>callback</code>, is optional. It's a function
-  to call once
+  <p>2番目のパラメータ <code>callback</code> はオプションです。これは音声の再生準備が
 
-  the audio is ready to play.</p>
+  整った時に呼び出される関数です。</p>
 line: 2195
 isConstructor: false
 itemtype: method
@@ -47,13 +42,13 @@ example:
     function setup() {
       noCanvas();
 
-      // Load the audio.
+      // 音声をロードします。
       let beat = createAudio('/assets/beat.mp3');
 
-      // Show the default audio controls.
+      // デフォルトの音声コントロールを表示します。
       beat.showControls();
 
-      describe('An audio beat plays when the user double-clicks the square.');
+      describe('ユーザーが四角をダブルクリックすると、音声ビートが再生されます。');
     }
     </code>
     </div>
@@ -61,20 +56,21 @@ class: p5
 params:
   - name: src
     description: |
-      <p>path to an audio file, or an array of paths
-                                      for supporting different browsers.</p>
+      <p>音声ファイルへのパス、または異なるブラウザをサポートするための
+                                      パスの配列。</p>
     type: 'String|String[]'
     optional: true
   - name: callback
     description: |
-      <p>function to call once the audio is ready to play.</p>
+      <p>音声の再生準備が整った時に呼び出される関数。</p>
     type: Function
     optional: true
 return:
-  description: new <a href="#/p5.MediaElement">p5.MediaElement</a> object.
+  description: 新しい <a href="#/p5.MediaElement">p5.MediaElement</a> オブジェクト。
   type: p5.MediaElement
 chainable: false
 ---
 
 
 # createAudio
+

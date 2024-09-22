@@ -4,7 +4,7 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: |
-  <p>Adds a class to the element.</p>
+  <p>要素にクラスを追加します。</p>
 line: 2536
 isConstructor: false
 itemtype: method
@@ -16,11 +16,11 @@ example:
      function setup() {
        createCanvas(100, 100);
       background(200);
-      // Create a div element.
+      // div要素を作成します。
        let div = createDiv('div');
-      // Add a class to the div.
+      // divにクラスを追加します。
        div.addClass('myClass');
-      describe('A gray square.');
+      describe('灰色の正方形。');
      }
      </code>
      </div>
@@ -28,10 +28,9 @@ class: p5.Element
 params:
   - name: class
     description: |
-      <p>name of class to add.</p>
+      <p>追加するクラスの名前。</p>
     type: String
 chainable: true
 ---
-
 
 # addClass

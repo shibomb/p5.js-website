@@ -4,7 +4,7 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: |
-  <p>Removes all functions scheduled with <code>media.addCue()</code>.</p>
+  <p><code>media.addCue()</code>でスケジュールされたすべての関数を削除します。</p>
 line: 5381
 isConstructor: false
 itemtype: method
@@ -20,39 +20,39 @@ example:
 
       background(200);
 
-      // Create a p5.MediaElement using createAudio().
+      // createAudio()を使用してp5.MediaElementを作成します。
       let beat = createAudio('/assets/beat.mp3');
 
-      // Play the beat in a loop.
+      // ビートをループ再生します。
       beat.loop();
 
-      // Schedule a few events.
+      // いくつかのイベントをスケジュールします。
       beat.addCue(0, changeBackground, 'red');
       beat.addCue(2, changeBackground, 'deeppink');
       beat.addCue(4, changeBackground, 'orchid');
       beat.addCue(6, changeBackground, 'lavender');
 
-      describe('The text "Double-click to stop changing." written on a square. The color changes every 2 seconds while the audio plays. The color stops changing when the user double-clicks the square.');
+      describe('正方形の上に「ダブルクリックで変更を停止」と書かれたテキスト。オーディオの再生中、2秒ごとに色が変わります。ユーザーが正方形をダブルクリックすると、色の変更が停止します。');
     }
 
     function draw() {
       background(200);
 
-      // Display different instructions based on the available callbacks.
+      // 利用可能なコールバックに基づいて異なる指示を表示します。
       if (isChanging === true) {
-        text('Double-click to stop changing.', 10, 10, 80, 80);
+        text('ダブルクリックで変更を停止。', 10, 10, 80, 80);
       } else {
-        text('No more changes.', 10, 10, 80, 80);
+        text('これ以上変更はありません。', 10, 10, 80, 80);
       }
     }
 
-    // Change the background color.
+    // 背景色を変更します。
     function changeBackground(c) {
       background(c);
     }
 
-    // Remove cued functions and stop changing colors when the user
-    // double-clicks.
+    // ユーザーがダブルクリックしたときに、キューに入れられた関数を削除し、
+    // 色の変更を停止します。
     function doubleClicked() {
       if (isChanging === true) {
         beat.clearCues();
@@ -67,3 +67,4 @@ chainable: false
 
 
 # clearCues
+

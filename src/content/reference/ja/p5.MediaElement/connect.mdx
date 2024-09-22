@@ -4,22 +4,19 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>Sends the element's audio to an output.</p>
+  <p>要素のオーディオを出力に送信します。</p>
 
-  <p>The parameter, <code>audioNode</code>, can be an <code>AudioNode</code> or
-  an object from the
+  <p>パラメータ <code>audioNode</code> は、<code>AudioNode</code> または
 
-  <code>p5.sound</code> library.</p>
+  <code>p5.sound</code> ライブラリのオブジェクトです。</p>
 
-  <p>If no element is provided, as in <code>myElement.connect()</code>, the
-  element
+  <p>要素が提供されない場合（<code>myElement.connect()</code> のように）、要素は
 
-  connects to the main output. All connections are removed by the
+  メイン出力に接続されます。すべての接続は
 
-  <code>.disconnect()</code> method.</p>
+  <code>.disconnect()</code> メソッドで削除されます。</p>
 
-  <p>Note: This method is meant to be used with the p5.sound.js addon
-  library.</p>
+  <p>注意：このメソッドは p5.sound.js アドオンライブラリと一緒に使用することを想定しています。</p>
 line: 5077
 isConstructor: false
 itemtype: method
@@ -27,11 +24,12 @@ class: p5.MediaElement
 params:
   - name: audioNode
     description: |
-      <p>AudioNode from the Web Audio API,
-      or an object from the p5.sound library</p>
+      <p>Web Audio API の AudioNode、
+      または p5.sound ライブラリのオブジェクト</p>
     type: AudioNode|Object
 chainable: false
 ---
 
 
 # connect
+

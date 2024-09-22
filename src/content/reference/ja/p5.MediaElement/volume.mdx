@@ -4,20 +4,17 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>Sets the audio/video volume.</p>
+  <p>音声/動画の音量を設定します。</p>
 
-  <p>Calling <code>media.volume()</code> without an argument returns the current
-  volume
+  <p><code>media.volume()</code>を引数なしで呼び出すと、現在の音量を
 
-  as a number in the range 0 (off) to 1 (maximum).</p>
+  0（オフ）から1（最大）の範囲の数値として返します。</p>
 
-  <p>The parameter, <code>val</code>, is optional. It's a number that sets the
-  volume
+  <p>パラメータ<code>val</code>はオプションです。これは音量を
 
-  from 0 (off) to 1 (maximum). For example, calling
-  <code>media.volume(0.5)</code>
+  0（オフ）から1（最大）の範囲で設定する数値です。例えば、<code>media.volume(0.5)</code>
 
-  sets the volume to half of its maximum.</p>
+  を呼び出すと、音量を最大の半分に設定します。</p>
 line: 4605
 isConstructor: false
 itemtype: method
@@ -31,54 +28,54 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create a p5.MediaElement using createAudio().
+      // createAudio()を使用してp5.MediaElementを作成します。
       dragon = createAudio('/assets/lucky_dragons.mp3');
 
-      // Show the default media controls.
+      // デフォルトのメディアコントロールを表示します。
       dragon.showControls();
 
-      describe('The text "Volume: V" on a gray square with media controls beneath it. The number "V" oscillates between 0 and 1 as the music plays.');
+      describe('グレーの四角形の上に "Volume: V" というテキストがあり、その下にメディアコントロールがあります。音楽が再生されると、数字 "V" が0から1の間で振動します。');
     }
 
     function draw() {
       background(200);
 
-      // Produce a number between 0 and 1.
+      // 0から1の間の数値を生成します。
       let n = 0.5 * sin(frameCount * 0.01) + 0.5;
 
-      // Use n to set the volume.
+      // nを使用して音量を設定します。
       dragon.volume(n);
 
-      // Get the current volume and display it.
+      // 現在の音量を取得して表示します。
       let v = dragon.volume();
 
-      // Round v to 1 decimal place for display.
+      // 表示用にvを小数点以下1桁に丸めます。
       v = round(v, 1);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER);
       textSize(16);
 
-      // Display the volume.
+      // 音量を表示します。
       text(`Volume: ${v}`, 50, 50);
     }
     </code>
     </div>
 class: p5.MediaElement
 return:
-  description: current volume.
+  description: 現在の音量。
   type: Number
 overloads:
   - line: 4605
     params: []
     return:
-      description: current volume.
+      description: 現在の音量。
       type: Number
   - line: 4660
     params:
       - name: val
         description: |
-          <p>volume between 0.0 and 1.0.</p>
+          <p>0.0から1.0の間の音量。</p>
         type: Number
     chainable: 1
 chainable: false
@@ -86,3 +83,4 @@ chainable: false
 
 
 # volume
+

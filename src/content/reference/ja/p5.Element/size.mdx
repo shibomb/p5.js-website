@@ -4,41 +4,26 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>Sets the element's width and height.</p>
+  <p>要素の幅と高さを設定します。</p>
 
-  <p>Calling <code>myElement.size()</code> without an argument returns the
-  element's size
+  <p><code>myElement.size()</code>を引数なしで呼び出すと、要素のサイズを
+  <code>width</code>と<code>height</code>プロパティを持つオブジェクトとして返します。
+  例えば、<code>{ width: 20, height: 10 }</code>のようになります。</p>
 
-  as an object with the properties <code>width</code> and <code>height</code>.
-  For example,
-   <code>{ width: 20, height: 10 }</code>.</p>
-  <p>The first parameter, <code>width</code>, is optional. It's a number used to
-  set the
+  <p>最初のパラメータ<code>width</code>はオプションです。これは要素の幅を設定するための
+  数値です。<code>myElement.size(10)</code>と呼び出すと</p>
 
-  element's width. Calling <code>myElement.size(10)</code></p>
+  <p>2番目のパラメータ<code>height</code>もオプションです。これは要素の高さを設定するための
+  数値です。例えば、<code>myElement.size(20, 10)</code>と呼び出すと、要素の幅を20ピクセル、
+  高さを10ピクセルに設定します。</p>
 
-  <p>The second parameter, 'height<code>, is also optional. It's a number used
-  to set the element's height. For example, calling </code>myElement.size(20,
-  10)` sets the element's width to 20 pixels and height
+  <p>定数<code>AUTO</code>を使用すると、アスペクト比（<code>width / height</code>）を
+  維持しながら、一度に1つの次元を調整できます。例えば、幅200ピクセル、高さ100ピクセルの
+  要素があるとします。<code>myElement.size(20, AUTO)</code>と呼び出すと、幅を20ピクセル、
+  高さを10ピクセルに設定します。</p>
 
-  to 10 pixels.</p>
-
-  <p>The constant <code>AUTO</code> can be used to adjust one dimension at a
-  time while
-
-  maintaining the aspect ratio, which is <code>width / height</code>. For
-  example,
-
-  consider an element that's 200 pixels wide and 100 pixels tall. Calling
-
-  <code>myElement.size(20, AUTO)</code> sets the width to 20 pixels and height
-  to 10
-
-  pixels.</p>
-
-  <p>Note: In the case of elements that need to load data, such as images, wait
-
-  to call <code>myElement.size()</code> until after the data loads.</p>
+  <p>注意：画像などのデータをロードする必要がある要素の場合、データがロードされた後に
+  <code>myElement.size()</code>を呼び出すようにしてください。</p>
 line: 3544
 isConstructor: false
 itemtype: method
@@ -52,15 +37,15 @@ example:
 
       background(200);
 
-      // Create a pink div element and place it at the top-left corner.
+      // ピンク色のdiv要素を作成し、左上隅に配置します。
       let div = createDiv();
       div.position(10, 10);
       div.style('background-color', 'deeppink');
 
-      // Set the div's width to 80 pixels and height to 20 pixels.
+      // divの幅を80ピクセル、高さを20ピクセルに設定します。
       div.size(80, 20);
 
-      describe('A gray square with a pink rectangle near its top.');
+      describe('上部近くにピンクの長方形がある灰色の正方形。');
     }
     </code>
     </div>
@@ -72,21 +57,21 @@ example:
 
       background(200);
 
-      // Create a pink div element and place it at the top-left corner.
+      // ピンク色のdiv要素を作成し、左上隅に配置します。
       let div = createDiv();
       div.position(10, 10);
       div.style('background-color', 'deeppink');
 
-      // Set the div's width to 80 pixels and height to 40 pixels.
+      // divの幅を80ピクセル、高さを40ピクセルに設定します。
       div.size(80, 40);
 
-      // Get the div's size as an object.
+      // divのサイズをオブジェクトとして取得します。
       let s = div.size();
 
-      // Display the div's dimensions.
+      // divの寸法を表示します。
       div.html(`${s.width} x ${s.height}`);
 
-      describe('A gray square with a pink rectangle near its top. The text "80 x 40" is written within the rectangle.');
+      describe('上部近くにピンクの長方形がある灰色の正方形。長方形の中に「80 x 40」というテキストが書かれています。');
     }
     </code>
     </div>
@@ -101,30 +86,30 @@ example:
 
       background(200);
 
-      // Load an image of an astronaut on the moon
-      // and place it at the top-left of the canvas.
+      // 月面の宇宙飛行士の画像をロードし、
+      // キャンバスの左上に配置します。
       img1 = createImg(
         '/assets/moonwalk.jpg',
-        'An astronaut walking on the moon',
+        '月面を歩く宇宙飛行士',
         ''
       );
       img1.position(0, 0);
 
-      // Load an image of an astronaut on the moon
-      // and place it at the top-left of the canvas.
-      // Resize the image once it's loaded.
+      // 月面の宇宙飛行士の画像をロードし、
+      // キャンバスの左上に配置します。
+      // 画像がロードされたらリサイズします。
       img2 = createImg(
         '/assets/moonwalk.jpg',
-        'An astronaut walking on the moon',
+        '月面を歩く宇宙飛行士',
         '',
         resizeImage
       );
       img2.position(0, 0);
 
-      describe('A gray square two copies of a space image at the top-left. The copy in front is smaller.');
+      describe('左上に宇宙の画像が2枚ある灰色の正方形。手前の画像の方が小さくなっています。');
     }
 
-    // Resize img2 and keep its aspect ratio.
+    // img2をリサイズし、アスペクト比を維持します。
     function resizeImage() {
       img2.size(50, AUTO);
     }
@@ -132,24 +117,24 @@ example:
     </div>
 class: p5.Element
 return:
-  description: width and height of the element in an object.
+  description: 要素の幅と高さを含むオブジェクト。
   type: Object
 overloads:
   - line: 3544
     params: []
     return:
-      description: width and height of the element in an object.
+      description: 要素の幅と高さを含むオブジェクト。
       type: Object
   - line: 3658
     params:
       - name: w
         description: |
-          <p>width of the element, either AUTO, or a number.</p>
+          <p>要素の幅。AUTOまたは数値。</p>
         type: Number|Constant
         optional: true
       - name: h
         description: |
-          <p>height of the element, either AUTO, or a number.</p>
+          <p>要素の高さ。AUTOまたは数値。</p>
         type: Number|Constant
         optional: true
     chainable: 1
@@ -158,3 +143,4 @@ chainable: false
 
 
 # size
+

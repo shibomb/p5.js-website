@@ -4,8 +4,8 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: |
-  <p>Stops the audio/video from playing in a loop.</p>
-  <p>The media will stop when it finishes playing.</p>
+  <p>オーディオ/ビデオのループ再生を停止します。</p>
+  <p>メディアは再生が終了すると停止します。</p>
 line: 4440
 isConstructor: false
 itemtype: method
@@ -22,35 +22,35 @@ example:
 
       background(200);
 
-      // Create a p5.MediaElement using createAudio().
+      // createAudio()を使用してp5.MediaElementを作成します。
       beat = createAudio('/assets/beat.mp3');
 
-      describe('The text "Click to play" written in black on a gray background. A beat plays when the user clicks. The beat stops when the user clicks again.');
+      describe('灰色の背景に黒で「クリックして再生」と書かれたテキスト。ユーザーがクリックするとビートが再生されます。ユーザーが再度クリックするとビートが停止します。');
     }
 
     function draw() {
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER);
       textSize(16);
 
-      // Display different instructions based on playback.
+      // 再生状態に基づいて異なる指示を表示します。
       if (isPlaying === true) {
-        text('Click to stop', 50, 50);
+        text('クリックして停止', 50, 50);
       } else {
-        text('Click to play', 50, 50);
+        text('クリックして再生', 50, 50);
       }
     }
 
-    // Adjust playback when the user presses the mouse.
+    // ユーザーがマウスを押したときに再生を調整します。
     function mousePressed() {
       if (isPlaying === true) {
-        // If the beat is playing, stop it.
+        // ビートが再生中の場合、停止します。
         beat.stop();
         isPlaying = false;
       } else {
-        // If the beat is stopped, play it.
+        // ビートが停止中の場合、再生します。
         beat.play();
         isPlaying = true;
       }
@@ -63,3 +63,4 @@ chainable: true
 
 
 # noLoop
+

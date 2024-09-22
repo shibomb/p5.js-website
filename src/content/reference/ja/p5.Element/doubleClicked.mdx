@@ -4,10 +4,9 @@ module: DOM
 submodule: DOM
 file: src/core/p5.Element.js
 description: >
-  <p>Calls a function when the mouse is pressed twice over the element.</p>
+  <p>要素上でマウスが2回押されたときに関数を呼び出します。</p>
 
-  <p>Calling <code>myElement.doubleClicked(false)</code> disables the
-  function.</p>
+  <p><code>myElement.doubleClicked(false)</code>を呼び出すと、この機能が無効になります。</p>
 line: 405
 isConstructor: false
 itemtype: method
@@ -17,21 +16,21 @@ example:
     <div>
     <code>
     function setup() {
-      // Create a canvas element and
-      // assign it to cnv.
+      // キャンバス要素を作成し、
+      // cnvに割り当てます。
       let cnv = createCanvas(100, 100);
 
       background(200);
 
-      // Call randomColor() when the
-      // canvas is double-clicked.
+      // キャンバスがダブルクリックされたときに
+      // randomColor()を呼び出します。
       cnv.doubleClicked(randomColor);
 
-      describe('A gray square changes color when the user double-clicks the canvas.');
+      describe('ユーザーがキャンバスをダブルクリックすると、灰色の正方形の色が変わります。');
     }
 
-    // Paint the background either
-    // red, yellow, blue, or green.
+    // 背景を赤、黄、青、緑のいずれかに
+    // 塗ります。
     function randomColor() {
       let c = random(['red', 'yellow', 'blue', 'green']);
       background(c);
@@ -42,12 +41,13 @@ class: p5.Element
 params:
   - name: fxn
     description: |
-      <p>function to call when the mouse is
-                                     double clicked over the element.
-                                     <code>false</code> disables the function.</p>
+      <p>要素上でマウスがダブルクリックされたときに
+                                     呼び出す関数。
+                                     <code>false</code>を指定すると機能が無効になります。</p>
     type: Function|Boolean
 chainable: true
 ---
 
 
 # doubleClicked
+

@@ -4,8 +4,7 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: |
-  <p>Removes the element, stops all audio/video streams, and removes all
-  callback functions.</p>
+  <p>要素を削除し、すべてのオーディオ/ビデオストリームを停止し、すべてのコールバック関数を削除します。</p>
 line: 3713
 isConstructor: false
 itemtype: method
@@ -21,14 +20,14 @@ example:
 
       background(200);
 
-      // Create a paragraph element.
+      // 段落要素を作成します。
       p = createP('p5*js');
       p.position(10, 10);
 
-      describe('The text "p5*js" written at the center of a gray square. ');
+      describe('灰色の正方形の中央に書かれた "p5*js" というテキスト。');
     }
 
-    // Remove the paragraph when the user double-clicks.
+    // ユーザーがダブルクリックしたときに段落を削除します。
     function doubleClicked() {
       p.remove();
     }
@@ -40,3 +39,4 @@ chainable: false
 
 
 # remove
+

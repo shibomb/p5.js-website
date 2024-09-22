@@ -4,8 +4,8 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: |
-  <p>Calls a function when the element changes.</p>
-  <p>Calling <code>myElement.changed(false)</code> disables the function.</p>
+  <p>要素が変更されたときに関数を呼び出します。</p>
+  <p><code>myElement.changed(false)</code>を呼び出すと、関数が無効になります。</p>
 line: 330
 isConstructor: false
 itemtype: method
@@ -21,20 +21,20 @@ example:
 
       background(200);
 
-      // Create a dropdown menu and add a few color options.
+      // ドロップダウンメニューを作成し、いくつかの色オプションを追加します。
       dropdown = createSelect();
       dropdown.position(0, 0);
       dropdown.option('red');
       dropdown.option('green');
       dropdown.option('blue');
 
-      // Call paintBackground() when the color option changes.
+      // 色オプションが変更されたときにpaintBackground()を呼び出します。
       dropdown.changed(paintBackground);
 
-      describe('A gray square with a dropdown menu at the top. The square changes color when an option is selected.');
+      describe('上部にドロップダウンメニューがある灰色の正方形。オプションが選択されると正方形の色が変わります。');
     }
 
-    // Paint the background with the selected color.
+    // 選択された色で背景を塗ります。
     function paintBackground() {
       let c = dropdown.value();
       background(c);
@@ -51,17 +51,17 @@ example:
 
       background(200);
 
-      // Create a checkbox and place it beneath the canvas.
+      // チェックボックスを作成し、キャンバスの下に配置します。
       checkbox = createCheckbox(' circle');
       checkbox.position(0, 100);
 
-      // Call repaint() when the checkbox changes.
+      // チェックボックスが変更されたときにrepaint()を呼び出します。
       checkbox.changed(repaint);
 
-      describe('A gray square with a checkbox underneath it that says "circle". A white circle appears when the box is checked and disappears otherwise.');
+      describe('下に「circle」と書かれたチェックボックスがある灰色の正方形。ボックスがチェックされると白い円が表示され、そうでない場合は消えます。');
     }
 
-    // Paint the background gray and determine whether to draw a circle.
+    // 背景を灰色に塗り、円を描くかどうかを決定します。
     function repaint() {
       background(200);
       if (checkbox.checked() === true) {
@@ -74,11 +74,12 @@ class: p5
 params:
   - name: fxn
     description: |
-      <p>function to call when the element changes.
-                                     <code>false</code> disables the function.</p>
+      <p>要素が変更されたときに呼び出す関数。
+                                     <code>false</code>を指定すると関数が無効になります。</p>
     type: Function|Boolean
 chainable: true
 ---
 
 
 # changed
+

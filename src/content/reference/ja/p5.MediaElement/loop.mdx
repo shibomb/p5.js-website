@@ -4,7 +4,7 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: |
-  <p>Plays the audio/video repeatedly in a loop.</p>
+  <p>オーディオ/ビデオをループで繰り返し再生します。</p>
 line: 4382
 isConstructor: false
 itemtype: method
@@ -21,35 +21,35 @@ example:
 
       background(200);
 
-      // Create a p5.MediaElement using createAudio().
+      // createAudio()を使用してp5.MediaElementを作成します。
       beat = createAudio('/assets/beat.mp3');
 
-      describe('The text "Click to loop" written in black on a gray background. A beat plays repeatedly in a loop when the user clicks. The beat stops when the user clicks again.');
+      describe('灰色の背景に黒で書かれた「クリックしてループ」というテキスト。ユーザーがクリックするとビートが繰り返しループ再生されます。再度クリックするとビートが停止します。');
     }
 
     function draw() {
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER);
       textSize(16);
 
-      // Display different instructions based on playback.
+      // 再生状態に基づいて異なる指示を表示します。
       if (isLooping === true) {
-        text('Click to stop', 50, 50);
+        text('クリックして停止', 50, 50);
       } else {
-        text('Click to loop', 50, 50);
+        text('クリックしてループ', 50, 50);
       }
     }
 
-    // Adjust playback when the user presses the mouse.
+    // ユーザーがマウスを押したときに再生を調整します。
     function mousePressed() {
       if (isLooping === true) {
-        // If the beat is looping, stop it.
+        // ビートがループ中なら停止します。
         beat.stop();
         isLooping = false;
       } else {
-        // If the beat is stopped, loop it.
+        // ビートが停止中ならループを開始します。
         beat.loop();
         isLooping = true;
       }
@@ -62,3 +62,4 @@ chainable: true
 
 
 # loop
+

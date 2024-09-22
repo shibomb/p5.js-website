@@ -4,29 +4,24 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>Creates an <code><input></input></code> element of type
-  <code>'file'</code>.</p>
+  <p><code><input></input></code>要素のタイプ<code>'file'</code>を作成します。</p>
 
-  <p><code>createFileInput()</code> allows users to select local files for use
-  in a sketch.
+  <p><code>createFileInput()</code>を使用すると、ユーザーがスケッチで使用するローカルファイルを選択できます。
 
-  It returns a <a href="/reference/p5/p5.File">p5.File</a> object.</p>
+  これは<a href="/reference/p5/p5.File">p5.File</a>オブジェクトを返します。</p>
 
-  <p>The first parameter, <code>callback</code>, is a function that's called
-  when the file
+  <p>最初のパラメータ<code>callback</code>は、ファイルが読み込まれたときに呼び出される関数です。
 
-  loads. The callback function should have one parameter, <code>file</code>,
-  that's a
+  コールバック関数は、<a href="/reference/p5/p5.File">p5.File</a>オブジェクトである
 
-  <a href="/reference/p5/p5.File">p5.File</a> object.</p>
+  <code>file</code>という1つのパラメータを持つ必要があります。</p>
 
-  <p>The second parameter, <code>multiple</code>, is optional. It's a boolean
-  value that
+  <p>2番目のパラメータ<code>multiple</code>はオプションです。これは複数のファイルの読み込みを
 
-  allows loading multiple files if set to <code>true</code>. If
-  <code>true</code>, <code>callback</code>
+  許可するかどうかを決定するブール値です。<code>true</code>に設定すると、<code>callback</code>は
 
-  will be called once per file.</p>
+  ファイルごとに1回呼び出されます。</p>
+
 line: 1924
 isConstructor: false
 itemtype: method
@@ -35,32 +30,32 @@ example:
 
     <div>
     <code>
-    // Use the file input to select an image to
-    // load and display.
+    // ファイル入力を使用して、読み込んで
+    // 表示する画像を選択します。
     let input;
     let img;
 
     function setup() {
       createCanvas(100, 100);
 
-      // Create a file input and place it beneath
-      // the canvas.
+      // ファイル入力を作成し、キャンバスの
+      // 下に配置します。
       input = createFileInput(handleImage);
       input.position(0, 100);
 
-      describe('A gray square with a file input beneath it. If the user selects an image file to load, it is displayed on the square.');
+      describe('灰色の正方形と、その下にファイル入力があります。ユーザーが読み込む画像ファイルを選択すると、その画像が正方形に表示されます。');
     }
 
     function draw() {
       background(200);
 
-      // Draw the image if loaded.
+      // 画像が読み込まれていれば描画します。
       if (img) {
         image(img, 0, 0, width, height);
       }
     }
 
-    // Create an image if the file is an image.
+    // ファイルが画像の場合、画像を作成します。
     function handleImage(file) {
       if (file.type === 'image') {
         img = createImg(file.data, '');
@@ -74,14 +69,14 @@ example:
 
     <div>
     <code>
-    // Use the file input to select multiple images
-    // to load and display.
+    // ファイル入力を使用して、複数の画像を
+    // 選択して読み込み、表示します。
     let input;
     let images = [];
 
     function setup() {
-      // Create a file input and place it beneath
-      // the canvas. Allow it to load multiple files.
+      // ファイル入力を作成し、キャンバスの下に
+      // 配置します。複数のファイルの読み込みを許可します。
       input = createFileInput(handleImage, true);
       input.position(0, 100);
     }
@@ -89,22 +84,22 @@ example:
     function draw() {
       background(200);
 
-      // Draw the images if loaded. Each image
-      // is drawn 20 pixels lower than the
-      // previous image.
+      // 画像が読み込まれていれば描画します。各画像は
+      // 前の画像より20ピクセル下に
+      // 描画されます。
       for (let i = 0; i < images.length; i += 1) {
-        // Calculate the y-coordinate.
+        // y座標を計算します。
         let y = i * 20;
 
-        // Draw the image.
+        // 画像を描画します。
         image(img, 0, y, 100, 100);
       }
 
-      describe('A gray square with a file input beneath it. If the user selects multiple image files to load, they are displayed on the square.');
+      describe('灰色の正方形と、その下にファイル入力があります。ユーザーが複数の画像ファイルを選択して読み込むと、それらの画像が正方形に表示されます。');
     }
 
-    // Create an image if the file is an image,
-    // then add it to the images array.
+    // ファイルが画像の場合、画像を作成し、
+    // images配列に追加します。
     function handleImage(file) {
       if (file.type === 'image') {
         let img = createImg(file.data, '');
@@ -118,18 +113,19 @@ class: p5
 params:
   - name: callback
     description: |
-      <p>function to call once the file loads.</p>
+      <p>ファイルが読み込まれたときに呼び出す関数。</p>
     type: Function
   - name: multiple
     description: |
-      <p>allow multiple files to be selected.</p>
+      <p>複数のファイルの選択を許可するかどうか。</p>
     type: Boolean
     optional: true
 return:
-  description: new <a href="#/p5.File">p5.File</a> object.
+  description: 新しい<a href="#/p5.File">p5.File</a>オブジェクト。
   type: p5.File
 chainable: false
 ---
 
 
 # createFileInput
+

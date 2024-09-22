@@ -4,14 +4,14 @@ module: DOM
 submodule: DOM
 file: src/core/p5.Element.js
 description: >
-  <p>The element's underlying <code>HTMLElement</code> object.</p>
+  <p>要素の基礎となる<code>HTMLElement</code>オブジェクトです。</p>
 
-  <p>The
+  <p>
 
   <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/"
   target="_blank">HTMLElement</a>
 
-  object's properties and methods can be used directly.</p>
+  オブジェクトのプロパティとメソッドを直接使用することができます。</p>
 line: 56
 isConstructor: false
 itemtype: property
@@ -21,17 +21,17 @@ example:
     <div>
     <code>
     function setup() {
-      // Create a canvas element and
-      // assign it to cnv.
+      // キャンバス要素を作成し、
+      // cnvに割り当てます。
       let cnv = createCanvas(100, 100);
 
       background(200);
 
-      // Set the border style for the
-      // canvas.
+      // キャンバスのボーダースタイルを
+      // 設定します。
       cnv.elt.style.border = '5px dashed deeppink';
 
-      describe('A gray square with a pink border drawn with dashed lines.');
+      describe('ピンク色の破線のボーダーが描かれたグレーの正方形。');
     }
     </code>
     </div>
@@ -40,3 +40,4 @@ class: p5.Element
 
 
 # elt
+

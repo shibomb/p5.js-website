@@ -4,73 +4,40 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>Creates a <code><video></code> element that "captures" the audio/video
-  stream from
+  <p>ウェブカメラとマイクからオーディオ/ビデオストリームを「キャプチャ」する<code><video></code>要素を作成します。</p>
 
-  the webcam and microphone.</p>
+  <p><code>createCapture()</code>は新しい
+  <a href="/reference/p5/p5.MediaElement">p5.MediaElement</a>オブジェクトを返します。ビデオは
+  デフォルトで表示されます。<code>capture.hide()</code>を呼び出すことで非表示にでき、
+  <a href="/reference/p5/image/">image()</a>を使用してキャンバスに描画できます。</p>
 
-  <p><code>createCapture()</code> returns a new
-
-  <a href="/reference/p5/p5.MediaElement">p5.MediaElement</a> object. Videos are
-  shown by
-
-  default. They can be hidden by calling <code>capture.hide()</code> and drawn
-  to the
-
-  canvas using <a href="/reference/p5/image/">image()</a>.</p>
-
-  <p>The first parameter, <code>type</code>, is optional. It sets the type of
-  capture to
-
-  use. By default, <code>createCapture()</code> captures both audio and video.
-  If <code>VIDEO</code>
-
-  is passed, as in <code>createCapture(VIDEO)</code>, only video will be
-  captured.
-
-  If <code>AUDIO</code> is passed, as in <code>createCapture(AUDIO)</code>, only
-  audio will be
-
-  captured. A constraints object can also be passed to customize the stream.
-
-  See the <a
+  <p>最初のパラメータ<code>type</code>はオプションです。使用するキャプチャのタイプを設定します。
+  デフォルトでは、<code>createCapture()</code>は音声とビデオの両方をキャプチャします。
+  <code>VIDEO</code>が渡された場合（<code>createCapture(VIDEO)</code>のように）、ビデオのみがキャプチャされます。
+  <code>AUDIO</code>が渡された場合（<code>createCapture(AUDIO)</code>のように）、音声のみがキャプチャされます。
+  ストリームをカスタマイズするために制約オブジェクトを渡すこともできます。
+  可能なプロパティについては、<a
   href="http://w3c.github.io/mediacapture-main/getusermedia.html#media-track-constraints"
-  target="_blank">
+  target="_blank">W3Cのドキュメント</a>を参照してください。異なるブラウザは異なる
+  プロパティをサポートしています。</p>
 
-  W3C documentation</a> for possible properties. Different browsers support
-  different
+  <p>'flipped'プロパティはオプションのプロパティで、<code>{flipped:true}</code>に設定すると
+  ビデオ出力を反転させることができます。trueの場合、ビデオが反転または
+  フリップされることを意味し、何も指定されていない場合はデフォルトで
+  <code>false</code>になります。</p>
 
-  properties.</p>
+  <p>2番目のパラメータ<code>callback</code>はオプションです。これはキャプチャが使用可能になったときに
+  呼び出す関数です。コールバック関数は1つのパラメータ<code>stream</code>を持つべきで、
+  これは<a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStream/"
+  target="_blank">MediaStream</a>オブジェクトです。</p>
 
-  <p>The 'flipped' property is an optional property which can be set to
-  <code>{flipped:true}</code>
-
-  to mirror the video output.If it is true then it means that video will be
-  mirrored
-
-  or flipped and if nothing is mentioned then by default it will be
-  <code>false</code>.</p>
-
-  <p>The second parameter,<code>callback</code>, is optional. It's a function to
-  call once
-
-  the capture is ready for use. The callback function should have one
-
-  parameter, <code>stream</code>, that's a
-
-  <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStream/"
-  target="_blank">MediaStream</a> object.</p>
-
-  <p>Note: <code>createCapture()</code> only works when running a sketch locally
-  or using HTTPS. Learn more
-
-  <a
+  <p>注意：<code>createCapture()</code>はスケッチをローカルで実行するか、HTTPSを使用する場合にのみ機能します。
+  詳細は<a
   href="http://stackoverflow.com/questions/34197653/getusermedia-in-chrome-47-without-using-https/"
-  target="_blank">here</a>
-
-  and <a
+  target="_blank">こちら</a>と
+  <a
   href="https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia/"
-  target="_blank">here</a>.</p>
+  target="_blank">こちら</a>をご覧ください。</p>
 line: 2277
 isConstructor: false
 itemtype: method
@@ -82,10 +49,10 @@ example:
     function setup() {
       noCanvas();
 
-      // Create the video capture.
+      // ビデオキャプチャを作成します。
       createCapture(VIDEO);
 
-      describe('A video stream from the webcam.');
+      describe('ウェブカメラからのビデオストリーム。');
     }
     </code>
     </div>
@@ -97,18 +64,18 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create the video capture and hide the element.
+      // ビデオキャプチャを作成し、要素を非表示にします。
       capture = createCapture(VIDEO);
       capture.hide();
 
-      describe('A video stream from the webcam with inverted colors.');
+      describe('色が反転したウェブカメラからのビデオストリーム。');
     }
 
     function draw() {
-      // Draw the video capture within the canvas.
+      // キャンバス内にビデオキャプチャを描画します。
       image(capture, 0, 0, width, width * capture.height / capture.width);
 
-      // Invert the colors in the stream.
+      // ストリームの色を反転させます。
       filter(INVERT);
     }
     </code>
@@ -120,11 +87,11 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create the video capture with mirrored output.
+      // 反転した出力でビデオキャプチャを作成します。
       capture = createCapture(VIDEO,{ flipped:true });
       capture.size(100,100);
 
-      describe('A video stream from the webcam with flipped or mirrored output.');
+      describe('反転またはミラーリングされた出力のウェブカメラからのビデオストリーム。');
     }
 
     </code>
@@ -135,7 +102,7 @@ example:
     function setup() {
       createCanvas(480, 120);
 
-      // Create a constraints object.
+      // 制約オブジェクトを作成します。
       let constraints = {
         video: {
           mandatory: {
@@ -147,10 +114,10 @@ example:
         audio: false
       };
 
-      // Create the video capture.
+      // ビデオキャプチャを作成します。
       createCapture(constraints);
 
-      describe('A video stream from the webcam.');
+      describe('ウェブカメラからのビデオストリーム。');
     }
     </code>
     </div>
@@ -158,29 +125,29 @@ class: p5
 params:
   - name: type
     description: |
-      <p>type of capture, either AUDIO or VIDEO,
-                                        or a constraints object. Both video and audio
-                                        audio streams are captured by default.</p>
+      <p>キャプチャのタイプ。AUDIOまたはVIDEO、
+                                        または制約オブジェクト。デフォルトでは
+                                        ビデオと音声の両方のストリームがキャプチャされます。</p>
     type: String|Constant|Object
     optional: true
   - name: flipped
     description: >
-      <p>flip the capturing video and mirror the output with
-      <code>{flipped:true}</code>. By
-                                        default it is false.</p>
+      <p><code>{flipped:true}</code>でキャプチャしているビデオを反転し、出力をミラーリングします。
+                                        デフォルトではfalseです。</p>
     type: Object
     optional: true
   - name: callback
     description: |
-      <p>function to call once the stream
-                                        has loaded.</p>
+      <p>ストリームがロードされた後に
+                                        呼び出す関数。</p>
     type: Function
     optional: true
 return:
-  description: new <a href="#/p5.MediaElement">p5.MediaElement</a> object.
+  description: 新しい<a href="#/p5.MediaElement">p5.MediaElement</a>オブジェクト。
   type: p5.MediaElement
 chainable: false
 ---
 
 
 # createCapture
+

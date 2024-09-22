@@ -4,28 +4,25 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>Searches the page for the first element that matches the given
-
-  <a
+  <p>ページ内で、指定された<a
   href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics#different_types_of_selectors"
-  target="_blank">CSS selector string</a>.</p>
+  target="_blank">CSSセレクタ文字列</a>に一致する最初の要素を検索します。</p>
 
-  <p>The selector string can be an ID, class, tag name, or a combination.
+  <p>セレクタ文字列には、ID、クラス、タグ名、またはそれらの組み合わせを使用できます。
 
-  <code>select()</code> returns a <a
-  href="/reference/p5/p5.Element">p5.Element</a> object if it
+  <code>select()</code>は、一致する要素が見つかった場合は<a
+  href="/reference/p5/p5.Element">p5.Element</a>オブジェクトを返し、
 
-  finds a match and <code>null</code> if not.</p>
+  見つからなかった場合は<code>null</code>を返します。</p>
 
-  <p>The second parameter, <code>container</code>, is optional. It specifies a
-  container to
+  <p>2番目のパラメータ<code>container</code>はオプションです。これは検索対象となる
+  
+  コンテナを指定します。<code>container</code>には、CSSセレクタ文字列、
 
-  search within. <code>container</code> can be CSS selector string, a
-
-  <a href="/reference/p5/p5.Element">p5.Element</a> object, or an
+  <a href="/reference/p5/p5.Element">p5.Element</a>オブジェクト、または
 
   <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/"
-  target="_blank">HTMLElement</a> object.</p>
+  target="_blank">HTMLElement</a>オブジェクトを指定できます。</p>
 line: 21
 isConstructor: false
 itemtype: method
@@ -38,11 +35,11 @@ example:
       createCanvas(100, 100);
       background(200);
 
-      // Select the canvas by its tag.
+      // キャンバスをタグで選択します。
       let cnv = select('canvas');
       cnv.style('border', '5px deeppink dashed');
 
-      describe('A gray square with a dashed pink border.');
+      describe('点線のピンクの枠線がある灰色の正方形。');
     }
     </code>
     </div>
@@ -52,18 +49,18 @@ example:
     function setup() {
       let cnv = createCanvas(100, 100);
 
-      // Add a class attribute to the canvas.
+      // キャンバスにクラス属性を追加します。
       cnv.class('pinkborder');
 
       background(200);
 
-      // Select the canvas by its class.
+      // キャンバスをクラスで選択します。
       cnv = select('.pinkborder');
 
-      // Style its border.
+      // 枠線のスタイルを設定します。
       cnv.style('border', '5px deeppink dashed');
 
-      describe('A gray square with a dashed pink border.');
+      describe('点線のピンクの枠線がある灰色の正方形。');
     }
     </code>
     </div>
@@ -73,18 +70,18 @@ example:
     function setup() {
       let cnv = createCanvas(100, 100);
 
-      // Set the canvas' ID.
+      // キャンバスにIDを設定します。
       cnv.id('mycanvas');
 
       background(200);
 
-      // Select the canvas by its ID.
+      // キャンバスをIDで選択します。
       cnv = select('#mycanvas');
 
-      // Style its border.
+      // 枠線のスタイルを設定します。
       cnv.style('border', '5px deeppink dashed');
 
-      describe('A gray square with a dashed pink border.');
+      describe('点線のピンクの枠線がある灰色の正方形。');
     }
     </code>
     </div>
@@ -92,19 +89,20 @@ class: p5
 params:
   - name: selectors
     description: |
-      <p>CSS selector string of element to search for.</p>
+      <p>検索する要素のCSSセレクタ文字列。</p>
     type: String
   - name: container
     description: |
-      <p>CSS selector string, <a href="#/p5.Element">p5.Element</a>, or
-                                                  <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement" target="_blank">HTMLElement</a> to search within.</p>
+      <p>検索対象となるCSSセレクタ文字列、<a href="#/p5.Element">p5.Element</a>、または
+                                                  <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement" target="_blank">HTMLElement</a>。</p>
     type: String|p5.Element|HTMLElement
     optional: true
 return:
-  description: <a href="#/p5.Element">p5.Element</a> containing the element.
+  description: 要素を含む<a href="#/p5.Element">p5.Element</a>。
   type: p5.Element|null
 chainable: false
 ---
 
 
 # select
+

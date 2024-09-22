@@ -4,22 +4,23 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>Show the default
+  <p>デフォルトの
 
   <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/"
   target="_blank">HTMLMediaElement</a>
 
-  controls.</p>
+  コントロールを表示します。</p>
 
-  <p>Note: The controls vary between web browsers.</p>
+  <p>注意：コントロールはウェブブラウザによって異なります。</p>
 line: 5148
 isConstructor: false
 itemtype: method
 example:
-  - "\n<div>\n<code>\nfunction setup() {\n  createCanvas(100, 100);\n\n  background('cornflowerblue');\n\n  // Style the text.\n  textAlign(CENTER);\n  textSize(50);\n\n  // Display a dragon.\n  text('\U0001F409', 50, 50);\n\n  // Create a p5.MediaElement using createAudio().\n  let dragon = createAudio('/assets/lucky_dragons.mp3');\n\n  // Show the default media controls.\n  dragon.showControls();\n\n  describe('A dragon emoji, \U0001F409, drawn in the center of a blue square. A song plays in the background. Audio controls are displayed beneath the canvas.');\n}\n</code>\n</div>"
+  - "\n<div>\n<code>\nfunction setup() {\n  createCanvas(100, 100);\n\n  background('cornflowerblue');\n\n  // テキストのスタイルを設定します。\n  textAlign(CENTER);\n  textSize(50);\n\n  // ドラゴンを表示します。\n  text('\U0001F409', 50, 50);\n\n  // createAudio()を使用してp5.MediaElementを作成します。\n  let dragon = createAudio('/assets/lucky_dragons.mp3');\n\n  // デフォルトのメディアコントロールを表示します。\n  dragon.showControls();\n\n  describe('青い正方形の中央に描かれたドラゴンの絵文字、\U0001F409。バックグラウンドで曲が再生されています。キャンバスの下にオーディオコントロールが表示されています。');\n}\n</code>\n</div>"
 class: p5.MediaElement
 chainable: false
 ---
 
 
 # showControls
+

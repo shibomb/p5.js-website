@@ -4,12 +4,11 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>Calls a function when the element receives input.</p>
+  <p>要素が入力を受け取ったときに関数を呼び出します。</p>
 
-  <p><code>myElement.input()</code> is often used to with text inputs and
-  sliders. Calling
+  <p><code>myElement.input()</code>は、テキスト入力やスライダーでよく使用されます。
 
-  <code>myElement.input(false)</code> disables the function.</p>
+  <code>myElement.input(false)</code>を呼び出すと、関数が無効になります。</p>
 line: 405
 isConstructor: false
 itemtype: method
@@ -25,17 +24,17 @@ example:
 
       background(200);
 
-      // Create a slider and place it beneath the canvas.
+      // スライダーを作成し、キャンバスの下に配置します。
       slider = createSlider(0, 255, 200);
       slider.position(0, 100);
 
-      // Call repaint() when the slider changes.
+      // スライダーが変更されたときにrepaint()を呼び出します。
       slider.input(repaint);
 
-      describe('A gray square with a range slider underneath it. The background changes shades of gray when the slider is moved.');
+      describe('グレーの正方形と、その下にあるレンジスライダー。スライダーを動かすと背景のグレーの色合いが変化します。');
     }
 
-    // Paint the background using slider's value.
+    // スライダーの値を使用して背景を描画します。
     function repaint() {
       let g = slider.value();
       background(g);
@@ -52,17 +51,17 @@ example:
 
       background(200);
 
-      // Create an input and place it beneath the canvas.
+      // 入力フィールドを作成し、キャンバスの下に配置します。
       input = createInput('');
       input.position(0, 100);
 
-      // Call repaint() when input is detected.
+      // 入力が検出されたときにrepaint()を呼び出します。
       input.input(repaint);
 
-      describe('A gray square with a text input bar beneath it. Any text written in the input appears in the middle of the square.');
+      describe('グレーの正方形と、その下にあるテキスト入力バー。入力バーに書かれたテキストが正方形の中央に表示されます。');
     }
 
-    // Paint the background gray and display the input's value.
+    // 背景をグレーに描画し、入力の値を表示します。
     function repaint() {
       background(200);
       let msg = input.value();
@@ -74,12 +73,12 @@ class: p5
 params:
   - name: fxn
     description: |
-      <p>function to call when input is detected within
-                                     the element.
-                                     <code>false</code> disables the function.</p>
+      <p>要素内で入力が検出されたときに呼び出す関数。
+                                     <code>false</code>を指定すると関数が無効になります。</p>
     type: Function|Boolean
 chainable: true
 ---
 
 
 # input
+

@@ -4,20 +4,14 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>Sets the inner HTML of the element, replacing any existing HTML.</p>
+  <p>要素の内部HTMLを設定し、既存のHTMLを置き換えます。</p>
 
-  <p>The second parameter, <code>append</code>, is optional. If
-  <code>true</code> is passed, as in
+  <p>2番目のパラメータ<code>append</code>はオプションです。
+  <code>myElement.html('hi', true)</code>のように<code>true</code>が渡された場合、
+  HTMLは既存のHTMLを置き換えるのではなく、追加されます。</p>
 
-  <code>myElement.html('hi', true)</code>, the HTML is appended instead of
-  replacing
-
-  existing HTML.</p>
-
-  <p>If no arguments are passed, as in <code>myElement.html()</code>, the
-  element's inner
-
-  HTML is returned.</p>
+  <p><code>myElement.html()</code>のように引数が渡されない場合、
+  要素の内部HTMLが返されます。</p>
 line: 2875
 isConstructor: false
 itemtype: method
@@ -29,14 +23,14 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create the div element and set its size.
+      // div要素を作成し、サイズを設定します。
       let div = createDiv('');
       div.size(100, 100);
 
-      // Set the inner HTML to "hi".
+      // 内部HTMLを"hi"に設定します。
       div.html('hi');
 
-      describe('A gray square with the word "hi" written beneath it.');
+      describe('グレーの正方形と、その下に"hi"という単語が書かれています。');
     }
     </code>
     </div>
@@ -48,14 +42,14 @@ example:
 
       background(200);
 
-      // Create the div element and set its size.
+      // div要素を作成し、サイズを設定します。
       let div = createDiv('Hello ');
       div.size(100, 100);
 
-      // Append "World" to the div's HTML.
+      // divのHTMLに"World"を追加します。
       div.html('World', true);
 
-      describe('A gray square with the text "Hello World" written beneath it.');
+      describe('グレーの正方形と、その下に"Hello World"というテキストが書かれています。');
     }
     </code>
     </div>
@@ -67,36 +61,36 @@ example:
 
       background(200);
 
-      // Create the div element.
+      // div要素を作成します。
       let div = createDiv('Hello');
 
-      // Prints "Hello" to the console.
+      // コンソールに"Hello"を出力します。
       print(div.html());
 
-      describe('A gray square with the word "Hello!" written beneath it.');
+      describe('グレーの正方形と、その下に"Hello!"という単語が書かれています。');
     }
     </code>
     </div>
 class: p5.Element
 return:
-  description: the inner HTML of the element
+  description: 要素の内部HTML
   type: String
 overloads:
   - line: 2875
     params: []
     return:
-      description: the inner HTML of the element
+      description: 要素の内部HTML
       type: String
   - line: 2944
     params:
       - name: html
         description: |
-          <p>the HTML to be placed inside the element</p>
+          <p>要素の内部に配置されるHTML</p>
         type: String
         optional: true
       - name: append
         description: |
-          <p>whether to append HTML to existing</p>
+          <p>既存のHTMLに追加するかどうか</p>
         type: Boolean
         optional: true
     chainable: 1
@@ -105,3 +99,4 @@ chainable: false
 
 
 # html
+

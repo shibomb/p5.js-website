@@ -4,16 +4,13 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>Returns or sets the element's value.</p>
+  <p>要素の値を返すか設定します。</p>
 
-  <p>Calling <code>myElement.value()</code> returns the element's current
-  value.</p>
+  <p><code>myElement.value()</code>を呼び出すと、要素の現在の値を返します。</p>
 
-  <p>The parameter, <code>value</code>, is an optional number or string. If
-  provided,
-
-  as in <code>myElement.value(123)</code>, it's used to set the element's
-  value.</p>
+  <p>パラメータ<code>value</code>は、オプションの数値または文字列です。
+  <code>myElement.value(123)</code>のように提供された場合、
+  要素の値を設定するために使用されます。</p>
 line: 3392
 isConstructor: false
 itemtype: method
@@ -27,18 +24,18 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create a text input and place it beneath the canvas.
-      // Set its default value to "hello".
+      // テキスト入力を作成し、キャンバスの下に配置します。
+      // デフォルト値を "hello" に設定します。
       input = createInput('hello');
       input.position(0, 100);
 
-      describe('The text from an input box is displayed on a gray square.');
+      describe('入力ボックスからのテキストが灰色の四角形に表示されます。');
     }
 
     function draw() {
       background(200);
 
-      // Use the input's value to display a message.
+      // 入力の値を使用してメッセージを表示します。
       let msg = input.value();
       text(msg, 0, 55);
     }
@@ -52,23 +49,23 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create a text input and place it beneath the canvas.
-      // Set its default value to "hello".
+      // テキスト入力を作成し、キャンバスの下に配置します。
+      // デフォルト値を "hello" に設定します。
       input = createInput('hello');
       input.position(0, 100);
 
-      describe('The text from an input box is displayed on a gray square. The text resets to "hello" when the user double-clicks the square.');
+      describe('入力ボックスからのテキストが灰色の四角形に表示されます。ユーザーが四角形をダブルクリックすると、テキストは "hello" にリセットされます。');
     }
 
     function draw() {
       background(200);
 
-      // Use the input's value to display a message.
+      // 入力の値を使用してメッセージを表示します。
       let msg = input.value();
       text(msg, 0, 55);
     }
 
-    // Reset the input's value.
+    // 入力の値をリセットします。
     function doubleClicked() {
       input.value('hello');
     }
@@ -76,13 +73,13 @@ example:
     </div>
 class: p5.Element
 return:
-  description: value of the element.
+  description: 要素の値。
   type: String|Number
 overloads:
   - line: 3392
     params: []
     return:
-      description: value of the element.
+      description: 要素の値。
       type: String|Number
   - line: 3459
     params:
@@ -95,3 +92,4 @@ chainable: false
 
 
 # value
+

@@ -4,50 +4,41 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>Creates a radio button element.</p>
+  <p>ラジオボタン要素を作成します。</p>
 
-  <p>The parameter is optional. If a string is passed, as in
+  <p>パラメータはオプションです。文字列が渡された場合、例えば
 
-  <code>let myRadio = createSelect('food')</code>, then each radio option will
+  <code>let myRadio = createSelect('food')</code>のように、各ラジオオプションは
 
-  have <code>"food"</code> as its <code>name</code> parameter: <code><input
-  name="food"></input></code>.
+  <code>"food"</code>を<code>name</code>パラメータとして持ちます：<code><input
+  name="food"></input></code>。
 
-  If an existing <code><div></div></code> or <code><span></span></code>
+  既存の<code><div></div></code>または<code><span></span></code>
 
-  element is passed, as in <code>let myRadio = createSelect(container)</code>,
-  it will
+  要素が渡された場合、例えば<code>let myRadio = createSelect(container)</code>のように、それが
 
-  become the radio button's parent element.</p>
+  ラジオボタンの親要素になります。</p>
 
-  <p>Radio buttons extend the <a href="/reference/p5/p5.Element">p5.Element</a>
-  class with a few
+  <p>ラジオボタンは<a href="/reference/p5/p5.Element">p5.Element</a>クラスを拡張し、
 
-  helpful methods for managing options:</p>
+  オプションを管理するためのいくつかの便利なメソッドを提供します：</p>
 
   <ul>
 
-  <li><code>myRadio.option(value, [label])</code> adds an option to the menu.
-  The first paremeter, <code>value</code>, is a string that sets the option's
-  value and label. The second parameter, <code>label</code>, is optional. If
-  provided, it sets the label displayed for the <code>value</code>. If an option
-  with <code>value</code> already exists, its label is changed and its value is
-  returned.</li>
+  <li><code>myRadio.option(value, [label])</code>はメニューにオプションを追加します。
+  最初のパラメータ<code>value</code>は、オプションの値とラベルを設定する文字列です。2番目のパラメータ<code>label</code>はオプションです。
+  提供された場合、<code>value</code>に対して表示されるラベルを設定します。
+  <code>value</code>を持つオプションが既に存在する場合、そのラベルが変更され、その値が返されます。</li>
 
-  <li><code>myRadio.value()</code> returns the currently-selected option's
-  value.</li>
+  <li><code>myRadio.value()</code>は現在選択されているオプションの値を返します。</li>
 
-  <li><code>myRadio.selected()</code> returns the currently-selected
-  option.</li>
+  <li><code>myRadio.selected()</code>は現在選択されているオプションを返します。</li>
 
-  <li><code>myRadio.selected(value)</code> selects the given option and returns
-  it as an <a
-  href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/"
-  target="_blank"><code>HTMLInputElement</code></a>.</li>
+  <li><code>myRadio.selected(value)</code>は指定されたオプションを選択し、
+  <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/"
+  target="_blank"><code>HTMLInputElement</code></a>として返します。</li>
 
-  <li><code>myRadio.disable(shouldDisable)</code> enables the entire radio
-  button if <code>true</code> is passed and disables it if <code>false</code> is
-  passed.</li>
+  <li><code>myRadio.disable(shouldDisable)</code>は<code>true</code>が渡された場合にラジオボタン全体を有効にし、<code>false</code>が渡された場合に無効にします。</li>
 
   </ul>
 line: 1440
@@ -63,25 +54,25 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create a radio button element and place it
-      // in the top-left corner.
+      // ラジオボタン要素を作成し、
+      // 左上隅に配置します。
       myRadio = createRadio();
       myRadio.position(0, 0);
       myRadio.size(60);
 
-      // Add a few color options.
+      // いくつかの色オプションを追加します。
       myRadio.option('red');
       myRadio.option('yellow');
       myRadio.option('blue');
 
-      // Choose a default option.
+      // デフォルトのオプションを選択します。
       myRadio.selected('yellow');
 
-      describe('A yellow square with three color options listed, "red", "yellow", and "blue". The square changes color when the user selects a new option.');
+      describe('黄色の正方形と3つの色オプション "red"、"yellow"、"blue" が表示されています。ユーザーが新しいオプションを選択すると、正方形の色が変わります。');
     }
 
     function draw() {
-      // Set the background color using the radio button.
+      // ラジオボタンを使用して背景色を設定します。
       let g = myRadio.value();
       background(g);
     }
@@ -95,27 +86,27 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create a radio button element and place it
-      // in the top-left corner.
+      // ラジオボタン要素を作成し、
+      // 左上隅に配置します。
       myRadio = createRadio();
       myRadio.position(0, 0);
       myRadio.size(50);
 
-      // Add a few color options.
-      // Color values are labeled with
-      // emotions they evoke.
+      // いくつかの色オプションを追加します。
+      // 色の値には、それらが喚起する
+      // 感情でラベルを付けています。
       myRadio.option('red', 'love');
       myRadio.option('yellow', 'joy');
       myRadio.option('blue', 'trust');
 
-      // Choose a default option.
+      // デフォルトのオプションを選択します。
       myRadio.selected('yellow');
 
-      describe('A yellow square with three options listed, "love", "joy", and "trust". The square changes color when the user selects a new option.');
+      describe('黄色の正方形と3つのオプション "love"、"joy"、"trust" が表示されています。ユーザーが新しいオプションを選択すると、正方形の色が変わります。');
     }
 
     function draw() {
-      // Set the background color using the radio button.
+      // ラジオボタンを使用して背景色を設定します。
       let c = myRadio.value();
       background(c);
     }
@@ -129,37 +120,37 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create a radio button element and place it
-      // in the top-left corner.
+      // ラジオボタン要素を作成し、
+      // 左上隅に配置します。
       myRadio = createRadio();
       myRadio.position(0, 0);
       myRadio.size(50);
 
-      // Add a few color options.
+      // いくつかの色オプションを追加します。
       myRadio.option('red');
       myRadio.option('yellow');
       myRadio.option('blue');
 
-      // Choose a default option.
+      // デフォルトのオプションを選択します。
       myRadio.selected('yellow');
 
-      // Create a button and place it beneath the canvas.
+      // ボタンを作成し、キャンバスの下に配置します。
       let btn = createButton('disable');
       btn.position(0, 100);
 
-      // Call disableRadio() when btn is pressed.
+      // btnが押されたときにdisableRadio()を呼び出します。
       btn.mousePressed(disableRadio);
 
-      describe('A yellow square with three options listed, "red", "yellow", and "blue". The square changes color when the user selects a new option. A "disable" button beneath the canvas disables the color options when pressed.');
+      describe('黄色の正方形と3つのオプション "red"、"yellow"、"blue" が表示されています。ユーザーが新しいオプションを選択すると、正方形の色が変わります。キャンバスの下にある "disable" ボタンを押すと、色オプションが無効になります。');
     }
 
     function draw() {
-      // Set the background color using the radio button.
+      // ラジオボタンを使用して背景色を設定します。
       let c = myRadio.value();
       background(c);
     }
 
-    // Disable myRadio.
+    // myRadioを無効にします。
     function disableRadio() {
       myRadio.disable(true);
     }
@@ -167,40 +158,40 @@ example:
     </div>
 class: p5
 return:
-  description: new <a href="#/p5.Element">p5.Element</a> object.
+  description: 新しい<a href="#/p5.Element">p5.Element</a>オブジェクト。
   type: p5.Element
 overloads:
   - line: 1440
     params:
       - name: containerElement
         description: >
-          <p>container HTML Element, either a
-          <code>&lt;div&gt;&lt;/div&gt;</code>
+          <p>コンテナHTMLエレメント、<code>&lt;div&gt;&lt;/div&gt;</code>
 
-          or <code>&lt;span&gt;&lt;/span&gt;</code>.</p>
+          または<code>&lt;span&gt;&lt;/span&gt;</code>のいずれか。</p>
         type: Object
         optional: true
     return:
-      description: new <a href="#/p5.Element">p5.Element</a> object.
+      description: 新しい<a href="#/p5.Element">p5.Element</a>オブジェクト。
       type: p5.Element
   - line: 1574
     params:
       - name: name
         description: >
-          <p>name parameter assigned to each option's
-          <code>&lt;input&gt;&lt;/input&gt;</code> element.</p>
+          <p>各オプションの<code>&lt;input&gt;&lt;/input&gt;</code>要素に割り当てられる
+          nameパラメータ。</p>
         type: String
         optional: true
     return:
-      description: new <a href="#/p5.Element">p5.Element</a> object.
+      description: 新しい<a href="#/p5.Element">p5.Element</a>オブジェクト。
       type: p5.Element
   - line: 1579
     params: []
     return:
-      description: new <a href="#/p5.Element">p5.Element</a> object.
+      description: 新しい<a href="#/p5.Element">p5.Element</a>オブジェクト。
       type: p5.Element
 chainable: false
 ---
 
 
 # createRadio
+

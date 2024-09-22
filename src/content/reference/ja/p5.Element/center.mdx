@@ -4,17 +4,13 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>Centers the element either vertically, horizontally, or both.</p>
+  <p>要素を垂直方向、水平方向、または両方の方向に中央揃えします。</p>
 
-  <p><code>center()</code> will center the element relative to its parent or
-  according to
+  <p><code>center()</code>は、要素を親要素に対して中央揃えします。親要素がない場合は、
+  ページのbodyに対して中央揃えします。</p>
 
-  the page's body if the element has no parent.</p>
-
-  <p>If no argument is passed, as in <code>myElement.center()</code> the element
-  is aligned
-
-  both vertically and horizontally.</p>
+  <p>引数が渡されない場合（<code>myElement.center()</code>のように）、要素は
+  垂直方向と水平方向の両方に中央揃えされます。</p>
 line: 2809
 isConstructor: false
 itemtype: method
@@ -28,15 +24,15 @@ example:
 
       background(200);
 
-      // Create the div element and style it.
+      // div要素を作成してスタイルを設定します。
       let div = createDiv('');
       div.size(10, 10);
       div.style('background-color', 'orange');
 
-      // Center the div relative to the page's body.
+      // divをページのbodyに対して中央揃えします。
       div.center();
 
-      describe('A gray square and an orange rectangle. The rectangle is at the center of the page.');
+      describe('灰色の正方形とオレンジ色の長方形。長方形はページの中央にあります。');
     }
     </code>
     </div>
@@ -44,7 +40,7 @@ class: p5.Element
 params:
   - name: align
     description: |
-      <p>passing 'vertical', 'horizontal' aligns element accordingly</p>
+      <p>'vertical'、'horizontal'を渡すと、それに応じて要素を揃えます</p>
     type: String
     optional: true
 chainable: true
@@ -52,3 +48,4 @@ chainable: true
 
 
 # center
+

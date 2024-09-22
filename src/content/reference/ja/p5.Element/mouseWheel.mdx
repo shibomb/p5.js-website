@@ -4,24 +4,15 @@ module: DOM
 submodule: DOM
 file: src/core/p5.Element.js
 description: >
-  <p>Calls a function when the mouse wheel scrolls over the element.</p>
+  <p>要素上でマウスホイールがスクロールされたときに関数を呼び出します。</p>
 
-  <p>The callback function, <code>fxn</code>, is passed an <code>event</code>
-  object. <code>event</code> has
+  <p>コールバック関数 <code>fxn</code> には <code>event</code> オブジェクトが渡されます。
+  <code>event</code> には2つの数値プロパティ、<code>deltaY</code> と <code>deltaX</code> があります。
+  <code>event.deltaY</code> は、マウスホイールがユーザーから離れる方向に回転した場合は負の値になります。
+  ユーザーに向かって回転した場合は正の値になります。<code>event.deltaX</code> は、
+  マウスホイールが右に移動した場合は正の値になります。左に移動した場合は負の値になります。</p>
 
-  two numeric properties, <code>deltaY</code> and <code>deltaX</code>.
-  <code>event.deltaY</code> is
-
-  negative if the mouse wheel rotates away from the user. It's positive if
-
-  the mouse wheel rotates toward the user. <code>event.deltaX</code> is positive
-  if
-
-  the mouse wheel moves to the right. It's negative if the mouse wheel moves
-
-  to the left.</p>
-
-  <p>Calling <code>myElement.mouseWheel(false)</code> disables the function.</p>
+  <p><code>myElement.mouseWheel(false)</code> を呼び出すと、この関数は無効になります。</p>
 line: 447
 isConstructor: false
 itemtype: method
@@ -31,21 +22,21 @@ example:
     <div>
     <code>
     function setup() {
-      // Create a canvas element and
-      // assign it to cnv.
+      // キャンバス要素を作成し、
+      // cnvに割り当てます。
       let cnv = createCanvas(100, 100);
 
       background(200);
 
-      // Call randomColor() when the
-      // mouse wheel moves.
+      // マウスホイールが動いたときに
+      // randomColor()を呼び出します。
       cnv.mouseWheel(randomColor);
 
-      describe('A gray square changes color when the user scrolls the mouse wheel over the canvas.');
+      describe('ユーザーがキャンバス上でマウスホイールをスクロールすると、灰色の正方形の色が変わります。');
     }
 
-    // Paint the background either
-    // red, yellow, blue, or green.
+    // 背景を赤、黄、青、緑のいずれかに
+    // 塗ります。
     function randomColor() {
       let c = random(['red', 'yellow', 'blue', 'green']);
       background(c);
@@ -56,22 +47,22 @@ example:
     <div>
     <code>
     function setup() {
-      // Create a canvas element and
-      // assign it to cnv.
+      // キャンバス要素を作成し、
+      // cnvに割り当てます。
       let cnv = createCanvas(100, 100);
 
       background(200);
 
-      // Call changeBackground() when the
-      // mouse wheel moves.
+      // マウスホイールが動いたときに
+      // changeBackground()を呼び出します。
       cnv.mouseWheel(changeBackground);
 
-      describe('A gray square. When the mouse wheel scrolls over the square, it changes color and displays shapes.');
+      describe('灰色の正方形。マウスホイールが正方形上でスクロールされると、色が変わり図形が表示されます。');
     }
 
     function changeBackground(event) {
-      // Change the background color
-      // based on deltaY.
+      // deltaYに基づいて
+      // 背景色を変更します。
       if (event.deltaY > 0) {
         background('deeppink');
       } else if (event.deltaY < 0) {
@@ -80,7 +71,7 @@ example:
         background(200);
       }
 
-      // Draw a shape based on deltaX.
+      // deltaXに基づいて図形を描画します。
       if (event.deltaX > 0) {
         circle(50, 50, 20);
       } else if (event.deltaX < 0) {
@@ -93,12 +84,13 @@ class: p5.Element
 params:
   - name: fxn
     description: |
-      <p>function to call when the mouse wheel is
-                                     scrolled over the element.
-                                     <code>false</code> disables the function.</p>
+      <p>要素上でマウスホイールがスクロールされたときに
+                                     呼び出す関数。
+                                     <code>false</code> を指定すると関数を無効にします。</p>
     type: Function|Boolean
 chainable: true
 ---
 
 
 # mouseWheel
+

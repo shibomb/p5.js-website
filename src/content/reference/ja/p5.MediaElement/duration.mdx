@@ -4,7 +4,7 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: |
-  <p>Returns the audio/video's duration in seconds.</p>
+  <p>オーディオ/ビデオの再生時間を秒単位で返します。</p>
 line: 4850
 isConstructor: false
 itemtype: method
@@ -20,39 +20,40 @@ example:
 
       background(200);
 
-      // Create a p5.MediaElement using createAudio().
+      // createAudio()を使用してp5.MediaElementを作成します。
       dragon = createAudio('/assets/lucky_dragons.mp3');
 
-      // Show the default media controls.
+      // デフォルトのメディアコントロールを表示します。
       dragon.showControls();
 
-      describe('The text "S seconds left" on a gray square with media controls beneath it. The number "S" decreases as the song plays.');
+      describe('グレーの四角形の上に "S秒残り" というテキストがあり、その下にメディアコントロールがあります。曲が再生されるにつれて、数字 "S" が減少します。');
     }
 
     function draw() {
       background(200);
 
-      // Calculate the time remaining.
+      // 残り時間を計算します。
       let s = dragon.duration() - dragon.time();
 
-      // Round s to 1 decimal place for display.
+      // 表示用にsを小数点以下1桁に丸めます。
       s = round(s, 1);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER);
       textSize(16);
 
-      // Display the time remaining.
-      text(`${s} seconds left`, 50, 50);
+      // 残り時間を表示します。
+      text(`${s} 秒残り`, 50, 50);
     }
     </code>
     </div>
 class: p5.MediaElement
 return:
-  description: duration (in seconds).
+  description: 再生時間（秒単位）。
   type: Number
 chainable: false
 ---
 
 
 # duration
+

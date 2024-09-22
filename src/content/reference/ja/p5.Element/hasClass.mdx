@@ -4,7 +4,7 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: |
-  <p>Checks if a class is already applied to element.</p>
+  <p>要素に特定のクラスが既に適用されているかどうかを確認します。</p>
 line: 2618
 isConstructor: false
 itemtype: method
@@ -20,16 +20,16 @@ example:
 
       background(200);
 
-      // Create a div element.
+      // div要素を作成します。
       div = createDiv('div');
 
-      // Add the class 'show' to the div.
+      // divに'show'クラスを追加します。
       div.addClass('show');
 
-      describe('A gray square.');
+      describe('灰色の正方形。');
     }
 
-    // Toggle the class 'show' when the mouse is pressed.
+    // マウスが押されたときに'show'クラスを切り替えます。
     function mousePressed() {
       if (div.hasClass('show')) {
         div.addClass('show');
@@ -43,13 +43,13 @@ class: p5.Element
 params:
   - name: c
     description: |
-      <p>name of class to check.</p>
+      <p>確認するクラスの名前。</p>
     type: String
 return:
-  description: a boolean value if element has specified class.
+  description: 要素が指定されたクラスを持っているかどうかを示すブール値。
   type: Boolean
 chainable: false
 ---
 
-
 # hasClass
+

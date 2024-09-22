@@ -4,16 +4,15 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>Attaches the element as a child of another element.</p>
+  <p>要素を別の要素の子として追加します。</p>
 
-  <p><code>myElement.child()</code> accepts either a string ID, DOM node, or
+  <p><code>myElement.child()</code>は、文字列ID、DOMノード、または
 
-  <a href="/reference/p5/p5.Element">p5.Element</a>. For example,
+  <a href="/reference/p5/p5.Element">p5.Element</a>のいずれかを受け入れます。例えば、
 
-  <code>myElement.child(otherElement)</code>. If no argument is provided, an
-  array of
+  <code>myElement.child(otherElement)</code>のようになります。引数が提供されない場合、
 
-  children DOM nodes is returned.</p>
+  子DOMノードの配列が返されます。</p>
 line: 2704
 isConstructor: false
 itemtype: method
@@ -27,15 +26,15 @@ example:
 
       background(200);
 
-      // Create the div elements.
-      let div0 = createDiv('Parent');
-      let div1 = createDiv('Child');
+      // div要素を作成します。
+      let div0 = createDiv('親');
+      let div1 = createDiv('子');
 
-      // Make div1 the child of div0
-      // using the p5.Element.
+      // p5.Elementを使用して
+      // div1をdiv0の子にします。
       div0.child(div1);
 
-      describe('A gray square with the words "Parent" and "Child" written beneath it.');
+      describe('グレーの正方形の下に「親」と「子」という言葉が書かれています。');
     }
     </code>
     </div>
@@ -47,62 +46,61 @@ example:
 
       background(200);
 
-      // Create the div elements.
-      let div0 = createDiv('Parent');
-      let div1 = createDiv('Child');
+      // div要素を作成します。
+      let div0 = createDiv('親');
+      let div1 = createDiv('子');
 
-      // Give div1 an ID.
+      // div1にIDを付与します。
       div1.id('apples');
 
-      // Make div1 the child of div0
-      // using its ID.
+      // IDを使用して
+      // div1をdiv0の子にします。
       div0.child('apples');
 
-      describe('A gray square with the words "Parent" and "Child" written beneath it.');
+      describe('グレーの正方形の下に「親」と「子」という言葉が書かれています。');
     }
     </code>
     </div>
 
     <div class='norender notest'>
     <code>
-    // This example assumes there is a div already on the page
-    // with id "myChildDiv".
+    // この例では、ページ上に既に
+    // id "myChildDiv"を持つdivが存在すると仮定しています。
 
     function setup() {
       createCanvas(100, 100);
 
       background(200);
 
-      // Create the div elements.
-      let div0 = createDiv('Parent');
+      // div要素を作成します。
+      let div0 = createDiv('親');
 
-      // Select the child element by its ID.
+      // IDで子要素を選択します。
       let elt = document.getElementById('myChildDiv');
 
-      // Make div1 the child of div0
-      // using its HTMLElement object.
+      // HTMLElement オブジェクトを使用して
+      // div1をdiv0の子にします。
       div0.child(elt);
 
-      describe('A gray square with the words "Parent" and "Child" written beneath it.');
+      describe('グレーの正方形の下に「親」と「子」という言葉が書かれています。');
     }
     </code>
     </div>
 class: p5.Element
 return:
-  description: an array of child nodes.
+  description: 子ノードの配列。
   type: 'Node[]'
 overloads:
   - line: 2704
     params: []
     return:
-      description: an array of child nodes.
+      description: 子ノードの配列。
       type: 'Node[]'
   - line: 2784
     params:
       - name: child
         description: |
-          <p>the ID, DOM node, or <a href="#/p5.Element">p5.Element</a>
-                                  to add to the current element</p>
+          <p>現在の要素に追加するID、DOMノード、または<a href="#/p5.Element">p5.Element</a></p>
         type: String|p5.Element
         optional: true
     chainable: 1
@@ -111,3 +109,4 @@ chainable: false
 
 
 # child
+

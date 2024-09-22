@@ -4,12 +4,12 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>Hide the default
+  <p>デフォルトの
 
   <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/"
   target="_blank">HTMLMediaElement</a>
 
-  controls.</p>
+  コントロールを非表示にします。</p>
 line: 5189
 isConstructor: false
 itemtype: method
@@ -24,30 +24,30 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create a p5.MediaElement using createAudio().
+      // createAudio()を使用してp5.MediaElementを作成します。
       dragon = createAudio('/assets/lucky_dragons.mp3');
 
-      // Show the default media controls.
+      // デフォルトのメディアコントロールを表示します。
       dragon.showControls();
 
-      describe('The text "Double-click to hide controls" written in the middle of a gray square. A song plays in the background. Audio controls are displayed beneath the canvas. The controls appear/disappear when the user double-clicks the square.');
+      describe('グレーの正方形の中央に「ダブルクリックでコントロールを非表示」と書かれたテキスト。バックグラウンドで曲が再生されています。オーディオコントロールがキャンバスの下に表示されています。ユーザーが正方形をダブルクリックするとコントロールが表示/非表示になります。');
     }
 
     function draw() {
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER);
 
-      // Display a different message when controls are hidden or shown.
+      // コントロールが非表示または表示されているときに異なるメッセージを表示します。
       if (isHidden === true) {
-        text('Double-click to show controls', 10, 20, 80, 80);
+        text('ダブルクリックでコントロールを表示', 10, 20, 80, 80);
       } else {
-        text('Double-click to hide controls', 10, 20, 80, 80);
+        text('ダブルクリックでコントロールを非表示', 10, 20, 80, 80);
       }
     }
 
-    // Show/hide controls based on a double-click.
+    // ダブルクリックに基づいてコントロールを表示/非表示にします。
     function doubleClicked() {
       if (isHidden === true) {
         dragon.showControls();
@@ -65,3 +65,4 @@ chainable: false
 
 
 # hideControls
+

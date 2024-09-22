@@ -4,16 +4,15 @@ module: DOM
 submodule: DOM
 file: src/core/p5.Element.js
 description: >
-  <p>Adds a
+  <p>要素に
 
   <a
   href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class/"
-  target="_blank">class attribute</a>
+  target="_blank">class属性</a>
 
-  to the element using a given string.</p>
+  を与えられた文字列を使用して追加します。</p>
 
-  <p>Calling <code>myElement.class()</code> without an argument returns a string
-  with its current classes.</p>
+  <p><code>myElement.class()</code>を引数なしで呼び出すと、現在のクラスを含む文字列を返します。</p>
 line: 301
 isConstructor: false
 itemtype: method
@@ -23,22 +22,22 @@ example:
     <div>
     <code>
     function setup() {
-      // Create a canvas element and
-      // assign it to cnv.
+      // キャンバス要素を作成し、
+      // cnvに割り当てます。
       let cnv = createCanvas(100, 100);
 
       background(200);
 
-      // Add the class "small" to the
-      // canvas element.
+      // キャンバス要素に"small"クラスを
+      // 追加します。
       cnv.class('small');
 
-      // Get the canvas element's class
-      // and display it.
+      // キャンバス要素のクラスを取得し、
+      // 表示します。
       let c = cnv.class();
       text(c, 35, 54);
 
-      describe('The word "small" written in black on a gray canvas.');
+      describe('灰色のキャンバスに黒で書かれた"small"という単語。');
 
     }
     </code>
@@ -49,16 +48,17 @@ overloads:
     params:
       - name: class
         description: |
-          <p>class to add.</p>
+          <p>追加するクラス。</p>
         type: String
     chainable: 1
   - line: 337
     params: []
     return:
-      description: 'element''s classes, if any.'
+      description: '要素のクラス（存在する場合）。'
       type: String
 chainable: true
 ---
 
 
 # class
+

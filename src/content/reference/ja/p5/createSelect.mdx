@@ -4,55 +4,42 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>Creates a dropdown menu <code><select></select></code> element.</p>
+  <p>ドロップダウンメニュー <code><select></select></code> 要素を作成します。</p>
 
-  <p>The parameter is optional. If <code>true</code> is passed, as in
+  <p>パラメータはオプションです。<code>true</code> が渡された場合、
 
-  <code>let mySelect = createSelect(true)</code>, then the dropdown will support
+  <code>let mySelect = createSelect(true)</code> のように、ドロップダウンは
 
-  multiple selections. If an existing <code><select></select></code> element
+  複数選択をサポートします。既存の <code><select></select></code> 要素が
 
-  is passed, as in <code>let mySelect = createSelect(otherSelect)</code>, the
-  existing
+  渡された場合、<code>let mySelect = createSelect(otherSelect)</code> のように、既存の
 
-  element will be wrapped in a new <a
-  href="/reference/p5/p5.Element">p5.Element</a>
+  要素は新しい <a href="/reference/p5/p5.Element">p5.Element</a>
 
-  object.</p>
+  オブジェクトでラップされます。</p>
 
-  <p>Dropdowns extend the <a href="/reference/p5/p5.Element">p5.Element</a>
-  class with a few
+  <p>ドロップダウンは <a href="/reference/p5/p5.Element">p5.Element</a> クラスを拡張し、
 
-  helpful methods for managing options:</p>
+  オプションを管理するためのいくつかの便利なメソッドを提供します：</p>
 
   <ul>
 
-  <li><code>mySelect.option(name, [value])</code> adds an option to the menu.
-  The first paremeter, <code>name</code>, is a string that sets the option's
-  name and value. The second parameter, <code>value</code>, is optional. If
-  provided, it sets the value that corresponds to the key <code>name</code>. If
-  an option with <code>name</code> already exists, its value is changed to
-  <code>value</code>.</li>
+  <li><code>mySelect.option(name, [value])</code> はメニューにオプションを追加します。
+  最初のパラメータ <code>name</code> は、オプションの名前と値を設定する文字列です。2番目のパラメータ <code>value</code> はオプションです。提供された場合、キー <code>name</code> に対応する値を設定します。<code>name</code> を持つオプションが既に存在する場合、その値は <code>value</code> に変更されます。</li>
 
-  <li><code>mySelect.value()</code> returns the currently-selected option's
-  value.</li>
+  <li><code>mySelect.value()</code> は現在選択されているオプションの値を返します。</li>
 
-  <li><code>mySelect.selected()</code> returns the currently-selected
-  option.</li>
+  <li><code>mySelect.selected()</code> は現在選択されているオプションを返します。</li>
 
-  <li><code>mySelect.selected(option)</code> selects the given option by
-  default.</li>
+  <li><code>mySelect.selected(option)</code> は指定されたオプションをデフォルトで選択します。</li>
 
-  <li><code>mySelect.disable()</code> marks the whole dropdown element as
-  disabled.</li>
+  <li><code>mySelect.disable()</code> はドロップダウン要素全体を無効としてマークします。</li>
 
-  <li><code>mySelect.disable(option)</code> marks a given option as
-  disabled.</li>
+  <li><code>mySelect.disable(option)</code> は指定されたオプションを無効としてマークします。</li>
 
-  <li><code>mySelect.enable()</code> marks the whole dropdown element as
-  enabled.</li>
+  <li><code>mySelect.enable()</code> はドロップダウン要素全体を有効としてマークします。</li>
 
-  <li><code>mySelect.enable(option)</code> marks a given option as enabled.</li>
+  <li><code>mySelect.enable(option)</code> は指定されたオプションを有効としてマークします。</li>
 
   </ul>
 line: 1159
@@ -68,24 +55,24 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create a dropdown and place it beneath the canvas.
+      // ドロップダウンを作成し、キャンバスの下に配置します。
       mySelect = createSelect();
       mySelect.position(0, 100);
 
-      // Add color options.
+      // 色のオプションを追加します。
       mySelect.option('red');
       mySelect.option('green');
       mySelect.option('blue');
       mySelect.option('yellow');
 
-      // Set the selected option to "red".
+      // 選択されたオプションを "red" に設定します。
       mySelect.selected('red');
 
-      describe('A red square with a dropdown menu beneath it. The square changes color when a new color is selected.');
+      describe('赤い正方形とその下にドロップダウンメニューがあります。新しい色が選択されると正方形の色が変わります。');
     }
 
     function draw() {
-      // Use the selected value to paint the background.
+      // 選択された値を使用して背景を塗ります。
       let c = mySelect.selected();
       background(c);
     }
@@ -99,27 +86,27 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create a dropdown and place it beneath the canvas.
+      // ドロップダウンを作成し、キャンバスの下に配置します。
       mySelect = createSelect();
       mySelect.position(0, 100);
 
-      // Add color options.
+      // 色のオプションを追加します。
       mySelect.option('red');
       mySelect.option('green');
       mySelect.option('blue');
       mySelect.option('yellow');
 
-      // Set the selected option to "red".
+      // 選択されたオプションを "red" に設定します。
       mySelect.selected('red');
 
-      // Disable the "yellow" option.
+      // "yellow" オプションを無効にします。
       mySelect.disable('yellow');
 
-      describe('A red square with a dropdown menu beneath it. The square changes color when a new color is selected.');
+      describe('赤い正方形とその下にドロップダウンメニューがあります。新しい色が選択されると正方形の色が変わります。');
     }
 
     function draw() {
-      // Use the selected value to paint the background.
+      // 選択された値を使用して背景を塗ります。
       let c = mySelect.selected();
       background(c);
     }
@@ -133,24 +120,24 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create a dropdown and place it beneath the canvas.
+      // ドロップダウンを作成し、キャンバスの下に配置します。
       mySelect = createSelect();
       mySelect.position(0, 100);
 
-      // Add color options with names and values.
+      // 名前と値を持つ色のオプションを追加します。
       mySelect.option('one', 'red');
       mySelect.option('two', 'green');
       mySelect.option('three', 'blue');
       mySelect.option('four', 'yellow');
 
-      // Set the selected option to "one".
+      // 選択されたオプションを "one" に設定します。
       mySelect.selected('one');
 
-      describe('A red square with a dropdown menu beneath it. The square changes color when a new color is selected.');
+      describe('赤い正方形とその下にドロップダウンメニューがあります。新しい色が選択されると正方形の色が変わります。');
     }
 
     function draw() {
-      // Use the selected value to paint the background.
+      // 選択された値を使用して背景を塗ります。
       let c = mySelect.selected();
       background(c);
     }
@@ -159,40 +146,40 @@ example:
 
     <div>
     <code>
-    // Hold CTRL to select multiple options on Windows and Linux.
-    // Hold CMD to select multiple options on macOS.
+    // WindowsとLinuxではCTRLキーを押したまま、
+    // macOSではCMDキーを押したまま複数のオプションを選択できます。
     let mySelect;
 
     function setup() {
       createCanvas(100, 100);
 
-      // Create a dropdown and allow multiple selections.
-      // Place it beneath the canvas.
+      // ドロップダウンを作成し、複数選択を許可します。
+      // キャンバスの下に配置します。
       mySelect = createSelect(true);
       mySelect.position(0, 100);
 
-      // Add color options.
+      // 色のオプションを追加します。
       mySelect.option('red');
       mySelect.option('green');
       mySelect.option('blue');
       mySelect.option('yellow');
 
-      describe('A gray square with a dropdown menu beneath it. Colorful circles appear when their color is selected.');
+      describe('灰色の正方形とその下にドロップダウンメニューがあります。色が選択されると、その色の円が表示されます。');
     }
 
     function draw() {
       background(200);
 
-      // Use the selected value(s) to draw circles.
+      // 選択された値を使用して円を描画します。
       let colors = mySelect.selected();
       for (let i = 0; i < colors.length; i += 1) {
-        // Calculate the x-coordinate.
+        // x座標を計算します。
         let x = 10 + i * 20;
 
-        // Access the color.
+        // 色にアクセスします。
         let c = colors[i];
 
-        // Draw the circle.
+        // 円を描画します。
         fill(c);
         circle(x, 50, 20);
       }
@@ -201,26 +188,25 @@ example:
     </div>
 class: p5
 return:
-  description: new <a href="#/p5.Element">p5.Element</a> object.
+  description: 新しい <a href="#/p5.Element">p5.Element</a> オブジェクト。
   type: p5.Element
 overloads:
   - line: 1159
     params:
       - name: multiple
         description: |
-          <p>support multiple selections.</p>
+          <p>複数選択をサポートします。</p>
         type: Boolean
         optional: true
     return:
-      description: new <a href="#/p5.Element">p5.Element</a> object.
+      description: 新しい <a href="#/p5.Element">p5.Element</a> オブジェクト。
       type: p5.Element
   - line: 1324
     params:
       - name: existing
         description: >
-          <p>select element to wrap, either as a <a
-          href="#/p5.Element">p5.Element</a> or
-                                   a <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement" target="_blank">HTMLSelectElement</a>.</p>
+          <p>ラップする既存のselect要素。<a href="#/p5.Element">p5.Element</a> または
+                                   <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement" target="_blank">HTMLSelectElement</a> として渡すことができます。</p>
         type: Object
     return:
       description: ''
@@ -230,3 +216,4 @@ chainable: false
 
 
 # createSelect
+

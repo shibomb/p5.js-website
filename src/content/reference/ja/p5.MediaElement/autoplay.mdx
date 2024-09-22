@@ -4,18 +4,17 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>Sets the audio/video to play once it's loaded.</p>
+  <p>音声/動画をロードされたら再生するように設定します。</p>
 
-  <p>The parameter, <code>shouldAutoplay</code>, is optional. Calling
+  <p>パラメータ <code>shouldAutoplay</code> はオプションです。引数なしで
 
-  <code>media.autoplay()</code> without an argument causes the media to play
+  <code>media.autoplay()</code> を呼び出すと、メディアは自動的に再生されます。
 
-  automatically. If <code>true</code> is passed, as in
-  <code>media.autoplay(true)</code>, the
+  <code>media.autoplay(true)</code> のように <code>true</code> を渡すと、
 
-  media will automatically play. If <code>false</code> is passed, as in
+  メディアは自動的に再生されます。<code>media.autoPlay(false)</code> のように
 
-  <code>media.autoPlay(false)</code>, it won't play automatically.</p>
+  <code>false</code> を渡すと、自動的には再生されません。</p>
 line: 4520
 isConstructor: false
 itemtype: method
@@ -29,13 +28,13 @@ example:
     function setup() {
       noCanvas();
 
-      // Call handleVideo() once the video loads.
+      // 動画がロードされたらhandleVideo()を呼び出します。
       video = createVideo('/assets/fingers.mov', handleVideo);
 
-      describe('A video of fingers walking on a treadmill.');
+      describe('トレッドミル上を歩く指の動画。');
     }
 
-    // Set the video's size and play it.
+    // 動画のサイズを設定し、再生します。
     function handleVideo() {
       video.size(100, 100);
       video.autoplay();
@@ -48,24 +47,24 @@ example:
     function setup() {
       noCanvas();
 
-      // Load a video, but don't play it automatically.
+      // 動画をロードしますが、自動的には再生しません。
       let video = createVideo('/assets/fingers.mov', handleVideo);
 
-      // Play the video when the user clicks on it.
+      // ユーザーがクリックしたときに動画を再生します。
       video.mousePressed(handlePress);
 
-      describe('An image of fingers on a treadmill. They start walking when the user double-clicks on them.');
+      describe('トレッドミル上の指の画像。ユーザーがダブルクリックすると歩き始めます。');
     }
     </code>
     </div>
 
-    // Set the video's size and playback mode.
+    // 動画のサイズと再生モードを設定します。
     function handleVideo() {
       video.size(100, 100);
       video.autoplay(false);
     }
 
-    // Play the video.
+    // 動画を再生します。
     function handleClick() {
       video.play();
     }
@@ -73,7 +72,7 @@ class: p5.MediaElement
 params:
   - name: shouldAutoplay
     description: |
-      <p>whether the element should autoplay.</p>
+      <p>要素を自動再生するかどうか。</p>
     type: Boolean
     optional: true
 chainable: true
@@ -81,3 +80,4 @@ chainable: true
 
 
 # autoplay
+

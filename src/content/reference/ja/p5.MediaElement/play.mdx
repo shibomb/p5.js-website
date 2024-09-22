@@ -4,7 +4,7 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: |
-  <p>Plays audio or video from a media element.</p>
+  <p>メディア要素からオーディオまたはビデオを再生します。</p>
 line: 4197
 isConstructor: false
 itemtype: method
@@ -20,20 +20,20 @@ example:
 
       background(200);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER);
       textSize(16);
 
-      // Display a message.
-      text('Click to play', 50, 50);
+      // メッセージを表示します。
+      text('クリックして再生', 50, 50);
 
-      // Create a p5.MediaElement using createAudio().
+      // createAudio()を使用してp5.MediaElementを作成します。
       beat = createAudio('/assets/beat.mp3');
 
-      describe('The text "Click to play" written in black on a gray background. A beat plays when the user clicks the square.');
+      describe('灰色の背景に黒で書かれた「クリックして再生」というテキスト。ユーザーが四角をクリックするとビートが再生されます。');
     }
 
-    // Play the beat when the user presses the mouse.
+    // ユーザーがマウスを押したときにビートを再生します。
     function mousePressed() {
       beat.play();
     }
@@ -45,3 +45,4 @@ chainable: true
 
 
 # play
+

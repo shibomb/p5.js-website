@@ -4,15 +4,13 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>Removes an attribute from the element.</p>
+  <p>要素から属性を削除します。</p>
 
-  <p>The parameter <code>attr</code> is the attribute's name as a string. For
-  example,
+  <p>パラメータ<code>attr</code>は、属性名を文字列で指定します。例えば、
 
-  calling <code>myElement.removeAttribute('align')</code> removes its
-  <code>align</code>
+  <code>myElement.removeAttribute('align')</code>を呼び出すと、設定されている場合に
 
-  attribute if it's been set.</p>
+  <code>align</code>属性を削除します。</p>
 line: 3341
 isConstructor: false
 itemtype: method
@@ -28,16 +26,16 @@ example:
 
       background(200);
 
-      // Create a paragraph element and place it in the center of the canvas.
-      // Set its "align" attribute to "center".
+      // 段落要素を作成し、キャンバスの中央に配置します。
+      // "align"属性を"center"に設定します。
       p = createP('hi');
       p.position(0, 20);
       p.attribute('align', 'center');
 
-      describe('The text "hi" written in black at the center of a gray square. The text moves to the left edge when double-clicked.');
+      describe('灰色の正方形の中央に黒で書かれた"hi"というテキスト。ダブルクリックするとテキストが左端に移動します。');
     }
 
-    // Remove the 'align' attribute when the user double-clicks the paragraph.
+    // ユーザーが段落をダブルクリックしたときに'align'属性を削除します。
     function doubleClicked() {
       p.removeAttribute('align');
     }
@@ -47,10 +45,11 @@ class: p5.Element
 params:
   - name: attr
     description: |
-      <p>attribute to remove.</p>
+      <p>削除する属性。</p>
     type: String
 chainable: true
 ---
 
 
 # removeAttribute
+

@@ -4,8 +4,8 @@ module: DOM
 submodule: DOM
 file: src/core/p5.Element.js
 description: |
-  <p>Calls a function when a file is dragged off the element.</p>
-  <p>Calling <code>myElement.dragLeave(false)</code> disables the function.</p>
+  <p>ファイルが要素からドラッグされた時に関数を呼び出します。</p>
+  <p><code>myElement.dragLeave(false)</code>を呼び出すと、この機能を無効にします。</p>
 line: 923
 isConstructor: false
 itemtype: method
@@ -14,22 +14,23 @@ example:
 
     <div>
     <code>
-    // Drag a file over, then off
-    // the canvas to test.
+    // ファイルをキャンバスの上に
+    // ドラッグし、その後離して
+    // テストします。
 
     function setup() {
-      // Create a canvas element and
-      // assign it to cnv.
+      // キャンバス要素を作成し、
+      // cnvに割り当てます。
       let cnv = createCanvas(100, 100);
 
       background(200);
 
-      // Call byeFile() when a
-      // file is dragged over,
-      // then off the canvas.
+      // ファイルがキャンバスの上に
+      // ドラッグされ、その後離れた時に
+      // byeFile()を呼び出します。
       cnv.dragLeave(byeFile);
 
-      describe('A gray square. The text "bye, file" appears when a file is dragged over, then off the square.');
+      describe('灰色の正方形。ファイルが正方形の上にドラッグされ、その後離れると「bye, file」というテキストが表示されます。');
     }
 
     function byeFile() {
@@ -41,12 +42,11 @@ class: p5.Element
 params:
   - name: fxn
     description: |
-      <p>function to call when the file is
-                                     dragged off the element.
-                                     <code>false</code> disables the function.</p>
+      <p>ファイルが要素からドラッグされた時に
+                                     呼び出す関数。
+                                     <code>false</code>を指定すると機能を無効にします。</p>
     type: Function|Boolean
 chainable: true
 ---
-
 
 # dragLeave

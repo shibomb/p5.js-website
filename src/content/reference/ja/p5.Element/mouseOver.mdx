@@ -4,8 +4,8 @@ module: DOM
 submodule: DOM
 file: src/core/p5.Element.js
 description: |
-  <p>Calls a function when the mouse moves onto the element.</p>
-  <p>Calling <code>myElement.mouseOver(false)</code> disables the function.</p>
+  <p>マウスが要素上に移動したときに関数を呼び出します。</p>
+  <p><code>myElement.mouseOver(false)</code>を呼び出すと、この関数を無効にします。</p>
 line: 665
 isConstructor: false
 itemtype: method
@@ -15,21 +15,21 @@ example:
     <div>
     <code>
     function setup() {
-      // Create a canvas element and
-      // assign it to cnv.
+      // キャンバス要素を作成し、
+      // cnvに割り当てます。
       let cnv = createCanvas(100, 100);
 
       background(200);
 
-      // Call randomColor() when the
-      // mouse moves onto the canvas.
+      // マウスがキャンバス上に移動したときに
+      // randomColor()を呼び出します。
       cnv.mouseOver(randomColor);
 
-      describe('A gray square changes color when the mouse moves onto the canvas.');
+      describe('マウスがキャンバス上に移動すると、灰色の正方形が色を変えます。');
     }
 
-    // Paint the background either
-    // red, yellow, blue, or green.
+    // 背景を赤、黄、青、緑の
+    // いずれかでペイントします。
     function randomColor() {
       let c = random(['red', 'yellow', 'blue', 'green']);
       background(c);
@@ -40,12 +40,11 @@ class: p5.Element
 params:
   - name: fxn
     description: |
-      <p>function to call when the mouse
-                                     moves onto the element.
-                                     <code>false</code> disables the function.</p>
+      <p>マウスが要素上に移動したときに
+                                     呼び出す関数。
+                                     <code>false</code>を指定すると関数を無効にします。</p>
     type: Function|Boolean
 chainable: true
 ---
-
 
 # mouseOver

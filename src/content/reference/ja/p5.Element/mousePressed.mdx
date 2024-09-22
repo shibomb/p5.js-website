@@ -4,14 +4,12 @@ module: DOM
 submodule: DOM
 file: src/core/p5.Element.js
 description: >
-  <p>Calls a function when the mouse is pressed over the element.</p>
+  <p>要素上でマウスが押されたときに関数を呼び出します。</p>
 
-  <p>Calling <code>myElement.mousePressed(false)</code> disables the
-  function.</p>
+  <p><code>myElement.mousePressed(false)</code>を呼び出すと、この関数を無効にします。</p>
 
-  <p>Note: Some mobile browsers may also trigger this event when the element
-
-  receives a quick tap.</p>
+  <p>注意：一部のモバイルブラウザでは、要素が素早いタップを受け取ったときにもこのイベントが
+  トリガーされる場合があります。</p>
 line: 350
 isConstructor: false
 itemtype: method
@@ -21,21 +19,21 @@ example:
     <div>
     <code>
     function setup() {
-      // Create a canvas element and
-      // assign it to cnv.
+      // キャンバス要素を作成し、
+      // cnvに割り当てる
       let cnv = createCanvas(100, 100);
 
       background(200);
 
-      // Call randomColor() when the canvas
-      // is pressed.
+      // キャンバスが押されたときに
+      // randomColor()を呼び出す
       cnv.mousePressed(randomColor);
 
-      describe('A gray square changes color when the mouse is pressed.');
+      describe('マウスが押されると色が変わるグレーの正方形。');
     }
 
-    // Paint the background either
-    // red, yellow, blue, or green.
+    // 背景を赤、黄、青、緑の
+    // いずれかでペイントする
     function randomColor() {
       let c = random(['red', 'yellow', 'blue', 'green']);
       background(c);
@@ -46,12 +44,12 @@ class: p5.Element
 params:
   - name: fxn
     description: |
-      <p>function to call when the mouse is
-                                     pressed over the element.
-                                     <code>false</code> disables the function.</p>
+      <p>要素上でマウスが押されたときに呼び出す関数。
+                                     <code>false</code>を指定すると関数を無効にします。</p>
     type: Function|Boolean
 chainable: true
 ---
 
 
 # mousePressed
+

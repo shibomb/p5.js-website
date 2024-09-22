@@ -4,24 +4,18 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>Creates a text <code><input></input></code> element.</p>
+  <p>テキスト<code><input></input></code>要素を作成します。</p>
 
-  <p>Call <code>myInput.size()</code> to set the length of the text box.</p>
+  <p><code>myInput.size()</code>を呼び出して、テキストボックスの長さを設定します。</p>
 
-  <p>The first parameter, <code>value</code>, is optional. It's a string that
-  sets the
+  <p>最初のパラメータ<code>value</code>はオプションです。これは入力のデフォルト値を設定する文字列です。
+  デフォルトでは入力は空白です。</p>
 
-  input's default value. The input is blank by default.</p>
-
-  <p>The second parameter, <code>type</code>, is also optional. It's a string
-  that
-
-  specifies the type of text being input. See MDN for a full
-
+  <p>2番目のパラメータ<code>type</code>もオプションです。これは入力されるテキストの
+  タイプを指定する文字列です。MDNの
   <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input/"
-  target="_blank">list of options</a>.
-
-  The default is <code>'text'</code>.</p>
+  target="_blank">オプション一覧</a>を参照してください。
+  デフォルトは<code>'text'</code>です。</p>
 line: 1841
 isConstructor: false
 itemtype: method
@@ -35,18 +29,18 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create an input element and place it
-      // beneath the canvas.
+      // 入力要素を作成し、
+      // キャンバスの下に配置します。
       myInput = createInput();
       myInput.position(0, 100);
 
-      describe('A gray square with a text box beneath it. The text in the square changes when the user types something new in the input bar.');
+      describe('グレーの正方形と、その下にテキストボックスがあります。ユーザーが入力バーに新しい内容を入力すると、正方形内のテキストが変更されます。');
     }
 
     function draw() {
       background(200);
 
-      // Use the input to display a message.
+      // 入力を使用してメッセージを表示します。
       let msg = myInput.value();
       text(msg, 25, 55);
     }
@@ -60,19 +54,18 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create an input element and place it
-      // beneath the canvas. Set its default
-      // text to "hello!".
+      // 入力要素を作成し、キャンバスの下に配置します。
+      // デフォルトのテキストを "hello!" に設定します。
       myInput = createInput('hello!');
       myInput.position(0, 100);
 
-      describe('The text "hello!" written at the center of a gray square. A text box beneath the square also says "hello!". The text in the square changes when the user types something new in the input bar.');
+      describe('グレーの正方形の中央に "hello!" というテキストが書かれています。正方形の下にあるテキストボックスにも "hello!" と表示されています。ユーザーが入力バーに新しい内容を入力すると、正方形内のテキストが変更されます。');
     }
 
     function draw() {
       background(200);
 
-      // Use the input to display a message.
+      // 入力を使用してメッセージを表示します。
       let msg = myInput.value();
       text(msg, 25, 55);
     }
@@ -80,24 +73,23 @@ example:
     </div>
 class: p5
 return:
-  description: new <a href="#/p5.Element">p5.Element</a> object.
+  description: 新しい<a href="#/p5.Element">p5.Element</a>オブジェクト。
   type: p5.Element
 overloads:
   - line: 1841
     params:
       - name: value
         description: >
-          <p>default value of the input box. Defaults to an empty string
-          <code>''</code>.</p>
+          <p>入力ボックスのデフォルト値。デフォルトは空の文字列<code>''</code>です。</p>
         type: String
         optional: true
       - name: type
         description: |
-          <p>type of input. Defaults to <code>'text'</code>.</p>
+          <p>入力のタイプ。デフォルトは<code>'text'</code>です。</p>
         type: String
         optional: true
     return:
-      description: new <a href="#/p5.Element">p5.Element</a> object.
+      description: 新しい<a href="#/p5.Element">p5.Element</a>オブジェクト。
       type: p5.Element
   - line: 1911
     params:
@@ -113,3 +105,4 @@ chainable: false
 
 
 # createInput
+

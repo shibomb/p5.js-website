@@ -4,7 +4,7 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: |
-  <p>Toggles whether a class is applied to the element.</p>
+  <p>要素にクラスを適用するかどうかを切り替えます。</p>
 line: 2659
 isConstructor: false
 itemtype: method
@@ -20,16 +20,16 @@ example:
 
       background(200);
 
-      // Create a div element.
+      // div要素を作成します。
       div = createDiv('div');
 
-      // Add the 'show' class to the div.
+      // divに'show'クラスを追加します。
       div.addClass('show');
 
-      describe('A gray square.');
+      describe('灰色の正方形。');
     }
 
-    // Toggle the 'show' class when the mouse is pressed.
+    // マウスが押されたときに'show'クラスを切り替えます。
     function mousePressed() {
       div.toggleClass('show');
     }
@@ -39,10 +39,11 @@ class: p5.Element
 params:
   - name: c
     description: |
-      <p>class name to toggle.</p>
+      <p>切り替えるクラス名。</p>
     type: String
 chainable: true
 ---
 
 
 # toggleClass
+

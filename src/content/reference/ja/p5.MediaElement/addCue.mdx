@@ -4,30 +4,18 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>Schedules a function to call when the audio/video reaches a specific time
+  <p>オーディオ/ビデオの再生中に特定の時間に達したときに呼び出す関数をスケジュールします。</p>
 
-  during its playback.</p>
+  <p>最初のパラメータ<code>time</code>は、関数を実行すべき時間（秒単位）です。
+  この値は<code>callback</code>の最初の引数として渡されます。</p>
 
-  <p>The first parameter, <code>time</code>, is the time, in seconds, when the
-  function
+  <p>2番目のパラメータ<code>callback</code>は、指定されたキュー時間に呼び出す関数です。</p>
 
-  should run. This value is passed to <code>callback</code> as its first
-  argument.</p>
+  <p>3番目のパラメータ<code>value</code>はオプションで、任意の型の値を指定できます。
+  <code>value</code>は<code>callback</code>に渡されます。</p>
 
-  <p>The second parameter, <code>callback</code>, is the function to call at the
-  specified
-
-  cue time.</p>
-
-  <p>The third parameter, <code>value</code>, is optional and can be any type of
-  value.
-
-  <code>value</code> is passed to <code>callback</code>.</p>
-
-  <p>Calling <code>media.addCue()</code> returns an ID as a string. This is
-  useful for
-
-  removing the cue later.</p>
+  <p><code>media.addCue()</code>を呼び出すと、文字列としてIDが返されます。これは
+  後でキューを削除する際に便利です。</p>
 line: 5245
 isConstructor: false
 itemtype: method
@@ -39,22 +27,22 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create a p5.MediaElement using createAudio().
+      // createAudio()を使用してp5.MediaElementを作成します。
       let beat = createAudio('/assets/beat.mp3');
 
-      // Play the beat in a loop.
+      // ビートをループ再生します。
       beat.loop();
 
-      // Schedule a few events.
+      // いくつかのイベントをスケジュールします。
       beat.addCue(0, changeBackground, 'red');
       beat.addCue(2, changeBackground, 'deeppink');
       beat.addCue(4, changeBackground, 'orchid');
       beat.addCue(6, changeBackground, 'lavender');
 
-      describe('A red square with a beat playing in the background. Its color changes every 2 seconds while the audio plays.');
+      describe('背景で再生されるビートとともに赤い正方形が表示されます。オーディオの再生中、2秒ごとに色が変化します。');
     }
 
-    // Change the background color.
+    // 背景色を変更します。
     function changeBackground(c) {
       background(c);
     }
@@ -64,25 +52,25 @@ class: p5.MediaElement
 params:
   - name: time
     description: |
-      <p>cue time to run the callback function.</p>
+      <p>コールバック関数を実行するキュー時間。</p>
     type: Number
   - name: callback
     description: |
-      <p>function to call at the cue time.</p>
+      <p>キュー時間に呼び出す関数。</p>
     type: Function
   - name: value
     description: |
-      <p>object to pass as the argument to
-                                 <code>callback</code>.</p>
+      <p><code>callback</code>の引数として渡すオブジェクト。</p>
     type: Object
     optional: true
 return:
   description: |-
-    id ID of this cue,
-                        useful for `media.removeCue(id)`.
+    id このキューのID、
+                        `media.removeCue(id)`で使用できます。
   type: Number
 chainable: false
 ---
 
 
 # addCue
+

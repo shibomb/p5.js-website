@@ -4,16 +4,12 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>Creates a <code><div></div></code> element.</p>
+  <p><code><div></div></code>要素を作成します。</p>
 
-  <p><code><div></div></code> elements are commonly used as containers for
+  <p><code><div></div></code>要素は、他の要素のコンテナとしてよく使用されます。</p>
 
-  other elements.</p>
-
-  <p>The parameter <code>html</code> is optional. It accepts a string that sets
-  the
-
-  inner HTML of the new <code><div></div></code>.</p>
+  <p>パラメータ<code>html</code>はオプションです。新しい<code><div></div></code>の
+  内部HTMLを設定する文字列を受け入れます。</p>
 line: 491
 isConstructor: false
 itemtype: method
@@ -27,11 +23,11 @@ example:
 
       background(200);
 
-      // Create a div element and set its position.
+      // div要素を作成し、位置を設定します。
       let div = createDiv('p5*js');
       div.position(25, 35);
 
-      describe('A gray square with the text "p5*js" written in its center.');
+      describe('中央に"p5*js"と書かれたグレーの正方形。');
     }
     </code>
     </div>
@@ -43,11 +39,11 @@ example:
 
       background(200);
 
-      // Create an h3 element within the div.
+      // div内にh3要素を作成します。
       let div = createDiv('<h3>p5*js</h3>');
       div.position(20, 5);
 
-      describe('A gray square with the text "p5*js" written in its center.');
+      describe('中央に"p5*js"と書かれたグレーの正方形。');
     }
     </code>
     </div>
@@ -55,15 +51,15 @@ class: p5
 params:
   - name: html
     description: >
-      <p>inner HTML for the new <code>&lt;div&gt;&lt;/div&gt;</code>
-      element.</p>
+      <p>新しい<code>&lt;div&gt;&lt;/div&gt;</code>要素の内部HTML。</p>
     type: String
     optional: true
 return:
-  description: new <a href="#/p5.Element">p5.Element</a> object.
+  description: 新しい<a href="#/p5.Element">p5.Element</a>オブジェクト。
   type: p5.Element
 chainable: false
 ---
 
 
 # createDiv
+

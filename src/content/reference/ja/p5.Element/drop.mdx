@@ -4,27 +4,24 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>Calls a function when the user drops a file on the element.</p>
+  <p>要素上にユーザーがファイルをドロップしたときに関数を呼び出します。</p>
 
-  <p>The first parameter, <code>callback</code>, is a function to call once the
-  file loads.
+  <p>最初のパラメータ <code>callback</code> は、ファイルがロードされたときに呼び出される関数です。
 
-  The callback function should have one parameter, <code>file</code>, that's a
+  コールバック関数は1つのパラメータ <code>file</code> を持ち、これは
 
-  <a href="/reference/p5/p5.File">p5.File</a> object. If the user drops multiple
-  files on
+  <a href="/reference/p5/p5.File">p5.File</a> オブジェクトです。ユーザーが複数のファイルを
 
-  the element, <code>callback</code>, is called once for each file.</p>
+  要素上にドロップした場合、<code>callback</code> はファイルごとに1回ずつ呼び出されます。</p>
 
-  <p>The second parameter, <code>fxn</code>, is a function to call when the
-  browser detects
+  <p>2番目のパラメータ <code>fxn</code> は、ブラウザが1つ以上のドロップされたファイルを
 
-  one or more dropped files. The callback function should have one
+  検出したときに呼び出される関数です。コールバック関数は1つの
 
-  parameter, <code>event</code>, that's a
+  パラメータ <code>event</code> を持ち、これは
 
   <a
-  href="https://developer.mozilla.org/en-US/docs/Web/API/DragEvent/">DragEvent</a>.</p>
+  href="https://developer.mozilla.org/en-US/docs/Web/API/DragEvent/">DragEvent</a> です。</p>
 line: 3772
 isConstructor: false
 itemtype: method
@@ -33,8 +30,8 @@ example:
 
     <div>
     <code>
-    // Drop an image on the canvas to view
-    // this example.
+    // この例を見るには、キャンバスに画像を
+    // ドロップしてください。
     let img;
 
     function setup() {
@@ -42,25 +39,25 @@ example:
 
       background(200);
 
-      // Call handleFile() when a file that's dropped on the canvas has loaded.
+      // キャンバスにドロップされたファイルがロードされたときにhandleFile()を呼び出します。
       c.drop(handleFile);
 
-      describe('A gray square. When the user drops an image on the square, it is displayed.');
+      describe('灰色の正方形。ユーザーが正方形に画像をドロップすると、その画像が表示されます。');
     }
 
-    // Remove the existing image and display the new one.
+    // 既存の画像を削除し、新しい画像を表示します。
     function handleFile(file) {
-      // Remove the current image, if any.
+      // 現在の画像があれば削除します。
       if (img) {
         img.remove();
       }
 
-      // Create an <img> element with the
-      // dropped file.
+      // ドロップされたファイルで<img>要素を
+      // 作成します。
       img = createImg(file.data, '');
       img.hide();
 
-      // Draw the image.
+      // 画像を描画します。
       image(img, 0, 0, width, height);
     }
     </code>
@@ -68,8 +65,8 @@ example:
 
     <div>
     <code>
-    // Drop an image on the canvas to view
-    // this example.
+    // この例を見るには、キャンバスに画像を
+    // ドロップしてください。
     let img;
     let msg;
 
@@ -78,43 +75,43 @@ example:
 
       background(200);
 
-      // Call functions when the user drops a file on the canvas
-      // and when the file loads.
+      // ユーザーがキャンバスにファイルをドロップしたとき、
+      // およびファイルがロードされたときに関数を呼び出します。
       c.drop(handleFile, handleDrop);
 
-      describe('A gray square. When the user drops an image on the square, it is displayed. The id attribute of canvas element is also displayed.');
+      describe('灰色の正方形。ユーザーが正方形に画像をドロップすると、その画像が表示されます。キャンバス要素のid属性も表示されます。');
     }
 
-    // Display the image when it loads.
+    // 画像がロードされたときに表示します。
     function handleFile(file) {
-      // Remove the current image, if any.
+      // 現在の画像があれば削除します。
       if (img) {
         img.remove();
       }
 
-      // Create an img element with the dropped file.
+      // ドロップされたファイルでimg要素を作成します。
       img = createImg(file.data, '');
       img.hide();
 
-      // Draw the image.
+      // 画像を描画します。
       image(img, 0, 0, width, height);
     }
 
-    // Display the file's name when it loads.
+    // ファイルがロードされたときにその名前を表示します。
     function handleDrop(event) {
-      // Remove current paragraph, if any.
+      // 現在の段落があれば削除します。
       if (msg) {
         msg.remove();
       }
 
-      // Use event to get the drop target's id.
+      // イベントを使用してドロップ対象のidを取得します。
       let id = event.target.id;
 
-      // Write the canvas' id beneath it.
+      // キャンバスのidをその下に書きます。
       msg = createP(id);
       msg.position(0, 100);
 
-      // Set the font color randomly for each drop.
+      // ドロップごとにフォントの色をランダムに設定します。
       let c = random(['red', 'green', 'blue']);
       msg.style('color', c);
       msg.style('font-size', '12px');
@@ -125,11 +122,11 @@ class: p5.Element
 params:
   - name: callback
     description: |
-      <p>called when a file loads. Called once for each file dropped.</p>
+      <p>ファイルがロードされたときに呼び出されます。ドロップされた各ファイルに対して1回ずつ呼び出されます。</p>
     type: Function
   - name: fxn
     description: |
-      <p>called once when any files are dropped.</p>
+      <p>ファイルがドロップされたときに1回だけ呼び出されます。</p>
     type: Function
     optional: true
 chainable: true
@@ -137,3 +134,4 @@ chainable: true
 
 
 # drop
+

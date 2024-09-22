@@ -4,19 +4,13 @@ module: DOM
 submodule: DOM
 file: src/dom/dom.js
 description: >
-  <p>Sets the media element's playback time.</p>
+  <p>メディア要素の再生時間を設定します。</p>
 
-  <p>The parameter, <code>time</code>, is optional. It's a number that specifies
-  the
+  <p>パラメータ<code>time</code>はオプションです。これは再生開始時にジャンプする時間を秒単位で指定する数値です。</p>
 
-  time, in seconds, to jump to when playback begins.</p>
+  <p>引数なしで<code>media.time()</code>を呼び出すと、オーディオ/ビデオが再生された秒数を返します。</p>
 
-  <p>Calling <code>media.time()</code> without an argument returns the number of
-  seconds
-
-  the audio/video has played.</p>
-
-  <p>Note: Time resets to 0 when looping media restarts.</p>
+  <p>注意：ループするメディアが再開する際、時間は0にリセットされます。</p>
 line: 4748
 isConstructor: false
 itemtype: method
@@ -30,30 +24,30 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create a p5.MediaElement using createAudio().
+      // createAudio()を使用してp5.MediaElementを作成します。
       dragon = createAudio('/assets/lucky_dragons.mp3');
 
-      // Show the default media controls.
+      // デフォルトのメディアコントロールを表示します。
       dragon.showControls();
 
-      describe('The text "S seconds" on a gray square with media controls beneath it. The number "S" increases as the song plays.');
+      describe('グレーの四角形上に "S秒" というテキストがあり、その下にメディアコントロールがあります。曲が再生されるにつれて、数字 "S" が増加します。');
     }
 
     function draw() {
       background(200);
 
-      // Get the current playback time.
+      // 現在の再生時間を取得します。
       let s = dragon.time();
 
-      // Round s to 1 decimal place for display.
+      // 表示用にsを小数点以下1桁に丸めます。
       s = round(s, 1);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER);
       textSize(16);
 
-      // Display the playback time.
-      text(`${s} seconds`, 50, 50);
+      // 再生時間を表示します。
+      text(`${s} 秒`, 50, 50);
     }
     </code>
     </div>
@@ -65,51 +59,51 @@ example:
     function setup() {
       createCanvas(100, 100);
 
-      // Create a p5.MediaElement using createAudio().
+      // createAudio()を使用してp5.MediaElementを作成します。
       dragon = createAudio('/assets/lucky_dragons.mp3');
 
-      // Show the default media controls.
+      // デフォルトのメディアコントロールを表示します。
       dragon.showControls();
 
-      // Jump to 2 seconds to start.
+      // 開始時に2秒にジャンプします。
       dragon.time(2);
 
-      describe('The text "S seconds" on a gray square with media controls beneath it. The number "S" increases as the song plays.');
+      describe('グレーの四角形上に "S秒" というテキストがあり、その下にメディアコントロールがあります。曲が再生されるにつれて、数字 "S" が増加します。');
     }
 
     function draw() {
       background(200);
 
-      // Get the current playback time.
+      // 現在の再生時間を取得します。
       let s = dragon.time();
 
-      // Round s to 1 decimal place for display.
+      // 表示用にsを小数点以下1桁に丸めます。
       s = round(s, 1);
 
-      // Style the text.
+      // テキストのスタイルを設定します。
       textAlign(CENTER);
       textSize(16);
 
-      // Display the playback time.
-      text(`${s} seconds`, 50, 50);
+      // 再生時間を表示します。
+      text(`${s} 秒`, 50, 50);
     }
     </code>
     </div>
 class: p5.MediaElement
 return:
-  description: current time (in seconds).
+  description: 現在の時間（秒単位）。
   type: Number
 overloads:
   - line: 4748
     params: []
     return:
-      description: current time (in seconds).
+      description: 現在の時間（秒単位）。
       type: Number
   - line: 4836
     params:
       - name: time
         description: |
-          <p>time to jump to (in seconds).</p>
+          <p>ジャンプする時間（秒単位）。</p>
         type: Number
     chainable: 1
 chainable: false
@@ -117,3 +111,4 @@ chainable: false
 
 
 # time
+
