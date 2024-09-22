@@ -107,7 +107,7 @@ h2 {
   line-height: 1.125;
   -webkit-text-stroke-width: 0.2px;
   font-family: var(--font-sans);
-  margin-top: var(--spacing-lg);
+  margin-top: calc(var(--spacing-lg) * var(--ja-line-height-by));;
 
   @media (min-width: $breakpoint-tablet) {
     // font-size: calc(2.5rem * var(--ja-font-size-by));
@@ -124,7 +124,7 @@ h3 {
   line-height: 1.167;
   -webkit-text-stroke-width: 0.15px;
   font-family: var(--font-sans);
-  margin-top: var(--spacing-md);
+  margin-top: calc(var(--spacing-md) * var(--ja-line-height-by));
 
   @media (min-width: $breakpoint-tablet) {
     // font-size: calc(1.875rem * var(--ja-font-size-by));
@@ -140,13 +140,21 @@ h4 {
   line-height: 1.167;
   -webkit-text-stroke-width: 0.1px;
   font-family: var(--font-sans);
-  margin-top: var(--spacing-md);
+  margin-top: calc(var(--spacing-md) * var(--ja-line-height-by));
 
   @media (min-width: $breakpoint-tablet) {
     font-size: calc(1.5rem * var(--ja-font-size-by));
     line-height: 1.1333;
     -webkit-text-stroke-width: 0.15px;
   } 
+}
+
+h5 {
+  font-size: calc(1.175rem * var(--ja-font-size-by));
+  line-height: 1.127;
+  -webkit-text-stroke-width: 0.75px;
+  font-family: var(--font-sans);
+  margin-top: calc(var(--spacing-sm) * var(--ja-line-height-by));;
 }
 
 .text-body-large {
