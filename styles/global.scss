@@ -150,10 +150,8 @@ h4 {
 }
 
 h5 {
-  font-size: calc(1.175rem * var(--ja-font-size-by));
   line-height: 1.127;
   -webkit-text-stroke-width: 0.75px;
-  font-family: var(--font-sans);
   margin-top: calc(var(--spacing-sm) * var(--ja-line-height-by));;
 }
 
