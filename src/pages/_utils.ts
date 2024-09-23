@@ -45,26 +45,26 @@ export const getCollectionInDefaultLocale = async <C extends keyof AnyEntryMap>(
 export const getCollectionInLocaleWithFallbacks = memoize(async <
   C extends keyof AnyEntryMap,
 >(
-  collectionName: C,
-  locale: string,
-): Promise<CollectionEntry<C>[]> => {
+    collectionName: C,
+    locale: string,
+  ): Promise<CollectionEntry<C>[]> => {
   const localizedEntries = await getCollectionInLocale(collectionName, locale);
-  const defaultLocaleCollection =
-    await getCollectionInDefaultLocale(collectionName);
-  const filteredDefaultEntries = defaultLocaleCollection.filter(
-    (defaultEntry) => {
-      const { id: defaultLocaleId } = defaultEntry as EntryWithId;
-      return !localizedEntries.some((localeEntry: unknown) => {
-        const { id: localeId } = localeEntry as EntryWithId;
-        return (
-          removeLocalePrefix(localeId) === removeLocalePrefix(defaultLocaleId)
-        );
-      });
-    },
-  );
+    const defaultLocaleCollection =
+      await getCollectionInDefaultLocale(collectionName);
+    const filteredDefaultEntries = defaultLocaleCollection.filter(
+      (defaultEntry) => {
+        const { id: defaultLocaleId } = defaultEntry as EntryWithId;
+        return !localizedEntries.some((localeEntry: unknown) => {
+          const { id: localeId } = localeEntry as EntryWithId;
+          return (
+            removeLocalePrefix(localeId) === removeLocalePrefix(defaultLocaleId)
+          );
+        });
+      },
+    );
 
-  // Merge the locale entries with the filtered default entries
-  return [...localizedEntries, ...filteredDefaultEntries];
+    // Merge the locale entries with the filtered default entries
+    return [...localizedEntries, ...filteredDefaultEntries];
 }, (...args) => args.join("_"));
 
 /**
@@ -195,7 +195,7 @@ export const getLibraryLink = (library: CollectionEntry<"libraries">) =>
  * @param examples Reference example strings from MDX
  * @returns The examples separated into individual strings
  */
- // separateReferenceExamples
+// separateReferenceExamples
 export const parseReferenceExamplesAndMetadata = (examples: string[]): { src: string, classes: Record<string, any> }[] =>
   examples
     ?.flatMap((example: string) => example.split("</div>"))
@@ -377,7 +377,7 @@ export const generateJumpToState = async (
       category === getExampleCategory(currentEntrySlug)
     ) {
       // Get all entries in the current category
-      const currentCategoryEntries = localeEntries.filter(
+      let currentCategoryEntries = localeEntries.filter(
         (entry) =>
           category ===
           (collectionType === "examples"
@@ -385,6 +385,14 @@ export const generateJumpToState = async (
             : // @ts-expect-error - We know that the category exists because of the collection type
               entry.data.category ?? ""),
       );
+
+      if (collectionType === "tutorials") {
+        currentCategoryEntries = currentCategoryEntries.sort(
+          (a, b) =>
+            ((a.data as any).categoryIndex ?? 1000) -
+            ((b.data as any).categoryIndex ?? 1000),
+        );
+      }
 
       // Add the entries in the category to the jumpToLinks
       categoryLinks.push(
