@@ -1,10 +1,10 @@
 ---
-title: "Conditionals and Interactivity"
-description: A tutorial on how to use conditional statements and make interactive sketches.
+title: "条件分岐とインタラクティビティ"
+description: 条件文の使い方とインタラクティブなスケッチの作り方に関するチュートリアル。
 category: introduction
 categoryIndex: 3
 featuredImage: ../images/featured/ConditionalsA.png
-featuredImageAlt: A preview of the sunrise animation created in the Conditionals and Interactivity tutorial.
+featuredImageAlt: 条件分岐とインタラクティビティのチュートリアルで作成される日の出アニメーションのプレビュー。
 relatedContent:
   examples:
     - en/11_3d/06_framebuffer_blur/description
@@ -23,225 +23,227 @@ import { Columns, Column } from "../../../components/Columns";
 import AnnotatedLine from "../../../components/AnnotatedLine/index.astro";
 import Video from "../../../components/Video/index.astro"
 
-In this tutorial, you will learn new ways to add user interaction to your sketches, and control the order in which code runs. 
+このチュートリアルでは、スケッチにユーザーインタラクションを追加する新しい方法と、コードの実行順序を制御する方法を学びます。
 
-You will learn these basic programming concepts by creating an [interactive sun](https://editor.p5js.org/gbenedis@gmail.com/sketches/nNVmHVf5m) sketch and a [sunrise animation](https://editor.p5js.org/gbenedis@gmail.com/sketches/9lz2aqfTO):
+[インタラクティブな太陽](https://editor.p5js.org/gbenedis@gmail.com/sketches/nNVmHVf5m)のスケッチと[日の出アニメーション](https://editor.p5js.org/gbenedis@gmail.com/sketches/9lz2aqfTO)を作成することで、以下の基本的なプログラミングの概念を学びます：
 
-- Conditional statements (if, if-else, and else-if)
-- Boolean variables, comparison operators, and expressions
-- Addition/subtraction assignment operator
-- Incrementing and decrementing
-- Interactivity with mouse button presses and mouse pointer location
+- 条件文（if、if-else、else-if）
+- ブール変数、比較演算子、式
+- 加算/減算代入演算子
+- インクリメントとデクリメント
+- マウスボタンの押下とマウスポインタの位置によるインタラクティビティ
 
-Controlling the flow of your program is central to the power of computing and makes creating exciting animations and games in p5.js possible. Typically, lines of code run in order. In previous tutorials, you have seen how the [`draw()`](/reference/p5/draw) function runs code from top to bottom repeatedly. This allows for overlapping shapes and “flip book” animations. 
+プログラムの流れを制御することは、コンピューティングの力の中心であり、p5.jsで魅力的なアニメーションやゲームを作成することを可能にします。通常、コードの行は順番に実行されます。以前のチュートリアルでは、[`draw()`](/reference/p5/draw)関数がコードを上から下へ繰り返し実行することを見てきました。これにより、形状の重ね合わせや「フリップブック」アニメーションが可能になります。
 
+### 前提条件
 
-### Prerequisites
+- [環境のセットアップ](/tutorials/setting-up-your-environment)
+- [はじめよう チュートリアル](/tutorials/get-started)
+- [変数と動き チュートリアル](/tutorials/variables-and-motion)
 
-- [Setting Up Your Environment](/tutorials/setting-up-your-environment)
-- [Get Started Tutorial](/tutorials/get-started)
-- [Variables and Motion Tutorial](/tutorials/variables-and-motion)
+始める前に、以下のことができるようになっているはずです：
 
-Before you begin, you should be able to:
-
-- Add and customize shapes and text on the canvas using p5.js
+- p5.jsを使用してキャンバス上に図形やテキストを追加してカスタマイズする
   - [`circle()`](/reference/p5/circle) | [`rect()`](/reference/p5/rect) | [`ellipse()`](/reference/p5/ellipse) | [`triangle()`](/reference/p5/triangle) | [`line()`](/reference/p5/line)
   - [`fill()`](/reference/p5/fill), [`stroke()`](/reference/p5/stroke), [`text()`](/reference/p5/text), [`textSize()`](/reference/p5/textSize)
-- Use built-in variables such as [`mouseX`](/reference/p5/mouseX) and [`mouseY`](/reference/p5/mouseY)
-- Declare, initialize, use and update custom variables using `let` and the [assignment operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Assignment)
-- Incorporate both linear and random motion by using [`random()`](/reference/p5/random), [`frameRate()`](/reference/p5/frameRate) and [`frameCount`](/reference/p5/frameCount)
-- Comment code and address error messages - to learn more about error messages and debugging, read the [Field Guide to Debugging](/tutorials/field-guide-to-debugging) reference.
+- [`mouseX`](/reference/p5/mouseX)や[`mouseY`](/reference/p5/mouseY)などの組み込み変数を使用する
+- `let`と[代入演算子](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Assignment)を使用してカスタム変数を宣言、初期化、使用、更新する
+- [`random()`](/reference/p5/random)、[`frameRate()`](/reference/p5/frameRate)、[`frameCount`](/reference/p5/frameCount)を使用して線形動作とランダムな動作の両方を組み込む
+- コードにコメントを付け、エラーメッセージに対処する - エラーメッセージとデバッグについてさらに学ぶには、[デバッグのフィールドガイド](/tutorials/field-guide-to-debugging)リファレンスをお読みください。
 
 
-## Part 1: Interactive Sun
+## パート1：インタラクティブな太陽
 
-Creating an [interactive sun](https://editor.p5js.org/gbenedis@gmail.com/sketches/nNVmHVf5m) sketch is a great way to learn how to use *conditional statements* and user interaction. 
-
-
-## ![The top half of a yellow circle peaks out behind a green rectangle on a black canvas.](../images/introduction/sunrise.png) 
-
-### The IF Statement (a conditional statement)
-
-[*Conditional statements*](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals) control when specific lines of code run. For example, before sunrise the sky is dark. Once the sun comes up it is daytime, and the sky is a lighter color. You can write a *conditional statement* (also known as an *if statement*) to change the color of the sky based on the position of the sun. IF the sun is high, then the sky should be a light color; otherwise the sky should be dark. If statements can check the sun's position, and control the code that runs depending on where it is in the sky.
-
-Before we can use conditional statements that check for the sun’s position, we can add custom variables to help us update the sun’s position as the mouse pointer is dragged across the canvas.
+[インタラクティブな太陽](https://editor.p5js.org/gbenedis@gmail.com/sketches/nNVmHVf5m)のスケッチを作成することは、*条件文*とユーザーインタラクションの使用方法を学ぶ素晴らしい方法です。
 
 
-#### Step One: Define and initialize custom variables
+## ![黒いキャンバス上に緑の長方形の後ろから黄色い円の上半分が覗いている。](../images/introduction/sunrise.png) 
 
-- Open a new p5.js project, name it “Interactive Sun”, and save the sketch.
+### IF文（条件文）
 
-- Declare a custom variable for the y-coordinate for the sun called `sunHeight`, and a custom variable for the y-coordinate of the horizon called `horizon`. Initialize the variable for the horizon with 200. 
+[*条件文*](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals)は、特定のコード行がいつ実行されるかを制御します。例えば、日の出前は空が暗いです。太陽が昇ると昼間になり、空はより明るい色になります。太陽の位置に基づいて空の色を変更する*条件文*（*if文*としても知られています）を書くことができます。太陽が高ければ空は明るい色になるべきで、そうでなければ空は暗いままです。if文は太陽の位置をチェックし、空の中での位置に応じて実行されるコードを制御できます。
 
-  - Add the following lines of code to your sketch before [`setup()`](/reference/p5/setup):
+太陽の位置をチェックする条件文を使用する前に、マウスポインタがキャンバス上を動くにつれて太陽の位置を更新するのに役立つカスタム変数を追加できます。
+
+#### ステップ1：カスタム変数を定義し初期化する
+
+- 新しいp5.jsプロジェクトを開き、"Interactive Sun"と名付けてスケッチを保存します。
+
+- 太陽のy座標用のカスタム変数`sunHeight`と、地平線のy座標用のカスタム変数`horizon`を宣言します。地平線の変数を200で初期化します。
+
+  - 以下のコード行をスケッチの[`setup()`](/reference/p5/setup)の前に追加します：
 
     ```js
-    //custom variables for y-coordinate of sun & horizon
+    //太陽と地平線のy座標用のカスタム変数
     let sunHeight;
     let horizon = 200;
     ```
 
-- Update the `sunHeight` to the y-coordinate of the mouse pointer, `mouseY`.
+- `sunHeight`をマウスポインタのy座標である`mouseY`に更新します。
 
-  - Add the following code inside [`draw()`](/reference/p5/draw):
+  - 以下のコードを[`draw()`](/reference/p5/draw)内に追加します：
 
     ```
-    //sun follows y-coordinate of mouse
+    //太陽がマウスのy座標に従う
     sunHeight = mouseY;
     ```
 
-Your code should look like this:
+あなたのコードは以下のようになるはずです：
 
 ```js
-//custom variables for y-coordinate of sun & horizon
+//太陽と地平線のy座標用のカスタム変数
 let sunHeight;
 let horizon = 200;
+
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(400, 400);
 }
+
 function draw() {
-  background(0);
- 
-  //sun follows y-coordinate of mouse
-  sunHeight = mouseY;
+  background(0);
+
+  //太陽がマウスのy座標に従う
+  sunHeight = mouseY;
 }
 ```
 
-Since the sun’s height is changing, we store the y-coordinate of the mouse, `mouseY`, in the variable `sunHeight`. Doing this in `draw()` continuously updates `sunHeight` each time `draw()` runs. Although the horizon is not changing, a custom variable for the horizon is used as a reference point and to make code more readable. 
 
-Visit the p5.js reference for more information about [`mouseY`](/reference/p5/mouseY) and [`let`](/reference/p5/let).
+太陽の高さが変化しているので、マウスのy座標`mouseY`を変数`sunHeight`に格納します。これを`draw()`内で行うことで、`draw()`が実行されるたびに`sunHeight`が継続的に更新されます。地平線は変化していませんが、カスタム変数`horizon`は参照ポイントとして使用され、コードをより読みやすくします。
 
+[`mouseY`](/reference/p5/mouseY)と[`let`](/reference/p5/let)についての詳細は、p5.jsリファレンスをご覧ください。
 
-#### Step Two: Draw shapes and color the canvas
+#### ステップ2：図形を描画しキャンバスに色を付ける
 
-- Draw a sun that uses the custom variable `sunHeight` as its y-coordinate.
+- カスタム変数`sunHeight`をy座標として使用する太陽を描画します。
 
-  - Add the following code inside [`draw()`](/reference/p5/draw):
+  - 以下のコードを[`draw()`](/reference/p5/draw)内に追加します：
 
     ```js
-    //sun
+    //太陽
     fill("yellow");
     circle(200, sunHeight, 160);
     ```
 
-- Draw a line to show the horizon.
+- 地平線を示す線を描画します。
 
-  - Add the following code inside [`draw()`](/reference/p5/draw):
+  - 以下のコードを[`draw()`](/reference/p5/draw)内に追加します：
 
     ```js
-    // draw line for horizon
+    // 地平線の線を描画
     stroke("green");
     line(0,horizon,400,horizon);
     ```
 
-Your code should look like this:
+あなたのコードは以下のようになるはずです：
 
 ```js
-//custom variables for y-coordinate of sun & horizon
+//太陽と地平線のy座標用のカスタム変数
 let sunHeight;
 let horizon = 200;
+
 function setup() {
   createCanvas(400, 400);
 }
+
 function draw() {
   background(0);
  
-  //sun follows y-coordinate of mouse
+  //太陽がマウスのy座標に従う
   sunHeight = mouseY;
 
-  //sun
+  //太陽
   fill("yellow");
   circle(200, sunHeight, 100);
 
-
-  // draw line for horizon
+  // 地平線の線を描画
   stroke('green');
   line(0,horizon,400,horizon);
 }
 ```
 
-The sun follows the mouse pointer as it moves vertically on the canvas because `sunHeight` is used as the argument for the circle’s y-coordinate in: `circle(200, sunHeight, 100)`. A line is drawn on the canvas with `horizon` as an argument for the y-coordinates of each endpoint: `y1, y2`. This marks the horizon line on the canvas which will be used to change the background color. 
 
-Visit the p5.js reference pages for [2D shapes](/reference#Shape), [color](/reference#Color),  [foundations](/reference#Foundation) and [mouse events](/reference#Mouse) to learn more about shapes and variables. Read the [Field Guide to Debugging](/tutorials/field-guide-to-debugging) (Examples 1 & 2) for help with common bugs.
+太陽は、`circle(200, sunHeight, 100)`の円のy座標の引数として`sunHeight`が使用されているため、マウスポインタが垂直に動くにつれてそれに従います。キャンバス上に線が描画され、各端点のy座標の引数として`horizon`が使用されています：`y1, y2`。これはキャンバス上に地平線をマークし、背景色を変更するために使用されます。
 
+形状と変数についてさらに学ぶには、p5.jsリファレンスページの[2D形状](/reference#Shape)、[色](/reference#Color)、[基礎](/reference#Foundation)、[マウスイベント](/reference#Mouse)をご覧ください。一般的なバグについてのヘルプは、[デバッグのフィールドガイド](/tutorials/field-guide-to-debugging)（例1＆2）をお読みください。
 
-#### Step Three: Use a conditional statement with a Boolean expression to change the background color
+#### ステップ3：ブール式を持つ条件文を使用して背景色を変更する
 
-- Set the background color to light blue when the sun is above the horizon.
-  - Add the following lines to your sketch inside [`draw()`](/reference/p5/draw) after the line of code: `sunHeight = mouseY`:
+- 太陽が地平線より上にある場合、背景色を薄い青に設定します。
+  - 以下のコード行をスケッチの[`draw()`](/reference/p5/draw)内の`sunHeight = mouseY;`の行の後に追加します：
 
     ```js
-    //light blue background if sun is above horizon
+    //太陽が地平線より上にある場合、背景を薄い青に
     if(sunHeight < horizon){
-      background("lightblue");
+      background("lightblue");
     }
     ```
 
-Your code should look like this:
+あなたのコードは以下のようになるはずです：
 
 ```js
-//custom variables for y-coordinate of sun & horizon
+//太陽と地平線のy座標用のカスタム変数
 let sunHeight;
 let horizon = 200;
+
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(400, 400);
 }
+
 function draw() {
-  background(0);
- 
-  //sun follows y-coordinate of mouse
-  sunHeight = mouseY;
+  background(0);
 
+  //太陽がマウスのy座標に従う
+  sunHeight = mouseY;
 
-   //light blue background if sun is above horizon
-  if(sunHeight < horizon){ //check if it is daytime
-     background("lightblue");
-  }
-  //sun
-  fill("yellow");
-  circle(200, sunHeight, 100);
-
-
-  // draw line for horizon
-  stroke('green');
-  line(0,horizon,400,horizon);
+  //太陽が地平線より上にある場合、背景を薄い青に
+  if(sunHeight < horizon){ //昼間かどうかをチェック
+    background("lightblue");
+  }
+  
+  //太陽
+  fill("yellow");
+  circle(200, sunHeight, 100);
+  
+  // 地平線の線を描画
+  stroke('green');
+  line(0,horizon,400,horizon);
 }
 ```
 
-Run the code and experiment with moving the sun using the mouse!
+コードを実行し、マウスを使って太陽を動かしてみてください！
 
-In the code above, the background is black by default because the first statement that is read in `draw()` is `background(0)`. When the sun is below the horizon line, the background remains black because the if statement skips the *code block* inside the curly braces: `background("lightblue")`. When the sun is above the horizon line, the *code block* inside the curly braces runs. This resets the color from the default black color to a light blue color. 
+上記のコードでは、`draw()`で最初に読み取られる文が`background(0)`であるため、デフォルトで背景は黒です。太陽が地平線より下にある場合、if文は中括弧内の*コードブロック*をスキップします：`background("lightblue")`。太陽が地平線より上にある場合、中括弧内の*コードブロック*が実行されます。これにより、デフォルトの黒色から薄い青色に色がリセットされます。
 
-Here you are controlling when `background(0)` and `background("lightblue")` runs. A *conditional statement* (or *if statement*) is a way to control when specific lines of code run, which changes what happens in the sketch. 
+ここでは、`background(0)`と`background("lightblue")`がいつ実行されるかを制御しています。*条件文*（または*if文*）は、特定のコード行がいつ実行されるかを制御する方法であり、スケッチで何が起こるかを変更します。
 
+#### IF文の構文
 
-#### IF statement syntax
-
-An if statement begins with the keyword `if`, followed by condition(s) within parenthesis, and lines of code called a *code block* inside of curly braces. The code block runs if the condition is `true`. The syntax for an if statement is defined as follows:
+if文は`if`キーワードで始まり、その後に括弧内の条件が続き、中括弧内の*コードブロック*と呼ばれる行が続きます。条件が`true`の場合、コードブロックが実行されます。if文の構文は以下のように定義されます：
 
 ```js
-if (condition) {
-  // code to run if the condition is true
-} 
+if (条件) {
+  // 条件がtrueの場合に実行されるコード
+}
 ```
 
 
-#### Boolean expressions & values
 
-The code inside the parentheses after the keyword `if` can be a *Boolean value* or a *Boolean expression*. In the example below, a Boolean expression is used to check if the value in the `sunHeight` variable is less than the value in the `horizon` variable:
+#### ブール式と値
+
+`if`キーワードの後の括弧内のコードは、*ブール値*または*ブール式*になります。以下の例では、ブール式を使用して`sunHeight`変数の値が`horizon`変数の値より小さいかどうかをチェックしています：
 
 <AnnotatedLine code={({ bottom }) => `
 if (${bottom('bool', 'sunHeight < horizon')}) {
   ${bottom('block', 'background("lightblue");')}
 }
 `}>
-  <Fragment slot="bool">Boolean expression</Fragment>
-  <Fragment slot="block">Code block</Fragment>
+  <Fragment slot="bool">ブール式</Fragment>
+  <Fragment slot="block">コードブロック</Fragment>
 </AnnotatedLine>
 
-*Boolean expressions* are statements that result in a *Boolean* value. *Boolean* values can either be `true` or `false`*.* Unlike numbers or strings, there are only two Boolean values. *Boolean expressions* help check if conditions are `true` or `false`; therefore, they use symbols called *comparison operators*. *Comparison operators* are special symbols that compare two values (see the table below).
+*ブール式*は*ブール*値を結果として返す文です。*ブール*値は`true`または`false`のいずれかになります。数値や文字列とは異なり、ブール値は2つしかありません。*ブール式*は条件が`true`か`false`かをチェックするのに役立ちます。したがって、*比較演算子*と呼ばれる特殊な記号を使用します。*比較演算子*は2つの値を比較する特殊な記号です（以下の表を参照）。
 
-[*Comparison operator*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators) symbols you can use to create Boolean expressions include:
+ブール式を作成するために使用できる[*比較演算子*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators)記号には以下のものがあります：
 
 <table>
 
@@ -249,19 +251,19 @@ if (${bottom('bool', 'sunHeight < horizon')}) {
 
 <th>
 
-Symbol
+記号
 
 </th>
 
 <th>
 
-Meaning (p5.js ref link)
+意味（p5.jsリファレンスリンク）
 
 </th>
 
 <th>
 
-Example
+例
 
 </th>
 
@@ -277,7 +279,7 @@ Example
 
 <td>
 
-[less than](/reference/p5/lt)
+[未満](/reference/p5/lt)
 
 </td>
 
@@ -299,7 +301,7 @@ Example
 
 <td>
 
-[less than or equal to](/reference/p5/lte)
+[以下](/reference/p5/lte)
 
 </td>
 
@@ -321,7 +323,7 @@ Example
 
 <td>
 
-[greater than](/reference/p5/gt)
+[より大きい](/reference/p5/gt)
 
 </td>
 
@@ -343,7 +345,7 @@ Example
 
 <td>
 
-[greater than or equal to](/reference/p5/gte)
+[以上](/reference/p5/gte)
 
 </td>
 
@@ -365,7 +367,7 @@ Example
 
 <td>
 
-Strict equality (meaning values of different types are considered to be not equal)
+厳密等価（異なる型の値は等しくないと見なされる）
 
 </td>
 
@@ -387,7 +389,7 @@ Strict equality (meaning values of different types are considered to be not equa
 
 <td>
 
-not equal to
+等しくない
 
 </td>
 
@@ -401,240 +403,232 @@ not equal to
 
 </table>
 
-Visit the MDN reference to learn more about [expressions and operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators). 
+[式と演算子](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators)についてさらに学ぶには、MDNリファレンスをご覧ください。
 
-You can think of *Boolean expressions* as the computer asking a question. In the code added in step three, the Boolean expression is `sunHeight < horizon`. It is asking if the value of the variable `sunHeight` is less than the value of the variable `horizon`. If the answer to the question is yes, if `sunHeight < horizon` results in a value of `true`, then the code block runs. If the answer is no, the code block is skipped. 
+*ブール式*をコンピューターが質問をしているものと考えることができます。ステップ3で追加したコードでは、ブール式は`sunHeight < horizon`です。これは変数`sunHeight`の値が変数`horizon`の値より小さいかどうかを尋ねています。質問の答えがはい、つまり`sunHeight < horizon`が`true`の値を返す場合、コードブロックが実行されます。答えがいいえの場合、コードブロックはスキップされます。
 
-We can view the value of `sunHeight < horizon` in the console by adding `console.log(sunHeight < horizon)` in [`draw()`](/reference/p5/draw) after `sunHeight = mouseY`. Observe how the value printed in the console changes from `true` to `false` as you move your mouse around the canvas: the value is `false` when the sun is below the horizon line, and `true` when it is above the horizon line. See [this sketch](https://editor.p5js.org/gbenedis@gmail.com/sketches/nNVmHVf5m) for an example.
+`sunHeight < horizon`の値をコンソールで確認するには、[`draw()`](/reference/p5/draw)内の`sunHeight = mouseY;`の後に`console.log(sunHeight < horizon)`を追加します。キャンバス上でマウスを動かすと、コンソールに表示される値が`true`から`false`に変わるのを観察してください：太陽が地平線より下にあるときは`false`、地平線より上にあるときは`true`になります。[このスケッチ](https://editor.p5js.org/gbenedis@gmail.com/sketches/nNVmHVf5m)で例を見ることができます。
 
-Visit the p5.js reference page for [foundations](/reference#Foundation) to learn more about if statements and Boolean values.
+if文とブール値についてさらに学ぶには、p5.jsリファレンスページの[基礎](/reference#Foundation)をご覧ください。
 
 
-### The IF-ELSE Statement 
+### IF-ELSE文 
 
-Another important conditional is the *if-else statement*, where there are two code blocks that can be controlled. The syntax for the if-else statement is defined as follows:
+もう一つの重要な条件文は*if-else文*で、2つのコードブロックを制御できます。if-else文の構文は以下のように定義されます：
 
 ```js
-if (condition) {
-  // code to run if the condition is true
+if (条件) {
+  // 条件がtrueの場合に実行されるコード
 } else {
-  // code to run if the condition is false
+  // 条件がfalseの場合に実行されるコード
 }
 ```
 
-If the condition is `true`, then the first code block runs. If it is `false`, then the code block that follows the `else` keyword runs. If your code requires two changes based on one condition, the if-else statement is a better way to structure your code. It is helpful to visualize if statements as bubble maps, like the one below, that shows how the 1st code block runs when the condition is true, and the 2nd code block runs when the condition is false.
 
-![A bubble map with two arrows pointing from a bubble that reads “condition.” An arrow labeled “true” points to a bubble that reads “1st code block.” A second arrow labeled “else (false)” points to a bubble that reads “2nd code block.”](../images/introduction/if-else-bubble.png)
+条件が`true`の場合、最初のコードブロックが実行されます。`false`の場合、`else`キーワードの後に続くコードブロックが実行されます。コードが1つの条件に基づいて2つの変更を必要とする場合、if-else文はコードをより適切に構造化する方法です。if文をバブルマップとして視覚化すると役立ちます。以下のマップは、条件が真の場合に1番目のコードブロックが実行され、偽の場合に2番目のコードブロックが実行されることを示しています。
 
-For example, you can modify the if statement in your sunset animation by removing the [`background()`](/reference/p5/background) function and adding the following if-else statement: 
+![「条件」と書かれたバブルから2つの矢印が出ている。「true」とラベル付けされた矢印は「1番目のコードブロック」と書かれたバブルを指している。「else (false)」とラベル付けされた2番目の矢印は「2番目のコードブロック」と書かれたバブルを指している。](../images/introduction/if-else-bubble.png)
+
+例えば、日の出アニメーションのif文を修正して、[`background()`](/reference/p5/background)関数を削除し、以下のif-else文を追加することができます：
 
 <Columns>
 <Column>
-##### Original Code:
+##### 元のコード：
 
 ```js
 //...function draw
 
-background(0); // night sky
+background(0); // 夜空
 
-//sun follows y-coordinate of mouse
+//太陽がマウスのy座標に従う
 sunHeight = mouseY;
 
-//light blue background if sun is above horizon
-
+//太陽が地平線より上にある場合、背景を薄い青に
 if (sunHeight < horizon) {
-  background("lightblue"); // blue sky
+  background("lightblue"); // 青空
 }
 ```
+
 </Column>
 <Column>
-##### Modified Code:
+##### 修正後のコード：
 
 ```js
 //...function draw
 
-//sun follows y-coordinate of mouse
+//太陽がマウスのy座標に従う
 sunHeight = mouseY;
 
-//light blue background if sun is above horizon
+//太陽が地平線より上にある場合、背景を薄い青に
 
-// with if-else statement
-
+// if-else文を使用
 if (sunHeight < horizon) {
-  background("lightblue"); // blue sky if above horizon
+  background("lightblue"); // 地平線より上の場合は青空
 } else {
-  background(0); // night sky otherwise
+  background(0); // それ以外の場合は夜空
 }
 ```
+
 </Column>
 </Columns>
 
-In the code above, we see that if the sun is above the horizon, `sunHeight < horizon `returns `true`, and the code `background("lightblue")` runs. When `sunHeight` is NOT less than the horizon the code block after the `else` keyword, `background(0)`, runs. Although both ways of writing the code have the same visual effect, sometimes it can be clearer and more efficient to use if-else, especially when two different code blocks can be controlled. 
+上記のコードでは、太陽が地平線より上にある場合、`sunHeight < horizon`が`true`を返し、`background("lightblue")`のコードが実行されます。`sunHeight`が地平線以上の場合、`else`キーワードの後のコードブロック、`background(0)`が実行されます。両方の書き方が同じ視覚効果を持っていますが、時にはif-elseを使用する方が明確で効率的な場合があります。特に2つの異なるコードブロックを制御できる場合です。
 
-Visit the p5.js reference page for [`if`](/reference/p5/if-else) and [`Boolean`](/reference/p5/boolean) to learn more.
+さらに学ぶには、p5.jsリファレンスページの[`if`](/reference/p5/if-else)と[`Boolean`](/reference/p5/boolean)をご覧ください。
 
+#### ステップ4：太陽を隠す草を追加する  
 
-#### Step Four: Add grass to hide the sun  
+太陽が地平線より下にあるときに見えなくなるように、スケッチに草原の風景を追加します。
 
-Add a grassy landscape to your sketch so that you can’t see the sun below the horizon.
-
-- Draw a green rectangle on the landscape after the sun so that it hides the sun when it’s below the horizon. The argument for the y-coordinate of this rectangle is the location of the `horizon` line.
-  - Add the following code in [`draw()`](/reference/p5/draw) after the line for the horizon:
+- 太陽の後に緑の長方形を描画して、太陽が地平線より下にあるときに隠れるようにします。この長方形のy座標の引数は`horizon`線の位置です。
+  - 以下のコードを地平線の線の後の[`draw()`](/reference/p5/draw)内に追加します：
 
     ```js
-    //grass
-    fill("green"); 
+    //草
+    fill("green"); 
     rect(0, horizon, 400, 400);
     ```
 
-Your code should look like this:
+あなたのコードは以下のようになるはずです：
 
 ```js
-//custom variables for y-coordinate of sun & horizon
+//太陽と地平線のy座標用のカスタム変数
 let sunHeight;
 let horizon = 200;
+
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(400, 400);
 }
+
 function draw() {
+  //太陽がマウスのy座標に従う
+  sunHeight = mouseY;
 
-  //sun follows y-coordinate of mouse
-  sunHeight = mouseY;
-
-  //light blue background if sun is above horizon
-
-  //with if-else statement
-
+  //太陽が地平線より上にある場合、背景を薄い青に
+  
+  //if-else文を使用
   if (sunHeight < horizon) {
-    background("lightblue"); // blue sky if above horizon
+    background("lightblue"); // 地平線より上の場合は青空
   } else {
-    background(0); // night sky otherwise
+    background(0); // それ以外の場合は夜空
   }
 
-  //sun
-  fill("yellow");
-  circle(200, sunHeight, 100);
-
-
-  // draw line for horizon
-  stroke('green');
-  line(0,horizon,400,horizon);
-
-  //grass
-
-  fill("green");
-
-  rect(0, horizon, 400, 400);
-
+  //太陽
+  fill("yellow");
+  circle(200, sunHeight, 100);
+  
+  // 地平線の線を描画
+  stroke('green');
+  line(0,horizon,400,horizon);
+  
+  //草
+  fill("green");
+  rect(0, horizon, 400, 400);
 }
 ```
 
-Run the sketch and move the sun below the horizon. See how the sky changes as the sun disappears? Link to [sunrise animation sample sketch](https://editor.p5js.org/Msqcoding/sketches/StUo5StZi).
+
+
+スケッチを実行し、太陽を地平線より下に動かしてみてください。太陽が消えるにつれて空がどのように変化するか見てください。[日の出アニメーションのサンプルスケッチ](https://editor.p5js.org/Msqcoding/sketches/StUo5StZi)へのリンク。
 
 <Callout>
-- Use conditional statements to change the color of the grass! For example, when the sun rises on a grassy landscape, its color changes from dark green to a lighter green. 
-- Add some more shapes with colors that change to the landscape of your sketch! 
+- 条件文を使用して草の色を変更してください！例えば、太陽が草原の上に昇るとき、草の色は濃い緑から明るい緑に変化します。
+- スケッチの風景に、色が変化する形をさらに追加してみてください！
 
-[Example](https://editor.p5js.org/gbenedis@gmail.com/sketches/nNVmHVf5m)
+[例](https://editor.p5js.org/gbenedis@gmail.com/sketches/nNVmHVf5m)
 </Callout>
 
 
-## Part 2: Sunrise Animation
+## パート2：日の出アニメーション
 
-Next, you will make a [sunrise animation](https://editor.p5js.org/gbenedis@gmail.com/sketches/9lz2aqfTO) where the sun moves on its own, and creates a gradual change in the color of the sky.
+次に、太陽が自動的に動き、空の色が徐々に変化する[日の出アニメーション](https://editor.p5js.org/gbenedis@gmail.com/sketches/9lz2aqfTO)を作成します。
 
-<Video src="/videos/tutorials/sunrise.mp4" alt="A sun rises in a red-orange sky behind a mountain range." />
+<Video src="/videos/tutorials/sunrise.mp4" alt="赤橙色の空に山脈の後ろから太陽が昇る。" />
 
+#### ステップ1：太陽の位置と背景色の変数を宣言し初期化する
 
-#### Step One: Declare and initialize variables for sun location and background color
+- 新しいp5.jsプロジェクトを開き、"Sunrise Animation"と名付けて保存します。
 
-- Open a new p5.js project, name it “Sunrise Animation,” and save it.
+- 太陽のy座標用のカスタム変数を宣言し、600で初期化します。
 
-- Declare a custom variable for the y-coordinate for the sun and initialize it with 600. 
-
-  - Add the following lines to your sketch before [`setup()`](/reference/p5/setup):
+  - 以下の行を[`setup()`](/reference/p5/setup)の前のスケッチに追加します：
 
     ```js
-    //variable for initial sun position
-    //point below horizon
+    //初期の太陽の位置用の変数
+    //地平線より下の点
     let sunHeight = 600;
     ```
 
-- Declare a custom variable for the value of the red and green components of the sky color, and initialize them with 0.
+- 空の色の赤と緑の成分の値用のカスタム変数を宣言し、0で初期化します。
 
-  - Add the following lines to your sketch before [`setup()`](/reference/p5/setup):
+  - 以下の行を[`setup()`](/reference/p5/setup)の前のスケッチに追加します：
 
     ```js
-    //variables for color change
+    //色変更用の変数
     let redVal = 0;
     let greenVal = 0;
     ```
 
-Review the p5.js reference for [`fill()`](/reference/p5/fill) or the MDN reference for [RGB](https://developer.mozilla.org/en-US/docs/Glossary/RGB) to remind you about color codes.
+色コードについて思い出すには、[`fill()`](/reference/p5/fill)のp5.jsリファレンスまたは[RGB](https://developer.mozilla.org/en-US/docs/Glossary/RGB)のMDNリファレンスを確認してください。
 
-Your code should look like this:
+あなたのコードは以下のようになるはずです：
 
 ```js
-//variable for initial sun position
+//初期の太陽の位置用の変数
+let sunHeight = 600; //地平線より下の点
 
-let sunHeight = 600; //point below horizon
-
-//variables for color change
-
+//色変更用の変数
 let redVal = 0;
-
 let greenVal = 0;
 
-
 function setup() {
-  createCanvas(600, 400);
+  createCanvas(600, 400);
 }
-function draw() {
 
+function draw() {
 }
 ```
 
-In this step you created the variables `redVal`,` greenVal`,` `and`  sunHeight  `to store values that will be used in the program. The initial value for `sunHeight` is a point below the horizon, and the initial values for `redVal` and `greenVal` indicate a black color. These set the sun’s position and the color of the sky when the animation begins. These are called the  *initial conditions* of the animation. Now these variables are available to make changes on the canvas.
+このステップでは、プログラムで使用される値を格納するための変数`redVal`、`greenVal`、`sunHeight`を作成しました。`sunHeight`の初期値は地平線より下の点で、`redVal`と`greenVal`の初期値は黒色を示しています。これらはアニメーションが始まるときの太陽の位置と空の色を設定します。これらは、アニメーションの*初期条件*と呼ばれます。これで、これらの変数を使用してキャンバス上で変更を加えることができます。
 
+#### ステップ2：カスタム変数を使用して風景を描画する
 
-#### Step Two: Use custom variables to draw landscape
+- 赤と緑のカスタム変数に基づいて背景を描画します。
 
-- Draw the background based on the custom variables for red and green.
-
-  - Add the following code inside [`draw()`](/reference/p5/draw):
+  - 以下のコードを[`draw()`](/reference/p5/draw)内に追加します：
 
     ```js
-     //fill background based on custom variables
-     //the value of blue is set to 0 and will not change
-     background(redVal, greenVal, 0);
+     //カスタム変数に基づいて背景を塗りつぶす
+     //青の値は0に設定され、変更されません
+     background(redVal, greenVal, 0);
     ```
 
-- Draw a sun that uses the custom variable` sunHeight` as its y-coordinate.
-  - Add the following code after filling the background:
+- カスタム変数`sunHeight`をy座標として使用する太陽を描画します。
+  - 背景を塗りつぶした後に以下のコードを追加します：
 
     ```js
-    //sun
+    //太陽
     fill(255, 135, 5, 60);
     circle(300, sunHeight, 180);
     fill(255, 100, 0, 100);
     circle(300, sunHeight, 140);
     ```
 
-- Add some triangular mountains to the landscape. 
+- 風景に三角形の山を追加します。
 
-  - Add the following code after drawing the sun:
+  - 太陽を描画した後に以下のコードを追加します：
 
     ```js
-    //mountains
+    //山
     fill(110, 50, 18);
     triangle(200, 400, 520, 253, 800, 400);
     fill(110,95,20);
-    triangle(200,400,520,253,350,400);  
+    triangle(200,400,520,253,350,400);  
 
     fill(150, 75, 0);
     triangle(-100, 400, 150, 200, 400, 400);
     fill(100, 50, 12);
-    triangle(-100, 400, 150, 200, 0, 400); 
+    triangle(-100, 400, 150, 200, 0, 400); 
 
     fill(150, 100, 0);
     triangle(200, 400, 450, 250, 800, 400);
@@ -642,274 +636,467 @@ In this step you created the variables `redVal`,` greenVal`,` `and`  sunHeight  
     triangle(200, 400, 450, 250, 300, 400);
     ```
 
-Your code should look like this:
-
+あなたのコードは以下のようになるはずです：
+ 
 ```js
-//variable for initial sun position
+//初期の太陽の位置用の変数
+let sunHeight = 600; //地平線より下の点
 
-let sunHeight = 600; //point below horizon
-
-//variables for color change
-
+//色変更用の変数
 let redVal = 0;
-
 let greenVal = 0;
 
-
 function setup() {
-  createCanvas(600, 400);
+  createCanvas(600, 400);
 }
+
 function draw() {
+  //カスタム変数に基づいて背景を塗りつぶす
+  background(redVal, greenVal, 0);
 
-  //fill background with color based on custom variables
-  background(redVal, greenVal, 0);
-
-  //sun
-  fill(255, 135, 5, 60);
-  circle(300, sunHeight, 180);
-  fill(255, 100, 0, 100);
-  circle(300, sunHeight, 140);
-
-  //mountains
-  fill(110, 50, 18);
-  triangle(200, 400, 520, 253, 800, 400);
-  fill(110,95,20);
-  triangle(200,400,520,253,350,400);  
-  
-  fill(150, 75, 0);
-  triangle(-100, 400, 150, 200, 400, 400);
-  fill(100, 50, 12);
-  triangle(-100, 400, 150, 200, 0, 400); 
-  
-  fill(150, 100, 0);
-  triangle(200, 400, 450, 250, 800, 400);
-  fill(120, 80, 50);
-  triangle(200, 400, 450, 250, 300, 400);  
+  //太陽
+  fill(255, 135, 5, 60);
+  circle(300, sunHeight, 180);
+  fill(255, 100, 0, 100);
+  circle(300, sunHeight, 140);
+  
+  //山
+  fill(110, 50, 18);
+  triangle(200, 400, 520, 253, 800, 400);
+  fill(110,95,20);
+  triangle(200,400,520,253,350,400);
+  fill(150, 75, 0);
+  triangle(-100, 400, 150, 200, 400, 400);
+  fill(100, 50, 12);
+  triangle(-100, 400, 150, 200, 0, 400);
+  fill(150, 100, 0);
+  triangle(200, 400, 450, 250, 800, 400);
+  fill(120, 80, 50);
+  triangle(200, 400, 450, 250, 300, 400);
 }
 ```
 
-In this step you customized the landscape for your animation by using custom variables in your `background()` and `circle()` functions. Remember, the sun is hiding behind the mountains because it was drawn first!
+このステップでは、`background()`と`circle()`関数でカスタム変数を使用してアニメーションの風景をカスタマイズしました。太陽は最初に描画されたため、山の後ろに隠れていることを覚えておいてください！
 
 <Callout>
-Add as many shapes as you like to make your landscape unique and interesting!
+風景をユニークで興味深いものにするために、好きなだけ形を追加してください！
 </Callout>
 
+#### ステップ3：条件文を使用してカスタム変数を更新する
 
-#### Step Three: Use conditional statements to update custom variables
+- `sunHeight`が130未満である限り、`sunHeight`変数を変更して太陽を動かします。
 
-- Make the sun move by changing the `sunHeight` variable as long as it is less than 130.
-
-  - Add the following code inside [`draw()`](/reference/p5/draw):
+  - 以下のコードを[`draw()`](/reference/p5/draw)内に追加します：
 
     ```js
-    // reduce sunHeight by 2 until it reaches 130
+    // sunHeightが130に達するまで2ずつ減少させる
     if (sunHeight > 130) {
-      sunHeight -=2;
+      sunHeight -=2;
     }
     ```
 
-- Gradually change the color of the sky by changing the values in the variables `redVal` and `greenVal `while the `sunHeight `variable is less than 480.
+- `sunHeight`変数が480未満の間、`redVal`と`greenVal`変数の値を変更して、空の色を徐々に変化させます。
 
-  - Add the following code inside [`draw()`](/reference/p5/draw):
+  - 以下のコードを[`draw()`](/reference/p5/draw)内に追加します：
 
     ```js
-    // increase color variables by 4 or 1 during sunrise
+    // 日の出の間、色変数を4または1ずつ増加させる
     if (sunHeight < 480) {
-      redVal += 4;
-      greenVal += 1;
+      redVal += 4;
+      greenVal += 1;
     }
     ```
 
-Your code should look like this: 
+あなたのコードは以下のようになるはずです：
 
 ```js
-//variable for initial sun position
-let sunHeight = 600; //point below horizon
+//初期の太陽の位置用の変数
+let sunHeight = 600; //地平線より下の点
 
-//variables for color change
+//色変更用の変数
 let redVal = 0;
 let greenVal = 0;
 
 function setup() {
-  createCanvas(600, 400);
+  createCanvas(600, 400);
 }
+
 function draw() {
-  //fill background based on custom variables
-  background(redVal, greenVal, 0);
- 
-  //sun
-  fill(255, 135, 5, 60);
-  circle(300, sunHeight, 180);
-  fill(255, 100, 0, 100);
-  circle(300, sunHeight, 140);
- 
-  //mountains
-  fill(110, 50, 18);
-  triangle(200, 400, 520, 253, 800, 400);
-  fill(110,95,20);
-  triangle(200,400,520,253,350,400); 
- 
-  fill(150, 75, 0);
-  triangle(-100, 400, 150, 200, 400, 400);
-  fill(100, 50, 12);
-  triangle(-100, 400, 150, 200, 0, 400);
- 
-  fill(150, 100, 0);
-  triangle(200, 400, 450, 250, 800, 400);
-  fill(120, 80, 50);
-  triangle(200, 400, 450, 250, 300, 400);
- 
-  // reduce sunHeight by 2 until it reaches 130
-  if (sunHeight > 130) {
-    sunHeight -= 2;
-  }
-   
-  // increase color variables by 4 or 1 during sunrise 
-  if (sunHeight < 480) {
-    redVal += 4;
-    greenVal += 1;
-  } 
+  //カスタム変数に基づいて背景を塗りつぶす
+  background(redVal, greenVal, 0);
+  
+  //太陽
+  fill(255, 135, 5, 60);
+  circle(300, sunHeight, 180);
+  fill(255, 100, 0, 100);
+  circle(300, sunHeight, 140);
+  
+  //山
+  fill(110, 50, 18);
+  triangle(200, 400, 520, 253, 800, 400);
+  fill(110,95,20);
+  triangle(200,400,520,253,350,400);
+  fill(150, 75, 0);
+  triangle(-100, 400, 150, 200, 400, 400);
+  fill(100, 50, 12);
+  triangle(-100, 400, 150, 200, 0, 400);
+  fill(150, 100, 0);
+  triangle(200, 400, 450, 250, 800, 400);
+  fill(120, 80, 50);
+  triangle(200, 400, 450, 250, 300, 400);
+  
+  // sunHeightが130に達するまで2ずつ減少させる
+  if (sunHeight > 130) {
+    sunHeight -= 2;
+  }
+  
+  // 日の出の間、色変数を4または1ずつ増加させる
+  if (sunHeight < 480) {
+    redVal += 4;
+    greenVal += 1;
+  }
 }
 ```
 
-When the sketch runs, the sun moves on its own! The motion is caused by the statement `sunHeight -= 2,` which decreases the value in `sunHeight` by `2` each time [`draw()`](/reference/p5/draw) runs. The value in `sunHeight` stops changing once the Boolean expression in the if statement, `sunHeight > 130`, is `false`. This happens when `sunHeight` is any value greater than 130.
+スケッチが実行されると、太陽が自動的に動きます！この動きは`sunHeight -= 2`という文によって引き起こされ、[`draw()`](/reference/p5/draw)が実行されるたびに`sunHeight`の値を`2`ずつ減少させます。if文のブール式`sunHeight > 130`が`false`になると、`sunHeight`の値は変化しなくなります。これは`sunHeight`が130以下の値になったときに起こります。
 
-When the value in a variable decreases by a value, it is called *decrementing*, and the **subtract assign** `-= `symbol is used. When a variable increases by a value, it is called *incrementing*, and the **add assign +=** operator is used. Any time a variable is incremented or decremented, the value stored in that variable is changed, and the new value is stored in the same variable.
+変数の値が減少するとき、これは*デクリメント*と呼ばれ、**減算代入**`-=`記号が使用されます。変数の値が増加するとき、これは*インクリメント*と呼ばれ、**加算代入**`+=`演算子が使用されます。変数がインクリメントまたはデクリメントされるたびに、その変数に格納されている値が変更され、新しい値が同じ変数に格納されます。
 
-Visit the MDN reference for the following operators to learn more: [`=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Assignment) | [`+=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Addition_assignment) | [`-=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Subtraction_assignment)
+以下の演算子についてさらに学ぶには、MDNリファレンスをご覧ください：[`=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Assignment) | [`+=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Addition_assignment) | [`-=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Subtraction_assignment)
 
 <Callout>
-Print the value of `sunHeight` to the console using `console.log(sunHeight)` to see how it changes over time.
+`console.log(sunHeight)`を使用して`sunHeight`の値をコンソールに表示し、時間とともにどのように変化するかを確認してください。
 
-[Example](https://editor.p5js.org/gbenedis@gmail.com/sketches/IHAcGOxNz)
+[例](https://editor.p5js.org/gbenedis@gmail.com/sketches/IHAcGOxNz)
 </Callout>
 
-The color of the sky changes because `redVal` and `greenVal` gradually change. According to the Boolean expression in the second conditional statement, when `sunHeight` is less than 480, variables for color change: `redVal` increases by 4, and `greenVal` increases by 1. Each time [`draw()`](/reference/p5/draw) runs, `redVal` and `greenVal` increase and are used to modify the background color the next time it runs. This creates an animated sunrise effect. 
+空の色が変化するのは、`redVal`と`greenVal`が徐々に変化するためです。2番目の条件文のブール式によると、`sunHeight`が480未満のとき、色変更の変数が変化します：`redVal`は4ずつ増加し、`greenVal`は1ずつ増加します。[`draw()`](/reference/p5/draw)が実行されるたびに、`redVal`と`greenVal`が増加し、次回の実行時に背景色を変更するために使用されます。これによりアニメーションの日の出効果が作成されます。
 
-The statement `greenVal +=1` can also be written as `greenVal++`. `++` is called the **increment operator**, and `--` is called the **decrement operator**. 
+文`greenVal +=1`は`greenVal++`とも書くことができます。`++`は**インクリメント演算子**と呼ばれ、`--`は**デクリメント演算子**と呼ばれます。
 
-The following statements have the same effect:
+以下の文は同じ効果があります：
 
 ```js
-// Increment by 1.
+// 1ずつインクリメント
 grow++;
 grow += 1;
 
-// Decrement by 1.
+// 1ずつデクリメント
 shrink--;
 shrink -= 1;
 ```
 
-Visit the MDN reference for [++](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Increment) and [--](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Decrement) to learn more.
+[++](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Increment)と[--](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Decrement)についてさらに学ぶには、MDNリファレンスをご覧ください。
 
-The first time [`draw()`](/reference/p5/draw) runs, the background is black and `sunHeight` decreases. After the sun reaches a y-coordinate of 480, the color of the sky begins to change as the values in `redVal` and `greenVal` increase. The sun stops moving when `sunHeight` reaches 130 because of the first conditional statement:
+[`draw()`](/reference/p5/draw)が最初に実行されるとき、背景は黒で`sunHeight`が減少します。太陽がy座標480に達すると、`redVal`と`greenVal`の値が増加するにつれて空の色が変化し始めます。太陽は`sunHeight`が130に達すると動きを止めます。これは最初の条件文によるものです：
 
 ```js
 if (sunHeight > 130) {
-  sunHeight -= 2;
+  sunHeight -= 2;
 }
 ```
 
-Here, `sunHeight `decreases by 2 every time [`draw()`](/reference/p5/draw) runs as long as `sunHeight `is greater than 130. When it reaches 130 or less, the Boolean expression in the parentheses is `false`, and the code inside the curly braces does not run anymore. This causes the sun to stop moving when its y-coordinate is 130 or less.
+ここでは、[`draw()`](/reference/p5/draw)が実行されるたびに`sunHeight`が130より大きい限り、`sunHeight`は2ずつ減少します。130以下になると、括弧内のブール式が`false`になり、中括弧内のコードはもう実行されません。これにより、太陽のy座標が130以下になると動きが止まります。
 
 
-### Nested Conditionals 
+### ネストされた条件文 
 
-When testing for multiple conditions at the same time, you can “nest” one condition inside another like this:
+複数の条件を同時にテストする場合、以下のように一つの条件を別の条件の中に「ネスト」することができます：
 
 ```js
-//sunHeight is always greater than 130 for variables to change
+//sunHeightが常に130より大きい場合にのみ変数が変化する
 if (sunHeight > 130) {
-  sunHeight -=2;
+  sunHeight -=2;
 
-  //nested condition 
-  if (sunHeight < 480) {
-    redVal +=4;    
-    greenVal +=1;
-  }
+  //ネストされた条件
+  if (sunHeight < 480) {
+    redVal +=4;
+    greenVal +=1;
+  }
 }
 ```
 
-When you put an if statement *inside* another if statement, it is called a **nested conditional** statement. This requires both Boolean expressions to be `true` for code blocks to run. The difference in this example, compared to your code before the nested condition, is that now the color of the sky also stops changing once the sun reaches a y-value of 130. 
 
-In the code above, if `sunHeight` is greater than 130, the code block inside the curly braces runs:
-- The `sunHeight` is decreased by 2
-- As long as `sunHeight > 130` and `sunHeight < 480` are `true`, the code block that changes the values of `redVal` and `greenVal` runs.
+if文を別のif文の*中に*置くとき、これを**ネストされた条件文**と呼びます。これにより、コードブロックが実行されるためには両方のブール式が`true`である必要があります。この例では、ネストされた条件の前のコードと比較して、太陽がy値130に達すると空の色も変化を止めるという違いがあります。
 
-Notice that if the Boolean expression in the first if statement is `false`, the second condition is not checked. This means that as long as `sunHeight` is between 130 and 480, `redVal` and `greenVal` will change. After `sunHeight` reaches 130 or less, all variables will stop changing. In this case, `sunHeight > 130` must be `true` and `sunHeight < 480` must be `true` for the block in the nested conditional statement to run. Link to [finished project](https://editor.p5js.org/gbenedis@gmail.com/sketches/9lz2aqfTO) example with [`noStroke()`](/reference/p5/noStroke) in setup to remove shape outlines.
+上記のコードでは、`sunHeight`が130より大きい場合、中括弧内のコードブロックが実行されます：
+- `sunHeight`が2ずつ減少します
+- `sunHeight > 130`と`sunHeight < 480`の両方が`true`である限り、`redVal`と`greenVal`の値を変更するコードブロックが実行されます。
+
+最初のif文のブール式が`false`の場合、2番目の条件はチェックされないことに注意してください。これは、`sunHeight`が130と480の間にある限り、`redVal`と`greenVal`が変化することを意味します。`sunHeight`が130以下になると、すべての変数が変化を止めます。この場合、`sunHeight > 130`が`true`で、かつ`sunHeight < 480`が`true`でなければ、ネストされた条件文のブロックは実行されません。[完成したプロジェクト](https://editor.p5js.org/gbenedis@gmail.com/sketches/9lz2aqfTO)の例へのリンクです。形状の輪郭を削除するために[`setup`](/reference/p5/setup)で[`noStroke()`](/reference/p5/noStroke)を使用しています。
 
 
-### Logical Operators: `&&` and `||`
+### 論理演算子：`&&`と`||`
 
-Another way to write conditional statements with more than one condition is by using [logical operators](https://p5js.org/examples/control-logical-operators.html). The AND operator (`&&`) is used when *both* conditions must be `true` for a code block to run. The OR operator (`||`) is used when *either* condition must be true for a code block to run.
+複数の条件を持つ条件文を書く別の方法は、[論理演算子](https://p5js.org/examples/control-logical-operators.html)を使用することです。AND演算子（`&&`）は、コードブロックを実行するために*両方*の条件が`true`でなければならない場合に使用されます。OR演算子（`||`）は、コードブロックを実行するために*いずれか*の条件が真でなければならない場合に使用されます。
 
-We can rewrite the nested conditional in the animated sunrise sketch using the AND (`&&`) logical operator since it requires that `sunHeight` is less than 130 *AND* greater than 480. In the code sample below, Boolean expressions on each side of the operator must be `true` in order for the code in its code block to run: 
+アニメーションの日の出スケッチのネストされた条件文を、AND（`&&`）論理演算子を使用して書き直すことができます。`sunHeight`が130未満*かつ*480より大きいことを要求するためです。以下のコードサンプルでは、演算子の両側のブール式が`true`でなければ、そのコードブロック内のコードは実行されません：
 
 ```js
 if (sunHeight < 130 && sunHeight > 480) {
-  //Code block that runs when both conditions are true
+  //両方の条件が真の場合に実行されるコードブロック
 }
 ```
 
-Visit the MDN reference for [logical AND (`&&`)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND) and [logical OR (`||`)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR) to learn more about logical operators.
+
+論理演算子についてさらに学ぶには、MDNリファレンスの[論理AND（`&&`）](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND)と[論理OR（`||`）](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR)をご覧ください。
 
 <Callout>
-Practice with logical operators by adding the following code inside `draw()`: 
+論理演算子を練習するために、以下のコードを`draw()`内に追加してみてください：
 
 ```js
 if (mouseIsPressed == true && sunHeight === 130) {
-  background(0);
+  background(0);
 }
 ```
 
-[Example](https://editor.p5js.org/gbenedis@gmail.com/sketches/9lz2aqfTO)
+
+[例](https://editor.p5js.org/gbenedis@gmail.com/sketches/9lz2aqfTO)
 </Callout>
 
+### マウスとキーボードのインタラクション
 
-### Boolean Variables: `mouseIsPressed` and `keyIsPressed`
+p5.jsには、マウスとキーボードのインタラクションを追加するための組み込み変数があります。以下は、マウスとキーボードのインタラクションに関連する一般的な変数とイベントの一覧です：
 
-`mouseIsPressed` and `keyIsPressed `are special variables built into p5.js that contain Boolean values. `mouseIsPressed `is `true` when the mouse button is pressed down on the canvas; otherwise it is `false`. `keyIsPressed `is `true` when any key on the keyboard is pressed down; otherwise it is `false`. 
+<table>
 
-Explore [this example](https://editor.p5js.org/Msqcoding/sketches/CnKfDeaBG) to see the value stored in `mouseIsPressed` change in the console when the mouse button is pressed down. 
+<tr>
 
-In the “Try this!” challenge, when `sunHeight` is equal to 130 *AND* the mouse button is pressed down, the sky becomes dark. Perhaps it shows a solar eclipse! 
+<th>
 
-We can even use `mouseIsPressed` on its own in the if statement:
+変数/イベント
+
+</th>
+
+<th>
+
+説明
+
+</th>
+
+</tr>
+
+<tr>
+
+<td>
+
+[`mouseX`](/reference/p5/mouseX)
+
+</td>
+
+<td>
+
+マウスポインタのx座標
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+[`mouseY`](/reference/p5/mouseY)
+
+</td>
+
+<td>
+
+マウスポインタのy座標
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+[`mouseIsPressed`](/reference/p5/mouseIsPressed)
+
+</td>
+
+<td>
+
+マウスボタンが押されているかどうかを示すブール値
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+[`mousePressed()`](/reference/p5/mousePressed)
+
+</td>
+
+<td>
+
+マウスボタンが押されたときに呼び出される関数
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+[`mouseReleased()`](/reference/p5/mouseReleased)
+
+</td>
+
+<td>
+
+マウスボタンが離されたときに呼び出される関数
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+[`keyIsPressed`](/reference/p5/keyIsPressed)
+
+</td>
+
+<td>
+
+キーボードのキーが押されているかどうかを示すブール値
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+[`keyPressed()`](/reference/p5/keyPressed)
+
+</td>
+
+<td>
+
+キーボードのキーが押されたときに呼び出される関数
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+[`keyReleased()`](/reference/p5/keyReleased)
+
+</td>
+
+<td>
+
+キーボードのキーが離されたときに呼び出される関数
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+[`key`](/reference/p5/key)
+
+</td>
+
+<td>
+
+最後に押されたキーの値を格納する変数
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+[`keyCode`](/reference/p5/keyCode)
+
+</td>
+
+<td>
+
+最後に押された特殊キー（BACKSPACE、DELETE、ENTER、RETURN、TAB、ESCAPE、SHIFT、CONTROL、OPTION、ALT、UP_ARROW、DOWN_ARROW、LEFT_ARROW、RIGHT_ARROW）のキーコードを格納する変数
+
+</td>
+
+</tr>
+
+</table>
+
+これらの変数とイベントを使用して、マウスやキーボードの入力に基づいてスケッチを変更することができます。例えば、以下のコードは、マウスが押されたときに背景色を変更します：
 
 ```js
-if (mouseIsPressed && sunHeight === 130) {
-  background(0);
+function draw() {
+  if (mouseIsPressed) {
+    background(0);
+  } else {
+    background(255);
+  }
 }
 ```
 
-Since `mouseIsPressed` already stores a value of `true `or `false`, we do not need to use a comparison operator to create a Boolean expression. Boolean expressions evaluate to Boolean values, and Boolean variables store Boolean values. Conditional statements only require Boolean values to be `true` for code to run. If `mouseIsPressed` is `true`, the code block for the conditional statement will run. 
+また、特定のキーが押されたときにアクションを実行することもできます：
 
-Explore these examples that use `mouseIsPressed` and `keyIsPressed`:
-
-- [Mouse and keys](https://editor.p5js.org/Msqcoding/sketches/MQtma5kta): Explore how `mouseIsPressed` and `keyIsPressed` can be used in conditional statements without logical operators. 
-- [Clickable button](https://editor.p5js.org/Msqcoding/sketches/gmRjOEyu_): Explore this example that uses mouseIsPressed, mouseX and mouseY to make a clickable button!
-- [Multiple keys:](https://editor.p5js.org/Msqcoding/sketches/kyYpyMh0p) Explore this example that uses multiple keys to make changes on the canvas.
-
-Visit the p5.js reference pages for [`mouseIsPressed`](/reference/p5/mouseIsPressed), [`keyIsPressed`](/reference/p5/keyIsPressed) [`key`](/reference/p5/key) and [`keyCode`](/reference/p5/keyCode) to learn more. 
-
-
-## Conclusion
-
-Now that you have a timed sunrise animation, explore changing the shapes and colors to modify the sketch. Try adding new features and interactions, perhaps even some new conditional statements. Maybe you can try starting the animation with a key press or mouse press. 
+```js
+function keyPressed() {
+  if (key === 'A') {
+    console.log("A key is pressed");
+  } else if (keyCode === UP_ARROW) {
+    console.log("Up arrow is pressed");
+  }
+}
+```
 
 
-## Next Steps
 
-- [Organizing Code with Functions](/tutorials/organizing-code-with-functions)
+これらの変数とイベントを使用して、スケッチにさまざまな種類のインタラクションを追加できます。例えば、マウスクリックで太陽の位置をリセットしたり、特定のキーを押して空の色を変更したりすることができます。
 
+<Callout>
+日の出アニメーションに以下の機能を追加してみてください：
+- マウスがクリックされたときに太陽の位置をリセットする
+- スペースキーが押されたときに空の色をランダムに変更する
 
-## References
+[例](https://editor.p5js.org/gbenedis@gmail.com/sketches/9lz2aqfTO)
+</Callout>
 
-- [Making decisions in your code](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals)
-- [= operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Assignment)
-- [+= operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Addition_assignment)
-- [-= operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Subtraction_assignment)
-- [Increment (++)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Increment)
-- [Decrement (--)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Decrement)
-- [Logical AND (&&)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND)
-- [Logical OR (||)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR)
+## まとめ
+
+このチュートリアルでは、以下の概念を学びました：
+
+1. 条件文（if、if-else、else-if）を使用してコードの実行を制御する方法
+2. ブール値、比較演算子、式を使用して条件をチェックする方法
+3. 加算/減算代入演算子を使用して変数の値を変更する方法
+4. インクリメントとデクリメントを使用して変数の値を1ずつ増減させる方法
+5. マウスボタンの押下とマウスポインタの位置を使用してインタラクティブなスケッチを作成する方法
+
+これらの概念を使用して、インタラクティブな太陽のスケッチと日の出アニメーションを作成しました。これらの技術を使用して、より複雑なアニメーションやインタラクティブなプロジェクトを作成できます。
+
+## 次のステップ
+
+- [配列](/tutorials/arrays)チュートリアルに進んで、複数の値を格納し操作する方法を学びます。
+- [ループ](/tutorials/loops)チュートリアルに進んで、コードを繰り返し実行する方法を学びます。
+- [関数](/tutorials/functions)チュートリアルに進んで、再利用可能なコードブロックを作成する方法を学びます。
+
+## 参考文献
+
+- [MDN Web Docs: 条件文](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals)
+- [MDN Web Docs: 式と演算子](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators)
+- [p5.js リファレンス: 条件文](https://p5js.org/reference/#/p5/if-else)
+- [p5.js リファレンス: マウス](https://p5js.org/reference/#group-Events)
+- [p5.js リファレンス: キーボード](https://p5js.org/reference/#group-Events)
+
